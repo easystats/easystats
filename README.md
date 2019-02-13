@@ -9,4 +9,6 @@ The aim of **easystats** is to provide a unifying and consistent framework to ta
 
 <img src='https://github.com/easystats/insight/blob/master/man/figures/logo.png' align="left" height="139" />
 <img src='https://github.com/easystats/bayestestR/blob/master/man/figures/logo.png' align="left" height="139" />
+<img src='https://github.com/easystats/parameters/blob/master/man/figures/logo.png' align="left" height="139" />
+<img src='https://github.com/easystats/performance/blob/master/man/figures/logo.png' align="left" height="139" />
 <img src='https://github.com/easystats/report/blob/master/man/figures/logo.png' align="left" height="139" />
