@@ -1,0 +1,15 @@
+^\.Rprofile$
+^.github/.
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.travis.yml
+^\_pkgdown.yml
+^LICENSE
+^data/.
+^docs/.
+^vignettes/.
+^logo.png
+^README.Rmd
+^logo.png
+^pkgdown/.
+^presentations

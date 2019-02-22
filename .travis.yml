@@ -1,0 +1,37 @@
+language: r
+
+os:
+  #- windows
+  - linux
+  - osx
+  
+r:
+  - release
+  #- devel
+
+# Copied from broom
+sudo: required
+cache: packages  
+bioc_required: true
+warnings_are_errors: false
+
+env:
+  global:
+    - R_MAX_NUM_DLLS=999
+    - _R_CHECK_FORCE_SUGGESTS_=FALSE
+
+r_build_args: "--no-build-vignettes"
+r_check_args: "--no-build-vignettes --as-cran"
+    
+
+r_binary_packages:
+  - rstanarm
+  - rstan
+  
+r_packages:
+  - rlang
+  - bindrcpp
+
+
+after_success:
+  - Rscript -e 'covr::codecov()'
