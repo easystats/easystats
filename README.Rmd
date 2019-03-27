@@ -1,0 +1,122 @@
+---
+output: 
+  github_document:
+    toc: false
+    fig_width: 10.08
+    fig_height: 6
+tags: [r, reports]
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+# easystats
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  tidy.opts=list(width.cutoff=60),
+  tidy=TRUE,
+  fig.path = "README-"
+)
+options(knitr.kable.NA = '',
+        digits = 4,
+        width=60)
+```
+
+```{r echo=FALSE, fig.show='hold', fig.align='left', out.width="14%", out.height="14%"}
+# knitr::include_graphics(c("https://github.com/easystats/insight/raw/master/man/figures/logo.png",
+#                           "https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png",
+#                           "https://github.com/easystats/parameters/raw/master/man/figures/logo.png",
+#                           "https://github.com/easystats/performance/raw/master/man/figures/logo.png",
+#                           "https://github.com/easystats/estimate/raw/master/man/figures/logo.png",
+#                           "https://github.com/easystats/correlation/raw/master/man/figures/logo.png",
+#                           "https://github.com/easystats/report/raw/master/man/figures/logo.png"))
+# 
+
+# library(png)
+# library(grid)
+# library(gridExtra)
+# library(RCurl)
+# 
+# insight <-  rasterGrob(as.raster(readPNG(getURLContent("https://github.com/easystats/insight/raw/master/man/figures/logo.png"))), interpolate = FALSE)
+# bayestestR <-  rasterGrob(as.raster(readPNG(getURLContent("https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png"))), interpolate = FALSE)
+# grid.arrange(insight, bayestestR, ncol = 1)
+```
+
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />
+
+<!-- THE UGLY OUTPUT IS ANNOYING -->
+
+
+The aim of **easystats** is to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.
+
+
+# Installation
+
+The wole `easystats` suite can be installed *at once* with the following:
+
+```r
+install.packages("devtools")
+devtools::install_github("easystats/easystats")
+```
+
+```r
+library("easystats")
+```
+
+# List of functions
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+# it would be cool to add the title / description for all functions
+library(insight)
+library(bayestestR)
+library(parameters)
+library(performance)
+library(correlation)
+library(estimate)
+library(report)
+
+all_funs <- data.frame()
+
+for(package in c("insight", "bayestestR", "parameters", "performance", "correlation", "estimate", "report")){
+  
+  name <- lsf.str(paste0("package:", package))
+  name <- unlist(strsplit(name, " "))
+  
+  functions <- paste0("[**`", 
+                      name, 
+                      "`**](https://easystats.github.io/", 
+                      package, 
+                      "/reference/",
+                      name,
+                      ".html)",
+                      " *(",
+                      package,
+                      ")*")
+  
+  functions <- data.frame("Functions" = functions,
+                          "Package" = package,
+                          "Name" = name)
+  
+
+  all_funs <- rbind(all_funs, functions)
+}
+
+
+
+all_funs <- all_funs[!duplicated(all_funs$Name),]
+all_funs <- sort(as.character(all_funs$Functions))
+cat(paste0(c("", all_funs), collapse = "\n- "))
+```
+
