@@ -73,6 +73,62 @@ devtools::install_github("easystats/easystats")
 library("easystats")
 ```
 
+# Downloads 
+
+
+```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
+library(tidyverse)
+library(zoo)
+library(cranlogs)
+
+# Packages data
+downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-03-01") %>% 
+  mutate(Package = "insight")
+
+
+# Combine all data
+data <- rbind(downloads_insight) %>% 
+  mutate(cumulative_count = cumsum(count),
+         average_count = zoo::rollmax(count, 10, fill=0)+10,
+         day_num = as.numeric(date) - min(as.numeric(date)),
+         day = weekdays(date),
+         month = months(date),
+         quarters = quarters(date),
+         month_day = lubridate::mday(date))
+
+
+events <- data.frame()
+# Publications
+events <- rbind(events,
+               data.frame(date = as.Date("2019-03-05"), 
+                          event="CRAN - insight (0.1.0)", 
+                          color="#673AB7", stringsAsFactors = FALSE))
+# Blogposts
+events <- rbind(events)
+
+# Full join
+data <- full_join(data, events, by="date")
+```
+
+
+```{r, message=FALSE, warning=FALSE, fig.width=7, fig.height=4.5, eval = TRUE, results='markup', fig.align='center', echo=FALSE, comment=NA}
+data %>% 
+  ggplot(aes(x=date, color=package)) +
+  geom_hline(yintercept=0) +
+  geom_line(aes(y=count), size=1) +
+  # geom_line(aes(y=count_Median), size=1, colour="blue") +
+  geom_vline(data=events, aes(xintercept = date), colour=events$color, size=1) +
+  geom_label(aes(label = event, x = date, y = average_count), fill = events$color, colour = "white", fontface="bold") +
+  theme_classic() +
+  scale_x_date(date_breaks = "1 month", 
+               # limits = as.Date(c('2011-01-01','2013-01-01')),
+               labels=scales::date_format("%Y-%m")) +
+  scale_color_manual(values=c("insight" = "#9C27B0")) +
+  xlab("") +
+  ylab("Daily CRAN Downloads\n")
+```
+
+
 # List of functions
 
 
@@ -98,9 +154,7 @@ for(package in c("insight", "bayestestR", "parameters", "performance", "correlat
                       name, 
                       "`**](https://easystats.github.io/", 
                       package, 
-                      "/reference/",
-                      name,
-                      ".html)",
+                      "/reference/index.html)",
                       " *(",
                       package,
                       ")*")
