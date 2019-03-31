@@ -17,9 +17,7 @@ editor_options:
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  tidy.opts=list(width.cutoff=60),
-  tidy=TRUE,
-  fig.path = "README-"
+  fig.path = "man/figures/"
 )
 options(knitr.kable.NA = '',
         digits = 4,
@@ -111,7 +109,7 @@ data <- full_join(data, events, by="date")
 ```
 
 
-```{r, message=FALSE, warning=FALSE, fig.width=7, fig.height=4.5, eval = TRUE, results='markup', fig.align='center', echo=FALSE, comment=NA}
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE}
 data %>% 
   ggplot(aes(x=date, color=package)) +
   geom_hline(yintercept=0) +

@@ -31,7 +31,7 @@ library("easystats")
 
 # Downloads
 
-<img src="README-unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
 
 # List of functions
 
