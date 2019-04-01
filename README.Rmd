@@ -78,6 +78,7 @@ library("easystats")
 library(tidyverse)
 library(zoo)
 library(cranlogs)
+library(rstanarm)
 
 # Packages data
 downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-03-01") %>% 
@@ -108,13 +109,15 @@ events <- rbind(events)
 data <- full_join(data, events, by="date")
 ```
 
-
+### Trend
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE}
+# TIME TREND
 data %>% 
   ggplot(aes(x=date, color=package)) +
   geom_hline(yintercept=0) +
-  geom_line(aes(y=count), size=1) +
+  geom_line(aes(y=count), size=0.75) +
   # geom_line(aes(y=count_Median), size=1, colour="blue") +
+  geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
   geom_vline(data=events, aes(xintercept = date), colour=events$color, size=1) +
   geom_label(aes(label = event, x = date, y = average_count), fill = events$color, colour = "white", fontface="bold") +
   theme_classic() +
@@ -124,6 +127,21 @@ data %>%
   scale_color_manual(values=c("insight" = "#9C27B0")) +
   xlab("") +
   ylab("Daily CRAN Downloads\n")
+```
+
+
+### By Week Day
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE}
+junk <- capture.output(model <- rstanarm::stan_glm(count ~ day, data=data))
+
+estimate::estimate_means(model) %>% 
+  mutate(day = fct_relevel(day, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>% 
+  ggplot(aes(x=day, y=Median, group=1)) +
+  geom_ribbon(aes(ymin=CI_low, ymax=CI_high), alpha=0.1) +
+  geom_line() +
+  theme_classic() +
+  xlab("") +
+  ylab("CRAN Downloads\n")
 ```
 
 

@@ -31,7 +31,13 @@ library("easystats")
 
 # Downloads
 
+### Trend
+
 <img src="man/figures/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+
+### By Week Day
+
+<img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
 # List of functions
 
