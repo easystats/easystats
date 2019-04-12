@@ -50,6 +50,7 @@ options(knitr.kable.NA = '',
 <img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />
 
 <!-- THE UGLY OUTPUT IS ANNOYING -->
@@ -79,59 +80,75 @@ library(tidyverse)
 library(zoo)
 library(cranlogs)
 library(rstanarm)
+library(see)
 
 # Packages data
 downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-03-01") %>% 
   mutate(Package = "insight")
-
+downloads_bayestestR <- cranlogs::cran_downloads(package = "bayestestR", from = "2019-04-08") %>% 
+  mutate(Package = "bayestestR")
 
 # Combine all data
-data <- rbind(downloads_insight) %>% 
+data <- rbind(downloads_insight,
+              downloads_bayestestR) %>% 
+  group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
          day_num = as.numeric(date) - min(as.numeric(date)),
          day = weekdays(date),
          month = months(date),
          quarters = quarters(date),
-         month_day = lubridate::mday(date))
+         month_day = lubridate::mday(date)) %>% 
+  ungroup()
 
 
 events <- data.frame()
+color_CRAN <- "#4CAF50"
+color_blog <- "#FF5722"
+
 # Publications
 events <- rbind(events,
-               data.frame(date = as.Date("2019-03-05"), 
-                          event="CRAN - insight (0.1.0)", 
-                          color="#673AB7", stringsAsFactors = FALSE))
+               data.frame(date = as.Date(c("2019-03-05", "2019-04-09")), 
+                          event=c("CRAN - insight (0.1.0)", "CRAN - BayestestR (0.1.0)"), 
+                          color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
-events <- rbind(events)
+blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
+  filter(item_date_published > "2019-03-29") %>% 
+  select(date = item_date_published,
+         event = item_title) %>% 
+  mutate(color=color_blog)
+
+events <- rbind(events,
+                blogposts)
 
 # Full join
 data <- full_join(data, events, by="date")
 ```
 
 ### Trend
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE}
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
 data %>% 
-  ggplot(aes(x=date, color=package)) +
-  geom_hline(yintercept=0) +
+  ggplot(aes(x=date, color=Package)) +
+  # geom_hline(yintercept=0) +
   geom_line(aes(y=count), size=0.75) +
   # geom_line(aes(y=count_Median), size=1, colour="blue") +
   geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
-  geom_vline(data=events, aes(xintercept = date), colour=events$color, size=1) +
-  geom_label(aes(label = event, x = date, y = average_count), fill = events$color, colour = "white", fontface="bold") +
-  theme_classic() +
+  geom_vline(data=events, aes(xintercept = events$date), colour=events$color, size=1) +
+  geom_label(aes(label = event, x = date, y = average_count), fill = data$color, colour = "white", fontface="bold") +
+  see::theme_modern() +
   scale_x_date(date_breaks = "1 month", 
                # limits = as.Date(c('2011-01-01','2013-01-01')),
                labels=scales::date_format("%Y-%m")) +
-  scale_color_manual(values=c("insight" = "#9C27B0")) +
+  scale_color_manual(values=c("insight" = "#9C27B0",
+                              "bayestestR" = "#E91E63")) +
   xlab("") +
   ylab("Daily CRAN Downloads\n")
 ```
 
 
 ### By Week Day
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE}
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 junk <- capture.output(model <- rstanarm::stan_glm(count ~ day, data=data))
 
 estimate::estimate_means(model) %>% 

@@ -7,6 +7,7 @@
 <img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />
 
 <!-- THE UGLY OUTPUT IS ANNOYING -->
@@ -49,6 +50,14 @@ library("easystats")
     *(estimate)*
   - [**`as.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`check_convergence`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_singularity`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_zeroinflation`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`ci_wald`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`ci`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -57,6 +66,8 @@ library("easystats")
     *(report)*
   - [**`clean_names`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`cor_test`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`correlation`**](https://easystats.github.io/correlation/reference/index.html)
@@ -173,6 +184,8 @@ library("easystats")
     *(report)*
   - [**`interpret_direction`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`interpret_effective_sample`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`interpret_odds`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_omega_squared`**](https://easystats.github.io/report/reference/index.html)
@@ -182,6 +195,8 @@ library("easystats")
   - [**`interpret_r`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_r2`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`interpret_rhat`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_rope`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
@@ -215,6 +230,8 @@ library("easystats")
     *(performance)*
   - [**`map_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`marginal_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`model_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
@@ -231,14 +248,12 @@ library("easystats")
     *(insight)*
   - [**`normalize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`null_model`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
+  - [**`odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`odds_to_probs`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`omega_squared`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`overdispersion`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
   - [**`p_direction`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`p_map`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -251,6 +266,10 @@ library("easystats")
     *(parameters)*
   - [**`p_value`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`pd`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`principal_components`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`print_color`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
@@ -258,6 +277,8 @@ library("easystats")
   - [**`r2_bayes`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_coxnell`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`r2_kl`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_loo`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -311,5 +332,3 @@ library("easystats")
     *(report)*
   - [**`zero_crossings`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
-  - [**`zerocount`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*

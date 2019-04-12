@@ -1,7 +1,7 @@
 Package: easystats
 Type: Package
 Title: Jump in the easyverse
-Version: 0.1.0
+Version: 0.1.2
 Authors@R: c(
 	person("Daniel", 
 		"Lüdecke", 
@@ -24,13 +24,17 @@ Depends:
 	bayestestR,
 	parameters,
 	correlation,
-	report
+	report,
+	see,
+	estimate
 Remotes: 
 	easystats/insight,
 	easystats/performance,
 	easystats/bayestestR,
 	easystats/parameters,
 	easystats/correlation,
+	easystats/estimate
+	easystats/see
 	easystats/report
 License: GPL-3
 Encoding: UTF-8
