@@ -2,7 +2,9 @@
 
 import(bayestestR)
 import(correlation)
+import(estimate)
 import(insight)
 import(parameters)
 import(performance)
 import(report)
+import(see)
