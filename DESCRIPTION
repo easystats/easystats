@@ -33,8 +33,8 @@ Remotes:
 	easystats/bayestestR,
 	easystats/parameters,
 	easystats/correlation,
-	easystats/estimate
-	easystats/see
+	easystats/estimate,
+	easystats/see,
 	easystats/report
 License: GPL-3
 Encoding: UTF-8
