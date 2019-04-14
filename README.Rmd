@@ -53,6 +53,8 @@ options(knitr.kable.NA = '',
 <img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" />&nbsp;
 <img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />&nbsp;
 
+<br /><br />
+
 <!-- THE UGLY OUTPUT IS ANNOYING -->
 
 <br /><br />

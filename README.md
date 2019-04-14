@@ -10,6 +10,8 @@
 <img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" /> 
 <img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" /> 
 
+<br /><br />
+
 <!-- THE UGLY OUTPUT IS ANNOYING -->
 
 <br /><br />
