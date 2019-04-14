@@ -27,6 +27,8 @@ Depends:
 	report,
 	see,
 	estimate
+Imports:
+	devtools
 Remotes: 
 	easystats/insight,
 	easystats/performance,
