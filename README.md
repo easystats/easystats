@@ -1,6 +1,8 @@
 
 # easystats
 
+<p>
+
 <img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="120" />
@@ -10,7 +12,19 @@
 <img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" />
 <img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />
 
-<br /><br /><br /><br /><br />
+</p>
+
+<p>
+
+<br /><br /><br />
+
+</p>
+
+<p>
+
+<br /><br /><br />
+
+</p>
 
 The aim of **easystats** is to provide a unifying and consistent
 framework to tame, discipline and harness the scary R statistics and
