@@ -1,16 +1,18 @@
 
 # easystats
 
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" /> 
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" /> 
 
 <!-- THE UGLY OUTPUT IS ANNOYING -->
+
+<br /><br />
 
 The aim of **easystats** is to provide a unifying and consistent
 framework to tame, discipline and harness the scary R statistics and
