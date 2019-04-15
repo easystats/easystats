@@ -3,14 +3,14 @@
 
 <p>
 
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="120" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="120" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="115" />
 
 </p>
 
@@ -44,15 +44,19 @@ devtools::install_github("easystats/easystats")
 library("easystats")
 ```
 
+# Dependencies
+
+![](man/figures/unnamed-chunk-3-1.png)<!-- -->
+
 # Downloads
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
 ### By Week Day
 
-<img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 # List of functions
 
