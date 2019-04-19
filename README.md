@@ -3,14 +3,14 @@
 
 <p>
 
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="115" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="115" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="100" />
 
 </p>
 
