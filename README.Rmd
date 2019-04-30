@@ -46,14 +46,14 @@ options(knitr.kable.NA = '',
 ```
 
 <p>
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="110" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="105" />
 </p>
 
 <p><br /><br /><br /></p>
@@ -225,7 +225,8 @@ data %>%
                               "performance" = "#4CAF50")) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
-  coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE)
+  coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
+  scale_y_sqrt()
 ```
 
 
@@ -247,7 +248,8 @@ estimate::estimate_means(model) %>%
                               "performance" = "#4CAF50")) +
   xlab("") +
   ylab("CRAN Downloads\n") +
-  coord_cartesian(ylim = c(0, 1200), expand = FALSE)
+  # scale_y_sqrt() +
+  coord_cartesian(ylim = c(0, 1200), expand = FALSE) 
 ```
 
 
