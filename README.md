@@ -3,14 +3,14 @@
 
 <p>
 
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="110" />
 
 </p>
 
@@ -68,6 +68,12 @@ library("easystats")
     *(estimate)*
   - [**`as.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`bayesfactor_savagedickey`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bayesfactor`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`check_convergence`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
@@ -86,12 +92,22 @@ library("easystats")
     *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`convert_d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`convert_odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`convert_odds_to_probs`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`convert_r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`cor_test`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`correlation`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`cronbachs_alpha`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`data_grid`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
   - [**`density_at`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -194,6 +210,8 @@ library("easystats")
     *(insight)*
   - [**`hdi`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`hosmer_lemeshow`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`icc`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`interpret_bf`**](https://easystats.github.io/report/reference/index.html)
@@ -292,6 +310,8 @@ library("easystats")
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`r2_bayes`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_coxnell`**](https://easystats.github.io/performance/reference/index.html)
@@ -310,6 +330,8 @@ library("easystats")
     *(performance)*
   - [**`r2`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`rcauchy_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`remove_triangular`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
@@ -326,8 +348,12 @@ library("easystats")
     *(bayestestR)*
   - [**`rope`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`rpois_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`rse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`rt_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`rules`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
@@ -335,6 +361,8 @@ library("easystats")
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`smoothness`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`standardize_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*

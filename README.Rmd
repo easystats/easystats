@@ -16,6 +16,7 @@ editor_options:
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
+  dpi = 600,
   collapse = TRUE,
   fig.path = "man/figures/"
 )
@@ -45,14 +46,14 @@ options(knitr.kable.NA = '',
 ```
 
 <p>
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="100" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="100" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="110" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="110" />
 </p>
 
 <p><br /><br /><br /></p>
@@ -153,10 +154,13 @@ downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-
   mutate(Package = "insight")
 downloads_bayestestR <- cranlogs::cran_downloads(package = "bayestestR", from = "2019-04-08") %>% 
   mutate(Package = "bayestestR")
+downloads_performance <- cranlogs::cran_downloads(package = "performance", from = "2019-04-22") %>% 
+  mutate(Package = "performance")
 
 # Combine all data
 data <- rbind(downloads_insight,
-              downloads_bayestestR) %>% 
+              downloads_bayestestR,
+              downloads_performance) %>% 
   group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
@@ -169,13 +173,17 @@ data <- rbind(downloads_insight,
 
 
 events <- data.frame()
-color_CRAN <- "#4CAF50"
-color_blog <- "#FF5722"
+color_CRAN <- "#607D8B"
+color_blog <- "#9C27B0"
 
 # Publications
 events <- rbind(events,
-               data.frame(date = as.Date(c("2019-03-05", "2019-04-09")), 
-                          event=c("CRAN - insight (0.1.0)", "CRAN - BayestestR (0.1.0)"), 
+               data.frame(date = as.Date(c("2019-03-05", 
+                                           "2019-04-09",
+                                           "2019-04-24")), 
+                          event=c("CRAN - insight (0.1.0)", 
+                                  "CRAN - BayestestR (0.1.0)",
+                                  "CRAN - performance (0.1.0)"), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
 blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
@@ -189,6 +197,12 @@ events <- rbind(events,
 
 # Full join
 data <- full_join(data, events, by="date")
+
+events <- full_join(
+  events,
+  group_by(data, event) %>% 
+  summarise(event_y = max(average_count)), by="event") %>% 
+  filter(!is.na(date))
 ```
 
 ### Trend
@@ -201,13 +215,14 @@ data %>%
   # geom_line(aes(y=count_Median), size=1, colour="blue") +
   geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
   geom_vline(data=events, aes(xintercept = events$date), colour=events$color, size=1) +
-  geom_label(aes(label = event, x = date, y = average_count), fill = data$color, colour = "white", fontface="bold") +
+  geom_label(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", fontface="bold") +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", 
                # limits = as.Date(c('2011-01-01','2013-01-01')),
                labels=scales::date_format("%Y-%m")) +
   scale_color_manual(values=c("insight" = "#9C27B0",
-                              "bayestestR" = "#E91E63")) +
+                              "bayestestR" = "#E91E63",
+                              "performance" = "#4CAF50")) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE)
@@ -225,7 +240,11 @@ estimate::estimate_means(model) %>%
   geom_line(aes(color=Package), size=1) +
   see::theme_modern() +
   scale_color_manual(values=c("insight" = "#9C27B0",
-                              "bayestestR" = "#E91E63")) +
+                              "bayestestR" = "#E91E63",
+                              "performance" = "#4CAF50")) +
+  scale_fill_manual(values=c("insight" = "#9C27B0",
+                              "bayestestR" = "#E91E63",
+                              "performance" = "#4CAF50")) +
   xlab("") +
   ylab("CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, 1200), expand = FALSE)
