@@ -3,14 +3,14 @@
 
 <p>
 
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="102" />
 
 </p>
 
@@ -44,6 +44,21 @@ devtools::install_github("easystats/easystats")
 library("easystats")
 ```
 
+# Features
+
+  - [Compute R2s and other performance indices for all your
+    models\!](https://easystats.github.io/blog/posts/performance_presentation/)
+  - [How to easily generate a perfectly normal
+    distribution](https://easystats.github.io/blog/posts/bayestestr_rnorm_perfect/)
+  - [Describe and understand Bayesian models and posteriors using
+    bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
+  - [A unified syntax for accessing models’
+    information](https://easystats.github.io/blog/posts/insight_presentation/)
+  - [The end of errors in ANOVA
+    reporting](https://easystats.github.io/blog/posts/report_anova/)
+  - [Formatted correlation output with effect
+    sizes](https://easystats.github.io/blog/posts/report_correlation/)
+
 # Dependencies
 
 ![](man/figures/unnamed-chunk-3-1.png)<!-- -->
@@ -64,13 +79,19 @@ library("easystats")
     *(report)*
   - [**`all_models_equal`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`area_under_curve`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`as.numeric_ifnumeric`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
   - [**`as.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`bayesfactor_savagedickey`**](https://easystats.github.io/bayestestR/reference/index.html)
+  - [**`auc`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`bayesfactor`**](https://easystats.github.io/bayestestR/reference/index.html)
+  - [**`bayesfactor_inclusion`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bayesfactor_models`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bayesfactor_savagedickey`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -304,8 +325,8 @@ library("easystats")
     *(parameters)*
   - [**`pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`principal_components`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
+  - [**`principal_components`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`print_color`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
@@ -356,11 +377,15 @@ library("easystats")
     *(bayestestR)*
   - [**`rules`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`se`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`smoothness`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`standard_error`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standardize_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*

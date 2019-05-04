@@ -46,14 +46,14 @@ options(knitr.kable.NA = '',
 ```
 
 <p>
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="105" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="105" />
+<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="102" />
+<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="102" />
 </p>
 
 <p><br /><br /><br /></p>
@@ -74,6 +74,16 @@ devtools::install_github("easystats/easystats")
 ```r
 library("easystats")
 ```
+
+# Features 
+
+- [Compute R2s and other performance indices for all your models!](https://easystats.github.io/blog/posts/performance_presentation/)
+- [How to easily generate a perfectly normal distribution](https://easystats.github.io/blog/posts/bayestestr_rnorm_perfect/)
+- [Describe and understand Bayesian models and posteriors using bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
+- [A unified syntax for accessing models' information](https://easystats.github.io/blog/posts/insight_presentation/)
+- [The end of errors in ANOVA reporting](https://easystats.github.io/blog/posts/report_anova/)
+- [Formatted correlation output with effect sizes](https://easystats.github.io/blog/posts/report_correlation/)
+
 
 # Dependencies
 ```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
