@@ -32,7 +32,7 @@ their pesky models.
 
 # Installation
 
-The wole `easystats` suite can be installed *at once* with the
+The whole `easystats` suite can be installed *at once* with the
 following:
 
 ``` r
