@@ -105,17 +105,19 @@ verb
 
 **Element / Column names** (for returned data frames)
 
-1)  First letter of the column name is capital, unless (5) applies
+1)  First letter of the column name is capital, unless (6) applies
     (*example:* `Parameter`)
-2)  Using underscore rather than camelCase to separate words (*example:*
+2)  First letter of nouns is capital, unless (6) applies (*example:*
+    `ROPE_Percentage`, `Prior_Scale`)
+3)  Using underscore rather than camelCase to separate words (*example:*
     `CI_high`)
-3)  Multiple words: common/main part first and
+4)  Multiple words: common/main part first and
     adjective/specifier/variational part after (*example:*
     `Median_standardized`, `ROPE_percentage`)
-4)  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`)
-5)  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`)
-6)  Adjectives / verbs / nouns: all lower case, unless (1) applies
-    (*example:* `high` or `low` in `CI_high` or `CI_low`)
+5)  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`)
+6)  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`)
+7)  Adjectives / verbs: all lower case, unless (1) applies (*example:*
+    `high` or `low` in `CI_high` or `CI_low`)
 
 # List of functions
 
