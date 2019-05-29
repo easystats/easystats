@@ -64,7 +64,7 @@ The aim of **easystats** is to provide a unifying and consistent framework to ta
 
 # Installation
 
-The wole `easystats` suite can be installed *at once* with the following:
+The whole `easystats` suite can be installed *at once* with the following:
 
 ```r
 install.packages("devtools")
@@ -158,6 +158,7 @@ library(zoo)
 library(cranlogs)
 library(rstanarm)
 library(see)
+library(ggrepel)
 
 # Packages data
 downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-02-26") %>% 
@@ -166,11 +167,14 @@ downloads_bayestestR <- cranlogs::cran_downloads(package = "bayestestR", from = 
   mutate(Package = "bayestestR")
 downloads_performance <- cranlogs::cran_downloads(package = "performance", from = "2019-04-22") %>% 
   mutate(Package = "performance")
+downloads_see <- cranlogs::cran_downloads(package = "see", from = "2019-05-22") %>% 
+  mutate(Package = "see")
 
 # Combine all data
 data <- rbind(downloads_insight,
               downloads_bayestestR,
-              downloads_performance) %>% 
+              downloads_performance,
+              downloads_see) %>% 
   group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
@@ -190,10 +194,12 @@ color_blog <- "#9C27B0"
 events <- rbind(events,
                data.frame(date = as.Date(c("2019-03-05", 
                                            "2019-04-09",
-                                           "2019-04-24")), 
+                                           "2019-04-24",
+                                           "2019-05-24")), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - BayestestR (0.1.0)",
-                                  "CRAN - performance (0.1.0)"), 
+                                  "CRAN - performance (0.1.0)",
+                                  "CRAN - see (0.1.0)"), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
 blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
@@ -221,18 +227,22 @@ events <- full_join(
 data %>% 
   ggplot(aes(x=date, color=Package)) +
   # geom_hline(yintercept=0) +
-  geom_line(aes(y=count), size=0.75) +
+  # geom_line(aes(y=count), size=0.75) +
   # geom_line(aes(y=count_Median), size=1, colour="blue") +
   geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
-  geom_vline(data=events, aes(xintercept = events$date), colour=events$color, size=1) +
-  geom_label(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", fontface="bold") +
+  geom_smooth(aes(y=count), method = 'lm', size=1, se=FALSE) +
+  # geom_vline(data=events, aes(xintercept = events$date), colour=events$color, size=.5) +
+  geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5) +
+  geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", 
                # limits = as.Date(c('2011-01-01','2013-01-01')),
-               labels=scales::date_format("%Y-%m")) +
-  scale_color_manual(values=c("insight" = "#9C27B0",
-                              "bayestestR" = "#E91E63",
-                              "performance" = "#4CAF50")) +
+               labels = scales::date_format("%Y-%m")) +
+  scale_color_material_d() +
+  # scale_color_manual(values=c("insight" = "#2196F3",
+  #                             "bayestestR" = "#4CAF50",
+  #                             "performance" = "#FFC107",
+  #                             "see" = "#f44336")) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
@@ -242,26 +252,59 @@ data %>%
 
 ### By Week Day
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-junk <- capture.output(model <- rstanarm::stan_glm(count ~ Package / day, data=data))
+junk <- capture.output(model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson()))
 
 estimate::estimate_means(model) %>% 
+  sjmisc::rec(day, rec = "Montag=Monday;Dienstag=Tuesday;Mittwoch=Wednesday;Donnerstag=Thursday;Freitag=Friday;Samstag=Saturday;Sonntag=Sunday;else=copy", suffix = "") %>% 
   mutate(day = fct_relevel(day, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>% 
   ggplot(aes(x=day, y=Median, group=Package)) +
   geom_ribbon(aes(ymin=CI_low, ymax=CI_high, fill=Package), alpha=0.1) +
   geom_line(aes(color=Package), size=1) +
   see::theme_modern() +
-  scale_color_manual(values=c("insight" = "#9C27B0",
-                              "bayestestR" = "#E91E63",
-                              "performance" = "#4CAF50")) +
-  scale_fill_manual(values=c("insight" = "#9C27B0",
-                              "bayestestR" = "#E91E63",
-                              "performance" = "#4CAF50")) +
+  scale_color_material_d() +
+  scale_fill_material_d() +
+  # scale_color_manual(values=c("insight" = "#9C27B0",
+  #                             "bayestestR" = "#E91E63",
+  #                             "performance" = "#4CAF50")) +
+  # scale_fill_manual(values=c("insight" = "#9C27B0",
+  #                             "bayestestR" = "#E91E63",
+  #                             "performance" = "#4CAF50")) +
   xlab("") +
   ylab("CRAN Downloads\n") +
   # scale_y_sqrt() +
   coord_cartesian(ylim = c(0, 1200), expand = FALSE) 
 ```
 
+
+# Convention of code-style
+
+Following conventions apply to the easystats-ecosystem, to ensure that function and argument names as well as element names for return-values follow a consistent pattern across all packages.
+
+**Importing other packages**
+
+- No full import, only selective import of functions
+- Use base-R wherever possible (reduce dependencies)
+- Make sure R-version requirements are not too strict
+
+**Helper-functions**
+
+- Own re-implementation of helper-functions, if it's not too much effort (e.g. I typically use own functions to check if a string starts / ends with a pattern, or if an object (list, data frame) contains an element with a given name (like `tibble::has_name()`), to reduce dependencies.
+
+**Function names**
+- lower case, underscore separated if more than one verb
+- make clever design choices, like e.g. in _insight_, where we have a common prefix for functions that do certain tasks (`get_*()` to get data, `find_*()` to find information), or in _performance_ (`performance_*()` to check model performance, `check_*()` to check model-assumptions...)
+
+**Argument names**
+- lower case, underscore separated if more than one verb
+
+**Element / Column names** (for returned data frames)
+
+1) First letter of the column name is capital, unless (5) applies (_example:_ `Parameter`)
+2) Using underscore rather than camelCase to separate words (_example:_ `CI_high`)
+3) Multiple words: common/main part first and adjective/specifier/variational part after (_example:_ `Median_standardized`, `ROPE_percentage`)
+4) Abbreviations: all uppercase (_example:_ `ESS`, `MCSE`, `ROPE`)
+5) Keep conventions for reserved words (_example:_ `p`, `pd`, `Rhat`)
+6) Adjectives / verbs / nouns: all lower case, unless (1) applies (_example:_ `high` or `low` in `CI_high` or `CI_low`)
 
 # List of functions
 
@@ -279,7 +322,7 @@ library(report)
 
 all_funs <- data.frame()
 
-for(package in c("insight", "bayestestR", "parameters", "performance", "correlation", "estimate", "report")){
+for (package in c("insight", "bayestestR", "parameters", "performance", "correlation", "estimate", "report", "see")) {
   
   name <- lsf.str(paste0("package:", package))
   name <- unlist(strsplit(name, " "))

@@ -73,10 +73,56 @@ library("easystats")
 
 <img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
+# Convention of code-style
+
+Following conventions apply to the easystats-ecosystem, to ensure that
+function and argument names as well as element names for return-values
+follow a consistent pattern across all packages.
+
+**Importing other packages**
+
+  - No full import, only selective import of functions
+  - Use base-R wherever possible (reduce dependencies)
+  - Make sure R-version requirements are not too strict
+
+**Helper-functions**
+
+  - Own re-implementation of helper-functions, if it’s not too much
+    effort (e.g. I typically use own functions to check if a string
+    starts / ends with a pattern, or if an object (list, data frame)
+    contains an element with a given name (like `tibble::has_name()`),
+    to reduce dependencies.
+
+**Function names** - lower case, underscore separated if more than one
+verb - make clever design choices, like e.g. in *insight*, where we have
+a common prefix for functions that do certain tasks (`get_*()` to get
+data, `find_*()` to find information), or in *performance*
+(`performance_*()` to check model performance, `check_*()` to check
+model-assumptions…)
+
+**Argument names** - lower case, underscore separated if more than one
+verb
+
+**Element / Column names** (for returned data frames)
+
+1)  First letter of the column name is capital, unless (5) applies
+    (*example:* `Parameter`)
+2)  Using underscore rather than camelCase to separate words (*example:*
+    `CI_high`)
+3)  Multiple words: common/main part first and
+    adjective/specifier/variational part after (*example:*
+    `Median_standardized`, `ROPE_percentage`)
+4)  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`)
+5)  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`)
+6)  Adjectives / verbs / nouns: all lower case, unless (1) applies
+    (*example:* `high` or `low` in `CI_high` or `CI_low`)
+
 # List of functions
 
   - [**`%>%`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`add_plot_attributes`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`all_models_equal`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`area_under_curve`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -93,7 +139,11 @@ library("easystats")
     *(bayestestR)*
   - [**`bayesfactor_savagedickey`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`bayesfactor`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_collinearity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_convergence`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -111,8 +161,12 @@ library("easystats")
     *(report)*
   - [**`clean_names`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`convert_d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`convert_odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
@@ -127,28 +181,60 @@ library("easystats")
     *(correlation)*
   - [**`cronbachs_alpha`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`data_grid`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`data_plot`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`density_at`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`describe_posterior`**](https://easystats.github.io/parameters/reference/index.html)
+  - [**`describe_distribution`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`describe_posterior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`describe_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`diagnostic_posterior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_beta`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_cauchy`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_chisquared`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_custom`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_poisson`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_student`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_uniform`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`dof_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`download_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`effective_sample`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`equivalence_test`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`error_rate`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
   - [**`estimate_contrasts`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`estimate_density`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`estimate_fit`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
   - [**`estimate_means`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`estimate_probability`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`estimate_response`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
   - [**`estimate_slopes`**](https://easystats.github.io/estimate/reference/index.html)
@@ -160,6 +246,8 @@ library("easystats")
   - [**`find_distribution`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`find_formula`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`find_interactions`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -175,6 +263,8 @@ library("easystats")
     *(insight)*
   - [**`find_variables`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`flat_colors`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`format_algorithm`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_bf`**](https://easystats.github.io/report/reference/index.html)
@@ -199,6 +289,14 @@ library("easystats")
     *(report)*
   - [**`generalized_inverse`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
+  - [**`geom_jitter2`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_point2`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_violindot`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_violinhalf`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`get_correlation_slope_intercept`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_data`**](https://easystats.github.io/insight/reference/index.html)
@@ -229,10 +327,12 @@ library("easystats")
     *(insight)*
   - [**`get_variance`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`has_intercept`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`hdi`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`hosmer_lemeshow`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
+  - [**`how_to_plot`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`icc`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`interpret_bf`**](https://easystats.github.io/report/reference/index.html)
@@ -269,6 +369,8 @@ library("easystats")
     *(insight)*
   - [**`is_multivariate`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`is_nullmodel`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`item_difficulty`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`item_intercor`**](https://easystats.github.io/performance/reference/index.html)
@@ -289,6 +391,10 @@ library("easystats")
     *(bayestestR)*
   - [**`marginal_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`material_colors`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`mcse`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`model_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
@@ -323,7 +429,39 @@ library("easystats")
     *(parameters)*
   - [**`p_value`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`palette_flat`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`palette_material`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`palette_pizza`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`pd`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`performance_accuracy`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_aicc`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_hosmer`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_logloss`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_mse`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_pcp`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_rmse`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_roc`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_rse`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_score`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`pizza_colors`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`plots`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`point_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`principal_components`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -331,11 +469,13 @@ library("easystats")
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`probability_at`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`r2_bayes`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`r2_coxnell`**](https://easystats.github.io/performance/reference/index.html)
+  - [**`r2_coxsnell`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_kl`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -343,16 +483,20 @@ library("easystats")
     *(performance)*
   - [**`r2_mcfadden`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`r2_mckelvey`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`r2_nagelkerke`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_nakagawa`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_tjur`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`r2_xu`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`r2_zeroinflated`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`r2`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`rcauchy_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
-    *(bayestestR)*
   - [**`remove_triangular`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
@@ -369,16 +513,62 @@ library("easystats")
     *(bayestestR)*
   - [**`rope`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`rpois_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
-    *(bayestestR)*
-  - [**`rse`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
-  - [**`rt_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
-    *(bayestestR)*
   - [**`rules`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`se`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`scale_color_flat_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_flat_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_flat`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_material_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_material_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_material`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_pizza_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_pizza_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_pizza`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_flat_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_flat_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_flat`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_material_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_material_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_material`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_pizza_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_pizza_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_pizza`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_flat_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_flat_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_flat`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_material_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_material_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_material`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_pizza_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_pizza_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_pizza`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)
@@ -391,6 +581,12 @@ library("easystats")
     *(parameters)*
   - [**`standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`theme_modern`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`to_fulltable`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`to_fulltext`**](https://easystats.github.io/report/reference/index.html)
