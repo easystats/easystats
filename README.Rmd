@@ -250,6 +250,30 @@ data %>%
 ```
 
 
+### Cumulative downloads
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+
+data$download_label <- NA
+
+data <- data %>% 
+  group_by(Package, month) %>% 
+  mutate(download_label = last(cumulative_count)) %>% 
+  ungroup()
+
+data$download_label[duplicated(data$download_label)] <- NA
+
+ggplot(data, aes(x=date, y = cumulative_count, label = download_label, color = Package)) +
+  geom_line(size=0.75) +
+  see::theme_modern() +
+  scale_x_date(date_breaks = "1 month", 
+               labels = scales::date_format("%Y-%m")) +
+  scale_color_material_d() +
+  geom_label_repel() +
+  xlab("") +
+  ylab("Cumulative CRAN Downloads")
+```
+
+
 ### By Week Day
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 junk <- capture.output(model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson()))
@@ -291,10 +315,12 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 - Own re-implementation of helper-functions, if it's not too much effort (e.g. I typically use own functions to check if a string starts / ends with a pattern, or if an object (list, data frame) contains an element with a given name (like `tibble::has_name()`), to reduce dependencies.
 
 **Function names**
-- lower case, underscore separated if more than one verb
-- make clever design choices, like e.g. in _insight_, where we have a common prefix for functions that do certain tasks (`get_*()` to get data, `find_*()` to find information), or in _performance_ (`performance_*()` to check model performance, `check_*()` to check model-assumptions...)
+
+- Lower case, underscore separated if more than one verb
+- Common prefix for functions that focus on specific "tasks" or workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to find information, or **performance**, `performance_*()` to compute measures of model quality, `check_*()` to check model assumptions...)
 
 **Argument names**
+
 - lower case, underscore separated if more than one verb
 
 **Element / Column names** (for returned data frames)

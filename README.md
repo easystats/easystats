@@ -69,9 +69,13 @@ library("easystats")
 
 <img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
-### By Week Day
+### Cumulative downloads
 
 <img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+
+### By Week Day
+
+<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 # Convention of code-style
 
@@ -93,15 +97,17 @@ follow a consistent pattern across all packages.
     contains an element with a given name (like `tibble::has_name()`),
     to reduce dependencies.
 
-**Function names** - lower case, underscore separated if more than one
-verb - make clever design choices, like e.g. in *insight*, where we have
-a common prefix for functions that do certain tasks (`get_*()` to get
-data, `find_*()` to find information), or in *performance*
-(`performance_*()` to check model performance, `check_*()` to check
-model-assumptions…)
+**Function names**
 
-**Argument names** - lower case, underscore separated if more than one
-verb
+  - Lower case, underscore separated if more than one verb
+  - Common prefix for functions that focus on specific “tasks” or
+    workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to
+    find information, or **performance**, `performance_*()` to compute
+    measures of model quality, `check_*()` to check model assumptions…)
+
+**Argument names**
+
+  - lower case, underscore separated if more than one verb
 
 **Element / Column names** (for returned data frames)
 
@@ -145,9 +151,21 @@ verb
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_autocorrelation`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`check_collinearity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_convergence`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_distribution`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_model`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_normality`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_outliers`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -586,6 +604,8 @@ verb
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`theme_lucid`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_modern`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
