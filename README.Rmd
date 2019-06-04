@@ -262,13 +262,12 @@ data <- data %>%
 
 data$download_label[duplicated(data$download_label)] <- NA
 
-ggplot(data, aes(x=date, y = cumulative_count, label = download_label, color = Package)) +
+ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color = Package)) +
   geom_line(size=0.75) +
   geom_label_repel(show.legend = FALSE) +
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +
-  scale_x_date(date_breaks = "1 month", 
-               labels = scales::date_format("%Y-%m")) +
+  scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
   scale_color_material_d()
 ```
 

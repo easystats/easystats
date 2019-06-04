@@ -92,7 +92,7 @@ follow a consistent pattern across all packages.
 **Helper-functions**
 
   - Own re-implementation of helper-functions, if it’s not too much
-    effort (e.g. I typically use own functions to check if a string
+    effort (e.g. I typically use own functions to check if a string
     starts / ends with a pattern, or if an object (list, data frame)
     contains an element with a given name (like `tibble::has_name()`),
     to reduce dependencies.
