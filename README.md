@@ -92,7 +92,7 @@ follow a consistent pattern across all packages.
 **Helper-functions**
 
   - Own re-implementation of helper-functions, if it’s not too much
-    effort (e.g. I typically use own functions to check if a string
+    effort (e.g. I typically use own functions to check if a string
     starts / ends with a pattern, or if an object (list, data frame)
     contains an element with a given name (like `tibble::has_name()`),
     to reduce dependencies.
@@ -104,6 +104,9 @@ follow a consistent pattern across all packages.
     workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to
     find information, or **performance**, `performance_*()` to compute
     measures of model quality, `check_*()` to check model assumptions…)
+  - Internal functions (that are not exported, like the previously
+    mentined helper-functions) should always start with a `.` (e.g.,
+    `.do_some_internal_stuff()`).
 
 **Argument names**
 

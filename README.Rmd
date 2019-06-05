@@ -316,6 +316,7 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 
 - Lower case, underscore separated if more than one verb
 - Common prefix for functions that focus on specific "tasks" or workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to find information, or **performance**, `performance_*()` to compute measures of model quality, `check_*()` to check model assumptions...)
+- Internal functions (that are not exported, like the previously mentined helper-functions) should always start with a `.` (e.g., `.do_some_internal_stuff()`).
 
 **Argument names**
 
