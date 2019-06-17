@@ -186,6 +186,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`combine_parameter_objects`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
@@ -196,6 +198,10 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`convert_odds_to_probs`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`convert_p_to_pd`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`convert_pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`convert_r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`cor_test`**](https://easystats.github.io/correlation/reference/index.html)
@@ -229,6 +235,8 @@ follow a consistent pattern across all packages.
   - [**`distribution_chisquared`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_custom`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_mixture_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -266,8 +274,6 @@ follow a consistent pattern across all packages.
     *(estimate)*
   - [**`find_algorithm`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`find_distribution`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`find_formula`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_interactions`**](https://easystats.github.io/insight/reference/index.html)
@@ -285,6 +291,8 @@ follow a consistent pattern across all packages.
   - [**`find_terms`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_variables`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`find_weights`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`flat_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -315,6 +323,10 @@ follow a consistent pattern across all packages.
   - [**`geom_jitter2`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`geom_point2`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_pooljitter`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_poolpoint`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`geom_violindot`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -349,6 +361,8 @@ follow a consistent pattern across all packages.
   - [**`get_variance_slope`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_variance`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_weights`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`has_intercept`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -446,6 +460,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`p_rope`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`p_to_pd`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`p_value_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`p_value_wald`**](https://easystats.github.io/parameters/reference/index.html)
@@ -458,6 +474,14 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`palette_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`parameters_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`parameters_selection`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`parameters_standardize`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`performance_accuracy`**](https://easystats.github.io/performance/reference/index.html)
@@ -599,8 +623,6 @@ follow a consistent pattern across all packages.
   - [**`smoothness`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standard_error`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`standardize_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
