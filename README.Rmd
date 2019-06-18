@@ -183,7 +183,8 @@ data <- rbind(downloads_insight,
          month = months(date),
          quarters = quarters(date),
          month_day = lubridate::mday(date)) %>% 
-  ungroup()
+  ungroup() %>% 
+  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see"))
 
 
 events <- data.frame()
@@ -192,14 +193,27 @@ color_blog <- "#9C27B0"
 
 # Publications
 events <- rbind(events,
-               data.frame(date = as.Date(c("2019-03-05", 
+               data.frame(date = as.Date(c("2019-03-05",
+                                           "2019-03-29",
                                            "2019-04-09",
                                            "2019-04-24",
-                                           "2019-05-24")), 
+                                           "2019-05-11",
+                                           "2019-05-24",
+                                           "2019-05-29")), 
                           event=c("CRAN - insight (0.1.0)", 
+                                  "CRAN - insight (0.2.0)",
                                   "CRAN - BayestestR (0.1.0)",
                                   "CRAN - performance (0.1.0)",
-                                  "CRAN - see (0.1.0)"), 
+                                  "CRAN - insight (0.3.0)",
+                                  "CRAN - see (0.1.0)",
+                                  "CRAN - BayestestR (0.2.0)"), 
+                          Package=c("insight", 
+                                    "insight",
+                                    "bayestestR",
+                                    "performance",
+                                    "insight",
+                                    "see",
+                                    "bayestestR"), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
 blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
@@ -208,17 +222,26 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
          event = item_title) %>% 
   mutate(color=color_blog)
 
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR"))
+
+
 events <- rbind(events,
                 blogposts)
 
 # Full join
-data <- full_join(data, events, by="date")
+data <- full_join(data, events, by=c("date", "Package"))
 
 events <- full_join(
   events,
   group_by(data, event) %>% 
   summarise(event_y = max(average_count)), by="event") %>% 
   filter(!is.na(date))
+
+# Set packages colours
+packages_colours <- c("insight" = "#FF9800",
+                      "bayestestR" = "#E91E63",
+                      "performance" = "#4CAF50",
+                      "see" = "#2196F3")
 ```
 
 ### Trend
@@ -226,23 +249,16 @@ events <- full_join(
 # TIME TREND
 data %>% 
   ggplot(aes(x=date, color=Package)) +
-  # geom_hline(yintercept=0) +
-  # geom_line(aes(y=count), size=0.75) +
-  # geom_line(aes(y=count_Median), size=1, colour="blue") +
+  # geom_line(aes(y=count), size=0.25) +
   geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
   geom_smooth(aes(y=count), method = 'lm', size=1, se=FALSE) +
-  # geom_vline(data=events, aes(xintercept = events$date), colour=events$color, size=.5) +
-  geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5) +
-  geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
+  geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
+  # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
+  geom_text_repel(data=events, aes(label = event, x = date, y = event_y), colour = events$color, segment.colour = events$color) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", 
-               # limits = as.Date(c('2011-01-01','2013-01-01')),
                labels = scales::date_format("%Y-%m")) +
-  scale_color_material_d() +
-  # scale_color_manual(values=c("insight" = "#2196F3",
-  #                             "bayestestR" = "#4CAF50",
-  #                             "performance" = "#FFC107",
-  #                             "see" = "#f44336")) +
+  scale_color_manual(values=packages_colours) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
@@ -252,7 +268,6 @@ data %>%
 
 ### Cumulative downloads
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-
 data$download_label <- NA
 
 data <- data %>% 
@@ -268,33 +283,29 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
-  scale_color_material_d()
+  scale_color_manual(values=packages_colours) +
+  scale_y_sqrt()
 ```
 
 
 ### By Week Day
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-junk <- capture.output(model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson()))
+# model <- rstanarm::stan_glmer(count ~ Package / day + (1|month), data = data, family = poisson(), refresh = 0) # The mixed model takes too long to compute
+model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson(), refresh = 0)
 
 estimate::estimate_means(model) %>% 
+  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see")) %>% 
   sjmisc::rec(day, rec = "Montag=Monday;Dienstag=Tuesday;Mittwoch=Wednesday;Donnerstag=Thursday;Freitag=Friday;Samstag=Saturday;Sonntag=Sunday;else=copy", suffix = "") %>% 
   mutate(day = fct_relevel(day, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>% 
   ggplot(aes(x=day, y=Median, group=Package)) +
   geom_ribbon(aes(ymin=CI_low, ymax=CI_high, fill=Package), alpha=0.1) +
   geom_line(aes(color=Package), size=1) +
   see::theme_modern() +
-  scale_color_material_d() +
-  scale_fill_material_d() +
-  # scale_color_manual(values=c("insight" = "#9C27B0",
-  #                             "bayestestR" = "#E91E63",
-  #                             "performance" = "#4CAF50")) +
-  # scale_fill_manual(values=c("insight" = "#9C27B0",
-  #                             "bayestestR" = "#E91E63",
-  #                             "performance" = "#4CAF50")) +
+  scale_color_manual(values=packages_colours) +
+  scale_fill_manual(values=packages_colours) +
   xlab("") +
-  ylab("CRAN Downloads\n") +
-  # scale_y_sqrt() +
-  coord_cartesian(ylim = c(0, 1200), expand = FALSE) 
+  ylab("CRAN Downloads\n")
+  # scale_y_sqrt()
 ```
 
 

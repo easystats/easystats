@@ -168,7 +168,7 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`check_normality`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`check_outliers`**](https://easystats.github.io/performance/reference/index.html)
+  - [**`check_outlier`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -185,8 +185,6 @@ follow a consistent pattern across all packages.
   - [**`clean_names`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
-    *(insight)*
-  - [**`combine_parameter_objects`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
