@@ -136,6 +136,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`all_models_equal`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`all_models_same_class`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`area_under_curve`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`as.numeric_ifnumeric`**](https://easystats.github.io/estimate/reference/index.html)
@@ -164,11 +166,13 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_homogeneity`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`check_model`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_normality`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`check_outlier`**](https://easystats.github.io/performance/reference/index.html)
+  - [**`check_outliers`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -514,6 +518,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`print_parameters`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`probability_at`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
@@ -522,7 +528,7 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`r2_coxsnell`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`r2_kl`**](https://easystats.github.io/performance/reference/index.html)
+  - [**`r2_kullback`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_loo`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
