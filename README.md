@@ -164,10 +164,14 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`check_distribution`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_factorstructure`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_homogeneity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_kmo`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`check_model`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_normality`**](https://easystats.github.io/performance/reference/index.html)
@@ -178,6 +182,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`check_singularity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_sphericity`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`check_zeroinflation`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`ci_wald`**](https://easystats.github.io/parameters/reference/index.html)
@@ -274,6 +280,8 @@ follow a consistent pattern across all packages.
     *(estimate)*
   - [**`estimate_smooth`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`eti`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`find_algorithm`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_formula`**](https://easystats.github.io/insight/reference/index.html)
@@ -446,8 +454,12 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`n_obs`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`n_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`normalize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
@@ -481,6 +493,8 @@ follow a consistent pattern across all packages.
   - [**`parameters_selection`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters_standardize`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`PCA`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
