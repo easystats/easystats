@@ -46,6 +46,14 @@ library("easystats")
 
 # Features
 
+  - [Testing Contrasts from Bayesian Models with ‘emmeans’ and
+    ‘bayestestR’](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
+  - [Become a Bayesian master with bayestestR
+    (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
+  - [The ‘see’ package: beautiful figures for
+    easystats](https://easystats.github.io/blog/posts/see_presentation/)
+  - [A perfectly normally distributed sample: another
+    post?](https://easystats.github.io/blog/posts/bayestestr_distribution/)
   - [Compute R2s and other performance indices for all your
     models\!](https://easystats.github.io/blog/posts/performance_presentation/)
   - [How to easily generate a perfectly normal
@@ -148,7 +156,13 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`bayesfactor_inclusion`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`bayesfactor_interval`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`bayesfactor_models`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bayesfactor_parameters`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bayesfactor_restricted`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bayesfactor_savagedickey`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -201,6 +215,8 @@ follow a consistent pattern across all packages.
   - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`convert_d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`convert_efa_to_cfa`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`convert_odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -260,6 +276,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`download_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`efa_to_cfa`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`effective_sample`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`equivalence_test`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -308,26 +326,26 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`format_algorithm`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`format_bf`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_ci`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`format_bf`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_ci`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_model`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`format_p`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_pd`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_rope`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`format_p`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_pd`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_text_collapse`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_text_wrap`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`format_value_unless_integers`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_value`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`format_value_unless_integers`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_value`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`generalized_inverse`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`geom_jitter2`**](https://easystats.github.io/see/reference/index.html)
@@ -406,8 +424,8 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`interpret`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`is.int`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`is.int`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`is.rules`**](https://easystats.github.io/report/reference/index.html)
@@ -634,6 +652,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_fill_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)

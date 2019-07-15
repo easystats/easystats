@@ -77,6 +77,10 @@ library("easystats")
 
 # Features 
 
+- [Testing Contrasts from Bayesian Models with 'emmeans' and 'bayestestR'](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
+- [Become a Bayesian master with bayestestR (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
+- [The 'see' package: beautiful figures for easystats](https://easystats.github.io/blog/posts/see_presentation/)
+- [A perfectly normally distributed sample: another post?](https://easystats.github.io/blog/posts/bayestestr_distribution/)
 - [Compute R2s and other performance indices for all your models!](https://easystats.github.io/blog/posts/performance_presentation/)
 - [How to easily generate a perfectly normal distribution](https://easystats.github.io/blog/posts/bayestestr_rnorm_perfect/)
 - [Describe and understand Bayesian models and posteriors using bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
@@ -146,7 +150,6 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
     size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5)
     , color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
   )
-
 ```
 
 # Downloads 
@@ -196,24 +199,36 @@ events <- rbind(events,
                data.frame(date = as.Date(c("2019-03-05",
                                            "2019-03-29",
                                            "2019-04-09",
+                                           "2019-04-23",
                                            "2019-04-24",
                                            "2019-05-11",
                                            "2019-05-24",
-                                           "2019-05-29")), 
+                                           "2019-05-29",
+                                           "2019-06-19",
+                                           "2019-06-25",
+                                           "2019-07-01")), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - insight (0.2.0)",
                                   "CRAN - BayestestR (0.1.0)",
+                                  "JOSS - insight (submission)",
                                   "CRAN - performance (0.1.0)",
                                   "CRAN - insight (0.3.0)",
                                   "CRAN - see (0.1.0)",
-                                  "CRAN - BayestestR (0.2.0)"), 
+                                  "CRAN - BayestestR (0.2.0)",
+                                  "CRAN - see (0.2.0)",
+                                  "JOSS - insight (publication)",
+                                  "CRAN - insight (0.4.0)"), 
                           Package=c("insight", 
                                     "insight",
                                     "bayestestR",
+                                    "insight",
                                     "performance",
                                     "insight",
                                     "see",
-                                    "bayestestR"), 
+                                    "bayestestR",
+                                    "see",
+                                    "insight",
+                                    "insight"), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
 blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
@@ -249,12 +264,12 @@ packages_colours <- c("insight" = "#FF9800",
 # TIME TREND
 data %>% 
   ggplot(aes(x=date, color=Package)) +
-  # geom_line(aes(y=count), size=0.25) +
+  geom_line(aes(y=count), size=0.5, linetype="dotted") +
   geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
-  geom_smooth(aes(y=count), method = 'lm', size=1, se=FALSE) +
-  geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
+  geom_smooth(aes(y=count), method = 'lm', size=0.75, se=FALSE) +
+  # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
   # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
-  geom_text_repel(data=events, aes(label = event, x = date, y = event_y), colour = events$color, segment.colour = events$color) +
+  geom_text_repel(data=events, aes(label = event, x = date, y = event_y), colour = events$color, segment.colour = events$color, size = 3) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", 
                labels = scales::date_format("%Y-%m")) +
