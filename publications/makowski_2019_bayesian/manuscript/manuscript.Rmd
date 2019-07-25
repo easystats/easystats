@@ -1,0 +1,378 @@
+---
+title: "Indices of Effect Existence and Significance in the Bayesian Framework"
+output:
+  word_document:
+    toc: false
+    toc_depth: 3
+    df_print: "kable"
+    highlight: "pygments"
+    reference_docx: Template_Frontiers.docx
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
+    fig_width: 10.08
+    fig_height: 6
+tags: [r, bayesian, posterior, test]
+editor_options: 
+  chunk_output_type: console
+bibliography: bibliography.bib
+csl: apa.csl
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+options(knitr.kable.NA = '')
+knitr::opts_chunk$set(comment=">",
+  dpi=75)
+options(digits=2)
+```
+
+
+
+There is now a general agreement that the Bayesian statistical framework is the right way to go for psychological science. Nevertheless, its flexible nature is its power and weakness, for there is no agreement about what indices should be computed or reported. Moreover, the lack of a consensual index of effect existence, such as the frequentist *p*-value, possibly contributes to the unnecessary murkiness that many non-familiar readers perceive in Bayesian statistics. Thus, this study describes and compares several indices of effect existence, provide intuitive visual representation of the "behaviour" of such indices in relationship with traditional metrics such as sample size and frequentist significance. The results contribute to develop the intuitive understanding of the values that researchers report and allow to draw recommendations for Bayesian statistics description, critical for the standardization of scientific reporting.
+
+# Introduction
+
+The Bayesian framework is quickly gaining popularity among psychologists and neuroscientists [@andrews2013prior]. Reasons to prefer this approach are reliability, better accuracy in noisy data, better estimation for small samples, less proneness to type I error, the possibility of introducing prior knowledge into the analysis and, critically, results intuitiveness and their straightforward interpretation [@dienes2018four;@etz2016bayesian;@kruschke2010believe;@kruschke2012time;@wagenmakers2018bayesian;@wagenmakers2016bayesian]. The frequentist approach has been associated with the focus on null hypothesis testing, and the misuse of *p*-values has been shown to critically contribute to the reproducibility crisis of psychological science [@chambers2014instead; @szucs2016empirical]. There is a general agreement that the generalization of the Bayesian approach is a way of overcoming this issue [@benjamin2018redefine; @etz2016bayesian; @maxwell2015psychology; @wagenmakers2017need].
+
+While the probabilistic reasoning promoted by the Bayesian framework is pervading most of data science aspects, it is already well established for statistical modelling. This facet, on which psychology massively rely, could roughly be grouped into two soft-edged categories; predictive and structural modelling. Although a statistical model can (often) serve both purposes, predictive modelling is devoted to build and find the best model that accurately predicts a given outcome. It is centred around the concepts such as fitting metrics, predictive accuracy and model comparison. At the extrema of this dimension lie machine and deep learning models, used for their strong predictive power, often at the expense of Human readability [these models has been often refer to as "black-boxes", emphasising the difficulty to appraise their internal functioning; @burrell2016machine; @castelvecchi2016can; @snoek2012practical]. On the other side, psychologists are often using more simple models (for instance related to the general linear framework) to explore their data. Within this framework, the goal switches from building the best model to understanding the parameters inside the model. In reality, the methodological pipeline often starts with predictive modelling involving model comparison ("what is the best model of the world (*i.e.*, the observed variable)") and then seemingly transit to structural modelling: "given this model of the world, how the effects (*i.e.*, model parameters) are influencing the outcome". For this last part, they often rely on an index of effect "existence".
+
+Indeed, while one of the strengths of the Bayesian framework is its probabilistic parameter estimation, allowing to quantify the inherent uncertainty associated with each estimation, psychologists are also interested in parameter *existence*: A decision criterion that allows them to conclude if an effect is "different from 0" (statistically corresponding to either "not negligible" or "not of the opposite direction"). In other words, to know, before taking interest in the importance, relevance or strength of the effect, whether it is related to the outcome in a given direction. This need has led to the wide adoption of the frequentist *p*-value, used as an index of effect existence, and its acceptance was accompanied with the creation of arbitrary clusters for its classification (.05, .01 and .001). Unfortunately, these heuristics have severely rigidify, becoming a goal and threshold to reach rather than a tool for understanding the data [@cohen2016earth; @kirk1996practical].
+
+Thus, the ability of the Bayesian framework to answer psychological questions without the need of such null-hypothesis testing indices is often promoted as the promise of a "a new world without *p*-value" as opposed to the old and flawed frequentist one. Nonetheless, it seems that "effect existence" indices and criteria are useful for Humans to gain an intuitive understanding of the interactions and structure of their data. It is thus unsurprising that the development of Bayesian user-friendly implementations was accompanied with the promotion of the Bayes Factor (BF), an index reflecting the predictive performance of a model against another [*e.g.*, the null vs. the alternative hypothesis; @jeffreys1998theory; @ly2016harold]. It provides many advantages over the *p* value, having a straightforward interpretation ("the data were 3 times (*BF* = 3) more likely to occur under the alternative than the null hypothesis") and allowing to make statements about the alternative, rather than just the null hypothesis [@dienes2014using; @jarosz2014odds]. Moreover, recent mathematical developments allow its computation for complex models [@gronau2017bayesian; @gronau2017simple]. Although the BF lives up to the expectations of a solid, valid, intuitive and better index compared to the p value, its use for model selection is still a matter of debate [@piironen2017comparison]. Indeed, as the predictions used for its computation are generated from the prior distributions on the model parameters, it is highly dependent on priors specification [@etz2018bayesian; @kruschke2018bayesian]. Importantly for the aim of this paper, its use for estimating effect existence of parameters *within* a larger model remains limited, its computation being technically difficult and its interpretation not as straightforward as for "simple" tests such as t-tests or correlations.
+
+Nevertheless, reflecting the need for such information, researchers have developed other indices based on characteristics of the posterior distribution, which represents the probability distribution of different parameter values given the observed data. This uncertainty can be summarized, for example, by presenting point-estimates of centrality (mean, median, ...) and of dispersion (standard deviation, median absolute deviance, ...), often accompanied with a percentage (89\%, 90\% or 95\%) of the Highest Density Interval (HDI; referred to as the *Credible Interval* - CI). Although the Bayesian framework gives the possibility of computing many effect existence indices, no consensus has yet emerged on the ones to use, as no comparison has ever been done. This might be a rebuttal for scientists interested in adopting the Bayesian framework. Moreover, this grey area can increase the difficulty of readers or reviewers unfamiliar with the Bayesian framework to follow the assumptions and conclusions, which could in turn generate unnecessary doubt upon the entire study. While we think that such indices and their interpretation guidelines (in the form of rules of thumb) are useful in practice, we also strongly believe that such indices should be accompanied with the knowledge of the "behaviour" in relationship with sample size and effect size. This knowledge is important for people to implicitly and intuitively appraise the meaning and implication of the mathematical values they report. This could, in turn, prevent the crystallization of the possible heuristics and categories derived from such indices.
+
+Thus, based on the simulation of multiple linear regressions (one of the most widely used models), the present work aims at comparing several indices of effect existence solely derived from the posterior distribution, provide visual representations of the "behaviour" of such indices in relationship with sample size, noise, priors and also the frequentist *p*-value (an index which, beyond its many flaws, is well known and could be used as a reference for Bayesian neophytes), and draw recommendations for Bayesian statistics reporting.
+
+For all of the simulated models, we computed the following indices:
+
+- ***p*-value**: Based on the frequentist regression, this index represents the probability for a given statistical model that, when the null hypothesis is true, the statistical summary (such as the sample mean difference between two compared groups) would be greater than or equal to the actual observed results [@wasserstein2016asa].
+- ***p*-direction**: the "Probability of Direction" (pd) corresponds to the probability (expressed in percentage) that the effect is stricly positive or negative (consistently with the median's sign).
+- ***p*-MAP**: the MAP-based *p*-value is related to the odds that a parameter has against the null hypothesis [@mills2014bayesian; @mills2017objective].
+- ***p*-ROPE**: the ROPE-based *p*-value that represents the maximum percentage of HDI that does not contain (positive values) or is entirely contained (negative values) in the negligible values space defined by the ROPE.
+- **ROPE (89\%)**: this index refers to the percentage of the 89\% HDI that lies within the ROPE, which is an interval considered as more stable than the frequentist-based 95\% [@mcelreath2014rethinking; @mcelreath2018statistical].
+- **ROPE (95\%)**: this index refers to the percentage of the 95\% HDI that lies within the ROPE. This interval corresponds to the one originally suggested by @kruschke2014doing.
+- **ROPE (full)**: this index refers to the percentage of the whole posterior distribution that lies within the ROPE.
+- **Bayes factor**: TODO.
+
+The Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1.
+
+
+# Methods
+
+
+The simulation aimed at modulating the following characteristics:
+
+- **Model type**: linear or logistic.
+- **"True" effect** (original regression coefficient from which data is drawn): Can be 1 or 0 (no effect).
+- **Sample size**: From 20 to 100 by steps of 10.
+- **Error**: Gaussian noise applied to the predictor with SD uniformly spread between 0.33 and 6.66 (with 1000 different values).
+
+We generated a dataset for each combination of these characteristics, resulting in a total of `2 * 2 * 9 * 1000 = 36000` Bayesian and frequentist models. The code used for generation is avaible [here](https://easystats.github.io/circus/articles/bayesian_indices.html) (please note that it takes usually several days/weeks to complete).
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(see)
+library(ggExtra)
+
+df <- read.csv("https://raw.github.com/easystats/circus/master/data/bayesSim_study1.csv")
+```
+
+
+
+
+# Results
+
+## Effect Detection
+
+
+### Sensitivity to Noise
+
+```{r, message=FALSE, warning=FALSE, fig.cap="Figure 1.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+figure1 <- df %>%
+  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+  gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+  mutate(true_effect = as.factor(true_effect),
+         index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+  mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>% 
+  group_by(temp) %>% 
+  mutate(error_group = round(mean(error), 1)) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = error_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, error_group))) +
+  geom_boxplot(outlier.shape = NA) +
+  facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+  theme_modern() +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+  scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+                    guide=FALSE) +
+  ylab("Index Value") +
+  xlab("Noise")
+figure1
+```
+
+### Sensitivity to Sample Size
+
+```{r, message=FALSE, warning=FALSE, fig.cap="Figure 2.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+figure2 <- df %>%
+  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+  gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+  mutate(true_effect = as.factor(true_effect),
+         index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+  mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>% 
+  group_by(temp) %>% 
+  mutate(size_group = round(mean(sample_size))) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = size_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, size_group))) +
+  # geom_jitter(shape=16, alpha=0.02) +
+  geom_boxplot(outlier.shape = NA) +
+  facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+  theme_modern() +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+  scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+                    guide=FALSE) +
+  ylab("Index Value") +
+  xlab("Sample Size")
+figure2
+```
+
+
+
+
+### Statistical Modelling
+
+We fitted a (frequentist) multiple linear regression to predict the presence or absence of effect with the different indices as well as their interaction with noise and sample size.
+
+<!-- THIS MUST WAIT UNTIL PARAMETERS Is ON CRAN SO WE CAN USE ITS NORMALIZE FUNCTION -->
+
+<!-- ```{r, message=FALSE, warning=FALSE} -->
+<!-- df %>% -->
+<!--   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, p_ROPE, ROPE_90, ROPE_95, ROPE_full) %>% -->
+<!--   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>% -->
+<!--   group_by(index) %>% -->
+<!--   parameters::normalize(select="value") %>% -->
+<!--   ungroup() %>% -->
+<!--   glm(true_effect ~ outcome_type / index / value  * sample_size * error, data=., family="binomial") %>% -->
+<!--    broom::tidy() %>% -->
+<!--    select(term, index, p=p.value) %>% -->
+<!--    filter(stringr::str_detect(term, 'outcome_type'), -->
+<!--           stringr::str_detect(term, ':value')) %>% -->
+<!--    mutate( -->
+<!--      sample_size = stringr::str_detect(term, 'sample_size'), -->
+<!--      error = stringr::str_detect(term, 'error'), -->
+<!--      term = stringr::str_remove(term, "index"), -->
+<!--      term = stringr::str_remove(term, "outcome_type"), -->
+<!--      p = paste0(sprintf("%.2f", p), ifelse(p < .001, "***", ifelse(p < .01, "**", ifelse(p < .05, "*", ""))))) %>% -->
+<!--    arrange(sample_size, error, term) %>% -->
+<!--    select(-sample_size, -error) %>% -->
+<!--    knitr::kable(digits=2) -->
+<!-- ``` -->
+
+<!-- This suggests that, in order to delineate between the presence and the absence of an effect: -->
+
+<!-- - For linear Models; -->
+
+<!--   - The **pd**, followed by the **p (ROPE)** and the 3 **ROPE percentage**, indices had a significamtly superior performance. However, **p (MAP)** performed not significantly worse. -->
+
+<!--   - The **mean**, followed closely by the **median**, and the **MAP** estimate had a superior performance, altough not significantly. -->
+<!--   - The **mean**, followed closely by the **median**, and the **MAP** estimate, were less affected by noise, altough not significantly. -->
+<!--   - No difference for the sensitivity to sample size was found. -->
+
+<!-- - For logistic models: -->
+
+<!--   - The **pd**, followed by the **p (ROPE)** and the 3 **ROPE percentage**, indices had a significamtly superior performance. However, **p (MAP)** performed not significantly worse. -->
+<!--   - The **MAP** estimate, followed by the **median**, and the **mean**, were less affected by noise, altough not significantly. -->
+<!--   - The **MAP** estimate, followed by the **mean**, and the **median**, were less affected by sample size, altough not significantly. -->
+
+
+## Relationship with the frequentist *p*-value
+
+
+
+```{r, message=FALSE, warning=FALSE, fig.cap="Figure 3.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+figure3 <- df %>%
+  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+  gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
+  mutate(true_effect = as.factor(true_effect),
+         index = factor(index, levels=c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+  mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>% 
+  group_by(temp) %>% 
+  mutate(size_group = as.character(round(mean(sample_size)))) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = p_value, y = value, color = true_effect, shape=size_group)) +
+  geom_point(alpha=0.025, stroke = 0, shape=16) +
+  facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+  theme_modern() +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+  guides(colour = guide_legend(override.aes = list(alpha = 1)),
+         shape = guide_legend(override.aes = list(alpha = 1), title="Sample Size"))
+figure3
+```
+
+
+## Relationship with frequentist *p*-based arbitrary clusters
+
+```{r, message=FALSE, warning=FALSE, fig.cap="Figure 4.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+df$sig_1 <- factor(ifelse(df$p_value >= .1, "n.s.", "-"), levels=c("n.s.", "-"))
+df$sig_05 <- factor(ifelse(df$p_value >= .05, "n.s.", "*"), levels=c("n.s.", "*"))
+df$sig_01 <- factor(ifelse(df$p_value >= .01, "n.s.", "**"), levels=c("n.s.", "**"))
+df$sig_001 <- factor(ifelse(df$p_value >= .001, "n.s.", "***"), levels=c("n.s.", "***"))
+
+
+get_data <- function(predictor, outcome, lbound=0, ubound=0.3){
+  fit <- suppressWarnings(glm(paste(outcome, "~ outcome_type * ", predictor), data=df, family = "binomial"))
+  # data <- data.frame(x=rep(1:100, 2))
+  data <- data.frame(outcome_type=rep(c("linear", "binary"), each=100))
+  data[predictor] <- rep(seq(lbound, ubound, length.out = 100), 2)
+  data$index <- predictor
+  predict_fit <- predict(fit, newdata=data, type="response", se.fit = TRUE)
+  data[outcome] <- predict_fit$fit 
+  data$CI_lower <- predict_fit$fit - (qnorm(0.99) * predict_fit$se.fit)
+  data$CI_upper <- predict_fit$fit + (qnorm(0.99) * predict_fit$se.fit)
+  data <-
+    select(
+      data,
+      "value" := !!predictor,
+      !!outcome,
+      .data$outcome_type,
+      .data$index,
+      .data$CI_lower,
+      .data$CI_upper
+    )
+  return(data)
+}
+
+
+
+figure4 <- rbind(
+  rbind(
+    get_data(predictor="p_direction", outcome="sig_001", lbound=0.995, ubound=1),
+    get_data(predictor="p_MAP", outcome="sig_001", lbound=0, ubound=0.01),
+    get_data(predictor="ROPE_95", outcome="sig_001", lbound=0, ubound=0.005),
+    get_data(predictor="ROPE_full", outcome="sig_001", lbound=0, ubound=0.005),
+    get_data(predictor="BF_log", outcome="sig_001", lbound=0, ubound=10)
+    ) %>% 
+    rename("sig"=sig_001) %>% 
+    mutate(threshold="p < .001"),
+  rbind(
+    get_data(predictor="p_direction", outcome="sig_01", lbound=0.98, ubound=1),
+    get_data(predictor="p_MAP", outcome="sig_01", lbound=0, ubound=0.075),
+    get_data(predictor="ROPE_95", outcome="sig_01", lbound=0, ubound=0.02),
+    get_data(predictor="ROPE_full", outcome="sig_01", lbound=0, ubound=0.02),
+    get_data(predictor="BF_log", outcome="sig_01", lbound=0, ubound=5)
+    ) %>% 
+    rename("sig"=sig_01) %>% 
+    mutate(threshold="p < .01"),
+  rbind(
+    get_data(predictor="p_direction", outcome="sig_05", lbound=0.95, ubound=1),
+    get_data(predictor="p_MAP", outcome="sig_05", lbound=0.05, ubound=0.25),
+    get_data(predictor="ROPE_95", outcome="sig_05", lbound=0, ubound=0.01),
+    get_data(predictor="ROPE_full", outcome="sig_05", lbound=0, ubound=0.01),
+    get_data(predictor="BF_log", outcome="sig_05", lbound=0, ubound=2)
+    ) %>%  
+    rename("sig"=sig_05) %>% 
+    mutate(threshold="p < .05"),
+  rbind(
+    get_data(predictor="p_direction", outcome="sig_1", lbound=0.90, ubound=1),
+    get_data(predictor="p_MAP", outcome="sig_1", lbound=0.15, ubound=0.35),
+    get_data(predictor="ROPE_95", outcome="sig_1", lbound=0, ubound=0.2),
+    get_data(predictor="ROPE_full", outcome="sig_1", lbound=0, ubound=0.2),
+    get_data(predictor="BF_log", outcome="sig_1", lbound=0, ubound=1)
+    ) %>% 
+    rename("sig"=sig_1) %>% 
+    mutate(threshold="p < .1")
+) %>% 
+  mutate(index = as.factor(index)) %>%
+  ggplot(aes(x=value, y=sig)) +
+  geom_ribbon(aes(ymin=CI_lower, ymax=CI_upper), alpha=0.1) +
+  geom_line(aes(color=index), size=1) +
+  facet_wrap(~ index * threshold * outcome_type, scales = "free", ncol=8) +
+  theme_modern() +
+  scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+                     guide=FALSE) +
+  ylab("Probability of being significant") +
+  xlab("Index Value")
+figure4
+```
+
+## Relationship with Equivalence test
+
+```{r, message=FALSE, warning=FALSE, eval = FALSE, fig.cap="Figure 5.", fig.align='center', fig.width=21/2, dpi=300, fig.height=29.7/2, echo=FALSE}
+df$equivalence <- factor(ifelse(df$ROPE_95 == 0, "significant", "n.s."), levels=c("n.s.", "significant"))
+
+
+figure5 <- rbind(
+    get_data(predictor="p_direction", outcome="equivalence", lbound=0.975, ubound=1),
+    get_data(predictor="p_MAP", outcome="equivalence", lbound=0, ubound=0.2),
+    get_data(predictor="ROPE_full", outcome="equivalence", lbound=0, ubound=0.03),
+    get_data(predictor="BF_log", outcome="equivalence", lbound=0.5, ubound=2.25)
+    ) %>% 
+  ggplot(aes(x=value, y=equivalence)) +
+  geom_ribbon(aes(ymin=CI_lower, ymax=CI_upper), alpha=0.1) +
+  geom_line(aes(color=index), size=1) +
+  facet_wrap(~ index * outcome_type, scales = "free", nrow=7) +
+  theme_modern() +
+  scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+                     guide=FALSE) +
+  ylab("Probability of rejecting H0 with the equivalence test") +
+  xlab("Index Value")
+figure5
+```
+
+
+
+## Relationship between ROPE (full), p (direction) and Bayes Factor
+
+```{r, message=FALSE, warning=FALSE, fig.cap="Figure 6.", fig.align='center', fig.width=21/2, fig.height=21/2, dpi=300, echo=FALSE}
+p1 <- df %>%
+  mutate(true_effect = as.factor(true_effect)) %>% 
+  ggplot(aes(x=p_direction, y=ROPE_full, color=true_effect)) +
+  geom_point2(alpha=0.03, size = 2) +
+  facet_wrap(~ outcome_type, scales = "free", ncol=2) +
+  theme_modern() +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+  ylab("ROPE (full)") +
+  xlab("")
+p2 <- df %>%
+  mutate(true_effect = as.factor(true_effect)) %>% 
+  ggplot(aes(x=p_direction, y=BF_log, color=true_effect)) +
+  geom_point2(alpha=0.03, size = 2) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  facet_wrap(~ outcome_type, scales = "free", ncol=2) +
+  theme_modern() +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+  ylab("BF_log") +
+  xlab("Probability of Direction (pd)")
+figure6 <- see::plots(p1, p2, nrow = 2)
+figure6
+```
+
+
+# Discussion
+
+
+
+
+Based on the simulation of multiple linear regressions, the present work aimed at comparing several indices of effect existence solely derived from the posterior distribution, provide visual representations of the "behaviour" of such indices in relationship with sample size, noise, priors and the frequentist *p*-value.
+
+While this comparison with a frequentist index may seem counterintuitive or wrong (as the Bayesian thinking is intrinsically different from the frequentist framework), we believe that this comparison is interesting for didactic reasons. The frequentist *p*-value "speaks" to many and can thus be seen as a reference and a way to facilitate the shift toward the Bayesian framework. This does not preclude, however, that a change in the general paradigm of effect existence seeking in necessary, and that Bayesian indices are fundamentally different from the frequentist *p*, rather than mere approximations or equivalents. Critically, we strongly agree on the distinction and possible dissociation between an effect’s existence and meaningfulness [@lakens2018equivalence]. Nevertheless, we believe that assessing whether an effect is "meaningful" is highly dependent on the literature, priors, novelty, context or field, and that it cannot be assessed based solely on a statistical index (even though some of the indices, such as the ROPE-related ones, attempt at bridging existence with meaningfulness). Thus, researchers should rely on statistics to assess effect existence (as well as size and direction estimation), and systematically, but contextually, discuss its meaning and importance within a larger perspective.
+
+Conclusions can be found in the [guidelines section](https://easystats.github.io/bayestestR/articles/guidelines.html).
+
+
+# Conclusion
+
+
+
+<!-- - ROPE based indices seems to be the most sensitive to different model types, as equivalent ROPE ranges are not straightforward to select. -->
+<!-- - ROPE seems also strongly affected by sample -->
+<!-- - pd and BF might be two relevant indices, being both intuitive, providing different information and appearing as undependent from the model type. -->
+<!-- - On the other hand, BF and pd seems quite closely related: ROPE might give a different perspective, altough to be taken with caution. -->
+
+# References
