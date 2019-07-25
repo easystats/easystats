@@ -79,6 +79,7 @@ library(see)
 library(ggExtra)
 
 df <- read.csv("https://raw.github.com/easystats/circus/master/data/bayesSim_study1.csv")
+# df <- read.csv("../data/data.csv")
 ```
 
 
@@ -248,56 +249,100 @@ get_data <- function(predictor, outcome, lbound=0, ubound=0.3){
 
 
 
-figure4 <- rbind(
-  rbind(
-    get_data(predictor="p_direction", outcome="sig_001", lbound=0.995, ubound=1),
-    get_data(predictor="p_MAP", outcome="sig_001", lbound=0, ubound=0.01),
-    get_data(predictor="ROPE_95", outcome="sig_001", lbound=0, ubound=0.005),
-    get_data(predictor="ROPE_full", outcome="sig_001", lbound=0, ubound=0.005),
-    get_data(predictor="BF_log", outcome="sig_001", lbound=0, ubound=10)
-    ) %>% 
-    rename("sig"=sig_001) %>% 
-    mutate(threshold="p < .001"),
-  rbind(
-    get_data(predictor="p_direction", outcome="sig_01", lbound=0.98, ubound=1),
-    get_data(predictor="p_MAP", outcome="sig_01", lbound=0, ubound=0.075),
-    get_data(predictor="ROPE_95", outcome="sig_01", lbound=0, ubound=0.02),
-    get_data(predictor="ROPE_full", outcome="sig_01", lbound=0, ubound=0.02),
-    get_data(predictor="BF_log", outcome="sig_01", lbound=0, ubound=5)
-    ) %>% 
-    rename("sig"=sig_01) %>% 
-    mutate(threshold="p < .01"),
-  rbind(
-    get_data(predictor="p_direction", outcome="sig_05", lbound=0.95, ubound=1),
-    get_data(predictor="p_MAP", outcome="sig_05", lbound=0.05, ubound=0.25),
-    get_data(predictor="ROPE_95", outcome="sig_05", lbound=0, ubound=0.01),
-    get_data(predictor="ROPE_full", outcome="sig_05", lbound=0, ubound=0.01),
-    get_data(predictor="BF_log", outcome="sig_05", lbound=0, ubound=2)
-    ) %>%  
-    rename("sig"=sig_05) %>% 
-    mutate(threshold="p < .05"),
-  rbind(
-    get_data(predictor="p_direction", outcome="sig_1", lbound=0.90, ubound=1),
-    get_data(predictor="p_MAP", outcome="sig_1", lbound=0.15, ubound=0.35),
-    get_data(predictor="ROPE_95", outcome="sig_1", lbound=0, ubound=0.2),
-    get_data(predictor="ROPE_full", outcome="sig_1", lbound=0, ubound=0.2),
-    get_data(predictor="BF_log", outcome="sig_1", lbound=0, ubound=1)
-    ) %>% 
-    rename("sig"=sig_1) %>% 
-    mutate(threshold="p < .1")
-) %>% 
-  mutate(index = as.factor(index)) %>%
-  ggplot(aes(x=value, y=sig)) +
-  geom_ribbon(aes(ymin=CI_lower, ymax=CI_upper), alpha=0.1) +
+# figure4 <- rbind(
+#   rbind(
+#     get_data(predictor="p_direction", outcome="sig_001", lbound=0.995, ubound=1),
+#     get_data(predictor="p_MAP", outcome="sig_001", lbound=0, ubound=0.01),
+#     get_data(predictor="ROPE_95", outcome="sig_001", lbound=0, ubound=0.005),
+#     get_data(predictor="ROPE_full", outcome="sig_001", lbound=0, ubound=0.005),
+#     get_data(predictor="BF_log", outcome="sig_001", lbound=0, ubound=10)
+#     ) %>% 
+#     rename("sig"=sig_001) %>% 
+#     mutate(threshold="p < .001"),
+#   rbind(
+#     get_data(predictor="p_direction", outcome="sig_01", lbound=0.98, ubound=1),
+#     get_data(predictor="p_MAP", outcome="sig_01", lbound=0, ubound=0.075),
+#     get_data(predictor="ROPE_95", outcome="sig_01", lbound=0, ubound=0.02),
+#     get_data(predictor="ROPE_full", outcome="sig_01", lbound=0, ubound=0.02),
+#     get_data(predictor="BF_log", outcome="sig_01", lbound=0, ubound=5)
+#     ) %>% 
+#     rename("sig"=sig_01) %>% 
+#     mutate(threshold="p < .01"),
+#   rbind(
+#     get_data(predictor="p_direction", outcome="sig_05", lbound=0.95, ubound=1),
+#     get_data(predictor="p_MAP", outcome="sig_05", lbound=0.05, ubound=0.25),
+#     get_data(predictor="ROPE_95", outcome="sig_05", lbound=0, ubound=0.01),
+#     get_data(predictor="ROPE_full", outcome="sig_05", lbound=0, ubound=0.01),
+#     get_data(predictor="BF_log", outcome="sig_05", lbound=0, ubound=2)
+#     ) %>%  
+#     rename("sig"=sig_05) %>% 
+#     mutate(threshold="p < .05"),
+#   rbind(
+#     get_data(predictor="p_direction", outcome="sig_1", lbound=0.90, ubound=1),
+#     get_data(predictor="p_MAP", outcome="sig_1", lbound=0.15, ubound=0.35),
+#     get_data(predictor="ROPE_95", outcome="sig_1", lbound=0, ubound=0.2),
+#     get_data(predictor="ROPE_full", outcome="sig_1", lbound=0, ubound=0.2),
+#     get_data(predictor="BF_log", outcome="sig_1", lbound=0, ubound=1)
+#     ) %>% 
+#     rename("sig"=sig_1) %>% 
+#     mutate(threshold="p < .1")
+# ) %>% 
+#   mutate(index = as.factor(index)) %>%
+#   ggplot(aes(x=value, y=sig)) +
+#   geom_ribbon(aes(ymin=CI_lower, ymax=CI_upper), alpha=0.1) +
+#   geom_line(aes(color=index), size=1) +
+#   facet_wrap(~ index * threshold * outcome_type, scales = "free", ncol=8) +
+#   theme_modern() +
+#   scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+#                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+#                      guide=FALSE) +
+#   ylab("Probability of being significant") +
+#   xlab("Index Value")
+# figure4
+
+make_fig_4 <- function(.data){
+  .data$level <- ifelse(.data$level=="n.s.",0,1)
+  fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
+  newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 100))
+  newdata$sig <- predict(fit, newdata = newdata, type = "response")
+  newdata
+}
+
+figure4_dat <- df %>% 
+  gather("threshold","level",sig_1:sig_001) %>% 
+  gather("index","value",p_direction,p_MAP,ROPE_95,ROPE_full,BF_log) %>% 
+  group_by(outcome_type,index,threshold,true_effect) %>% 
+  nest() %>% 
+  mutate(data = lapply(data,make_fig_4)) %>% 
+  unnest()
+
+figure4_0 <- figure4_dat %>% 
+  filter(true_effect == 0) %>% 
+  ggplot(aes(x=value, y=sig, linetype = threshold, group = threshold)) +
   geom_line(aes(color=index), size=1) +
-  facet_wrap(~ index * threshold * outcome_type, scales = "free", ncol=8) +
+  facet_wrap( ~ index + outcome_type, scales = "free", ncol=2) +
   theme_modern() +
   scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
                      guide=FALSE) +
   ylab("Probability of being significant") +
-  xlab("Index Value")
-figure4
+  xlab("Index Value") + 
+  coord_cartesian(ylim = c(0,1))
+
+figure4_1 <- figure4_dat %>% 
+  filter(true_effect == 1) %>% 
+  ggplot(aes(x=value, y=sig, linetype = threshold, group = threshold)) +
+  geom_line(aes(color=index), size=1) +
+  facet_wrap( ~ index + outcome_type, scales = "free", ncol=2) +
+  theme_modern() +
+  scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+                     guide=FALSE) +
+  ylab("Probability of being significant") +
+  xlab("Index Value") + 
+  coord_cartesian(ylim = c(0,1))
+figure4_0
+figure4_1
 ```
 
 ## Relationship with Equivalence test
