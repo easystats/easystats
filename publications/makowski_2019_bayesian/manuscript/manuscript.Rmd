@@ -6,7 +6,7 @@ output:
     toc_depth: 3
     df_print: "kable"
     highlight: "pygments"
-    reference_docx: Template_Frontiers.docx
+    reference_docx: utils/Template_Frontiers.docx
   rmarkdown::html_vignette:
     toc: true
     toc_depth: 3
@@ -16,7 +16,7 @@ tags: [r, bayesian, posterior, test]
 editor_options: 
   chunk_output_type: console
 bibliography: bibliography.bib
-csl: apa.csl
+csl: utils/apa.csl
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
