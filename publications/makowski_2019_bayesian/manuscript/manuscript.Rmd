@@ -54,7 +54,7 @@ For all of the simulated models, we computed the following indices:
 - **ROPE (89\%)**: this index refers to the percentage of the 89\% HDI that lies within the ROPE, which is an interval considered as more stable than the frequentist-based 95\% [@mcelreath2014rethinking; @mcelreath2018statistical].
 - **ROPE (95\%)**: this index refers to the percentage of the 95\% HDI that lies within the ROPE. This interval corresponds to the one originally suggested by @kruschke2014doing.
 - **ROPE (full)**: this index refers to the percentage of the whole posterior distribution that lies within the ROPE.
-- **Bayes factor**: TODO.
+- **Bayes factor**: this index indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s) (relative to the prior distribution), thus indicating if the null value has become less or more likely given the observed data. Here, the null was defined as a point null (0), and the Bayes factor was computed using the Savage-Dickey density ratio is computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null. <!-- Is this too long? -->
 
 The Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1.
 
