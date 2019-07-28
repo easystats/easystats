@@ -93,32 +93,94 @@ df <- read.csv("https://raw.github.com/easystats/circus/master/data/bayesSim_stu
 ### Sensitivity to Noise
 
 ```{r, message=FALSE, warning=FALSE, fig.cap="Figure 1.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-figure1 <- df %>%
-  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+# figure1 <- df %>%
+#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+#   mutate(true_effect = as.factor(true_effect),
+#          index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+#   mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>% 
+#   group_by(temp) %>% 
+#   mutate(error_group = round(mean(error), 1)) %>% 
+#   ungroup() %>% 
+#   ggplot(aes(x = error_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, error_group))) +
+#   geom_boxplot(outlier.shape = NA) +
+#   facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+#   theme_modern() +
+#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+#   scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+#                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+#                     guide=FALSE) +
+#   ylab("Index Value") +
+#   xlab("Noise")
+
+ind_names <- c("p_value" = "p-Value",
+               "p_direction" = "p-Direction",
+               "p_MAP" = "p-MAP",
+               "ROPE_95" = "ROPE (95%)",
+               "ROPE_full" = "ROPE (full)",
+               "BF_log" = "Bayes factor (log)",
+               
+               "binary" = "Binary",
+               "linear" = "Linear",
+               
+               "0" = "No Effect",
+               "1" = "Effect")
+
+aes_4_figs <- list(
+  aes(y = value, fill = true_effect),
+  geom_boxplot(outlier.shape = NA),
+  facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(ind_names)), 
+  theme_modern(), 
+  scale_fill_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect"), 
+  ylab("Index Value")
+)
+
+fig1_data <- df %>%
+  select(outcome_type, true_effect, error, sample_size,
+         p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
   mutate(true_effect = as.factor(true_effect),
          index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
   mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>% 
   group_by(temp) %>% 
   mutate(error_group = round(mean(error), 1)) %>% 
-  ungroup() %>% 
-  ggplot(aes(x = error_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, error_group))) +
-  geom_boxplot(outlier.shape = NA) +
-  facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
-  theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
-  scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-                    guide=FALSE) +
-  ylab("Index Value") +
-  xlab("Noise")
+  # filter(!(index == "BF_log" & value > 30)) %>%
+  ungroup()
+
+figure1 <- ggplot(fig1_data, aes(x = error_group,
+                                 group = interaction(true_effect, error_group))) + 
+  xlab("Noise") + 
+  aes_4_figs
+
+# ggsave("figure1.png", figure1, height = 8, width = 6)
 figure1
 ```
 
 ### Sensitivity to Sample Size
 
 ```{r, message=FALSE, warning=FALSE, fig.cap="Figure 2.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-figure2 <- df %>%
+# figure2 <- df %>%
+#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+#   mutate(true_effect = as.factor(true_effect),
+#          index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+#   mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>% 
+#   group_by(temp) %>% 
+#   mutate(size_group = round(mean(sample_size))) %>% 
+#   ungroup() %>% 
+#   ggplot(aes(x = size_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, size_group))) +
+#   # geom_jitter(shape=16, alpha=0.02) +
+#   geom_boxplot(outlier.shape = NA) +
+#   facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+#   theme_modern() +
+#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+#   scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
+#                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
+#                     guide=FALSE) +
+#   ylab("Index Value") +
+#   xlab("Sample Size")
+
+fig2_data <- df %>%
   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
   mutate(true_effect = as.factor(true_effect),
@@ -126,18 +188,16 @@ figure2 <- df %>%
   mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>% 
   group_by(temp) %>% 
   mutate(size_group = round(mean(sample_size))) %>% 
-  ungroup() %>% 
-  ggplot(aes(x = size_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, size_group))) +
-  # geom_jitter(shape=16, alpha=0.02) +
-  geom_boxplot(outlier.shape = NA) +
-  facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
-  theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
-  scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-                    guide=FALSE) +
-  ylab("Index Value") +
-  xlab("Sample Size")
+  # filter(!(index == "BF_log" & value > 30)) %>%
+  ungroup() 
+
+
+figure2 <- ggplot(fig2_data, aes(x = size_group,
+                                 group = interaction(true_effect, size_group))) + 
+  xlab("Sample Size") + 
+  aes_4_figs
+  
+# ggsave("figure2.png", figure2, height = 8, width = 6)
 figure2
 ```
 
@@ -195,22 +255,46 @@ We fitted a (frequentist) multiple linear regression to predict the presence or 
 
 
 ```{r, message=FALSE, warning=FALSE, fig.cap="Figure 3.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-figure3 <- df %>%
+# figure3 <- df %>%
+#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
+#   mutate(true_effect = as.factor(true_effect),
+#          index = factor(index, levels=c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+#   mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>% 
+#   group_by(temp) %>% 
+#   mutate(size_group = as.character(round(mean(sample_size)))) %>% 
+#   ungroup() %>% 
+#   ggplot(aes(x = p_value, y = value, color = true_effect, shape=size_group)) +
+#   geom_point(alpha=0.025, stroke = 0, shape=16) +
+#   facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+#   theme_modern() +
+#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+#   guides(colour = guide_legend(override.aes = list(alpha = 1)),
+#          shape = guide_legend(override.aes = list(alpha = 1), title="Sample Size"))
+
+fig3_data <- df %>%
   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
   mutate(true_effect = as.factor(true_effect),
-         index = factor(index, levels=c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+         index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
   mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>% 
   group_by(temp) %>% 
   mutate(size_group = as.character(round(mean(sample_size)))) %>% 
-  ungroup() %>% 
-  ggplot(aes(x = p_value, y = value, color = true_effect, shape=size_group)) +
-  geom_point(alpha=0.025, stroke = 0, shape=16) +
-  facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
+  ungroup()
+
+figure3 <- ggplot(fig3_data, aes(x = p_value, y = value, color = true_effect, shape = size_group)) +
+  geom_point(alpha = 0.025, stroke = 0, shape = 16) +
+  geom_rug(alpha = 0.025) + 
+  facet_grid(index ~ outcome_type + true_effect, scales = "free", labeller = as_labeller(ind_names)) +
   theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect") +
   guides(colour = guide_legend(override.aes = list(alpha = 1)),
-         shape = guide_legend(override.aes = list(alpha = 1), title="Sample Size"))
+         shape = guide_legend(override.aes = list(alpha = 1), title = "Sample Size")) + 
+  ylab("Index Value") + 
+  ylab("p-Value")
+
+# ggsave("figure3.png", figure3, height = 8, width = 6)
+
 figure3
 ```
 
@@ -308,41 +392,31 @@ make_fig_4 <- function(.data){
   newdata
 }
 
-figure4_dat <- df %>% 
+fig4_data <- df %>% 
   gather("threshold","level",sig_1:sig_001) %>% 
   gather("index","value",p_direction,p_MAP,ROPE_95,ROPE_full,BF_log) %>% 
   group_by(outcome_type,index,threshold,true_effect) %>% 
   nest() %>% 
   mutate(data = lapply(data,make_fig_4)) %>% 
-  unnest()
+  unnest() %>% 
+  ungroup() %>% 
+  mutate(threshold = factor(threshold, levels = c("sig_1","sig_05","sig_01","sig_001")),
+         true_effect = as.factor(true_effect),
+         index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log")))
 
-figure4_0 <- figure4_dat %>% 
-  filter(true_effect == 0) %>% 
-  ggplot(aes(x=value, y=sig, linetype = threshold, group = threshold)) +
-  geom_line(aes(color=index), size=1) +
-  facet_wrap( ~ index + outcome_type, scales = "free", ncol=2) +
+figure4 <- ggplot(fig4_data, aes(x=value, y=sig, linetype = threshold, group = interaction(true_effect,threshold))) +
+  geom_line(aes(color=true_effect), size=1) +
+  facet_wrap( ~ index + outcome_type, scales = "free", ncol=2, labeller = as_labeller(ind_names)) +
   theme_modern() +
-  scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-                     guide=FALSE) +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect") +
+  scale_linetype_manual(values = c("sig_1" = "solid", "sig_05" = "longdash", "sig_01" = "dashed", "sig_001" = "dotted"),
+                        labels = c("p < .1", "p < .05", "p < .01", "p < .001"),
+                        name = "Threshold") +
   ylab("Probability of being significant") +
   xlab("Index Value") + 
   coord_cartesian(ylim = c(0,1))
-
-figure4_1 <- figure4_dat %>% 
-  filter(true_effect == 1) %>% 
-  ggplot(aes(x=value, y=sig, linetype = threshold, group = threshold)) +
-  geom_line(aes(color=index), size=1) +
-  facet_wrap( ~ index + outcome_type, scales = "free", ncol=2) +
-  theme_modern() +
-  scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-                     guide=FALSE) +
-  ylab("Probability of being significant") +
-  xlab("Index Value") + 
-  coord_cartesian(ylim = c(0,1))
-figure4_0
-figure4_1
+# ggsave("figure4.png", figure4, height = 8, width = 6)
+figure4
 ```
 
 ## Relationship with Equivalence test
