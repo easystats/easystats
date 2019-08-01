@@ -128,13 +128,25 @@ compute_indices <- function(models){
       NA
   })
   # Bayesfactor
-  params$BF <- as.numeric(bayesfactor_parameters(posterior,
-                                    prior = distribution_normal(length(posterior),
-                                                                mean=params$Prior_Location,
-                                                                sd=params$Prior_Scale),
-                                    null = 0,
-                                    verbose=FALSE))
+  BF_prior <- as.data.frame(bayestestR:::.update_to_priors(models$bayesian))$x
+  BF_posterior <- posterior
+  # BF_prior <- distribution_normal(length(posterior),
+  #                                 mean = params$Prior_Location,
+  #                                 sd = params$Prior_Scale)
+  # BF_posterior <- distribution_normal(length(posterior),
+  #                                     mean = mean(posterior),
+  #                                     sd = sd(posterior))
+  
+  params$BF <- as.numeric(bayesfactor_parameters(BF_posterior,
+                                                 prior = BF_prior,
+                                                 null = 0,
+                                                 verbose = FALSE))
+  params$BF_interval <- as.numeric(bayesfactor_parameters(BF_posterior,
+                                                          prior = BF_prior,
+                                                          null = range,
+                                                          verbose = FALSE))
   params$BF_log <- log(params$BF)
+  params$BF_interval_log <- log(params$BF_interval)
   
   # CIs
   ci_95 <- hdi(posterior, ci=0.95)
