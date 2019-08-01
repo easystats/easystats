@@ -128,7 +128,7 @@ compute_indices <- function(models){
       NA
   })
   # Bayesfactor
-  BF_prior <- as.data.frame(bayestestR:::.update_to_priors(models$bayesian))$x
+  BF_prior <- as.data.frame(update(models$bayesian, prior_PD = TRUE))$x
   BF_posterior <- posterior
   # BF_prior <- distribution_normal(length(posterior),
   #                                 mean = params$Prior_Location,
