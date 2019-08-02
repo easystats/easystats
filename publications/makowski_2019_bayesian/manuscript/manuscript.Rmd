@@ -62,7 +62,7 @@ The simulation aimed at modulating the following characteristics:
 - **"True" effect**: Original regression coefficient from which data is drawn (prior to noise addition), 1 (presence of effect) or 0 (no effect).
 - **Error**: Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66 (with 1000 different values).
 
-We generated a dataset for each combination of these characteristics, resulting in a total of `2 * 2 * 9 * 1000 = 36000` datasets. The code used for generation is available [here](https://easystats.github.io/circus/articles/bayesian_indices.html) (please note that it takes usually several days/weeks to complete).
+We generated a dataset for each combination of these characteristics, resulting in a total of `2 * 2 * 9 * 1000 = 36000` datasets. The code used for generation is available on github (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 library(ggplot2)
@@ -71,23 +71,45 @@ library(tidyr)
 library(see)
 library(ggExtra)
 
-df <- read.csv("https://raw.github.com/easystats/circus/master/data/bayesSim_study1.csv")
+df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
 ```
 
 
 ## Indices
 
-For each of these datasets, Bayesian and frequentist regressions were fitted to predict *y* with *x* as a unique predictor. The Bayesian models had default, mildly informative priors (normal distribution with mean 0 and SD 1) over the parameter of interest, and were fitted using MCMC (4 chains of 2000 iterations, half of which used for warm-up).
+For each of these datasets, Bayesian and frequentist regressions were fitted to predict *y* with *x* as a unique predictor. The Bayesian models had default, mildly informative priors (normal distribution with mean 0 and SD 1) over the parameter of interest, and were fitted using MCMC (4 chains of 2000 iterations, half of which used for warm-up). For all of the simulated models, we computed seven indices related to the effect of *x*. These are availabe and described in details in the *bayestestR* R package **(BAYESTESTR CITATION)**.
 
-For all of the simulated models, we computed the following indices related to the effect of *x*:
+### Frequentist *p*-value
 
-- ***p*-value**: Based on the frequentist regression, this index represents the probability for a given statistical model that, when the null hypothesis is true, the statistical summary (such as the sample mean difference between two compared groups) would be greater than or equal to the actual observed results [@wasserstein2016asa].
-- ***p*-direction**: the "Probability of Direction" (pd). It varies between 50\% and 100\% and can be interpreted as the probability that a parameter (described by its posterior distribution) is strictly positive or negative (whichever is the most probable). It is mathematically defined as the proportion of the posterior distribution that is of the median's sign **(BAYESTESTR CITATION)**.
-- ***p*-MAP**: the MAP-based *p*-value is related to the odds that a parameter has against the null hypothesis [@mills2014bayesian; @mills2017objective].
-- **ROPE (95\%)**: this index refers to the percentage of the 95\% HDI that lies within the ROPE. This interval corresponds to the one originally suggested by @kruschke2014doing. The Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1 for linear regressions and its equivalent, -0.055 to -0.055, for logistic models (based on the $√(3)/π$ formula to convert log odds ratios to standardized differences; @cohen1988statistical).
-- **ROPE (full)**: this index refers to the percentage of the whole posterior distribution that lies within the ROPE.
-- **Bayes factor (vs. 0)**: this index indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s) (relative to the prior distribution), thus indicating if the null value has become less or more likely given the observed data. Here, the null was defined as a point null (0), and the Bayes factor was computed using the Savage-Dickey density ratio is computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null. <!-- Add some references?-->
+Based on the frequentist regression, this index represents the probability for a given statistical model that, when the null hypothesis is true, the statistical summary (such as the sample mean difference between two compared groups) would be greater than or equal to the actual observed results [@wasserstein2016asa].
 
+### Probability of Direction (pd)
+
+The Probability of Direction (pd) varies between 50\% and 100\% and can be interpreted as the probability that a parameter (described by its posterior distribution) is strictly positive or negative (whichever is the most probable). It is mathematically defined as the proportion of the posterior distribution that is of the median's sign **(BAYESTESTR CITATION)**.
+
+### MAP-based *p*-value
+
+The MAP-based *p*-value (also refered to as the "Bayesian *p*-value") is related to the odds that a parameter has against the null hypothesis using Mills' Objective Bayesian Hypothesis Testing framework [@mills2014bayesian; @mills2017objective]. It is mathematically defined as the density value at 0 divided by the density at the Maximum A Posteriori (MAP), *i.e.*, the equivalent of the mode for continuous distributions.
+
+### ROPE (95\%)
+
+This index refers to the percentage of the 95\% HDI that lies within the ROPE. This interval corresponds to the one originally suggested by @kruschke2014doing. The Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1 for linear regressions and its equivalent, -0.055 to -0.055, for logistic models (based on the $√(3)/π$ formula to convert log odds ratios to standardized differences; @cohen1988statistical).
+
+### ROPE (full)
+
+This index refers to the percentage of the whole posterior distribution that lies within the ROPE.
+
+### Bayes factor (vs. 0)
+
+The Bayes Factor (BF) indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s) (relative to the prior distribution), thus indicating if the null value has become less or more likely given the observed data. Here, the null was defined as a point null (0), and the Bayes factor was computed using the Savage-Dickey density ratio is computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null. <!-- Add some references?-->
+
+### Bayes factor (vs. ROPE)
+
+This index corresponds to the Bayes Factor of the posterior distribution against the range of negligible values (the ROPE). <!-- rephrase and reference-->
+
+## Data Anaysis
+
+The aim of this study is three-fold: 1) compare indices of effect existence and significance between them, 2) provide visual guides to provide an intuitive understanding of the numeric values in relation with a known frame of reference (the frequentist NHST framework) and 3) attempt at outlining numeric guides to ease the reporting and interpretation of the indices. Thus, we will start by 1) presenting the relationship between these indices and the main source of variance, such as effect existence, sample size and noise. 2) Compare Bayesian indices with the frequentist *p*-value and its commonly used thresholds (.05, .01, .001).
 
 
 # Results

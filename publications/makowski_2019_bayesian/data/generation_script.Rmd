@@ -141,12 +141,12 @@ compute_indices <- function(models){
                                                  prior = BF_prior,
                                                  null = 0,
                                                  verbose = FALSE))
-  params$BF_interval <- as.numeric(bayesfactor_parameters(BF_posterior,
+  params$BF_ROPE <- as.numeric(bayesfactor_parameters(BF_posterior,
                                                           prior = BF_prior,
                                                           null = range,
                                                           verbose = FALSE))
   params$BF_log <- log(params$BF)
-  params$BF_interval_log <- log(params$BF_interval)
+  params$BF_ROPE_log <- log(params$BF_ROPE)
   
   # CIs
   ci_95 <- hdi(posterior, ci=0.95)
@@ -281,13 +281,13 @@ for(outcome_type in outcome_types){
         }
       }
     }
-    # write.csv(all_data, "bayesSim_study1.csv", row.names = FALSE)
+    write.csv(all_data, "data.csv", row.names = FALSE)
   }
 }
 ```
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
-# all_data <- read.csv("https://raw.github.com/easystats/circus/master/data/bayesSim_study1.csv")
+all_data <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
 ```
 
 ## Visualise data
