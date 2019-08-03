@@ -191,7 +191,7 @@ figure1
 # ggsave("figures/figure1.png", figure1, height = 8, width = 6)
 ```
 
-
+<!-- MSB: Move disccusion of consistancy here? -->
 
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 figure2_data <- df %>%
@@ -278,6 +278,7 @@ performance_result %>%
 
 For each index and each model type, we fitted a (frequentist) logistic regression to predict the presence or absence of effect, adjusted for noise and sample size. The comparison of the performance of these models (AIC, BIC and Tjur's R2) revealed a consistent pattern accross model type (*i.e.*, similar for linear and logistic models), suggesting that *BF (vs. ROPE)* is the best index to discriminate between the presence and the absence of an effect, followed by *BF (vs. 0)*, *ROPE (full)*, *ROPE (95\_%)*, *p-MAP*, *p-direction* and the frequentist *p*-value. The Bayes factor [against the frequentist *p*-value model, computed via BIC approximation @wagenmakers2007practical], used here as a measure of relative performance, supported this conclusion.
 
+<!-- MSB: Looking at the models, we can talk about how p-values have some discriminatory power, but how the other indices are much better (besides pd) -->
 
 
 ## Relationship with the frequentist *p*-value
@@ -319,7 +320,7 @@ figure3
 ```
 
 
-The **Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, <!-- {MSB} which is to be expected as the BF is consistant when H0 and when H1 is true, whereas the *p*-value is only consistant (reflects the "truth" as sample size increases) when H1 is true, but has a uniform distribution [0-1] when H0 is true, -->while *ROPE*-based percentages appear as being the most independent.
+**Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, which is to be expected since the *BF* is consistant (i.e., reflects the "truth" as sample size increases) both when the null is true and when the alternative is ture (as can be seen in the marginal distibutions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistant when the alternative is true, but has a uniform distribution [0-1] when the null is true. *ROPE*-based percentages appear to be only weakly related to *p*-values (***REF***). <!-- MSB: somewhere I know there is a paper the dicusses this - I will hunt it down! -->
 
 
 
@@ -427,8 +428,7 @@ figure5 # How to remove this annoying TableGrob text?!
 ```
 
 
-The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type.
-<!-- MSB: This plot seems to me like a reflection of the fact that ROPE and BF are consistant both when H0 and H1 are true, while pd (like p-value) is only consistant when H1 is true... -->
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equvilant to the *p*-value, is only consistant when the null is true.
 
 
 
@@ -443,7 +443,9 @@ While this comparison with a frequentist index may seem counterintuitive or wron
 <!-- Introduce distinction about effect existence and significance -->
 
 
-: A decision criterion that allows them to conclude if an effect is "different from 0" (statistically corresponding to either "not negligible" or "not of the opposite direction"). In other words, to know, before taking interest in the importance, relevance or strength of the effect, whether it is related to the outcome in a given direction. 
+: A decision criterion that allows them to conclude if an effect is "different from 0" (statistically corresponding to either "not negligible" or "not of the opposite direction"). In other words, to know, before taking interest in the importance, relevance or strength of the effect, whether it is related to the outcome in a given direction.
+
+<!-- MSB: I think we should discuss the results of the disrimination analysis -->
 
 # Conclusion and Limitations
 
@@ -451,7 +453,7 @@ Before being able to draw a definitive conclusion about the qualities of these i
 
 One of the limitation the ROPE-based indices is that they require an explicit definition of the ROPE range. Importantly, as this range is fixed to the scale of the outcome response, these indices are thus sensitive to changes in the scale of the predictors.
 
-Thus, in order to assess the existence and significance of effects within a regession model, we recommend to report, at minimum, the *pd* as an index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect, and the information it provides related to relative evidence of the size of the effect. <!-- MSB: BF-ROPE is most sensitive to effect **existance!** And IMO, it is also simple to interp -->
+Thus, in order to assess the existence and significance of effects within a regession model, we recommend to report, at minimum, the *pd* as an index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. <!-- MSB: BF-ROPE is most sensitive to effect **existance** as found in the sensitivity analysis! And IMO, it is also simple to interp -->
 <!-- MSB: Should add a sample sentance for how to report -->
 
 
