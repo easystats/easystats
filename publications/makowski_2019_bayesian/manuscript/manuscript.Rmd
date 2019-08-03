@@ -90,8 +90,10 @@ library(dplyr)
 library(tidyr)
 library(see)
 library(ggExtra)
+library(cowplot)
 
 df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
+# df <- read.csv("publications/makowski_2019_bayesian/data/data.csv")
 ```
 
 
@@ -155,7 +157,7 @@ common_aesthetics <- list(
   theme_modern(),
   scale_fill_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")),
   ylab("Index Value"),
-  theme(legend.title = element_blank())
+  theme(legend.title = element_blank(), legend.position = "bottom")
 )
 ```
 
@@ -265,6 +267,8 @@ for (model_type in c("linear", "binary")) {
 
 performance_result %>%
   select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>%
+  mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
+         BF = bayestestR:::.format_big_small(BF)) %>%
   knitr::kable(digits = 2, caption = "Table 1. Performance comparison of the indices in predicting the presence of an effect.")
 ```
 
