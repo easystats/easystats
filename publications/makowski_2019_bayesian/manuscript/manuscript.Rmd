@@ -51,13 +51,18 @@ Indeed, while one of the strengths of the Bayesian framework is its probabilisti
 
 <!-- Utility of significance -->
 
-<!-- Nonetheless, it seems that an index of "significance", as well heuristics to interpret it are useful for Humans to gain an intuitive understanding of the interactions and structure of their data. While desire for significance assessment can be pragmatically observed in the tenacity and resilience of the *p*-value (which, despite a wide agreement on its defects and countless attacks, is still widely used and taught), its undeyling cause could be linked to the practical separation that with the the other perspective on effects description focusing on *estimation*. For instance, in some fields, the    -->
+Nonetheless, it seems that an index of "significance", as well heuristics to interpret it are useful for Humans to gain an intuitive understanding of the interactions and structure of their data. While desire for significance assessment can be pragmatically observed in the tenacity and resilience of the *p*-value (which, despite a wide agreement on its defects and countless attacks, is still widely used and taught), its undeyling cause could be linked to the practical dissociation with another perspective on effects description, more focused on *estimation*. For instance, in some fields, the goal of a study is to precisely estimate a given effect (the question being for example is a given coefficient closer to 7 or to 9?). On the contrary, in other fields, such as for instance experimental psychology, the implicit aim has often been focused on *significance* (altough wether it is a cause or a consequence of the historical heavy use of ANOVAs is unclear): "are these two conditions different?", "is there a correlation between these two variables?", with little care to the precise estimation of the parameter of interest.
 
-<!-- informed by the case of experimental psychology, which historically framed . Indeed, while many psychology figures also made (and still are making) great contributions to the field of statistics, the developpment of experimental psychology in particular is strongly intertwined with one particular statistical procedure, the analysis of variance (ANOVA). While being quite convenient and easy to implement (despite its not so straightforward underpinnings) and particularly suited for testing the effect of experimental conditions, the shift  -->
+<!-- From significance to decision -->
+
+<!-- From significance to decision (medical science etc.). -->
+
+
 
 <!-- Significance vs. Existence -->
 
-
+<!-- blabla -->
+<!-- Acknowledging the distinction and complementarity of these two aspects could in turn enrich the information and usefulness of the results reported by studies. Critically to the aim of that paper, the "existence and significance" dual-perspective naturally stems out from the Bayesian framework, in which several indices of effect existence and significance coexist. -->
 
 
 <!--Present Bayesian indices -->
