@@ -23,12 +23,12 @@ csl: utils/apa.csl
 library(knitr)
 options(knitr.kable.NA = '')
 knitr::opts_chunk$set(comment=">",
-  dpi=75)
+  dpi=75,
+  fig.path = "figures/")
 options(digits=2)
 ```
 
 
-# Abstract
 
 There is now a general agreement that the Bayesian statistical framework is the right way to go for psychological science. Nevertheless, its flexible nature is its power and weakness, for there is no agreement about what indices should be computed or reported. Moreover, the lack of a consensual index of effect existence, such as the frequentist *p*-value, possibly contributes to the unnecessary murkiness that many non-familiar readers perceive in Bayesian statistics. Thus, this study describes and compares several indices of effect existence, provide intuitive visual representation of the "behavior" of such indices in relationship with traditional metrics such as sample size and frequentist significance. The results contribute to develop the intuitive understanding of the values that researchers report and allow to draw recommendations for Bayesian statistics description, critical for the standardization of scientific reporting.
 
@@ -55,16 +55,9 @@ Thus, based on the simulation of multiple linear and logistic regressions (argua
 
 The simulation of datasets suited for linear or logistic regression, we started by simulating a dependent, normally distributed *x* variable (with mean 0 and SD 1) of a given sample size. Then, the corresponding *y* variable was added, having a perfect correlation (in the case of data for linear regressions) or as a binary variable perfect separated by *x* (in the case of no effect, the *y* variable was created independent of *x*). Finally, a Gaussion noise was added (the error).
 
-The simulation aimed at modulating the following characteristics:
+The simulation aimed at modulating the following characteristics: *data type* (*i.e.*, used for linear or logistic regression), *Sample size* (from 20 to 100 by steps of 10), *"true" effect* (original regression coefficient from which data is drawn prior to noise addition, 1 - presence of effect or 0 - absence of effect) and *noise* (Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66, with 1000 different values). We generated a dataset for each combination of these characteristics, resulting in a total of `2 * 2 * 9 * 1000 = 36000` datasets. The code used for generation is available on github (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
 
-- **Data type**: for linear or logistic regressions.
-- **Sample size**: From 20 to 100 by steps of 10.
-- **"True" effect**: Original regression coefficient from which data is drawn (prior to noise addition), 1 (presence of effect) or 0 (no effect).
-- **Error**: Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66 (with 1000 different values).
-
-We generated a dataset for each combination of these characteristics, resulting in a total of `2 * 2 * 9 * 1000 = 36000` datasets. The code used for generation is available on github (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
-
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+```{r DataLoad, message=FALSE, warning=FALSE, echo=FALSE}
 library(ggplot2)
 library(dplyr)
 library(tidyr)
@@ -85,420 +78,299 @@ Based on the frequentist regression, this index represents the probability for a
 
 ### Probability of Direction (pd)
 
-The Probability of Direction (pd) varies between 50\% and 100\% and can be interpreted as the probability that a parameter (described by its posterior distribution) is strictly positive or negative (whichever is the most probable). It is mathematically defined as the proportion of the posterior distribution that is of the median's sign **(BAYESTESTR CITATION)**.
+The Probability of Direction (*pd*) varies between 50\% and 100\% and can be interpreted as the probability that a parameter (described by its posterior distribution) is strictly positive or negative (whichever is the most probable). It is mathematically defined as the proportion of the posterior distribution that is of the median's sign **(BAYESTESTR CITATION)**.
 
 ### MAP-based *p*-value
 
-The MAP-based *p*-value (also refered to as the "Bayesian *p*-value") is related to the odds that a parameter has against the null hypothesis using Mills' Objective Bayesian Hypothesis Testing framework [@mills2014bayesian; @mills2017objective]. It is mathematically defined as the density value at 0 divided by the density at the Maximum A Posteriori (MAP), *i.e.*, the equivalent of the mode for continuous distributions.
+The *MAP-based p-value* (also refered to as the "Bayesian *p*-value") is related to the odds that a parameter has against the null hypothesis using Mills' Objective Bayesian Hypothesis Testing framework [@mills2014bayesian; @mills2017objective]. It is mathematically defined as the density value at 0 divided by the density at the Maximum A Posteriori (MAP), *i.e.*, the equivalent of the mode for continuous distributions.
 
-### ROPE (95\%)
+### ROPE (95\%) and ROPE (full)
 
-This index refers to the percentage of the 95\% HDI that lies within the ROPE. This interval corresponds to the one originally suggested by @kruschke2014doing. The Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1 for linear regressions and its equivalent, -0.055 to -0.055, for logistic models (based on the $√(3)/π$ formula to convert log odds ratios to standardized differences; @cohen1988statistical).
+The *ROPE (95\%)* refers to the percentage of the 95\% HDI that lies within the ROPE. This interval corresponds to the one originally suggested by @kruschke2014doing. The Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1 for linear regressions and its equivalent, -0.055 to -0.055, for logistic models (based on the $√(3)/π$ formula to convert log odds ratios to standardized differences; @cohen1988statistical). The *ROPE (full)* is a full-posterior variant, that refers to the percentage of the whole posterior distribution that lies within the ROPE.
 
-### ROPE (full)
+### Bayes factor (vs. 0) and Bayes factor (vs. ROPE)
 
-This index refers to the percentage of the whole posterior distribution that lies within the ROPE.
+<!-- Add some references to BF SD and BF interval -->
 
-### Bayes factor (vs. 0)
-
-The Bayes Factor (BF) indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s) (relative to the prior distribution), thus indicating if the null value has become less or more likely given the observed data. Here, the null was defined as a point null (0), and the Bayes factor was computed using the Savage-Dickey density ratio is computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null. <!-- Add some references?-->
-
-### Bayes factor (vs. ROPE)
-
-This index corresponds to the Bayes Factor of the posterior distribution against the range of negligible values (the ROPE). <!-- rephrase and reference-->
+The Bayes Factor (*BF*) indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s) (relative to the prior distribution), thus indicating if the null hypothesis has become less or more likely given the observed data. We created two indices corresponding to two definitions for the null. In the case of testing against a point null (0), the Bayes factor was computed using the Savage-Dickey density ratio is computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null. We also computed the Bayes Factor of the posterior distribution against the range of negligible values (the ROPE), ... <!-- rephrase and reference-->
 
 ## Data Anaysis
 
-The aim of this study is three-fold: 1) compare indices of effect existence and significance between them, 2) provide visual guides to provide an intuitive understanding of the numeric values in relation with a known frame of reference (the frequentist NHST framework) and 3) attempt at outlining numeric guides to ease the reporting and interpretation of the indices. Thus, we will start by 1) presenting the relationship between these indices and the main source of variance, such as effect existence, sample size and noise. 2) Compare Bayesian indices with the frequentist *p*-value and its commonly used thresholds (.05, .01, .001).
-
+The aim of this study is two-fold: 1) compare indices of effect existence and significance between them, 2) provide visual guides to provide an intuitive understanding of the numeric values in relation with a known frame of reference (the frequentist NHST framework). Thus, we will start by 1) presenting the relationship between these indices and main sources of variance, such as effect existence, sample size and noise. 2) Compare Bayesian indices with the frequentist *p*-value and its commonly used thresholds (.05, .01, .001). Taken together, these results will help us to outline numeric guides to ease the reporting and interpretation of the indices.
 
 # Results
 
-## Effect Detection
+## Impact of Sample Size and Noise
 
 
-### Sensitivity to Noise
+```{r CommonAesthetics, message=FALSE, warning=FALSE, fig.cap="Figure 2.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+# Common Aesthetics
+indices <- c("p_value" = "p-value",
+             "p_direction" = "p-direction",
+             "p_MAP" = "p-MAP",
+             "ROPE_95" = "ROPE (95%)",
+             "ROPE_full" = "ROPE (full)",
+             "BF_log" = "log BF (vs. 0)",
+             "BF_ROPE_log" = "log BF (vs. ROPE)",
+             
+             "binary" = "Logistic Model",
+             "linear" = "Linear Model",
+             
+             "0" = "Absence of Effect",
+             "1" = "Presence of Effect")
 
-```{r, message=FALSE, warning=FALSE, fig.cap="Figure 1.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-# figure1 <- df %>%
-#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
-#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
-#   mutate(true_effect = as.factor(true_effect),
-#          index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
-#   mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>% 
-#   group_by(temp) %>% 
-#   mutate(error_group = round(mean(error), 1)) %>% 
-#   ungroup() %>% 
-#   ggplot(aes(x = error_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, error_group))) +
-#   geom_boxplot(outlier.shape = NA) +
-#   facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
-#   theme_modern() +
-#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
-#   scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-#                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-#                     guide=FALSE) +
-#   ylab("Index Value") +
-#   xlab("Noise")
-
-ind_names <- c("p_value" = "p-Value",
-               "p_direction" = "p-Direction",
-               "p_MAP" = "p-MAP",
-               "ROPE_95" = "ROPE (95%)",
-               "ROPE_full" = "ROPE (full)",
-               "BF_log" = "Bayes factor (log)",
-               
-               "binary" = "Binary",
-               "linear" = "Linear",
-               
-               "0" = "No Effect",
-               "1" = "Effect")
-
-aes_4_figs <- list(
-  aes(y = value, fill = true_effect),
+common_aesthetics <- list(
+  aes_string(y = "value", fill = "true_effect"),
   geom_boxplot(outlier.shape = NA),
-  facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(ind_names)), 
+  facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(indices)), 
   theme_modern(), 
-  scale_fill_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect"), 
-  ylab("Index Value")
+  scale_fill_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")), 
+  ylab("Index Value"),
+  theme(legend.title = element_blank())
 )
-
-fig1_data <- df %>%
-  select(outcome_type, true_effect, error, sample_size,
-         p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
-  gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
-  mutate(true_effect = as.factor(true_effect),
-         index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
-  mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>% 
-  group_by(temp) %>% 
-  mutate(error_group = round(mean(error), 1)) %>% 
-  # filter(!(index == "BF_log" & value > 30)) %>%
-  ungroup()
-
-figure1 <- ggplot(fig1_data, aes(x = error_group,
-                                 group = interaction(true_effect, error_group))) + 
-  xlab("Noise") + 
-  aes_4_figs
-
-# ggsave("figure1.png", figure1, height = 8, width = 6)
-figure1
 ```
 
-### Sensitivity to Sample Size
 
-```{r, message=FALSE, warning=FALSE, fig.cap="Figure 2.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-# figure2 <- df %>%
-#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
-#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
-#   mutate(true_effect = as.factor(true_effect),
-#          index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
-#   mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>% 
-#   group_by(temp) %>% 
-#   mutate(size_group = round(mean(sample_size))) %>% 
-#   ungroup() %>% 
-#   ggplot(aes(x = size_group, y = value, fill = index, colour=true_effect, group = interaction(index, true_effect, size_group))) +
-#   # geom_jitter(shape=16, alpha=0.02) +
-#   geom_boxplot(outlier.shape = NA) +
-#   facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
-#   theme_modern() +
-#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
-#   scale_fill_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-#                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-#                     guide=FALSE) +
-#   ylab("Index Value") +
-#   xlab("Sample Size")
-
-fig2_data <- df %>%
-  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+```{r Figure1, message=FALSE, warning=FALSE, fig.cap="Figure 1. Impact of Sample Size.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+figure1_data <- df %>%
+  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+  filter((index == "BF_log" & value <= log(999)) | index != "BF_log",
+         (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log") %>% 
   mutate(true_effect = as.factor(true_effect),
-         index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+         index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>%
   mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>% 
   group_by(temp) %>% 
   mutate(size_group = round(mean(sample_size))) %>% 
-  # filter(!(index == "BF_log" & value > 30)) %>%
   ungroup() 
 
 
-figure2 <- ggplot(fig2_data, aes(x = size_group,
-                                 group = interaction(true_effect, size_group))) + 
-  xlab("Sample Size") + 
-  aes_4_figs
-  
-# ggsave("figure2.png", figure2, height = 8, width = 6)
+figure1 <- ggplot(figure1_data, aes(x = size_group, group = interaction(true_effect, size_group))) + 
+  common_aesthetics +
+  xlab("Sample Size")
+figure1
+
+# ggsave("figures/figure1.png", figure1, height = 8, width = 6)
+```
+
+
+
+```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+figure2_data <- df %>%
+  select(outcome_type, true_effect, error, sample_size,
+         p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
+  gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+  filter((index == "BF_log" & value <= log(999)) | index != "BF_log",
+         (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log") %>% 
+  mutate(true_effect = as.factor(true_effect),
+         index = factor(index, levels=c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>%
+  mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>% 
+  group_by(temp) %>% 
+  mutate(error_group = round(mean(error), 1)) %>% 
+  ungroup()
+
+figure2 <- ggplot(figure2_data, aes(x = error_group, group = interaction(true_effect, error_group))) + 
+  common_aesthetics +
+  xlab("Noise")
 figure2
+
+# ggsave("figure2.png", figure2, height = 8, width = 6)
 ```
 
 
 
 
-### Statistical Modelling
+```{r PerformanceComparison, message=FALSE, warning=FALSE}
+library(parameters)
+library(performance)
 
-We fitted a (frequentist) multiple linear regression to predict the presence or absence of effect with the different indices as well as their interaction with noise and sample size.
+performance_result <- data.frame()
+for(model_type in c("linear", "binary")){
+  model_p_value <- df %>%
+  parameters::normalize(select="p_value") %>%
+  mutate(p_value = 1-p_value) %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ p_value + error + sample_size, data=., family="binomial")
+model_p_direction <- df %>%
+  parameters::normalize(select="p_direction") %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ p_direction + error + sample_size, data=., family="binomial")
+model_p_MAP <- df %>%
+  parameters::normalize(select="p_MAP") %>%
+  mutate(p_MAP = 1-p_MAP) %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ p_MAP + error + sample_size, data=., family="binomial")
+model_ROPE_95 <- df %>%
+  parameters::normalize(select="ROPE_95") %>%
+  mutate(ROPE_95 = 1-ROPE_95) %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ ROPE_95 + error + sample_size, data=., family="binomial")
+model_ROPE_full <- df %>%
+  parameters::normalize(select="ROPE_full") %>%
+  mutate(ROPE_full = 1-ROPE_full) %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ ROPE_full + error + sample_size, data=., family="binomial")
+model_BF_log <- df %>%
+  parameters::normalize(select="BF_log") %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ BF_log + error + sample_size, data=., family="binomial")
+model_BF_ROPE_log <- df %>%
+  parameters::normalize(select="BF_ROPE_log") %>%
+  filter(outcome_type == model_type) %>% 
+  glm(true_effect ~ BF_ROPE_log + error + sample_size, data=., family="binomial")
 
-<!-- THIS MUST WAIT UNTIL PARAMETERS Is ON CRAN SO WE CAN USE ITS NORMALIZE FUNCTION -->
+  performance_table <- performance::compare_performance(model_p_value, model_p_direction, model_p_MAP, model_ROPE_95, model_ROPE_full, model_BF_log, model_BF_ROPE_log)
+  performance_table <- cbind(data.frame(Model_Type = model_type), performance_table)
+  performance_result <- rbind(performance_result, performance_table)
+}
 
-<!-- ```{r, message=FALSE, warning=FALSE} -->
-<!-- df %>% -->
-<!--   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, p_ROPE, ROPE_90, ROPE_95, ROPE_full) %>% -->
-<!--   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>% -->
-<!--   group_by(index) %>% -->
-<!--   parameters::normalize(select="value") %>% -->
-<!--   ungroup() %>% -->
-<!--   glm(true_effect ~ outcome_type / index / value  * sample_size * error, data=., family="binomial") %>% -->
-<!--    broom::tidy() %>% -->
-<!--    select(term, index, p=p.value) %>% -->
-<!--    filter(stringr::str_detect(term, 'outcome_type'), -->
-<!--           stringr::str_detect(term, ':value')) %>% -->
-<!--    mutate( -->
-<!--      sample_size = stringr::str_detect(term, 'sample_size'), -->
-<!--      error = stringr::str_detect(term, 'error'), -->
-<!--      term = stringr::str_remove(term, "index"), -->
-<!--      term = stringr::str_remove(term, "outcome_type"), -->
-<!--      p = paste0(sprintf("%.2f", p), ifelse(p < .001, "***", ifelse(p < .01, "**", ifelse(p < .05, "*", ""))))) %>% -->
-<!--    arrange(sample_size, error, term) %>% -->
-<!--    select(-sample_size, -error) %>% -->
-<!--    knitr::kable(digits=2) -->
-<!-- ``` -->
+performance_result %>% 
+  select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>% 
+  knitr::kable(digits = 2)
+```
 
-<!-- This suggests that, in order to delineate between the presence and the absence of an effect: -->
 
-<!-- - For linear Models; -->
+For each index and each model type, we fitted a (frequentist) logistic regression to predict the presence or absence of effect, adjusted for noise and sample size. The comparison of the performance of these models (AIC, BIC and Tjur's R2) revealed a consistent pattern accross model type (*i.e.*, similar for linear and logistic models), suggesting that *BF (vs. ROPE)* is the best index to discriminate between the presence and the absence of an effect, followed by *BF (vs. 0)*, *ROPE (full)*, *ROPE (95\_%)*, *p-MAP*, *p-direction* and the frequentist *p*-value. The Bayes factor (computed via BIC approximation (**REFERENCE**) against the frequentist *p*-value model), used here as a measure of relative performance, supported this conclusion.
 
-<!--   - The **pd**, followed by the **p (ROPE)** and the 3 **ROPE percentage**, indices had a significamtly superior performance. However, **p (MAP)** performed not significantly worse. -->
-
-<!--   - The **mean**, followed closely by the **median**, and the **MAP** estimate had a superior performance, altough not significantly. -->
-<!--   - The **mean**, followed closely by the **median**, and the **MAP** estimate, were less affected by noise, altough not significantly. -->
-<!--   - No difference for the sensitivity to sample size was found. -->
-
-<!-- - For logistic models: -->
-
-<!--   - The **pd**, followed by the **p (ROPE)** and the 3 **ROPE percentage**, indices had a significamtly superior performance. However, **p (MAP)** performed not significantly worse. -->
-<!--   - The **MAP** estimate, followed by the **median**, and the **mean**, were less affected by noise, altough not significantly. -->
-<!--   - The **MAP** estimate, followed by the **mean**, and the **median**, were less affected by sample size, altough not significantly. -->
 
 
 ## Relationship with the frequentist *p*-value
 
 
 
-```{r, message=FALSE, warning=FALSE, fig.cap="Figure 3.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-# figure3 <- df %>%
-#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
-#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
-#   mutate(true_effect = as.factor(true_effect),
-#          index = factor(index, levels=c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
-#   mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>% 
-#   group_by(temp) %>% 
-#   mutate(size_group = as.character(round(mean(sample_size)))) %>% 
-#   ungroup() %>% 
-#   ggplot(aes(x = p_value, y = value, color = true_effect, shape=size_group)) +
-#   geom_point(alpha=0.025, stroke = 0, shape=16) +
-#   facet_wrap(~index * outcome_type, scales = "free", ncol=2) +
-#   theme_modern() +
-#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
-#   guides(colour = guide_legend(override.aes = list(alpha = 1)),
-#          shape = guide_legend(override.aes = list(alpha = 1), title="Sample Size"))
-
-fig3_data <- df %>%
-  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log) %>%
+```{r Figure3, message=FALSE, warning=FALSE, fig.cap="Figure 3. Relationship with the frequentist p-value.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
+figure3_data <- df %>%
+  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
+  filter((index == "BF_log" & value <= log(999)) | index != "BF_log",
+         (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log") %>% 
   mutate(true_effect = as.factor(true_effect),
-         index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log"))) %>%
+         index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>%
   mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>% 
   group_by(temp) %>% 
   mutate(size_group = as.character(round(mean(sample_size)))) %>% 
   ungroup()
 
-figure3 <- ggplot(fig3_data, aes(x = p_value, y = value, color = true_effect, shape = size_group)) +
+figure3 <- ggplot(figure3_data, aes(x = p_value, y = value, color = true_effect, shape = size_group)) +
   geom_point(alpha = 0.025, stroke = 0, shape = 16) +
   geom_rug(alpha = 0.025) + 
-  facet_grid(index ~ outcome_type + true_effect, scales = "free", labeller = as_labeller(ind_names)) +
+  facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(indices)) +
   theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect") +
+  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")) +
+  theme(legend.title = element_blank()) +
   guides(colour = guide_legend(override.aes = list(alpha = 1)),
          shape = guide_legend(override.aes = list(alpha = 1), title = "Sample Size")) + 
   ylab("Index Value") + 
-  ylab("p-Value")
-
-# ggsave("figure3.png", figure3, height = 8, width = 6)
-
+  ylab("p-value")
 figure3
+# ggsave("figure3.png", figure3, height = 8, width = 6)
 ```
 
 
-## Relationship with frequentist *p*-based arbitrary clusters
+The **Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, while *ROPE*-based percentages appear as being the most independent.
 
-```{r, message=FALSE, warning=FALSE, fig.cap="Figure 4.", fig.align='center', fig.width=21/2, fig.height=29.7/2, dpi=300, echo=FALSE}
-df$sig_1 <- factor(ifelse(df$p_value >= .1, "n.s.", "-"), levels=c("n.s.", "-"))
+TODO: Add points type as sample size as ROPE seems to be directly related to groups of sample size.
+
+
+```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship between Bayesian indices and frequentist arbitrary threshold of significance.", fig.align='center', fig.width=21/2, fig.height=21/2, dpi=300, echo=FALSE}
+df$sig_1 <- factor(ifelse(df$p_value >= .1, "n.s.", "*"), levels=c("n.s.", "*"))
 df$sig_05 <- factor(ifelse(df$p_value >= .05, "n.s.", "*"), levels=c("n.s.", "*"))
-df$sig_01 <- factor(ifelse(df$p_value >= .01, "n.s.", "**"), levels=c("n.s.", "**"))
-df$sig_001 <- factor(ifelse(df$p_value >= .001, "n.s.", "***"), levels=c("n.s.", "***"))
+df$sig_01 <- factor(ifelse(df$p_value >= .01, "n.s.", "*"), levels=c("n.s.", "*"))
+df$sig_001 <- factor(ifelse(df$p_value >= .001, "n.s.", "*"), levels=c("n.s.", "*"))
 
 
-get_data <- function(predictor, outcome, lbound=0, ubound=0.3){
-  fit <- suppressWarnings(glm(paste(outcome, "~ outcome_type * ", predictor), data=df, family = "binomial"))
-  # data <- data.frame(x=rep(1:100, 2))
-  data <- data.frame(outcome_type=rep(c("linear", "binary"), each=100))
-  data[predictor] <- rep(seq(lbound, ubound, length.out = 100), 2)
-  data$index <- predictor
-  predict_fit <- predict(fit, newdata=data, type="response", se.fit = TRUE)
-  data[outcome] <- predict_fit$fit 
-  data$CI_lower <- predict_fit$fit - (qnorm(0.99) * predict_fit$se.fit)
-  data$CI_upper <- predict_fit$fit + (qnorm(0.99) * predict_fit$se.fit)
-  data <-
-    select(
-      data,
-      "value" := !!predictor,
-      !!outcome,
-      .data$outcome_type,
-      .data$index,
-      .data$CI_lower,
-      .data$CI_upper
-    )
-  return(data)
-}
-
-
-
-# figure4 <- rbind(
-#   rbind(
-#     get_data(predictor="p_direction", outcome="sig_001", lbound=0.995, ubound=1),
-#     get_data(predictor="p_MAP", outcome="sig_001", lbound=0, ubound=0.01),
-#     get_data(predictor="ROPE_95", outcome="sig_001", lbound=0, ubound=0.005),
-#     get_data(predictor="ROPE_full", outcome="sig_001", lbound=0, ubound=0.005),
-#     get_data(predictor="BF_log", outcome="sig_001", lbound=0, ubound=10)
-#     ) %>% 
-#     rename("sig"=sig_001) %>% 
-#     mutate(threshold="p < .001"),
-#   rbind(
-#     get_data(predictor="p_direction", outcome="sig_01", lbound=0.98, ubound=1),
-#     get_data(predictor="p_MAP", outcome="sig_01", lbound=0, ubound=0.075),
-#     get_data(predictor="ROPE_95", outcome="sig_01", lbound=0, ubound=0.02),
-#     get_data(predictor="ROPE_full", outcome="sig_01", lbound=0, ubound=0.02),
-#     get_data(predictor="BF_log", outcome="sig_01", lbound=0, ubound=5)
-#     ) %>% 
-#     rename("sig"=sig_01) %>% 
-#     mutate(threshold="p < .01"),
-#   rbind(
-#     get_data(predictor="p_direction", outcome="sig_05", lbound=0.95, ubound=1),
-#     get_data(predictor="p_MAP", outcome="sig_05", lbound=0.05, ubound=0.25),
-#     get_data(predictor="ROPE_95", outcome="sig_05", lbound=0, ubound=0.01),
-#     get_data(predictor="ROPE_full", outcome="sig_05", lbound=0, ubound=0.01),
-#     get_data(predictor="BF_log", outcome="sig_05", lbound=0, ubound=2)
-#     ) %>%  
-#     rename("sig"=sig_05) %>% 
-#     mutate(threshold="p < .05"),
-#   rbind(
-#     get_data(predictor="p_direction", outcome="sig_1", lbound=0.90, ubound=1),
-#     get_data(predictor="p_MAP", outcome="sig_1", lbound=0.15, ubound=0.35),
-#     get_data(predictor="ROPE_95", outcome="sig_1", lbound=0, ubound=0.2),
-#     get_data(predictor="ROPE_full", outcome="sig_1", lbound=0, ubound=0.2),
-#     get_data(predictor="BF_log", outcome="sig_1", lbound=0, ubound=1)
-#     ) %>% 
-#     rename("sig"=sig_1) %>% 
-#     mutate(threshold="p < .1")
-# ) %>% 
-#   mutate(index = as.factor(index)) %>%
-#   ggplot(aes(x=value, y=sig)) +
-#   geom_ribbon(aes(ymin=CI_lower, ymax=CI_upper), alpha=0.1) +
-#   geom_line(aes(color=index), size=1) +
-#   facet_wrap(~ index * threshold * outcome_type, scales = "free", ncol=8) +
-#   theme_modern() +
-#   scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-#                                "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-#                      guide=FALSE) +
-#   ylab("Probability of being significant") +
-#   xlab("Index Value")
-# figure4
-
-make_fig_4 <- function(.data){
-  .data$level <- ifelse(.data$level=="n.s.",0,1)
+make_figure4 <- function(.data){
+  .data$level <- ifelse(.data$level=="n.s.", 0, 1)
   fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
-  newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 100))
+  newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 500))
   newdata$sig <- predict(fit, newdata = newdata, type = "response")
   newdata
 }
 
-fig4_data <- df %>% 
-  gather("threshold","level",sig_1:sig_001) %>% 
-  gather("index","value",p_direction,p_MAP,ROPE_95,ROPE_full,BF_log) %>% 
-  group_by(outcome_type,index,threshold,true_effect) %>% 
+figure4_data <- df %>% 
+  gather("threshold","level", sig_1:sig_001) %>% 
+  gather("index","value", p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>% 
+  group_by(outcome_type, index, threshold) %>%
   nest() %>% 
-  mutate(data = lapply(data,make_fig_4)) %>% 
+  mutate(data = lapply(data, make_figure4)) %>% 
   unnest() %>% 
   ungroup() %>% 
   mutate(threshold = factor(threshold, levels = c("sig_1","sig_05","sig_01","sig_001")),
-         true_effect = as.factor(true_effect),
-         index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log")))
+         index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>% 
+  filter((index == "p_direction" & value >= 0.925) | index != "p_direction",
+         (index == "p_MAP" & value <= 0.35) | index != "p_MAP",
+         (index == "ROPE_95" & value <= 0.3) | index != "ROPE_95",
+         (index == "ROPE_full" & value <= 0.3) | index != "ROPE_full",
+         (index == "BF_log" & value <= 8) | index != "BF_log",
+         (index == "BF_ROPE_log" & value <= 8) | index != "BF_ROPE_log")
 
-figure4 <- ggplot(fig4_data, aes(x=value, y=sig, linetype = threshold, group = interaction(true_effect,threshold))) +
-  geom_line(aes(color=true_effect), size=1) +
-  facet_wrap( ~ index + outcome_type, scales = "free", ncol=2, labeller = as_labeller(ind_names)) +
+
+figure4 <- ggplot(figure4_data, aes(x=value, y=sig, linetype = threshold, group = interaction(outcome_type, threshold))) +
+  geom_line(aes(color=outcome_type), size=1) +
+  facet_wrap( ~ index, scales = "free", labeller = as_labeller(indices)) +
   theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect") +
-  scale_linetype_manual(values = c("sig_1" = "solid", "sig_05" = "longdash", "sig_01" = "dashed", "sig_001" = "dotted"),
+  scale_color_manual(values = c(`linear` = "#2196F3", `binary` = "#FF9800"), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+  scale_linetype_manual(values = c("sig_1" = "dotted", "sig_05" = "dashed", "sig_01" = "longdash", "sig_001" = "solid"),
                         labels = c("p < .1", "p < .05", "p < .01", "p < .001"),
                         name = "Threshold") +
   ylab("Probability of being significant") +
   xlab("Index Value") + 
   coord_cartesian(ylim = c(0,1))
-# ggsave("figure4.png", figure4, height = 8, width = 6)
 figure4
-```
-
-## Relationship with Equivalence test
-
-```{r, message=FALSE, warning=FALSE, eval = FALSE, fig.cap="Figure 5.", fig.align='center', fig.width=21/2, dpi=300, fig.height=29.7/2, echo=FALSE}
-df$equivalence <- factor(ifelse(df$ROPE_95 == 0, "significant", "n.s."), levels=c("n.s.", "significant"))
-
-
-figure5 <- rbind(
-    get_data(predictor="p_direction", outcome="equivalence", lbound=0.975, ubound=1),
-    get_data(predictor="p_MAP", outcome="equivalence", lbound=0, ubound=0.2),
-    get_data(predictor="ROPE_full", outcome="equivalence", lbound=0, ubound=0.03),
-    get_data(predictor="BF_log", outcome="equivalence", lbound=0.5, ubound=2.25)
-    ) %>% 
-  ggplot(aes(x=value, y=equivalence)) +
-  geom_ribbon(aes(ymin=CI_lower, ymax=CI_upper), alpha=0.1) +
-  geom_line(aes(color=index), size=1) +
-  facet_wrap(~ index * outcome_type, scales = "free", nrow=7) +
-  theme_modern() +
-  scale_color_manual(values = c("p_value"="#607D8B", "p_MAP" = "#4CAF50", "p_direction" = "#2196F3",
-                               "ROPE_95" = "#FFC107", "ROPE_full" = "#FF9800", "BF_log"="#E91E63"), 
-                     guide=FALSE) +
-  ylab("Probability of rejecting H0 with the equivalence test") +
-  xlab("Index Value")
-figure5
+# ggsave("figure4.png", figure4, height = 8, width = 6)
 ```
 
 
 
-## Relationship between ROPE (full), p (direction) and Bayes Factor
 
-```{r, message=FALSE, warning=FALSE, fig.cap="Figure 6.", fig.align='center', fig.width=21/2, fig.height=21/2, dpi=300, echo=FALSE}
-p1 <- df %>%
-  mutate(true_effect = as.factor(true_effect)) %>% 
-  ggplot(aes(x=p_direction, y=ROPE_full, color=true_effect)) +
-  geom_point2(alpha=0.03, size = 2) +
-  facet_wrap(~ outcome_type, scales = "free", ncol=2) +
-  theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
+## Relationship between ROPE (full), pd and BF (vs. ROPE)
+
+```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.75, fig.height=29.7/1.75, dpi=300, echo=FALSE}
+pd_rope <- df %>%
+  mutate(true_effect = as.factor(true_effect),
+         sample_size = as.factor(sample_size)) %>%
+  ggplot(aes(x=p_direction, y=ROPE_full, color=sample_size, shape = outcome_type, alpha = true_effect)) +
+  geom_point() +
+  scale_shape_manual(values=c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+  scale_alpha_manual(values=c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+  scale_color_material_d(name = "Sample Size") +
   ylab("ROPE (full)") +
-  xlab("")
-p2 <- df %>%
-  mutate(true_effect = as.factor(true_effect)) %>% 
-  ggplot(aes(x=p_direction, y=BF_log, color=true_effect)) +
-  geom_point2(alpha=0.03, size = 2) +
-  geom_hline(yintercept = 0, linetype = "dotted") +
-  facet_wrap(~ outcome_type, scales = "free", ncol=2) +
-  theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name="Effect") +
-  ylab("BF_log") +
-  xlab("Probability of Direction (pd)")
-figure6 <- see::plots(p1, p2, nrow = 2)
-figure6
+  xlab("p-direction") +
+  theme_modern()
+
+pd_bf <- df %>%
+  filter(BF_ROPE_log <= log(999)) %>% 
+  mutate(true_effect = as.factor(true_effect),
+         sample_size = as.factor(sample_size)) %>%
+  ggplot(aes(x=p_direction, y=BF_ROPE_log, color=sample_size, shape = outcome_type, alpha = true_effect)) +
+  geom_point() +
+  scale_shape_manual(values=c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+  scale_alpha_manual(values=c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+  scale_color_material_d(name = "Sample Size") +
+  ylab("log BF (vs. ROPE)") +
+  xlab("p-direction") +
+  theme_modern()
+
+rope_bf <- df %>%
+  filter(BF_ROPE_log <= log(999)) %>% 
+  mutate(true_effect = as.factor(true_effect),
+         sample_size = as.factor(sample_size)) %>%
+  ggplot(aes(x=ROPE_full, y=BF_ROPE_log, color=sample_size, shape = outcome_type, alpha = true_effect)) +
+  geom_point() +
+  scale_shape_manual(values=c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+  scale_alpha_manual(values=c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+  scale_color_material_d(name = "Sample Size") +
+  ylab("log BF (vs. ROPE)") +
+  xlab("ROPE (full)") +
+  theme_modern()
+
+figure5 <- see::plots(pd_rope, pd_bf, rope_bf, nrow = 3)
+plot(figure5)
+# ggsave("figure5.png", figure5, height = 8, width = 6)
 ```
 
+
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type.
 
 # Discussion
 
@@ -509,16 +381,24 @@ Based on the simulation of multiple linear regressions, the present work aimed a
 
 While this comparison with a frequentist index may seem counterintuitive or wrong (as the Bayesian thinking is intrinsically different from the frequentist framework), we believe that this comparison is interesting for didactic reasons. The frequentist *p*-value "speaks" to many and can thus be seen as a reference and a way to facilitate the shift toward the Bayesian framework. This does not preclude, however, that a change in the general paradigm of effect existence seeking in necessary, and that Bayesian indices are fundamentally different from the frequentist *p*, rather than mere approximations or equivalents. Critically, we strongly agree on the distinction and possible dissociation between an effect’s existence and meaningfulness [@lakens2018equivalence]. Nevertheless, we believe that assessing whether an effect is "meaningful" is highly dependent on the literature, priors, novelty, context or field, and that it cannot be assessed based solely on a statistical index (even though some of the indices, such as the ROPE-related ones, attempt at bridging existence with meaningfulness). Thus, researchers should rely on statistics to assess effect existence (as well as size and direction estimation), and systematically, but contextually, discuss its meaning and importance within a larger perspective.
 
-Conclusions can be found in the [guidelines section](https://easystats.github.io/bayestestR/articles/guidelines.html).
 
 
-# Conclusion
+# Conclusion and Limitations
 
+Before being able to draw a definitive conclusion about the qualities of these indices, further studies need to investigate the robustness of these indices to sampling characteristics (*e.g.*, samplign algorithm, number of iterations, chains, warm-up) and the impact of prior specification.
+
+
+One of the limitation the ROPE-based indices is that they require an explicit definition of the ROPE range. Importantly, as this range is fixed to the scale of the outcome response, these indices are thus sensitive to changes in the scale of the predictors.
+
+Thus, in order to assess the existence and significance of effects within a regession model, we recommend to report, at minimum, the *pd* as an index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect, and the information it provides related to relative evidence of effect size.
 
 
 <!-- - ROPE based indices seems to be the most sensitive to different model types, as equivalent ROPE ranges are not straightforward to select. -->
 <!-- - ROPE seems also strongly affected by sample -->
-<!-- - pd and BF might be two relevant indices, being both intuitive, providing different information and appearing as undependent from the model type. -->
+<!-- - pd and BF might be two relevant indices, being both intuitive, providing different information. -->
 <!-- - On the other hand, BF and pd seems quite closely related: ROPE might give a different perspective, altough to be taken with caution. -->
+
+
+
 
 # References
