@@ -245,7 +245,8 @@ for (model_type in c("linear", "binary")) {
 
 performance_result %>%
   select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>%
-  # mutate(BF = bayestestR:::.format_big_small(BF)) %>% 
+  mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
+         BF = bayestestR:::.format_big_small(BF)) %>%
   knitr::kable(digits = 2, caption = "Table 1. Performance comparison of the indices in predicting the presence of an effect.")
 ```
 
