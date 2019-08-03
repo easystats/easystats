@@ -280,6 +280,8 @@ For each index and each model type, we fitted a (frequentist) logistic regressio
 
 <!-- MSB: Looking at the models, we can talk about how p-values have some discriminatory power, but how the other indices are much better (besides pd) -->
 
+<!-- MSB: interval BFs descriminate better between null (or negligable) and true (un-negligable) effects [@morey2011bayesinterval; rouder2012default] -->
+
 
 ## Relationship with the frequentist *p*-value
 
@@ -320,7 +322,7 @@ figure3
 ```
 
 
-**Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, which is to be expected since the *BF* is consistant (i.e., reflects the "truth" as sample size increases) both when the null is true and when the alternative is ture (as can be seen in the marginal distibutions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistant when the alternative is true, but has a uniform distribution [0-1] when the null is true. *ROPE*-based percentages appear to be only weakly related to *p*-values (***REF***). <!-- MSB: somewhere I know there is a paper the dicusses this - I will hunt it down! -->
+**Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, which is to be expected since the *BF* is consistant (i.e., it approaches the "true" bound as sample size increases) both when the null is true and when the alternative is ture (as can be seen in the marginal distibutions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistant when the alternative is true, but has a uniform distribution [0-1] when the null is true [@rouder2012default; @rouder2009bayesian]. *ROPE*-based percentages appear to be only weakly related to *p*-values.
 
 
 
