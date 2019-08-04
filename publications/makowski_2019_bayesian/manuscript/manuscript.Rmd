@@ -60,17 +60,7 @@ While significance testing (and its inherent categorical interpretation heuristi
 
 <!--Bayesian alternatives -->
 
-What does the Bayesian framework offer as alternatives for the *p*-value? Bayesian testing indices could be roughly grouped into three overlapping categories: Bayes factors, posterior indices and ROPE-based indices. Bayes factors reflect the predictive performance of one against another model [*e.g.*, the null vs. the alternative hypothesis; @jeffreys1998theory; @ly2016harold]. It provides many advantages over the *p*-value, having a straightforward interpretation and allowing to quantify the evidence in favour of the null hypothesis [@dienes2014using; @jarosz2014odds]. Nonetheless, its use for parameters description in complex models is still a matter of debate, being highly dependent on priors specification [@etz2018bayesian; @kruschke2018bayesian]. On the contrary, "posterior indices" reflect objective characteristics of the posterior distribution.
-
-<!-- Describe them -->
-
-Bayes factors and indices derived solely from the posterior distribution are both the "natural, direct, and unavoidable consequence of Bayes' rule" [@rouder2018bayesian, p. 106]. ROPE-based indices are related to the redefinition of the point-null hypothesis [@kruschke2014doing; @lakens2017equivalence] as a range of values (the Region of Practical Equivalence - ROPE), usually equally spread around 0 (*e.g.*, [-0.1; 0.1]) and considered as negligible (*i.e.*, too small to be of practical relevance). It is interesting to note that this perspective unites Bayesian indices with the focus on effect size (involving a discrete separation between at least two categories), which finds an echo in the recent statistical recommendations [@sullivan2012using; ellis2003practical; simonsohn2014p].
-
-
-
-<!-- It is thus unsurprising that the development of Bayesian user-friendly implementations was accompanied with the promotion of the Bayes Factor (BF), an index reflecting the predictive performance of a model against another [*e.g.*, the null vs. the alternative hypothesis; @jeffreys1998theory; @ly2016harold]. It provides many advantages over the *p* value, having a straightforward interpretation ("the data were 3 times (*BF* = 3) more likely to occur under the alternative than the null hypothesis") and allowing to make statements about the alternative, rather than just the null hypothesis [@dienes2014using; @jarosz2014odds]. Moreover, recent mathematical developments allow its computation for complex models [@gronau2017bayesian; @gronau2017simple]. Although the BF lives up to the expectations of a solid, valid, intuitive and better index compared to the *p*-value, its use for model selection is still a matter of debate [@piironen2017comparison]. Indeed, as the predictions used for its computation are generated from the prior distributions on the model parameters, it is highly dependent on priors specification [@etz2018bayesian; @kruschke2018bayesian]. Importantly for the aim of this paper, its use for estimating effect existence of parameters *within* a larger model remains limited, its computation being technically difficult and its interpretation not as straightforward as for "simple" tests such as t-tests or correlations. -->
-
-<!-- Nevertheless, reflecting the need for such information, researchers have developed other indices based on characteristics of the posterior distribution, which represents the probability distribution of different parameter values given the observed data. This uncertainty can be summarized, for example, by presenting point-estimates of centrality (mean, median, ...) and of dispersion (standard deviation, median absolute deviance, ...), often accompanied with a percentage (89\%, 90\% or 95\%) of the Highest Density Interval (HDI; referred to as the *Credible Interval* - CI).  -->
+What does the Bayesian framework offer as alternatives for the *p*-value? Bayesian testing indices could be roughly grouped into three overlapping categories: Bayes factors, posterior indices and ROPE-based indices. Bayes factors reflect the predictive performance of one against another model [*e.g.*, the null vs. the alternative hypothesis; @jeffreys1998theory; @ly2016harold]. It provides many advantages over the *p*-value, having a straightforward interpretation and allowing to quantify the evidence in favour of the null hypothesis [@dienes2014using; @jarosz2014odds]. Nonetheless, its use for parameters description in complex models is still a matter of debate, being highly dependent on priors specification [@etz2018bayesian; @kruschke2018bayesian]. On the contrary, "posterior indices" reflect objective characteristics of the posterior distribution, such as for instance the proportion of strictly positive values. While the simplicity of their computation and interpretation is a strength, it could also become a limitation in the information that they provide. Bayes factors and indices derived solely from the posterior distribution are both the "natural, direct, and unavoidable consequence of Bayes' rule" [@rouder2018bayesian, p. 106]. Finally, ROPE-based indices are related to the redefinition of the point-null hypothesis [@kruschke2014doing; @lakens2017equivalence] as a range of values (the Region of Practical Equivalence - ROPE), usually equally spread around 0 (*e.g.*, [-0.1; 0.1]) and considered as negligible (*i.e.*, too small to be of practical relevance). It is interesting to note that this perspective unites Bayesian indices with the focus on effect size (involving a discrete separation between at least two categories), which finds an echo in the recent statistical recommendations [@sullivan2012using; ellis2003practical; simonsohn2014p].
 
 
 <!-- Research gap statement -->
@@ -225,11 +215,11 @@ figure2
 
 
 
-```{r PerformanceComparison, message=FALSE, warning=FALSE, echo=FALSE}
+```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
 library(parameters)
 library(performance)
 
-performance_result <- data.frame()
+table1 <- data.frame()
 for (model_type in c("linear", "binary")) {
   p_value <- df %>%
     parameters::normalize(select = "p_value") %>%
@@ -266,10 +256,10 @@ for (model_type in c("linear", "binary")) {
 
   performance_table <- performance::compare_performance(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log)
   performance_table <- cbind(data.frame(Model_Type = model_type), performance_table)
-  performance_result <- rbind(performance_result, performance_table)
+  table1 <- rbind(table1, performance_table)
 }
 
-performance_result %>%
+table1 %>%
   select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>%
   mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
          BF = bayestestR:::.format_big_small(BF)) %>%
@@ -387,6 +377,56 @@ figure4
 
 
 
+```{r table2, message=FALSE, warning=FALSE, echo=FALSE}
+table2 <- rbind(
+  data.frame(
+    "Index" = "Probability of Direction (pd)",
+    "Interpretation" = "Probability that an effect is of the same sign as the median's.",
+    "Definition" = "Proportion of the posterior distribution of the same sign than the median's.",
+    "Strengths" = "Straightforward computation and interpretation. Objective property of the posterior distribution. 1:1 correspondance with the frequentist p-value.",
+    "Limitations" = "Limited information favouring the null hypothesis."
+    ),
+  data.frame(
+    "Index" = "MAP-based p-value",
+    "Interpretation" = "Relative odds of the presence of an effect against 0.",
+    "Definition" = "Density value at 0 divided by the density value at the mode of the posterior distribution.",
+    "Strengths" = "Straightforward computation. Objective property of the posterior distribution",
+    "Limitations" = "Limited information favouring the null hypothesis."  # ?
+    ),
+  data.frame(
+    "Index" = "ROPE (95%)",
+    "Interpretation" = "Probability that the credible effect values are not negligible.",
+    "Definition" = "Proportion of the 95% CI inside of a range of values defined as the ROPE.",
+    "Strengths" = "Provides information related to the practical relevance of the effects.",
+    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors. Not sensitive to highly significant effects."
+    ),
+  data.frame(
+    "Index" = "ROPE (full)",
+    "Interpretation" = "Probability that the effect possible values are not negligible.",
+    "Definition" = "Proportion of the posterior distribution inside of a range of values defined as the ROPE.",
+    "Strengths" = "Provides information related to the practical relevance of the effects.",
+    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors."
+    ),
+  data.frame(
+    "Index" = "Bayes factor (vs. 0)",
+    "Interpretation" = "???",
+    "Definition" = "???",
+    "Strengths" = "???",
+    "Limitations" = "???"
+    ),
+  data.frame(
+    "Index" = "Bayes factor (vs. ROPE)",
+    "Interpretation" = "???",
+    "Definition" = "???",
+    "Strengths" = "???",
+    "Limitations" = "A ROPE range needs to be arbitrarily defined."
+    )
+)
+
+knitr::kable(table2, digits = 2, caption = "Table 2. Summary of Bayesian Indices of Effect Existence and Significance.")
+```
+
+
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
 ```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
@@ -432,7 +472,6 @@ figure5 # How to remove this annoying TableGrob text?!
 
 
 The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equvilant to the *p*-value, is only consistant when the null is true.
-
 
 
 # Discussion
