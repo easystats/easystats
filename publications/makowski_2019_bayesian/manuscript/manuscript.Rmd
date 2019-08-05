@@ -65,7 +65,7 @@ What does the Bayesian framework offer as alternatives for the *p*-value? Bayesi
 
 <!-- Research gap statement -->
 
-Curiously, despite the richness provided by the Bayesian framework and the availability of multiple indices, no consensus has yet emerged on the ones to use, as no practical and direct comparison has ever been done. This might be a rebuttal for scientists interested in adopting the Bayesian framework. Moreover, this grey area can increase the difficulty of readers or reviewers unfamiliar with the Bayesian framework to follow the assumptions and conclusions, which could in turn generate unnecessary doubt upon the entire study. While we think that such indices and their interpretation guidelines (in the form of rules of thumb) are useful in practice, we also strongly believe that such indices should be accompanied with the knowledge of the "behaviour" in relationship with sample size and noise. This knowledge is important for people to implicitly and intuitively appraise the meaning and implication of the mathematical values they report. This could, in turn, prevent the crystallization of the possible heuristics and categories derived from such indices.
+Curiously, despite the richness provided by the Bayesian framework and the availability of multiple indices, no consensus has yet emerged on the ones to use. On the contrary, the litterature continues to bloom in a raging debate, often polarized between proponents of the Bayes factor as the supreme index and its detractors [*e.g.*, @spanos2013should; @robert2014jeffreys; robert2016expected; @wagenmakers2015another], with strong theoretical arguments being developped. Unfortunately, no practical and direct comparison between these indices has ever been done. This might be a rebuttal for scientists interested in adopting the Bayesian framework. Moreover, this grey area can increase the difficulty of readers or reviewers unfamiliar with the Bayesian framework to follow the assumptions and conclusions, which could in turn generate unnecessary doubt upon the entire study. While we think that such indices and their interpretation guidelines (in the form of rules of thumb) are useful in practice, we also strongly believe that such indices should be accompanied with the knowledge of the "behaviour" in relationship with sample size and noise. This knowledge is important for people to implicitly and intuitively appraise the meaning and implication of the mathematical values they report. This could, in turn, prevent the crystallization of the possible heuristics and categories derived from such indices.
 
 <!-- Aim and hypotheses -->
 
@@ -391,7 +391,7 @@ table2 <- rbind(
     "Interpretation" = "Relative odds of the presence of an effect against 0.",
     "Definition" = "Density value at 0 divided by the density value at the mode of the posterior distribution.",
     "Strengths" = "Straightforward computation. Objective property of the posterior distribution",
-    "Limitations" = "Limited information favouring the null hypothesis."  # ?
+    "Limitations" = "Limited information favouring the null hypothesis. Relates on density approximation. Indirect relationship between mathematical definition and interpretation."
     ),
   data.frame(
     "Index" = "ROPE (95%)",
@@ -419,7 +419,7 @@ table2 <- rbind(
     "Interpretation" = "???",
     "Definition" = "???",
     "Strengths" = "???",
-    "Limitations" = "A ROPE range needs to be arbitrarily defined."
+    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors."
     )
 )
 
