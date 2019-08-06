@@ -161,5 +161,7 @@ legend <- get_legend(
 
 figure1_w_leg <- plot_grid(figure1,legend,ncol = 1, rel_heights = c(7,0.5))
 figure1_w_leg
+ggsave2("publications/makowski_2019_bayesian/manuscript/figures/fig1_cowplot.png",figure1_w_leg,width = 21/2, height = 29.7/2)
+
 
 
