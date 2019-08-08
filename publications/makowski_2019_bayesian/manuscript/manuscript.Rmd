@@ -334,7 +334,7 @@ Based on the simulation of multiple linear and logistic models, the present work
 <!-- /// Results dicsussion -->
 <!-- Sensibility to sample size -->
 
-The results tend to suggest that 1) indices could be separated into two categories.
+The results tend to suggest that indices could be separated into two categories. Consistency talk.
 
 <!-- Sensibility to noise -->
 
@@ -357,17 +357,18 @@ Critically, while the purpose of these indices was solely termed as *significanc
 
 <!-- DM: NHST and CET are dead, long live the EXIT (Existence sIgnificance Testing) [literally just made that up, a better acronym might possibly be found ^^] -->
 
-Critically to the aim of that paper, the EXIT dual-perspective spontaneously stems out from the probabilistic nature of the Bayesian framework, which allows these two aspects of parameters assessment to coexist and yet be neatly delineated. Moreover, the distinction between *existence* and *significance* is also supported by the empirical data presented in this paper, in regards to the sensitivity to the indices to the amount of evidence (sample size). In summary, 
-
-As these twe two aspects of EXIT are complementary, we suggest using at minimum one index of each category.
-
-
-Thus, an effect will be comprehensively reported if, beyond its estimation [with a point estimate, such as the median, and an index of uncertainty, such as the 89\% Credible Interval; @mcelreath2018statistical], it presents an index of existence
-
-researchers should rely on statistics to assess effect existence (as well as size and direction estimation), and systematically, but contextually, discuss its meaning and importance within a larger perspective.
+Critically to the aim of that paper, the EXIT dual-perspective spontaneously stems out from the probabilistic nature of the Bayesian framework, which allows these two aspects of parameters assessment to coexist and yet be neatly delineated. Moreover, the distinction between *existence* and *significance* is also supported by the empirical data presented in this paper, in regards to the sensitivity to the indices to the amount of evidence (sample size). In this context, the *pd* and the MAP-based *p* appears as indices of effect existence, mostly sensitive to the certainty related to the direction of the effect and ROPE-based indices and Bayes factors are effect of significance (related to the magnitude and the amount of evidence in favour of it). Thus, an effect will be comprehensively reported if, beyond its estimation [with a point estimate, such as the median, and an index of uncertainty, such as the 89\% Credible Interval; @mcelreath2018statistical], it presents an index of existence and contextually test and dicsuss its significance in regards with theoretically justified characteristics.
 
 <!-- Comparison between indices -->
+
+<!-- ROPE-based indices -->
+Strengths and weaknesses.
+
+<!-- BFs -->
+Strengths and weaknesses.
+
 <!-- The pd -->
+Strengths and weaknesses.
 
 After all the criticism regarding the frequentist *p*-value, it might appear as counterintuitive to suggest the usage of its Bayesian empirical equivalent. The more subtle perspective that we support is that the *p*-value is not an intrinsically bad, or wrong, index. Instead, it is its misuse, misunderstanding and misinterpretation that fuels, in our opinion, the decay of the situation into the crisis. Interestingly, the proximity between the *pd* and the the *p*-value suggests that the latter is more an index of effect *existence* than *significance* (*i.e.*, "worth of interest"). Addressing this confusion, the Bayesian equivalent has an intuitive meaning and interpretation, making also obvious the fact that all thresholds and heuristics are arbitrary. Additionally, its mathematical and interpretative transparency of the *pd*, and its reconceptualisation as an index of effect existence, offers a valuable insight into the characterization of Bayesian results, and its practical proximity with the frequentist *p*-value makes it a perfect metric to ease the transition of psychological research into the adoption of the Bayesian framework.
 
@@ -380,7 +381,7 @@ How these observations can be used to improve statistical good practices in psyc
 
 One of the limitation the ROPE-based indices is that they require an explicit definition of the ROPE range. Importantly, as this range is fixed to the scale of the outcome response, these indices are thus sensitive to changes in the scale of the predictors.
 
-Thus, in order to assess the existence and significance of effects within a regession model, we recommend to report, at minimum, the *pd* as an index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. <!-- MSB: BF-ROPE is most sensitive to effect **existance** as found in the sensitivity analysis! And IMO, it is also simple to interp -->
+As the twe two aspects of EXIT are complementary, we suggest using at minimum one index of each category. Thus, in order to assess the existence and significance of effects within a regession model, we recommend to report, at minimum, the *pd* as an objective index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. <!-- MSB: BF-ROPE is most sensitive to effect **existance** as found in the sensitivity analysis! And IMO, it is also simple to interp -->
 <!-- MSB: Should add a sample sentance for how to report -->
 
 
