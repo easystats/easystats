@@ -402,3 +402,138 @@ figure3_cow_w_leg <- plot_grid(figure3_cow,effects_legend,
 
 ggsave2("publications/makowski_2019_bayesian/manuscript/figures/Figure3.png",
         figure3_cow_w_leg, width = 21/2, height = 29.7/2, dpi = 100)
+
+
+# Figure 4 ----------------------------------------------------------------
+
+make_figure4 <- function(.data) {
+  .data$level <- ifelse(.data$level == "n.s.", 0, 1)
+  fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
+  newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 500))
+  newdata$sig <- predict(fit, newdata = newdata, type = "response")
+  newdata
+}
+
+figure4_data <- df %>%
+  select(outcome_type, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
+  mutate(
+    sig_1  = ifelse(p_value >= .1, "n.s.", "*") %>% factor(levels = c("n.s.", "*")),
+    sig_05 = ifelse(p_value >= .05, "n.s.", "*") %>% factor(levels = c("n.s.", "*")),
+    sig_01 = ifelse(p_value >= .01, "n.s.", "*") %>% factor(levels = c("n.s.", "*")),
+    sig_001 = ifelse(p_value >= .001, "n.s.", "*") %>% factor(levels = c("n.s.", "*"))
+  ) %>%
+  gather("threshold","level",sig_1:sig_001) %>%
+  gather("index", "value", p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
+  group_by(outcome_type, index, threshold) %>%
+  nest() %>%
+  mutate(data = lapply(data, make_figure4)) %>%
+  unnest() %>%
+  ungroup() %>%
+  mutate(
+    threshold = factor(threshold, levels = c("sig_1", "sig_05", "sig_01", "sig_001")),
+    index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
+  )
+
+figure4_elements <- list(
+  aes(x = value, y = sig,
+      linetype = threshold, color = outcome_type,
+      group = interaction(outcome_type, threshold)),
+  geom_line(aes(color = outcome_type), size = 1),
+  scale_y_continuous(breaks = seq(0,1,length.out = 5)),
+  scale_color_manual(name = "Model Type",
+                     values = c(`linear` = "#2196F3", `binary` = "#FF9800"),
+                     labels = c(`linear` = "Linear", `binary` = "Logistic")),
+  scale_linetype_manual(
+    name = "Threshold",
+    values = c("sig_1" = "dotted", "sig_05" = "dashed", "sig_01" = "longdash", "sig_001" = "solid"),
+    labels = c("p < .1", "p < .05", "p < .01", "p < .001")
+  ),
+  theme_modern(),
+  theme(legend.position = "right"),
+  ylab("Probability of being significant")
+)
+
+figure4_pd <-
+  figure4_data %>%
+  filter(index == "p_direction") %>%
+  ggplot() +
+  figure4_elements +
+  geom_vline(xintercept = 0.95, linetype = "dashed") +
+  scale_x_continuous(breaks = c(seq(0.5,1,length.out = 6),0.95)) +
+  xlab("p-direction") +
+  coord_cartesian(xlim = c(0.9,1))
+
+figure4_pmap <-
+  figure4_data %>%
+  filter(index == "p_MAP") %>%
+  ggplot() +
+  figure4_elements +
+  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  scale_x_continuous(breaks = c(seq(0,1,length.out = 11),0.05)) +
+  xlab("p-MAP") +
+  coord_cartesian(xlim = c(0,0.4))
+
+figure4_ROPE_95 <-
+  figure4_data %>%
+  filter(index == "ROPE_95") %>%
+  ggplot() +
+  figure4_elements +
+  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  scale_x_continuous(breaks = c(seq(0,1,length.out = 6),0.05)) +
+  xlab("ROPE (95%)") +
+  coord_cartesian(xlim = c(0,0.4))
+
+figure4_ROPE_full <-
+  figure4_data %>%
+  filter(index == "ROPE_full") %>%
+  ggplot() +
+  figure4_elements +
+  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  scale_x_continuous(breaks = c(seq(0,1,length.out = 6),0.05)) +
+  xlab("ROPE (full)") +
+  coord_cartesian(xlim = c(0,0.4))
+
+figure4_BF <-
+  figure4_data %>%
+  filter(index == "BF_log") %>%
+  ggplot() +
+  figure4_elements +
+  geom_vline(xintercept = log(c(1/3,3)), linetype = "dashed") +
+  scale_x_continuous(breaks = log(c(1/100,1/30,1/10,1/3,1,3,10,30,100)),
+                     labels = c("1/100","1/30","1/10","1/3","1","3","10","30","100")) +
+  xlab("Bayes factor (vs. 0)") +
+  coord_cartesian(xlim = log(c(1/10,300)))
+
+
+figure4_BF_rope <-
+  figure4_data %>%
+  filter(index == "BF_ROPE_log") %>%
+  ggplot() +
+  figure4_elements +
+  geom_vline(xintercept = log(c(1/3,3)), linetype = "dashed") +
+  scale_x_continuous(breaks = log(c(1/100,1/30,1/10,1/3,1,3,10,30,100)),
+                     labels = c("1/100","1/30","1/10","1/3","1","3","10","30","100")) +
+  xlab("Bayes factor (vs. ROPE)") +
+  coord_cartesian(xlim = log(c(1/30,300)))
+
+figure4_cow <- plot_grid(
+  figure4_pd        + theme(legend.position = "none"),
+  figure4_ROPE_95   + theme(legend.position = "none",axis.title.y    = element_blank()),
+  figure4_BF        + theme(legend.position = "none",axis.title.y    = element_blank()),
+  figure4_pmap      + theme(legend.position = "none",axis.title.y    = element_blank()),
+  figure4_ROPE_full + theme(legend.position = "none",axis.title.y    = element_blank()),
+  figure4_BF_rope   + theme(legend.position = "none",axis.title.y    = element_blank()),
+  nrow = 2,
+  align = "v"
+)
+
+sig_legend <- get_legend(
+  figure4_pd + theme(legend.box.margin = margin(0, 1, 0, 1))
+)
+
+figure4_cow_w_leg <- plot_grid(figure4_cow,sig_legend,
+                               ncol = 2, rel_widths = c(8,1))
+# figure4_cow_w_leg
+
+ggsave2("publications/makowski_2019_bayesian/manuscript/figures/Figure4.png",
+        figure4_cow_w_leg, width = 29.7/2, height = 21/2, dpi = 100)
