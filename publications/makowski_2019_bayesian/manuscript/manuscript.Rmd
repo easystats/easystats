@@ -203,39 +203,13 @@ For each index and each model type, we fitted a (frequentist) logistic regressio
 
 
 ```{r Figure3, message=FALSE, warning=FALSE, fig.cap="Figure 3. Relationship with the frequentist p-value.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-# figure3_data <- df %>%
-#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
-#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
-#   filter(
-#     (index == "BF_log" & value <= log(999)) | index != "BF_log",
-#     (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
-#   ) %>%
-#   mutate(
-#     true_effect = as.factor(true_effect),
-#     index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-#   ) %>%
-#   mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>%
-#   group_by(temp) %>%
-#   mutate(size_group = as.character(round(mean(sample_size)))) %>%
-#   ungroup()
-# 
-# figure3 <- ggplot(figure3_data, aes(x = p_value, y = value, color = true_effect, shape = size_group)) +
-#   geom_point(alpha = 0.025, stroke = 0, shape = 16) +
-#   geom_rug(alpha = 0.025) +
-#   facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(indices)) +
-#   theme_modern() +
-#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")) +
-#   theme(legend.title = element_blank()) +
-#   guides(
-#     colour = guide_legend(override.aes = list(alpha = 1)),
-#     shape = guide_legend(override.aes = list(alpha = 1), title = "Sample Size")
-#   ) +
-#   xlab("Index Value") +
-#   ylab("p-value")
-# figure3
-# # ggsave("figure3.png", figure3, height = 8, width = 6)
+
+knitr::include_graphics("figures/Figure3.png")
+
 ```
 
+<!-- MSB: in each plot, the markers on the top (null effect) and bottom (true effect) represent the density of p-values -->
+<!-- MSB: whereas on the right (null effect) and left (true effect) they represent the density of the index of interest -->
 
 **Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, which is to be expected since the *BF* is consistant (i.e., it approaches the "true" bound as sample size increases) both when the null is true and when the alternative is ture (as can be seen in the marginal distibutions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistant when the alternative is true, but has a uniform distribution [0-1] when the null is true [@rouder2012default; @rouder2009bayesian]. *ROPE*-based percentages appear to be only weakly related to *p*-values.
 
