@@ -283,57 +283,9 @@ TODO: Add points type as sample size as ROPE seems to be directly related to gro
 
 
 ```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship between Bayesian indices and frequentist arbitrary threshold of significance.", fig.align='center', fig.width=29.7/2.5, fig.height=21/2.5, echo=FALSE}
-# df$sig_1 <- factor(ifelse(df$p_value >= .1, "n.s.", "*"), levels = c("n.s.", "*"))
-# df$sig_05 <- factor(ifelse(df$p_value >= .05, "n.s.", "*"), levels = c("n.s.", "*"))
-# df$sig_01 <- factor(ifelse(df$p_value >= .01, "n.s.", "*"), levels = c("n.s.", "*"))
-# df$sig_001 <- factor(ifelse(df$p_value >= .001, "n.s.", "*"), levels = c("n.s.", "*"))
-# 
-# 
-# make_figure4 <- function(.data) {
-#   .data$level <- ifelse(.data$level == "n.s.", 0, 1)
-#   fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
-#   newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 500))
-#   newdata$sig <- predict(fit, newdata = newdata, type = "response")
-#   newdata
-# }
-# 
-# figure4_data <- df %>%
-#   gather("threshold", "level", sig_1:sig_001) %>%
-#   gather("index", "value", p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
-#   group_by(outcome_type, index, threshold) %>%
-#   nest() %>%
-#   mutate(data = lapply(data, make_figure4)) %>%
-#   unnest() %>%
-#   ungroup() %>%
-#   mutate(
-#     threshold = factor(threshold, levels = c("sig_1", "sig_05", "sig_01", "sig_001")),
-#     index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-#   ) %>%
-#   filter(
-#     (index == "p_direction" & value >= 0.925) | index != "p_direction",
-#     (index == "p_MAP" & value <= 0.35) | index != "p_MAP",
-#     (index == "ROPE_95" & value <= 0.3) | index != "ROPE_95",
-#     (index == "ROPE_full" & value <= 0.3) | index != "ROPE_full",
-#     (index == "BF_log" & value <= 8) | index != "BF_log",
-#     (index == "BF_ROPE_log" & value <= 8) | index != "BF_ROPE_log"
-#   )
-# 
-# 
-# figure4 <- ggplot(figure4_data, aes(x = value, y = sig, linetype = threshold, group = interaction(outcome_type, threshold))) +
-#   geom_line(aes(color = outcome_type), size = 1) +
-#   facet_wrap(~index, scales = "free", labeller = as_labeller(indices)) +
-#   theme_modern() +
-#   scale_color_manual(values = c(`linear` = "#2196F3", `binary` = "#FF9800"), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_linetype_manual(
-#     values = c("sig_1" = "dotted", "sig_05" = "dashed", "sig_01" = "longdash", "sig_001" = "solid"),
-#     labels = c("p < .1", "p < .05", "p < .01", "p < .001"),
-#     name = "Threshold"
-#   ) +
-#   ylab("Probability of being significant") +
-#   xlab("Index Value") +
-#   coord_cartesian(ylim = c(0, 1))
-# figure4
-# # ggsave("figure4.png", figure4, height = 8, width = 6)
+
+knitr::include_graphics("figures/Figure4.png")
+
 ```
 
 
@@ -431,6 +383,14 @@ table4 <- rbind(
 )
 
 knitr::kable(table4, digits = 2, caption = "Table 4. Summary of Bayesian Indices of Effect Existence and Significance.")
+```
+
+
+## Relationship between ROPE (full), pd and BF (vs. ROPE)
+
+```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
+
+knitr::include_graphics("figures/Figure5.png")
 ```
 
 
