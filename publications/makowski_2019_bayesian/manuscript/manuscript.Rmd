@@ -471,28 +471,47 @@ figure5 # How to remove this annoying TableGrob text?!
 ```
 
 
-The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equvilant to the *p*-value, is only consistant when the null is true.
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistant when the null is true.
 
 
 # Discussion
 
+<!-- /// Summary of aim and methods -->
 
-Based on the simulation of multiple linear regressions, the present work aimed at comparing several indices of effect existence solely derived from the posterior distribution, provide visual representations of the "behavior" of such indices in relationship with sample size, noise, priors and the frequentist *p*-value.
-
-While this comparison with a frequentist index may seem counterintuitive or wrong (as the Bayesian thinking is intrinsically different from the frequentist framework), we believe that this comparison is interesting for didactic reasons. The frequentist *p*-value "speaks" to many and can thus be seen as a reference and a way to facilitate the shift toward the Bayesian framework. This does not preclude, however, that a change in the general paradigm of effect existence seeking in necessary, and that Bayesian indices are fundamentally different from the frequentist *p*, rather than mere approximations or equivalents. Critically, we strongly agree on the distinction and possible dissociation between an effect’s existence and meaningfulness [@lakens2018equivalence]. Nevertheless, we believe that assessing whether an effect is "meaningful" is highly dependent on the literature, priors, novelty, context or field, and that it cannot be assessed based solely on a statistical index (even though some of the indices, such as the ROPE-related ones, attempt at bridging existence with meaningfulness). Thus, researchers should rely on statistics to assess effect existence (as well as size and direction estimation), and systematically <!-- MSB:? -->, but contextually, discuss its meaning and importance within a larger perspective.
+Based on the simulation of multiple linear and logistic models, the present work aimed at comparing several Bayesian indices of effect existence, provide visual representations of the "behaviour" of such indices in relationship with important sources of variance such as sample size, noise, presence of effect, as well as comparing them with the well-known and widely used frequentist *p*-value and its arbritrary interpretation heuristics.
 
 
-<!-- Introduce distinction about effect existence and significance -->
+<!-- /// Results dicsussion -->
+<!-- Sensibility to sample size -->
+
+The results tend to suggest that 1) indices could be derived 
+
+<!-- Sensibility to noise -->
+
+Noise.
+
+<!-- Sensibility to effect existence -->
+
+Discrimination analysis.
+
+
+<!-- Comparison to p-value -->
+
+What is the point of comparing Bayesian indices with the frequentist *p*-value, especially after having pointed out to its many flaws? Indeed, while this comparison may seem counterintuitive or wrong (as the Bayesian thinking is intrinsically different from the frequentist framework), we believe that this juxtaposition is interesting for didactic reasons. The frequentist *p*-value "speaks" to many and can thus be seen as a reference and a way to facilitate the shift toward the Bayesian framework. Thus, pragmatically documenting such bridges can only foster the understanding of the methodological issues that our field is facing, and in turn act against the sectarism and isolation caused by a dogmatic approach to a framework. This does not preclude, however, that a change in the general paradigm of significance seeking in necessary, and that Bayesian indices are fundamentally different from the frequentist *p*, rather than mere approximations or equivalents.
+
+
+<!-- /// General discussion -->
 <!-- Significance vs. Existence -->
 
-<!-- In discussion? -->
-<!-- blabla -->
 <!-- Acknowledging the distinction and complementarity of these two aspects could in turn enrich the information and usefulness of the results reported by studies. Critically to the aim of that paper, the "existence and significance" dual-perspective naturally stems out from the Bayesian framework, in which several indices of effect existence and significance coexist. -->
 
+<!-- : A decision criterion that allows them to conclude if an effect is "different from 0" (statistically corresponding to either "not negligible" or "not of the opposite direction"). In other words, to know, before taking interest in the importance, relevance or strength of the effect, whether it is related to the outcome in a given direction. -->
 
-: A decision criterion that allows them to conclude if an effect is "different from 0" (statistically corresponding to either "not negligible" or "not of the opposite direction"). In other words, to know, before taking interest in the importance, relevance or strength of the effect, whether it is related to the outcome in a given direction.
+<!-- Critically, we strongly agree on the distinction and possible dissociation between an effect's existence and meaningfulness [@lakens2018equivalence]. Nevertheless, we believe that assessing whether an effect is "meaningful" is highly dependent on the literature, priors, novelty, context or field, and that it cannot be assessed based solely on a statistical index (even though some of the indices, such as the ROPE-related ones, attempt at bridging existence with meaningfulness). Thus, researchers should rely on statistics to assess effect existence (as well as size and direction estimation), and systematically, but contextually, discuss its meaning and importance within a larger perspective. -->
 
-<!-- MSB: I think we should discuss the results of the disrimination analysis -->
+<!-- Comparison between indices -->
+
+Blabla. How these observations can be used to improve statistical good practices in psychological science? 
 
 # Conclusion and Limitations
 
