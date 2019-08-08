@@ -142,22 +142,20 @@ data <- df %>%
 # Linear Models
 table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
   parameters::model_parameters() %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Linear") %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
+  mutate(Type = "Linear")
 
 # Logistic Models
 table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
   parameters::model_parameters() %>% 
+  mutate(Type = "Logistic")
+
+table1 <- rbind(table_lm, table_glm) %>% 
   filter(grepl("sample_size", Parameter)) %>% 
   mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Logistic") %>% 
+         Parameter = stringr::str_remove(Parameter, "Index"),
+         Parameter = stringr::str_remove(Parameter, ":sample_size")) %>% 
   select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
-
-table1 <- rbind(table_lm, table_glm)
+  arrange(Type, Coefficient) 
 knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
@@ -166,44 +164,43 @@ The analysis suggests that ROPE-based indices are the most sensitive to sample s
 
 <!-- MSB: Move disccusion of consistancy here? -->
 
+
+## Impact of Noise
+
+
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 knitr::include_graphics("figures/Figure2.png")
 ```
 
-```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
-data <- df %>% 
-  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>% 
-  select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>% 
-  tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>% 
-  mutate(true_effect = as.factor(ifelse(true_effect == 1, "Presence", "Absence")),
-         true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
-
-
+```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
 # Linear Models
-table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
+table_lm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "linear")) %>% 
   parameters::model_parameters() %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Linear") %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
+  mutate(Type = "Linear",
+         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
 
 # Logistic Models
-table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
+table_glm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "binary")) %>% 
   parameters::model_parameters() %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Logistic") %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
+  mutate(Type = "Logistic",
+         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence")) 
+  
 
-table1 <- rbind(table_lm, table_glm)
-knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
+table2 <- rbind(table_lm, table_glm) %>% 
+  filter(grepl("error", Parameter)) %>% 
+  mutate(Coefficient = abs(Std_Coefficient),
+         Parameter = stringr::str_remove(Parameter, "Index"),
+         Parameter = stringr::str_remove(Parameter, ":true_effectAbsence:error|:true_effectPresence:error")) %>% 
+  select(Effect, Type, Parameter, Coefficient) %>% 
+  arrange(Effect, Type, Coefficient)
+knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
 ```
 
+The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent accross model types.
 
 
 
+## Presence *vs.* Absence of Effect
 
 
 ```{r Table3, message=FALSE, warning=FALSE, echo=FALSE}
