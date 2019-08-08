@@ -19,13 +19,13 @@ bibliography: bibliography.bib
 csl: utils/apa.csl
 ---
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
 options(knitr.kable.NA = "")
 knitr::opts_chunk$set(
   comment = ">",
-  dpi = 300,
-  fig.path = "figures/"
+  dpi = 300
+  # ,fig.path = "figures/"
 )
 options(digits = 2)
 ```
@@ -83,13 +83,12 @@ The simulation of datasets suited for linear or logistic regression, we started 
 The simulation aimed at modulating the following characteristics: *data type* (*i.e.*, used for linear or logistic regression), *Sample size* (from 20 to 100 by steps of 10), *"true" effect* (original regression coefficient from which data is drawn prior to noise addition, 1 - presence of effect or 0 - absence of effect) and *noise* (Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66, with 1000 different values). We generated a dataset for each combination of these characteristics, resulting in a total of 36000 (`2 * 2 * 9 * 1000`) datasets. The code used for generation is available on Github (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
 
 ```{r DataLoad, message=FALSE, warning=FALSE, echo=FALSE}
-library(ggplot2)
 library(dplyr)
 library(tidyr)
-library(see)
-library(cowplot)
 
-df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
+# df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
+df <- read.csv("../data/data.csv")
+df <- df[seq(1,nrow(df), length.out = 3600),] # get every 10th line
 ```
 
 
@@ -125,91 +124,39 @@ The aim of this study is two-fold: 1) compare indices of effect existence and si
 
 ## Impact of Sample Size and Noise
 
-
-```{r CommonAesthetics, message=FALSE, warning=FALSE, echo=FALSE}
-# Common Aesthetics
-indices <- c(
-  "p_value" = "p-value",
-  "p_direction" = "p-direction",
-  "p_MAP" = "p-MAP",
-  "ROPE_95" = "ROPE (95%)",
-  "ROPE_full" = "ROPE (full)",
-  "BF_log" = "log BF (vs. 0)",
-  "BF_ROPE_log" = "log BF (vs. ROPE)",
-
-  "binary" = "Logistic Model",
-  "linear" = "Linear Model",
-
-  "0" = "Absence of Effect",
-  "1" = "Presence of Effect"
-)
-
-common_aesthetics <- list(
-  aes_string(y = "value", fill = "true_effect"),
-  geom_boxplot(outlier.shape = NA),
-  facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(indices)),
-  theme_modern(),
-  scale_fill_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")),
-  ylab("Index Value"),
-  theme(legend.title = element_blank(), legend.position = "bottom")
-)
-```
-
-
 ```{r Figure1, message=FALSE, warning=FALSE, fig.cap="Figure 1. Impact of Sample Size.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-figure1_data <- df %>%
-  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
-  gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
-  filter(
-    (index == "BF_log" & value <= log(999)) | index != "BF_log",
-    (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
-  ) %>%
-  mutate(
-    true_effect = as.factor(true_effect),
-    index = factor(index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-  ) %>%
-  mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>%
-  group_by(temp) %>%
-  mutate(size_group = round(mean(sample_size))) %>%
-  ungroup()
 
-
-figure1 <- ggplot(figure1_data, aes(x = size_group, group = interaction(true_effect, size_group))) +
-  common_aesthetics +
-  xlab("Sample Size")
-figure1
-
-# ggsave("figures/figure1.png", figure1, height = 8, width = 6)
+knitr::include_graphics("figures/Figure1.png")
 ```
 
 <!-- MSB: Move disccusion of consistancy here? -->
 
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-figure2_data <- df %>%
-  select(
-    outcome_type, true_effect, error, sample_size,
-    p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log
-  ) %>%
-  gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
-  filter(
-    (index == "BF_log" & value <= log(999)) | index != "BF_log",
-    (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
-  ) %>%
-  mutate(
-    true_effect = as.factor(true_effect),
-    index = factor(index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-  ) %>%
-  mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>%
-  group_by(temp) %>%
-  mutate(error_group = round(mean(error), 1)) %>%
-  ungroup()
-
-figure2 <- ggplot(figure2_data, aes(x = error_group, group = interaction(true_effect, error_group))) +
-  common_aesthetics +
-  xlab("Noise")
-figure2
-
-# ggsave("figure2.png", figure2, height = 8, width = 6)
+# figure2_data <- df %>%
+#   select(
+#     outcome_type, true_effect, error, sample_size,
+#     p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log
+#   ) %>%
+#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
+#   filter(
+#     (index == "BF_log" & value <= log(999)) | index != "BF_log",
+#     (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
+#   ) %>%
+#   mutate(
+#     true_effect = as.factor(true_effect),
+#     index = factor(index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
+#   ) %>%
+#   mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>%
+#   group_by(temp) %>%
+#   mutate(error_group = round(mean(error), 1)) %>%
+#   ungroup()
+# 
+# figure2 <- ggplot(figure2_data, aes(x = error_group, group = interaction(true_effect, error_group))) +
+#   common_aesthetics +
+#   xlab("Noise")
+# figure2
+# 
+# # ggsave("figure2.png", figure2, height = 8, width = 6)
 ```
 
 
@@ -279,37 +226,37 @@ For each index and each model type, we fitted a (frequentist) logistic regressio
 
 
 ```{r Figure3, message=FALSE, warning=FALSE, fig.cap="Figure 3. Relationship with the frequentist p-value.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-figure3_data <- df %>%
-  select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
-  gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
-  filter(
-    (index == "BF_log" & value <= log(999)) | index != "BF_log",
-    (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
-  ) %>%
-  mutate(
-    true_effect = as.factor(true_effect),
-    index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-  ) %>%
-  mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>%
-  group_by(temp) %>%
-  mutate(size_group = as.character(round(mean(sample_size)))) %>%
-  ungroup()
-
-figure3 <- ggplot(figure3_data, aes(x = p_value, y = value, color = true_effect, shape = size_group)) +
-  geom_point(alpha = 0.025, stroke = 0, shape = 16) +
-  geom_rug(alpha = 0.025) +
-  facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(indices)) +
-  theme_modern() +
-  scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")) +
-  theme(legend.title = element_blank()) +
-  guides(
-    colour = guide_legend(override.aes = list(alpha = 1)),
-    shape = guide_legend(override.aes = list(alpha = 1), title = "Sample Size")
-  ) +
-  xlab("Index Value") +
-  ylab("p-value")
-figure3
-# ggsave("figure3.png", figure3, height = 8, width = 6)
+# figure3_data <- df %>%
+#   select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
+#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
+#   filter(
+#     (index == "BF_log" & value <= log(999)) | index != "BF_log",
+#     (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
+#   ) %>%
+#   mutate(
+#     true_effect = as.factor(true_effect),
+#     index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
+#   ) %>%
+#   mutate(temp = as.factor(cut(sample_size, 3, labels = FALSE))) %>%
+#   group_by(temp) %>%
+#   mutate(size_group = as.character(round(mean(sample_size)))) %>%
+#   ungroup()
+# 
+# figure3 <- ggplot(figure3_data, aes(x = p_value, y = value, color = true_effect, shape = size_group)) +
+#   geom_point(alpha = 0.025, stroke = 0, shape = 16) +
+#   geom_rug(alpha = 0.025) +
+#   facet_grid(index ~ outcome_type, scales = "free", labeller = as_labeller(indices)) +
+#   theme_modern() +
+#   scale_color_manual(values = c(`0` = "#f44336", `1` = "#8BC34A"), name = "Effect", labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")) +
+#   theme(legend.title = element_blank()) +
+#   guides(
+#     colour = guide_legend(override.aes = list(alpha = 1)),
+#     shape = guide_legend(override.aes = list(alpha = 1), title = "Sample Size")
+#   ) +
+#   xlab("Index Value") +
+#   ylab("p-value")
+# figure3
+# # ggsave("figure3.png", figure3, height = 8, width = 6)
 ```
 
 
@@ -321,57 +268,57 @@ TODO: Add points type as sample size as ROPE seems to be directly related to gro
 
 
 ```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship between Bayesian indices and frequentist arbitrary threshold of significance.", fig.align='center', fig.width=29.7/2.5, fig.height=21/2.5, echo=FALSE}
-df$sig_1 <- factor(ifelse(df$p_value >= .1, "n.s.", "*"), levels = c("n.s.", "*"))
-df$sig_05 <- factor(ifelse(df$p_value >= .05, "n.s.", "*"), levels = c("n.s.", "*"))
-df$sig_01 <- factor(ifelse(df$p_value >= .01, "n.s.", "*"), levels = c("n.s.", "*"))
-df$sig_001 <- factor(ifelse(df$p_value >= .001, "n.s.", "*"), levels = c("n.s.", "*"))
-
-
-make_figure4 <- function(.data) {
-  .data$level <- ifelse(.data$level == "n.s.", 0, 1)
-  fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
-  newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 500))
-  newdata$sig <- predict(fit, newdata = newdata, type = "response")
-  newdata
-}
-
-figure4_data <- df %>%
-  gather("threshold", "level", sig_1:sig_001) %>%
-  gather("index", "value", p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
-  group_by(outcome_type, index, threshold) %>%
-  nest() %>%
-  mutate(data = lapply(data, make_figure4)) %>%
-  unnest() %>%
-  ungroup() %>%
-  mutate(
-    threshold = factor(threshold, levels = c("sig_1", "sig_05", "sig_01", "sig_001")),
-    index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-  ) %>%
-  filter(
-    (index == "p_direction" & value >= 0.925) | index != "p_direction",
-    (index == "p_MAP" & value <= 0.35) | index != "p_MAP",
-    (index == "ROPE_95" & value <= 0.3) | index != "ROPE_95",
-    (index == "ROPE_full" & value <= 0.3) | index != "ROPE_full",
-    (index == "BF_log" & value <= 8) | index != "BF_log",
-    (index == "BF_ROPE_log" & value <= 8) | index != "BF_ROPE_log"
-  )
-
-
-figure4 <- ggplot(figure4_data, aes(x = value, y = sig, linetype = threshold, group = interaction(outcome_type, threshold))) +
-  geom_line(aes(color = outcome_type), size = 1) +
-  facet_wrap(~index, scales = "free", labeller = as_labeller(indices)) +
-  theme_modern() +
-  scale_color_manual(values = c(`linear` = "#2196F3", `binary` = "#FF9800"), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-  scale_linetype_manual(
-    values = c("sig_1" = "dotted", "sig_05" = "dashed", "sig_01" = "longdash", "sig_001" = "solid"),
-    labels = c("p < .1", "p < .05", "p < .01", "p < .001"),
-    name = "Threshold"
-  ) +
-  ylab("Probability of being significant") +
-  xlab("Index Value") +
-  coord_cartesian(ylim = c(0, 1))
-figure4
-# ggsave("figure4.png", figure4, height = 8, width = 6)
+# df$sig_1 <- factor(ifelse(df$p_value >= .1, "n.s.", "*"), levels = c("n.s.", "*"))
+# df$sig_05 <- factor(ifelse(df$p_value >= .05, "n.s.", "*"), levels = c("n.s.", "*"))
+# df$sig_01 <- factor(ifelse(df$p_value >= .01, "n.s.", "*"), levels = c("n.s.", "*"))
+# df$sig_001 <- factor(ifelse(df$p_value >= .001, "n.s.", "*"), levels = c("n.s.", "*"))
+# 
+# 
+# make_figure4 <- function(.data) {
+#   .data$level <- ifelse(.data$level == "n.s.", 0, 1)
+#   fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
+#   newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 500))
+#   newdata$sig <- predict(fit, newdata = newdata, type = "response")
+#   newdata
+# }
+# 
+# figure4_data <- df %>%
+#   gather("threshold", "level", sig_1:sig_001) %>%
+#   gather("index", "value", p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
+#   group_by(outcome_type, index, threshold) %>%
+#   nest() %>%
+#   mutate(data = lapply(data, make_figure4)) %>%
+#   unnest() %>%
+#   ungroup() %>%
+#   mutate(
+#     threshold = factor(threshold, levels = c("sig_1", "sig_05", "sig_01", "sig_001")),
+#     index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
+#   ) %>%
+#   filter(
+#     (index == "p_direction" & value >= 0.925) | index != "p_direction",
+#     (index == "p_MAP" & value <= 0.35) | index != "p_MAP",
+#     (index == "ROPE_95" & value <= 0.3) | index != "ROPE_95",
+#     (index == "ROPE_full" & value <= 0.3) | index != "ROPE_full",
+#     (index == "BF_log" & value <= 8) | index != "BF_log",
+#     (index == "BF_ROPE_log" & value <= 8) | index != "BF_ROPE_log"
+#   )
+# 
+# 
+# figure4 <- ggplot(figure4_data, aes(x = value, y = sig, linetype = threshold, group = interaction(outcome_type, threshold))) +
+#   geom_line(aes(color = outcome_type), size = 1) +
+#   facet_wrap(~index, scales = "free", labeller = as_labeller(indices)) +
+#   theme_modern() +
+#   scale_color_manual(values = c(`linear` = "#2196F3", `binary` = "#FF9800"), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_linetype_manual(
+#     values = c("sig_1" = "dotted", "sig_05" = "dashed", "sig_01" = "longdash", "sig_001" = "solid"),
+#     labels = c("p < .1", "p < .05", "p < .01", "p < .001"),
+#     name = "Threshold"
+#   ) +
+#   ylab("Probability of being significant") +
+#   xlab("Index Value") +
+#   coord_cartesian(ylim = c(0, 1))
+# figure4
+# # ggsave("figure4.png", figure4, height = 8, width = 6)
 ```
 
 
@@ -430,43 +377,43 @@ knitr::kable(table2, digits = 2, caption = "Table 2. Summary of Bayesian Indices
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
 ```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
-pd_rope <- df %>%
-  mutate(true_effect = as.factor(true_effect)) %>%
-  ggplot(aes(x = p_direction, y = ROPE_full, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-  geom_point() +
-  scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-  scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-  scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-  ylab("ROPE (full)") +
-  xlab("Probability of Direction (pd)") +
-  theme_modern()
-
-pd_bf <- df %>%
-  filter(BF_ROPE_log <= log(999)) %>%
-  mutate(true_effect = as.factor(true_effect)) %>%
-  ggplot(aes(x = p_direction, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-  geom_point() +
-  scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-  scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-  scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-  ylab("log BF (vs. ROPE)") +
-  xlab("Probability of Direction (pd)") +
-  theme_modern()
-
-rope_bf <- df %>%
-  filter(BF_ROPE_log <= log(999)) %>%
-  mutate(true_effect = as.factor(true_effect)) %>%
-  ggplot(aes(x = ROPE_full, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-  geom_point() +
-  scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-  scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-  scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-  ylab("log BF (vs. ROPE)") +
-  xlab("ROPE (full)") +
-  theme_modern()
-
-figure5 <- see::plots(pd_rope, pd_bf, rope_bf, nrow = 3)
-figure5 # How to remove this annoying TableGrob text?!
+# pd_rope <- df %>%
+#   mutate(true_effect = as.factor(true_effect)) %>%
+#   ggplot(aes(x = p_direction, y = ROPE_full, color = sample_size, shape = outcome_type, alpha = true_effect)) +
+#   geom_point() +
+#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
+#   ylab("ROPE (full)") +
+#   xlab("Probability of Direction (pd)") +
+#   theme_modern()
+# 
+# pd_bf <- df %>%
+#   filter(BF_ROPE_log <= log(999)) %>%
+#   mutate(true_effect = as.factor(true_effect)) %>%
+#   ggplot(aes(x = p_direction, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
+#   geom_point() +
+#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
+#   ylab("log BF (vs. ROPE)") +
+#   xlab("Probability of Direction (pd)") +
+#   theme_modern()
+# 
+# rope_bf <- df %>%
+#   filter(BF_ROPE_log <= log(999)) %>%
+#   mutate(true_effect = as.factor(true_effect)) %>%
+#   ggplot(aes(x = ROPE_full, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
+#   geom_point() +
+#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
+#   ylab("log BF (vs. ROPE)") +
+#   xlab("ROPE (full)") +
+#   theme_modern()
+# 
+# figure5 <- see::plots(pd_rope, pd_bf, rope_bf, nrow = 3)
+# figure5 # How to remove this annoying TableGrob text?!
 # ggsave("figure5.png", figure5, height = 8, width = 6)
 ```
 
