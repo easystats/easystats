@@ -132,31 +132,8 @@ knitr::include_graphics("figures/Figure1.png")
 <!-- MSB: Move disccusion of consistancy here? -->
 
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-# figure2_data <- df %>%
-#   select(
-#     outcome_type, true_effect, error, sample_size,
-#     p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log
-#   ) %>%
-#   gather(index, value, -error, -sample_size, -true_effect, -outcome_type) %>%
-#   filter(
-#     (index == "BF_log" & value <= log(999)) | index != "BF_log",
-#     (index == "BF_ROPE_log" & value <= log(999)) | index != "BF_ROPE_log"
-#   ) %>%
-#   mutate(
-#     true_effect = as.factor(true_effect),
-#     index = factor(index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
-#   ) %>%
-#   mutate(temp = as.factor(cut(error, 8, labels = FALSE))) %>%
-#   group_by(temp) %>%
-#   mutate(error_group = round(mean(error), 1)) %>%
-#   ungroup()
-# 
-# figure2 <- ggplot(figure2_data, aes(x = error_group, group = interaction(true_effect, error_group))) +
-#   common_aesthetics +
-#   xlab("Noise")
-# figure2
-# 
-# # ggsave("figure2.png", figure2, height = 8, width = 6)
+
+knitr::include_graphics("figures/Figure2.png")
 ```
 
 
