@@ -85,6 +85,8 @@ The simulation aimed at modulating the following characteristics: *data type* (*
 ```{r DataLoad, message=FALSE, warning=FALSE, echo=FALSE}
 library(dplyr)
 library(tidyr)
+library(parameters)
+library(performance)
 
 # df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
 df <- read.csv("../data/data.csv")
@@ -122,28 +124,90 @@ The aim of this study is two-fold: 1) compare indices of effect existence and si
 
 # Results
 
-## Impact of Sample Size and Noise
+## Impact of Sample Size
 
 ```{r Figure1, message=FALSE, warning=FALSE, fig.cap="Figure 1. Impact of Sample Size.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-
 knitr::include_graphics("figures/Figure1.png")
 ```
+
+```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
+data <- df %>% 
+  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>% 
+  select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>% 
+  tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>% 
+  mutate(true_effect = as.factor(ifelse(true_effect == 1, "Presence", "Absence")),
+         true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
+
+
+# Linear Models
+table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
+  parameters::model_parameters() %>% 
+  filter(grepl("sample_size", Parameter)) %>% 
+  mutate(Coefficient = abs(Std_Coefficient),
+         Type = "Linear") %>% 
+  select(Type, Parameter, Coefficient) %>% 
+  arrange(Coefficient) 
+
+# Logistic Models
+table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
+  parameters::model_parameters() %>% 
+  filter(grepl("sample_size", Parameter)) %>% 
+  mutate(Coefficient = abs(Std_Coefficient),
+         Type = "Logistic") %>% 
+  select(Type, Parameter, Coefficient) %>% 
+  arrange(Coefficient) 
+
+table1 <- rbind(table_lm, table_glm)
+knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
+```
+
+The analysis suggests that ROPE-based indices are the most sensitive to sample size, followed by the MAP-based *p*, the *pd*, the *p*-value. The BF (vs. 0) and the BF (vs. ROPE) are the less sensitive to sample size. This pattern is consistent accross model types.
+
 
 <!-- MSB: Move disccusion of consistancy here? -->
 
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
-
 knitr::include_graphics("figures/Figure2.png")
+```
+
+```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
+data <- df %>% 
+  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>% 
+  select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>% 
+  tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>% 
+  mutate(true_effect = as.factor(ifelse(true_effect == 1, "Presence", "Absence")),
+         true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
+
+
+# Linear Models
+table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
+  parameters::model_parameters() %>% 
+  filter(grepl("sample_size", Parameter)) %>% 
+  mutate(Coefficient = abs(Std_Coefficient),
+         Type = "Linear") %>% 
+  select(Type, Parameter, Coefficient) %>% 
+  arrange(Coefficient) 
+
+# Logistic Models
+table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
+  parameters::model_parameters() %>% 
+  filter(grepl("sample_size", Parameter)) %>% 
+  mutate(Coefficient = abs(Std_Coefficient),
+         Type = "Logistic") %>% 
+  select(Type, Parameter, Coefficient) %>% 
+  arrange(Coefficient) 
+
+table1 <- rbind(table_lm, table_glm)
+knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
 
 
 
-```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
-library(parameters)
-library(performance)
 
-table1 <- data.frame()
+
+```{r Table3, message=FALSE, warning=FALSE, echo=FALSE}
+table3 <- data.frame()
 for (model_type in c("linear", "binary")) {
   p_value <- df %>%
     parameters::normalize(select = "p_value") %>%
@@ -180,14 +244,14 @@ for (model_type in c("linear", "binary")) {
 
   performance_table <- performance::compare_performance(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log)
   performance_table <- cbind(data.frame(Model_Type = model_type), performance_table)
-  table1 <- rbind(table1, performance_table)
+  table3 <- rbind(table3, performance_table)
 }
 
-table1 %>%
+table3 %>%
   select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>%
   mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
          BF = bayestestR:::.format_big_small(BF)) %>%
-  knitr::kable(digits = 2, caption = "Table 1. Performance comparison of the indices in predicting the presence of an effect.")
+  knitr::kable(digits = 2, caption = "Table 3. Performance comparison of the indices in predicting the presence of an effect.")
 ```
 
 
@@ -226,9 +290,54 @@ knitr::include_graphics("figures/Figure4.png")
 
 
 
+## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
-```{r table2, message=FALSE, warning=FALSE, echo=FALSE}
-table2 <- rbind(
+```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
+# pd_rope <- df %>%
+#   mutate(true_effect = as.factor(true_effect)) %>%
+#   ggplot(aes(x = p_direction, y = ROPE_full, color = sample_size, shape = outcome_type, alpha = true_effect)) +
+#   geom_point() +
+#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
+#   ylab("ROPE (full)") +
+#   xlab("Probability of Direction (pd)") +
+#   theme_modern()
+# 
+# pd_bf <- df %>%
+#   filter(BF_ROPE_log <= log(999)) %>%
+#   mutate(true_effect = as.factor(true_effect)) %>%
+#   ggplot(aes(x = p_direction, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
+#   geom_point() +
+#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
+#   ylab("log BF (vs. ROPE)") +
+#   xlab("Probability of Direction (pd)") +
+#   theme_modern()
+# 
+# rope_bf <- df %>%
+#   filter(BF_ROPE_log <= log(999)) %>%
+#   mutate(true_effect = as.factor(true_effect)) %>%
+#   ggplot(aes(x = ROPE_full, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
+#   geom_point() +
+#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
+#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
+#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
+#   ylab("log BF (vs. ROPE)") +
+#   xlab("ROPE (full)") +
+#   theme_modern()
+# 
+# figure5 <- see::plots(pd_rope, pd_bf, rope_bf, nrow = 3)
+# figure5 # How to remove this annoying TableGrob text?!
+# ggsave("figure5.png", figure5, height = 8, width = 6)
+```
+
+
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistant when the null is true.
+
+```{r table4, message=FALSE, warning=FALSE, echo=FALSE}
+table4 <- rbind(
   data.frame(
     "Index" = "Probability of Direction (pd)",
     "Interpretation" = "Probability that an effect is of the same sign as the median's.",
@@ -273,7 +382,7 @@ table2 <- rbind(
     )
 )
 
-knitr::kable(table2, digits = 2, caption = "Table 2. Summary of Bayesian Indices of Effect Existence and Significance.")
+knitr::kable(table4, digits = 2, caption = "Table 4. Summary of Bayesian Indices of Effect Existence and Significance.")
 ```
 
 
@@ -282,7 +391,6 @@ knitr::kable(table2, digits = 2, caption = "Table 2. Summary of Bayesian Indices
 ```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
 
 knitr::include_graphics("figures/Figure5.png")
-
 ```
 
 
@@ -329,6 +437,7 @@ Critically, while the purpose of these indices was solely termed as *significanc
 Critically to the aim of that paper, the EXIT dual-perspective spontaneously stems out from the probabilistic nature of the Bayesian framework, which allows these two aspects of parameters assessment to coexist and yet be neatly delineated. Moreover, the distinction between *existence* and *significance* is also supported by the empirical data presented in this paper, in regards to the sensitivity to the indices to the amount of evidence (sample size). In this context, the *pd* and the MAP-based *p* appears as indices of effect existence, mostly sensitive to the certainty related to the direction of the effect and ROPE-based indices and Bayes factors are effect of significance (related to the magnitude and the amount of evidence in favour of it). Thus, an effect will be comprehensively reported if, beyond its estimation [with a point estimate, such as the median, and an index of uncertainty, such as the 89\% Credible Interval; @mcelreath2018statistical], it presents an index of existence and contextually test and dicsuss its significance in regards with theoretically justified characteristics.
 
 <!-- Comparison between indices -->
+Nevertheless, our results suggest that these indices are not equivalent (see **Table X**).
 
 <!-- ROPE-based indices -->
 Strengths and weaknesses.
