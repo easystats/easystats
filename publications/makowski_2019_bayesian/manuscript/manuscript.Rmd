@@ -280,44 +280,9 @@ knitr::kable(table2, digits = 2, caption = "Table 2. Summary of Bayesian Indices
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
 ```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
-# pd_rope <- df %>%
-#   mutate(true_effect = as.factor(true_effect)) %>%
-#   ggplot(aes(x = p_direction, y = ROPE_full, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-#   geom_point() +
-#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-#   ylab("ROPE (full)") +
-#   xlab("Probability of Direction (pd)") +
-#   theme_modern()
-# 
-# pd_bf <- df %>%
-#   filter(BF_ROPE_log <= log(999)) %>%
-#   mutate(true_effect = as.factor(true_effect)) %>%
-#   ggplot(aes(x = p_direction, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-#   geom_point() +
-#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-#   ylab("log BF (vs. ROPE)") +
-#   xlab("Probability of Direction (pd)") +
-#   theme_modern()
-# 
-# rope_bf <- df %>%
-#   filter(BF_ROPE_log <= log(999)) %>%
-#   mutate(true_effect = as.factor(true_effect)) %>%
-#   ggplot(aes(x = ROPE_full, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-#   geom_point() +
-#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-#   ylab("log BF (vs. ROPE)") +
-#   xlab("ROPE (full)") +
-#   theme_modern()
-# 
-# figure5 <- see::plots(pd_rope, pd_bf, rope_bf, nrow = 3)
-# figure5 # How to remove this annoying TableGrob text?!
-# ggsave("figure5.png", figure5, height = 8, width = 6)
+
+knitr::include_graphics("figures/Figure5.png")
+
 ```
 
 

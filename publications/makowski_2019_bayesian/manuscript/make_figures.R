@@ -537,3 +537,72 @@ figure4_cow_w_leg <- plot_grid(figure4_cow,sig_legend,
 
 ggsave2("publications/makowski_2019_bayesian/manuscript/figures/Figure4.png",
         figure4_cow_w_leg, width = 29.7/2, height = 21/2, dpi = 100)
+
+
+# Figure 5 ----------------------------------------------------------------
+
+figure5_elements <- list(
+  aes(color = sample_size, shape = outcome_type, alpha = factor(true_effect)),
+  geom_point(),
+  scale_shape_manual(name = "Model Type",
+                     values = c(1, 3),
+                     labels = c(`linear` = "Linear", `binary` = "Logistic")),
+  scale_alpha_manual(name = "Effect",
+                     values = c(0.3, 1),
+                     labels = c(`0` = "Absence", `1` = "Presence")),
+  scale_color_material_c(palette = "rainbow", name = "Sample Size"),
+  theme_modern()
+)
+
+
+pd_rope <-
+  df %>%
+  ggplot(aes(x = p_direction, y = ROPE_full)) +
+  figure5_elements +
+  geom_hline(yintercept = 0.05, linetype = "dashed") +
+  geom_vline(xintercept = 0.95, linetype = "dashed") +
+  scale_x_continuous(breaks = c(seq(0.5,1,length.out = 6),0.95)) +
+  scale_y_continuous(breaks = c(seq(0,1,length.out = 6),0.05)) +
+  ylab("ROPE (full)") +
+  xlab("Probability of Direction (pd)")
+
+pd_bf <-
+  df %>%
+  ggplot(aes(x = p_direction, y = BF_ROPE_log)) +
+  figure5_elements +
+  geom_hline(yintercept = log(c(1/3,3)), linetype = "dashed") +
+  geom_vline(xintercept = 0.95, linetype = "dashed") +
+  scale_y_continuous(breaks = log(c(1/100,1/30,1/10,1/3,1,3,10,30,100)),
+                     labels = c("1/100","1/30","1/10","1/3","1","3","10","30","100")) +
+  scale_x_continuous(breaks = c(seq(0.5,1,length.out = 6),0.95)) +
+  ylab("log BF (vs. ROPE)") +
+  xlab("Probability of Direction (pd)") +
+  coord_cartesian(ylim = log(c(1/30,200)))
+
+rope_bf <-
+  df %>%
+  ggplot(aes(x = ROPE_full, y = BF_ROPE_log)) +
+  figure5_elements +
+  geom_hline(yintercept = log(c(1/3,3)), linetype = "dashed") +
+  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  scale_y_continuous(breaks = log(c(1/100,1/30,1/10,1/3,1,3,10,30,100)),
+                     labels = c("1/100","1/30","1/10","1/3","1","3","10","30","100")) +
+  scale_x_continuous(breaks = c(seq(0,1,length.out = 6),0.05)) +
+  ylab("log BF (vs. ROPE)") +
+  xlab("ROPE (full)") +
+  coord_cartesian(ylim = log(c(1/30,200)))
+
+rainbow_legend <- get_legend(
+  pd_rope + theme(legend.box.margin = margin(1, 1, 1, 1))
+)
+
+figure5_cow <- plot_grid(
+  pd_rope         + theme(legend.position = "none", axis.title.x = element_blank()),
+  rainbow_legend,
+  pd_bf           + theme(legend.position = "none"),
+  rope_bf         + theme(legend.position = "none", axis.title.y = element_blank()),
+  nrow = 2
+)
+
+ggsave2("publications/makowski_2019_bayesian/manuscript/figures/Figure5.png",
+        figure5_cow, width = 21/2, height = 21/2, dpi = 100)
