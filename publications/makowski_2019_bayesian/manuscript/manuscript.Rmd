@@ -333,17 +333,17 @@ table4 <- rbind(
     ),
   data.frame(
     "Index" = "Bayes factor (vs. 0)",
-    "Interpretation" = "???",
-    "Definition" = "???",
-    "Strengths" = "???",
-    "Limitations" = "???"
+    "Interpretation" = "The degree by with the probability mass has shifted away from or towards the null value, after observing the data.",
+    "Definition" = "Ratio of the density of the null value between the posterior and the prior distributions.",
+    "Strengths" = "An unbounded continuous measure of relative evidence; allows statistically supporting the null hypothesis.",
+    "Limitations" = "Sensitive to selection of prior distribution shape, location and scale."
     ),
   data.frame(
     "Index" = "Bayes factor (vs. ROPE)",
-    "Interpretation" = "???",
-    "Definition" = "???",
-    "Strengths" = "???",
-    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors."
+    "Interpretation" = "The degree by with the probability mass has shifted away from or towards the null interval (ROPE), after observing the data.",
+    "Definition" = "Ratio of the odds of the posterior vs the prior distribution falling inside of the range of values defined as the ROPE.",
+    "Strengths" = "An unbounded continuous measure of relative evidence; allows statistically supporting the null hypothesis. Compared to the BF (vs. 0), evidence is accumulated faster for the null when the null is true.",
+    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors. Sensitive to selection of prior distribution shape, location and scale."
     )
 )
 
