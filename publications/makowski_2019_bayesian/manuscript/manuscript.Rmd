@@ -90,7 +90,7 @@ library(performance)
 
 # df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
 df <- read.csv("../data/data.csv")
-df <- df[seq(1,nrow(df), length.out = 3600),] # get every 10th line
+# df <- df[seq(1,nrow(df), length.out = 3600),] # get every 10th line
 ```
 
 
@@ -142,22 +142,20 @@ data <- df %>%
 # Linear Models
 table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
   parameters::model_parameters() %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Linear") %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
+  mutate(Type = "Linear")
 
 # Logistic Models
 table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
   parameters::model_parameters() %>% 
+  mutate(Type = "Logistic")
+
+table1 <- rbind(table_lm, table_glm) %>% 
   filter(grepl("sample_size", Parameter)) %>% 
   mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Logistic") %>% 
+         Parameter = stringr::str_remove(Parameter, "Index"),
+         Parameter = stringr::str_remove(Parameter, ":sample_size")) %>% 
   select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
-
-table1 <- rbind(table_lm, table_glm)
+  arrange(Type, Coefficient) 
 knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
@@ -166,44 +164,43 @@ The analysis suggests that ROPE-based indices are the most sensitive to sample s
 
 <!-- MSB: Move disccusion of consistancy here? -->
 
+
+## Impact of Noise
+
+
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 knitr::include_graphics("figures/Figure2.png")
 ```
 
-```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
-data <- df %>% 
-  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>% 
-  select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>% 
-  tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>% 
-  mutate(true_effect = as.factor(ifelse(true_effect == 1, "Presence", "Absence")),
-         true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
-
-
+```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
 # Linear Models
-table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
+table_lm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "linear")) %>% 
   parameters::model_parameters() %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Linear") %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
+  mutate(Type = "Linear",
+         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
 
 # Logistic Models
-table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
+table_glm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "binary")) %>% 
   parameters::model_parameters() %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = "Logistic") %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Coefficient) 
+  mutate(Type = "Logistic",
+         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence")) 
+  
 
-table1 <- rbind(table_lm, table_glm)
-knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
+table2 <- rbind(table_lm, table_glm) %>% 
+  filter(grepl("error", Parameter)) %>% 
+  mutate(Coefficient = abs(Std_Coefficient),
+         Parameter = stringr::str_remove(Parameter, "Index"),
+         Parameter = stringr::str_remove(Parameter, ":true_effectAbsence:error|:true_effectPresence:error")) %>% 
+  select(Effect, Type, Parameter, Coefficient) %>% 
+  arrange(Effect, Type, Coefficient)
+knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
 ```
 
+The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent accross model types.
 
 
 
+## Presence *vs.* Absence of Effect
 
 
 ```{r Table3, message=FALSE, warning=FALSE, echo=FALSE}
@@ -282,59 +279,27 @@ knitr::include_graphics("figures/Figure3.png")
 TODO: Add points type as sample size as ROPE seems to be directly related to groups of sample size.
 
 
-```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship between Bayesian indices and frequentist arbitrary threshold of significance.", fig.align='center', fig.width=29.7/2.5, fig.height=21/2.5, echo=FALSE}
-
-knitr::include_graphics("figures/Figure4.png")
-
-```
-
-
 
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
 ```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
-# pd_rope <- df %>%
-#   mutate(true_effect = as.factor(true_effect)) %>%
-#   ggplot(aes(x = p_direction, y = ROPE_full, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-#   geom_point() +
-#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-#   ylab("ROPE (full)") +
-#   xlab("Probability of Direction (pd)") +
-#   theme_modern()
-# 
-# pd_bf <- df %>%
-#   filter(BF_ROPE_log <= log(999)) %>%
-#   mutate(true_effect = as.factor(true_effect)) %>%
-#   ggplot(aes(x = p_direction, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-#   geom_point() +
-#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-#   ylab("log BF (vs. ROPE)") +
-#   xlab("Probability of Direction (pd)") +
-#   theme_modern()
-# 
-# rope_bf <- df %>%
-#   filter(BF_ROPE_log <= log(999)) %>%
-#   mutate(true_effect = as.factor(true_effect)) %>%
-#   ggplot(aes(x = ROPE_full, y = BF_ROPE_log, color = sample_size, shape = outcome_type, alpha = true_effect)) +
-#   geom_point() +
-#   scale_shape_manual(values = c(1, 3), name = "Model Type", labels = c(`linear` = "Linear", `binary` = "Logistic")) +
-#   scale_alpha_manual(values = c(0.3, 1), name = "Effect", labels = c(`0` = "Absence", `1` = "Presence")) +
-#   scale_color_material_c(palette = "rainbow", name = "Sample Size") +
-#   ylab("log BF (vs. ROPE)") +
-#   xlab("ROPE (full)") +
-#   theme_modern()
-# 
-# figure5 <- see::plots(pd_rope, pd_bf, rope_bf, nrow = 3)
-# figure5 # How to remove this annoying TableGrob text?!
-# ggsave("figure5.png", figure5, height = 8, width = 6)
+
+knitr::include_graphics("figures/Figure5.png")
 ```
 
 
 The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistant when the null is true.
+
+
+<!-- MSB: -->
+Note also the similarity between *ROPE (full)* and *BF (vs. ROPE)*; this is expected as mathematically, the relationship between *BF (vs ROPE)* and *ROPE (full)* is:
+$$BF_{rope} = odds(ROPE_{full}) \times \frac{1}{c} = \frac{ROPE_{full}}{1-ROPE_{full}}\times \frac{1}{c}$$
+Where $c$ is the *prior* odds of $\theta$ falling within the ROPE. Since this odds-ratio is dependant only on the shape of the prior distributions and the definitation of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between null and true effects (but different criterion for desicion making - not discussed here). <!-- MSB: we're not discussing the bayesian indices thresholds... -->
+
+
+# Discussion
+
+
 
 ```{r table4, message=FALSE, warning=FALSE, echo=FALSE}
 table4 <- rbind(
@@ -386,22 +351,6 @@ knitr::kable(table4, digits = 2, caption = "Table 4. Summary of Bayesian Indices
 ```
 
 
-## Relationship between ROPE (full), pd and BF (vs. ROPE)
-
-```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
-
-knitr::include_graphics("figures/Figure5.png")
-```
-
-
-The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistant when the null is true.
-
-<!-- MSB: -->
-Note also the similarity between *ROPE (full)* and *BF (vs. ROPE)*; this is expected as mathematically, the relationship between *BF (vs ROPE)* and *ROPE (full)* is:
-$$BF_{rope} = odds(ROPE_{full}) \times \frac{1}{c} = \frac{ROPE_{full}}{1-ROPE_{full}}\times \frac{1}{c}$$
-Where $c$ is the *prior* odds of $\theta$ falling within the ROPE. Since this odds-ratio is dependant only on the shape of the prior distributions and the definitation of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between null and true effects (but different criterion for desicion making - not discussed here). <!-- MSB: we're not discussing the bayesian indices thresholds... -->
-
-# Discussion
 
 <!-- /// Summary of aim and methods -->
 
