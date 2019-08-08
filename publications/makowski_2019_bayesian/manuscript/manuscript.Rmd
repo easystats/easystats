@@ -279,13 +279,6 @@ knitr::include_graphics("figures/Figure3.png")
 TODO: Add points type as sample size as ROPE seems to be directly related to groups of sample size.
 
 
-```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship between Bayesian indices and frequentist arbitrary threshold of significance.", fig.align='center', fig.width=29.7/2.5, fig.height=21/2.5, echo=FALSE}
-
-knitr::include_graphics("figures/Figure4.png")
-
-```
-
-
 
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
@@ -345,6 +338,23 @@ table4 <- rbind(
 
 knitr::kable(table4, digits = 2, caption = "Table 4. Summary of Bayesian Indices of Effect Existence and Significance.")
 ```
+
+
+
+## Relationship between ROPE (full), pd and BF (vs. ROPE)
+
+```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
+
+knitr::include_graphics("figures/Figure5.png")
+```
+
+
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistant when the null is true.
+
+<!-- MSB: -->
+Note also the similarity between *ROPE (full)* and *BF (vs. ROPE)*; this is expected as mathematically, the relationship between *BF (vs ROPE)* and *ROPE (full)* is:
+$$BF_{rope} = odds(ROPE_{full}) \times \frac{1}{c} = \frac{ROPE_{full}}{1-ROPE_{full}}\times \frac{1}{c}$$
+Where $c$ is the *prior* odds of $\theta$ falling within the ROPE. Since this odds-ratio is dependant only on the shape of the prior distributions and the definitation of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between null and true effects (but different criterion for desicion making - not discussed here). <!-- MSB: we're not discussing the bayesian indices thresholds... -->
 
 
 # Discussion
