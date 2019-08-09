@@ -309,8 +309,7 @@ One of the limitation the ROPE-based indices is that they require an explicit de
 
 <!-- - ROPE based indices seems to be the most sensitive to different model types, as equivalent ROPE ranges are not straightforward to select. -->
 <!-- - ROPE seems also strongly affected by sample {MSB: this is a feature - consistency!} -->
-<!-- - pd and BF might be two relevant indices, being both intuitive, providing different information. {MSB: when it is hard to specify the ROPE, or good prior - due to weak theory, or prior knowledge in the field of research, I think the pd is the minimal measure to report, as it requires / is affected by none of these. But... in essence by recommending the pd, we're recommending a "basic" p-value, no? Should address that Bayes modeling gives the ability to precisely explore possible values of the parameter space...}-->
-<!-- - On the other hand, BF and pd seems quite closely related {MSB: How so?}: ROPE might give a different perspective, although to be taken with caution. {MSB: agree}-->
+<!-- - ROPE might give a different perspective, although to be taken with caution. {MSB: agree}-->
 
 
 <!-- BFs -->
@@ -328,17 +327,22 @@ After all the criticism regarding the frequentist *p*-value, it might appear as 
 # Reporting Guidelines
 
 How these observations can be used to improve statistical good practices in psychological science? Importantly, before being able to draw a definitive conclusion about the qualities of these indices, further studies need to investigate the robustness of these indices to sampling characteristics (*e.g.*, sampling algorithm, number of iterations, chains, warm-up) and the impact of prior specification [@kass1995bayes; @vanpaemel2010prior; @kruschke2011bayesian], all of which are important parameters of Bayesian statistics. <!-- MSB: All of these refs are about the BF, as ROPE etc are not affected by the how "wide" the priors are, but instead by how "narrow" they are - what I called the reversed Jeffreys-Lindley-Bartlett paradox: https://github.com/easystats/blog/issues/25#issuecomment-503391174 -->
-<!-- DM: But we don't have any citation for ROPE? -->
+<!-- DM: But we don't have any citation for ROPE? I would add something about the reversed paradox to make it an official concept hehe :) -->
 
-Nevertheless, based on the present comparison, we can draw the following guidelines. As the two aspects of the EXIT framework, *existence* and *significance*, are complementary, we suggest using at minimum one index of each category. Thus, in order to assess the existence and significance of effects within a regression model, we recommend to report, at minimum, the *pd* as an objective index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. 
-
-Defining appropriate heuristics to help the interpretation is beyond the scope of this study, as it would require testing them on more natural datasets. Nevertheless, if we take the frequentist framework and the existing literature as a reference point, it seems that 95\%, 97\% and 99\% is a *pd* 
-
-
-
-
+Nevertheless, based on the present comparison, we can start outlining the following guidelines. As the two aspects of the EXIT framework, *existence* and *significance*, are complementary, we suggest using at minimum one index of each category. Thus, in order to assess the existence and significance of effects within a regression model, we recommend to report, at minimum, the *pd* as an objective index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. 
 <!-- MSB: BF-ROPE is most sensitive to effect **existence** as found in the sensitivity analysis! And IMO, it is also simple to interp -->
 <!-- Dom: depends what you call existence I guess... But still, since ROPE is inherently defining a range based on size (negligible), and BF ROPE is testing the odds in favour/against this range (i.e., the effect being non-negligible vs. the effect being negligible), thus it is conceptually an index of effect significance rather than merely existence (as defined in EXIT) -->
+
+Defining appropriate heuristics to help the interpretation is beyond the scope of this study, as it would require testing them on more natural datasets. Nevertheless, if we take the frequentist framework and the existing literature as a reference point, it seems that 95\%, 97\% and 99\% might be relevant reference points (*i.e.*, easy-to-remember values) for the *pd* and 3, 10 and 30 (weak evidence) appropriate for the BF. A concise, standardized, reference template sentence to describe the parameter of a model including a point-estimate, uncertainty measure, indices of existence, significance and effect size could be:
+
+"The effect of X has a probability of 92.14\% [*pd*] of being negative (Median = 0.03, 89\% CI [-0.01, 0.05]), moderately not-significant (BF<sub>ROPE</sub> = 0.29) [*BF (vs. ROPE)*] and can be considered as very small (Std. Median = 0.09) [*index of effect size*]."
+
+<!-- Other propositions: -->
+<!-- *"A [small/medium/large] effect was found (estimate + CI), with a pd% of chance of being [positive/negative], and was [more/less] favorable than a negligible effect (BF = BF)."* -->
+<!-- "the effect of X has a probability of pd of being negative (Median = median, 89% CI [ HDIlow , HDIhigh ] and can be considered as significant (ROPE% in ROPE)." -->
+<!-- "A small effect was found (estimate + CI), with a pd% of chance of being positive, and was more favorable than the null effect (BF = BF)." -->
+<!-- The effect of x has 98% [*pd*] of chance of being positive and can be considered as small (estim). There is moderate evidence in favour of its significance (BF<sub>ROPE</sub> = 11). -->
+
 
 # Supplementary Materials
 
