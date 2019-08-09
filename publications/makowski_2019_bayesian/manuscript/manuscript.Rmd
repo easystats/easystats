@@ -43,19 +43,19 @@ The Bayesian framework is quickly gaining popularity among psychologists and neu
 
 <!-- when these sig indices are needed -->
 
-While the probabilistic reasoning promoted by the Bayesian framework is pervading most of data science aspects, it is particularly well established for statistical modelling. This facet, on which psychological science massively rely, could roughly be grouped into two soft-edged categories; predictive and structural modelling. Although a statistical model can (often) serve both purposes, predictive modelling is devoted to build and find the best model that accurately predicts a given outcome. It is centered around the concepts such as fitting metrics, predictive accuracy and model comparison. At the extremum of this dimension lies deep learning models, used for their strong predictive power, sometimes at the expense of Human readability [these models has been often referred to as "black-boxes", emphasizing the difficulty to appraise their internal functioning; @burrell2016machine; @castelvecchi2016can; @snoek2012practical]. On the other side, psychologists are often using simpler models (for instance, based on the general linear framework) to explore their data. Within this framework, the goal switches from building the best model to understanding the parameters inside the model. Altough in reality, the pipeline often starts with predictive modelling ("what is the best model of the world, *i.e.*, the observed variable") and then seemingly transition to structural modelling ("given this model of the world, how are the effects, *i.e.*, the model parameters, influencing the outcome"), which conclusions often rely on some index of effect "significance".
+While the probabilistic reasoning promoted by the Bayesian framework is pervading most of data science aspects, it is particularly well established for statistical modelling. This facet, on which psychological science massively rely, could roughly be grouped into two soft-edged categories; predictive and structural modelling. Although a statistical model can (often) serve both purposes, predictive modelling is devoted to build and find the best model that accurately predicts a given outcome. It is centered around the concepts such as fitting metrics, predictive accuracy and model comparison. At the extremum of this dimension lies deep learning models, used for their strong predictive power, sometimes at the expense of Human readability [these models has been often referred to as "black-boxes", emphasizing the difficulty to appraise their internal functioning; @burrell2016machine; @castelvecchi2016can; @snoek2012practical]. On the other side, psychologists are often using simpler models (for instance, based on the general linear framework) to explore their data. Within this framework, the goal switches from building the best model to understanding the parameters inside the model. Although in reality, the pipeline often starts with predictive modelling ("what is the best model of the world, *i.e.*, the observed variable") and then seemingly transition to structural modelling ("given this model of the world, how are the effects, *i.e.*, the model parameters, influencing the outcome"), which conclusions often rely on some index of effect "significance".
 
 <!--Estimation vs. significance -->
 
-It is important to note that the importance and focus on significance assessment might differ accross fields. For instance, in applied physics or engineering, the goal of a study is often to precisely *estimate* (quantify) a given effect and its size (the question being, for example, wether a given coefficient is closer to 7 or to 9, or whether a difference is moderate or big). The Bayesian framework has demonstrated its superiorty in addressing this type of questions, its probabilistic framework leading to accurate estimations and allowing to quantify the inherent uncertainty associated with them. On the contrary, in other fields, such as for instance experimental psychology, the implicit aim has often been focused on *significance*: "are these two conditions different?", "is there a correlation between these two variables?". In other words, being able to conclude if a given parameter affects substantially the outcome with little care to its precise quantification.
+It is important to note that the importance and focus on significance assessment might differ across fields. For instance, in applied physics or engineering, the goal of a study is often to precisely *estimate* (quantify) a given effect and its size (the question being, for example, whether a given coefficient is closer to 7 or to 9, or whether a difference is moderate or big). The Bayesian framework has demonstrated its superiority in addressing this type of questions, its probabilistic framework leading to accurate estimations and allowing to quantify the inherent uncertainty associated with them. On the contrary, in other fields, such as for instance experimental psychology, the implicit aim has often been focused on *significance*: "are these two conditions different?", "is there a correlation between these two variables?". In other words, being able to conclude if a given parameter affects substantially the outcome with little care to its precise quantification.
 
 <!-- Utility of significance -->
 
-Despite a general agreement on its defects and recurring waves of attacks occuring for decades [@gardner1986confidence; anderson2000null; finch2004reform; fidler2004editors; @cohen2016earth], the tenacity and resilience of the *p*-value as an index of significance is remarkable, being still widely used and thaught (altough some journals have taken a radical step by banning them, *e.g.*, @gill_2018; expecting to shift the perspective to effect size estimation). This endurance might be informative on how such indices, and the accompanying heuristics to interpret them (*e.g.*, *.05*, *.01* and *.001*), are useful and necessary for researchers to gain an intuitive (although possibly simplified) understanding of the interactions and structure of their data. Moreover, this utility is salient in contexts where decisions have to be taken (*e.g.*, in medical settings). In spite of the statistical perspective, in which the absence of any hard mathematical thresholds or discrete categories naturally leads to the desire for a nuanced and subtle view, decisionners might often seek a threshold value to rationalize their acts. This practical need for significance assessment might be one of the mechanism fostering the wide adoption of the frequentist *p*-value and its arbitrary interpretation clusters. Unfortunately, these heuristics have severely rigidified, becoming a goal and threshold to reach rather than a tool for understanding the data [@cohen2016earth; @kirk1996practical]. 
+Despite a general agreement on its defects and recurring waves of attacks occurring for decades [@gardner1986confidence; anderson2000null; finch2004reform; fidler2004editors; @cohen2016earth], the tenacity and resilience of the *p*-value as an index of significance is remarkable, being still widely used and taught (although some journals have taken a radical step by banning them, *e.g.*, @gill_2018; expecting to shift the perspective to effect size estimation). This endurance might be informative on how such indices, and the accompanying heuristics to interpret them (*e.g.*, *.05*, *.01* and *.001*), are useful and necessary for researchers to gain an intuitive (although possibly simplified) understanding of the interactions and structure of their data. Moreover, this utility is salient in contexts where decisions have to be taken (*e.g.*, in medical settings). In spite of the statistical perspective, in which the absence of any hard mathematical thresholds or discrete categories naturally leads to the desire for a nuanced and subtle view, decisionners might often seek a threshold value to rationalize their acts. This practical need for significance assessment might be one of the mechanism fostering the wide adoption of the frequentist *p*-value and its arbitrary interpretation clusters. Unfortunately, these heuristics have severely rigidified, becoming a goal and threshold to reach rather than a tool for understanding the data [@cohen2016earth; @kirk1996practical]. 
 
 <!-- How to improve sig testing -->
 
-While significance testing (and its inherent categorical interpretation heuristics) might have its place alongside effect estimation as a complementary perspective, it does not preclude the fact that drastic improvements are needed. For instance, one possible advance could focus on improving the mathematical understanding (*e.g.*, through a new simpler index) of the values (as opposed to the obscure mathematical definition of the  *p*-value that contributes to its common misintepretation). Another improvement could be found in providing an intuitive (*e.g.*, visual) understanding of the behaviour of the indices in relationship with main sources of variance, such as sample size, noise or effect presence. Such better overall understanding of the indices would hopefully act as a barrier against their mindless reporting by allowing the users to nuance the interpretations and conclusions that they draw.
+While significance testing (and its inherent categorical interpretation heuristics) might have its place alongside effect estimation as a complementary perspective, it does not preclude the fact that drastic improvements are needed. For instance, one possible advance could focus on improving the mathematical understanding (*e.g.*, through a new simpler index) of the values (as opposed to the obscure mathematical definition of the  *p*-value that contributes to its common misinterpretation). Another improvement could be found in providing an intuitive (*e.g.*, visual) understanding of the behaviour of the indices in relationship with main sources of variance, such as sample size, noise or effect presence. Such better overall understanding of the indices would hopefully act as a barrier against their mindless reporting by allowing the users to nuance the interpretations and conclusions that they draw.
 
 
 <!--Bayesian alternatives -->
@@ -65,7 +65,7 @@ So what does the Bayesian framework offer as alternatives for the *p*-value? Bay
 
 <!-- Research gap statement -->
 
-Curiously, despite the richness provided by the Bayesian framework and the availability of multiple indices, no consensus has yet emerged on the ones to use. On the contrary, the litterature continues to bloom in a raging debate, often polarized between proponents of the Bayes factor as the supreme index and its detractors [*e.g.*, @spanos2013should; @robert2014jeffreys; robert2016expected; @wagenmakers2015another], with strong theoretical arguments being developped on both sides. Unfortunately, no practical, empirical and direct comparison between these indices has ever been done. This might be a rebuttal for scientists interested in adopting the Bayesian framework. Moreover, this grey area can increase the difficulty of readers or reviewers unfamiliar with the Bayesian framework to follow the assumptions and conclusions, which could in turn generate unnecessary doubt upon the entire study. While we think that such indices of significance and their interpretation guidelines (in the form of rules of thumb) are useful in practice, we also strongly believe that they should be accompanied with the understanding of their "behaviour" in relationship with major sources of variance, such as sample size and noise. This knowledge is important for people to implicitly and intuitively appraise the meaning and implication of the mathematical values they report. This could, in turn, prevent the crystallization of the possible heuristics and categories derived from such indices.
+Curiously, despite the richness provided by the Bayesian framework and the availability of multiple indices, no consensus has yet emerged on the ones to use. On the contrary, the literature continues to bloom in a raging debate, often polarized between proponents of the Bayes factor as the supreme index and its detractors [*e.g.*, @spanos2013should; @robert2014jeffreys; robert2016expected; @wagenmakers2015another], with strong theoretical arguments being developed on both sides. Unfortunately, no practical, empirical and direct comparison between these indices has ever been done. This might be a rebuttal for scientists interested in adopting the Bayesian framework. Moreover, this grey area can increase the difficulty of readers or reviewers unfamiliar with the Bayesian framework to follow the assumptions and conclusions, which could in turn generate unnecessary doubt upon the entire study. While we think that such indices of significance and their interpretation guidelines (in the form of rules of thumb) are useful in practice, we also strongly believe that they should be accompanied with the understanding of their "behaviour" in relationship with major sources of variance, such as sample size and noise. This knowledge is important for people to implicitly and intuitively appraise the meaning and implication of the mathematical values they report. This could, in turn, prevent the crystallization of the possible heuristics and categories derived from such indices.
 
 <!-- Aim and hypotheses -->
 
@@ -96,7 +96,7 @@ df <- read.csv("../data/data.csv")
 
 ## Indices
 
-For each of these datasets, Bayesian and frequentist regressions were fitted to predict *y* with *x* as a unique predictor. The Bayesian models had default, mildly informative priors (normal distribution with mean 0 and SD 1) over the parameter of interest, and were fitted using MCMC (4 chains of 2000 iterations, half of which used for warm-up). For all of the simulated models, we computed seven indices related to the effect of *x*. These are availabe and described in details in the *bayestestR* R package **(BAYESTESTR CITATION)**.
+For each of these datasets, Bayesian and frequentist regressions were fitted to predict *y* with *x* as a unique predictor. The Bayesian models had default, mildly informative priors (normal distribution with mean 0 and SD 1) over the parameter of interest, and were fitted using MCMC (4 chains of 2000 iterations, half of which used for warm-up). For all of the simulated models, we computed seven indices related to the effect of *x*. These are available and described in details in the *bayestestR* R package **(BAYESTESTR CITATION)**.
 
 ### Frequentist *p*-value
 
@@ -108,7 +108,7 @@ The Probability of Direction (*pd*) varies between 50\% and 100\% and can be int
 
 ### MAP-based *p*-value
 
-The *MAP-based p-value* (also refered to as the "Bayesian *p*-value") is related to the odds that a parameter has against the null hypothesis [@mills2014bayesian; @mills2017objective]. It is mathematically defined as the density value at 0 divided by the density at the Maximum A Posteriori (MAP), *i.e.*, the equivalent of the mode for continuous distributions.
+The *MAP-based p-value* (also referred to as the "Bayesian *p*-value") is related to the odds that a parameter has against the null hypothesis [@mills2014bayesian; @mills2017objective]. It is mathematically defined as the density value at 0 divided by the density at the Maximum A Posteriori (MAP), *i.e.*, the equivalent of the mode for continuous distributions.
 
 ### ROPE (95\%) and ROPE (full)
 
@@ -118,7 +118,7 @@ The *ROPE (95\%)* refers to the percentage of the 95\% HDI that lies within the 
 
 The Bayes Factor (*BF*) used here is based on prior and posterior distributions of a single parameter. In this context, the Baye factor indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s) (relative to the prior distribution), thus indicating if the null hypothesis has become less or more likely given the observed data. We created two indices corresponding to two definitions for the null. In the case of testing against a point null (0), a Savage-Dickey density ratio was computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null [@wagenmakers2010bayesian]. We also computed the BF of the posterior distribution against the range of negligible values (same as for the ROPE), by comparing the prior and posterior odds of the parameter falling within vs. outside the ROPE [see *Non-overlapping Hypotheses* in @morey2011bayesinterval].
 
-## Data Anaysis
+## Data Analysis
 
 The aim of this study is two-fold: 1) compare indices of effect existence and significance between them, 2) provide visual guides to provide an intuitive understanding of the numeric values in relation with a known frame of reference (the frequentist NHST framework). Thus, we will start by 1) presenting the relationship between these indices and main sources of variance, such as effect existence, sample size and noise. 2) Compare Bayesian indices with the frequentist *p*-value and its commonly used thresholds (.05, .01, .001). Taken together, these results will help us to outline numeric guides to ease the reporting and interpretation of the indices.
 
@@ -131,38 +131,14 @@ knitr::include_graphics("figures/Figure1.png")
 ```
 
 ```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
-data <- df %>% 
-  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>% 
-  select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>% 
-  tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>% 
-  mutate(true_effect = as.factor(ifelse(true_effect == 1, "Presence", "Absence")),
-         true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
-
-
-# Linear Models
-table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>% 
-  parameters::model_parameters() %>% 
-  mutate(Type = "Linear")
-
-# Logistic Models
-table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>% 
-  parameters::model_parameters() %>% 
-  mutate(Type = "Logistic")
-
-table1 <- rbind(table_lm, table_glm) %>% 
-  filter(grepl("sample_size", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Parameter = stringr::str_remove(Parameter, "Index"),
-         Parameter = stringr::str_remove(Parameter, ":sample_size")) %>% 
-  select(Type, Parameter, Coefficient) %>% 
-  arrange(Type, Coefficient) 
+source("make_tables.R")
 knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
-The analysis suggests that ROPE-based indices are the most sensitive to sample size, followed by the MAP-based *p*, the *pd*, the *p*-value. The BF (vs. 0) and the BF (vs. ROPE) are the less sensitive to sample size. This pattern is consistent accross model types.
+The analysis suggests that ROPE-based indices are the most sensitive to sample size, followed by the MAP-based *p*, the *pd*, the *p*-value. The BF (vs. 0) and the BF (vs. ROPE) are the less sensitive to sample size. This pattern is consistent across model types.
 
 
-<!-- MSB: Move disccusion of consistancy here? -->
+<!-- MSB: Move discussion of consistency here? -->
 
 
 ## Impact of Noise
@@ -173,30 +149,11 @@ knitr::include_graphics("figures/Figure2.png")
 ```
 
 ```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
-# Linear Models
-table_lm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "linear")) %>% 
-  parameters::model_parameters() %>% 
-  mutate(Type = "Linear",
-         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
 
-# Logistic Models
-table_glm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "binary")) %>% 
-  parameters::model_parameters() %>% 
-  mutate(Type = "Logistic",
-         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence")) 
-  
-
-table2 <- rbind(table_lm, table_glm) %>% 
-  filter(grepl("error", Parameter)) %>% 
-  mutate(Coefficient = abs(Std_Coefficient),
-         Parameter = stringr::str_remove(Parameter, "Index"),
-         Parameter = stringr::str_remove(Parameter, ":true_effectAbsence:error|:true_effectPresence:error")) %>% 
-  select(Effect, Type, Parameter, Coefficient) %>% 
-  arrange(Effect, Type, Coefficient)
 knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
 ```
 
-The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent accross model types.
+The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent across model types.
 
 
 
@@ -204,59 +161,15 @@ The analysis suggests that, in the absence of an effect, posterior indices (*pd*
 
 
 ```{r Table3, message=FALSE, warning=FALSE, echo=FALSE}
-table3 <- data.frame()
-for (model_type in c("linear", "binary")) {
-  p_value <- df %>%
-    parameters::normalize(select = "p_value") %>%
-    mutate(p_value = 1 - p_value) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ p_value + error + sample_size, data = ., family = "binomial")
-  p_direction <- df %>%
-    parameters::normalize(select = "p_direction") %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ p_direction + error + sample_size, data = ., family = "binomial")
-  p_MAP <- df %>%
-    parameters::normalize(select = "p_MAP") %>%
-    mutate(p_MAP = 1 - p_MAP) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ p_MAP + error + sample_size, data = ., family = "binomial")
-  ROPE_95 <- df %>%
-    parameters::normalize(select = "ROPE_95") %>%
-    mutate(ROPE_95 = 1 - ROPE_95) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ ROPE_95 + error + sample_size, data = ., family = "binomial")
-  ROPE_full <- df %>%
-    parameters::normalize(select = "ROPE_full") %>%
-    mutate(ROPE_full = 1 - ROPE_full) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ ROPE_full + error + sample_size, data = ., family = "binomial")
-  BF_log <- df %>%
-    parameters::normalize(select = "BF_log") %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ BF_log + error + sample_size, data = ., family = "binomial")
-  BF_ROPE_log <- df %>%
-    parameters::normalize(select = "BF_ROPE_log") %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ BF_ROPE_log + error + sample_size, data = ., family = "binomial")
-
-  performance_table <- performance::compare_performance(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log)
-  performance_table <- cbind(data.frame(Model_Type = model_type), performance_table)
-  table3 <- rbind(table3, performance_table)
-}
-
-table3 %>%
-  select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>%
-  mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
-         BF = bayestestR:::.format_big_small(BF)) %>%
-  knitr::kable(digits = 2, caption = "Table 3. Performance comparison of the indices in predicting the presence of an effect.")
+knitr::kable(table3, digits = 2, caption = "Table 3. Performance comparison of the indices in predicting the presence of an effect.")
 ```
 
 
-For each index and each model type, we fitted a (frequentist) logistic regression to predict the presence or absence of effect, adjusted for noise and sample size. The comparison of the performance of these models (AIC, BIC and Tjur's R2) revealed a consistent pattern accross model type (*i.e.*, similar for linear and logistic models), suggesting that *BF (vs. ROPE)* is the best index to discriminate between the presence and the absence of an effect, followed by *BF (vs. 0)*, *ROPE (full)*, *ROPE (95\_%)*, *p-MAP*, *p-direction* and the frequentist *p*-value. The Bayes factor [against the frequentist *p*-value model, computed via BIC approximation @wagenmakers2007practical], used here as a measure of relative performance, supported this conclusion.
+For each index and each model type, we fitted a (frequentist) logistic regression to predict the presence or absence of effect, adjusted for noise and sample size. The comparison of the performance of these models (AIC, BIC and Tjur's R2) revealed a consistent pattern across model type (*i.e.*, similar for linear and logistic models), suggesting that *BF (vs. ROPE)* is the best index to discriminate between the presence and the absence of an effect, followed by *BF (vs. 0)*, *ROPE (full)*, *ROPE (95\_%)*, *p-MAP*, *p-direction* and the frequentist *p*-value. The Bayes factor [against the frequentist *p*-value model, computed via BIC approximation @wagenmakers2007practical], used here as a measure of relative performance, supported this conclusion.
 
 <!-- MSB: Looking at the models, we can talk about how p-values have some discriminatory power, but how the other indices are much better (besides pd) -->
 
-<!-- MSB: interval BFs descriminate better between null (or negligable) and true (un-negligable) effects [@morey2011bayesinterval; rouder2012default] -->
+<!-- MSB: interval BFs discriminate better between null (or negligible) and true (un-negligible) effects [@morey2011bayesinterval; rouder2012default] -->
 
 
 ## Relationship with the frequentist *p*-value
@@ -272,7 +185,7 @@ knitr::include_graphics("figures/Figure3.png")
 <!-- MSB: in each plot, the markers on the top (null effect) and bottom (true effect) represent the density of p-values -->
 <!-- MSB: whereas on the right (null effect) and left (true effect) they represent the density of the index of interest -->
 
-**Figure 3** suggests that the *pd* has a 1:1 correspondance with the frequentist *p*-value. *BF* indices still appear as having a strong relationship (altough severly non-linear) with the frequentist index, which is to be expected since the *BF* is consistant (i.e., it approaches the "true" bound as sample size increases) both when the null is true and when the alternative is ture (as can be seen in the marginal distibutions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistant when the alternative is true, but has a uniform distribution [0-1] when the null is true [@rouder2012default; @rouder2009bayesian]. *ROPE*-based percentages appear to be only weakly related to *p*-values.
+**Figure 3** suggests that the *pd* has a 1:1 correspondence with the frequentist *p*-value (through the formula $p_{two-sided} = 2*(1-p_d)$). *BF* indices still appear as having a strong relationship (although severely non-linear) with the frequentist index, which is to be expected since the *BF* is consistent (i.e., it approaches the "true" bound as sample size increases) both when the null is true and when the alternative is ture (as can be seen in the marginal distributions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistent when the alternative is true, but has a uniform distribution [0-1] when the null is true [@rouder2012default; @rouder2009bayesian]. *ROPE*-based percentages appear to be only weakly related to *p*-values.
 
 
 
@@ -288,13 +201,13 @@ knitr::include_graphics("figures/Figure5.png")
 ```
 
 
-The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences accross model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consitancy both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistant when the null is true.
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences across model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consistency both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistent when the null is true.
 
 
-<!-- MSB: -->
+<!-- ROPE and BF -->
 Note also the similarity between *ROPE (full)* and *BF (vs. ROPE)*; this is expected as mathematically, the relationship between *BF (vs ROPE)* and *ROPE (full)* is:
 $$BF_{rope} = odds(ROPE_{full}) \times \frac{1}{c} = \frac{ROPE_{full}}{1-ROPE_{full}}\times \frac{1}{c}$$
-Where $c$ is the *prior* odds of $\theta$ falling within the ROPE. Since this odds-ratio is dependant only on the shape of the prior distributions and the definitation of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between null and true effects (but different criterion for desicion making - not discussed here). <!-- MSB: we're not discussing the bayesian indices thresholds... -->
+Where $c$ is the *prior* odds of $\theta$ falling within the ROPE. Since this odds-ratio is dependent only on the shape of the prior distributions and the definition of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between null and true effects (but different criterion for decision making - not discussed here). <!-- MSB: we're not discussing the Bayesian indices thresholds... -->
 
 
 # Discussion
@@ -307,7 +220,7 @@ table4 <- rbind(
     "Index" = "Probability of Direction (pd)",
     "Interpretation" = "Probability that an effect is of the same sign as the median's.",
     "Definition" = "Proportion of the posterior distribution of the same sign than the median's.",
-    "Strengths" = "Straightforward computation and interpretation. Objective property of the posterior distribution. 1:1 correspondance with the frequentist p-value.",
+    "Strengths" = "Straightforward computation and interpretation. Objective property of the posterior distribution. 1:1 correspondence with the frequentist p-value.",
     "Limitations" = "Limited information favouring the null hypothesis."
     ),
   data.frame(
@@ -335,14 +248,14 @@ table4 <- rbind(
     "Index" = "Bayes factor (vs. 0)",
     "Interpretation" = "The degree by with the probability mass has shifted away from or towards the null value, after observing the data.",
     "Definition" = "Ratio of the density of the null value between the posterior and the prior distributions.",
-    "Strengths" = "An unbounded continuous measure of relative evidence; allows statistically supporting the null hypothesis.",
+    "Strengths" = "An unbounded continuous measure of relative evidence. Allows statistically supporting the null hypothesis.",
     "Limitations" = "Sensitive to selection of prior distribution shape, location and scale."
     ),
   data.frame(
     "Index" = "Bayes factor (vs. ROPE)",
     "Interpretation" = "The degree by with the probability mass has shifted away from or towards the null interval (ROPE), after observing the data.",
     "Definition" = "Ratio of the odds of the posterior vs the prior distribution falling inside of the range of values defined as the ROPE.",
-    "Strengths" = "An unbounded continuous measure of relative evidence; allows statistically supporting the null hypothesis. Compared to the BF (vs. 0), evidence is accumulated faster for the null when the null is true.",
+    "Strengths" = "An unbounded continuous measure of relative evidence.Allows statistically supporting the null hypothesis. Compared to the BF (vs. 0), evidence is accumulated faster for the null when the null is true.",
     "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors. Sensitive to selection of prior distribution shape, location and scale."
     )
 )
@@ -354,10 +267,10 @@ knitr::kable(table4, digits = 2, caption = "Table 4. Summary of Bayesian Indices
 
 <!-- /// Summary of aim and methods -->
 
-Based on the simulation of multiple linear and logistic models, the present work aimed at comparing several Bayesian indices of effect existence, provide visual representations of the "behaviour" of such indices in relationship with important sources of variance such as sample size, noise, presence of effect, as well as comparing them with the well-known and widely used frequentist *p*-value and its arbritrary interpretation heuristics.
+Based on the simulation of multiple linear and logistic models, the present work aimed at comparing several Bayesian indices of effect existence, provide visual representations of the "behaviour" of such indices in relationship with important sources of variance such as sample size, noise, presence of effect, as well as comparing them with the well-known and widely used frequentist *p*-value and its arbitrary interpretation heuristics.
 
 
-<!-- /// Results dicsussion -->
+<!-- /// Results discussion -->
 <!-- Sensibility to sample size -->
 
 The results tend to suggest that indices could be separated into two categories. Consistency talk.
@@ -373,49 +286,59 @@ Discrimination analysis.
 
 <!-- Comparison to p-value -->
 
-What is the point of comparing Bayesian indices with the frequentist *p*-value, especially after having pointed out to its many flaws? Indeed, while this comparison may seem counterintuitive or wrong (as the Bayesian thinking is intrinsically different from the frequentist framework), we believe that this juxtaposition is interesting for didactic reasons. The frequentist *p*-value "speaks" to many and can thus be seen as a reference and a way to facilitate the shift toward the Bayesian framework. Thus, pragmatically documenting such bridges can only foster the understanding of the methodological issues that our field is facing, and in turn act against the sectarism and isolation caused by a dogmatic approach to a framework. This does not preclude, however, that a change in the general paradigm of significance seeking in necessary, and that Bayesian indices are fundamentally different from the frequentist *p*, rather than mere approximations or equivalents.
+What is the point of comparing Bayesian indices with the frequentist *p*-value, especially after having pointed out to its many flaws? Indeed, while this comparison may seem counter-intuitive or wrong (as the Bayesian thinking is intrinsically different from the frequentist framework), we believe that this juxtaposition is interesting for didactic reasons. The frequentist *p*-value "speaks" to many and can thus be seen as a reference and a way to facilitate the shift toward the Bayesian framework. Thus, pragmatically documenting such bridges can only foster the understanding of the methodological issues that our field is facing, and in turn act against the sectarism and isolation caused by a dogmatic approach to a framework. This does not preclude, however, that a change in the general paradigm of significance seeking in necessary, and that Bayesian indices are fundamentally different from the frequentist *p*, rather than mere approximations or equivalents.
 
 
 <!-- /// General discussion -->
 <!-- Significance vs. Existence -->
 
-Critically, while the purpose of these indices was solely termed as *significance* until now, we would like to emphasize the nuanced perspective of the existence-significance testing as a dual-framework for parameters description and interpretation. The idea supported here is that there is a conceptual and practical distinction, and possible dissociation to be made, between an effect's *existence* and *significance*. In this context, existence is simply defined as the consistency of an effect in one particular direction (*i.e.*, positive or negative), without any assumptions or conclusions as to its size, importance or meaning. It is an objective feature of an estimate (tied to its uncertainty). On the other hand, *significance* would be here reframed following its original literally definition ("being worthy of attention; importance"), which a neutral approach would link with the concept of effect size. An effect can be considered significant if its magnitude is higher than a given threshold. This aspect can be explored, to a certain extent, in an objective way with the concept of *practical equivalence* [@kruschke2014doing; @lakens2017equivalence; @lakens2018equivalence, which suggests the use of a range of values assimilated to absence of effect (the ROPE). If the effect falls within this range, it is considered as non-significant *for practical reasons*: the magnitude of the effect is likely to be too small to be of paramount importance in real-world scenarios. Nevertheless, *significance* also withholds are more subjective aspect, corresponding to its contextual meaningfulness, which is highly dependent on the literature, priors, novelty, context or field, and thus cannot be neutrally assessed with any statistical index. Interstingly, the weight of one or the other aspect of this framework might depend on the question asked. For instance, in a study exploring the effects of a new treatment, the focus might be *existence*: how much are we certain that the effect is beneficial and not detreminental? In a furhter step, however, the researcher might become itnerested in *significance*: is this effect large enough to be of any interest? Acknowledging the distinction and complementarity of these two aspects could in turn enrich the information and usefulness of the results reported in psychological science. For practical reasons, the implementation of EXIT (Effect eXistence and sIgnificance Testing) is made straightforward through the *bayestestR* open-source package for R (**BAYESTESTR CITATION**).
+Critically, while the purpose of these indices was solely termed as *significance* until now, we would like to emphasize the nuanced perspective of the existence-significance testing as a dual-framework for parameters description and interpretation. The idea supported here is that there is a conceptual and practical distinction, and possible dissociation to be made, between an effect's *existence* and *significance*. In this context, existence is simply defined as the consistency of an effect in one particular direction (*i.e.*, positive or negative), without any assumptions or conclusions as to its size, importance or meaning. It is an objective feature of an estimate (tied to its uncertainty). On the other hand, *significance* would be here re-framed following its original literally definition ("being worthy of attention; importance"), which a neutral approach would link with the concept of effect size. An effect can be considered significant if its magnitude is higher than a given threshold. This aspect can be explored, to a certain extent, in an objective way with the concept of *practical equivalence* [@kruschke2014doing; @lakens2017equivalence; @lakens2018equivalence, which suggests the use of a range of values assimilated to absence of effect (the ROPE). If the effect falls within this range, it is considered as non-significant *for practical reasons*: the magnitude of the effect is likely to be too small to be of paramount importance in real-world scenarios. Nevertheless, *significance* also withholds are more subjective aspect, corresponding to its contextual meaningfulness and relevance, which is highly dependent on the literature, priors, novelty, context or field, and thus cannot be neutrally assessed with any statistical index. 
+
+Interestingly, the weight of one or the other aspect of the EXIT framework might depend on the question asked. For instance, in a study exploring the effects of a new treatment, the focus might be *existence*: how much are we certain that the effect is beneficial and not harmful? In a further step, however, the researcher might become interested in *significance*: is this effect large enough to be of any interest? Note that indices of significance and existence are conceptually independent. For example, an effect for which the whole posterior distribution is concentrated within the [0.0001, 0.0002] range would be considered as positive with a high certainty (and thus, *existing* in a that direction), but also not significant (*i.e.*, too small to be of any practical relevance). Acknowledging the distinction and complementary of these two aspects can in turn enrich the information and usefulness of the results reported in psychological science. For practical reasons, the implementation of EXIT (Effect eXistence and sIgnificance Testing) is made straightforward through the *bayestestR* open-source package for R (**BAYESTESTR CITATION**).
 
 <!-- DM: NHST and CET are dead, long live the EXIT (Existence sIgnificance Testing) [literally just made that up, a better acronym might possibly be found ^^] -->
 
-Critically to the aim of that paper, the EXIT dual-perspective spontaneously stems out from the probabilistic nature of the Bayesian framework, which allows these two aspects of parameters assessment to coexist and yet be neatly delineated. Moreover, the distinction between *existence* and *significance* is also supported by the empirical data presented in this paper, in regards to the sensitivity to the indices to the amount of evidence (sample size). In this context, the *pd* and the MAP-based *p* appears as indices of effect existence, mostly sensitive to the certainty related to the direction of the effect and ROPE-based indices and Bayes factors are effect of significance (related to the magnitude and the amount of evidence in favour of it). Thus, an effect will be comprehensively reported if, beyond its estimation [with a point estimate, such as the median, and an index of uncertainty, such as the 89\% Credible Interval; @mcelreath2018statistical], it presents an index of existence and contextually test and dicsuss its significance in regards with theoretically justified characteristics.
+Critically to the aim of that paper, the EXIT dual-perspective spontaneously stems out from the probabilistic nature of the Bayesian framework, which allows these two aspects of parameters assessment to coexist and yet be neatly delineated. Moreover, the distinction between *existence* and *significance* is also supported by the empirical data presented in this paper, in regards to the sensitivity to the indices to the amount of evidence (sample size). In this context, the *pd* and the MAP-based *p* appears as indices of effect existence, mostly sensitive to the certainty related to the direction of the effect and ROPE-based indices and Bayes factors are effect of significance (related to the magnitude and the amount of evidence in favour of it). Thus, an effect will be comprehensively reported if, beyond its estimation [with a point estimate, such as the median, and an index of uncertainty, such as the 89\% Credible Interval; @mcelreath2018statistical], it presents an index of existence and contextually test and discuss its significance and relevance in regards to theoretically justified characteristics.
 
 <!-- Comparison between indices -->
-Nevertheless, our results suggest that these indices are not equivalent (see **Table X**).
+Nevertheless, our results suggest that these indices are not equivalent (see **Table 4**).
 
 <!-- ROPE-based indices -->
-Strengths and weaknesses.
+Strengths and weaknesses. 
+One of the limitation the ROPE-based indices is that they require an explicit definition of the ROPE range. Importantly, as this range is fixed to the scale of the outcome response, these indices are thus sensitive to changes in the scale of the predictors.
+
+<!-- - ROPE based indices seems to be the most sensitive to different model types, as equivalent ROPE ranges are not straightforward to select. -->
+<!-- - ROPE seems also strongly affected by sample {MSB: this is a feature - consistency!} -->
+<!-- - pd and BF might be two relevant indices, being both intuitive, providing different information. {MSB: when it is hard to specify the ROPE, or good prior - due to weak theory, or prior knowledge in the field of research, I think the pd is the minimal measure to report, as it requires / is affected by none of these. But... in essence by recommending the pd, we're recommending a "basic" p-value, no? Should address that Bayes modeling gives the ability to precisely explore possible values of the parameter space...}-->
+<!-- - On the other hand, BF and pd seems quite closely related {MSB: How so?}: ROPE might give a different perspective, although to be taken with caution. {MSB: agree}-->
+
 
 <!-- BFs -->
 Strengths and weaknesses.
 
+
 <!-- The pd -->
 Strengths and weaknesses.
 
-After all the criticism regarding the frequentist *p*-value, it might appear as counterintuitive to suggest the usage of its Bayesian empirical equivalent. The more subtle perspective that we support is that the *p*-value is not an intrinsically bad, or wrong, index. Instead, it is its misuse, misunderstanding and misinterpretation that fuels, in our opinion, the decay of the situation into the crisis. Interestingly, the proximity between the *pd* and the the *p*-value suggests that the latter is more an index of effect *existence* than *significance* (*i.e.*, "worth of interest"). Addressing this confusion, the Bayesian equivalent has an intuitive meaning and interpretation, making also obvious the fact that all thresholds and heuristics are arbitrary. Additionally, its mathematical and interpretative transparency of the *pd*, and its reconceptualisation as an index of effect existence, offers a valuable insight into the characterization of Bayesian results, and its practical proximity with the frequentist *p*-value makes it a perfect metric to ease the transition of psychological research into the adoption of the Bayesian framework.
+After all the criticism regarding the frequentist *p*-value, it might appear as counter-intuitive to suggest the usage of its Bayesian empirical equivalent. The more subtle perspective that we support is that the *p*-value is not an intrinsically bad, or wrong, index. Instead, it is its misuse, misunderstanding and misinterpretation that fuels, in our opinion, the decay of the situation into the crisis. Interestingly, the proximity between the *pd* and the the *p*-value suggests that the latter is more an index of effect *existence* than *significance* (*i.e.*, "worth of interest"). Addressing this confusion, the Bayesian equivalent has an intuitive meaning and interpretation, making also obvious the fact that all thresholds and heuristics are arbitrary. Additionally, its mathematical and interpretative transparency of the *pd*, and its conceptualization as an index of effect existence, offers a valuable insight into the characterization of Bayesian results, and its practical proximity with the frequentist *p*-value makes it a perfect metric to ease the transition of psychological research into the adoption of the Bayesian framework.
 
 
 
 
-# Conclusion and Limitations
+# Reporting Guidelines
 
-How these observations can be used to improve statistical good practices in psychological science? Before being able to draw a definitive conclusion about the qualities of these indices, further studies need to investigate the robustness of these indices to sampling characteristics (*e.g.*, samplign algorithm, number of iterations, chains, warm-up) and the impact of prior specification [@kass1995bayes; @kruschke2011bayesian], which might be concidered a feature of the Bayesian framework [@vanpaemel2010prior]. <!-- MSB: All of these refs are about the BF, as ROPE etc are not affected by the how "wide" the priors are, but instead by how "narrow" they are - what I called the reversed Jeffreys-Lindley-Bartlett paradox: https://github.com/easystats/blog/issues/25#issuecomment-503391174 -->
+How these observations can be used to improve statistical good practices in psychological science? Importantly, before being able to draw a definitive conclusion about the qualities of these indices, further studies need to investigate the robustness of these indices to sampling characteristics (*e.g.*, sampling algorithm, number of iterations, chains, warm-up) and the impact of prior specification [@kass1995bayes; @vanpaemel2010prior; @kruschke2011bayesian], all of which are important parameters of Bayesian statistics. <!-- MSB: All of these refs are about the BF, as ROPE etc are not affected by the how "wide" the priors are, but instead by how "narrow" they are - what I called the reversed Jeffreys-Lindley-Bartlett paradox: https://github.com/easystats/blog/issues/25#issuecomment-503391174 -->
+<!-- DM: But we don't have any citation for ROPE? -->
 
-One of the limitation the ROPE-based indices is that they require an explicit definition of the ROPE range. Importantly, as this range is fixed to the scale of the outcome response, these indices are thus sensitive to changes in the scale of the predictors.
+Nevertheless, based on the present comparison, we can draw the following guidelines. As the two aspects of the EXIT framework, *existence* and *significance*, are complementary, we suggest using at minimum one index of each category. Thus, in order to assess the existence and significance of effects within a regression model, we recommend to report, at minimum, the *pd* as an objective index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. 
 
-As the twe two aspects of EXIT are complementary, we suggest using at minimum one index of each category. Thus, in order to assess the existence and significance of effects within a regession model, we recommend to report, at minimum, the *pd* as an objective index of effect existence and the *BF (vs. ROPE)* as an index of significance. The former for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value, and the latter for its ability to discriminate between presence and absence of effect [@de2007alternative], and the information it provides related to relative evidence of the size of the effect. <!-- MSB: BF-ROPE is most sensitive to effect **existance** as found in the sensitivity analysis! And IMO, it is also simple to interp -->
-<!-- MSB: Should add a sample sentance for how to report -->
+Defining appropriate heuristics to help the interpretation is beyond the scope of this study, as it would require testing them on more natural datasets. Nevertheless, if we take the frequentist framework and the existing literature as a reference point, it seems that 95\%, 97\% and 99\% is a *pd* 
 
 
-<!-- - ROPE based indices seems to be the most sensitive to different model types, as equivalent ROPE ranges are not straightforward to select. -->
-<!-- - ROPE seems also strongly affected by sample {MSB: this is a feature - consistancy!} -->
-<!-- - pd and BF might be two relevant indices, being both intuitive, providing different information. {MSB: when it is hard to specify the ROPE, or good prior - due to weak theory, or prior knowlage in the field of reaserch, I think the pd is the minimal measure to report, as it requires / is affected by none of these. But... in essense by recommending the pd, we're recommending a "basic" p-value, no? Should address that Bayes modeling gives the ability to precisly explore possible values of the parameter space...}-->
-<!-- - On the other hand, BF and pd seems quite closely related {MSB: How so?}: ROPE might give a different perspective, altough to be taken with caution. {MSB: agree}-->
+
+
+<!-- MSB: BF-ROPE is most sensitive to effect **existence** as found in the sensitivity analysis! And IMO, it is also simple to interp -->
+<!-- Dom: depends what you call existence I guess... But still, since ROPE is inherently defining a range based on size (negligible), and BF ROPE is testing the odds in favour/against this range (i.e., the effect being non-negligible vs. the effect being negligible), thus it is conceptually an index of effect significance rather than merely existence (as defined in EXIT) -->
 
 # Supplementary Materials
 
@@ -423,7 +346,7 @@ The full R code used for data generation, data processing, figures creation and 
 
 # Acknowledgments
 
-This study was made possible by the developpment of the **bayestestR** package, itself part of the [*easystats*](https://github.com/easystats/easystats) ecosystem, an open-source and collaborative project created to facilitate the usage of R. Thus, we would like to thank the [council of masters](https://github.com/orgs/easystats/people) of easystats, all other padawan contributors, as well as the users.
+This study was made possible by the development of the **bayestestR** package, itself part of the [*easystats*](https://github.com/easystats/easystats) ecosystem, an open-source and collaborative project created to facilitate the usage of R. Thus, we would like to thank the [council of masters](https://github.com/orgs/easystats/people) of easystats, all other padawan contributors, as well as the users.
 
 
 # References
