@@ -90,6 +90,9 @@ library("easystats")
 
 
 # Dependencies
+
+Taking _all_ packages from the **easystats** project into account, we have following package dependencies.
+
 ```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
 library(tidyverse)
 library(devtools)
@@ -103,6 +106,69 @@ pkg <- devtools::as.package(".")
 
 dependencies <- unlist(strsplit(paste(pkg$imports, "\n", pkg$depends), split = "\n"))[-1]
 dependencies <- trimws(gsub("\\n| \\(.+\\)|,", "", dependencies))
+
+dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
+class(dependency_graph) <- "igraph"
+dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::edges(as.vector(rbind(dependencies, pkg$package)))
+dependency_graph <- igraph::simplify(dependency_graph)
+
+edge_list <- igraph::get.edgelist(dependency_graph)
+dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))
+
+dependency_graph_df <- ggnetwork::ggnetwork(
+  dependency_graph
+  , layout = "fruchtermanreingold"
+  , arrow.gap = 0.015
+  , layout.par = list(niter = 5000)
+)
+
+dependency_graph_df$package <- dependency_graph_df$vertex.names
+dependency_graph_df$face <- ifelse(dependency_graph_df$package == pkg$package, "bold", "plain")
+
+dependency_graph_df$n_dependencies <- as.vector(table(gsub("\\|.+", "", attr(igraph::E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
+dependency_graph_df$n_dependencies[is.na(dependency_graph_df$n_dependencies)] <- 0
+
+dependency_graph_df$importance <- as.vector(table(gsub(".+\\|", "", attr(E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
+dependency_graph_df$importance[is.na(dependency_graph_df$importance)] <- 0
+
+max_downstream_deps <- max(dependency_graph_df$importance)
+
+dependency_graph_df$importance <- dependency_graph_df$importance / max_downstream_deps
+dependency_graph_df$importance <- abs(1 - dependency_graph_df$importance)
+
+dependency_graph_df <- as.data.frame(lapply(dependency_graph_df, as.vector))
+
+ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
+  geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
+  geom_nodelabel_repel(
+    aes(label = package, fontface = face, color = n_dependencies)
+    , box.padding = unit(8, "pt")
+  ) +
+  geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
+  scale_color_distiller(palette = "Spectral") +
+  scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
+  theme_blank(legend.position = "top") +
+  guides(
+    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5)
+    , color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
+  )
+```
+
+The [**see**](http://easystats.github.io/see) package is one of our high-level packages that is responsible for plotting and creating figures. Thus, it increases package dependencies by a substantial amount. Just taking the core packages into consideration, you see that the **easystats** packages are indeed small and lightweight.
+
+```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
+library(tidyverse)
+library(devtools)
+library(miniCRAN)
+library(igraph)
+library(ggnetwork)
+library(intergraph)
+
+  
+pkg <- devtools::as.package(".")
+
+dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "estimate")
 
 dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
 class(dependency_graph) <- "igraph"
@@ -206,18 +272,22 @@ events <- rbind(events,
                                            "2019-05-29",
                                            "2019-06-19",
                                            "2019-06-25",
-                                           "2019-07-01")), 
+                                           "2019-07-01",
+                                           "2019-08-05"
+                                           )), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - insight (0.2.0)",
-                                  "CRAN - BayestestR (0.1.0)",
+                                  "CRAN - bayestestR (0.1.0)",
                                   "JOSS - insight (submission)",
                                   "CRAN - performance (0.1.0)",
                                   "CRAN - insight (0.3.0)",
                                   "CRAN - see (0.1.0)",
-                                  "CRAN - BayestestR (0.2.0)",
+                                  "CRAN - bayestestR (0.2.0)",
                                   "CRAN - see (0.2.0)",
                                   "JOSS - insight (publication)",
-                                  "CRAN - insight (0.4.0)"), 
+                                  "CRAN - insight (0.4.0)",
+                                  "CRAN - performance (0.3.0)"
+                                  ), 
                           Package=c("insight", 
                                     "insight",
                                     "bayestestR",
@@ -228,7 +298,9 @@ events <- rbind(events,
                                     "bayestestR",
                                     "see",
                                     "insight",
-                                    "insight"), 
+                                    "insight",
+                                    "performance"
+                                    ), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
 blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
@@ -237,7 +309,7 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
          event = item_title) %>% 
   mutate(color=color_blog)
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance"))
 
 
 events <- rbind(events,

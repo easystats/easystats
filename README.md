@@ -3,14 +3,14 @@
 
 <p>
 
-<img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="102" />
-<img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="102" />
+<a herf = "https://github.com/easystats/insight"><img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/bayestestR"><img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/performance"><img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/estimate"><img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="102" /></a>
 
 </p>
 
@@ -69,21 +69,32 @@ library("easystats")
 
 # Dependencies
 
+Taking *all* packages from the **easystats** project into account, we
+have following package dependencies.
+
 ![](man/figures/unnamed-chunk-3-1.png)<!-- -->
+
+The [**see**](http://easystats.github.io/see) package is one of our
+high-level packages that is responsible for plotting and creating
+figures. Thus, it increases package dependencies by a substantial
+amount. Just taking the core packages into consideration, you see that
+the **easystats** packages are indeed small and lightweight.
+
+![](man/figures/unnamed-chunk-4-1.png)<!-- -->
 
 # Downloads
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 ### Cumulative downloads
 
-<img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 ### By Week Day
 
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 # Convention of code-style
 
@@ -210,6 +221,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`cohens_f`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
@@ -282,6 +295,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`effective_sample`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`epsilon_squared`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`equivalence_test`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`estimate_contrasts`**](https://easystats.github.io/estimate/reference/index.html)
@@ -298,6 +313,8 @@ follow a consistent pattern across all packages.
     *(estimate)*
   - [**`estimate_smooth`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`eta_squared`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`eti`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`find_algorithm`**](https://easystats.github.io/insight/reference/index.html)
@@ -341,6 +358,8 @@ follow a consistent pattern across all packages.
   - [**`format_pd`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_table`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -460,8 +479,6 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`map_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`marginal_parameters`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`material_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`mcse`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -606,6 +623,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`reshape_draws`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`reshape_loadings`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`rmse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`rnorm_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
