@@ -134,7 +134,7 @@ source("make_tables.R")
 knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
-The analysis suggests that ROPE-based indices are the most sensitive to sample size, followed by the MAP-based *p*, the *pd*, the *p*-value. The BF (vs. 0) and the BF (vs. ROPE) are the less sensitive to sample size. This pattern is consistent across model types.
+The analysis suggests that ROPE-based indices are the most sensitive to sample size, followed by the MAP-based *p*, the *pd*, the *p*-value. The BF (vs. 0) and the BF (vs. ROPE) are the less sensitive to sample size. This pattern is evident across model types. Note that the *p*-value and *pd* are only affected by sample size when an effect is present, but *not* in the absence of an effect, whereas the ROPE-based indices and the Bayes factors are affected by sample size 
 
 
 <!-- MSB: Move discussion of consistency here? -->
@@ -152,7 +152,7 @@ knitr::include_graphics("figures/Figure2.png")
 knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
 ```
 
-The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent across model types.
+<!-- {MSB: needs to be re-done in light of new figure and structuring of no-effect -> noise = Inf } The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent across model types. -->
 
 
 
@@ -200,7 +200,7 @@ knitr::include_graphics("figures/Figure5.png")
 ```
 
 
-The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences across model types. Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consistency both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistent when the null is true.
+The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences across model types (though see next paragraph). Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consistency both when the null is true and when the alternative is true, where the *pd*, being equivalent to the *p*-value, is only consistent when the null is true.
 
 
 <!-- ROPE and BF -->
