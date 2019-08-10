@@ -1,11 +1,13 @@
-# library(dplyr)
-# library(tidyr)
-# library(parameters)
-# library(performance)
+library(dplyr)
+library(tidyr)
+library(parameters)
+library(performance)
 
-# df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
-# df <- read.csv("../data/data.csv")
-# df <- df[seq(1,nrow(df), length.out = 3600),] # get every 10th line
+if (!exists("df")) {
+  df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
+  df <- read.csv("../data/data.csv")
+  df <- df[seq(1,nrow(df), length.out = 3600),] # get every 10th line
+}
 
 
 
