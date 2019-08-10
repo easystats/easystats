@@ -3,18 +3,17 @@ library(tidyr)
 library(parameters)
 library(performance)
 
-if (!exists("df")) {
-  df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
+if (!inherits(df,"data.frame")) {
+  # df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
   df <- read.csv("../data/data.csv")
-  df <- df[seq(1,nrow(df), length.out = 3600),] # get every 10th line
 }
 
 
-
-
-# TABLE 1: Impact of sample size ------------------------------------------
-
-data <- df %>%
+table_data <- df %>%
+  # # MSB: Uncomment these rows to convert all to same log-odds scales
+  # mutate(p_direction = (p_direction - 0.5) * 2) %>% # prevent artifact due to pd not being bounded [0-1] but [0.5-1].
+  # mutate_at(vars(p_value, p_direction, p_MAP, ROPE_95, ROPE_full), ~log(.x / (1-.x))) %>%
+  # filter_at(vars(p_value, p_direction, p_MAP, ROPE_95, ROPE_full), ~!is.infinite(.x)) %>% # lose about 15% of observations...
   parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
   select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>%
   tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>%
@@ -22,13 +21,19 @@ data <- df %>%
          true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
 
 
+# TABLE 1: Impact of sample size ------------------------------------------
+
 # Linear Models
-table_lm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "linear")) %>%
+table_lm <- table_data %>%
+  filter(outcome_type == "linear") %>%
+  lm(Value ~ Index / sample_size + error, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Linear")
 
 # Logistic Models
-table_glm <- lm(Value ~ Index / sample_size + error, data = filter(data, outcome_type == "binary")) %>%
+table_glm <- table_data %>%
+  filter(outcome_type == "binary") %>%
+  lm(Value ~ Index / sample_size + error, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Logistic")
 
@@ -46,13 +51,17 @@ table1 <- rbind(table_lm, table_glm) %>%
 # TABLE 2: Impact of Noise ------------------------------------------------
 
 # Linear Models
-table_lm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "linear")) %>%
+table_lm <- table_data %>%
+  filter(outcome_type == "linear") %>%
+  lm(Value ~ Index / true_effect / error + sample_size, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Linear",
          Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
 
 # Logistic Models
-table_glm <- lm(Value ~ Index / true_effect / error + sample_size, data = filter(data, outcome_type == "binary")) %>%
+table_glm <- table_data %>%
+  filter(outcome_type == "binary") %>%
+  lm(Value ~ Index / true_effect / error + sample_size, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Logistic",
          Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
@@ -73,42 +82,41 @@ table2 <- rbind(table_lm, table_glm) %>%
 
 table3 <- data.frame()
 for (model_type in c("linear", "binary")) {
-  p_value <- df %>%
-    parameters::normalize(select = "p_value") %>%
-    mutate(p_value = 1 - p_value) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ p_value + error + sample_size, data = ., family = "binomial")
-  p_direction <- df %>%
-    parameters::normalize(select = "p_direction") %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ p_direction + error + sample_size, data = ., family = "binomial")
-  p_MAP <- df %>%
-    parameters::normalize(select = "p_MAP") %>%
-    mutate(p_MAP = 1 - p_MAP) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ p_MAP + error + sample_size, data = ., family = "binomial")
-  ROPE_95 <- df %>%
-    parameters::normalize(select = "ROPE_95") %>%
-    mutate(ROPE_95 = 1 - ROPE_95) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ ROPE_95 + error + sample_size, data = ., family = "binomial")
-  ROPE_full <- df %>%
-    parameters::normalize(select = "ROPE_full") %>%
-    mutate(ROPE_full = 1 - ROPE_full) %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ ROPE_full + error + sample_size, data = ., family = "binomial")
-  BF_log <- df %>%
-    parameters::normalize(select = "BF_log") %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ BF_log + error + sample_size, data = ., family = "binomial")
-  BF_ROPE_log <- df %>%
-    parameters::normalize(select = "BF_ROPE_log") %>%
-    filter(outcome_type == model_type) %>%
-    glm(true_effect ~ BF_ROPE_log + error + sample_size, data = ., family = "binomial")
+  p_value <- table_data %>%
+    filter(Index == "p_value",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+  p_direction <- table_data %>%
+    filter(Index == "p_direction",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+  p_MAP <- table_data %>%
+    filter(Index == "p_MAP",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+  ROPE_95 <- table_data %>%
+    filter(Index == "ROPE_95",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+  ROPE_full <- table_data %>%
+    filter(Index == "ROPE_full",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+  BF_log <- table_data %>%
+    filter(Index == "BF_log",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+  BF_ROPE_log <- table_data %>%
+    filter(Index == "BF_ROPE_log",
+           outcome_type == model_type) %>%
+    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
 
-  performance_table <- performance::compare_performance(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log)
-  performance_table <- cbind(data.frame(Model_Type = model_type), performance_table)
-  table3 <- rbind(table3, performance_table)
+  table3 <- performance::compare_performance(p_value,
+                                             p_direction, p_MAP,
+                                             ROPE_95, ROPE_full,
+                                             BF_log, BF_ROPE_log) %>%
+    mutate(Model_Type = model_type) %>%
+    rbind(table3, .)
 }
 
 table3 <- table3 %>%
