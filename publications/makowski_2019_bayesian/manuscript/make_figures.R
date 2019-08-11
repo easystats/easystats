@@ -71,7 +71,7 @@ figure1_elements <- list(
   geom_boxplot(outlier.shape = NA),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_fill_manual(
-    name = "Effect",
+    name = NULL,
     values = c(`0` = "#E91E63", `1` = "#4CAF50"),
     labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
   ),
@@ -210,7 +210,7 @@ figure2_elements <- list(
   geom_boxplot(outlier.shape = NA),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_fill_manual(
-    name = "Effect",
+    name = NULL,
     values = c(`0` = "#E91E63", `1` = "#4CAF50"),
     labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
   ),
@@ -343,7 +343,7 @@ figure3_elements <- list(
   geom_vline(xintercept = 0.05, linetype = "dashed"),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_color_manual(
-    name = "Effect",
+    name = NULL,
     values = c(`0` = "#E91E63", `1` = "#4CAF50"),
     labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
   ),
