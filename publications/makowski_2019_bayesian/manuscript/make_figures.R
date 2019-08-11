@@ -77,7 +77,7 @@ figure1_elements <- list(
   ),
   theme_modern(),
   theme(legend.position = "top"),
-  xlab("Group Size")
+  xlab("Sample Size")
 )
 
 
