@@ -348,7 +348,8 @@ figure3_elements <- list(
     labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
   ),
   scale_shape_manual(values = c(0:6, 8, 9), guide = FALSE),
-  scale_x_continuous(breaks = c(seq(0, 1, length.out = 5), 0.05)),
+  scale_x_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05),
+                     labels = c("0", ".2", ".4", ".6", ".8", "1", ".05")),
   theme_modern(),
   theme(legend.position = "top"),
   xlab("p-value")
@@ -362,7 +363,8 @@ figure3_pd <-
   geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "p_direction", true_effect == 0)) +
   geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "p_direction", true_effect == 1)) +
   # geom_hline(yintercept = 0.95, linetype = "dashed") +
-  scale_y_continuous(breaks = c(seq(0.5, 1, length.out = 6), 0.95)) +
+  scale_y_continuous(breaks = c(seq(0.5, 1, length.out = 6)),
+                     labels = c("50%", "60%", "70%", "80%", "90%", "100%")) +
   ylab("p-direction")
 
 figure3_pmap <-
@@ -373,7 +375,8 @@ figure3_pmap <-
   geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "p_MAP", true_effect == 0)) +
   geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "p_MAP", true_effect == 1)) +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
-  scale_y_continuous(breaks = c(seq(0, 1, length.out = 5), 0.05)) +
+  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
+                     labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-MAP")
 
 figure3_ROPE_95 <-
@@ -384,7 +387,8 @@ figure3_ROPE_95 <-
   geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "ROPE_95", true_effect == 0)) +
   geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "ROPE_95", true_effect == 1)) +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
-  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05)) +
+  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
+                     labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("ROPE (95%)")
 
 figure3_ROPE_full <-
@@ -395,7 +399,8 @@ figure3_ROPE_full <-
   geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "ROPE_full", true_effect == 0)) +
   geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "ROPE_full", true_effect == 1)) +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
-  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05)) +
+  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
+                     labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("ROPE (full)")
 
 figure3_BF <-
