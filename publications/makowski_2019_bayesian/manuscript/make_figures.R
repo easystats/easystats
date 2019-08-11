@@ -4,8 +4,8 @@ library(ggplot2)
 library(see)
 library(cowplot)
 
-# path <- "publications/makowski_2019_bayesian/manuscript/"
-path <- "./"
+path <- "publications/makowski_2019_bayesian/manuscript/"
+# path <- "./"
 df <- read.csv(paste0(path, "../data/data.csv"))
 # df <- df[seq(1,nrow(df), length.out = 3600),]
 
