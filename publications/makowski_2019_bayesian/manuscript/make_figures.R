@@ -88,8 +88,8 @@ figure1_pvalue <-
   ggplot() +
   figure1_elements +
   geom_hline(yintercept = 0.05, linetype = "dashed") +
-  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05),
-                     labels = c("0", ".2", ".4", ".6", ".8", "1", ".05")) +
+  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
+                     labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-value")
 
 figure1_pd <-
@@ -225,8 +225,8 @@ figure2_pvalue <-
   ggplot() +
   figure2_elements +
   geom_hline(yintercept = 0.05, linetype = "dashed") +
-  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05),
-                     labels = c("0", ".2", ".4", ".6", ".8", "1", ".05")) +
+  scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
+                     labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-value")
 
 figure2_pd <-
