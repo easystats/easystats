@@ -120,7 +120,7 @@ for (model_type in c("linear", "binary")) {
 }
 
 table3 <- table3 %>%
-  select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, LOGLOSS, PCP, BF) %>%
+  select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, PCP, BF) %>%
   mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
          BF = bayestestR:::.format_big_small(BF))
 
