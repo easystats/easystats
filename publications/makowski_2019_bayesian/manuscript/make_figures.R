@@ -4,11 +4,9 @@ library(ggplot2)
 library(see)
 library(cowplot)
 
-
 # path <- "publications/makowski_2019_bayesian/manuscript/"
 path <- "./"
-# df <- read.csv("publications/makowski_2019_bayesian/data/data.csv")
-df <- read.csv("../data/data.csv")
+df <- read.csv(paste0(path, "../data/data.csv"))
 # df <- df[seq(1,nrow(df), length.out = 3600),]
 
 df$outcome_type <- forcats::fct_rev(df$outcome_type)
@@ -145,7 +143,7 @@ figure1_BF <-
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   ylab("Bayes factor (vs. 0)") +
-  coord_cartesian(ylim = log(c(1 / 10, 300)))
+  coord_cartesian(ylim = log(c(1 / 30, 300)))
 
 figure1_BF_rope <-
   figure1_data %>%
@@ -177,8 +175,8 @@ effects_legend <- get_legend(
   figure1_pvalue + theme(legend.box.margin = margin(1, 0, 1, 0))
 )
 
-figure1_cow_w_leg <- plot_grid(figure1_cow, effects_legend,
-  ncol = 1, rel_heights = c(7, 0.5)
+figure1_cow_w_leg <- plot_grid(effects_legend, figure1_cow,
+  ncol = 1, rel_heights = c(0.5, 7)
 )
 # figure1_cow_w_leg
 
@@ -283,7 +281,6 @@ figure2_BF <-
   ) +
   ylab("Bayes factor (vs. 0)") +
   coord_cartesian(ylim = log(c(1 / 30, 300)))
-  # coord_cartesian(ylim = log(c(1 / 10, 10000000))) # too big?
 
 figure2_BF_rope <-
   figure2_data %>%
@@ -297,7 +294,6 @@ figure2_BF_rope <-
   ) +
   ylab("Bayes factor (vs. ROPE)") +
   coord_cartesian(ylim = log(c(1 / 30, 300)))
-  # coord_cartesian(ylim = log(c(1 / 30, 1000000)))
 
 
 figure2_cow <- plot_grid(
@@ -313,8 +309,8 @@ figure2_cow <- plot_grid(
   ncol = 1
 )
 
-figure2_cow_w_leg <- plot_grid(figure2_cow, effects_legend,
-  ncol = 1, rel_heights = c(7, 0.5)
+figure2_cow_w_leg <- plot_grid(effects_legend, figure2_cow,
+  ncol = 1, rel_heights = c(0.5, 7)
 )
 # figure2_cow_w_leg
 
@@ -327,7 +323,6 @@ ggsave(paste0(path, "figures/Figure2.png"),
 
 # Figure 3 ----------------------------------------------------------------
 
-# figure3_alpha <- 0.025
 figure3_alpha <- 0.025
 
 figure3_data <- df %>%
@@ -399,7 +394,7 @@ figure3_ROPE_full <-
   figure3_elements +
   geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "ROPE_full", true_effect == 0)) +
   geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "ROPE_full", true_effect == 1)) +
-  geom_hline(yintercept = 0.05, linetype = "dashed") +
+  # geom_hline(yintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05)) +
   ylab("ROPE (full)")
 
@@ -416,7 +411,7 @@ figure3_BF <-
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   ylab("Bayes factor (vs. 0)") +
-  coord_cartesian(ylim = log(c(1 / 10, 300)))
+  coord_cartesian(ylim = log(c(1 / 30, 300)))
 
 figure3_BF_rope <-
   figure3_data %>%
@@ -445,8 +440,8 @@ figure3_cow <- plot_grid(
   ncol = 1
 )
 
-figure3_cow_w_leg <- plot_grid(figure3_cow, effects_legend,
-  ncol = 1, rel_heights = c(7, 0.5)
+figure3_cow_w_leg <- plot_grid(effects_legend, figure3_cow,
+  ncol = 1, rel_heights = c(0.5, 7)
 )
 # figure3_cow_w_leg
 
@@ -536,7 +531,7 @@ figure4_ROPE_95 <-
   filter(index == "ROPE_95") %>%
   ggplot() +
   figure4_elements +
-  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("ROPE (95%)") +
@@ -547,7 +542,7 @@ figure4_ROPE_full <-
   filter(index == "ROPE_full") %>%
   ggplot() +
   figure4_elements +
-  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("ROPE (full)") +
@@ -564,7 +559,7 @@ figure4_BF <-
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   xlab("Bayes factor (vs. 0)") +
-  coord_cartesian(xlim = log(c(1 / 10, 300)))
+  coord_cartesian(xlim = log(c(1 / 30, 300)))
 
 
 figure4_BF_rope <-
@@ -660,7 +655,7 @@ rope_bf <-
   ggplot(aes(x = ROPE_full, y = BF_ROPE_log)) +
   figure5_elements +
   geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
-  geom_vline(xintercept = 0.05, linetype = "dashed") +
+  # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -687,3 +682,4 @@ ggsave(paste0(path, "figures/Figure5.png"),
   figure5_cow,
   width = 21 / 2, height = 21 / 2, dpi = 100
 )
+
