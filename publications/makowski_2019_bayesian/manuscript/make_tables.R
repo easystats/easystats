@@ -54,16 +54,18 @@ table1 <- rbind(table_lm, table_glm) %>%
 
 # Linear Models
 table_lm <- table_data %>%
-  filter(outcome_type == "linear") %>%
-  lm(Value ~ Index / true_effect / error + sample_size, data = .) %>%
+  filter(outcome_type == "linear",
+         true_effect == "Presence") %>%
+  lm(Value ~ Index / error + sample_size, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Linear",
          Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
 
 # Logistic Models
 table_glm <- table_data %>%
-  filter(outcome_type == "binary") %>%
-  lm(Value ~ Index / true_effect / error + sample_size, data = .) %>%
+  filter(outcome_type == "binary",
+         true_effect == "Presence") %>%
+  lm(Value ~ Index / error + sample_size, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Logistic",
          Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))

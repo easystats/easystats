@@ -117,6 +117,8 @@ The aim of this study is two-fold: 1) compare between Bayesian indices of effect
 
 # Results
 
+<!-- MSB: please make this better --> To ensure that any differences between the indices are not due to differences in their scale or differnces in their bounds, we converted all indices to the same scale. The natural logarithm was computed for both *BF* indices, origianlly a ratio, to ensure the values are unbounded on both sides. *pd* was transformed by $2\times(pd-0.5)$, so its bounds are between 0-1, and then together with *p*-value, *p-Map* and the *ROPE* indices, all representing a proportion or percentage bounded between 0 and 1, were converted them to an odds ratio, followed by computing their natural logarithm. Thus all measures were on an unbounded log-odds scales.
+
 ## Impact of Sample Size
 
 ```{r Figure1, message=FALSE, warning=FALSE, fig.cap="Figure 1. Impact of Sample Size. Dashed lines for p-values and Bayes factors represent commonly used thresholds.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
@@ -128,10 +130,7 @@ source("make_tables.R")
 knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
-The analysis suggests that ROPE-based indices are the most sensitive to sample size, followed by the MAP-based *p*, the *pd*, the *p*-value. The BF (vs. 0) and the BF (vs. ROPE) are the less sensitive to sample size. This pattern is evident across model types. Note that the *p*-value and *pd* are only affected by sample size when an effect is present, but *not* in the absence of an effect, whereas the ROPE-based indices and the Bayes factors are affected by sample size 
-
-
-<!-- MSB: Move discussion of consistency here? -->
+The analysis suggests that *ROPE* and *BF* indices are sensitive to sample size both when there is and when there is not an effect. On the other hand, *p*-value, *pd* and MAP baes *p* are only sensitive to sample size when there is a true effect, in which case they are more sensitive than *ROPE* and *BF* indices. These findings are related to the concept of *consistency* - as the number of data points increases, the statistic converges to some "truth". Here we find that *p*-value, *pd* and the MAP based *p* are consistent only when the null is false - as sample size increases, they tend to reflect more strongly that the null is false (tend toward 1, 0.5, and 1, repectivly). On the other hand, *ROPE* and *BF* are consistent both when the null is false (both tend towards 0) and when the null is true (ROPE tends towards 1; BF tends towards infinity). Note also that *BF (vs. rope)* is overall more consistent than *BF (vs. 0)*, and that *ROPE (full)* is overall more consistent than *ROPE (95\%)* (see also marginal densities in figure 3 below).
 
 
 ## Impact of Noise
@@ -146,7 +145,11 @@ knitr::include_graphics("figures/Figure2.png")
 knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
 ```
 
-<!-- {MSB: needs to be re-done in light of new figure and structuring of no-effect -> noise = Inf } The analysis suggests that, in the absence of an effect, posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a greater extent than ROPE-based indices and BFs. In the presence of an effect, the MAP-based *p*, followed by the ROPE (full) and ROPE (95\%) are the most sensitive to noise. The *pd*, the *p*-value and finally the BFs are the less sensitive to noise. This pattern is consistent across model types. -->
+The analysis suggests that posterior indices (*pd*, *p*-value and MAP-based *p*) are impacted by noise to a lesser extent than ROPE-based indices and BFs.
+
+<!-- MSB: No idea what else can be said here... -->
+
+(Note that in the figure, the "noise only" boxplot is presented but not analyized, as it comprises only of noise.)
 
 
 ## Relationship with the frequentist *p*-value
@@ -170,8 +173,7 @@ knitr::kable(table3, digits = 2, caption = "Table 3. Performance comparison of t
 ```
 
 
-For each index and each model type, we fitted a (frequentist) logistic regression to predict the presence (*vs.* absence) of effect, adjusted for noise and sample size. The comparison of the performance of these models (AIC, BIC and Tjur's R2) revealed a consistent pattern across model type (*i.e.*, similar for linear and logistic models), suggesting that *BF (vs. ROPE)* is the best index to discriminate between the presence and the absence of an effect, followed by *BF (vs. 0)*, *ROPE (full)*, *ROPE (95\_%)*, *p-MAP*, *p-direction* and the frequentist *p*-value. The Bayes factor [against the frequentist *p*-value model, computed via BIC approximation @wagenmakers2007practical], used here as a measure of relative performance, supported this conclusion.
-
+For each index and each model type, we fitted a (frequentist) logistic regression to predict the presence (*vs.* absence) of effect, adjusted for noise and sample size. The comparison of the performance of these models (AIC, BIC and Tjur's R2) revealed a consistent pattern across model type (*i.e.*, similar for linear and logistic models), suggesting that *BF (vs. ROPE)* and *ROPE (full)* are the best indices to discriminate between the presence and the absence of an effect, followed by *BF (vs. 0)* and *ROPE (95\_%)*, *p-direction*, the frequentist *p*-value, and finally *p-MAP*. The Bayes factor [against the frequentist *p*-value model, computed via BIC approximation @wagenmakers2007practical], used here as a measure of relative performance, supported this conclusion. These results are in-line with the results in table 1 and figure 1, suggesting that consitency both when an effect is present and absent is crutial for a measures ability to descriminate between the two.
 
 
 
@@ -251,26 +253,19 @@ Based on the simulation of multiple linear and logistic models, the present work
 
 
 <!-- /// Results discussion -->
-<!-- Sensibility to sample size -->
+<!-- Sensibility to sample size + discriminatory ability -->
 
-The results tend to suggest that indices could be separated into two categories. Consistency talk.
+The results tend to suggest that the Bayesian indices could be separated into two categories: the first group, are measures of *existence* - the *pd* and *p-Map*. These indices are consitent only when an effect is present, but not when an effect is absent, Of these, *pd* shows the better discriminatory power between the two states, compared to the *p*-value (whereas *p-Map* shows worse discriminatory power; see **Table 4**). The *pd*, can thus be viewed as a measure of certinty about the effects direction - when it is hugh, it indicates high certainty that the effect has a direction. But when it is low it only indicates high *uncertainty* about the effects direction (and not high certainty that the effect has no direction). This is why, like the *p*-value, *pd* can and should only be used for accepting the alternative / rejecting the null, but not for accepting the null.
+
+MSB: where is BF vs. 0??? 
+
+The second group are measures of *significance* - the *BF* and *ROPE* based indices. These measures are consistant both when the null is true and when it is false, giving them better power to discriminate between the two states (see **Table 4**). Of these, the methods based on the full-ROPE had better discriminatory power due to their higher sensitivity to null-effects [@morey2011bayesinterval; @rouder2012default].
+
 
 <!-- Sensibility to noise -->
 
 Noise.
-
-<!-- Sensibility to effect existence -->
-
-Discrimination analysis (see **Table 4**). Performance talk.
-
-MSB: Looking at the models, we can talk about how p-values have some discriminatory power, but how the other indices are much better (besides pd) 
-
-MSB: interval BFs discriminate better between null (or negligible) and true (un-negligible) effects [@morey2011bayesinterval; @rouder2012default] 
-
-MSB: pd is a measure certinty about the effects direction - when it is hugh, we are cirtain that the effect has a direction. But when it is low (~50\%) we cannot say that we are certain the effect has no direction, but only that we are uncirtain about the effects direction. This is why, like the *p*-value, *pd* can and should only be used for accepting the alternative / rejecting the null, but not for accepting the null.
-
-
-
+MSB: Bayesian measures are more sensitive to noise - this is known...
 
 
 <!-- /// Comparison to p-value -->
@@ -307,7 +302,8 @@ Our results underline Bayes factor as the best predictor of the presence of an e
 <!-- The pd and p-MAP -->
 The Probability of Direction (pd) is an index of effect existence representing the certainty with which an effect goes in a particular direction (*i.e.*, is positive or negative). Beyond its simplicity of interpretation, understanding and computation, this index also presents other interesting properties. It is independent from the model, *i.e.*, it is solely based on the posterior distributions and does not require any additional information from the data or the model. Contrary to ROPE-based indices, it is robust to the scale of both the response variable and the predictors. Nevertheless, this index also presents some limitations. Most importantly, the *pd* is not relevant to assess size or importance and is not enable to give information in favor of the null. In other words, a high *pd* suggests the presence of an effect but a small *pd* does not give us any information about how much the null hypothesis is plausible, suggesting that this index can only be used to eventually "reject the null" (but not accepting it, which is consistent with the interpretation of the frequentist *p*-value). On the contrary, the BFs (and to some extent the percentage in ROPE, although being bounded to 0\% and 100\%) continue increasing or decreasing as the evidence becomes stronger (more datapoints), in both directions. 
 
-Much of these strengths also apply to the MAP-based *p*-value. Although possibly showing some superiority in terms of sensitivity as compared to the *pd*, it also presents an important limitation. Indeed, the MAP is mathematically dependent on the density at 0 and at the mode. However, the density estimation of a continuous distribution is a statistical problem on its own and many different methods exist. It is possible that changing the density estimation might impact the MAP-based *p*-value with unknown results. Additionally, the *pd* has a linear relationship with the frequentist *p*-value, which is in our opinion an asset.
+<!-- MSB: not so much this... See new table 4 -->
+<!-- Much of these strengths also apply to the MAP-based *p*-value. Although possibly showing some superiority in terms of sensitivity as compared to the *pd*, it also presents an important limitation. Indeed, the MAP is mathematically dependent on the density at 0 and at the mode. However, the density estimation of a continuous distribution is a statistical problem on its own and many different methods exist. It is possible that changing the density estimation might impact the MAP-based *p*-value with unknown results. Additionally, the *pd* has a linear relationship with the frequentist *p*-value, which is in our opinion an asset. -->
 
 After all the criticism regarding the frequentist *p*-value, it might appear as counter-intuitive to suggest the usage of its Bayesian empirical equivalent. The  subtler perspective that we support is that the *p*-value is not an intrinsically bad, or wrong, index. Instead, it is its misuse, misunderstanding and misinterpretation that fuels, in our opinion, the decay of the situation into the crisis. Interestingly, the proximity between the *pd* and the *p*-value suggests that the latter is more an index of effect *existence* than *significance* (*i.e.*, "worth of interest"). Addressing this confusion, the Bayesian equivalent has an intuitive meaning and interpretation, making also obvious the fact that all thresholds and heuristics are arbitrary. Additionally, its mathematical and interpretative transparency of the *pd*, and its conceptualization as an index of effect existence, offers a valuable insight into the characterization of Bayesian results, and its practical proximity with the frequentist *p*-value makes it a perfect metric to ease the transition of psychological research into the adoption of the Bayesian framework.
 
