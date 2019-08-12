@@ -296,7 +296,7 @@ As for the difference between ROPE (95\%) and ROPE (full), we suggest reporting 
 
 
 <!-- BFs -->
-Our results underline Bayes factor as the best predictor of the presence of an effect. Moreover, its easy interpretation in terms of odds in favor, or against, one or the other hypothesis makes it a compelling index for communication. Nevertheless, one of the main critiques of Bayes factors, which is also underlined in our results, is its sensitivity to priors (which shows here through its sensitivity to model types, as priors for logistic and linear models are different). Moreover, while the BF against a ROPE appears as even better than the BF against a point-null, it also carries all the limitations related to the ROPE specification mentioned above. Thus, we recommend using Bayes factors (preferentially *vs* a ROPE) if the user has explicitly specified informative priors.
+Our results underline Bayes factor as the best predictor of the presence of an effect. Moreover, its easy interpretation in terms of odds in favor, or against, one or the other hypothesis makes it a compelling index for communication. Nevertheless, one of the main critiques of Bayes factors, which is also underlined in our results, is its sensitivity to priors (which shows here through its sensitivity to model types, as priors odds for logistic and linear models are different). Moreover, while the BF against a ROPE appears as even better than the BF against a point-null, it also carries all the limitations related to the ROPE specification mentioned above. Thus, we recommend using Bayes factors (preferentially *vs* a ROPE) if the user has explicitly specified informative priors.
 
 
 <!-- The pd and p-MAP -->
