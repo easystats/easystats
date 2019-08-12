@@ -26,24 +26,26 @@ table_data <- df %>%
 # Linear Models
 table_lm <- table_data %>%
   filter(outcome_type == "linear") %>%
-  lm(Value ~ Index / sample_size + error, data = .) %>%
+  lm(Value ~ true_effect / Index / sample_size + error, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Linear")
 
 # Logistic Models
 table_glm <- table_data %>%
   filter(outcome_type == "binary") %>%
-  lm(Value ~ Index / sample_size + error, data = .) %>%
+  lm(Value ~ true_effect / Index / sample_size + error, data = .) %>%
   parameters::model_parameters() %>%
   mutate(Type = "Logistic")
 
 table1 <- rbind(table_lm, table_glm) %>%
   filter(grepl("sample_size", Parameter)) %>%
   mutate(Coefficient = abs(Std_Coefficient),
+         True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
+         Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
          Parameter = stringr::str_remove(Parameter, "Index"),
          Parameter = stringr::str_remove(Parameter, ":sample_size")) %>%
-  select(Type, Parameter, Coefficient) %>%
-  arrange(Type, Coefficient)
+  select(Type, True_Effect, Parameter, Coefficient) %>%
+  arrange(Type, True_Effect, Coefficient)
 
 
 
