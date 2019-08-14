@@ -67,9 +67,9 @@ Thus, based on the simulation of multiple linear and logistic regressions (argua
 
 ## Data Simulation
 
-The simulations of datasets suited for linear or logistic regression, we're started by simulating an independent, normally distributed *x* variable (with mean 0 and SD 1) of a given sample size. Then, the corresponding *y* variable was added, having a perfect correlation (in the case of data for linear regressions) or as a binary variable perfect separated by *x* (in the case of no effect, a *y* variable was created that was independent of *x*). Finally, a Gaussian noise was added to the *x* variable (the error).
+We simulated datasets suited for linear and logistic regression and started by simulating an independent, normally distributed *x* variable (with mean 0 and SD 1) of a given sample size. Then, the corresponding *y* variable was added, having a perfect correlation (in the case of data for linear regressions) or as a binary variable perfect separated by *x*. The case of no effect was simulated by creating a *y* variable that was independent of (i.e. not correlated to) *x*. Finally, a Gaussian noise was added to the *x* variable (the error).
 
-The simulation aimed at modulating the following characteristics: *data type* (*i.e.*, used for linear or logistic regression), *Sample size* (from 20 to 100 by steps of 10), *"true" effect* (original regression coefficient from which data is drawn prior to noise addition, 1 - presence of effect or 0 - absence of effect) and *noise* (Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66, with 1000 different values). We generated a dataset for each combination of these characteristics, resulting in a total of 36000 (`2 * 2 * 9 * 1000`) datasets. The code used for generation is available on Github (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
+The simulation aimed at modulating the following characteristics: *outcome type* (linear or logistic regression), *sample size* (from 20 to 100 by steps of 10), *“true” effect* (original regression coefficient from which data is drawn prior to noise addition, 1 - presence of effect or 0 - absence of effect) and *noise* (Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66, with 1000 different values). We generated a dataset for each combination of these characteristics, resulting in a total of 36,000 (2 outcome types * 2 effects * 9 sample sizes * 1,000 noise variations) datasets. The code used for data generation is available on GitHub (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
 
 ```{r DataLoad, message=FALSE, warning=FALSE, echo=FALSE}
 library(dplyr)
@@ -85,7 +85,7 @@ df <- read.csv("../data/data.csv")
 
 ## Indices
 
-For each of these datasets, Bayesian and frequentist regressions were fitted to predict *y* from *x* as a single unique predictor. The Bayesian models had default, mildly informative priors (normal distribution with mean 0 and SD 1) over the parameter of interest, and were fitted using MCMC (4 chains of 2000 iterations, half of which used for warm-up). For all of the simulated models, we computed seven indices related to the effect of *x*. These are available and described in details in the *bayestestR* R package [@makowski_bayestestr_2019].
+For each of these datasets, Bayesian and frequentist regressions were fitted to predict *y* from *x* as a single unique predictor. We then computed following seven indices from all simulated models, related to the effect of *x*.
 
 ### Frequentist *p*-value
 
@@ -99,25 +99,35 @@ The Probability of Direction (*pd*) varies between 50\% and 100\% and can be int
 
 The *MAP-based p-value* (also referred to as the "Bayesian *p*-value") is related to the odds that a parameter has against the null hypothesis [@mills2014bayesian; @mills2017objective]. It is mathematically defined as the density value at 0 divided by the density at the Maximum A Posteriori (MAP), *i.e.*, the equivalent of the mode for continuous distributions.
 
-### ROPE (95\%) and ROPE (full)
+### ROPE (95\%)
 
-The *ROPE (95\%)* refers to the percentage of the 95\% HDI that lies within the ROPE. As suggested by @kruschke2014doing, the Region of Practical Equivalence (ROPE) was defined as ranging from -0.1 to 0.1 for linear regressions and its equivalent, -0.18 to -0.18, for logistic models [based on the $\pi/√(3)$ formula to convert log odds ratios to standardized differences; @cohen1988statistical]. The *ROPE (full)* refers to the percentage of the whole posterior distribution that lies within the ROPE.
+The *ROPE (95\%)* refers to the percentage of the 95\% HDI that lies within the ROPE. As suggested by @kruschke2014doing, the Region of Practical Equivalence (ROPE) was defined as range from -0.1 to 0.1 for linear regressions and its equivalent, -0.18 to 0.18, for logistic models [based on the $\pi/√(3)$ formula to convert log odds ratios to standardized differences; @cohen1988statistical].
 
-### Bayes factor (*vs.* 0) and Bayes factor (*vs.* ROPE)
+### ROPE (full)
 
-The Bayes Factor (*BF*) used here is based on prior and posterior distributions of a single parameter. In this context, the Bayes factor indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s), relative to the prior distribution, thus indicating if the null hypothesis has become less or more likely given the observed data. We created two indices corresponding to two definitions for the null. In the case of testing against a point null (0), a Savage-Dickey density ratio was computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null [@wagenmakers2010bayesian]. We also computed a *BF* against the range of negligible values (defined here same as for the ROPE indices), by comparing the prior and posterior odds of the parameter falling within vs. outside the ROPE [see *Non-overlapping Hypotheses* in @morey2011bayesinterval]. Note that *BF (vs. ROPE)* can also be mathematically defined in relation to the *ROPE (full)* index, as the ratio between the odds of *ROPE (full)* applied to the posterior and prior distribution.
+The *ROPE (full)* is similar to *ROPE (95%)*, with the exception that refers to the percentage of the *whole* posterior distribution that lies within the ROPE.
+
+### Bayes factor (*vs.* 0)
+
+The Bayes Factor (*BF*) used here is based on prior and posterior distributions of a single parameter. In this context, the Bayes factor indicates the degree by which the mass of the posterior distribution has shifted further away from or closer to the null value(s), relative to the prior distribution, thus indicating if the null hypothesis has become less or more likely given the observed data. We created two indices corresponding to two definitions for the null. In the case of testing against a point null (0), a Savage-Dickey density ratio was computed, which is also an approximation of a Bayes factor comparing the marginal likelihoods of the model against a model in which the tested parameter has been restricted to the point null [@wagenmakers2010bayesian].
+
+### Bayes factor (*vs.* ROPE)
+
+We also computed a *BF* against the range of negligible values (defined here same as for the ROPE indices), by comparing the prior and posterior odds of the parameter falling within vs. outside the ROPE [see *Non-overlapping Hypotheses* in @morey2011bayesinterval]. The formal definition of the *BF (vs. ROPE)* is the ratio between the odds of *ROPE (full)* for the posterior distribution and the odds of *ROPE (full)* for the prior distribution:
 
 $$BF_{rope} = \frac{odds(ROPE_{\text{full posterior}})}{odds(ROPE_{\text{full prior}})}$$
 
-
-
 ## Data Analysis
 
-The aim of this study is two-fold: 1) compare between Bayesian indices of effect existence and significance, 2) provide visual guides for an intuitive understanding of the numeric values in relation with a known frame of reference (the frequentist NHST framework). Thus, we will start by 1) presenting the relationship between these indices and main sources of variance, such as effect existence, sample size and noise. 2) Compare Bayesian indices with the frequentist *p*-value and its commonly used thresholds (.05, .01, .001). Taken together, these results will help us to outline numeric guides to ease the reporting and interpretation of the indices.
+<!-- Needs revision, not understandable how indices were transformed -->
+
+To ensure that any differences between the indices are not due to differences in their scale or differences in their bounds, we converted all indices to the same scale. The natural logarithm was computed for both BF indices, originally a ratio, to ensure the values are unbounded on both sides. pd was transformed by 2×(pd-0.5), so its bounds are between 0 and 1. Together with p-value, p-Map and ROPE, all indices are representing a proportion or percentage bounded between 0 and 1, were converted them to an odds ratio, followed by computing their natural logarithm. Thus all measures were on an unbounded log-odds scales.
+
+All statistical analyses were conducted with the R statistical package [@rstanarm_pkg]. Computations of Bayesian models were based on Stan [@carpenter_stan_2017], a probabilistic programming language for specifying Bayesian models, which is implemented in the *rstanarm* package [@rstanarm_pkg]. We used Markov Chain Monte Carlo sampling (in particular, Hamiltonian Monte Carlo [@gelman_bayesian_2014]) with 4 chains of 2,000 iterations, half of which used for warm-up. Mildly informative priors (normal distribution with mean 0 and SD 1) were used for the models. The indices were calculated using the *bayestestR* package [@makowski_bayestestr_2019].
 
 # Results
 
-<!-- MSB: please make this better --> To ensure that any differences between the indices are not due to differences in their scale or differences in their bounds, we converted all indices to the same scale. The natural logarithm was computed for both *BF* indices, originally a ratio, to ensure the values are unbounded on both sides. *pd* was transformed by $2\times(pd-0.5)$, so its bounds are between 0-1, and then together with *p*-value, *p-Map* and the *ROPE* indices, all representing a proportion or percentage bounded between 0 and 1, were converted them to an odds ratio, followed by computing their natural logarithm. Thus all measures were on an unbounded log-odds scales.
+The aim of this study is two-fold: 1) compare between Bayesian indices of effect existence and significance, 2) provide visual guides for an intuitive understanding of the numeric values in relation with a known frame of reference (the frequentist *p*-value). Thus, we will start by 1) presenting the relationship between these indices and main sources of variance, such as effect existence, sample size and noise. 2) Compare Bayesian indices with the frequentist p-value and its commonly used thresholds (.05, .01, .001). Taken together, these results will help us to outline numeric guides to ease the reporting and interpretation of the indices.
 
 ## Impact of Sample Size
 
