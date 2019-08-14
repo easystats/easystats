@@ -223,6 +223,10 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`cohens_f`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`color_if`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`colour_if`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
@@ -359,18 +363,16 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_standardize`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`format_table`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_text_collapse`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_text_wrap`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_value_unless_integers`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`format_value`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_value`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`generalized_inverse`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`geom_jitter2`**](https://easystats.github.io/see/reference/index.html)
@@ -455,6 +457,8 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`is.rules`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`is_model_supported`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`is_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`is_multivariate`**](https://easystats.github.io/insight/reference/index.html)
