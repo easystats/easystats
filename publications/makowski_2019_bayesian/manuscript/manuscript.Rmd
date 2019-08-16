@@ -69,7 +69,7 @@ Thus, based on the simulation of multiple linear and logistic regressions (argua
 
 We simulated datasets suited for linear and logistic regression and started by simulating an independent, normally distributed *x* variable (with mean 0 and SD 1) of a given sample size. Then, the corresponding *y* variable was added, having a perfect correlation (in the case of data for linear regressions) or as a binary variable perfect separated by *x*. The case of no effect was simulated by creating a *y* variable that was independent of (i.e. not correlated to) *x*. Finally, a Gaussian noise was added to the *x* variable (the error).
 
-The simulation aimed at modulating the following characteristics: *outcome type* (linear or logistic regression), *sample size* (from 20 to 100 by steps of 10), *“true” effect* (original regression coefficient from which data is drawn prior to noise addition, 1 - presence of effect or 0 - absence of effect) and *noise* (Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66, with 1000 different values). We generated a dataset for each combination of these characteristics, resulting in a total of 36,000 (2 outcome types * 2 effects * 9 sample sizes * 1,000 noise variations) datasets. The code used for data generation is available on GitHub (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
+The simulation aimed at modulating the following characteristics: *outcome type* (linear or logistic regression), *sample size* (from 20 to 100 by steps of 10), *“true” effect* (original regression coefficient from which data is drawn prior to noise addition, 1 - presence of effect, true alternative, or 0 - absence of effect, true null) and *noise* (Gaussian noise applied to the predictor with SD uniformly spread between 0.666 and 6.66, with 1000 different values). We generated a dataset for each combination of these characteristics, resulting in a total of 36,000 (2 outcome types * 2 effects * 9 sample sizes * 1,000 noise variations) datasets. The code used for data generation is available on GitHub (https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian/data). Please note that it takes usually several days/weeks for the generation to complete.
 
 ```{r DataLoad, message=FALSE, warning=FALSE, echo=FALSE}
 source("make_data.R")
@@ -179,13 +179,12 @@ For each index and each model type, we fitted a logistic regression to predict t
 ## Relationship with the frequentist *p*-value
 
 
-```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship with the frequentist p-value. In each plot, the p-value densities can be visualized by the marginal top (null effect) and bottom (true effect) markers, whereas on the left (true effect) and right (null effect), they represent the density of the index of interest. Different point shapes, representing different sample sizes, illustrate its impact on the percentages in ROPE, for which each curve line is associated with one sample size.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
+```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. Relationship with the frequentist p-value. In each plot, the p-value densities can be visualized by the marginal top (null effect) and bottom (true effect) markers, whereas on the left (true effect) and right (null effect), the markers represent the density of the index of interest. Different point shapes, representing different sample sizes, illustrate its impact on the percentages in ROPE, for which each curve line is associated with one sample size.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 
 knitr::include_graphics("figures/Figure4.png")
 ```
 
-
-**Figure 4** suggests that the the *pd* has a 1:1 correspondence with the frequentist *p*-value (through the formula $p_{two-sided} = 2*(1-p_d)$). *BF* indices still appear as having a strong relationship (although severely non-linear) with the frequentist index, which is to be expected since the *BF* is consistent (i.e., it approaches the "true" bound as sample size increases) both when the null is true and when the alternative is true (as can be seen in the marginal distributions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistent when the alternative is true, but has a uniform distribution [0-1] when the null is true [@rouder2012default; @rouder2009bayesian]. *ROPE*-based percentages appear to be only weakly related to *p*-values. Critically, their relationship seems to be a function of sample size.
+**Figure 4** suggests that the the *pd* has a 1:1 correspondence with the frequentist *p*-value (through the formula $p_{two-sided} = 2*(1-p_d)$). *BF* indices still appear as having a strong relationship (although severely non-linear) with the frequentist index, which is to be expected since the *BF* is consistent (i.e., it approaches the "true" bound as sample size increases) <!-- What does this sentence mean in this context? Why refer to sample size? --> in the absence and presence of a true effect (as can be seen in the marginal distributions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistent when a true effect is present, but has a uniform distribution [0-1] when the absence of an effect is true [@rouder2012default; @rouder2009bayesian]. *ROPE*-based percentages appear to be only weakly related to *p*-values. Critically, their relationship seems to be a function of sample size.
 
 
 
@@ -194,11 +193,13 @@ knitr::include_graphics("figures/Figure4.png")
 knitr::include_graphics("figures/Figure5.png")
 ```
 
-**Figure 5** shows equivalence between *p*-value thresholds (.1, .05, .01, .001) and the Bayesian indices. As expected, the *p*-direction has the sharpest tresholds (95\%, 97.5\%, 99.5\% and 99.95\%, respectively). For logistic models, these thresholds points appear as more conservative (i.e., Bayesian indices have to be "stronger" to be reach the same level of significance). This sensitivity to model type is the strongest for BFs (which is possibly related to the difference in the prior specification for these two types of models). Suprisingly, BFs lower than 1, which correspond to evidence *against* the presence of an effect, can correpond to a "significant" frequentist *p*-value.
+**Figure 5** shows equivalence between *p*-value thresholds (.1, .05, .01, .001) and the Bayesian indices. As expected, the *p*-direction has the sharpest thresholds (95\%, 97.5\%, 99.5\% and 99.95\%, respectively). For logistic models, these thresholds points appear as more conservative (i.e., Bayesian indices have to be "stronger" to be reach the same level of significance). This sensitivity to model type is the strongest for BFs (which is possibly related to the difference in the prior specification for these two types of models) <!-- Maybe move to discussion? Interpretation of results should rather not be included in the results section. --> . Suprisingly, BFs lower than 1, which correspond to evidence *against* the presence of an effect, can correpond to a "significant" frequentist *p*-value.
 
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
-```{r Figure6, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
+<!-- Didn’t we want to facet by model type? -->
+
+```{r Figure6, message=FALSE, warning=FALSE, fig.cap="Figure 6. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
 
 knitr::include_graphics("figures/Figure6.png")
 ```
