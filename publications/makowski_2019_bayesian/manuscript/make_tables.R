@@ -11,25 +11,15 @@ source("make_data.R")
 
 # TABLE 1: Impact of sample size ------------------------------------------
 
-# Linear Models
-table_lm <- table_data %>%
-  filter(outcome_type == "linear") %>%
-  lm(Value ~ true_effect / Index / sample_size + error, data = .) %>%
+table1 <- df_normalized %>%
+  lm(Value ~ outcome_type / true_effect / Index / sample_size + error, data = .) %>%
   parameters::model_parameters() %>%
-  mutate(Type = "Linear")
-
-# Logistic Models
-table_glm <- table_data %>%
-  filter(outcome_type == "binary") %>%
-  lm(Value ~ true_effect / Index / sample_size + error, data = .) %>%
-  parameters::model_parameters() %>%
-  mutate(Type = "Logistic")
-
-table1 <- rbind(table_lm, table_glm) %>%
   filter(grepl("sample_size", Parameter)) %>%
   mutate(Coefficient = abs(Std_Coefficient),
+         Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
          True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
          Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
+         Parameter = stringr::str_remove(Parameter, "outcome_typelinear:|outcome_typebinary:"),
          Parameter = stringr::str_remove(Parameter, "Index"),
          Parameter = stringr::str_remove(Parameter, ":sample_size")) %>%
   select(Type, True_Effect, Parameter, Coefficient) %>%
@@ -37,36 +27,21 @@ table1 <- rbind(table_lm, table_glm) %>%
 
 
 
-
 # TABLE 2: Impact of Noise ------------------------------------------------
 
-# Linear Models
-table_lm <- table_data %>%
-  filter(outcome_type == "linear",
-         true_effect == "Presence") %>%
-  lm(Value ~ Index / error + sample_size, data = .) %>%
+table2 <- df_normalized %>%
+  lm(Value ~ outcome_type / true_effect / Index / error + sample_size, data = .) %>%
   parameters::model_parameters() %>%
-  mutate(Type = "Linear",
-         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
-
-# Logistic Models
-table_glm <- table_data %>%
-  filter(outcome_type == "binary",
-         true_effect == "Presence") %>%
-  lm(Value ~ Index / error + sample_size, data = .) %>%
-  parameters::model_parameters() %>%
-  mutate(Type = "Logistic",
-         Effect = ifelse(grepl("true_effectAbsence", Parameter), "Absence", "Presence"))
-
-
-table2 <- rbind(table_lm, table_glm) %>%
   filter(grepl("error", Parameter)) %>%
   mutate(Coefficient = abs(Std_Coefficient),
+         Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
+         True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
+         Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
+         Parameter = stringr::str_remove(Parameter, "outcome_typelinear:|outcome_typebinary:"),
          Parameter = stringr::str_remove(Parameter, "Index"),
-         Parameter = stringr::str_remove(Parameter, ":true_effectAbsence:error|:true_effectPresence:error")) %>%
-  select(Effect, Type, Parameter, Coefficient) %>%
-  arrange(Effect, Type, Coefficient)
-
+         Parameter = stringr::str_remove(Parameter, ":error")) %>%
+  select(Type, True_Effect, Parameter, Coefficient) %>%
+  arrange(Type, True_Effect, Coefficient)
 
 
 
