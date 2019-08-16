@@ -23,7 +23,20 @@ table1 <- df_normalized %>%
          Parameter = stringr::str_remove(Parameter, "Index"),
          Parameter = stringr::str_remove(Parameter, ":sample_size")) %>%
   select(True_Effect, Type, Parameter, Coefficient) %>%
-  arrange(True_Effect, Type, Coefficient)
+  split(list(.$True_Effect, .$Type)) %>%
+  bind_cols() %>%
+  dplyr::select(-starts_with("True_Effect"), -starts_with("Type"), -Parameter1, -Parameter2, -Parameter3)
+  # arrange(True_Effect, Type, Coefficient)
+
+# reorder columns and rows
+table1 <- table1[c(5, 3, 4, 6, 7, 1, 2), c(1, 3, 2, 5, 4)]
+colnames(table1) <- c(
+  "Index",
+  "Linear Model Presence of True Effect",
+  "Linear Model Absence of True Effect",
+  "Logistic Model Presence of True Effect",
+  "Logistic Model Absence of True Effect"
+)
 
 
 
