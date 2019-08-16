@@ -17,9 +17,7 @@ df <- read.csv(paste0(path, "../data/data.csv"))
 df_normalized <- df %>%
   # Cap BFs at 999
   # mutate_at(vars("BF_log", "BF_ROPE_log"), function(x) ifelse(x >= log(999), NA, x)) %>%
-  mutate_at(vars("BF_log", "BF_ROPE_log"), function(x) {
-    1 / (1 + exp(-x))
-  }) %>%
+  mutate_at(vars("BF_log", "BF_ROPE_log"), stats::plogis) %>%
   # Normalize all indices between 0 and 1
   parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
   # Inverse BFs and pd so that higher value = higher evidence for effect
