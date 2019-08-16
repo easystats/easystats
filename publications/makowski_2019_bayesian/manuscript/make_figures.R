@@ -327,9 +327,10 @@ ggsave(paste0(path, "figures/Figure2.png"),
 # Figure 3 ----------------------------------------------------------------
 
 figure4 <- df_normalized %>%  # Or df_logodds
-  mutate(true_effect = forcats::fct_rev(true_effect)) %>%
+  mutate(true_effect = forcats::fct_rev(true_effect),
+         Index = factor(Index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>%
   ggplot(aes(x = Value, color = Index)) +
-  geom_line(stat="density", size = 1, key_glyph = "smooth") +
+  geom_line(stat="density", size = 1, key_glyph = "smooth", bw = "nrd", adjust = 2) +
   # geom_density(geom="line", size = 1, key_glyph = "smooth") +
   facet_grid(~true_effect,
              labeller = as_labeller(c("Absence" = "Absence of Effect",
@@ -353,7 +354,7 @@ figure4 <- df_normalized %>%  # Or df_logodds
   ylab("Density Probability Distribution") +
   xlab("Normalized value")
 
-
+figure4
 ggsave(paste0(path, "figures/Figure3.png"),
        figure4,
        width = 29.7 / 3, height = 21 / 3, dpi = dpi
@@ -377,8 +378,8 @@ figure4_data <- df %>%
 
 figure4_elements <- list(
   aes(p_value, value, color = true_effect, shape = size_group),
+  geom_vline(xintercept = 0.05, alpha = 0.15),
   geom_point(alpha = figure4_alpha, stroke = 0),
-  geom_vline(xintercept = 0.05, linetype = "dashed"),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_color_manual(
     name = NULL,
