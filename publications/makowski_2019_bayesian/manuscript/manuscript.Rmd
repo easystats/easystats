@@ -145,14 +145,17 @@ Consistently with **Figure 1**, the model investigating the sensitivity of sampl
 knitr::include_graphics("figures/Figure2.png")
 ```
 
-**Figure 2** shows the sensitivity to noise of the indices. Unlike the patterns of sensitivity to sample size, our indices show more similar patterns in their sensitivity to noise, or magnitude, of effects. As expected, when the magnitude of an effect is no more than two standard deviations from its mean, the *p*-value is not much affected by noise. The same holds true for the indices *pd*, *ROPE (95\%)* and *ROPE (full)*, and to the MAP-based *p*-value, though the sensitivity even to small noise is a bit more pronounced here. *BF* seems to be most sensitive to noise, and so are all remaining indices when the noise increases. Furthermore, all indices seem to be more sensitive to noise in case of logistic regression models.
+**Figure 2** shows the sensitivity to noise of the indices. Unlike the patterns of sensitivity to sample size, the indices display more similar patterns in their sensitivity to noise (or magnitude of effects). All indices are unidirectionally impacted by noise: the more the noisy the data, the smaller the coefficient, and the less "pronounced" the indices are (respectively to their direction). <!-- Is the following true? Or is it an artifact related to the log scale of the BFs? -->However, it is interesting to note that the variability of the indices is differently impacted by noise. For the *p*-values, the *pd* and the ROPE indices, the variability increases as the noise increases. In other words, small coefficients can yield very different values. On the contrary, the variability of BFs decreases as the true effect tends toward 0. For the MAP-based *p*-value, the variability appears to be the highest for moderate amount of noise. This behavior seem consistent accross model types.
+
+<!-- As expected, when the magnitude of an effect is no more than two standard deviations from its mean, the *p*-value is not much affected by noise. The same holds true for the indices *pd*, *ROPE (95\%)* and *ROPE (full)*, and to the MAP-based *p*-value, though the sensitivity even to small noise is a bit more pronounced here. *BF* seems to be most sensitive to noise, and so are all remaining indices when the noise increases. Furthermore, all indices seem to be more sensitive to noise in case of logistic regression models. -->
+
 
 
 ```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
-knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
+knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise. This table shows the coefficient between noise and the value of each index when the true effect is present, adjusted for sample size and stratified by model type. The stronger the coefficient is, the stronger the relationship with noise.")
 ```
 
-Consistently with **Figure 2**, the model investigating the sensitivity of noise, adjusted for sample size, on the different indices when an effect is present (as there is only noise in the absence of effect) suggestst that BFs, followed by the MAP-based *p*-value and *ROPE* indices, are the most sensitive to noise. As noise is a proxy of effect size (linearly related to the absolute value of the coefficient of the parameter), it highlights these indices are sensitive to the magnitude of the effect, whereas the *p*-value and the *pd* would be less sensitive to the magnitude, but rather to the consistency (the certainity of the evidence, through for instance the sample size), of an effect.
+Consistently with **Figure 2**, the model investigating the sensitivity of noise, adjusted for sample size, on the different indices when an effect is present (as there is only noise in the absence of effect) suggests that BFs (especially *vs.* ROPE), followed by the MAP-based *p*-value and percentages in *ROPE*, are the most sensitive to noise. As noise is a proxy of effect size (linearly related to the absolute value of the coefficient of the parameter), this result highlights the fact that these indices are sensitive to the magnitude of the effect, whereas the *p*-value and the *pd* would be less sensitive to its magnitude, but rather to its consistency (the certainty of the evidence, as for instance through the sample size).
 
 
 
@@ -190,7 +193,7 @@ The **Figure 5** suggests that the relationship between the *ROPE (full)* and th
 
 <!-- ROPE and BF -->
 
-<!-- Move to discussion? -->
+<!-- Move to discussion? DM: I agree-->
 
 The similarity between *ROPE (full)* and *BF (vs. ROPE)* is expected due to their mathematical relationship, where *BF (vs ROPE)* can be computed as the *ROPE (full)* odds divided by the *prior* odds falling within the ROPE. Since the prior odds is dependent only on the shape of the prior distributions and the definition of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between absence and presence of true effects.
 
