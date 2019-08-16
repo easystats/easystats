@@ -146,16 +146,20 @@ Consistently with **Figure 1**, the model investigating the sensitivity of sampl
 
 ## Impact of Noise
 
+<!-- We probably need a measure for the x-axis title “Noise” – I assume the measure is “SD”? Or we put that information into the figure subtitle. --> 
 
 ```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise. Grey vertical lines for p-values and Bayes factors represent commonly used thresholds. The scale is capped for the Bayes factors as these extend to infinity.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 knitr::include_graphics("figures/Figure2.png")
 ```
 
+Fig. 2 shows the sensitivity to noise for our indices. Unlike the patterns of sensitivity to sample size, our indices show more similar patterns in their sensitivity to noise, or magnitude, of effects. As expected, when the magnitude of an effect is no more than two standard deviations from its mean, the *p*-value is not much affected by noise. The same holds true for the indices *pd*, *ROPE (95\%)* and *ROPE (full)*, and to the MAP-based *p*-value, though the sensitivity even to small noise is a bit more pronounced here. *BF* seems to be most sensitive to noise, and so are all remaining indices when the noise increases. Furthermore, all indices seem to be more sensitive to noise in case of logistic regression models.
+
+
 ```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
 knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise.")
 ```
 
-Consistently with **Figure 2**, the model investigating the sensitivity of noise, adjusted for sample size, on the different indice when an effect is present (as there is only noise in the absence of effect) suggestst that BFs, followed by the MAP-based *p*-value, followed by ROPE indices, are the most sensitive to noise. As noise is a proxy of effect size (linearly related to the absolute value of the coefficient of the parameter), it highlight these indices are sensitive to the magnitude of the effect, whereas the *p*-value and the *pd* would be less sensitive to the magnitude, but rather to the consistency (the certainity of the evidence, through for instance the sample size), of an effect.
+Consistently with **Figure 2**, the model investigating the sensitivity of noise, adjusted for sample size, on the different indices when an effect is present (as there is only noise in the absence of effect) suggestst that BFs, followed by the MAP-based *p*-value and *ROPE* indices, are the most sensitive to noise. As noise is a proxy of effect size (linearly related to the absolute value of the coefficient of the parameter), it highlights these indices are sensitive to the magnitude of the effect, whereas the *p*-value and the *pd* would be less sensitive to the magnitude, but rather to the consistency (the certainity of the evidence, through for instance the sample size), of an effect.
 
 
 ## Presence *vs.* Absence of Effect
