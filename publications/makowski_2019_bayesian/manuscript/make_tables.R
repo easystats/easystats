@@ -55,7 +55,18 @@ table2 <- df_normalized %>%
          Parameter = stringr::str_remove(Parameter, "Index"),
          Parameter = stringr::str_remove(Parameter, ":error")) %>%
   select(Type, Parameter, Coefficient) %>%
-  arrange(Type, Coefficient)
+  split(.$Type) %>%
+  bind_cols() %>%
+  dplyr::select(-starts_with("Type"), -Parameter1)
+  # arrange(Type, Coefficient)
+
+# reorder columns and rows
+table2 <- table2[c(5, 3, 4, 6, 7, 1, 2), ]
+colnames(table2) <- c(
+  "Index",
+  "Presence of True Effect in Linear Model",
+  "Presence of True Effect in Logistic Model"
+)
 
 
 
