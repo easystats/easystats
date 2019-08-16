@@ -156,7 +156,7 @@ Consistently with **Figure 2**, the model investigating the sensitivity of noise
 
 ## Presence *vs.* Absence of Effect
 
-```{r Figure3, message=FALSE, warning=FALSE, fig.cap="Figure 3. The distribution of indices (normalized between 0 and 1 so that values closer to 1 correpond to more evidence for the presence of an effect). This illustrate the fact that the p-value and the pd are sensitive to the presence of an effect (and present a uniform distribution in the case of an absence of true effect), whereas other indices are "consistent", being massed toward 0 in the case of an absence of effect. Note that the drops of density toward the edges is artificial (caused by the kernel density estimation method).", fig.align='center', fig.width=29.7/2, fig.height=21/2, echo=FALSE}
+```{r Figure3, message=FALSE, warning=FALSE, fig.cap="Figure 3. The distribution of indices (normalized between 0 and 1 so that values closer to 1 correpond to more evidence for the presence of an effect). This illustrate the fact that the p-value and the pd are sensitive to the presence of an effect (and present a uniform distribution in the case of an absence of true effect), whereas other indices are \"consistent\", being massed toward 0 in the case of an absence of effect. Note that the drops of density toward the edges is artificial (caused by the kernel density estimation method).", fig.align='center', fig.width=29.7/2, fig.height=21/2, echo=FALSE}
 knitr::include_graphics("figures/Figure3.png")
 ```
 
