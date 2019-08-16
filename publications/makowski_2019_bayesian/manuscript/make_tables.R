@@ -32,10 +32,10 @@ table1 <- df_normalized %>%
 table1 <- table1[c(5, 3, 4, 6, 7, 1, 2), c(1, 3, 2, 5, 4)]
 colnames(table1) <- c(
   "Index",
-  "Linear Model Presence of True Effect",
-  "Linear Model Absence of True Effect",
-  "Logistic Model Presence of True Effect",
-  "Logistic Model Absence of True Effect"
+  "Linear Models / Presence of True Effect",
+  "Linear Models / Absence of True Effect",
+  "Logistic Models / Presence of True Effect",
+  "Logistic Models / Absence of True Effect"
 )
 
 
@@ -64,63 +64,62 @@ table2 <- df_normalized %>%
 table2 <- table2[c(5, 3, 4, 6, 7, 1, 2), ]
 colnames(table2) <- c(
   "Index",
-  "Presence of True Effect in Linear Model",
-  "Presence of True Effect in Logistic Model"
+  "Linear Models / Presence of True Effect",
+  "Logistic Models / Presence of True Effect"
 )
 
 
 
 # TABLE 3: Comparison of performance --------------------------------------
 
-data_table3 <- df_normalized
-
-table3 <- data.frame()
-for (model_type in c("linear", "binary")) {
-  p_value <- data_table3 %>%
-    filter(Index == "p_value",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-  p_direction <- data_table3 %>%
-    filter(Index == "p_direction",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-  p_MAP <- data_table3 %>%
-    filter(Index == "p_MAP",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-  ROPE_95 <- data_table3 %>%
-    filter(Index == "ROPE_95",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-  ROPE_full <- data_table3 %>%
-    filter(Index == "ROPE_full",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-  BF_log <- data_table3 %>%
-    filter(Index == "BF_log",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-  BF_ROPE_log <- data_table3 %>%
-    filter(Index == "BF_ROPE_log",
-           outcome_type == model_type) %>%
-    glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
-
-  table3 <- performance::compare_performance(p_value,
-                                             p_direction,
-                                             p_MAP,
-                                             ROPE_95,
-                                             ROPE_full,
-                                             BF_log,
-                                             BF_ROPE_log) %>%
-    mutate(Model_Type = model_type) %>%
-    rbind(table3, .)
-}
-
-table3 <- table3 %>%
-  select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, PCP) # Why compare_performance doesn't give me BFs anymore?
-  # select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, PCP, BF) %>%
-  # mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
-  #        BF = bayestestR:::.format_big_small(BF))
+# data_table3 <- df_normalized
+#
+# table3 <- data.frame()
+# for (model_type in c("linear", "binary")) {
+#   p_value <- data_table3 %>%
+#     filter(Index == "p_value",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#   p_direction <- data_table3 %>%
+#     filter(Index == "p_direction",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#   p_MAP <- data_table3 %>%
+#     filter(Index == "p_MAP",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#   ROPE_95 <- data_table3 %>%
+#     filter(Index == "ROPE_95",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#   ROPE_full <- data_table3 %>%
+#     filter(Index == "ROPE_full",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#   BF_log <- data_table3 %>%
+#     filter(Index == "BF_log",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#   BF_ROPE_log <- data_table3 %>%
+#     filter(Index == "BF_ROPE_log",
+#            outcome_type == model_type) %>%
+#     glm(true_effect ~ Value + error + sample_size, data = ., family = "binomial")
+#
+#   table3 <- performance::compare_performance(p_value,
+#                                              p_direction,
+#                                              p_MAP,
+#                                              ROPE_95,
+#                                              ROPE_full,
+#                                              BF_log,
+#                                              BF_ROPE_log) %>%
+#     mutate(Model_Type = model_type) %>%
+#     rbind(table3, .)
+# }
+#
+# table3 <- table3 %>%
+#   # select(Model_Type, Model, AIC, BIC, R2_Tjur, RMSE, PCP, BF) %>%
+#   # mutate(BF_log = bayestestR:::.format_big_small(log(BF)),
+#   #        BF = bayestestR:::.format_big_small(BF))
 
 
 
