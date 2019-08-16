@@ -1,24 +1,12 @@
-library(dplyr)
-library(tidyr)
-library(parameters)
-library(performance)
-
-if (!inherits(df,"data.frame")) {
-  # df <- read.csv("https://raw.github.com/easystats/easystats/master/publications/makowski_2019_bayesian/data/data.csv")
-  df <- read.csv("../data/data.csv")
-}
+source("make_data.R")
 
 
-table_data <- df %>%
-  # # MSB: Uncomment these rows to convert all to same log-odds scales
-  mutate(p_direction = (p_direction - 0.5) * 2) %>% # prevent artifact due to pd not being bounded [0-1] but [0.5-1].
-  mutate_at(vars(p_value, p_direction, p_MAP, ROPE_95, ROPE_full), ~log(.x / (1-.x))) %>%
-  filter_at(vars(p_value, p_direction, p_MAP, ROPE_95, ROPE_full), ~!is.infinite(.x)) %>% # lose about 15% of observations...
-  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
-  select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>%
-  tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>%
-  mutate(true_effect = as.factor(ifelse(true_effect == 1, "Presence", "Absence")),
-         true_effect = forcats::fct_relevel(true_effect, "Presence", "Absence"))
+
+
+
+
+
+
 
 
 # TABLE 1: Impact of sample size ------------------------------------------
