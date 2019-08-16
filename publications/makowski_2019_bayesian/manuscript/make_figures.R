@@ -1,7 +1,4 @@
 
-
-
-
 # Parameters --------------------------------------------------------------
 
 source("make_data.R")
@@ -93,8 +90,8 @@ figure1_pvalue <-
   figure1_data %>%
   filter(index == "p_value") %>%
   ggplot() +
+  geom_hline(yintercept = 0.05, alpha = 0.15) +
   figure1_elements +
-  geom_hline(yintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-value")
@@ -143,8 +140,8 @@ figure1_BF <-
   figure1_data %>%
   filter(index == "BF_log") %>%
   ggplot() +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   figure1_elements +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -156,8 +153,8 @@ figure1_BF_rope <-
   figure1_data %>%
   filter(index == "BF_ROPE_log") %>%
   ggplot() +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   figure1_elements +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -230,8 +227,8 @@ figure2_pvalue <-
   figure2_data %>%
   filter(index == "p_value") %>%
   ggplot() +
+  geom_hline(yintercept = 0.05, alpha = 0.15) +
   figure2_elements +
-  geom_hline(yintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-value")
@@ -280,8 +277,8 @@ figure2_BF <-
   figure2_data %>%
   filter(index == "BF_log") %>%
   ggplot() +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   figure2_elements +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -293,8 +290,8 @@ figure2_BF_rope <-
   figure2_data %>%
   filter(index == "BF_ROPE_log") %>%
   ggplot() +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   figure2_elements +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -450,7 +447,7 @@ figure4_BF <-
   figure4_elements +
   geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "BF_log", true_effect == 0)) +
   geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "BF_log", true_effect == 1)) +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -465,7 +462,7 @@ figure4_BF_rope <-
   figure4_elements +
   geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "BF_ROPE_log", true_effect == 0)) +
   geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "BF_ROPE_log", true_effect == 1)) +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
@@ -554,11 +551,13 @@ figure5_pd <-
   filter(index == "p_direction") %>%
   ggplot() +
   figure5_elements +
+  # geom_hline(yintercept = 0.50, linetype = "dotted", alpha = 0.5) +
   # geom_vline(xintercept = 0.95, linetype = "dashed") +
-  scale_x_continuous(breaks = c(0.9, 0.925, 0.95, 0.975, 1),
-                     labels = c("90%", "92.5%", "95%", "97.5%", "100%")) +
+  scale_x_continuous(breaks = c(0.925, 0.95, 0.975, 1),
+                     labels = c("92.5%", "95%", "97.5%", "100%")) +
   xlab("p-direction") +
-  coord_cartesian(xlim = c(0.9, 1))
+  coord_cartesian(xlim = c(0.925, 1)) +
+  scale_y_continuous(expand = c(0, 0))
 
 figure5_pmap <-
   figure5_data %>%
@@ -569,7 +568,8 @@ figure5_pmap <-
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("p-MAP") +
-  coord_cartesian(xlim = c(0, 0.4))
+  coord_cartesian(xlim = c(0, 0.4)) +
+  scale_y_continuous(expand = c(0, 0))
 
 figure5_ROPE_95 <-
   figure5_data %>%
@@ -580,7 +580,8 @@ figure5_ROPE_95 <-
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("ROPE (95%)") +
-  coord_cartesian(xlim = c(0, 0.4))
+  coord_cartesian(xlim = c(0, 0.4)) +
+  scale_y_continuous(expand = c(0, 0))
 
 figure5_ROPE_full <-
   figure5_data %>%
@@ -591,34 +592,39 @@ figure5_ROPE_full <-
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("ROPE (full)") +
-  coord_cartesian(xlim = c(0, 0.4))
+  coord_cartesian(xlim = c(0, 0.4)) +
+  scale_y_continuous(expand = c(0, 0))
 
 figure5_BF <-
   figure5_data %>%
   filter(index == "BF_log") %>%
   ggplot() +
+  geom_vline(xintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   figure5_elements +
-  geom_vline(xintercept = log(c(1 / 3, 3)), linetype = "dashed") +
+  # geom_vline(xintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_x_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   xlab("Bayes factor (vs. 0)") +
-  coord_cartesian(xlim = log(c(1 / 30, 300)))
+  coord_cartesian(xlim = log(c(1 / 30, 300))) +
+  scale_y_continuous(expand = c(0, 0))
 
 
 figure5_BF_rope <-
   figure5_data %>%
   filter(index == "BF_ROPE_log") %>%
   ggplot() +
+  geom_vline(xintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   figure5_elements +
-  geom_vline(xintercept = log(c(1 / 3, 3)), linetype = "dashed") +
+  # geom_vline(xintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_x_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   xlab("Bayes factor (vs. ROPE)") +
-  coord_cartesian(xlim = log(c(1 / 30, 300)))
+  coord_cartesian(xlim = log(c(1 / 30, 300))) +
+  scale_y_continuous(expand = c(0, 0))
 
 figure5_cow <- plot_grid(
   figure5_pd + theme(legend.position = "none"),
@@ -635,13 +641,15 @@ sig_legend <- get_legend(
   figure5_pd + theme(legend.box.margin = margin(0, 1, 0, 1))
 )
 
-figure5_cow_w_leg <- plot_grid(figure5_cow, sig_legend,
+
+
+figure5 <- plot_grid(figure5_cow, sig_legend,
   ncol = 2, rel_widths = c(8, 1)
 )
-# figure5_cow_w_leg
+# figure5
 
 ggsave(paste0(path, "figures/Figure5.png"),
-  figure5_cow_w_leg,
+       figure5,
   width = 29.7 / 2, height = 21 / 2, dpi = dpi
 )
 
@@ -683,7 +691,7 @@ pd_bf <-
   df %>%
   ggplot(aes(x = p_direction, y = BF_ROPE_log)) +
   figure6_elements +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   # geom_vline(xintercept = 0.95, linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
@@ -699,7 +707,7 @@ rope_bf <-
   df %>%
   ggplot(aes(x = ROPE_full, y = BF_ROPE_log)) +
   figure6_elements +
-  geom_hline(yintercept = log(c(1 / 3, 3)), linetype = "dashed") +
+  geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
