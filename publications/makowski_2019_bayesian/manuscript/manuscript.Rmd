@@ -134,19 +134,20 @@ The statistical analyses were conducted using R [@Rcoreteam2019R]. Computations 
 knitr::include_graphics("figures/Figure1.png")
 ```
 
+Fig. 1 shows the sensitivity to sample size for our indices. p-value, pd and the MAP-based p-value are sensitive to sample size only in case of presence of a true effect. When there is no effect, all three indices give similar results, independent from sample size. The ROPE indices, however, is sensitive to sample size when there is no effect. If a true effect is present, ROPE indices show consistent results across all sample sizes. BF are sensitive to sample size for both the presence and absence of true effects, i.e. the accuracy of BF increases with the sample size.
+
 ```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
 source("make_tables.R")
 knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size.")
 ```
 
-
-Consistently with **Figure 1**, the model investigating the sensitivity of sample size on the different indice suggests that *ROPE* and *BF* indices are sensitive to sample size both when there is and when there is not an effect. On the other hand, *p*-value, *pd* and MAP-based *p*-value are only sensitive to sample size when there is a true effect, in which case they are more sensitive than *ROPE* and *BF* indices. These findings are related to the concept of *consistency* - as the number of data points increases, the statistic converges toward some "truth" value. Here we find that *p*-value, *pd* and the MAP-based *p*-value are consistent only when the null is false - as sample size increases, they tend to reflect more strongly that the null is false. On the other hand, *ROPE* and *BF* are consistent both when the null is false (both tend towards 0) and when the null is true (ROPE tends towards 1; BF tends towards infinity). Note also that *BF (vs. rope)* is overall more consistent than *BF (vs. 0)*, and that *ROPE (full)* is overall more consistent than *ROPE (95\%)* (see also marginal densities in **Figure 4**).
+Consistently with **Figure 1**, the model investigating the sensitivity of sample size on the different indices suggests that *BF* indices are sensitive to sample size both when there is and when there is not an effect. *ROPE* indices are particularly sensitive to sample size when there is no true effect, while *p*-value, *pd* and MAP-based *p*-value are only sensitive to sample size when there is a true effect, in which case they are more sensitive than *ROPE* and *BF* indices <!-- Really? BF vs. 0 is more sensitive than p-value and p-direction! --> . These findings are related to the concept of consistency - as the number of data points increases, the statistic converges toward some "true" value. Here we find that *p*-value, *pd* and the MAP-based *p*-value are consistent only when the null is false - as sample size increases, they tend to reflect more strongly that the null is false. On the other hand, *ROPE* and *BF* are consistent both when the null is false (both tend towards 0) <!-- Please check this previous statement with the results from the table --> and when the null is true (*ROPE* tends towards 1; *BF* tends towards infinity). Note also that *BF (vs. rope)* is overall more consistent than *BF (vs. 0)*, and that *ROPE (full)* is overall more consistent than *ROPE (95\%)* (see also marginal densities in **Figure 4**).
 
 
 ## Impact of Noise
 
 
-```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise. Grey vertical lines for p-values and Bayes factors represent commonly used thresholds. The scale is capped for the Bayes factors as these extend to infinity (and beyond).", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
+```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise. Grey vertical lines for p-values and Bayes factors represent commonly used thresholds. The scale is capped for the Bayes factors as these extend to infinity.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 knitr::include_graphics("figures/Figure2.png")
 ```
 
