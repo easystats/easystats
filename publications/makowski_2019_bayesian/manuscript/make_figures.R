@@ -348,14 +348,15 @@ figure4 <- df_normalized %>%  # Or df_logodds
                      labels = c("0", ".25", ".50", ".75", "1"),
                      expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
-  theme(strip.placement = "outside") +
+  theme(strip.placement = "outside",
+        legend.title = element_blank()) +
   ylab("Density Probability Distribution") +
   xlab("Normalized value")
 
 
 ggsave(paste0(path, "figures/Figure3.png"),
        figure4,
-       width = 29.7 / 2, height = 21 / 2, dpi = dpi
+       width = 29.7 / 3, height = 21 / 3, dpi = dpi
 )
 
 # Figure 4 ----------------------------------------------------------------
@@ -482,13 +483,13 @@ figure4_cow <- plot_grid(
   ncol = 1
 )
 
-figure4_cow_w_leg <- plot_grid(effects_legend, figure4_cow,
+figure4 <- plot_grid(effects_legend, figure4_cow,
   ncol = 1, rel_heights = c(0.5, 7)
 )
 # figure3_cow_w_leg
 
 ggsave(paste0(path, "figures/Figure4.png"),
-  figure4_cow_w_leg,
+       figure4,
   width = 21 / 2, height = 29.7 / 2, dpi = dpi
 )
 
