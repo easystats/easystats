@@ -1,13 +1,15 @@
 source("make_data.R")
 
 
-
-
-
-
-
-
-
+ind_names <- c(
+  "*p*-value",
+  "*p*-direction",
+  "*p*-MAP",
+  "ROPE (95%)",
+  "ROPE (full)",
+  "Bayes factor (vs. 0)",
+  "Bayes factor (vs. ROPE)"
+)
 
 # TABLE 1: Impact of sample size ------------------------------------------
 
@@ -37,6 +39,8 @@ colnames(table1) <- c(
   "Logistic Models / Presence of Effect",
   "Logistic Models / Absence of Effect"
 )
+
+table1$Index <- ind_names
 
 
 
@@ -68,7 +72,7 @@ colnames(table2) <- c(
   "Logistic Models / Presence of Effect"
 )
 
-
+table2$Index <- ind_names
 
 # TABLE 3: Comparison of performance --------------------------------------
 
