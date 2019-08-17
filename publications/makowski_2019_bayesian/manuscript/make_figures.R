@@ -75,9 +75,10 @@ figure1_elements <- list(
   geom_boxplot(outlier.shape = NA),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_fill_manual(
-    name = NULL,
+    name = "Null Hypothesis",
+    guide = guide_legend(title.position="top", title.hjust = 0.5),
     values = c(`0` = "#E91E63", `1` = "#4CAF50"),
-    labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
+    labels = c(`0` = "True", `1` = "False")
   ),
   theme_modern(),
   theme(legend.position = "top"),
@@ -179,13 +180,13 @@ effects_legend <- get_legend(
   figure1_pvalue + theme(legend.box.margin = margin(1, 0, 1, 0))
 )
 
-figure1_cow_w_leg <- plot_grid(effects_legend, figure1_cow,
+figure1 <- plot_grid(effects_legend, figure1_cow,
   ncol = 1, rel_heights = c(0.5, 7)
 )
-# figure1_cow_w_leg
+# figure1
 
 ggsave(paste0(path, "figures/Figure1.png"),
-  figure1_cow_w_leg,
+  figure1,
   width = 21 / 2, height = 29.7 / 2, dpi = dpi
 )
 
@@ -214,9 +215,10 @@ figure2_elements <- list(
   geom_boxplot(outlier.shape = NA),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_fill_manual(
-    name = NULL,
+    name = "Null Hypothesis",
+    guide = guide_legend(title.position="top", title.hjust = 0.5),
     values = c(`0` = "#E91E63", `1` = "#4CAF50"),
-    labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
+    labels = c(`0` = "True", `1` = "False")
   ),
   theme_modern(),
   theme(legend.position = "top"),
@@ -313,58 +315,58 @@ figure2_cow <- plot_grid(
   ncol = 1
 )
 
-figure2_cow_w_leg <- plot_grid(effects_legend, figure2_cow,
+figure2 <- plot_grid(effects_legend, figure2_cow,
   ncol = 1, rel_heights = c(0.5, 7)
 )
-# figure2_cow_w_leg
+# figure2
 
 ggsave(paste0(path, "figures/Figure2.png"),
-  figure2_cow_w_leg,
+       figure2,
   width = 21 / 2, height = 29.7 / 2, dpi = dpi
 )
 
 
+# Figure 3 (NOT INCLUDED) ------------------------------------------------------
+
+# figure4 <- df_normalized %>%  # Or df_logodds
+#   mutate(true_effect = forcats::fct_rev(true_effect),
+#          Index = factor(Index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>%
+#   ggplot(aes(x = Value, color = Index)) +
+#   geom_line(stat="density", size = 1, key_glyph = "smooth", bw = "nrd", adjust = 2) +
+#   # geom_density(geom="line", size = 1, key_glyph = "smooth") +
+#   facet_grid(~true_effect,
+#              labeller = as_labeller(c("Absence" = "Absence of Effect",
+#                                       "Presence" = "Presence of Effect")),
+#              switch = "x") +
+#   theme_modern() +
+#   scale_color_manual(values = c("p_value" = "#607D8B",
+#                                 "p_direction" = "#2196F3",
+#                                 "p_MAP" = "#3F51B5",
+#                                 "ROPE_95" = "#FF9800",
+#                                 "ROPE_full" = "#f44336",
+#                                 "BF_log" = "#4CAF50",
+#                                 "BF_ROPE_log" = "#CDDC39"),
+#                      labels = indices) +
+#   scale_x_continuous(breaks = c(seq(0, 1, length.out = 5)),
+#                      labels = c("0", ".25", ".50", ".75", "1"),
+#                      expand = c(0, 0)) +
+#   scale_y_continuous(expand = c(0, 0)) +
+#   theme(strip.placement = "outside",
+#         legend.title = element_blank()) +
+#   ylab("Density Probability Distribution") +
+#   xlab("Normalized value")
+#
+# figure4
+# ggsave(paste0(path, "figures/Figure3.png"),
+#        figure4,
+#        width = 29.7 / 3, height = 21 / 3, dpi = dpi
+# )
+
 # Figure 3 ----------------------------------------------------------------
 
-figure4 <- df_normalized %>%  # Or df_logodds
-  mutate(true_effect = forcats::fct_rev(true_effect),
-         Index = factor(Index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))) %>%
-  ggplot(aes(x = Value, color = Index)) +
-  geom_line(stat="density", size = 1, key_glyph = "smooth", bw = "nrd", adjust = 2) +
-  # geom_density(geom="line", size = 1, key_glyph = "smooth") +
-  facet_grid(~true_effect,
-             labeller = as_labeller(c("Absence" = "Absence of Effect",
-                                      "Presence" = "Presence of Effect")),
-             switch = "x") +
-  theme_modern() +
-  scale_color_manual(values = c("p_value" = "#607D8B",
-                                "p_direction" = "#2196F3",
-                                "p_MAP" = "#3F51B5",
-                                "ROPE_95" = "#FF9800",
-                                "ROPE_full" = "#f44336",
-                                "BF_log" = "#4CAF50",
-                                "BF_ROPE_log" = "#CDDC39"),
-                     labels = indices) +
-  scale_x_continuous(breaks = c(seq(0, 1, length.out = 5)),
-                     labels = c("0", ".25", ".50", ".75", "1"),
-                     expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme(strip.placement = "outside",
-        legend.title = element_blank()) +
-  ylab("Density Probability Distribution") +
-  xlab("Normalized value")
+figure3_alpha <- 0.025
 
-figure4
-ggsave(paste0(path, "figures/Figure3.png"),
-       figure4,
-       width = 29.7 / 3, height = 21 / 3, dpi = dpi
-)
-
-# Figure 4 ----------------------------------------------------------------
-
-figure4_alpha <- 0.025
-
-figure4_data <- df %>%
+figure3_data <- df %>%
   dplyr::select(outcome_type, true_effect, error, sample_size, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
   gather(index, value, -error, -sample_size, -true_effect, -outcome_type, -p_value) %>%
   mutate(
@@ -376,15 +378,16 @@ figure4_data <- df %>%
   mutate(size_group = as.character(round(mean(sample_size)))) %>%
   ungroup()
 
-figure4_elements <- list(
+figure3_elements <- list(
   aes(p_value, value, color = true_effect, shape = size_group),
   geom_vline(xintercept = 0.05, alpha = 0.15),
-  geom_point(alpha = figure4_alpha, stroke = 0),
+  geom_point(alpha = figure3_alpha, stroke = 0),
   facet_grid(~outcome_type, scales = "free", labeller = as_labeller(indices)),
   scale_color_manual(
-    name = NULL,
+    name = "Null Hypothesis",
+    guide = guide_legend(title.position="top", title.hjust = 0.5),
     values = c(`0` = "#E91E63", `1` = "#4CAF50"),
-    labels = c(`0` = "Absence of Effect", `1` = "Presence of Effect")
+    labels = c(`0` = "True", `1` = "False")
   ),
   scale_shape_manual(values = c(0:6, 8, 9), guide = FALSE),
   scale_x_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05),
@@ -395,60 +398,60 @@ figure4_elements <- list(
 )
 
 figure4_pd <-
-  figure4_data %>%
+  figure3_data %>%
   filter(index == "p_direction") %>%
   ggplot() +
-  figure4_elements +
-  geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "p_direction", true_effect == 0)) +
-  geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "p_direction", true_effect == 1)) +
+  figure3_elements +
+  geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "p_direction", true_effect == 0)) +
+  geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "p_direction", true_effect == 1)) +
   # geom_hline(yintercept = 0.95, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0.5, 1, length.out = 6)),
                      labels = c("50%", "60%", "70%", "80%", "90%", "100%")) +
   ylab("p-direction")
 
 figure4_pmap <-
-  figure4_data %>%
+  figure3_data %>%
   filter(index == "p_MAP") %>%
   ggplot() +
-  figure4_elements +
-  geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "p_MAP", true_effect == 0)) +
-  geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "p_MAP", true_effect == 1)) +
+  figure3_elements +
+  geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "p_MAP", true_effect == 0)) +
+  geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "p_MAP", true_effect == 1)) +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-MAP")
 
 figure4_ROPE_95 <-
-  figure4_data %>%
+  figure3_data %>%
   filter(index == "ROPE_95") %>%
   ggplot() +
-  figure4_elements +
-  geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "ROPE_95", true_effect == 0)) +
-  geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "ROPE_95", true_effect == 1)) +
+  figure3_elements +
+  geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "ROPE_95", true_effect == 0)) +
+  geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "ROPE_95", true_effect == 1)) +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("ROPE (95%)")
 
 figure4_ROPE_full <-
-  figure4_data %>%
+  figure3_data %>%
   filter(index == "ROPE_full") %>%
   ggplot() +
-  figure4_elements +
-  geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "ROPE_full", true_effect == 0)) +
-  geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "ROPE_full", true_effect == 1)) +
+  figure3_elements +
+  geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "ROPE_full", true_effect == 0)) +
+  geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "ROPE_full", true_effect == 1)) +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(breaks = c(seq(0, 1, length.out = 6)),
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("ROPE (full)")
 
 figure4_BF <-
-  figure4_data %>%
+  figure3_data %>%
   filter(index == "BF_log") %>%
   ggplot() +
-  figure4_elements +
-  geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "BF_log", true_effect == 0)) +
-  geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "BF_log", true_effect == 1)) +
+  figure3_elements +
+  geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "BF_log", true_effect == 0)) +
+  geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "BF_log", true_effect == 1)) +
   geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
@@ -458,12 +461,12 @@ figure4_BF <-
   coord_cartesian(ylim = log(c(1 / 30, 300)))
 
 figure4_BF_rope <-
-  figure4_data %>%
+  figure3_data %>%
   filter(index == "BF_ROPE_log") %>%
   ggplot() +
-  figure4_elements +
-  geom_rug(alpha = figure4_alpha, sides = "rt", data = filter(figure4_data, index == "BF_ROPE_log", true_effect == 0)) +
-  geom_rug(alpha = figure4_alpha, sides = "lb", data = filter(figure4_data, index == "BF_ROPE_log", true_effect == 1)) +
+  figure3_elements +
+  geom_rug(alpha = figure3_alpha, sides = "rt", data = filter(figure3_data, index == "BF_ROPE_log", true_effect == 0)) +
+  geom_rug(alpha = figure3_alpha, sides = "lb", data = filter(figure3_data, index == "BF_ROPE_log", true_effect == 1)) +
   geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   scale_y_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
@@ -472,7 +475,7 @@ figure4_BF_rope <-
   ylab("Bayes factor (vs. ROPE)") +
   coord_cartesian(ylim = log(c(1 / 30, 300)))
 
-figure4_cow <- plot_grid(
+figure3_cow <- plot_grid(
   figure4_pd + not_last_p,
   figure4_pmap + not_last_p + not_first_p,
   figure4_ROPE_95 + not_last_p + not_first_p,
@@ -484,20 +487,20 @@ figure4_cow <- plot_grid(
   ncol = 1
 )
 
-figure4 <- plot_grid(effects_legend, figure4_cow,
+figure3 <- plot_grid(effects_legend, figure3_cow,
   ncol = 1, rel_heights = c(0.5, 7)
 )
 # figure3_cow_w_leg
 
-ggsave(paste0(path, "figures/Figure4.png"),
-       figure4,
+ggsave(paste0(path, "figures/Figure3.png"),
+       figure3,
   width = 21 / 2, height = 29.7 / 2, dpi = dpi
 )
 
 
-# Figure 5 ----------------------------------------------------------------
+# Figure 4 ----------------------------------------------------------------
 
-make_figure5 <- function(.data) {
+make_figure4 <- function(.data) {
   .data$level <- ifelse(.data$level == "n.s.", 0, 1)
   fit <- suppressWarnings(glm(level ~ value, data = .data, family = "binomial"))
   newdata <- data.frame(value = seq(min(.data$value), max(.data$value), length.out = 500))
@@ -505,7 +508,7 @@ make_figure5 <- function(.data) {
   newdata
 }
 
-figure5_data <- df %>%
+figure4_data <- df %>%
   select(outcome_type, p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
   mutate(
     sig_1 = ifelse(p_value >= .1, "n.s.", "*") %>% factor(levels = c("n.s.", "*")),
@@ -517,7 +520,7 @@ figure5_data <- df %>%
   gather("index", "value", p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log) %>%
   group_by(outcome_type, index, threshold) %>%
   nest() %>%
-  mutate(data = lapply(data, make_figure5)) %>%
+  mutate(data = lapply(data, make_figure4)) %>%
   unnest() %>%
   ungroup() %>%
   mutate(
@@ -525,7 +528,7 @@ figure5_data <- df %>%
     index = factor(index, levels = c("p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
   )
 
-figure5_elements <- list(
+figure4_elements <- list(
   aes(
     x = value, y = sig,
     linetype = threshold, color = outcome_type,
@@ -548,11 +551,11 @@ figure5_elements <- list(
   ylab("Probability of being significant")
 )
 
-figure5_pd <-
-  figure5_data %>%
+figure4_pd <-
+  figure4_data %>%
   filter(index == "p_direction") %>%
   ggplot() +
-  figure5_elements +
+  figure4_elements +
   # geom_hline(yintercept = 0.50, linetype = "dotted", alpha = 0.5) +
   # geom_vline(xintercept = 0.95, linetype = "dashed") +
   scale_x_continuous(breaks = c(0.925, 0.95, 0.975, 1),
@@ -561,11 +564,11 @@ figure5_pd <-
   coord_cartesian(xlim = c(0.925, 1)) +
   scale_y_continuous(expand = c(0, 0))
 
-figure5_pmap <-
-  figure5_data %>%
+figure4_pmap <-
+  figure4_data %>%
   filter(index == "p_MAP") %>%
   ggplot() +
-  figure5_elements +
+  figure4_elements +
   # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
@@ -573,11 +576,11 @@ figure5_pmap <-
   coord_cartesian(xlim = c(0, 0.4)) +
   scale_y_continuous(expand = c(0, 0))
 
-figure5_ROPE_95 <-
-  figure5_data %>%
+figure4_ROPE_95 <-
+  figure4_data %>%
   filter(index == "ROPE_95") %>%
   ggplot() +
-  figure5_elements +
+  figure4_elements +
   # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
@@ -585,11 +588,11 @@ figure5_ROPE_95 <-
   coord_cartesian(xlim = c(0, 0.4)) +
   scale_y_continuous(expand = c(0, 0))
 
-figure5_ROPE_full <-
-  figure5_data %>%
+figure4_ROPE_full <-
+  figure4_data %>%
   filter(index == "ROPE_full") %>%
   ggplot() +
-  figure5_elements +
+  figure4_elements +
   # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
@@ -597,12 +600,12 @@ figure5_ROPE_full <-
   coord_cartesian(xlim = c(0, 0.4)) +
   scale_y_continuous(expand = c(0, 0))
 
-figure5_BF <-
-  figure5_data %>%
+figure4_BF <-
+  figure4_data %>%
   filter(index == "BF_log") %>%
   ggplot() +
   geom_vline(xintercept = log(c(1 / 3, 3)), alpha = 0.15) +
-  figure5_elements +
+  figure4_elements +
   # geom_vline(xintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_x_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
@@ -613,12 +616,12 @@ figure5_BF <-
   scale_y_continuous(expand = c(0, 0))
 
 
-figure5_BF_rope <-
-  figure5_data %>%
+figure4_BF_rope <-
+  figure4_data %>%
   filter(index == "BF_ROPE_log") %>%
   ggplot() +
   geom_vline(xintercept = log(c(1 / 3, 3)), alpha = 0.15) +
-  figure5_elements +
+  figure4_elements +
   # geom_vline(xintercept = log(c(1 / 3, 3)), linetype = "dashed") +
   scale_x_continuous(
     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
@@ -628,37 +631,37 @@ figure5_BF_rope <-
   coord_cartesian(xlim = log(c(1 / 30, 300))) +
   scale_y_continuous(expand = c(0, 0))
 
-figure5_cow <- plot_grid(
-  figure5_pd + theme(legend.position = "none"),
-  figure5_ROPE_95 + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure5_BF + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure5_pmap + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure5_ROPE_full + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure5_BF_rope + theme(legend.position = "none", axis.title.y = element_blank()),
+figure4_cow <- plot_grid(
+  figure4_pd + theme(legend.position = "none"),
+  figure4_ROPE_95 + theme(legend.position = "none", axis.title.y = element_blank()),
+  figure4_BF + theme(legend.position = "none", axis.title.y = element_blank()),
+  figure4_pmap + theme(legend.position = "none", axis.title.y = element_blank()),
+  figure4_ROPE_full + theme(legend.position = "none", axis.title.y = element_blank()),
+  figure4_BF_rope + theme(legend.position = "none", axis.title.y = element_blank()),
   nrow = 2,
   align = "v"
 )
 
 sig_legend <- get_legend(
-  figure5_pd + theme(legend.box.margin = margin(0, 1, 0, 1))
+  figure4_pd + theme(legend.box.margin = margin(0, 1, 0, 1))
 )
 
 
 
-figure5 <- plot_grid(figure5_cow, sig_legend,
+figure4 <- plot_grid(figure4_cow, sig_legend,
   ncol = 2, rel_widths = c(8, 1)
 )
-# figure5
+# figure4
 
-ggsave(paste0(path, "figures/Figure5.png"),
-       figure5,
+ggsave(paste0(path, "figures/Figure4.png"),
+       figure4,
   width = 29.7 / 2, height = 21 / 2, dpi = dpi
 )
 
 
-# Figure 6 ----------------------------------------------------------------
+# Figure 5 ----------------------------------------------------------------
 
-figure6_elements <- list(
+figure5_elements <- list(
   aes(color = sample_size, shape = outcome_type, alpha = factor(true_effect)),
   geom_point(),
   scale_shape_manual(
@@ -679,7 +682,7 @@ figure6_elements <- list(
 pd_rope <-
   df %>%
   ggplot(aes(x = p_direction, y = ROPE_full)) +
-  figure6_elements +
+  figure5_elements +
   # geom_hline(yintercept = 0.05, linetype = "dashed") +
   # geom_vline(xintercept = 0.95, linetype = "dashed") +
   scale_x_continuous(breaks = c(seq(0.5, 1, length.out = 6)),
@@ -692,7 +695,7 @@ pd_rope <-
 pd_bf <-
   df %>%
   ggplot(aes(x = p_direction, y = BF_ROPE_log)) +
-  figure6_elements +
+  figure5_elements +
   geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   # geom_vline(xintercept = 0.95, linetype = "dashed") +
   scale_y_continuous(
@@ -701,14 +704,14 @@ pd_bf <-
   ) +
   scale_x_continuous(breaks = c(seq(0.5, 1, length.out = 6)),
                      labels = c("50%", "60%", "70%", "80%", "90%", "100%")) +
-  ylab("log BF (vs. ROPE)") +
+  ylab("Bayes factor (vs. ROPE)") +
   xlab("Probability of Direction (pd)") +
   coord_cartesian(ylim = log(c(1 / 30, 200)))
 
 rope_bf <-
   df %>%
   ggplot(aes(x = ROPE_full, y = BF_ROPE_log)) +
-  figure6_elements +
+  figure5_elements +
   geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
   # geom_vline(xintercept = 0.05, linetype = "dashed") +
   scale_y_continuous(
@@ -717,7 +720,7 @@ rope_bf <-
   ) +
   scale_x_continuous(breaks = c(seq(0, 1, length.out = 6)),
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
-  ylab("log BF (vs. ROPE)") +
+  ylab("Bayes factor (vs. ROPE)") +
   xlab("ROPE (full)") +
   coord_cartesian(ylim = log(c(1 / 30, 200)))
 
@@ -725,7 +728,7 @@ rainbow_legend <- get_legend(
   pd_rope + theme(legend.box.margin = margin(1, 1, 1, 1))
 )
 
-figure6_cow <- plot_grid(
+figure5 <- plot_grid(
   pd_rope + theme(legend.position = "none", axis.title.x = element_blank()),
   rainbow_legend,
   pd_bf + theme(legend.position = "none"),
@@ -733,8 +736,38 @@ figure6_cow <- plot_grid(
   nrow = 2
 )
 
-ggsave(paste0(path, "figures/Figure6.png"),
-  figure6_cow,
+ggsave(paste0(path, "figures/Figure5.png"),
+  figure5,
   width = 21 / 2, height = 21 / 2, dpi = dpi
 )
 
+
+
+
+
+
+
+
+
+
+
+
+
+# https://twitter.com/StanLazic/status/1162366953866125313?s=20
+# p <- df %>%
+#   ggplot(aes(x = p_MAP, y = BF_log)) +
+#   figure6_elements +
+#   geom_hline(yintercept = log(c(1 / 3, 3)), alpha = 0.15) +
+#   # geom_vline(xintercept = 0.95, linetype = "dashed") +
+#   scale_y_continuous(
+#     breaks = log(c(1 / 100, 1 / 30, 1 / 10, 1 / 3, 1, 3, 10, 30, 100)),
+#     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
+#   ) +
+#   ylab("log BF") +
+#   xlab("MAP-based p-value") +
+#   coord_cartesian(ylim = log(c(1 / 30, 200)))
+#
+# ggsave(paste0(path, "figures/temp.png"),
+#        p,
+#        width = 21 / 2, height = 21 / 2, dpi = dpi
+# )

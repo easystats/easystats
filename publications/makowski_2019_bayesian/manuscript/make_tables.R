@@ -32,10 +32,10 @@ table1 <- df_normalized %>%
 table1 <- table1[c(5, 3, 4, 6, 7, 1, 2), c(1, 3, 2, 5, 4)]
 colnames(table1) <- c(
   "Index",
-  "Linear Models / Presence of True Effect",
-  "Linear Models / Absence of True Effect",
-  "Logistic Models / Presence of True Effect",
-  "Logistic Models / Absence of True Effect"
+  "Linear Models / Presence of Effect",
+  "Linear Models / Absence of Effect",
+  "Logistic Models / Presence of Effect",
+  "Logistic Models / Absence of Effect"
 )
 
 
@@ -64,8 +64,8 @@ table2 <- df_normalized %>%
 table2 <- table2[c(5, 3, 4, 6, 7, 1, 2), ]
 colnames(table2) <- c(
   "Index",
-  "Linear Models / Presence of True Effect",
-  "Logistic Models / Presence of True Effect"
+  "Linear Models / Presence of Effect",
+  "Logistic Models / Presence of Effect"
 )
 
 
