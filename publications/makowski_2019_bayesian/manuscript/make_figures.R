@@ -670,9 +670,9 @@ figure5_elements <- list(
     labels = c(`linear` = "Linear", `binary` = "Logistic")
   ),
   scale_alpha_manual(
-    name = "Effect",
+    name = "Null Hypothesis",
     values = c(0.15, 0.5),
-    labels = c(`0` = "Absence", `1` = "Presence")
+    labels = c(`0` = "True", `1` = "False")
   ),
   scale_color_material_c(palette = "rainbow", name = "Sample Size"),
   theme_modern()
