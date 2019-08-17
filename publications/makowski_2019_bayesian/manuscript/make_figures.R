@@ -5,6 +5,7 @@ source("make_data.R")
 library(cowplot)
 
 dpi <- 300
+size_scaling <- 3
 
 df$outcome_type <- forcats::fct_rev(df$outcome_type)
 
@@ -81,7 +82,8 @@ figure1_elements <- list(
     labels = c(`0` = "True", `1` = "False")
   ),
   theme_modern(),
-  theme(legend.position = "top"),
+  theme(legend.position = "top",
+        axis.title.y = element_text(size = 11.5)),
   xlab("Sample Size")
 )
 
@@ -187,7 +189,7 @@ figure1 <- plot_grid(effects_legend, figure1_cow,
 
 ggsave(paste0(path, "figures/Figure1.png"),
   figure1,
-  width = 21 / 2, height = 29.7 / 2, dpi = dpi
+  width = 21 / 2.2, height = 29.7 / 2.2, dpi = dpi
 )
 
 
@@ -221,7 +223,8 @@ figure2_elements <- list(
     labels = c(`0` = "True", `1` = "False")
   ),
   theme_modern(),
-  theme(legend.position = "top"),
+  theme(legend.position = "top",
+        axis.title.y = element_text(size = 11.5)),
   xlab("Noise")
 )
 
@@ -322,7 +325,7 @@ figure2 <- plot_grid(effects_legend, figure2_cow,
 
 ggsave(paste0(path, "figures/Figure2.png"),
        figure2,
-  width = 21 / 2, height = 29.7 / 2, dpi = dpi
+  width = 21 / 2.2, height = 29.7 / 2.2, dpi = dpi
 )
 
 
@@ -393,11 +396,12 @@ figure3_elements <- list(
   scale_x_continuous(breaks = c(seq(0, 1, length.out = 6), 0.05),
                      labels = c("0", ".2", ".4", ".6", ".8", "1", ".05")),
   theme_modern(),
-  theme(legend.position = "top"),
+  theme(legend.position = "top",
+        axis.title.y = element_text(size = 11.5)),
   xlab("p-value")
 )
 
-figure4_pd <-
+figure3_pd <-
   figure3_data %>%
   filter(index == "p_direction") %>%
   ggplot() +
@@ -409,7 +413,7 @@ figure4_pd <-
                      labels = c("50%", "60%", "70%", "80%", "90%", "100%")) +
   ylab("p-direction")
 
-figure4_pmap <-
+figure3_pmap <-
   figure3_data %>%
   filter(index == "p_MAP") %>%
   ggplot() +
@@ -421,7 +425,7 @@ figure4_pmap <-
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("p-MAP")
 
-figure4_ROPE_95 <-
+figure3_ROPE_95 <-
   figure3_data %>%
   filter(index == "ROPE_95") %>%
   ggplot() +
@@ -433,7 +437,7 @@ figure4_ROPE_95 <-
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("ROPE (95%)")
 
-figure4_ROPE_full <-
+figure3_ROPE_full <-
   figure3_data %>%
   filter(index == "ROPE_full") %>%
   ggplot() +
@@ -445,7 +449,7 @@ figure4_ROPE_full <-
                      labels = c("0", ".2", ".4", ".6", ".8", "1")) +
   ylab("ROPE (full)")
 
-figure4_BF <-
+figure3_BF <-
   figure3_data %>%
   filter(index == "BF_log") %>%
   ggplot() +
@@ -460,7 +464,7 @@ figure4_BF <-
   ylab("Bayes factor (vs. 0)") +
   coord_cartesian(ylim = log(c(1 / 30, 300)))
 
-figure4_BF_rope <-
+figure3_BF_rope <-
   figure3_data %>%
   filter(index == "BF_ROPE_log") %>%
   ggplot() +
@@ -476,12 +480,12 @@ figure4_BF_rope <-
   coord_cartesian(ylim = log(c(1 / 30, 300)))
 
 figure3_cow <- plot_grid(
-  figure4_pd + not_last_p,
-  figure4_pmap + not_last_p + not_first_p,
-  figure4_ROPE_95 + not_last_p + not_first_p,
-  figure4_ROPE_full + not_last_p + not_first_p,
-  figure4_BF + not_last_p + not_first_p,
-  figure4_BF_rope + not_first_p,
+  figure3_pd + not_last_p,
+  figure3_pmap + not_last_p + not_first_p,
+  figure3_ROPE_95 + not_last_p + not_first_p,
+  figure3_ROPE_full + not_last_p + not_first_p,
+  figure3_BF + not_last_p + not_first_p,
+  figure3_BF_rope + not_first_p,
   align = "v",
   rel_heights = c(1.5, rep(1.2, times = 4), 1.7),
   ncol = 1
@@ -490,11 +494,11 @@ figure3_cow <- plot_grid(
 figure3 <- plot_grid(effects_legend, figure3_cow,
   ncol = 1, rel_heights = c(0.5, 7)
 )
-# figure3_cow_w_leg
+# figure3
 
 ggsave(paste0(path, "figures/Figure3.png"),
        figure3,
-  width = 21 / 2, height = 29.7 / 2, dpi = dpi
+  width = 21 / 2.2, height = 29.7 / 2.2, dpi = dpi
 )
 
 
@@ -655,7 +659,7 @@ figure4 <- plot_grid(figure4_cow, sig_legend,
 
 ggsave(paste0(path, "figures/Figure4.png"),
        figure4,
-  width = 29.7 / 2, height = 21 / 2, dpi = dpi
+  width = 29.7 / 2.5, height = 21 / 2.5, dpi = dpi
 )
 
 
@@ -738,7 +742,7 @@ figure5 <- plot_grid(
 
 ggsave(paste0(path, "figures/Figure5.png"),
   figure5,
-  width = 21 / 2, height = 21 / 2, dpi = dpi
+  width = 21 / 2.5, height = 21 / 2.5, dpi = dpi
 )
 
 
