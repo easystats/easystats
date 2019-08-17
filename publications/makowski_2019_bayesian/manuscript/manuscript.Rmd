@@ -169,8 +169,6 @@ knitr::include_graphics("figures/Figure3.png")
 
 **Figure 3** suggests that the the *pd* has a 1:1 correspondence with the frequentist *p*-value (through the formula $p_{two-sided} = 2*(1-p_d)$). *BF* indices still appear as having a severely non-linear relationship with the frequentist index. *ROPE*-based percentages appear to be only weakly related to *p*-values. Critically, their relationship seems to be a function of sample size. In other words, the relationship between frequentist significance and the percentage in ROPE depends on the sample size.
 
-<!-- TO DISCUSSION -->
-<!-- which is to be expected since the *BF* is consistent (i.e., it approaches the "true" bound as sample size increases) in the absence and presence of a true effect (as can be seen in the marginal distributions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistent when a true effect is present, but has a uniform distribution [0-1] when the absence of an effect is true [@rouder2012default; @rouder2009bayesian]. -->
 
 
 ```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. The probability of reaching different p-value based significance thresholds (.1, .05, .01, .001) for different values of the Bayesian indices.", fig.align='center', fig.width=29.7/2, fig.height=21/2, echo=FALSE}
@@ -179,8 +177,6 @@ knitr::include_graphics("figures/Figure4.png")
 
 **Figure 4** shows equivalence between *p*-value thresholds (.1, .05, .01, .001) and the Bayesian indices. As expected, the *p*-direction has the sharpest thresholds (95\%, 97.5\%, 99.5\% and 99.95\%, respectively). For logistic models, these threshold points appear as more conservative (i.e., Bayesian indices have to be more "pronounced" to reach the same level of significance). This sensitivity to model type is the strongest for BFs (which is possibly related to the difference in the prior specification for these two types of models). 
 
-<!-- TO DISCUSSION -->
-<!-- Suprisingly, BFs lower than 1, which correspond to evidence *against* the presence of an effect, can correpond to a "significant" frequentist *p*-value. -->
 
 
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
@@ -195,35 +191,30 @@ knitr::include_graphics("figures/Figure5.png")
 
 The **Figure 5** suggests that the relationship between the *ROPE (full)* and the *pd* might be strongly affected by the sample size, and the relationship between *BF (vs. ROPE)* and the *pd* might be subject to differences across model types (though see next paragraph). Moreover, the *ROPE (full)* and the *BF (vs. ROPE)* seem very closely related within the same model type. These results reflect *ROPE (full)* and *BF (vs. ROPE)*'s consistency both in case of presence and absence of a true effect, where the *pd*, being equivalent to the *p*-value, is only consistent when the true effect is absent.
 
-<!-- TO DISCUSSION-->
-<!-- The similarity between *ROPE (full)* and *BF (vs. ROPE)* is expected due to their mathematical relationship, where *BF (vs ROPE)* can be computed as the *ROPE (full)* odds divided by the *prior* odds falling within the ROPE. Since the prior odds is dependent only on the shape of the prior distributions and the definition of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between absence and presence of true effects. -->
 
 
 # Discussion
 
 
-<!-- /// Summary of aim and methods -->
-
-Based on the simulation of linear and logistic models, the present work aimed at comparing several Bayesian indices of effect existence, providing visual representations of the "behavior" of such indices in relationship with important sources of variance such as sample size, noise, presence of effect, as well as comparing them with the well-known and widely used frequentist *p*-value and its arbitrary interpretation heuristics.
+Based on the simulation of linear and logistic models, the present work aimed at comparing several Bayesian indices of effect "significance", providing visual representations of the "behavior" of such indices in relationship with important sources of variance such as sample size, noise and effect presence, as well as comparing them with the well-known and widely used frequentist *p*-value and its arbitrary interpretation thresholds.
 
 
-<!-- /// Results discussion -->
-<!-- Sensibility to sample size + discriminatory ability -->
+<!-- Sensibility to sample size and noise-->
 
-The results tend to suggest that the Bayesian indices could be separated into two categories: the first group, including the *pd* and MAP-based *p*-value, are sensitive only when an effect is present, but not when an effect is absent. Of these, *pd* shows the better discriminatory power between the two states, compared to the *p*-value (whereas MAP-based *p*-value shows worse discriminatory power; see **Table 4**). The *pd*, can thus be viewed as a measure of certainty about the effects direction - when it is high, it indicates high certainty that the effect has a direction. But when it is low it only indicates high *uncertainty* about the effects direction (and not high certainty that the effect has no direction). This is why, like the *p*-value, *pd* can and should only be used for quantifying evidence for the alternative or rejecting the null, but not for accepting the null. Hence, the *pd* can be considered as the Bayesian equivalent of the *p*-value. 
-
-MSB: where is BF vs. 0??? 
-
-The second group are measures of *significance* - the *BF* and *ROPE* based indices. These measures are consistent both when a true effect is present or absent, giving them better power to discriminate between the two states (see **Table 4**). Of these, the methods based on the full ROPE had better discriminatory power due to their higher sensitivity to null-effects  [@morey2011bayesinterval; @rouder2012default].
+The results tend to suggest that the investigated indices could be separated into 2 categories: the first group, including the frequentist *p*-value, the *pd* and and the MAP-based *p*-value, are sensitive to the amount of evidence for the alternative hypothesis only (i.e., when an effect is trully present). In other words, these indices are not able to reflect the amount of evidence in favor of the null hypothesis. A high value suggest that the effect exists, but a low value indicates *uncertainty* about its existence (but not certainty that it is non-existing). The second group, including percentages in ROPE and Bayes factors, seem sensitive both to presence and absence of effect, accumulating evidence as the sample size increases. However, the percentage in ROPE seems particularly suited to provide evidence in favor of the null hypothesis. Consistently with this, combining Bayes factors with the ROPE (BF *vs.* ROPE), as compared to Bayes factors against the point-null (BF *vs.* 0), leads to a higher sensitivity to null-effects [@morey2011bayesinterval; @rouder2012default].
 
 
-<!-- Sensibility to noise -->
-
-Noise.
-MSB: Bayesian measures are more sensitive to noise - this is known...
+<!-- Comparison to p-value -->
 
 
-<!-- /// Comparison to p-value -->
+<!-- TO DISCUSSION -->
+<!-- which is to be expected since the *BF* is consistent (i.e., it approaches the "true" bound as sample size increases) in the absence and presence of a true effect (as can be seen in the marginal distributions, marked by colored dashes in the plot margins), whereas the *p*-value is only consistent when a true effect is present, but has a uniform distribution [0-1] when the absence of an effect is true [@rouder2012default; @rouder2009bayesian]. -->
+
+<!-- TO DISCUSSION -->
+<!-- Suprisingly, BFs lower than 1, which correspond to evidence *against* the presence of an effect, can correpond to a "significant" frequentist *p*-value. -->
+
+
+
 On the opposite, percentages in ROPE had a relationship with the *p*-value depending on the sample size (in other words, the encapsulated additional information about the strength of evidence).
 
 
@@ -299,13 +290,16 @@ The inherent subjectivity related to the assessment of significance is one of th
 misleadingly present as "significant" (note that indices of existence, such as the *pd*, would not be affected). Finally, the ROPE definition is also dependent on the model type, and selecting a consistent or homogeneous range for all the families of models is not straightforward. This, in turn, can make comparisons between model types difficult, and an additional burden when interpreting ROPE-based indices. In summary, while a well-defined ROPE can be a powerful tool to give a different and new perspective, it also requires extra caution from the authors and the readers.
 
 
-<!-- - ROPE seems also strongly affected by sample {MSB: this is a feature - consistency!} -->
 
 As for the difference between ROPE (95\%) and ROPE (full), we suggest reporting the latter (*i.e.*, the percentage of the whole posterior distribution that falls within the ROPE instead of a given proportion of CI). This bypass the usage of another arbitrary range (95\%) and appears to be more sensitive to delineate highly significant effects). Critically, rather than using the percentage in ROPE as a dichotomous, all-or-nothing decision criterion, such as suggested by the original equivalence test [@kruschke2014doing], we recommend using the percentage as a continuous index of significance (with an explicitly specified cut-off point if categorization is needed, for instance 5\%).
 
 
 <!-- BFs -->
 Our results underline Bayes factor as the best predictor of the presence of an effect. Moreover, its easy interpretation in terms of odds in favor, or against, one or the other hypothesis makes it a compelling index for communication. Nevertheless, one of the main critiques of Bayes factors, which is also underlined in our results, is its sensitivity to priors (which shows here through its sensitivity to model types, as priors odds for logistic and linear models are different). Moreover, while the BF against a ROPE appears as even better than the BF against a point-null, it also carries all the limitations related to the ROPE specification mentioned above. Thus, we recommend using Bayes factors (preferentially *vs* a ROPE) if the user has explicitly specified informative priors.
+
+<!-- TO DISCUSSION-->
+<!-- The similarity between *ROPE (full)* and *BF (vs. ROPE)* is expected due to their mathematical relationship, where *BF (vs ROPE)* can be computed as the *ROPE (full)* odds divided by the *prior* odds falling within the ROPE. Since the prior odds is dependent only on the shape of the prior distributions and the definition of the range of the ROPE, it is a constant that *normalizes* the posterior ROPE odds relative to the prior ROPE odds. This is also why *ROPE (full)* and *BF (vs. ROPE)* were found to have overall the same sensitivity in discriminating between absence and presence of true effects. -->
+
 
 
 <!-- The pd and p-MAP -->
