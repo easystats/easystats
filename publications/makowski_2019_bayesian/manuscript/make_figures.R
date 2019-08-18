@@ -3,6 +3,8 @@
 
 source("make_data.R")
 library(cowplot)
+library(grid)
+library(gridExtra)
 
 dpi <- 300
 size_scaling <- 3
@@ -539,7 +541,8 @@ figure4_elements <- list(
     group = interaction(outcome_type, threshold)
   ),
   geom_line(aes(color = outcome_type), size = 1),
-  scale_y_continuous(breaks = seq(0, 1, length.out = 5)),
+  scale_y_continuous(breaks = seq(0, 1, length.out = 5),
+                     expand = c(0, 0)),
   scale_color_manual(
     name = "Model Type",
     values = c(`linear` = "#2196F3", `binary` = "#FF9800"),
@@ -565,8 +568,7 @@ figure4_pd <-
   scale_x_continuous(breaks = c(0.925, 0.95, 0.975, 1),
                      labels = c("92.5%", "95%", "97.5%", "100%")) +
   xlab("p-direction") +
-  coord_cartesian(xlim = c(0.925, 1)) +
-  scale_y_continuous(expand = c(0, 0))
+  coord_cartesian(xlim = c(0.925, 1))
 
 figure4_pmap <-
   figure4_data %>%
@@ -577,8 +579,7 @@ figure4_pmap <-
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("p-MAP") +
-  coord_cartesian(xlim = c(0, 0.4)) +
-  scale_y_continuous(expand = c(0, 0))
+  coord_cartesian(xlim = c(0, 0.4))
 
 figure4_ROPE_95 <-
   figure4_data %>%
@@ -589,8 +590,7 @@ figure4_ROPE_95 <-
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("ROPE (95%)") +
-  coord_cartesian(xlim = c(0, 0.4)) +
-  scale_y_continuous(expand = c(0, 0))
+  coord_cartesian(xlim = c(0, 0.4))
 
 figure4_ROPE_full <-
   figure4_data %>%
@@ -601,8 +601,7 @@ figure4_ROPE_full <-
   scale_x_continuous(breaks = seq(0, 0.4, length.out = 5),
                      labels = c("0", ".1", ".2", ".3", ".4")) +
   xlab("ROPE (full)") +
-  coord_cartesian(xlim = c(0, 0.4)) +
-  scale_y_continuous(expand = c(0, 0))
+  coord_cartesian(xlim = c(0, 0.4))
 
 figure4_BF <-
   figure4_data %>%
@@ -616,8 +615,7 @@ figure4_BF <-
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   xlab("Bayes factor (vs. 0)") +
-  coord_cartesian(xlim = log(c(1 / 30, 300))) +
-  scale_y_continuous(expand = c(0, 0))
+  coord_cartesian(xlim = log(c(1 / 30, 300)))
 
 
 figure4_BF_rope <-
@@ -632,16 +630,17 @@ figure4_BF_rope <-
     labels = c("1/100", "1/30", "1/10", "1/3", "1", "3", "10", "30", "100")
   ) +
   xlab("Bayes factor (vs. ROPE)") +
-  coord_cartesian(xlim = log(c(1 / 30, 300))) +
-  scale_y_continuous(expand = c(0, 0))
+  coord_cartesian(xlim = log(c(1 / 30, 300)))
+
+figure4_no_y <- theme(legend.position = "none", axis.title.y = element_blank())
 
 figure4_cow <- plot_grid(
-  figure4_pd + theme(legend.position = "none"),
-  figure4_ROPE_95 + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure4_BF + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure4_pmap + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure4_ROPE_full + theme(legend.position = "none", axis.title.y = element_blank()),
-  figure4_BF_rope + theme(legend.position = "none", axis.title.y = element_blank()),
+  figure4_pd + figure4_no_y,
+  figure4_ROPE_95 + figure4_no_y,
+  figure4_BF + figure4_no_y,
+  figure4_pmap + figure4_no_y,
+  figure4_ROPE_full + figure4_no_y,
+  figure4_BF_rope + figure4_no_y,
   nrow = 2,
   align = "v"
 )
@@ -650,11 +649,14 @@ sig_legend <- get_legend(
   figure4_pd + theme(legend.box.margin = margin(0, 1, 0, 1))
 )
 
+y.grob <- textGrob("Probability of being significant", rot = 90)
 
+figure4 <- grid.arrange(arrangeGrob(
+    plot_grid(figure4_cow, sig_legend,
+              ncol = 2, rel_widths = c(8, 1)),
+    left = y.grob
+  ))
 
-figure4 <- plot_grid(figure4_cow, sig_legend,
-  ncol = 2, rel_widths = c(8, 1)
-)
 # figure4
 
 ggsave(paste0(path, "figures/Figure4.png"),
@@ -732,10 +734,16 @@ rainbow_legend <- get_legend(
   pd_rope + theme(legend.box.margin = margin(1, 1, 1, 1))
 )
 
-figure5 <- plot_grid(
+aligned_pd <- align_plots(
   pd_rope + theme(legend.position = "none", axis.title.x = element_blank()),
-  rainbow_legend,
   pd_bf + theme(legend.position = "none"),
+  align = "v"
+)
+
+figure5 <- plot_grid(
+  aligned_pd[[1]],
+  rainbow_legend,
+  aligned_pd[[2]],
   rope_bf + theme(legend.position = "none", axis.title.y = element_blank()),
   nrow = 2
 )
