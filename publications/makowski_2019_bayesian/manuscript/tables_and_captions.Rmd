@@ -1,0 +1,46 @@
+---
+title: "Tables and Figure Captions"
+output:
+  word_document:
+    toc: false
+    toc_depth: 3
+    df_print: "kable"
+    highlight: "pygments"
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+options(knitr.kable.NA = "")
+knitr::opts_chunk$set(
+  comment = ">",
+  dpi = 300
+)
+options(digits = 2)
+```
+
+
+# Tables
+
+## Table 1
+```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
+source("make_tables.R")
+knitr::kable(table1, digits = 3, caption = "**Table 1**. Sensitivity to sample size. This table shows the standardized coefficient between the sample size and the value of each index, adjusted for error, and stratified by model type and presence of true effect. The stronger the coefficient is, the stronger the relationship with sample size.", row.names = FALSE)
+```
+
+## Table 2
+```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
+knitr::kable(table2, digits = 2, caption = "**Table 2**. Sensitivity to noise. This table shows the standardized coefficient between noise and the value of each index when the true effect is present, adjusted for sample size and stratified by model type. The stronger the coefficient is, the stronger the relationship with noise.", row.names = FALSE)
+```
+
+## Table 3
+```{r table3, message=FALSE, warning=FALSE, echo=FALSE}
+knitr::kable(table3, digits = 2, caption = "**Table 3**. Summary of Bayesian Indices of Effect Existence and Significance.", row.names = FALSE)
+```
+
+# Figure Captions
+
+- **Figure 1**. Impact of Sample Size on the different indices, for linear and logistic models, and when the null hypothesis is true or false. Grey vertical lines for *p*-values and Bayes factors represent commonly used thresholds.
+- **Figure 2**. Impact of Noise. The noise corresponds to the standard deviation of the gaussian noise that was added to the generated data. It is related to the magnitude the parameter (the more noise there is, the smaller the coefficient). Grey vertical lines for *p*-values and Bayes factors represent commonly used thresholds. The scale is capped for the Bayes factors as these extend to infinity.
+- **Figure 3**. Relationship with the frequentist *p*-value. In each plot, the p-value densities are visualized by the marginal top (absence of true effect) and bottom (presence of true effect) markers, whereas on the left (presence of true effect) and right (absence of true effect), the markers represent the density of the index of interest. Different point shapes, representing different sample sizes, specifically illustrate its impact on the percentages in ROPE, for which each "curve line" is associated with one sample size.
+- **Figure 4**. The probability of reaching different *p*-value based significance thresholds (.1, .05, .01, .001) for different values of the corresponding Bayesian indices.
+- **Figure 5**. Relationship between three Bayesian indices: the Probability of Direction (*pd*), the percentage of the full posterior distribution in the ROPE, and the Bayes factor (*vs.* ROPE).

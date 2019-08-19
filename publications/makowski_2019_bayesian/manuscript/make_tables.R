@@ -129,4 +129,47 @@ table2$Index <- ind_names
 
 # TABLE 4: Summary --------------------------------------------------------
 
-# in the manuscript.
+table3 <- rbind(
+  data.frame(
+    "Index" = "Probability of Direction (pd)",
+    "Interpretation" = "Probability that an effect is of the same sign as the median's.",
+    "Definition" = "Proportion of the posterior distribution of the same sign than the median's.",
+    "Strengths" = "Straightforward computation and interpretation. Objective property of the posterior distribution. 1:1 correspondence with the frequentist p-value.",
+    "Limitations" = "Limited information favoring the null hypothesis."
+  ),
+  data.frame(
+    "Index" = "MAP-based p-value",
+    "Interpretation" = "Relative odds of the presence of an effect against 0.",
+    "Definition" = "Density value at 0 divided by the density value at the mode of the posterior distribution.",
+    "Strengths" = "Straightforward computation. Objective property of the posterior distribution",
+    "Limitations" = "Limited information favoring the null hypothesis. Relates on density approximation. Indirect relationship between mathematical definition and interpretation."
+  ),
+  data.frame(
+    "Index" = "ROPE (95%)",
+    "Interpretation" = "Probability that the credible effect values are not negligible.",
+    "Definition" = "Proportion of the 95% CI inside of a range of values defined as the ROPE.",
+    "Strengths" = "Provides information related to the practical relevance of the effects.",
+    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors. Not sensitive to highly significant effects."
+  ),
+  data.frame(
+    "Index" = "ROPE (full)",
+    "Interpretation" = "Probability that the effect possible values are not negligible.",
+    "Definition" = "Proportion of the posterior distribution inside of a range of values defined as the ROPE.",
+    "Strengths" = "Provides information related to the practical relevance of the effects.",
+    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors."
+  ),
+  data.frame(
+    "Index" = "Bayes factor (vs. 0)",
+    "Interpretation" = "The degree by which the probability mass has shifted away from or towards the null value, after observing the data.",
+    "Definition" = "Ratio of the density of the null value between the posterior and the prior distributions.",
+    "Strengths" = "An unbounded continuous measure of relative evidence. Allows statistically supporting the null hypothesis.",
+    "Limitations" = "Sensitive to selection of prior distribution shape, location and scale."
+  ),
+  data.frame(
+    "Index" = "Bayes factor (vs. ROPE)",
+    "Interpretation" = "The degree by which the probability mass has into or outside of the null interval (ROPE), after observing the data.",
+    "Definition" = "Ratio of the odds of the posterior vs the prior distribution falling inside of the range of values defined as the ROPE.",
+    "Strengths" = "An unbounded continuous measure of relative evidence. Allows statistically supporting the null hypothesis. Compared to the BF (vs. 0), evidence is accumulated faster for the null when the null is true.",
+    "Limitations" = "Sensitive to selection of prior distribution shape, location and scale. Additionally, a ROPE range needs to be arbitrarily defined, which is sensitive to the scale (the unit) of the predictors. "
+  )
+)

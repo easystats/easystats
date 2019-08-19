@@ -121,7 +121,7 @@ The statistical analyses were conducted using R [@Rcoreteam2019R]. Computations 
 
 ## Impact of Sample Size
 
-```{r Figure1, message=FALSE, warning=FALSE, fig.cap="Figure 1. Impact of Sample Size on the different indices, for linear and logistic models, and when the null hypothesis is true or false. Grey vertical lines for p-values and Bayes factors represent commonly used thresholds.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
+```{r Figure1, message=FALSE, warning=FALSE, fig.cap="**Figure 1**. Impact of Sample Size on the different indices, for linear and logistic models, and when the null hypothesis is true or false. Grey vertical lines for *p*-values and Bayes factors represent commonly used thresholds.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 knitr::include_graphics("figures/Figure1.png")
 ```
 
@@ -131,7 +131,7 @@ knitr::include_graphics("figures/Figure1.png")
 
 ```{r Table1, message=FALSE, warning=FALSE, echo=FALSE}
 source("make_tables.R")
-knitr::kable(table1, digits = 3, caption = "Table 1. Sensitivity to sample size. This table shows the standardized coefficient between the sample size and the value of each index, adjusted for error, and stratified by model type and presence of true effect. The stronger the coefficient is, the stronger the relationship with sample size.")
+knitr::kable(table1, digits = 3, caption = "**Table 1**. Sensitivity to sample size. This table shows the standardized coefficient between the sample size and the value of each index, adjusted for error, and stratified by model type and presence of true effect. The stronger the coefficient is, the stronger the relationship with sample size.", row.names = FALSE)
 ```
 
 Consistently with **Figure 1**, the model investigating the sensitivity of sample size on the different indices suggests that *BF* indices are sensitive to sample size both when an effect is present (null hypothesis is false) and absent (null hypothesis is true). *ROPE* indices are particularly sensitive to sample size when the null hypothesis is true, while *p*-value, *pd* and MAP-based *p*-value are only sensitive to sample size when the null hypothesis is false, in which case they are more sensitive than *ROPE* indices. These findings can be related to the concept of consistency: as the number of data points increases, the statistic converges toward some "true" value. Here, we observe that *p*-value, *pd* and the MAP-based *p*-value are consistent only when the null hypothesis is false. In other words, as sample size increases, they tend to reflect more strongly that the effect is present. On the other hand, *ROPE* indices appear as consistent when the effect is absent. Finally, *BFs* are consistent both when the effect is absent and when it is present. Note also that *BF (vs. ROPE)*, compared to *BF (vs. 0)*, is more sensitive to sample size when the null hypothesis is true, and *ROPE (full)* is overall slightly more consistent than *ROPE (95\%)*. 
@@ -140,7 +140,7 @@ Consistently with **Figure 1**, the model investigating the sensitivity of sampl
 ## Impact of Noise
 
 
-```{r Figure2, message=FALSE, warning=FALSE, fig.cap="Figure 2. Impact of Noise. The noise corresponds to the standard deviation of the gaussian noise that was added to the generated data. It is related to the magnitude the parameter (the more noise there is, the smaller the coefficient). Grey vertical lines for p-values and Bayes factors represent commonly used thresholds. The scale is capped for the Bayes factors as these extend to infinity.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
+```{r Figure2, message=FALSE, warning=FALSE, fig.cap="**Figure 2**. Impact of Noise. The noise corresponds to the standard deviation of the gaussian noise that was added to the generated data. It is related to the magnitude the parameter (the more noise there is, the smaller the coefficient). Grey vertical lines for *p*-values and Bayes factors represent commonly used thresholds. The scale is capped for the Bayes factors as these extend to infinity.", fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 knitr::include_graphics("figures/Figure2.png")
 ```
 
@@ -149,7 +149,7 @@ knitr::include_graphics("figures/Figure2.png")
 
 
 ```{r Table2, message=FALSE, warning=FALSE, echo=FALSE}
-knitr::kable(table2, digits = 3, caption = "Table 2. Sensitivity to noise. This table shows the standardized coefficient between noise and the value of each index when the true effect is present, adjusted for sample size and stratified by model type. The stronger the coefficient is, the stronger the relationship with noise.")
+knitr::kable(table2, digits = 2, caption = "**Table 2**. Sensitivity to noise. This table shows the standardized coefficient between noise and the value of each index when the true effect is present, adjusted for sample size and stratified by model type. The stronger the coefficient is, the stronger the relationship with noise.", row.names = FALSE)
 ```
 
 Consistently with **Figure 2**, the model investigating the sensitivity of noise when an effect is present (as there is only noise in the absence of effect), adjusted for sample size, suggests that BFs (especially *vs.* ROPE), followed by the MAP-based *p*-value and percentages in *ROPE*, are the most sensitive to noise. As noise is a proxy of effect size (linearly related to the absolute value of the coefficient of the parameter), this result highlights the fact that these indices are sensitive to the magnitude of the effect. For example, as noise increases, evidence for an effect becomes weak, and data seems to support the absence of an effect (or at the very least the presence of a negligible effect), which is reflected in *BF*s being consistently smaller than 1. On the other hand, as the *p*-value and the *pd* quantify evidence only for the presence of an effect, as noise increases, they are become more dependent on larger sample size to be able to detect the presence of an effect.
@@ -157,7 +157,7 @@ Consistently with **Figure 2**, the model investigating the sensitivity of noise
 ## Relationship with the frequentist *p*-value
 
 
-```{r Figure3, message=FALSE, warning=FALSE, fig.cap='Figure 3. Relationship with the frequentist p-value. In each plot, the p-value densities are visualized by the marginal top (absence of true effect) and bottom (presence of true effect) markers, whereas on the left (presence of true effect) and right (absence of true effect), the markers represent the density of the index of interest. Different point shapes, representing different sample sizes, specifically illustrate its impact on the percentages in ROPE, for which each "curve line" is associated with one sample size.', fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
+```{r Figure3, message=FALSE, warning=FALSE, fig.cap='**Figure 3**. Relationship with the frequentist *p*-value. In each plot, the p-value densities are visualized by the marginal top (absence of true effect) and bottom (presence of true effect) markers, whereas on the left (presence of true effect) and right (absence of true effect), the markers represent the density of the index of interest. Different point shapes, representing different sample sizes, specifically illustrate its impact on the percentages in ROPE, for which each "curve line" is associated with one sample size.', fig.align='center', fig.width=21/2, fig.height=29.7/2, echo=FALSE}
 
 knitr::include_graphics("figures/Figure3.png")
 ```
@@ -165,7 +165,7 @@ knitr::include_graphics("figures/Figure3.png")
 **Figure 3** suggests that the *pd* has a 1:1 correspondence with the frequentist *p*-value (through the formula $p_{two-sided} = 2*(1-p_d)$). *BF* indices still appear as having a severely non-linear relationship with the frequentist index, mostly due to the fact that smaller *p*-values correspond to stronger evidence in favor of the presence of an effect, but the reverse is not true. *ROPE*-based percentages appear to be only weakly related to *p*-values. Critically, their relationship seems to be strongly dependent on sample size.
 
 
-```{r Figure4, message=FALSE, warning=FALSE, fig.cap="Figure 4. The probability of reaching different p-value based significance thresholds (.1, .05, .01, .001) for different values of the corresponding Bayesian indices.", fig.align='center', fig.width=29.7/2, fig.height=21/2, echo=FALSE}
+```{r Figure4, message=FALSE, warning=FALSE, fig.cap="**Figure 4**. The probability of reaching different *p*-value based significance thresholds (.1, .05, .01, .001) for different values of the corresponding Bayesian indices.", fig.align='center', fig.width=29.7/2, fig.height=21/2, echo=FALSE}
 knitr::include_graphics("figures/Figure4.png")
 ```
 
@@ -179,7 +179,7 @@ knitr::include_graphics("figures/Figure4.png")
 <!-- DM: can if you want to update the fig! although IMO it's also okay like this (we see the difference) -->
 <!-- DL: Maybe we can retain the figure as is, maybe it’s too much information without faceting. We can also let the reviewers decide.-->
 
-```{r Figure5, message=FALSE, warning=FALSE, fig.cap="Figure 5. Relationship between three Bayesian indices.", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
+```{r Figure5, message=FALSE, warning=FALSE, fig.cap="**Figure 5**. Relationship between three Bayesian indices: the Probability of Direction (*pd*), the percentage of the full posterior distribution in the ROPE, and the Bayes factor (*vs.* ROPE).", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE}
 knitr::include_graphics("figures/Figure5.png")
 ```
 
@@ -212,52 +212,7 @@ What is the point of comparing Bayesian indices with the frequentist *p*-value, 
 
 
 ```{r table3, message=FALSE, warning=FALSE, echo=FALSE}
-table3 <- rbind(
-  data.frame(
-    "Index" = "Probability of Direction (pd)",
-    "Interpretation" = "Probability that an effect is of the same sign as the median's.",
-    "Definition" = "Proportion of the posterior distribution of the same sign than the median's.",
-    "Strengths" = "Straightforward computation and interpretation. Objective property of the posterior distribution. 1:1 correspondence with the frequentist p-value.",
-    "Limitations" = "Limited information favoring the null hypothesis."
-    ),
-  data.frame(
-    "Index" = "MAP-based p-value",
-    "Interpretation" = "Relative odds of the presence of an effect against 0.",
-    "Definition" = "Density value at 0 divided by the density value at the mode of the posterior distribution.",
-    "Strengths" = "Straightforward computation. Objective property of the posterior distribution",
-    "Limitations" = "Limited information favoring the null hypothesis. Relates on density approximation. Indirect relationship between mathematical definition and interpretation."
-    ),
-  data.frame(
-    "Index" = "ROPE (95%)",
-    "Interpretation" = "Probability that the credible effect values are not negligible.",
-    "Definition" = "Proportion of the 95% CI inside of a range of values defined as the ROPE.",
-    "Strengths" = "Provides information related to the practical relevance of the effects.",
-    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors. Not sensitive to highly significant effects."
-    ),
-  data.frame(
-    "Index" = "ROPE (full)",
-    "Interpretation" = "Probability that the effect possible values are not negligible.",
-    "Definition" = "Proportion of the posterior distribution inside of a range of values defined as the ROPE.",
-    "Strengths" = "Provides information related to the practical relevance of the effects.",
-    "Limitations" = "A ROPE range needs to be arbitrarily defined. Sensitive to the scale (the unit) of the predictors."
-    ),
-  data.frame(
-    "Index" = "Bayes factor (vs. 0)",
-    "Interpretation" = "The degree by which the probability mass has shifted away from or towards the null value, after observing the data.",
-    "Definition" = "Ratio of the density of the null value between the posterior and the prior distributions.",
-    "Strengths" = "An unbounded continuous measure of relative evidence. Allows statistically supporting the null hypothesis.",
-    "Limitations" = "Sensitive to selection of prior distribution shape, location and scale."
-    ),
-  data.frame(
-    "Index" = "Bayes factor (vs. ROPE)",
-    "Interpretation" = "The degree by which the probability mass has into or outside of the null interval (ROPE), after observing the data.",
-    "Definition" = "Ratio of the odds of the posterior vs the prior distribution falling inside of the range of values defined as the ROPE.",
-    "Strengths" = "An unbounded continuous measure of relative evidence. Allows statistically supporting the null hypothesis. Compared to the BF (vs. 0), evidence is accumulated faster for the null when the null is true.",
-    "Limitations" = "Sensitive to selection of prior distribution shape, location and scale. Additionally, a ROPE range needs to be arbitrarily defined, which is sensitive to the scale (the unit) of the predictors. "
-    )
-)
-
-knitr::kable(table3, digits = 2, caption = "Table 3. Summary of Bayesian Indices of Effect Existence and Significance.")
+knitr::kable(table3, digits = 2, caption = "**Table 3**. Summary of Bayesian Indices of Effect Existence and Significance.", row.names = FALSE)
 ```
 
 
@@ -275,8 +230,6 @@ While indices of existence and significance can be numerically related (as shown
 <!-- ROPE -->
 The inherent subjectivity related to the assessment of significance is one of the practical limitation the ROPE-based indices (although being, conceptually, an asset, allowing for contextual nuance in the interpretation), as they require an explicit definition of the non-significant range (the ROPE). Although default values were reported in the literature [for instance, half of a "negligible" effect size reference value; @kruschke2014doing], it is critical for the reproducibility and transparency that the researcher's choice is explicitly stated (and, if possible, justified). Beyond being arbitrary, this range also has hard bounds (for instance, contrary to a value of 0.0499, a value of 0.0501 would be considered as non-negligible if the range ends at 0.05). This reinforces a categorical and clustered perspective of what is by essence a continuous space of possibilities. Importantly, as this range is fixed to the scale of the response (it is expressed in the unit of the response), ROPE indices are sensitive to changes in the scale of the predictors. For instance, negligible results may change into non-negligible results when predictors are scaled up (e.g. express reaction times in seconds instead of milliseconds), which one inattentive or malicious researcher could misleadingly present as "significant" (note that indices of existence, such as the *pd*, would not be affected). Finally, the ROPE definition is also dependent on the model type, and selecting a consistent or homogeneous range for all the families of models is not straightforward. This can make comparisons between model types difficult, and an additional burden when interpreting ROPE-based indices. In summary, while a well-defined ROPE can be a powerful tool to give a different and new perspective, it also requires extra caution from the authors and the readers.
 
-Our study has some limitations. First, our simulations were based on simple linear and logistic regression models. Although these models are widely spread, the behavior of the presented indices for other model families or types, like count models or mixed effects models, still needs to be explored. Furthermore, we only tested continuous predictors. The indices might behave differently when varying the type of predictor (binary, ordinal) as well.<!-- DL: Is the argument with binary/ordinal reasonable, or nonsense?--> Finally, we limited our simulations to small sample sizes, for reasons that data is particularly noisy in small samples, and experiments in psychology often include only a limited number of subjects. For very large sample, indices might perform more similar or even more divergent. Importantly, before being able to draw a definitive conclusion about the qualities of these indices, further studies need to investigate the robustness of these indices to sampling characteristics (*e.g.*, sampling algorithm, number of iterations, chains, warm-up) and the impact of prior specification [@kass1995bayes; @vanpaemel2010prior; @kruschke2011bayesian], all of which are important parameters of Bayesian statistics. 
-
 As for the difference between ROPE (95\%) and ROPE (full), we suggest reporting the latter (i.e., the percentage of the whole posterior distribution that falls within the ROPE instead of a given proportion of CI). This bypass the usage of another arbitrary range (95\%) and appears to be more sensitive to delineate highly significant effects). Critically, rather than using the percentage in ROPE as a dichotomous, all-or-nothing decision criterion, such as suggested by the original equivalence test [@kruschke2014doing], we recommend using the percentage as a continuous index of significance (with explicitly specified cut-off points if categorization is needed, for instance 5\% for significance and 95\% for non-significance).
 
 <!-- BFs -->
@@ -290,10 +243,12 @@ Much of the strengths of the *pd* also apply to the MAP-based *p*-value. Althoug
 
 After all the criticism regarding the frequentist *p*-value, it might appear as contradictory to suggest the usage of its Bayesian empirical equivalent. The subtler perspective that we support is that the *p*-value is not an intrinsically bad, or wrong, index. Instead, it is its misuse, misunderstanding and misinterpretation that fuels the decay of the situation into the crisis. Interestingly, the proximity between the *pd* and the *p*-value suggests that the latter is more an index of effect *existence* than *significance* [as in "worth of interest"; @cohen2016earth]. Addressing this confusion, the Bayesian equivalent has an intuitive meaning and interpretation, contributing to making more obvious the fact that all thresholds and heuristics are arbitrary. In summary, its mathematical and interpretative transparency of the *pd*, and its conceptualization as an index of effect existence, offers a valuable insight into the characterization of Bayesian results, and its practical proximity with the frequentist *p*-value makes it a perfect metric to ease the transition of psychological research into the adoption of the Bayesian framework.
 
+Our study has some limitations. First, our simulations were based on simple linear and logistic regression models. Although these models are widely spread, the behavior of the presented indices for other model families or types, like count models or mixed effects models, still needs to be explored. Furthermore, we only tested continuous predictors. The indices might behave differently when varying the type of predictor (binary, ordinal) as well. Finally, we limited our simulations to small sample sizes, for reasons that data is particularly noisy in small samples, and experiments in psychology often include only a limited number of subjects. However, it is possible that the indices convereg (or diverge), for larger samples. Importantly, before being able to draw a definitive conclusion about the qualities of these indices, further studies need to investigate the robustness of these indices to sampling characteristics (*e.g.*, sampling algorithm, number of iterations, chains, warm-up) and the impact of prior specification [@kass1995bayes; @vanpaemel2010prior; @kruschke2011bayesian], all of which are important parameters of Bayesian statistics.
+
 
 # Reporting Guidelines
 
-How can these observations be used to improve statistical good practices in psychological science? Based on the present comparison, we can start outlining the following guidelines. As *existence* and *significance* are complementary perspectives, we suggest using at minimum one index of each category. As an objective index of effect existence, the *pd* should be reported, for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value; As an index of significance either the *BF (vs. ROPE)* or the *ROPE (full)* should be reported, for their ability to discriminate between presence and absence of effect [@de2007alternative], and the information they provide related to evidence of the size of the effect. Selection between the the *BF (vs. ROPE)* or the *ROPE (full)* should depend on the informativeness of the priors used - when uninformative priors are used, and there is little prior knowledge regarding the expected size of the effect, the *ROPE (full)* should be reported as it reflects only the posterior distribution, and is not sensitive to the width of a wide-range of prior scales [@rouder2018bayesian]. On the other hand, in cases where informed priors are used, reflecting prior knowledge regarding the expected size of the effect, *BF (vs. ROPE)* should be used.
+How can the current observations be used to improve statistical good practices in psychological science? Based on the present comparison, we can start outlining the following guidelines. As *existence* and *significance* are complementary perspectives, we suggest using at minimum one index of each category. As an objective index of effect existence, the *pd* should be reported, for its simplicity of interpretation, its robustness and its numeric proximity to the well-known frequentist *p*-value; As an index of significance either the *BF (vs. ROPE)* or the *ROPE (full)* should be reported, for their ability to discriminate between presence and absence of effect [@de2007alternative], and the information they provide related to evidence of the size of the effect. Selection between the the *BF (vs. ROPE)* or the *ROPE (full)* should depend on the informativeness of the priors used - when uninformative priors are used, and there is little prior knowledge regarding the expected size of the effect, the *ROPE (full)* should be reported as it reflects only the posterior distribution, and is not sensitive to the width of a wide-range of prior scales [@rouder2018bayesian]. On the other hand, in cases where informed priors are used, reflecting prior knowledge regarding the expected size of the effect, *BF (vs. ROPE)* should be used.
 
 Defining appropriate heuristics to help the interpretation is beyond the scope of this study, as it would require testing them on more natural datasets. Nevertheless, if we take the frequentist framework and the existing literature as a reference point, it seems that 95\%, 97\% and 99\% might be relevant reference points (i.e., easy-to-remember values) for the *pd* and 3, 10 and 30 (weak evidence) appropriate for the BF. A concise, standardized, reference template sentence to describe the parameter of a model including an index of point-estimate, uncertainty, existence, significance and effect size [@cohen1988statistical] could be, in the case of *pd* and *BF*:
 
