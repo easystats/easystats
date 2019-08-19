@@ -8,6 +8,9 @@ library(gridExtra)
 
 dpi <- 300
 size_scaling <- 3
+figure_format <- ".tiff"
+scale_fig_a <- 2.2
+scale_fig_b <- 2.5
 
 df$outcome_type <- forcats::fct_rev(df$outcome_type)
 
@@ -189,9 +192,11 @@ figure1 <- plot_grid(effects_legend, figure1_cow,
 )
 # figure1
 
-ggsave(paste0(path, "figures/Figure1.png"),
+ggsave(paste0(path, "figures/Figure1", figure_format),
   figure1,
-  width = 21 / 2.2, height = 29.7 / 2.2, dpi = dpi
+  width = 21 / scale_fig_a, height = 29.7 / scale_fig_a,
+  dpi = dpi,
+  compress = "lzw"
 )
 
 
@@ -325,9 +330,11 @@ figure2 <- plot_grid(effects_legend, figure2_cow,
 )
 # figure2
 
-ggsave(paste0(path, "figures/Figure2.png"),
+ggsave(paste0(path, "figures/Figure2", figure_format),
        figure2,
-  width = 21 / 2.2, height = 29.7 / 2.2, dpi = dpi
+  width = 21 / scale_fig_a, height = 29.7 / scale_fig_a,
+  dpi = dpi,
+  compress = "lzw"
 )
 
 
@@ -362,7 +369,7 @@ ggsave(paste0(path, "figures/Figure2.png"),
 #   xlab("Normalized value")
 #
 # figure4
-# ggsave(paste0(path, "figures/Figure3.png"),
+# ggsave(paste0(path, "figures/Figure3", figure_format),
 #        figure4,
 #        width = 29.7 / 3, height = 21 / 3, dpi = dpi
 # )
@@ -498,9 +505,11 @@ figure3 <- plot_grid(effects_legend, figure3_cow,
 )
 # figure3
 
-ggsave(paste0(path, "figures/Figure3.png"),
+ggsave(paste0(path, "figures/Figure3", figure_format),
        figure3,
-  width = 21 / 2.2, height = 29.7 / 2.2, dpi = dpi
+  width = 21 / scale_fig_a, height = 29.7 / scale_fig_a,
+  dpi = dpi,
+  compress = "lzw"
 )
 
 
@@ -659,9 +668,11 @@ figure4 <- grid.arrange(arrangeGrob(
 
 # figure4
 
-ggsave(paste0(path, "figures/Figure4.png"),
+ggsave(paste0(path, "figures/Figure4", figure_format),
        figure4,
-  width = 29.7 / 2.5, height = 21 / 2.5, dpi = dpi
+  width = 29.7 / scale_fig_b, height = 21 / scale_fig_b,
+  dpi = dpi,
+  compress = "lzw"
 )
 
 
@@ -748,9 +759,11 @@ figure5 <- plot_grid(
   nrow = 2
 )
 
-ggsave(paste0(path, "figures/Figure5.png"),
+ggsave(paste0(path, "figures/Figure5", figure_format),
   figure5,
-  width = 21 / 2.5, height = 21 / 2.5, dpi = dpi
+  width = 21 / scale_fig_b, height = 21 / scale_fig_b,
+  dpi = dpi,
+  compress = "lzw"
 )
 
 
@@ -779,7 +792,7 @@ ggsave(paste0(path, "figures/Figure5.png"),
 #   xlab("MAP-based p-value") +
 #   coord_cartesian(ylim = log(c(1 / 30, 200)))
 #
-# ggsave(paste0(path, "figures/temp.png"),
+# ggsave(paste0(path, "figures/temp", figure_format),
 #        p,
 #        width = 21 / 2, height = 21 / 2, dpi = dpi
 # )
