@@ -1,25 +1,25 @@
 ---
-  title: "Indices of Effect Existence and Significance in the Bayesian Framework"
+title: "Indices of Effect Existence and Significance in the Bayesian Framework"
 output:
   word_document:
-  toc: false
-toc_depth: 3
-df_print: "kable"
-highlight: "pygments"
-reference_docx: utils/Template_Frontiers.docx
-rmarkdown::html_vignette:
-  toc: true
-toc_depth: 3
-fig_width: 10.08
-fig_height: 6
-tags: [r, bayesian, posterior, test]
+    toc: false
+    toc_depth: 3
+    df_print: "kable"
+    highlight: "pygments"
+    reference_docx: utils/Template_Frontiers.docx
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
+    fig_width: 10.08
+    fig_height: 6
+    tags: [r, bayesian, posterior, test]
 editor_options:
   chunk_output_type: console
 bibliography: bibliography.bib
 csl: utils/apa.csl
 ---
 
-  ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
 options(knitr.kable.NA = "")
 knitr::opts_chunk$set(
