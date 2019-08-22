@@ -355,6 +355,10 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_model`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`format_number`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_p`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_parameters`**](https://easystats.github.io/parameters/reference/index.html)
@@ -362,6 +366,8 @@ follow a consistent pattern across all packages.
   - [**`format_pd`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
