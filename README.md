@@ -92,9 +92,13 @@ the **easystats** packages are indeed small and lightweight.
 
 <img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
+<!--
+
+Currently not working...
+
 ### By Week Day
 
-<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+-->
 
 # Convention of code-style
 
@@ -257,8 +261,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`data_grid`**](https://easystats.github.io/estimate/reference/index.html)
-    *(estimate)*
   - [**`data_plot`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`density_at`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -355,6 +357,10 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_model`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`format_number`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_p`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_parameters`**](https://easystats.github.io/parameters/reference/index.html)
@@ -363,13 +369,11 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`format_standardize`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`format_text_collapse`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_text_wrap`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_value_unless_integers`**](https://easystats.github.io/report/reference/index.html)
+  - [**`format_text`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_value`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -497,8 +501,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`model_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`model_values`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
@@ -745,6 +747,14 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`text_initial`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_model`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_parameters`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_performance`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
@@ -763,5 +773,7 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`to_values`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`visualisation_matrix`**](https://easystats.github.io/estimate/reference/index.html)
+    *(estimate)*
   - [**`zero_crossings`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*

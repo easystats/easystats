@@ -238,12 +238,15 @@ downloads_performance <- cranlogs::cran_downloads(package = "performance", from 
   mutate(Package = "performance")
 downloads_see <- cranlogs::cran_downloads(package = "see", from = "2019-05-22") %>% 
   mutate(Package = "see")
+downloads_parameters <- cranlogs::cran_downloads(package = "parameters", from = "2019-08-26") %>% 
+  mutate(Package = "parameters")
 
 # Combine all data
 data <- rbind(downloads_insight,
               downloads_bayestestR,
               downloads_performance,
-              downloads_see) %>% 
+              downloads_see,
+              downloads_parameters) %>% 
   group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
@@ -253,7 +256,7 @@ data <- rbind(downloads_insight,
          quarters = quarters(date),
          month_day = lubridate::mday(date)) %>% 
   ungroup() %>% 
-  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see"))
+  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters"))
 
 
 events <- data.frame()
@@ -273,7 +276,8 @@ events <- rbind(events,
                                            "2019-06-19",
                                            "2019-06-25",
                                            "2019-07-01",
-                                           "2019-08-05"
+                                           "2019-08-05",
+                                           "2019-08-26"
                                            )), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - insight (0.2.0)",
@@ -286,7 +290,8 @@ events <- rbind(events,
                                   "CRAN - see (0.2.0)",
                                   "JOSS - insight (publication)",
                                   "CRAN - insight (0.4.0)",
-                                  "CRAN - performance (0.3.0)"
+                                  "CRAN - performance (0.3.0)",
+                                  "CRAN - parameters (0.1.0)"
                                   ), 
                           Package=c("insight", 
                                     "insight",
@@ -299,7 +304,8 @@ events <- rbind(events,
                                     "see",
                                     "insight",
                                     "insight",
-                                    "performance"
+                                    "performance",
+                                    "parameters"
                                     ), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
@@ -325,10 +331,11 @@ events <- full_join(
   filter(!is.na(date))
 
 # Set packages colours
-packages_colours <- c("insight" = "#FF9800",
-                      "bayestestR" = "#E91E63",
-                      "performance" = "#4CAF50",
-                      "see" = "#2196F3")
+packages_colours <- c("insight" = unname(see::material_colors("orange")),
+                      "bayestestR" = unname(see::material_colors("pink")),
+                      "performance" = unname(see::material_colors("green")),
+                      "see" = unname(see::material_colors("blue")),
+                      "parameters" = unname(see::material_colors("teal")))
 ```
 
 ### Trend
@@ -374,27 +381,30 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
   scale_y_sqrt()
 ```
 
+<!--
+
+Currently not working...
 
 ### By Week Day
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # model <- rstanarm::stan_glmer(count ~ Package / day + (1|month), data = data, family = poisson(), refresh = 0) # The mixed model takes too long to compute
-model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson(), refresh = 0)
+# model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson(), refresh = 0)
 
-estimate::estimate_means(model) %>% 
-  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see")) %>% 
-  sjmisc::rec(day, rec = "Montag=Monday;Dienstag=Tuesday;Mittwoch=Wednesday;Donnerstag=Thursday;Freitag=Friday;Samstag=Saturday;Sonntag=Sunday;else=copy", suffix = "") %>% 
-  mutate(day = fct_relevel(day, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>% 
-  ggplot(aes(x=day, y=Median, group=Package)) +
-  geom_ribbon(aes(ymin=CI_low, ymax=CI_high, fill=Package), alpha=0.1) +
-  geom_line(aes(color=Package), size=1) +
-  see::theme_modern() +
-  scale_color_manual(values=packages_colours) +
-  scale_fill_manual(values=packages_colours) +
-  xlab("") +
-  ylab("CRAN Downloads\n")
-  # scale_y_sqrt()
+# estimate::estimate_means(model) %>% 
+#   mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters")) %>% 
+#   sjmisc::rec(day, rec = "Montag=Monday;Dienstag=Tuesday;Mittwoch=Wednesday;Donnerstag=Thursday;Freitag=Friday;Samstag=Saturday;Sonntag=Sunday;else=copy", suffix = "") %>% 
+#   mutate(day = fct_relevel(day, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>% 
+#   ggplot(aes(x=day, y=Median, group=Package)) +
+#   geom_ribbon(aes(ymin=CI_low, ymax=CI_high, fill=Package), alpha=0.1) +
+#   geom_line(aes(color=Package), size=1) +
+#   see::theme_modern() +
+#   scale_color_manual(values=packages_colours) +
+#   scale_fill_manual(values=packages_colours) +
+#   xlab("") +
+#   ylab("CRAN Downloads\n")
+# # scale_y_sqrt()
 ```
-
+-->
 
 # Convention of code-style
 
