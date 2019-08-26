@@ -335,7 +335,7 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
                       "bayestestR" = unname(see::material_colors("pink")),
                       "performance" = unname(see::material_colors("green")),
                       "see" = unname(see::material_colors("blue")),
-                      "parameters" = unname(see::material_colors("teal")))
+                      "parameters" = unname(see::material_colors("purple")))
 ```
 
 ### Trend
