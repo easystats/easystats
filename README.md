@@ -341,6 +341,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`find_response`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`find_statistic`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`find_terms`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_variables`**](https://easystats.github.io/insight/reference/index.html)
@@ -501,6 +503,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`model_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`model_simulate`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
@@ -544,6 +548,8 @@ follow a consistent pattern across all packages.
   - [**`parameters_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters_selection`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`parameters_simulate`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters_standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
