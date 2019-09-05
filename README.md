@@ -281,6 +281,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`distribution_custom`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`distribution_gamma`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`distribution_mixture_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -457,8 +459,6 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`interpret`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`is.int`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`is.rules`**](https://easystats.github.io/report/reference/index.html)
@@ -557,6 +557,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`parameters_type`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`PCA`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -582,6 +584,8 @@ follow a consistent pattern across all packages.
   - [**`performance_rse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`performance_score`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`pizza_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -737,6 +741,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_fill_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`se`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
