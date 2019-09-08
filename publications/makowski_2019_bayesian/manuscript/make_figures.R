@@ -184,7 +184,7 @@ figure2_data <- df %>%
     true_effect = as.factor(true_effect),
     index = factor(index, levels = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log"))
   ) %>%
-  mutate(temp = as.factor(cut(sample_size, 8, labels = FALSE))) %>%
+  mutate(temp = as.factor(cut(sample_size, 9, labels = FALSE))) %>%
   group_by(temp) %>%
   mutate(size_group = round(mean(sample_size))) %>%
   ungroup()
@@ -207,6 +207,7 @@ figure2_elements <- list(
   theme_modern(),
   theme(legend.position = "top",
         axis.title.y = element_text(size = 11.5)),
+  scale_x_continuous(breaks = c(seq(20, 100, length.out = 9))),
   xlab("Sample Size")
 )
 
