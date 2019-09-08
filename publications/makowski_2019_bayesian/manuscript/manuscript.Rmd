@@ -267,9 +267,23 @@ And if the user decides to use the percentage in ROPE instead of the *BF*:
 "The effect of X has a probability of 98.14\% [*pd*] of being negative (Median = -5.04, 89\% CI [-8.31, 0.12]), and can be considered as small (Std. Median = -0.29) [*standardized coefficient*] and significant (0.82\% in ROPE) [*ROPE (full)*]"
 
 
-# Supplementary Materials
+# Data Availability
 
 In the spirit of open and honest science, the full R code used for data generation, data processing, figures creation and manuscript compiling is available on GitHub at https://github.com/easystats/easystats/tree/master/publications/makowski_2019_bayesian.
+
+# Ethics Statement
+
+No human participants, but the authors of the present manuscript, were used to produce the current study. The latter verbally reported being endowed with a feeling of free-will at the moment of writing.
+
+# Author Contributions
+
+DM conceived and coordinated the study. DM, MSB and DL participated in the study design, statistical analysis, data interpretation and manuscript drafting. DL supervised the manuscript drafting. AC performed a critical review of the manuscript, assisted with manuscript drafting and provided funding for publication. All authors read and approved the final manuscript.
+
+
+
+# Conflict of Interest Statement
+
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
 
 # Acknowledgments
 
