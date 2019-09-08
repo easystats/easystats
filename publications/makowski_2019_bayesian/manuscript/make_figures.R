@@ -131,13 +131,17 @@ p4 <- data %>%
   mutate(fill = ifelse(x <= -.05, "low",
                        ifelse(x >= .05, "high", "middle"))) %>%
   ggplot(aes(x=x, y=y)) +
+  # distributions
   geom_ribbon(aes(ymin=0, ymax=y, fill=fill)) +
   geom_ribbon(data=filter(prior, between(x, -0.05, 0.05)), aes(ymin=0, ymax=y), fill="#2196F3", alpha = 0.33) +
   geom_line(data=prior, size=1, linetype="dotted") +
-  geom_segment(x=0, xend=0, y=0, yend=max(prior$y), color="#E91E63", size=1) +
-  geom_point(x=0, y=max(prior$y), color="#E91E63", size=5) +
-  geom_segment(x=0, xend=0, y=0, yend=bayestestR::density_at(posterior, 0, bw="nrd0"), color="#2196F3", size=1) +
-  geom_point(x=0, y=bayestestR::density_at(posterior, 0, bw="nrd0"), color="#2196F3", size=5) +
+  # prior null
+  geom_segment(x=0, xend=0, y=0, yend=max(prior$y), color="#2196F3", size=1) +
+  geom_point(x=0, y=max(prior$y), color="#2196F3", size=5) +
+  # posterior null
+  geom_segment(x=0, xend=0, y=0, yend=bayestestR::density_at(posterior, 0, bw="nrd0"), color="#E91E63", size=1) +
+  geom_point(x=0, y=bayestestR::density_at(posterior, 0, bw="nrd0"), color="#E91E63", size=5) +
+  # make pretty
   theme_classic(base_size = 20) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, max_y)) +
   scale_fill_manual(values=c("high"="#FFC107", "middle"="#E91E63", "low"="#FFC107"), guide=FALSE) +
