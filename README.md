@@ -207,6 +207,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`check_singularity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_smoothness`**](https://easystats.github.io/parameters/reference/index.html)
@@ -261,6 +263,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`data_grid`**](https://easystats.github.io/estimate/reference/index.html)
+    *(estimate)*
   - [**`data_plot`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`density_at`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -377,7 +381,11 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`format_text`**](https://easystats.github.io/report/reference/index.html)
+  - [**`format_text_collapse`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`format_text_wrap`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`format_value_unless_integers`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_value`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -408,6 +416,8 @@ follow a consistent pattern across all packages.
   - [**`get_random`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_response`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_statistic`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_variance_dispersion`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -459,6 +469,8 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`interpret`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`is.int`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`is.rules`**](https://easystats.github.io/report/reference/index.html)
@@ -505,6 +517,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`model_simulate`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`model_values`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
@@ -747,6 +761,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`simulate_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`smoothing`**](https://easystats.github.io/estimate/reference/index.html)
@@ -757,16 +773,12 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`standard_error`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`standardize_names`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`text_initial`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`text_model`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`text_parameters`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`text_performance`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`supported_models`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
@@ -785,7 +797,5 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`to_values`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`visualisation_matrix`**](https://easystats.github.io/estimate/reference/index.html)
-    *(estimate)*
   - [**`zero_crossings`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*

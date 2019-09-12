@@ -315,7 +315,7 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
          event = item_title) %>% 
   mutate(color=color_blog)
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters"))
 
 
 events <- rbind(events,
@@ -341,18 +341,30 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
 ### Trend
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
-data %>% 
-  ggplot(aes(x=date, color=Package)) +
-  geom_line(aes(y=count), size=0.5, linetype="dotted") +
-  geom_smooth(aes(y=count), method = 'loess', size=1.75, se=FALSE) +
-  geom_smooth(aes(y=count), method = 'lm', size=0.75, se=FALSE) +
+data %>%
+  ggplot(aes(x = date, color = Package)) +
+  geom_line(aes(y = count), size = 0.5, linetype = "dotted") +
+  geom_smooth(aes(y = count),
+              method = 'loess',
+              size = 1.75,
+              se = FALSE) +
+  geom_smooth(aes(y = count),
+              method = 'lm',
+              size = 0.75,
+              se = FALSE) +
   # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
   # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
-  geom_text_repel(data=events, aes(label = event, x = date, y = event_y), colour = events$color, segment.colour = events$color, size = 3) +
+  geom_text_repel(
+    data = events,
+    aes(label = event, x = date, y = event_y),
+    colour = events$color,
+    segment.colour = events$color,
+    size = 3
+  ) +
   see::theme_modern() +
-  scale_x_date(date_breaks = "1 month", 
+  scale_x_date(date_breaks = "1 month",
                labels = scales::date_format("%Y-%m")) +
-  scale_color_manual(values=packages_colours) +
+  scale_color_manual(values = packages_colours) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
