@@ -166,7 +166,7 @@ knitr::include_graphics("figures/Figure2.png")
 
 **Figure 2** shows the sensitivity to sample size of the indices. The *p*-value, the *pd* and the MAP-based *p*-value are sensitive to sample size only in case of the presence of a true effect (when the null hypothesis is false). When the null hypothesis is true, all three indices are unaffected by sample size. In other words, these indices reflect the amount of observed evidence (the sample size) for the presence of an effect (i.e., against the null hypothesis being true), but not for the absence of an effect. The *ROPE* indices, however, appear as strongly modulated by the sample size when there is no effect, suggesting their sensitivity to the amount of evidence for the absence of effect. Finally, the figure suggests that *BFs* are sensitive to sample size for both presence and absence of true effect.
 
-<!-- DL: This needs some manual fixing in the docx, I guess, because I couldn’t manage to align the columns of the header row with the columns of the subsequent rows. -->
+<!-- DL: This needs some manual fixing in the docx, I guess, because I couldn't manage to align the columns of the header row with the columns of the subsequent rows. -->
 
 ```{r Table1, message=FALSE, warning=FALSE, echo=FALSE, out.width = "\\textwidth", results = "asis"}
 kable(table1, "latex", digits = 2, row.names = FALSE, booktabs = TRUE, caption = "Sensitivity to sample size. This table shows the standardized coefficient between the sample size and the value of each index, adjusted for error, and stratified by model type and presence of true effect. The stronger the coefficient is, the stronger the relationship with sample size.") %>% 
@@ -184,7 +184,7 @@ Consistently with **Figure 2**, the model investigating the sensitivity of sampl
 knitr::include_graphics("figures/Figure3.png")
 ```
 
-**Figure 3** shows the indices' sensitivity to noise. Unlike the patterns of sensitivity to sample size, the indices display more similar patterns in their sensitivity to noise (or magnitude of effect). All indices are unidirectional impacted by noise: as noise increases, the observed coefficients decrease in magnitude, and the indices become less "pronounced" (respectively to their direction). <!-- Is the following true? Or is it an artifact related to the log scale of the BFs? -->However, it is interesting to note that the variability of the indices seems differently impacted by noise. For the *p*-values, the *pd* and the ROPE indices, the variability increases as the noise increases. In other words, small variation in small observed coefficients can yield very different values. On the contrary, the variability of BFs decreases as the true effect tends toward 0. For the MAP-based *p*-value, the variability appears to be the highest for moderate amount of noise. This behavior seems consistent across model types.
+**Figure 3** shows the indices' sensitivity to noise. Unlike the patterns of sensitivity to sample size, the indices display more similar patterns in their sensitivity to noise (or magnitude of effect). All indices are unidirectional impacted by noise: as noise increases, the observed coefficients decrease in magnitude, and the indices become less "pronounced" (respectively to their direction). However, it is interesting to note that the variability of the indices seems differently impacted by noise. For the *p*-values, the *pd* and the ROPE indices, the variability increases as the noise increases. In other words, small variation in small observed coefficients can yield very different values. On the contrary, the variability of BFs decreases as the true effect tends toward 0. For the MAP-based *p*-value, the variability appears to be the highest for moderate amount of noise. This behavior seems consistent across model types.
 
 
 
@@ -216,9 +216,9 @@ knitr::include_graphics("figures/Figure5.png")
 
 ## Relationship between ROPE (full), pd and BF (vs. ROPE)
 
-<!-- Didn’t we want to facet by model type? -->
+<!-- Didn't we want to facet by model type? -->
 <!-- DM: can if you want to update the fig! although IMO it's also okay like this (we see the difference) -->
-<!-- DL: Maybe we can retain the figure as is, maybe it’s too much information without faceting. We can also let the reviewers decide.-->
+<!-- DL: Maybe we can retain the figure as is, maybe it's too much information without faceting. We can also let the reviewers decide.-->
 
 ```{r Figure6, message=FALSE, warning=FALSE, fig.cap="Relationship between three Bayesian indices: The Probability of Direction (*pd*), the percentage of the full posterior distribution in the ROPE, and the Bayes factor (*vs.* ROPE).", fig.align='center', fig.width=21/1.8, fig.height=29.7/1.8, echo=FALSE, out.width = "0.9\\textwidth", results = "asis", fig.pos = "!ht"}
 knitr::include_graphics("figures/Figure6.png")
@@ -295,13 +295,11 @@ How can the current observations be used to improve statistical good practices i
 
 Defining appropriate heuristics to help the interpretation is beyond the scope of this paper, as it would require testing them on more natural datasets. Nevertheless, if we take the frequentist framework and the existing literature as a reference point, it seems that 95\%, 97\% and 99\% might be relevant reference points (i.e., easy-to-remember values) for the *pd* and 3, 10 and 30 (weak evidence) appropriate for the BF. A concise, standardized, reference template sentence to describe the parameter of a model including an index of point-estimate, uncertainty, existence, significance and effect size [@cohen1988statistical] could be, in the case of *pd* and *BF*:
 
-<!-- DL: the <sub>-tag needs manual fixes in the docx! -->
-
-"There is moderate evidence (BF<sub>ROPE</sub> = 3.44) [*BF (vs. ROPE)*] in favor of the presence of effect of X, which has a probability of 98.14\% [*pd*] of being negative (Median = -5.04, 89\% CI [-8.31., 0.12]), and can be considered as small (Std. Median = -0.29) [*standardized coefficient*]"
+"There is moderate evidence ($BF_{ROPE} = 3.44$) [*BF (vs. ROPE)*] in favor of the presence of effect of X, which has a probability of $98.14\%$ [*pd*] of being negative ($Median = -5.04$, $89\% CI [-8.31., 0.12]$), and can be considered as small ($Std. Median = -0.29$) [*standardized coefficient*]"
 
 And if the user decides to use the percentage in ROPE instead of the *BF*:
 
-"The effect of X has a probability of 98.14\% [*pd*] of being negative (Median = -5.04, 89\% CI [-8.31, 0.12]), and can be considered as small (Std. Median = -0.29) [*standardized coefficient*] and significant (0.82\% in ROPE) [*ROPE (full)*]"
+"The effect of X has a probability of $98.14\%$ [*pd*] of being negative ($Median = -5.04$, $89\% CI [-8.31, 0.12]$), and can be considered as small ($Std. Median = -0.29$) [*standardized coefficient*] and significant ($0.82\%\text{ in }ROPE$) [*ROPE (full)*]".
 
 
 # Data Availability
