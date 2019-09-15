@@ -38,8 +38,8 @@ install_easystats_dev <- function(){
 
 
 #' @importFrom utils menu install.packages
-update_easystats <- function() {
-
+#' @export
+easystats_update <- function() {
   deps <- .easystats_deps()
   behind <- deps[deps$behind, ]
 
