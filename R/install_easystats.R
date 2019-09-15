@@ -39,7 +39,7 @@ install_easystats_dev <- function(){
 }
 
 
-#' Update easystats-packages from CRAN, if necessary.
+#' Update easystats-packages and its dependencies from CRAN, if necessary.
 #'
 #' @param which String, indicates whether easystats-packages (\code{which = "core"}), dependencies (\code{which = "deps"}) or both (\code{which = "all"}) should be checked for available updates.
 #' @importFrom utils menu install.packages
