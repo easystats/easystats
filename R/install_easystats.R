@@ -7,6 +7,7 @@ easystats_zen <- function(){
 
 
 #' Install the easystats suite from github
+#'
 #' @import insight performance bayestestR parameters correlation report estimate see
 #' @importFrom devtools install_github
 #' @export
@@ -22,6 +23,7 @@ install_easystats_latest <- function(){
 }
 
 #' Install the dev branches of easystats from github
+#'
 #' @import insight performance bayestestR parameters correlation report estimate see
 #' @importFrom devtools install_github
 #' @export
@@ -37,13 +39,18 @@ install_easystats_dev <- function(){
 }
 
 
+#' Update easystats-packages from CRAN, if necessary.
+#'
 #' @importFrom utils menu install.packages
 #' @export
 easystats_update <- function() {
   deps <- .easystats_deps()
   behind <- deps[deps$behind, ]
 
-  if (nrow(behind) == 0) return(invisible())
+  if (nrow(behind) == 0) {
+    insight::print_color("All easystats-packages are up to date!\n", "green")
+    return(invisible())
+  }
 
   message("The following packages are out of date:")
   message(paste0(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")"), collapse = "\n")
