@@ -4,7 +4,10 @@
 \alias{easystats_update}
 \title{Update easystats-packages from CRAN, if necessary.}
 \usage{
-easystats_update()
+easystats_update(which = c("all", "core", "deps"))
+}
+\arguments{
+\item{which}{String, indicates whether easystats-packages (\code{which = "core"}), dependencies (\code{which = "deps"}) or both (\code{which = "all"}) should be checked for available updates.}
 }
 \description{
 Update easystats-packages from CRAN, if necessary.

@@ -41,32 +41,63 @@ install_easystats_dev <- function(){
 
 #' Update easystats-packages from CRAN, if necessary.
 #'
+#' @param which String, indicates whether easystats-packages (\code{which = "core"}), dependencies (\code{which = "deps"}) or both (\code{which = "all"}) should be checked for available updates.
 #' @importFrom utils menu install.packages
 #' @export
-easystats_update <- function() {
-  deps <- .easystats_deps()
-  behind <- deps[deps$behind, ]
+easystats_update <- function(which = c("all", "core", "deps")) {
+  which <- match.arg(which)
 
-  if (nrow(behind) == 0) {
-    insight::print_color("All easystats-packages are up to date!\n", "green")
-    return(invisible())
+  if (which %in% c("all", "core")) {
+    core <- .easystats_version()
+    behind <- core[core$behind, ]
+
+    if (nrow(behind) == 0) {
+      insight::print_color("All easystats-packages are up to date!\n", "green")
+      return(invisible())
+    }
+
+    message("The following packages are out of date:")
+    message(paste0(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")"), collapse = "\n")
+
+    message("Update now?")
+    do_it <- utils::menu(c("Yes", "No")) == 1
+
+    if (!do_it) {
+      return(invisible())
+    }
+
+    utils::install.packages(
+      behind$package,
+      quiet = TRUE,
+      dependencies = FALSE
+    )
   }
 
-  message("The following packages are out of date:")
-  message(paste0(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")"), collapse = "\n")
+  if (which %in% c("all", "deps")) {
+    deps <- .easystats_deps()
+    behind <- deps[deps$behind, ]
 
-  message("Update now?")
-  do_it <- utils::menu(c("Yes", "No")) == 1
+    if (nrow(behind) == 0) {
+      insight::print_color("All easystats-dependencies are up to date!\n", "green")
+      return(invisible())
+    }
 
-  if (!do_it) {
-    return(invisible())
+    message("The following packages are out of date:")
+    message(paste0(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")"), collapse = "\n")
+
+    message("Update now?")
+    do_it <- utils::menu(c("Yes", "No")) == 1
+
+    if (!do_it) {
+      return(invisible())
+    }
+
+    utils::install.packages(
+      behind$package,
+      quiet = TRUE,
+      dependencies = FALSE
+    )
   }
-
-  utils::install.packages(
-    behind$package,
-    quiet = TRUE,
-    dependencies = FALSE
-  )
 
   invisible()
 }
