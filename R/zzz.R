@@ -3,6 +3,7 @@ load <- c(
   "correlation", "estimate", "report"
 )
 
+
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
   easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
@@ -16,9 +17,23 @@ load <- c(
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]
-  colnames(easystats_versions) <- c("Package", "Version")
 
-  print.data.frame(easystats_versions, row.names = FALSE)
+  max_len_pkg <- max(nchar(easystats_versions$package))
+  max_len_ver <- max(nchar(easystats_versions$local))
+
+  insight::print_color("# Attaching packages (red = needs update)\n", "blue")
+
+  for (i in 1:nrow(easystats_versions)) {
+    cat(paste0("* ", format(easystats_versions$package[i], width = max_len_pkg)))
+    cat(" ")
+    insight::print_color(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green"))
+    if (i %% 2 == 0)
+      cat("\n")
+    else
+      cat("   ")
+  }
+
+  cat("\n")
 }
 
 is_attached <- function(x) {

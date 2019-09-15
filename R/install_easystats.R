@@ -138,7 +138,7 @@ update_easystats <- function() {
       package = easystats_not_on_cran,
       cran = NA,
       local = sapply(local_version_dev, as.character),
-      behind = NA,
+      behind = FALSE,
       stringsAsFactors = FALSE,
       row.names = NULL
     )
