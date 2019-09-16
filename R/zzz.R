@@ -21,12 +21,29 @@ load <- c(
   max_len_pkg <- max(nchar(easystats_versions$package))
   max_len_ver <- max(nchar(easystats_versions$local))
 
-  insight::print_color("# Attaching packages (red = needs update)\n", "blue")
+  insight::print_color("# Attaching packages", "blue")
+
+  if (any(needs_update)) {
+    insight::print_color("(", "blue")
+    insight::print_color("red", "red")
+    insight::print_color(" = needs update)", "blue")
+  }
+
+  cat("\n")
+
+  symbol_tick <- "\u2714 "
+  symbol_cross <- "\u2716 "
 
   for (i in 1:nrow(easystats_versions)) {
-    cat(paste0("* ", format(easystats_versions$package[i], width = max_len_pkg)))
+    if (needs_update[i])
+      insight::print_color(symbol_cross, "red")
+    else
+      insight::print_color(symbol_tick, "green")
+
+    cat(format(easystats_versions$package[i], width = max_len_pkg))
     cat(" ")
     insight::print_color(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green"))
+
     if (i %% 2 == 0)
       cat("\n")
     else
