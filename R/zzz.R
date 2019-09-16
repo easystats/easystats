@@ -6,7 +6,7 @@ load <- c(
 
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
-  easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
+  easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report", "haha")
   needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
 
   if (length(needed) == 0)

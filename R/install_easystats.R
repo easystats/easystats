@@ -153,32 +153,59 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 #' @importFrom tools package_dependencies
 .easystats_version <- function() {
   pkgs <- utils::available.packages(contriburl = contrib.url("https://cran.r-project.org", type = getOption("pkgType")))
+
   easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
   easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
   easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
   cran_version <- lapply(pkgs[easystats_on_cran, "Version"], package_version)
   local_version <- lapply(easystats_on_cran, utils::packageVersion)
-  local_version_dev <- lapply(easystats_not_on_cran, utils::packageVersion)
 
   behind <- mapply('>', cran_version, local_version)
 
-  rbind(
-    data.frame(
-      package = easystats_on_cran,
-      cran = sapply(cran_version, as.character),
-      local = sapply(local_version, as.character),
-      behind = behind,
-      stringsAsFactors = FALSE,
-      row.names = NULL
-    ),
-    data.frame(
-      package = easystats_not_on_cran,
-      cran = NA,
-      local = sapply(local_version_dev, as.character),
-      behind = FALSE,
-      stringsAsFactors = FALSE,
-      row.names = NULL
-    )
+  out <- data.frame(
+    package = easystats_on_cran,
+    cran = sapply(cran_version, as.character),
+    local = sapply(local_version, as.character),
+    behind = behind,
+    stringsAsFactors = FALSE,
+    row.names = NULL
   )
+
+  if (length(easystats_not_on_cran) > 0) {
+
+    # check if any dev-version is actually installed
+    easystats_not_on_cran <- sapply(
+      easystats_not_on_cran,
+      function(i) {
+        p <- try(find.package(i, verbose = FALSE, quiet = TRUE))
+        if (!inherits(p, "try-error") && length(p) > 0)
+          i
+        else
+          ""
+      }
+    )
+
+    # remove empty
+    easystats_not_on_cran <- easystats_not_on_cran[nchar(easystats_not_on_cran) > 0]
+
+    # only check for dev-versions when these are actually installed...
+    if (length(easystats_on_cran) > 0) {
+      local_version_dev <- lapply(easystats_not_on_cran, utils::packageVersion)
+
+      out <- rbind(
+        out,
+        data.frame(
+          package = easystats_not_on_cran,
+          cran = NA,
+          local = sapply(local_version_dev, as.character),
+          behind = FALSE,
+          stringsAsFactors = FALSE,
+          row.names = NULL
+        )
+      )
+    }
+  }
+
+  out
 }
