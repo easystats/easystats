@@ -32,11 +32,11 @@ load <- c(
   cat("\n")
 
   symbol_tick <- "\u2714 "
-  symbol_cross <- "\u2716 "
+  symbol_warning <- "\u26A0 "
 
   for (i in 1:nrow(easystats_versions)) {
     if (needs_update[i])
-      insight::print_color(symbol_cross, "red")
+      insight::print_color(symbol_warning, "red")
     else
       insight::print_color(symbol_tick, "green")
 
