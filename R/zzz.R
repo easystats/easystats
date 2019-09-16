@@ -51,6 +51,10 @@ load <- c(
   }
 
   cat("\n")
+
+  if (any(needs_update)) {
+    message("Update packages in red with 'easystats_update()'.")
+  }
 }
 
 is_attached <- function(x) {
