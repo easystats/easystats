@@ -18,16 +18,7 @@ Maintainer: Dominique Makowski <dom.makowski@gmail.com>
 URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
 Description: Load the easystats packages.
-Depends:
 Imports:
-	insight,
-	performance,
-	bayestestR,
-	parameters,
-	correlation,
-	report,
-	see,
-	estimate,
 	devtools
 Remotes: 
 	easystats/insight,

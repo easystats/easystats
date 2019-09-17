@@ -24,7 +24,7 @@ load <- c(
   insight::print_color("# Attaching packages", "blue")
 
   if (any(needs_update)) {
-    insight::print_color("(", "blue")
+    insight::print_color(" (", "blue")
     insight::print_color("red", "red")
     insight::print_color(" = needs update)", "blue")
   }
@@ -53,7 +53,7 @@ load <- c(
   cat("\n")
 
   if (any(needs_update)) {
-    insight::print_color("Update packages in red with 'easystats_update()'.", "yellow")
+    insight::print_color("Update packages in red with 'easystats_update()'.\n", "yellow")
   }
 }
 
