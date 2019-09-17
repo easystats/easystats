@@ -75,8 +75,12 @@ devtools::install_github("easystats/easystats")
 library("easystats")
 ```
 
+
+
 # Features 
 
+- [parameters: a powerful and lightweight alternative to broom to describe your models' coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
+- [Check your (Mixed) Model for Multicollinearity with 'performance'](https://easystats.github.io/blog/posts/performance_check_collinearity/)
 - [Testing Contrasts from Bayesian Models with 'emmeans' and 'bayestestR'](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
 - [Become a Bayesian master with bayestestR (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
 - [The 'see' package: beautiful figures for easystats](https://easystats.github.io/blog/posts/see_presentation/)
@@ -113,7 +117,7 @@ dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::e
 dependency_graph <- igraph::simplify(dependency_graph)
 
 edge_list <- igraph::get.edgelist(dependency_graph)
-dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))
+# dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))
 
 dependency_graph_df <- ggnetwork::ggnetwork(
   dependency_graph
@@ -176,7 +180,7 @@ dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::e
 dependency_graph <- igraph::simplify(dependency_graph)
 
 edge_list <- igraph::get.edgelist(dependency_graph)
-dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))
+# dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))  # This fails at my place
 
 dependency_graph_df <- ggnetwork::ggnetwork(
   dependency_graph

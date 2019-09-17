@@ -46,6 +46,11 @@ library("easystats")
 
 # Features
 
+  - [parameters: a powerful and lightweight alternative to broom to
+    describe your models’
+    coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
+  - [Check your (Mixed) Model for Multicollinearity with
+    ‘performance’](https://easystats.github.io/blog/posts/performance_check_collinearity/)
   - [Testing Contrasts from Bayesian Models with ‘emmeans’ and
     ‘bayestestR’](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
   - [Become a Bayesian master with bayestestR
@@ -235,6 +240,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`contr.bayes`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`convert_d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
@@ -381,11 +388,7 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`format_text_collapse`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_text_wrap`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`format_value_unless_integers`**](https://easystats.github.io/report/reference/index.html)
+  - [**`format_text`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`format_value`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -445,7 +448,11 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`icc`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`interpret_agfi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`interpret_bf`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`interpret_cfi`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_d`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
@@ -453,23 +460,37 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`interpret_effective_sample`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`interpret_gfi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`interpret_ifi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`interpret_nfi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`interpret_nnfi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`interpret_odds`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_omega_squared`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_p`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`interpret_pnfi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`interpret_r`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_r2`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`interpret_rfi`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`interpret_rhat`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`interpret_rmsea`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`interpret_rope`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`interpret`**](https://easystats.github.io/report/reference/index.html)
+  - [**`interpret_srmr`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`is.int`**](https://easystats.github.io/report/reference/index.html)
+  - [**`interpret`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
@@ -505,8 +526,6 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`mcse`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`metro_colors`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`model_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
@@ -517,8 +536,6 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`model_simulate`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`model_values`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
@@ -553,11 +570,7 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`palette_material`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`palette_metro`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`palette_pizza`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`palette_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`parameters_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -598,8 +611,6 @@ follow a consistent pattern across all packages.
   - [**`performance_rse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`performance_score`**](https://easystats.github.io/performance/reference/index.html)
-    *(performance)*
-  - [**`performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`pizza_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -647,6 +658,8 @@ follow a consistent pattern across all packages.
     *(correlation)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`report_participants`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`reshape_ci`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -677,23 +690,11 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_color_material`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`scale_color_metro_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_metro_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_metro`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_color_pizza_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_pizza_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_pizza`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_social_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_social_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -707,23 +708,11 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_colour_material`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`scale_colour_metro_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_metro_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_metro`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_colour_pizza_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_pizza_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_pizza`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_social_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_social_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -737,23 +726,11 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_fill_material`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`scale_fill_metro_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_metro_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_metro`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_fill_pizza_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_pizza_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_pizza`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_social_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_social_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`se`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -769,8 +746,6 @@ follow a consistent pattern across all packages.
     *(estimate)*
   - [**`smoothness`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`social_colors`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`standard_error`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standardize_names`**](https://easystats.github.io/parameters/reference/index.html)
@@ -779,6 +754,14 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`supported_models`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`text_initial`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_model`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_parameters`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_performance`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
