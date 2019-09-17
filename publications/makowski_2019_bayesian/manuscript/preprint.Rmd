@@ -4,38 +4,40 @@ shorttitle        : "Bayesian Indices of Existence and Significance"
 
 author: 
   - name          : "Dominique Makowski"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
+    affiliation   : "1,*"
+    corresponding : no    # Define only one corresponding author
     address       : "HSS 04-18, 48 Nanyang Avenue, Singapore"
     email         : "dmakowski@ntu.edu.sg"
     
   - name          : "Mattan S. Ben-Shachar"
     affiliation   : "2"
     
-  - name          : "Daniel Lüdecke"
-    affiliation   : "3"
-    
   - name          : "S.H. Annabel Chen"
-    affiliation   : "1,4"
-
+    affiliation   : "1,3,*,a"
+    
+  - name          : "Daniel Lüdecke"
+    affiliation   : "4,a"
+    
 affiliation:
   - id            : "1"
     institution   : "Nanyang Technological University, Singapore"
   - id            : "2"
     institution   : "Ben-Gurion University of the Negev, Israel"
   - id            : "3"
-    institution   : "University Medical Center Hamburg-Eppendorf, Germany"
-  - id            : "4"
     institution   : "Centre for Research and Development in Learning (CRADLE), Singapore"
+  - id            : "4"
+    institution   : "University Medical Center Hamburg-Eppendorf, Germany"
 
 authornote: |
-  Daniel Lüdecke and S.H. Annabel Chen share senior authorship.
+  \textsuperscript{*} Correspondence concerning this article should be addressed to Dominique Makowski (HSS 04-18, 48 Nanyang Avenue, Singapore; dmakowski@ntu.edu.sg) and S.H. Annabel Chen (HSS 04-19, 48 Nanyang Avenue, Singapore; annabelchen@ntu.edu.sg).
+  
+  \textsuperscript{a} S.H. Annabel Chen and Daniel Lüdecke share senior authorship.
 
 abstract: |
-  Turmoil has engulfed psychological science. Causes and consequences of the reproducibility crisis are in dispute. With the hope of addressing some of its aspects, Bayesian methods are gaining increasing attention in psychological science. Some of their advantages, as opposed to the frequentist framework, are the ability to describe parameters in probabilistic terms and explicitly incorporate prior knowledge about them into the model. These issues are crucial in particular regarding the current debate about statistical significance. Bayesian methods are not necessarily the only remedy against incorrect interpretations or wrong conclusions, but there is an increasing agreement that they are one of the keys to avoid such fallacies. Nevertheless, its flexible nature is its power and weakness, for there is no agreement about what indices of "significance" should be computed or reported. This lack of a consensual index or guidelines, such as the frequentist *p*-value, further contributes to the unnecessary opacity that many non-familiar readers perceive in Bayesian statistics. Thus, this study describes and compares several Bayesian indices, provide intuitive visual representation of their "behavior" in relationship with common sources of variance such as sample size, magnitude of effects and also frequentist significance. The results contribute to the development of an intuitive understanding of the values that researchers report, allowing to draw sensible recommendations for Bayesian statistics description, critical for the standardization of scientific reporting.
+  Turmoil has engulfed psychological science. Causes and consequences of the reproducibility crisis are in dispute. With the hope of addressing some of its aspects, Bayesian methods are gaining increasing attention in psychological science. Some of their advantages, as opposed to the frequentist framework, are the ability to describe parameters in probabilistic terms and explicitly incorporate prior knowledge about them into the model. These issues are crucial in particular regarding the current debate about statistical significance. Bayesian methods are not necessarily the only remedy against incorrect interpretations or wrong conclusions, but there is an increasing agreement that they are one of the keys to avoid such fallacies. Nevertheless, its flexible nature is its power and weakness, for there is no agreement about what indices of "significance" should be computed or reported. This lack of a consensual index or guidelines, such as the frequentist \textit{p}-value, further contributes to the unnecessary opacity that many non-familiar readers perceive in Bayesian statistics. Thus, this study describes and compares several Bayesian indices, provide intuitive visual representation of their "behavior" in relationship with common sources of variance such as sample size, magnitude of effects and also frequentist significance. The results contribute to the development of an intuitive understanding of the values that researchers report, allowing to draw sensible recommendations for Bayesian statistics description, critical for the standardization of scientific reporting.
   
 keywords          : "Bayesian, significance, NHST, p-value, Bayes factors"
-wordcount         : "6293"
+wordcount         : "6194"
 
 bibliography      : ["bibliography.bib"]
 
