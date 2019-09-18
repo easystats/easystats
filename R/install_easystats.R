@@ -155,26 +155,56 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 #' @importFrom utils available.packages packageVersion
 #' @importFrom tools package_dependencies
 .easystats_version <- function() {
-  pkgs <- utils::available.packages(contriburl = contrib.url("https://cran.r-project.org", type = getOption("pkgType")))
-
-  easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
-  easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
-  easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
-
-  cran_version <- lapply(pkgs[easystats_on_cran, "Version"], package_version)
-  local_version <- lapply(easystats_on_cran, utils::packageVersion)
-
-  behind <- mapply('>', cran_version, local_version)
-
-  out <- data.frame(
-    package = easystats_on_cran,
-    cran = sapply(cran_version, as.character),
-    local = sapply(local_version, as.character),
-    behind = behind,
-    stringsAsFactors = FALSE,
-    row.names = NULL
+  pkgs <- tryCatch(
+    {
+      utils::available.packages(contriburl = contrib.url("https://cran.r-project.org", type = getOption("pkgType")))
+    },
+    warning = function(w) { NULL },
+    error = function(e) { NULL}
   )
 
+  if (!is.null(pkgs)) {
+    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
+    easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
+    easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
+
+    cran_version <- lapply(pkgs[easystats_on_cran, "Version"], package_version)
+    local_version <- lapply(easystats_on_cran, utils::packageVersion)
+
+    behind <- mapply('>', cran_version, local_version)
+
+    out <- data.frame(
+      package = easystats_on_cran,
+      cran = sapply(cran_version, as.character),
+      local = sapply(local_version, as.character),
+      behind = behind,
+      stringsAsFactors = FALSE,
+      row.names = NULL
+    )
+
+    .add_easystats_dev_pkgs(out, easystats_not_on_cran)
+  } else {
+    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
+    easystats_on_cran <- c("insight", "bayestestR", "performance", "parameters", "see")
+    easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
+
+    local_version <- lapply(easystats_on_cran, utils::packageVersion)
+
+    out <- data.frame(
+      package = easystats_on_cran,
+      cran = NA,
+      local = sapply(local_version, as.character),
+      behind = FALSE,
+      stringsAsFactors = FALSE,
+      row.names = NULL
+    )
+
+    .add_easystats_dev_pkgs(out, easystats_not_on_cran)
+  }
+}
+
+
+.add_easystats_dev_pkgs <- function(out, easystats_not_on_cran) {
   if (length(easystats_not_on_cran) > 0) {
 
     # check if any dev-version is actually installed
@@ -193,7 +223,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     easystats_not_on_cran <- easystats_not_on_cran[nchar(easystats_not_on_cran) > 0]
 
     # only check for dev-versions when these are actually installed...
-    if (length(easystats_on_cran) > 0) {
+    if (length(easystats_not_on_cran) > 0) {
       local_version_dev <- lapply(easystats_not_on_cran, utils::packageVersion)
 
       out <- rbind(
