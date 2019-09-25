@@ -2,10 +2,13 @@
 % Please edit documentation in R/install_easystats.R
 \name{install_easystats_latest}
 \alias{install_easystats_latest}
+\alias{install_easystats_dev}
 \title{Install the easystats suite from github}
 \usage{
 install_easystats_latest()
+
+install_easystats_dev()
 }
 \description{
-Install the easystats suite from github
+This function can be used to install all the easystats package from github, either from the master branch (the stable one) with \code{install_easystats_latest} or from the dev branch \code{install_easystats_dev}.
 }
