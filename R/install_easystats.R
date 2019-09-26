@@ -7,6 +7,8 @@ easystats_zen <- function(){
 
 #' Install the easystats suite from github
 #'
+#' This function can be used to install all the easystats package from github, either from the master branch (the stable one) with \code{install_easystats_latest()} or from the dev branch \code{install_easystats_dev()}.
+#'
 #' @importFrom devtools install_github
 #' @export
 install_easystats_latest <- function(){
@@ -20,8 +22,10 @@ install_easystats_latest <- function(){
                              "easystats/report"))
 }
 
-#' Install the dev branches of easystats from github
-#'
+#' @export
+easystats_install_latest <- install_easystats_latest
+
+#' @rdname install_easystats_latest
 #' @importFrom devtools install_github
 #' @export
 install_easystats_dev <- function(){
@@ -34,6 +38,11 @@ install_easystats_dev <- function(){
                              "easystats/see",
                              "easystats/report"), ref = "dev")
 }
+
+#' @export
+easystats_install_dev <- install_easystats_dev
+
+
 
 
 #' Update easystats-packages and its dependencies from CRAN, if necessary.
