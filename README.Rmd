@@ -111,6 +111,11 @@ pkg <- devtools::as.package(".")
 dependencies <- unlist(strsplit(paste(pkg$imports, "\n", pkg$depends), split = "\n"))[-1]
 dependencies <- trimws(gsub("\\n| \\(.+\\)|,", "", dependencies))
 
+dependencies <- c(
+  "insight", "bayestestR", "performance", "parameters", "see",
+  "correlation", "estimate", "report"
+)
+
 dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
 class(dependency_graph) <- "igraph"
 dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::edges(as.vector(rbind(dependencies, pkg$package)))
