@@ -107,9 +107,8 @@ library(intergraph)
 
   
 pkg <- devtools::as.package(".")
-
-dependencies <- unlist(strsplit(paste(pkg$imports, "\n", pkg$depends), split = "\n"))[-1]
-dependencies <- trimws(gsub("\\n| \\(.+\\)|,", "", dependencies))
+# dependencies <- unlist(strsplit(paste(pkg$imports, "\n", pkg$depends), split = "\n"))[-1]
+# dependencies <- trimws(gsub("\\n| \\(.+\\)|,", "", dependencies))
 
 dependencies <- c(
   "insight", "bayestestR", "performance", "parameters", "see",
