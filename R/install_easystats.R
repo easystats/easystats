@@ -19,7 +19,8 @@ install_easystats_latest <- function(){
                              "easystats/correlation",
                              "easystats/estimate",
                              "easystats/see",
-                             "easystats/report"))
+                             "easystats/report"),
+                           upgrade = "never")
 }
 
 #' @export
@@ -36,7 +37,9 @@ install_easystats_dev <- function(){
                              "easystats/correlation",
                              "easystats/estimate",
                              "easystats/see",
-                             "easystats/report"), ref = "dev")
+                             "easystats/report"),
+                           ref = "dev",
+                           upgrade = "never")
 }
 
 #' @export
