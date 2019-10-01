@@ -10,5 +10,5 @@ install_easystats_latest()
 install_easystats_dev()
 }
 \description{
-This function can be used to install all the easystats package from github, either from the master branch (the stable one) with \code{install_easystats_latest} or from the dev branch \code{install_easystats_dev}.
+This function can be used to install all the easystats package from github, either from the master branch (the stable one) with \code{install_easystats_latest()} or from the dev branch \code{install_easystats_dev()}.
 }

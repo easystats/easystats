@@ -285,7 +285,8 @@ events <- rbind(events,
                                            "2019-06-25",
                                            "2019-07-01",
                                            "2019-08-05",
-                                           "2019-08-26"
+                                           "2019-08-26",
+                                           "2019-09-26"
                                            )), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - insight (0.2.0)",
@@ -299,7 +300,8 @@ events <- rbind(events,
                                   "JOSS - insight (publication)",
                                   "CRAN - insight (0.4.0)",
                                   "CRAN - performance (0.3.0)",
-                                  "CRAN - parameters (0.1.0)"
+                                  "CRAN - parameters (0.1.0)",
+                                  "CRAN - parameters (0.2.0)"
                                   ), 
                           Package=c("insight", 
                                     "insight",
@@ -313,6 +315,7 @@ events <- rbind(events,
                                     "insight",
                                     "insight",
                                     "performance",
+                                    "parameters",
                                     "parameters"
                                     ), 
                           color=color_CRAN, stringsAsFactors = FALSE))
@@ -321,9 +324,10 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
   filter(item_date_published > "2019-03-29") %>% 
   select(date = item_date_published,
          event = item_title) %>% 
-  mutate(color=color_blog)
+  mutate(color=color_blog) %>% 
+  distinct()
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters"))
 
 
 events <- rbind(events,
