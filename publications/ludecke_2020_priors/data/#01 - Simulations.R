@@ -1,3 +1,4 @@
+# https://arxiv.org/abs/1708.07487
 library(tidyverse)
 library(strengejacke)
 library(easystats)
