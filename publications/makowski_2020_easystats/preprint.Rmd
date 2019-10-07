@@ -1,0 +1,135 @@
+---
+title             : "Easystats: A Collaborative, Open, Innovative and User-friendly Collection of Tools for Data Science"
+shorttitle        : "Make stats easy again"
+
+author: 
+  - name          : "Dominique Makowski"
+    affiliation   : " 1,*"
+    corresponding : no
+    address       : "HSS 04-18, 48 Nanyang Avenue, Singapore"
+    email         : "dmakowski@ntu.edu.sg"
+    
+  - name          : "..."
+    affiliation   : " 2"
+    
+  - name          : "Daniel Lüdecke"
+    affiliation   : " 3,*"
+    
+affiliation:
+  - id            : "1"
+    institution   : "School of Social Sciences, Nanyang Technological University, Singapore"
+  - id            : "2"
+    institution   : "..."
+  - id            : "3"
+    institution   : "Department of Medical Sociology, University Medical Center Hamburg-Eppendorf, Germany"
+
+authornote: |
+  \textsuperscript{*} Correspondence concerning this article should be addressed to Dominique Makowski (HSS 04-18, 48 Nanyang Avenue, Singapore; dmakowski@ntu.edu.sg) and Daniel Lüdecke (W37, 8. Stock, Martinistrasse 52, Hamburg, Germany; d.luedecke@uke.de).
+
+abstract: |
+  Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract. Write great abstract.
+  
+keywords          : "R, easystats, statistics, best practices, open science"
+wordcount         : "9999"
+
+bibliography      : ["bibliography.bib"]
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output: 
+  papaja::apa6_pdf:
+    keep_tex: FALSE
+---
+
+```{r setup, include = FALSE, warning=FALSE, message=FALSE}
+library("papaja")
+library("kableExtra")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+
+<!-- Introduction -->
+
+There was a time when most of applied researchers - psychologists, sociologists or political scientists, progressed through their career by happily using the few statistical procedures at their disposal, such as correlations, *t*-tests or ANOVAs). But such time is over. 
+
+The explosion of computational power, accompanied by theorethical breakthroughs for instance in machine learning or probabilistic computing, has deeply transfigured the field of statistics. As a result, the amount of cutting-edge statistical algorithms has never been so large and most importantly, so available. Indeed, most of these complex techniques are at one copy-pasting away, beeing implemented in free and open-source software such as R [@R-base] and Python.
+
+On top of that accessibility explosion, the recent reproducibility crisis has recently shattered the quality standards and practices, pressuring researchers to adopt new tools and methodologies. Unfortunately, most of the them lack training in statistics and computer science to fully take advantage of this new landscape. As a consequence, many scientists find themselves crushed between these two antagonistic forces of availability and demand. For the first time, a part of science is becomming limited by the expertise rather than the tools.
+
+Understandably, this "methodological availability\/demand" paradox can contribute to the negative feelings (reported for instance by students and young researchers) surrounding the methodological and statistical aspects of a scientific study. Moreover, this conflict can also become a threat to the academic publishing system, as finding expert (or just competent enough) reviewers for all the methods becomes a dilemma for editors (adding up to the already existing problem inherent to the current peer-review model). In turn, misused methods (and thus misinterpreted results) can pervade academic litterature, aggravating in turn the crisis of trust toward science.
+
+Thus, what could be done to ease and facilitate the transition or teaching of researchers into the post open science revolution world? It is in this multidimensional context that the *easystats* project attempts to make a small contribution to the answers.
+
+
+# Purpose
+
+Why esystats and what does it bring to the table.
+
+
+
+
+# Philosophy
+
+the pillars such as openness & colaborativeness, but also intuitiveness, easiness of use etc.
+
+# Design
+
+- Lightweight (limit dependencies).
+- Full function names (and clusterable)
+
+an example of how for instance `report(lm))` builds on all the other packages, integrating many functions to provide this high-level, user-friendly output.
+
+# Features
+
+description and aim of each package
+
+## insight
+
+## bayestestR
+
+## performance
+
+## parameters
+
+## estimate
+
+## correlation
+
+Useful for network models, a new methodological field on the rise in psychological science (Epksamp etc.).
+
+## report
+
+## see
+
+# Future Directions
+
+Take over the world.
+
+
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "bibliography.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup
