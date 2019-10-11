@@ -10,15 +10,15 @@ generate_data <- function(sample_size = 50, error = 3, effect = 5) {
     x1 = rnorm(sample_size, runif(1, min = 1, max = effect), error),
     x2 = rnorm(sample_size, 1, 3),
     x3 = rnorm(sample_size, -1, 1.5),
-    sigma = rnorm(sample_size, 0, error)
+    sigma = rnorm(sample_size, 0, 1)
   )
 
   b0 <- 10
-  b1 <- effect
+  b1 <- rnorm(sample_size, effect, error)
   b2 <- 1
   b3 <- -1
 
-  d$y <- b0 + b1 * (d$x1 + rnorm(sample_size, 0, error)) + b2 * d$x2 + b3 * d$x3 + d$sigma
+  d$y <- b0 + b1 * d$x1 + b2 * d$x2 + b3 * d$x3 + d$sigma
 
   d
 }
@@ -43,7 +43,8 @@ compute_models <- function(dat, error, location) {
       family = gaussian(),
       prior = normal(
         location = c(location, 0, 0),
-        scale = c(error, .25, 1),
+        # need to check scale with SE from coefficient
+        scale = c(2 * error, .25, 1),
         autoscale = FALSE
       ),
       refresh = 0,
@@ -87,7 +88,7 @@ set.seed(1207)
 sample_sizes <- seq(50, 300, by = 50)
 locations <- c(NA, 2, 5, 8)
 effect <- 5
-error <- 3
+error <- c(.5, 1, 2, 3, 5)
 simulations <- 1:100
 
 result <- data.frame()
