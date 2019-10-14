@@ -95,7 +95,71 @@ library("easystats")
 
 # Dependencies
 
-Taking _all_ packages from the **easystats** project into account, we have following package dependencies.
+Most of *easystats* packages are very lightweight, *i.e.*, they don't rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of butterfly effects (a small change in a distant downstream dependency with unexpected upstream consequences).
+
+```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
+library(tidyverse)
+library(devtools)
+library(miniCRAN)
+library(igraph)
+library(ggnetwork)
+library(intergraph)
+
+  
+pkg <- devtools::as.package(".")
+
+dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "estimate")
+
+dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
+class(dependency_graph) <- "igraph"
+dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::edges(as.vector(rbind(dependencies, pkg$package)))
+dependency_graph <- igraph::simplify(dependency_graph)
+
+edge_list <- igraph::get.edgelist(dependency_graph)
+# dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))  # This fails at my place
+
+dependency_graph_df <- ggnetwork::ggnetwork(
+  dependency_graph
+  , layout = "fruchtermanreingold"
+  , arrow.gap = 0.015
+  , layout.par = list(niter = 5000)
+)
+
+dependency_graph_df$package <- dependency_graph_df$vertex.names
+dependency_graph_df$face <- ifelse(dependency_graph_df$package == pkg$package, "bold", "plain")
+
+dependency_graph_df$n_dependencies <- as.vector(table(gsub("\\|.+", "", attr(igraph::E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
+dependency_graph_df$n_dependencies[is.na(dependency_graph_df$n_dependencies)] <- 0
+
+dependency_graph_df$importance <- as.vector(table(gsub(".+\\|", "", attr(E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
+dependency_graph_df$importance[is.na(dependency_graph_df$importance)] <- 0
+
+max_downstream_deps <- max(dependency_graph_df$importance)
+
+dependency_graph_df$importance <- dependency_graph_df$importance / max_downstream_deps
+dependency_graph_df$importance <- abs(1 - dependency_graph_df$importance)
+
+dependency_graph_df <- as.data.frame(lapply(dependency_graph_df, as.vector))
+
+ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
+  geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
+  geom_nodelabel_repel(
+    aes(label = package, fontface = face, color = n_dependencies)
+    , box.padding = unit(8, "pt")
+  ) +
+  geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
+  scale_color_distiller(palette = "Spectral") +
+  scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
+  theme_blank(legend.position = "top") +
+  guides(
+    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5)
+    , color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
+  )
+```
+
+
+There is one exception. The [**see**](http://easystats.github.io/see) package is one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as *ggplot2*, which itself is plugged in the *tidyverse*, increasing package dependencies by a substantial amount. On the bright side of things, it gives a good **overview of the place of *easystats* in the R ecosystem**.
 
 ```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
 library(tidyverse)
@@ -163,68 +227,60 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
   )
 ```
 
-The [**see**](http://easystats.github.io/see) package is one of our high-level packages that is responsible for plotting and creating figures. Thus, it increases package dependencies by a substantial amount. Just taking the core packages into consideration, you see that the **easystats** packages are indeed small and lightweight.
 
-```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
-library(tidyverse)
-library(devtools)
-library(miniCRAN)
-library(igraph)
-library(ggnetwork)
-library(intergraph)
+# Citation
 
-  
-pkg <- devtools::as.package(".")
+How to reference *easystats*?
 
-dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "estimate")
+1. **Cite specific packages**
 
-dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
-class(dependency_graph) <- "igraph"
-dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::edges(as.vector(rbind(dependencies, pkg$package)))
-dependency_graph <- igraph::simplify(dependency_graph)
+The most parsimonious approach is to cite only the particular package that helped you, e.g., "using *bayestestR* (Makowski, Ben-Shachar, & Lüdecke, 2019)". However, as *easystats* is meant to be an ecosystem, with different people working on its different aspects (some being more "citeable" than others), please consider including also the "main" publication: [***not available yet***](https://github.com/easystats/easystats/issues/24). 
 
-edge_list <- igraph::get.edgelist(dependency_graph)
-# dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))  # This fails at my place
+2. **Cite the whole ecosystem**
 
-dependency_graph_df <- ggnetwork::ggnetwork(
-  dependency_graph
-  , layout = "fruchtermanreingold"
-  , arrow.gap = 0.015
-  , layout.par = list(niter = 5000)
-)
+Want to really help us boost our *h*-index? Or simply credit the whole network of interconnected aspects of *easystats*? This can be done with a sentence like the following:
 
-dependency_graph_df$package <- dependency_graph_df$vertex.names
-dependency_graph_df$face <- ifelse(dependency_graph_df$package == pkg$package, "bold", "plain")
+> **Data processing was carried out with R (R Core Team, 2019) and the *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Makowski, Ben-Shachar, & Lüdecke, 2019)**
 
-dependency_graph_df$n_dependencies <- as.vector(table(gsub("\\|.+", "", attr(igraph::E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
-dependency_graph_df$n_dependencies[is.na(dependency_graph_df$n_dependencies)] <- 0
 
-dependency_graph_df$importance <- as.vector(table(gsub(".+\\|", "", attr(E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
-dependency_graph_df$importance[is.na(dependency_graph_df$importance)] <- 0
+The corresponding *bibtex* entries are the following:
 
-max_downstream_deps <- max(dependency_graph_df$importance)
-
-dependency_graph_df$importance <- dependency_graph_df$importance / max_downstream_deps
-dependency_graph_df$importance <- abs(1 - dependency_graph_df$importance)
-
-dependency_graph_df <- as.data.frame(lapply(dependency_graph_df, as.vector))
-
-ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
-  geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
-  geom_nodelabel_repel(
-    aes(label = package, fontface = face, color = n_dependencies)
-    , box.padding = unit(8, "pt")
-  ) +
-  geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
-  scale_color_distiller(palette = "Spectral") +
-  scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
-  theme_blank(legend.position = "top") +
-  guides(
-    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5)
-    , color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
-  )
 ```
+@article{ludecke2019insight,
+	journal = {Journal of Open Source Software},
+	doi = {10.21105/joss.01412},
+	issn = {2475-9066},
+	number = {38},
+	publisher = {The Open Journal},
+	title = {insight: A Unified Interface to Access Information from Model Objects in R},
+	url = {http://dx.doi.org/10.21105/joss.01412},
+	volume = {4},
+	author = {Lüdecke, Daniel and Waggoner, Philip and Makowski, Dominique},
+	pages = {1412},
+	date = {2019-06-25},
+	year = {2019},
+	month = {6},
+	day = {25},
+}
+
+
+@article{makowski2019bayestestr,
+	title = {{bayestestR}: {Describing} {Effects} and their {Uncertainty}, {Existence} and {Significance} within the {Bayesian} {Framework}},
+	volume = {4},
+	issn = {2475-9066},
+	shorttitle = {{bayestestR}},
+	url = {https://joss.theoj.org/papers/10.21105/joss.01541},
+	doi = {10.21105/joss.01541},
+	number = {40},
+	urldate = {2019-08-13},
+	journal = {Journal of Open Source Software},
+	author = {Makowski, Dominique and Ben-Shachar, Mattan and Lüdecke, Daniel},
+	month = aug,
+	year = {2019},
+	pages = {1541}
+}
+```
+
 
 # Downloads 
 

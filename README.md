@@ -74,18 +74,83 @@ library("easystats")
 
 # Dependencies
 
-Taking *all* packages from the **easystats** project into account, we
-have following package dependencies.
+Most of *easystats* packages are very lightweight, *i.e.*, they don’t
+rely nor import any other packages\! This means that you can safely use
+them as dependencies in your own packages, without the risk of butterfly
+effects (a small change in a distant downstream dependency with
+unexpected upstream consequences).
 
 ![](man/figures/unnamed-chunk-3-1.png)<!-- -->
 
-The [**see**](http://easystats.github.io/see) package is one of our
-high-level packages that is responsible for plotting and creating
-figures. Thus, it increases package dependencies by a substantial
-amount. Just taking the core packages into consideration, you see that
-the **easystats** packages are indeed small and lightweight.
+There is one exception. The [**see**](http://easystats.github.io/see)
+package is one of our high-level packages that is responsible for
+plotting and creating figures, relying thus on other packages such as
+*ggplot2*, which itself is plugged in the *tidyverse*, increasing
+package dependencies by a substantial amount. On the bright side of
+things, it gives a good **overview of the place of *easystats* in the R
+ecosystem**.
 
 ![](man/figures/unnamed-chunk-4-1.png)<!-- -->
+
+# Citation
+
+How to reference *easystats*?
+
+1.  **Cite specific packages**
+
+The most parsimonious approach is to cite only the particular package
+that helped you, e.g., “using *bayestestR* (Makowski, Ben-Shachar, &
+Lüdecke, 2019)”. However, as *easystats* is meant to be an ecosystem,
+with different people working on its different aspects (some being more
+“citeable” than others), please consider including also the “main”
+publication: [***not available
+yet***](https://github.com/easystats/easystats/issues/24).
+
+2.  **Cite the whole ecosystem**
+
+Want to really help us boost our *h*-index? Or simply credit the whole
+network of interconnected aspects of *easystats*? This can be done with
+a sentence like the following:
+
+> **Data processing was carried out with R (R Core Team, 2019) and the
+> *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Makowski,
+> Ben-Shachar, & Lüdecke, 2019)**
+
+The corresponding *bibtex* entries are the following:
+
+    @article{ludecke2019insight,
+        journal = {Journal of Open Source Software},
+        doi = {10.21105/joss.01412},
+        issn = {2475-9066},
+        number = {38},
+        publisher = {The Open Journal},
+        title = {insight: A Unified Interface to Access Information from Model Objects in R},
+        url = {http://dx.doi.org/10.21105/joss.01412},
+        volume = {4},
+        author = {Lüdecke, Daniel and Waggoner, Philip and Makowski, Dominique},
+        pages = {1412},
+        date = {2019-06-25},
+        year = {2019},
+        month = {6},
+        day = {25},
+    }
+    
+    
+    @article{makowski2019bayestestr,
+        title = {{bayestestR}: {Describing} {Effects} and their {Uncertainty}, {Existence} and {Significance} within the {Bayesian} {Framework}},
+        volume = {4},
+        issn = {2475-9066},
+        shorttitle = {{bayestestR}},
+        url = {https://joss.theoj.org/papers/10.21105/joss.01541},
+        doi = {10.21105/joss.01541},
+        number = {40},
+        urldate = {2019-08-13},
+        journal = {Journal of Open Source Software},
+        author = {Makowski, Dominique and Ben-Shachar, Mattan and Lüdecke, Daniel},
+        month = aug,
+        year = {2019},
+        pages = {1541}
+    }
 
 # Downloads
 
@@ -186,10 +251,14 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`bayesfactor`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_autocorrelation`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_clusterstructure`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`check_collinearity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_convergence`**](https://easystats.github.io/performance/reference/index.html)
@@ -206,6 +275,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`check_model`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_multimodal`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`check_normality`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_outliers`**](https://easystats.github.io/performance/reference/index.html)
@@ -216,8 +287,6 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`check_singularity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`check_smoothness`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`check_sphericity`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`check_zeroinflation`**](https://easystats.github.io/performance/reference/index.html)
@@ -244,41 +313,31 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`contr.bayes`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`convert_d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`convert_d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`convert_bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`convert_data_to_numeric`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`convert_efa_to_cfa`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`convert_odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`convert_odds_to_probs`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`convert_p_to_pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`convert_pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`convert_probs_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`convert_r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`coord_radar`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`cor_test`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`correlation`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`cronbachs_alpha`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`d_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`d_to_r`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`data_partition`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`data_plot`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`data_to_numeric`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`degrees_of_freedom`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`density_at`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -291,6 +350,8 @@ follow a consistent pattern across all packages.
   - [**`diagnostic_posterior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_beta`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_binomial`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_cauchy`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -313,6 +374,8 @@ follow a consistent pattern across all packages.
   - [**`distribution`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`dof_kenward`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`dof`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`download_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -372,14 +435,14 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`flat_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`format_algorithm`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`format_algorithm`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_bf`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_ci`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_model`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`format_model`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_number`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
@@ -391,8 +454,6 @@ follow a consistent pattern across all packages.
   - [**`format_pd`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`format_standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -550,25 +611,25 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`n_clusters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`n_obs`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`n_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`normalize`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`odds_to_d`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`odds_to_probs`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`omega_squared`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`overlap`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`p_direction`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`p_map`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`p_rope`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`p_significance`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`p_to_pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -595,8 +656,6 @@ follow a consistent pattern across all packages.
   - [**`parameters_selection`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters_simulate`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`parameters_standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters_table`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -644,10 +703,6 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`print_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`probs_to_odds`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`r_to_d`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`r2_bayes`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_coxsnell`**](https://easystats.github.io/performance/reference/index.html)
@@ -788,13 +843,15 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`se_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`se`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`simulate_correlation`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`simulate_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`simulate_ttest`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -807,8 +864,6 @@ follow a consistent pattern across all packages.
   - [**`standard_error`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standardize_names`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`standardize`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`supported_models`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
