@@ -1,12 +1,12 @@
 load <- c(
   "insight", "bayestestR", "performance", "parameters", "see",
-  "correlation", "estimate", "report"
+  "effectsize", "correlation", "estimate", "report"
 )
 
 
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
-  easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "correlation", "estimate", "report")
+  easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "estimate", "report")
   needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
 
   if (length(needed) == 0)
@@ -53,7 +53,7 @@ load <- c(
   cat("\n")
 
   if (any(needs_update)) {
-    insight::print_color("Update packages in red with 'easystats_update()'.\n", "yellow")
+    insight::print_color("Restart the R-Session and update packages in red with 'easystats::easystats_update()'.\n", "yellow")
   }
 }
 

@@ -19,12 +19,18 @@ URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
 Description: Load the easystats packages.
 Imports:
-	devtools
+	devtools,
+  insight,
+  bayestestR,
+  performance,
+  parameters,
+  see
 Remotes: 
 	easystats/insight,
 	easystats/performance,
 	easystats/bayestestR,
 	easystats/parameters,
+	easystats/effectsize,
 	easystats/correlation,
 	easystats/estimate,
 	easystats/see,
