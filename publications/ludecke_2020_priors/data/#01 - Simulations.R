@@ -78,11 +78,11 @@ generate_and_process <- function(sample_size, error, effect, location, simulatio
 }
 
 
-sample_sizes <- round((4:9)^2.5)
+sample_sizes <- round((4:10)^2.5)
 locations <- c(-.2, 0, .2)
 effect <- 0
 errors <- 2
-simulations <- 1:100
+simulations <- 1:1000
 
 result <- data.frame()
 pb <- txtProgressBar(min = 0, max = length(simulations), style = 3)
