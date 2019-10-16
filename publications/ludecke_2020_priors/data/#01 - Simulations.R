@@ -8,34 +8,21 @@ library(performance)
 library(see)
 library(rstanarm)
 
-generate_data <- function(sample_size = 50, error = 3, effect = 5) {
+generate_data <- function(sample_size = 50, error = 3, effect = 0) {
   # Generate data
-  d <- data.frame(
-    x1 = rnorm(sample_size, runif(1, min = 1, max = effect), error),
-    x2 = rnorm(sample_size, 1, 3),
-    x3 = rnorm(sample_size, -1, 1.5),
-    sigma = rnorm(sample_size, 0, 1)
-  )
-
-  b0 <- 10
-  b1 <- rnorm(sample_size, effect, error)
-  b2 <- 1
-  b3 <- -1
-
-  # d$y <- b0 + b1 * d$x1 + b2 * d$x2 + b3 * d$x3 + d$sigma
-  d$y <- b0 + b1 * d$x1 + d$sigma
-
+  d <- standardize(simulate_correlation(n = sample_size, mean = effect, sd = error))
+  colnames(d) <- c("y", "x")
   d
 }
 
 
-compute_models <- function(dat, error, location) {
+compute_models <- function(dat, location) {
   # model fitting
-  m_freq <- lm(y ~ x1, data = dat)
+  m_freq <- lm(y ~ x, data = dat)
 
   if (is.na(location)) {
     m_stan <- stan_glm(
-      y ~ x1,
+      y ~ x,
       data = dat,
       family = gaussian(),
       refresh = 0,
@@ -43,12 +30,12 @@ compute_models <- function(dat, error, location) {
     )
   } else {
     m_stan <- stan_glm(
-      y ~ x1,
+      y ~ x,
       data = dat,
       family = gaussian(),
       prior = normal(
         location = location,
-        scale = 2 * error,
+        scale = .5,
         autoscale = FALSE
       ),
       refresh = 0,
@@ -65,12 +52,12 @@ generate_and_process <- function(sample_size, error, effect, location, simulatio
   dat <- generate_data(sample_size, error, effect)
 
   # models
-  models <- compute_models(dat, error, location)
+  models <- compute_models(dat, location)
 
   # results
   data.frame(
-    # Prior = simulate_prior(models$bayes)[["x1"]],
-    # Posterior = as.data.frame(models$bayes)[["x1"]],
+    # Prior = simulate_prior(models$bayes)[["x"]],
+    # Posterior = as.data.frame(models$bayes)[["x"]],
     N = sample_size,
     Error = error,
     Location = location,
@@ -78,19 +65,23 @@ generate_and_process <- function(sample_size, error, effect, location, simulatio
     Simulation = simulation,
     Mean = point_estimate(models$bayes, "all")$Mean[2],
     Median = point_estimate(models$bayes, "all")$Median[2],
+    SD = sd(as.data.frame(models$bayes)[["x"]]),
+    MAD = mad(as.data.frame(models$bayes)[["x"]]),
     HDI_low = hdi(models$bayes)$CI_low[2],
     HDI_high = hdi(models$bayes)$CI_high[2],
-    Coefficient = coef(models$freq)["x1"],
+    Coefficient = coef(models$freq)["x"],
+    SE = standard_error(models$freq)[2],
     CI_low = ci(models$freq)$CI_low[2],
     CI_high = ci(models$freq)$CI_high[2],
     stringsAsFactors = FALSE
   )
 }
 
+
 sample_sizes <- round((4:9)^2.5)
-locations <- c(NA, -5, 5, 10)
-effect <- 5
-errors <- c(2, 5, 8)
+locations <- c(-.2, 0, .2)
+effect <- 0
+errors <- 2
 simulations <- 1:100
 
 result <- data.frame()
@@ -140,6 +131,27 @@ save(result, file = sprintf(
 result$Location[is.na(result$Location)] <- "weakly"
 result$Group <- sprintf("N=%i, Location=%s, Error=%g", result$N, result$Location, result$Error)
 
+
+result %>%
+  group_by(N, Location) %>%
+  summarise(
+    Estimate = mean(Median),
+    CI_low = mean(HDI_low),
+    CI_high = mean(HDI_high)
+  ) %>%
+  print(n = 200)
+
+
+
+result %>%
+  group_by(N) %>%
+  summarise(
+    Estimate = mean(Coefficient),
+    SE = mean(SE)
+  ) %>%
+  print(n = 200)
+
+
 theme_set(theme_sjplot2())
 
 ggplot(result, aes(x = as.factor(Location), y = Median)) +
@@ -177,15 +189,15 @@ ggplot(result, aes(x = as.factor(N), y = Median)) +
 # ps$prior
 #
 # p <- plot_model(m, type = "diag")
-# m_pp_data <- filter(p$data, Term == "x1")
+# m_pp_data <- filter(p$data, Term == "x")
 # ggplot(m_pp_data, aes(x = Estimate, fill = Sample)) + geom_density(alpha = .4) + labs(y = NULL)
 #
 
 
 
-# tmp_prior <- estimate_density(simulate_prior(m)[["x1"]])
+# tmp_prior <- estimate_density(simulate_prior(m)[["x"]])
 # tmp_prior$Sample <- "Prior"
-# tmp_posterior <- estimate_density(as.data.frame(m)[["x1"]])
+# tmp_posterior <- estimate_density(as.data.frame(m)[["x"]])
 # tmp_posterior$Sample <- "Posterior"
 #
 # tmp <- rbind(tmp_prior, tmp_posterior)
