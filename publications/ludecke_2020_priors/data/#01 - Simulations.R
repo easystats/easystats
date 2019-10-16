@@ -16,7 +16,7 @@ generate_data <- function(sample_size = 50, error = 3, effect = 0) {
 }
 
 
-compute_models <- function(dat, location) {
+compute_models <- function(dat, location, scale) {
   # model fitting
   m_freq <- lm(y ~ x, data = dat)
 
@@ -35,7 +35,7 @@ compute_models <- function(dat, location) {
       family = gaussian(),
       prior = normal(
         location = location,
-        scale = .5,
+        scale = scale,
         autoscale = FALSE
       ),
       refresh = 0,
@@ -47,12 +47,12 @@ compute_models <- function(dat, location) {
 }
 
 
-generate_and_process <- function(sample_size, error, effect, location, simulation) {
+generate_and_process <- function(sample_size, error, effect, location, scale, simulation) {
   # data
   dat <- generate_data(sample_size, error, effect)
 
   # models
-  models <- compute_models(dat, location)
+  models <- compute_models(dat, location, scale)
 
   # results
   data.frame(
@@ -79,7 +79,8 @@ generate_and_process <- function(sample_size, error, effect, location, simulatio
 
 
 sample_sizes <- round((4:10)^2.5)
-locations <- c(-.2, 0, .2)
+locations <- c(-.5, 0, .5, 1)
+scale <- .8
 effect <- 0
 errors <- 2
 simulations <- 1:1000
@@ -103,6 +104,7 @@ for (sample_size in sample_sizes) {
           error = error,
           effect = effect,
           location = location,
+          scale = scale,
           simulation = simulation
         )
         result <- rbind(result, out)
@@ -119,6 +121,9 @@ cat(format(Sys.time() - tstart))
 cat("\n\n")
 
 attr(result, "elapsed_time") <- format(Sys.time() - tstart)
+attr(result, "scale") <- scale
+attr(result, "location") <- locations
+attr(result, "effect") <- effect
 
 close(pb)
 
@@ -152,7 +157,7 @@ result %>%
   print(n = 200)
 
 
-theme_set(theme_sjplot2())
+theme_set(theme_lucid())
 
 ggplot(result, aes(x = as.factor(Location), y = Median)) +
   geom_boxplot(width = .4) +
