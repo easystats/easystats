@@ -22,7 +22,8 @@ generate_data <- function(sample_size = 50, error = 3, effect = 5) {
   b2 <- 1
   b3 <- -1
 
-  d$y <- b0 + b1 * d$x1 + b2 * d$x2 + b3 * d$x3 + d$sigma
+  # d$y <- b0 + b1 * d$x1 + b2 * d$x2 + b3 * d$x3 + d$sigma
+  d$y <- b0 + b1 * d$x1 + d$sigma
 
   d
 }
@@ -30,28 +31,24 @@ generate_data <- function(sample_size = 50, error = 3, effect = 5) {
 
 compute_models <- function(dat, error, location) {
   # model fitting
-  m_freq <- lm(y ~ x1 + x2 + x3, data = dat)
+  m_freq <- lm(y ~ x1, data = dat)
 
   if (is.na(location)) {
     m_stan <- stan_glm(
-      y ~ x1 + x2 + x3,
+      y ~ x1,
       data = dat,
       family = gaussian(),
       refresh = 0,
       cores = 4
     )
   } else {
-    # mimic auto-scaling of prior-scale
-    scale_x2 <- sd(dat$y) * 2.5 / sd(dat$x2)
-    scale_x3 <- sd(dat$y) * 2.5 / sd(dat$x3)
-
     m_stan <- stan_glm(
-      y ~ x1 + x2 + x3,
+      y ~ x1,
       data = dat,
       family = gaussian(),
       prior = normal(
-        location = c(location, 0, 0),
-        scale = c(3 * error, scale_x2, scale_x3),
+        location = location,
+        scale = 2 * error,
         autoscale = FALSE
       ),
       refresh = 0,
@@ -90,18 +87,18 @@ generate_and_process <- function(sample_size, error, effect, location, simulatio
   )
 }
 
-set.seed(1207)
-
-sample_sizes <- seq(50, 300, by = 50)
-locations <- c(NA, 2, 5, 8)
+sample_sizes <- round((4:9)^2.5)
+locations <- c(NA, -5, 5, 10)
 effect <- 5
-errors <- c(2, 4, 6, 8)
-simulations <- 1:10
+errors <- c(2, 5, 8)
+simulations <- 1:100
 
 result <- data.frame()
 pb <- txtProgressBar(min = 0, max = length(simulations), style = 3)
 total_progress <- length(sample_sizes) * length(locations) * length(errors)
 current_progress <- 0
+
+set.seed(1207)
 
 tstart <- Sys.time()
 
