@@ -67,7 +67,7 @@ generate_and_process <- function(sample_size, error, effect, location, scale, si
 
 
 sample_sizes <- seq(20, 200, by = 20)
-locations <- c(-0.6, -0.3, 0, 0.3, 0.6, 1)
+locations <- c(-0.6, -0.3, 0, 0.3, 0.6, 0.9)
 scale <- .3
 effect <- 0
 errors <- 2
