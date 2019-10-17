@@ -10,7 +10,7 @@ library(rstanarm)
 
 generate_data <- function(sample_size = 50, error = 3, effect = 0) {
   # Generate data
-  d <- standardize(simulate_correlation(n = sample_size, mean = effect, sd = error))
+  d <- standardize(simulate_correlation(n = sample_size, r = 0.3, mean = effect, sd = error))
   colnames(d) <- c("y", "x")
   d
 }
@@ -46,8 +46,6 @@ generate_and_process <- function(sample_size, error, effect, location, scale, si
 
   # results
   data.frame(
-    # Prior = simulate_prior(models$bayes)[["x"]],
-    # Posterior = as.data.frame(models$bayes)[["x"]],
     N = sample_size,
     Error = error,
     Location = location,
@@ -68,12 +66,12 @@ generate_and_process <- function(sample_size, error, effect, location, scale, si
 }
 
 
-sample_sizes <- seq(20, 200, by = 30)
-locations <- c(-.5, 0, .5, 1)
-scale <- .33
+sample_sizes <- seq(20, 200, by = 20)
+locations <- c(-0.6, -0.3, 0, 0.3, 0.6, 1)
+scale <- .3
 effect <- 0
 errors <- 2
-simulations <- 1:1000
+simulations <- 1:500
 
 result <- data.frame()
 pb <- txtProgressBar(min = 0, max = length(simulations), style = 3)
