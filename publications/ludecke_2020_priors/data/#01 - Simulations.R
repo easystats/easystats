@@ -20,28 +20,18 @@ compute_models <- function(dat, location, scale) {
   # model fitting
   m_freq <- lm(y ~ x, data = dat)
 
-  if (is.na(location)) {
-    m_stan <- stan_glm(
-      y ~ x,
-      data = dat,
-      family = gaussian(),
-      refresh = 0,
-      cores = 4
-    )
-  } else {
-    m_stan <- stan_glm(
-      y ~ x,
-      data = dat,
-      family = gaussian(),
-      prior = normal(
-        location = location,
-        scale = scale,
-        autoscale = FALSE
-      ),
-      refresh = 0,
-      cores = 4
-    )
-  }
+  m_stan <- stan_glm(
+    y ~ x,
+    data = dat,
+    family = gaussian(),
+    prior = normal(
+      location = location,
+      scale = scale,
+      autoscale = FALSE
+    ),
+    refresh = 0,
+    cores = 4
+  )
 
   list(bayes = m_stan, freq = m_freq)
 }
@@ -78,9 +68,9 @@ generate_and_process <- function(sample_size, error, effect, location, scale, si
 }
 
 
-sample_sizes <- round((4:10)^2.5)
+sample_sizes <- seq(20, 200, by = 30)
 locations <- c(-.5, 0, .5, 1)
-scale <- .8
+scale <- .33
 effect <- 0
 errors <- 2
 simulations <- 1:1000
@@ -127,15 +117,12 @@ attr(result, "effect") <- effect
 
 close(pb)
 
-save(result, file = sprintf(
-  "simulations_%i_%s.RData",
-  length(simulations),
-  gsub(".", "_", make.names(date()), fixed = TRUE)
-))
-
-result$Location[is.na(result$Location)] <- "weakly"
 result$Group <- sprintf("N=%i, Location=%s, Error=%g", result$N, result$Location, result$Error)
 
+save(result, file = sprintf(
+  "simulations_%s.RData",
+  gsub(".", "_", make.names(date()), fixed = TRUE)
+))
 
 result %>%
   group_by(N, Location) %>%
@@ -161,15 +148,15 @@ theme_set(theme_lucid())
 
 ggplot(result, aes(x = as.factor(Location), y = Median)) +
   geom_boxplot(width = .4) +
-  geom_jitter(alpha = .1, width = .1, height = 0, fill = NA) +
+  geom_jitter(alpha = .01, width = .1, height = 0, fill = NA) +
   facet_wrap(~N) +
-  geom_rug(alpha = .2)
+  geom_rug(alpha = .01)
 
 ggplot(result, aes(x = as.factor(N), y = Median)) +
   geom_boxplot(width = .4) +
-  geom_jitter(alpha = .1, width = .1, height = 0, fill = NA) +
+  geom_jitter(alpha = .01, width = .1, height = 0, fill = NA) +
   facet_wrap(~Location) +
-  geom_rug(alpha = .2)
+  geom_rug(alpha = .01)
 
 # tmp <- result %>% filter(Location == "weakly")
 # tmp$Prior[abs(tmp$Prior) > 20] <- NA
