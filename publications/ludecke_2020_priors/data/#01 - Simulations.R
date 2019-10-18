@@ -1,6 +1,6 @@
 # https://arxiv.org/abs/1708.07487
 library(tidyverse)
-library(strengejacke)
+library(ggeffects)
 library(insight)
 library(bayestestR)
 library(parameters)
@@ -155,6 +155,23 @@ ggplot(result, aes(x = as.factor(N), y = Median)) +
   geom_jitter(alpha = .01, width = .1, height = 0, fill = NA) +
   facet_wrap(~Location) +
   geom_rug(alpha = .01)
+
+
+library(splines)
+mod <- lm(Median ~ bs(N) * Location, data = result)
+
+ggpredict(mod, c("N", "Location")) %>%
+  plot(add.data = TRUE, grid = TRUE, colors = "bw", dot.alpha = .1)
+
+ggpredict(mod, c("N", "Location")) %>%
+  plot(add.data = TRUE, dot.alpha = .2, colors = "metro")
+
+ggpredict(mod, c("N", "Location")) %>%
+  plot(grid = TRUE, colors = "bw", dot.alpha = .1)
+
+ggpredict(mod, c("N", "Location")) %>%
+  plot(dot.alpha = .2, colors = "metro")
+
 
 # tmp <- result %>% filter(Location == "weakly")
 # tmp$Prior[abs(tmp$Prior) > 20] <- NA
