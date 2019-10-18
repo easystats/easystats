@@ -8,6 +8,9 @@ library(performance)
 library(see)
 library(rstanarm)
 
+
+# simulate data, with true effect of r = 0.3 ----------------------------------
+
 generate_data <- function(sample_size = 50, error = 3, effect = 0) {
   # Generate data
   d <- standardize(simulate_correlation(n = sample_size, r = 0.3, mean = effect, sd = error))
@@ -15,6 +18,9 @@ generate_data <- function(sample_size = 50, error = 3, effect = 0) {
   d
 }
 
+
+
+# fit linear models (Bayes and Freq)  ----------------------------------
 
 compute_models <- function(dat, location, scale) {
   # model fitting
@@ -36,6 +42,9 @@ compute_models <- function(dat, location, scale) {
   list(bayes = m_stan, freq = m_freq)
 }
 
+
+
+# Generate data, fit models, and extract relevant indices --------------------
 
 generate_and_process <- function(sample_size, error, effect, location, scale, simulation) {
   # data
@@ -66,12 +75,19 @@ generate_and_process <- function(sample_size, error, effect, location, scale, si
 }
 
 
+
+# Setup for simulations (sample size, prior locations)  -----------------------
+
 sample_sizes <- seq(20, 200, by = 20)
 locations <- c(-0.6, -0.3, 0, 0.3, 0.6, 0.9)
 scale <- .3
 effect <- 0
 errors <- 2
 simulations <- 1:500
+
+
+
+# prepare output, progress indicator -----------------------
 
 result <- data.frame()
 pb <- txtProgressBar(min = 0, max = length(simulations), style = 3)
@@ -81,6 +97,10 @@ current_progress <- 0
 set.seed(1207)
 
 tstart <- Sys.time()
+
+
+
+# Run, Forest, run!  -----------------------
 
 for (sample_size in sample_sizes) {
   for (location in locations) {
@@ -108,6 +128,10 @@ cat("\n\nElapsed time for simulations: ")
 cat(format(Sys.time() - tstart))
 cat("\n\n")
 
+
+
+# Add context information and save results -----------------------
+
 attr(result, "elapsed_time") <- format(Sys.time() - tstart)
 attr(result, "scale") <- scale
 attr(result, "location") <- locations
@@ -122,6 +146,10 @@ save(result, file = sprintf(
   gsub(".", "_", make.names(date()), fixed = TRUE)
 ))
 
+
+
+# Descriptives of results  -----------------------
+
 result %>%
   group_by(N, Location) %>%
   summarise(
@@ -132,7 +160,6 @@ result %>%
   print(n = 200)
 
 
-
 result %>%
   group_by(N) %>%
   summarise(
@@ -141,6 +168,9 @@ result %>%
   ) %>%
   print(n = 200)
 
+
+
+# Plots of results  -----------------------
 
 theme_set(theme_lucid())
 
@@ -156,6 +186,9 @@ ggplot(result, aes(x = as.factor(N), y = Median)) +
   facet_wrap(~Location) +
   geom_rug(alpha = .01)
 
+
+
+# Trend of relation between sample size and prior location  -------------------
 
 library(splines)
 mod <- lm(Median ~ bs(N) * Location, data = result)
