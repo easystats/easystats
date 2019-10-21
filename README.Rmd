@@ -108,7 +108,7 @@ library(intergraph)
   
 pkg <- devtools::as.package(".")
 
-dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "estimate")
+dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "estimate", "effectsize")
 
 dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
 class(dependency_graph) <- "igraph"
@@ -176,7 +176,7 @@ pkg <- devtools::as.package(".")
 
 dependencies <- c(
   "insight", "bayestestR", "performance", "parameters", "see",
-  "correlation", "estimate", "report"
+  "correlation", "estimate", "report", "effectsize"
 )
 
 dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
