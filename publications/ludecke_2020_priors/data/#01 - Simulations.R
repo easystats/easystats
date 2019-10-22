@@ -142,13 +142,14 @@ cat("\n\n")
 # Add context information and save results -----------------------
 
 attr(result, "elapsed_time") <- format(Sys.time() - tstart)
-attr(result, "scale") <- scale
+attr(result, "scale") <- prior_scales
 attr(result, "location") <- locations
 attr(result, "effect") <- effect
+attr(result, "true_effect") <- true_effect
 
 close(pb)
 
-result$Group <- sprintf("N=%i, Location=%s", result$N, result$Location)
+result$Group <- sprintf("N=%i, Location=%g, Scale=%g", result$N, result$Location, result$Scale)
 
 save(result, file = sprintf(
   "simulations_%s.RData",
