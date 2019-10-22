@@ -58,6 +58,7 @@ generate_and_process <- function(sample_size, effect, true_effect, location, sca
   data.frame(
     N = sample_size,
     Location = location,
+    Scale = scale,
     Effect = effect,
     Simulation = simulation,
     Mean = point_estimate(models$bayes, "all")$Mean[2],
@@ -76,14 +77,22 @@ generate_and_process <- function(sample_size, effect, true_effect, location, sca
 
 
 
+# Define prior scales ----------------------------------------
+
+# "For the rscale argument, several named values are recognized:
+# "medium.narrow", "medium", "wide", and "ultrawide". These correspond
+# to r scale values of 1/sqrt(27), 1/3, 1/sqrt(3) and 1, respectively.".
+# https://www.rdocumentation.org/packages/BayesFactor/versions/0.9.12-4.2/topics/correlationBF)
+
+prior_scales <- 1/sqrt(3^(1:4))
+
 # Setup for simulations (sample size, prior locations)  -----------------------
 
 sample_sizes <- seq(20, 200, by = 5)
 locations <- c(-0.6, -0.3, 0, 0.3, 0.6)
-scale <- .3
 effect <- 0
 true_effect <- .3
-simulations <- 1:250
+simulations <- 1:200
 
 
 
@@ -91,7 +100,7 @@ simulations <- 1:250
 
 result <- data.frame()
 pb <- txtProgressBar(min = 0, max = length(simulations), style = 3)
-total_progress <- length(sample_sizes) * length(locations)
+total_progress <- length(sample_sizes) * length(locations) * length(prior_scales)
 current_progress <- 0
 
 set.seed(1207)
@@ -104,20 +113,23 @@ tstart <- Sys.time()
 
 for (sample_size in sample_sizes) {
   for (location in locations) {
-    for (simulation in simulations) {
-      out <- generate_and_process(
-        sample_size = sample_size,
-        effect = effect,
-        true_effect = true_effect,
-        location = location,
-        scale = scale,
-        simulation = simulation
-      )
-      result <- rbind(result, out)
-      setTxtProgressBar(pb, simulation)
+    for (scale in prior_scales) {
+      current_progress <- current_progress + 1
+      for (simulation in simulations) {
+        out <- generate_and_process(
+          sample_size = sample_size,
+          effect = effect,
+          true_effect = true_effect,
+          location = location,
+          scale = scale,
+          simulation = simulation
+        )
+        result <- rbind(result, out)
+        setTxtProgressBar(pb, simulation)
+      }
+      cat("\nFinished N=", sample_size, ", Location=", location, "\n")
+      cat("Total progress:", round(100 * current_progress / total_progress), "%", "\n")
     }
-    cat("\nFinished N=", sample_size, ", Location=", location, "\n")
-    cat("Total progress:", round(100 * current_progress / total_progress), "%", "\n")
   }
 }
 
