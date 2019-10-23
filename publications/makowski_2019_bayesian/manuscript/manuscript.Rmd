@@ -90,7 +90,7 @@ The *MAP-based p-value* is related to the odds that a parameter has against the 
 
 ### ROPE (95\%)
 
-The *ROPE (95\%)* refers to the percentage of the 95\% Highest Density Interval (HDI) that lies within the ROPE. As suggested by @kruschke2014doing, the Region of Practical Equivalence (ROPE) was defined as range from -0.1 to 0.1 for linear regressions and its equivalent, -0.18 to 0.18, for logistic models [based on the $\pi/\sqrt{3}$ formula to convert log odds ratios to standardized differences; @cohen1988statistical].
+The *ROPE (95\%)* refers to the percentage of the 95\% Highest Density Interval (HDI) that lies within the ROPE. As suggested by @kruschke2014doing, the Region of Practical Equivalence (ROPE) was defined as range from -0.1 to 0.1 for linear regressions and its equivalent, -0.18 to 0.18, for logistic models [based on the $\pi/\sqrt{3}$ formula to convert log odds ratios to standardized differences; @cohen1988statistical]. *Although we present the "95\% percentage" because of the history of this index and of its widespread use, the reader should note that this value was recently challenged due to its arbitrary [@mcelreath2018rethinking].*
 
 ### ROPE (full)
 
