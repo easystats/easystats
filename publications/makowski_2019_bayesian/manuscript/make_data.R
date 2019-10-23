@@ -21,7 +21,7 @@ df_normalized <- df %>%
   # mutate_at(vars("BF_log", "BF_ROPE_log"), function(x) ifelse(x >= log(999), NA, x)) %>%
   mutate_at(vars("BF_log", "BF_ROPE_log"), stats::plogis) %>%
   # Normalize all indices between 0 and 1
-  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
+  effectsize::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
   # Inverse BFs and pd so that higher value = higher evidence for effect
   mutate_at(vars("p_value", "p_MAP", "ROPE_95", "ROPE_full"), function(x) -1*x + 1) %>%
   # Reshape
@@ -36,7 +36,7 @@ df_logodds <- df %>%
   mutate(p_direction = (p_direction - 0.5) * 2) %>% # prevent artifact due to pd not being bounded [0-1] but [0.5-1].
   mutate_at(vars("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full"), ~log(.x / (1-.x))) %>%
   filter_at(vars("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full"), ~!is.infinite(.x)) %>% # lose about 15% of observations...
-  parameters::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
+  effectsize::normalize(select = c("p_value", "p_direction", "p_MAP", "ROPE_95", "ROPE_full", "BF_log", "BF_ROPE_log")) %>%
   mutate_at(vars("p_value", "p_MAP", "ROPE_95", "ROPE_full"), function(x) -1*x + 1) %>%
   select(p_value, p_direction, p_MAP, ROPE_95, ROPE_full, BF_log, BF_ROPE_log, sample_size, outcome_type, error, true_effect) %>%
   tidyr::gather("Index", "Value", -sample_size, -outcome_type, -error, -true_effect) %>%
