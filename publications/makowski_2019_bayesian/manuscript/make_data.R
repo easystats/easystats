@@ -1,5 +1,6 @@
 library(dplyr)
 library(tidyr)
+library(effectsize)
 library(parameters)
 library(performance)
 library(ggplot2)
