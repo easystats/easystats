@@ -13,9 +13,10 @@ ind_names <- c(
 
 # TABLE 1: Impact of sample size ------------------------------------------
 
-table1 <- df_normalized %>%
-  lm(Value ~ outcome_type / true_effect / Index / sample_size + error, data = .) %>%
+model1 <- lm(Value ~ outcome_type / true_effect / Index / sample_size + error, data = df_normalized)
+table1 <- model1 %>%
   parameters::model_parameters() %>%
+  left_join(standardize_parameters(model1), by = "Parameter") %>%
   filter(grepl("sample_size", Parameter)) %>%
   mutate(Coefficient = abs(Std_Coefficient),
          Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
@@ -46,10 +47,10 @@ table1$Index <- ind_names
 
 # TABLE 2: Impact of Noise ------------------------------------------------
 
-table2 <- df_normalized %>%
-  filter(true_effect == "Presence") %>%
-  lm(Value ~ outcome_type / Index / error + sample_size, data = .) %>%
+model2 <- lm(Value ~ outcome_type / Index / error + sample_size, data = filter(df_normalized, true_effect == "Presence"))
+table2 <- model2 %>%
   parameters::model_parameters() %>%
+  left_join(standardize_parameters(model2), by = "Parameter") %>%
   filter(grepl("error", Parameter)) %>%
   mutate(Coefficient = abs(Std_Coefficient),
          Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
