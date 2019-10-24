@@ -11,29 +11,54 @@ library(rstanarm)
 
 # Plots of results  -----------------------
 
-pdf("results.pdf", width = 12, height = 12)
+levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
 
-ggplot(result, aes(x = as.factor(N), y = Median)) +
+p <- ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location))) +
+  geom_hline(yintercept = .3, color = "#a20025", size = .6) +
   geom_point(alpha = .01, fill = NA, size = 1) +
-  facet_wrap(~Location) +
-  geom_hline(yintercept = .3, color = "darkred") +
-  theme_lucid() +
-  theme(
-    panel.grid.major.x = element_blank(),
-    panel.grid.minor.x = element_blank()
-  )
-
-ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location))) +
-  geom_point(alpha = .05, fill = NA, size = 1) +
-  geom_hline(yintercept = .3, color = "darkred") +
+  facet_wrap(~Scale) +
   theme_lucid() +
   theme(
     # panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank()
   ) +
-  scale_color_metro()
+  scale_color_metro() +
+  scale_x_discrete(breaks = seq(0, 200, 50), labels = seq(0, 200, 50)) +
+  guides(colour = guide_legend(reverse = TRUE, override.aes = list(alpha = 1))) +
+  labs(
+    title = "Posterior Median by Sample Size, Prior Location and Prior Scale",
+    subtitle = "for True Effect of 0.3",
+    y = "Average Posterior Median",
+    x = "Sample Size",
+    colour = "Prior Location"
+  )
 
-dev.off()
+ggsave("result.pdf", plot = p, device = "pdf", scale = 2, width = 14, height = 12, unit = "cm", dpi = 300)
+#
+#
+# pdf("results.pdf", width = 12, height = 12)
+#
+# ggplot(result, aes(x = as.factor(N), y = Median)) +
+#   geom_point(alpha = .01, fill = NA, size = 1) +
+#   facet_wrap(~Location) +
+#   geom_hline(yintercept = .3, color = "darkred") +
+#   theme_lucid() +
+#   theme(
+#     panel.grid.major.x = element_blank(),
+#     panel.grid.minor.x = element_blank()
+#   )
+#
+# ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location))) +
+#   geom_point(alpha = .05, fill = NA, size = 1) +
+#   geom_hline(yintercept = .3, color = "darkred") +
+#   theme_lucid() +
+#   theme(
+#     # panel.grid.major.x = element_blank(),
+#     panel.grid.minor.x = element_blank()
+#   ) +
+#   scale_color_metro()
+#
+# dev.off()
 
 
 

@@ -68,7 +68,7 @@ generate_and_process <- function(sample_size, effect, true_effect, location, sca
     HDI_low = hdi(models$bayes)$CI_low[2],
     HDI_high = hdi(models$bayes)$CI_high[2],
     Coefficient = coef(models$freq)["x"],
-    SE = standard_error(models$freq)[2],
+    SE = standard_error(models$freq)$SE[2],
     CI_low = ci(models$freq)$CI_low[2],
     CI_high = ci(models$freq)$CI_high[2],
     stringsAsFactors = FALSE
@@ -150,6 +150,9 @@ attr(result, "true_effect") <- true_effect
 close(pb)
 
 result$Group <- sprintf("N=%i, Location=%g, Scale=%g", result$N, result$Location, result$Scale)
+
+result$Scale <- factor(result$Scale)
+levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
 
 save(result, file = sprintf(
   "simulations_%s.RData",
