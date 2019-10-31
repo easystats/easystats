@@ -347,6 +347,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`degrees_of_freedom`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`demean`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`density_at`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`describe_distribution`**](https://easystats.github.io/parameters/reference/index.html)
@@ -739,8 +741,6 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`r2`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`remove_triangular`**](https://easystats.github.io/correlation/reference/index.html)
-    *(correlation)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`report_participants`**](https://easystats.github.io/report/reference/index.html)
