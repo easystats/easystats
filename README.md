@@ -152,6 +152,21 @@ The corresponding *bibtex* entries are the following:
         pages = {1541}
     }
 
+# Versioning
+
+Package version numbers indicate following:
+`MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or
+less rapidly developing and changig state, the **major** version number
+is typically `0`. Once we think we will have a stable base that will
+likely not change dramatically or soon, the major version number will be
+set to `1`, and increased for following major changes that probably
+break the current API. When new features are added or (re)moved, we
+typicaly increase the **minor** version number. Minimal changes or bug
+fixes only are indicated by increasing the **patch** version number.
+Current development versions of our poackages (i.e. master branchs from
+GitHub) additionally have a **development** version number. You
+typically won’t find packages on CRAN with a development version number.
+
 # Downloads
 
 ### Trend
@@ -413,6 +428,8 @@ follow a consistent pattern across all packages.
     *(estimate)*
   - [**`eti`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`factor_analysis`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`find_algorithm`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_formula`**](https://easystats.github.io/insight/reference/index.html)
@@ -741,6 +758,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`r2`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`remove_triangular`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`report_participants`**](https://easystats.github.io/report/reference/index.html)

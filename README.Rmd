@@ -281,6 +281,9 @@ The corresponding *bibtex* entries are the following:
 }
 ```
 
+# Versioning
+
+Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or less rapidly developing and changig state, the **major** version number is typically `0`. Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to `1`, and increased for following major changes that probably break the current API. When new features are added or (re)moved, we typicaly increase the **minor** version number. Minimal changes or bug fixes only are indicated by increasing the **patch** version number. Current development versions of our poackages (i.e. master branchs from GitHub) additionally have a **development** version number. You typically won't find packages on CRAN with a development version number.
 
 # Downloads 
 
