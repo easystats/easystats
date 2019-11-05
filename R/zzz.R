@@ -1,9 +1,3 @@
-load <- c(
-  "insight", "bayestestR", "performance", "parameters", "see",
-  "effectsize", "correlation", "estimate", "report"
-)
-
-
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
   easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "estimate", "report")
