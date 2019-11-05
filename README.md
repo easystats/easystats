@@ -156,8 +156,11 @@ The corresponding *bibtex* entries are the following:
 
 Package version numbers indicate following:
 `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or
-less rapidly developing and changig state, the **major** version number
-is typically `0`. Once we think we will have a stable base that will
+less rapidly developing and changing state, the **major** version number
+is typically `0` (until we are out of alpha phase, users should be prepared 
+to see breaking changes - although we try to avoid them as much as possible - 
+and functions or arguments that are renamed or moved to other packages). 
+Once we think we will have a stable base that will
 likely not change dramatically or soon, the major version number will be
 set to `1`, and increased for following major changes that probably
 break the current API. When new features are added or (re)moved, we
