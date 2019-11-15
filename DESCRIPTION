@@ -1,7 +1,7 @@
 Package: easystats
 Type: Package
 Title: Jump in the easyverse
-Version: 0.1.3
+Version: 0.1.4
 Authors@R: c(
 	person("Daniel", 
 		"Lüdecke", 
@@ -24,6 +24,7 @@ Imports:
   bayestestR,
   performance,
   parameters,
+  effectsize,
   see
 Remotes: 
 	easystats/insight,
@@ -38,4 +39,4 @@ Remotes:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0

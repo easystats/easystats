@@ -50,6 +50,7 @@ options(knitr.kable.NA = '',
 <a herf = "https://github.com/easystats/bayestestR"><img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="102" /></a>
 <a herf = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="102" /></a>
 <a herf = "https://github.com/easystats/performance"><img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="102" /></a>
+<a herf = "https://github.com/easystats/effectsize"><img src='https://github.com/easystats/effectsize/raw/master/man/figures/logo.png' align="left" height="102" /></a>
 <a herf = "https://github.com/easystats/estimate"><img src='https://github.com/easystats/estimate/raw/master/man/figures/logo.png' align="left" height="102" /></a>
 <a herf = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="102" /></a>
 <a herf = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="102" /></a>
@@ -307,13 +308,16 @@ downloads_see <- cranlogs::cran_downloads(package = "see", from = "2019-05-22") 
   mutate(Package = "see")
 downloads_parameters <- cranlogs::cran_downloads(package = "parameters", from = "2019-08-26") %>% 
   mutate(Package = "parameters")
+downloads_effectsize <- cranlogs::cran_downloads(package = "effectsize", from = "2019-11-15") %>% 
+  mutate(Package = "effectsize")
 
 # Combine all data
 data <- rbind(downloads_insight,
               downloads_bayestestR,
               downloads_performance,
               downloads_see,
-              downloads_parameters) %>% 
+              downloads_parameters,
+              downloads_effectsize) %>% 
   group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
@@ -323,7 +327,7 @@ data <- rbind(downloads_insight,
          quarters = quarters(date),
          month_day = lubridate::mday(date)) %>% 
   ungroup() %>% 
-  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters"))
+  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize"))
 
 
 events <- data.frame()
@@ -345,7 +349,8 @@ events <- rbind(events,
                                            "2019-07-01",
                                            "2019-08-05",
                                            "2019-08-26",
-                                           "2019-09-26"
+                                           "2019-09-26",
+                                           "2019-11-15"
                                            )), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - insight (0.2.0)",
@@ -360,7 +365,8 @@ events <- rbind(events,
                                   "CRAN - insight (0.4.0)",
                                   "CRAN - performance (0.3.0)",
                                   "CRAN - parameters (0.1.0)",
-                                  "CRAN - parameters (0.2.0)"
+                                  "CRAN - parameters (0.2.0)",
+                                  "CRAN - effectsize (0.0.1)"
                                   ), 
                           Package=c("insight", 
                                     "insight",
@@ -375,7 +381,8 @@ events <- rbind(events,
                                     "insight",
                                     "performance",
                                     "parameters",
-                                    "parameters"
+                                    "parameters",
+                                    "effectsize"
                                     ), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
@@ -406,7 +413,8 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
                       "bayestestR" = unname(see::material_colors("pink")),
                       "performance" = unname(see::material_colors("green")),
                       "see" = unname(see::material_colors("blue")),
-                      "parameters" = unname(see::material_colors("purple")))
+                      "parameters" = unname(see::material_colors("purple")),
+                      "effectsize" = unname(see::material_colors("brown")))
 ```
 
 ### Trend
@@ -414,7 +422,7 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
 # TIME TREND
 data %>%
   group_by(Package) %>% 
-  slice(1:(n()-2)) %>%  # Remove 2 last days to avoid edge issues
+  # slice(1:(n()-2)) %>%  # Remove 2 last days to avoid edge issues
   ungroup() %>%  
   ggplot(aes(x = date, color = Package)) +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
@@ -538,11 +546,12 @@ library(parameters)
 library(performance)
 library(correlation)
 library(estimate)
+library(effectsize)
 library(report)
 
 all_funs <- data.frame()
 
-for (package in c("insight", "bayestestR", "parameters", "performance", "correlation", "estimate", "report", "see")) {
+for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "estimate", "report", "see")) {
   
   name <- lsf.str(paste0("package:", package))
   name <- unlist(strsplit(name, " "))
