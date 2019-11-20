@@ -327,9 +327,9 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`cluster_discrimination`**](https://easystats.github.io/parameters/reference/index.html)
+  - [**`cluster_analysis`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`cluster_groups`**](https://easystats.github.io/parameters/reference/index.html)
+  - [**`cluster_discrimination`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`cmds`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*

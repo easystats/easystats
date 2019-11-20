@@ -553,9 +553,8 @@ all_funs <- data.frame()
 
 for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "estimate", "report", "see")) {
   
-  name <- lsf.str(paste0("package:", package))
-  name <- unlist(strsplit(name, " "))
-  
+  name <- ls(paste0("package:", package))
+
   functions <- paste0("[**`", 
                       name, 
                       "`**](https://easystats.github.io/", 
