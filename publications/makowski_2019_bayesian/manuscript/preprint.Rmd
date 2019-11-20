@@ -39,7 +39,7 @@ abstract: |
   Turmoil has engulfed psychological science. Causes and consequences of the reproducibility crisis are in dispute. With the hope of addressing some of its aspects, Bayesian methods are gaining increasing attention in psychological science. Some of their advantages, as opposed to the frequentist framework, are the ability to describe parameters in probabilistic terms and explicitly incorporate prior knowledge about them into the model. These issues are crucial in particular regarding the current debate about statistical significance. Bayesian methods are not necessarily the only remedy against incorrect interpretations or wrong conclusions, but there is an increasing agreement that they are one of the keys to avoid such fallacies. Nevertheless, its flexible nature is its power and weakness, for there is no agreement about what indices of "significance" should be computed or reported. This lack of a consensual index or guidelines further contributes to the unnecessary opacity that many non-familiar readers perceive in Bayesian statistics. Thus, this study describes and compares several Bayesian indices, provide intuitive visual representation of their "behavior" in relationship with common sources of variance such as sample size, magnitude of effects and also frequentist significance. The results contribute to the development of an intuitive understanding of the values that researchers report, allowing to draw sensible recommendations for Bayesian statistics description, critical for the standardization of scientific reporting.
   
 keywords          : "Bayesian, significance, NHST, *p*-value, Bayes factors"
-wordcount         : "6194"
+wordcount         : "6326"
 
 bibliography      : ["bibliography.bib"]
 
@@ -130,7 +130,7 @@ The *MAP-based p-value* is related to the odds that a parameter has against the 
 
 ### ROPE (95\%)
 
-The *ROPE (95\%)* refers to the percentage of the 95\% Highest Density Interval (HDI) that lies within the ROPE. As suggested by @kruschke2014doing, the Region of Practical Equivalence (ROPE) was defined as range from -0.1 to 0.1 for linear regressions and its equivalent, -0.18 to 0.18, for logistic models [based on the $\pi/\sqrt{3}$ formula to convert log odds ratios to standardized differences; @cohen1988statistical]. Although we present the "95\% percentage" because of the history of this index and of its widespread use, the reader should note that this value was recently challenged due to its arbitrary [@mcelreath2018rethinking].
+The *ROPE (95\%)* refers to the percentage of the 95\% Highest Density Interval (HDI) that lies within the ROPE. As suggested by @kruschke2014doing, the Region of Practical Equivalence (ROPE) was defined as range from -0.1 to 0.1 for linear regressions and its equivalent, -0.18 to 0.18, for logistic models [based on the $\pi/\sqrt{3}$ formula to convert log odds ratios to standardized differences; @cohen1988statistical]. Although we present the "95\% percentage" because of the history of this index and of its widespread use, the reader should note that this value was recently challenged due to its arbitrary nature [@mcelreath2018rethinking].
 
 ### ROPE (full)
 

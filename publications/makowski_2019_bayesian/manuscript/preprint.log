@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.17)  24 OCT 2019 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.9.12)  4 NOV 2019 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -26,7 +26,7 @@ File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 )
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.st
 y
-Package: etoolbox 2019/09/09 v2.5g e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count88
 )
 Class apa6 Info: No bibliography package was specified; defaulting to (but not 
@@ -478,7 +478,7 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ))
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.st
 y
-Package: hyperref 2019/09/12 v6.88i Hypertext links for LaTeX
+Package: hyperref 2019/06/12 v6.88h Hypertext links for LaTeX
 
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/hobsub-hy
 perref.sty
@@ -530,7 +530,7 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 \Hy@linkcounter=\count117
 \Hy@pagecounter=\count118
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2019/09/12 v6.88i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2019/06/12 v6.88h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -573,7 +573,7 @@ LaTeX Info: Redefining \pageref on input line 6485.
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2019/09/12 v6.88i Hyperref driver for pdfTeX
+File: hpdftex.def 2019/06/12 v6.88h Hyperref driver for pdfTeX
 \Fld@listcount=\count125
 \c@bookmark@seq@number=\count126
 
@@ -587,7 +587,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `unicode' set `true' on input line 30.
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2019/09/12 v6.88i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2019/06/12 v6.88h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -814,7 +814,7 @@ Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 111.
 
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2019/09/12 v2.45 Cross-referencing by name of section
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/gettitles
 tring.sty
@@ -873,11 +873,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [1{c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}
 
-] [2] [3] [4] [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+] [2] [3] [4]
+Underfull \vbox (badness 7649) has occurred while \output is active []
 
-[6] [7] [8]
-<figures/Figure1.png, id=172, 858.5676pt x 607.068pt>
+[5] [6] [7] [8]
+<figures/Figure1.png, id=171, 858.5676pt x 607.068pt>
 File: figures/Figure1.png Graphic file (type png)
 <use figures/Figure1.png>
 Package pdftex.def Info: figures/Figure1.png  used on input line 185.
@@ -892,6 +892,9 @@ File: figures/Figure2.png Graphic file (type png)
 Package pdftex.def Info: figures/Figure2.png  used on input line 209.
 (pdftex.def)             Requested size: 328.82152pt x 465.04756pt.
 [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[12 <./figures/Figure2.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 223.
 
@@ -902,22 +905,20 @@ Overfull \hbox (33.29446pt too wide) in paragraph at lines 223--237
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[12 <./figures/Figure2.png>]
-<figures/Figure3.png, id=199, 689.777pt x 975.4844pt>
+[13]
+<figures/Figure3.png, id=206, 689.777pt x 975.4844pt>
 File: figures/Figure3.png Graphic file (type png)
 <use figures/Figure3.png>
 Package pdftex.def Info: figures/Figure3.png  used on input line 246.
 (pdftex.def)             Requested size: 328.8368pt x 465.04187pt.
+[14]
+
+LaTeX Warning: Text page 15 contains only floats.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[13]
-Underfull \vbox (badness 2012) has occurred while \output is active []
-
-[14 <./figures/Figure3.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[15]
+[15 <./figures/Figure3.png>]
 <figures/Figure4.png, id=219, 689.777pt x 975.4844pt>
 File: figures/Figure4.png Graphic file (type png)
 <use figures/Figure4.png>
@@ -928,11 +929,9 @@ File: figures/Figure5.png Graphic file (type png)
 <use figures/Figure5.png>
 Package pdftex.def Info: figures/Figure5.png  used on input line 294.
 (pdftex.def)             Requested size: 422.7717pt x 298.92949pt.
-<figures/Figure6.png, id=221, 607.068pt x 607.068pt>
-File: figures/Figure6.png Graphic file (type png)
-<use figures/Figure6.png>
-Package pdftex.def Info: figures/Figure6.png  used on input line 308.
-(pdftex.def)             Requested size: 422.77713pt x 422.77713pt.
+
+Underfull \vbox (badness 3657) has occurred while \output is active []
+
 [16]
 
 LaTeX Warning: Text page 17 contains only floats.
@@ -941,8 +940,11 @@ LaTeX Warning: Text page 17 contains only floats.
 Underfull \vbox (badness 8019) has occurred while \output is active []
 
 [17 <./figures/Figure4.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+<figures/Figure6.png, id=232, 607.068pt x 607.068pt>
+File: figures/Figure6.png Graphic file (type png)
+<use figures/Figure6.png>
+Package pdftex.def Info: figures/Figure6.png  used on input line 308.
+(pdftex.def)             Requested size: 422.77713pt x 422.77713pt.
 [18 <./figures/Figure5.png>] [19 <./figures/Figure6.png (PNG copy)>]
 Underfull \vbox (badness 3977) has occurred while \output is active []
 
@@ -964,27 +966,30 @@ LaTeX Warning: Text page 22 contains only floats.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[22] [23] [24] [25]
+[22] [23] [24]
+Underfull \vbox (badness 3977) has occurred while \output is active []
+
+[25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] AED endfloat: Processing end 
 Figures and Tables [36]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 603.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 603.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 606.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 606.
 (./preprint.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 603.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 603.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 606.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 606.
 Package rerunfilecheck Info: File `preprint.out' has not changed.
 (rerunfilecheck)             Checksum: 47A37AEFF1BB248E4BD3DE181EAC7B14;4242.
  ) 
 Here is how much of TeX's memory you used:
- 13769 strings out of 494553
- 201800 string characters out of 6176105
- 293989 words of memory out of 5000000
- 17049 multiletter control sequences out of 15000+600000
+ 13777 strings out of 494553
+ 201902 string characters out of 6176105
+ 293783 words of memory out of 5000000
+ 17056 multiletter control sequences out of 15000+600000
  70659 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,10n,47p,1938b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,10n,47p,2202b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 }{c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
 enc}{c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.e
@@ -1002,10 +1007,10 @@ ype1/public/lm/lmri12.pfb><c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/font
 s/type1/public/lm/lmss8.pfb><c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/public/lm/lmsy10.pfb><c:/Users/Dom/AppData/Roaming/TinyTeX/texmf-dist
 /fonts/type1/public/lm/lmsy8.pfb>
-Output written on preprint.pdf (36 pages, 9199493 bytes).
+Output written on preprint.pdf (36 pages, 9200475 bytes).
 PDF statistics:
- 484 PDF objects out of 1000 (max. 8388607)
- 419 compressed objects within 5 object streams
- 161 named destinations out of 1000 (max. 500000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 421 compressed objects within 5 object streams
+ 162 named destinations out of 1000 (max. 500000)
  247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
