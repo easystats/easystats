@@ -422,7 +422,7 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
 # TIME TREND
 data %>%
   group_by(Package) %>% 
-  # slice(1:(n()-2)) %>%  # Remove 2 last days to avoid edge issues
+  slice(1:(n()-2)) %>%  # Remove 2 last days to avoid edge issues
   ungroup() %>%  
   ggplot(aes(x = date, color = Package)) +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +

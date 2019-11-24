@@ -1067,6 +1067,10 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`theme_modern`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`theme_radar_dark`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`theme_radar`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`to_fulltable`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`to_fulltext`**](https://easystats.github.io/report/reference/index.html)
