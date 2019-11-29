@@ -469,6 +469,10 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`dof_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`dof_ml1`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`dof_satterthwaite`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`dof`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`download_model`**](https://easystats.github.io/insight/reference/index.html)
@@ -771,7 +775,11 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`p_value_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`p_value_ml1`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`p_value_robust`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`p_value_satterthwaite`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`p_value_wald`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -1002,6 +1010,10 @@ follow a consistent pattern across all packages.
   - [**`sd_pooled`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`se_kenward`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`se_ml1`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`se_satterthwaite`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
