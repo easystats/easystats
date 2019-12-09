@@ -11,7 +11,10 @@ library(magick)
 
 set.seed(333)
 
-data <- bayestestR::simulate_correlation(n=20, r=0.2)
+true_effect <- 0.5
+prior_width <- 0.333
+
+data <- bayestestR::simulate_correlation(n=60, r=true_effect)
 vizmatrix <- estimate::visualisation_matrix(data["V2"])
 
 
@@ -20,7 +23,7 @@ posteriors <- data.frame()
 params <- data.frame()
 prediction <- data.frame()
 raw_data <- data.frame()
-for(i in 4:nrow(data)){
+for(i in 5:nrow(data)){
   print(i)
 
   current_data <- data[1:i,]
@@ -28,7 +31,7 @@ for(i in 4:nrow(data)){
   raw_data <- rbind(raw_data, current_data)
 
   model <- rstanarm::stan_glm(V1 ~ V2,
-                              prior = normal(0, 0.2),
+                              prior = normal(0, prior_width),
                               data=current_data,
                               refresh = 0,
                               iter=10000,
@@ -52,12 +55,15 @@ for(i in 4:nrow(data)){
   posterior$Evidence <- i
   posteriors <- rbind(posteriors, posterior)
 
-  prior <- bayestestR::estimate_density(bayestestR::distribution_normal(1000, 0, 0.2), method="KernSmooth")
+  prior <- bayestestR::estimate_density(bayestestR::distribution_normal(1000, 0, prior_width), method="KernSmooth")
   prior$Evidence <- i
   priors <- rbind(priors, prior)
 }
 
 
+
+
+# Make Figures ------------------------------------------------------------
 
 
 
@@ -66,8 +72,12 @@ p_posterior <- ggplot(posteriors, aes(x=x, y=y)) +
   geom_segment(x = 0 , y = 0, xend = 0, yend = max(priors$y), size=0.5, color="#3F51B5", linetype = "dashed") +
   geom_segment(data=params, aes(x = Median , y = 0, xend = Median, yend = Max, color=Evidence), size=0.5, linetype = "dashed") +
   geom_line(aes(color=Evidence), size=1.5) +
-  geom_vline(xintercept=0.2, color="#E91E63", size=1) +
+  geom_vline(xintercept=true_effect, color="#E91E63", size=1) +
   scale_colour_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
+  annotate("segment", x = 0.05, xend = true_effect, y = 1.25, yend = 1.25, colour = "#E91E63", size=1, arrow=arrow(length = unit(0.10, "inches"), type="closed")) +
+  annotate("text", x = 0, y = 1.25, hjust = 1, colour = "#E91E63", label="True effect") +
+  annotate("segment", x = -0.7, xend = -prior_width, y = 0.75, yend = 0.75, colour = "#2196F3", size=1, arrow=arrow(length = unit(0.10, "inches"), type="closed")) +
+  annotate("text", x = -0.75, y = 0.75, hjust = 1, colour = "#2196F3", label="Prior") +
   scale_x_continuous(breaks = scales::pretty_breaks(n = 7)) +
   scale_y_continuous(expand = c(0, 0)) +
   see::theme_modern() +
@@ -75,10 +85,10 @@ p_posterior <- ggplot(posteriors, aes(x=x, y=y)) +
   ylab("Probability") +
   theme(axis.ticks.y = element_blank(),
         axis.text.y = element_blank()) +
-  coord_cartesian(xlim=c(-0.6, 0.6)) +
-  gganimate::transition_time(Evidence) +
+  coord_cartesian(xlim=c(-1, 1)) +
+  gganimate::transition_time(Evidence)
   # view_follow(fixed_y = TRUE)
-anim_posterior <- animate(p_posterior, duration=nrow(data)/4, detail=1)
+anim_posterior <- animate(p_posterior, duration=nrow(data)/4, fps=20)
 # anim_posterior
 # gganimate::anim_save("evidence_accumulation.gif", anim_posterior)
 
@@ -90,14 +100,14 @@ p_significance <- params %>%
   tidyr::pivot_longer(cols=-Evidence, names_to = "Index", values_to = "Value") %>%
   mutate(Index = forcats::fct_relevel(Index, "p (direction)", "p (0)", "p (ROPE)", "BF (ROPE)", "BF (0)")) %>%
   ggplot(aes(x=Evidence, y=Value, color=Index, group=1)) +
-  geom_line(size=1) +
-  scale_color_manual(values = c("p (direction)"="#9C27B0", "p (0)"="#f44336", "p (ROPE)"="#FF5722", "BF (0)"="#4CAF50", "BF (ROPE)"="#CDDC39"), guide=FALSE) +
+  geom_line(size=2) +
+  scale_color_manual(values = c("p (direction)"="#9C27B0", "p (0)"="#f44336", "p (ROPE)"="#FFC107", "BF (0)"="#4CAF50", "BF (ROPE)"="#CDDC39"), guide=FALSE) +
   facet_wrap(~Index, nrow=5, scales = "free") +
   ylab("") +
   xlab("Evidence (Sample Size)") +
-  see::theme_modern()
+  see::theme_modern() +
   gganimate::transition_reveal(Evidence)
-anim_significance <- animate(p_significance, duration=nrow(data)/4, detail=1)
+anim_significance <- animate(p_significance, duration=nrow(data)/4, fps=20)
 # anim_significance
 # gganimate::anim_save("evidence_accumulation.gif", anim_significance)
 
@@ -116,7 +126,7 @@ p_correlation <- ggplot(data=raw_data, aes(y=V1, x=V2)) +
   scale_fill_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
   gganimate::transition_time(Evidence) +
   labs(title = "Evidence (Sample Size): {frame_time}")
-anim_correlation <- animate(p_correlation, duration=nrow(data)/4, detail=1)
+anim_correlation <- animate(p_correlation, duration=nrow(data)/4, fps=20)
 
 # Final plot --------------------------------------------------------------
 
@@ -130,9 +140,6 @@ for(i in 2:length(b)){
   final <- c(final, combined)
 }
 
-final
+# final
 gganimate::anim_save("evidence_accumulation.gif", final)
 
-
-
-# https://www.datanovia.com/en/blog/gganimate-how-to-create-plots-with-beautiful-animation-in-r/
