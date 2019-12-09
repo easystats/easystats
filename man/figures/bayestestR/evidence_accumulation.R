@@ -5,31 +5,44 @@ library(dplyr)
 library(tidyr)
 library(transformr)
 library(gifski)
+library(bayestestR)
 library(see)
-library(estimate)
+library(estimate)  # Not yet on CRAN: https://github.com/easystats/estimate
 library(magick)
 
 set.seed(333)
 
+
+
 true_effect <- 0.5
 prior_width <- 0.333
+max_n <- 10
 
-data <- bayestestR::simulate_correlation(n=60, r=true_effect)
+
+
+
+
+# Run simulation ----------------------------------------------------------
+
+
+data <- bayestestR::simulate_correlation(n=max_n, r=true_effect)
 vizmatrix <- estimate::visualisation_matrix(data["V2"])
 
-
+# Initialize empty dataframes
 priors <- data.frame()
 posteriors <- data.frame()
 params <- data.frame()
 prediction <- data.frame()
-raw_data <- data.frame()
+correlation_data <- data.frame()
 for(i in 5:nrow(data)){
   print(i)
 
+  # Get data
   current_data <- data[1:i,]
   current_data$Evidence <- i
-  raw_data <- rbind(raw_data, current_data)
+  correlation_data <- rbind(correlation_data, current_data)
 
+  # Model and make predictions
   model <- rstanarm::stan_glm(V1 ~ V2,
                               prior = normal(0, prior_width),
                               data=current_data,
@@ -37,12 +50,14 @@ for(i in 5:nrow(data)){
                               iter=10000,
                               chains=4,
                               warmup=4000)
-  posterior <- insight::get_parameters(model)$V2
+
 
   current_prediction <- estimate::estimate_link(model, length=50, data=vizmatrix, keep_draws=FALSE, draws=10)
   current_prediction$Evidence <- i
   prediction <- rbind(prediction, current_prediction)
 
+  # Parameters
+  posterior <- insight::get_parameters(model)$V2
   param <- bayestestR::describe_posterior(model, test=c("pd", "ROPE", "p_MAP"), rope_ci = 1)[2,]
   param$BF_null <- bayestestR::bayesfactor_parameters(model, verbose = FALSE)[2, "BF"]
   param$BF_ROPE <- bayestestR::bayesfactor_rope(model, verbose = FALSE)[2, "BF"]
@@ -51,6 +66,7 @@ for(i in 5:nrow(data)){
   param$Evidence <- i
   params <- rbind(params, param)
 
+  # Prior and posterior
   posterior <- bayestestR::estimate_density(posterior, method="KernSmooth")
   posterior$Evidence <- i
   posteriors <- rbind(posteriors, posterior)
@@ -66,8 +82,24 @@ for(i in 5:nrow(data)){
 # Make Figures ------------------------------------------------------------
 
 
+p_correlation <- correlation_data %>%
+  ggplot(aes(y=V1, x=V2)) +
+  geom_point(size=3) +
+  geom_ribbon(data=prediction, aes(ymin=CI_low, y=Median, ymax=CI_high, fill=Evidence), alpha=0.3) +
+  geom_line(data=prediction, aes(y=Median, color=Evidence), size=1) +
+  see::theme_modern() +
+  xlab("Variable 1") +
+  ylab("Variable 2") +
+  scale_colour_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
+  scale_fill_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
+  gganimate::transition_time(Evidence) +
+  labs(title = "Evidence (Sample Size): {frame_time}")
 
-p_posterior <- ggplot(posteriors, aes(x=x, y=y)) +
+
+
+
+p_posterior <- posteriors %>%
+  ggplot(aes(x=x, y=y)) +
   geom_area(data=priors, fill="#2196F3", alpha=1) +
   geom_segment(x = 0 , y = 0, xend = 0, yend = max(priors$y), size=0.5, color="#3F51B5", linetype = "dashed") +
   geom_segment(data=params, aes(x = Median , y = 0, xend = Median, yend = Max, color=Evidence), size=0.5, linetype = "dashed") +
@@ -87,10 +119,7 @@ p_posterior <- ggplot(posteriors, aes(x=x, y=y)) +
         axis.text.y = element_blank()) +
   coord_cartesian(xlim=c(-1, 1)) +
   gganimate::transition_time(Evidence)
-  # view_follow(fixed_y = TRUE)
-anim_posterior <- animate(p_posterior, duration=nrow(data)/4, fps=20)
-# anim_posterior
-# gganimate::anim_save("evidence_accumulation.gif", anim_posterior)
+
 
 
 
@@ -107,39 +136,23 @@ p_significance <- params %>%
   xlab("Evidence (Sample Size)") +
   see::theme_modern() +
   gganimate::transition_reveal(Evidence)
-anim_significance <- animate(p_significance, duration=nrow(data)/4, fps=20)
-# anim_significance
-# gganimate::anim_save("evidence_accumulation.gif", anim_significance)
 
 
 
 
 
-p_correlation <- ggplot(data=raw_data, aes(y=V1, x=V2)) +
-  geom_point(size=3) +
-  geom_ribbon(data=prediction, aes(ymin=CI_low, y=Median, ymax=CI_high, fill=Evidence), alpha=0.3) +
-  geom_line(data=prediction, aes(y=Median, color=Evidence), size=1) +
-  see::theme_modern() +
-  xlab("Variable 1") +
-  ylab("Variable 2") +
-  scale_colour_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
-  scale_fill_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
-  gganimate::transition_time(Evidence) +
-  labs(title = "Evidence (Sample Size): {frame_time}")
-anim_correlation <- animate(p_correlation, duration=nrow(data)/4, fps=20)
 
 # Final plot --------------------------------------------------------------
+p1 <- magick::image_read(animate(p_correlation, duration=nrow(data)/4, fps=20))
+p2 <- magick::image_read(animate(p_posterior, duration=nrow(data)/4, fps=20))
+p3 <- magick::image_read(animate(p_significance, duration=nrow(data)/4, fps=20))
 
-a <- magick::image_read(anim_correlation)
-b <- magick::image_read(anim_posterior)
-c <- magick::image_read(anim_significance)
-
-final <- magick::image_append(c(a[1], b[1], c[1]))
-for(i in 2:length(b)){
-  combined <- magick::image_append(c(a[i], b[i], c[i]))
+final <- magick::image_append(c(p1[1], p2[1], p3[1]))
+for(i in 2:length(p2)){
+  combined <- magick::image_append(c(p1[i], p2[i], p3[i]))
   final <- c(final, combined)
 }
 
-# final
+# Save final
 gganimate::anim_save("evidence_accumulation.gif", final)
 
