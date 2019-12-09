@@ -11,23 +11,34 @@ library(magick)
 
 set.seed(333)
 
-data <- bayestestR::simulate_correlation(n=15, r=0.2)
-
+data <- bayestestR::simulate_correlation(n=20, r=0.2)
+vizmatrix <- estimate::visualisation_matrix(data["V2"])
 
 
 priors <- data.frame()
 posteriors <- data.frame()
 params <- data.frame()
+prediction <- data.frame()
+raw_data <- data.frame()
 for(i in 4:nrow(data)){
   print(i)
+
+  current_data <- data[1:i,]
+  current_data$Evidence <- i
+  raw_data <- rbind(raw_data, current_data)
+
   model <- rstanarm::stan_glm(V1 ~ V2,
                               prior = normal(0, 0.2),
-                              data=data[1:i, ],
+                              data=current_data,
                               refresh = 0,
                               iter=10000,
                               chains=4,
                               warmup=4000)
   posterior <- insight::get_parameters(model)$V2
+
+  current_prediction <- estimate::estimate_link(model, length=50, data=vizmatrix, keep_draws=FALSE, draws=10)
+  current_prediction$Evidence <- i
+  prediction <- rbind(prediction, current_prediction)
 
   param <- bayestestR::describe_posterior(model, test=c("pd", "ROPE", "p_MAP"), rope_ci = 1)[2,]
   param$BF_null <- bayestestR::bayesfactor_parameters(model, verbose = FALSE)[2, "BF"]
@@ -66,8 +77,7 @@ p_posterior <- ggplot(posteriors, aes(x=x, y=y)) +
         axis.text.y = element_blank()) +
   coord_cartesian(xlim=c(-0.6, 0.6)) +
   gganimate::transition_time(Evidence) +
-  # view_follow(fixed_y = TRUE) +
-  labs(title = "Evidence (Sample Size): {frame_time}")
+  # view_follow(fixed_y = TRUE)
 anim_posterior <- animate(p_posterior, duration=nrow(data)/4, detail=1)
 # anim_posterior
 # gganimate::anim_save("evidence_accumulation.gif", anim_posterior)
@@ -80,11 +90,12 @@ p_significance <- params %>%
   tidyr::pivot_longer(cols=-Evidence, names_to = "Index", values_to = "Value") %>%
   mutate(Index = forcats::fct_relevel(Index, "p (direction)", "p (0)", "p (ROPE)", "BF (ROPE)", "BF (0)")) %>%
   ggplot(aes(x=Evidence, y=Value, color=Index, group=1)) +
-  geom_line() +
+  geom_line(size=1) +
   scale_color_manual(values = c("p (direction)"="#9C27B0", "p (0)"="#f44336", "p (ROPE)"="#FF5722", "BF (0)"="#4CAF50", "BF (ROPE)"="#CDDC39"), guide=FALSE) +
   facet_wrap(~Index, nrow=5, scales = "free") +
   ylab("") +
   xlab("Evidence (Sample Size)") +
+  see::theme_modern()
   gganimate::transition_reveal(Evidence)
 anim_significance <- animate(p_significance, duration=nrow(data)/4, detail=1)
 # anim_significance
@@ -93,15 +104,29 @@ anim_significance <- animate(p_significance, duration=nrow(data)/4, detail=1)
 
 
 
+
+p_correlation <- ggplot(data=raw_data, aes(y=V1, x=V2)) +
+  geom_point(size=3) +
+  geom_ribbon(data=prediction, aes(ymin=CI_low, y=Median, ymax=CI_high, fill=Evidence), alpha=0.3) +
+  geom_line(data=prediction, aes(y=Median, color=Evidence), size=1) +
+  see::theme_modern() +
+  xlab("Variable 1") +
+  ylab("Variable 2") +
+  scale_colour_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
+  scale_fill_gradient(low = "#FFC107", high = "#E91E63", guide = FALSE) +
+  gganimate::transition_time(Evidence) +
+  labs(title = "Evidence (Sample Size): {frame_time}")
+anim_correlation <- animate(p_correlation, duration=nrow(data)/4, detail=1)
+
 # Final plot --------------------------------------------------------------
 
+a <- magick::image_read(anim_correlation)
+b <- magick::image_read(anim_posterior)
+c <- magick::image_read(anim_significance)
 
-a <- magick::image_read(anim_posterior)
-b <- magick::image_read(anim_significance)
-
-final <- magick::image_append(c(a[1], b[1]))
+final <- magick::image_append(c(a[1], b[1], c[1]))
 for(i in 2:length(b)){
-  combined <- magick::image_append(c(a[i], b[i]))
+  combined <- magick::image_append(c(a[i], b[i], c[i]))
   final <- c(final, combined)
 }
 
