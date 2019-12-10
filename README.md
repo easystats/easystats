@@ -263,13 +263,27 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`bayesfactor_parameters`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`bayesfactor_pointull`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`bayesfactor_restricted`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`bayesfactor_savagedickey`**](https://easystats.github.io/bayestestR/reference/index.html)
+  - [**`bayesfactor_rope`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bayesfactor`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bf_inclusion`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bf_models`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bf_parameters`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bf_pointull`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bf_restricted`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bf_rope`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -409,6 +423,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`cor_test`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
+  - [**`cor_to_ci`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`cor_to_p`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`cor_to_pcor`**](https://easystats.github.io/correlation/reference/index.html)
@@ -447,6 +463,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`diagnostic_posterior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`distance_mahalanobis`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`distribution_beta`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_binomial`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -737,6 +755,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`metro_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`mhdior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`model_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
@@ -1105,6 +1125,8 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`visualisation_matrix`**](https://easystats.github.io/estimate/reference/index.html)
     *(estimate)*
+  - [**`z_fisher`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`z_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`z_to_percentile`**](https://easystats.github.io/effectsize/reference/index.html)
