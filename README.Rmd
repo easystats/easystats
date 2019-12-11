@@ -80,19 +80,19 @@ library("easystats")
 
 # Features 
 
+- [News from easystats: updated parameters and see packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
 - [parameters: a powerful and lightweight alternative to broom to describe your models' coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
 - [Check your (Mixed) Model for Multicollinearity with 'performance'](https://easystats.github.io/blog/posts/performance_check_collinearity/)
 - [Testing Contrasts from Bayesian Models with 'emmeans' and 'bayestestR'](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
 - [Become a Bayesian master with bayestestR (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
 - [The 'see' package: beautiful figures for easystats](https://easystats.github.io/blog/posts/see_presentation/)
-- [A perfectly normally distributed sample: another post?](https://easystats.github.io/blog/posts/bayestestr_distribution/)
 - [Compute R2s and other performance indices for all your models!](https://easystats.github.io/blog/posts/performance_presentation/)
-- [How to easily generate a perfectly normal distribution](https://easystats.github.io/blog/posts/bayestestr_rnorm_perfect/)
 - [Describe and understand Bayesian models and posteriors using bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
 - [A unified syntax for accessing models' information](https://easystats.github.io/blog/posts/insight_presentation/)
 - [The end of errors in ANOVA reporting](https://easystats.github.io/blog/posts/report_anova/)
 - [Formatted correlation output with effect sizes](https://easystats.github.io/blog/posts/report_correlation/)
 
+Find an overview of all postings [here](https://easystats.github.io/blog/posts/).
 
 # Dependencies
 

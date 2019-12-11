@@ -47,6 +47,8 @@ library("easystats")
 
 # Features
 
+  - [News from easystats: updated parameters and see
+    packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
   - [parameters: a powerful and lightweight alternative to broom to
     describe your models’
     coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
@@ -58,12 +60,8 @@ library("easystats")
     (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
   - [The ‘see’ package: beautiful figures for
     easystats](https://easystats.github.io/blog/posts/see_presentation/)
-  - [A perfectly normally distributed sample: another
-    post?](https://easystats.github.io/blog/posts/bayestestr_distribution/)
   - [Compute R2s and other performance indices for all your
     models\!](https://easystats.github.io/blog/posts/performance_presentation/)
-  - [How to easily generate a perfectly normal
-    distribution](https://easystats.github.io/blog/posts/bayestestr_rnorm_perfect/)
   - [Describe and understand Bayesian models and posteriors using
     bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
   - [A unified syntax for accessing models’
@@ -72,6 +70,9 @@ library("easystats")
     reporting](https://easystats.github.io/blog/posts/report_anova/)
   - [Formatted correlation output with effect
     sizes](https://easystats.github.io/blog/posts/report_correlation/)
+
+Find an overview of all postings
+[here](https://easystats.github.io/blog/posts/).
 
 # Dependencies
 
@@ -287,6 +288,10 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`bootstrap_model`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`bootstrap_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`change_scale`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`check_autocorrelation`**](https://easystats.github.io/performance/reference/index.html)
@@ -925,6 +930,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`ranktransform`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`reduce_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`report_participants`**](https://easystats.github.io/report/reference/index.html)
@@ -1045,12 +1052,18 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`se_satterthwaite`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`select_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`simulate_correlation`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`simulate_model`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`simulate_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`simulate_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`simulate_ttest`**](https://easystats.github.io/bayestestR/reference/index.html)
