@@ -80,6 +80,7 @@ library("easystats")
 
 # Features 
 
+- [Comparison of indices of significance in the Bayesian framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
 - [News from easystats: updated parameters and see packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
 - [parameters: a powerful and lightweight alternative to broom to describe your models' coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
 - [Check your (Mixed) Model for Multicollinearity with 'performance'](https://easystats.github.io/blog/posts/performance_check_collinearity/)
@@ -90,7 +91,6 @@ library("easystats")
 - [Describe and understand Bayesian models and posteriors using bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
 - [A unified syntax for accessing models' information](https://easystats.github.io/blog/posts/insight_presentation/)
 - [The end of errors in ANOVA reporting](https://easystats.github.io/blog/posts/report_anova/)
-- [Formatted correlation output with effect sizes](https://easystats.github.io/blog/posts/report_correlation/)
 
 Find an overview of all postings [here](https://easystats.github.io/blog/posts/).
 
@@ -393,20 +393,19 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
   mutate(color=color_blog) %>% 
   distinct()
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR"))
 
 
-events <- rbind(events,
-                blogposts)
+events <- rbind(events, blogposts)
 
 # Full join
-data <- full_join(data, events, by=c("date", "Package"))
+data <- full_join(data, events, by = c("date", "Package"))
 
 events <- full_join(
   events,
   group_by(data, event) %>% 
-  summarise(event_y = max(average_count)), by="event") %>% 
-  filter(!is.na(date))
+    summarise(event_y = max(average_count)), by = "event") %>% 
+    filter(!is.na(date))
 
 # Set packages colours
 packages_colours <- c("insight" = unname(see::material_colors("orange")),

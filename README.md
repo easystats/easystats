@@ -47,6 +47,8 @@ library("easystats")
 
 # Features
 
+  - [Comparison of indices of significance in the Bayesian
+    framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
   - [News from easystats: updated parameters and see
     packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
   - [parameters: a powerful and lightweight alternative to broom to
@@ -68,8 +70,6 @@ library("easystats")
     information](https://easystats.github.io/blog/posts/insight_presentation/)
   - [The end of errors in ANOVA
     reporting](https://easystats.github.io/blog/posts/report_anova/)
-  - [Formatted correlation output with effect
-    sizes](https://easystats.github.io/blog/posts/report_correlation/)
 
 Find an overview of all postings
 [here](https://easystats.github.io/blog/posts/).
@@ -580,8 +580,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`format_bf`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_ci`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_ci`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_model`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`format_number`**](https://easystats.github.io/parameters/reference/index.html)
