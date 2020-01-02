@@ -25,7 +25,12 @@ Imports:
   performance,
   parameters,
   effectsize,
-  see
+  see,
+  tools,
+  utils
+Suggest:
+  rvest,
+  xml2
 Remotes: 
 	easystats/insight,
 	easystats/performance,

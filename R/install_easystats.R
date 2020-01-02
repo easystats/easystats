@@ -259,10 +259,13 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 }
 
 
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_table
 .cran_checks <- function() {
+  if (!requireNamespace("rvest", quietly = TRUE) && !requireNamespace("xml2", quietly = TRUE)) {
+    return(FALSE)
+  }
+
   on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "see")
+  error <- FALSE
   tryCatch(
     {
       for (i in on_cran) {
@@ -272,11 +275,14 @@ easystats_update <- function(which = c("all", "core", "deps")) {
         check_status <- html_table[[1]]$Status
 
         if (any(c("warning", "error") %in% tolower(check_status))) {
-          insight::print_color(sprintf("\nWarnings or errors in CRAN checks for package '%s'.\n", i), "red")
+          insight::print_color(sprintf("Warnings or errors in CRAN checks for package '%s'.\n", i), "red")
+          error <- TRUE
         }
       }
+
+      return(error)
     },
-    warning = function(w) { },
-    error = function(e) { }
+    warning = function(w) { return(FALSE) },
+    error = function(e) { return(FALSE) }
   )
 }
