@@ -490,6 +490,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`distribution_student`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`distribution_tweedie`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`distribution_uniform`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -854,6 +856,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`performance_accuracy`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`performance_aic`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`performance_aicc`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`performance_hosmer`**](https://easystats.github.io/performance/reference/index.html)
@@ -1058,6 +1062,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`show_packages`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`si`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`simulate_correlation`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`simulate_model`**](https://easystats.github.io/parameters/reference/index.html)
