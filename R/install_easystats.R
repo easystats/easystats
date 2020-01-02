@@ -257,3 +257,26 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
   out
 }
+
+
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_table
+.cran_checks <- function() {
+  on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "see")
+  tryCatch(
+    {
+      for (i in on_cran) {
+        url <- sprintf("https://cran.r-project.org/web/checks/check_results_%s.html", i)
+        html_page <- xml2::read_html(url)
+        html_table <- rvest::html_table(html_page)
+        check_status <- html_table[[1]]$Status
+
+        if (any(c("warning", "error") %in% tolower(check_status))) {
+          insight::print_color(sprintf("\nWarnings or errors in CRAN checks for package '%s'.\n", i), "red")
+        }
+      }
+    },
+    warning = function(w) { },
+    error = function(e) { }
+  )
+}
