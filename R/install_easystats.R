@@ -18,7 +18,7 @@ install_easystats_latest <- function(){
                              "easystats/parameters",
                              "easystats/effectsize",
                              "easystats/correlation",
-                             "easystats/estimate",
+                             "easystats/modelbased",
                              "easystats/see",
                              "easystats/report"),
                            upgrade = "never")
@@ -37,7 +37,7 @@ install_easystats_dev <- function(){
                              "easystats/parameters",
                              "easystats/effectsize",
                              "easystats/correlation",
-                             "easystats/estimate",
+                             "easystats/modelbased",
                              "easystats/see",
                              "easystats/report"),
                            ref = "dev",
@@ -134,7 +134,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
         "parameters",
         "see",
         "effectsize",
-        "estimate",
+        "modelbased",
         "correlation",
         "report"
       ),
@@ -179,7 +179,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
   )
 
   if (!is.null(pkgs)) {
-    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "estimate", "report")
+    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "modelbased", "report")
     easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
@@ -199,7 +199,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
     .add_easystats_dev_pkgs(out, easystats_not_on_cran)
   } else {
-    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "estimate", "report")
+    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "modelbased", "report")
     easystats_on_cran <- c("insight", "bayestestR", "performance", "parameters", "see")
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
