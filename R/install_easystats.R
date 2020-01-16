@@ -286,7 +286,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
           error <- TRUE
         }
 
-        if (include_notes && any("NOTE" %in% tolower(check_status))) {
+        if (include_notes && any("note" %in% tolower(check_status))) {
           insight::print_color(sprintf("Notes in CRAN checks for package '%s'.\n", i), "blue")
         }
       }
