@@ -282,16 +282,23 @@ easystats_update <- function(which = c("all", "core", "deps")) {
         check_status <- html_table[[1]]$Status
 
         if (isTRUE(full)) {
+          all_ok <- TRUE
           if (any(c("error") %in% tolower(check_status))) {
             insight::print_color(sprintf("%s: Errors\n", i), "red")
             error <- TRUE
+            all_ok <- FALSE
           }
           if (any("warning" %in% tolower(check_status))) {
             insight::print_color(sprintf("%s: Warnings\n", i), "red")
             error <- TRUE
+            all_ok <- FALSE
           }
           if (any("note" %in% tolower(check_status))) {
             insight::print_color(sprintf("%s: Notes\n", i), "blue")
+            all_ok <- FALSE
+          }
+          if (isTRUE(all_ok)) {
+            insight::print_color(sprintf("%s: Ok\n", i), "green")
           }
         } else {
           if (any(c("warning", "error") %in% tolower(check_status))) {
