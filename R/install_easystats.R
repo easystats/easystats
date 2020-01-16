@@ -7,7 +7,7 @@ easystats_zen <- function(){
 #' Show CRAN check status for easystats-packages
 #' @export
 CRAN_checks <- function() {
-  .cran_checks(include_notes = TRUE)
+  .cran_checks(full = TRUE)
 }
 
 
@@ -266,7 +266,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 
 
-.cran_checks <- function(include_notes = FALSE) {
+.cran_checks <- function(full = FALSE) {
   if (!requireNamespace("rvest", quietly = TRUE) && !requireNamespace("xml2", quietly = TRUE)) {
     return(FALSE)
   }
@@ -281,13 +281,23 @@ easystats_update <- function(which = c("all", "core", "deps")) {
         html_table <- rvest::html_table(html_page)
         check_status <- html_table[[1]]$Status
 
-        if (any(c("warning", "error") %in% tolower(check_status))) {
-          insight::print_color(sprintf("Warnings or errors in CRAN checks for package '%s'.\n", i), "red")
-          error <- TRUE
-        }
-
-        if (include_notes && any("note" %in% tolower(check_status))) {
-          insight::print_color(sprintf("Notes in CRAN checks for package '%s'.\n", i), "blue")
+        if (isTRUE(full)) {
+          if (any(c("error") %in% tolower(check_status))) {
+            insight::print_color(sprintf("Errors in CRAN checks for package '%s'.\n", i), "red")
+            error <- TRUE
+          }
+          if (any("warning" %in% tolower(check_status))) {
+            insight::print_color(sprintf("Warnings in CRAN checks for package '%s'.\n", i), "red")
+            error <- TRUE
+          }
+          if (any("note" %in% tolower(check_status))) {
+            insight::print_color(sprintf("Notes in CRAN checks for package '%s'.\n", i), "blue")
+          }
+        } else {
+          if (any(c("warning", "error") %in% tolower(check_status))) {
+            insight::print_color(sprintf("Warnings or errors in CRAN checks for package '%s'.\n", i), "red")
+            error <- TRUE
+          }
         }
       }
 
