@@ -288,19 +288,31 @@ easystats_update <- function(which = c("all", "core", "deps")) {
           cat(sprintf("%s ", i))
 
           if (any("error" %in% tolower(check_status))) {
-            insight::print_color("Errors", "red")
+            n <- sum("error" == tolower(check_status))
+            if (n == 1)
+              insight::print_color("1 Error", "red")
+            else
+              insight::print_color(sprintf("%g Errors", n), "red")
             error <- TRUE
             all_ok <- FALSE
           }
           if (any("warning" %in% tolower(check_status))) {
             if (!all_ok) cat(", ")
-            insight::print_color("Warnings", "red")
+            n <- sum("warning" == tolower(check_status))
+            if (n == 1)
+              insight::print_color("1 Warning", "red")
+            else
+              insight::print_color(sprintf("%g Warnings", n), "red")
             error <- TRUE
             all_ok <- FALSE
           }
           if (any("note" %in% tolower(check_status))) {
             if (!all_ok) cat(", ")
-            insight::print_color("Notes", "blue")
+            n <- sum("note" == tolower(check_status))
+            if (n == 1)
+              insight::print_color("1 Note", "blue")
+            else
+              insight::print_color(sprintf("%g Notes", n), "blue")
             all_ok <- FALSE
           }
           if (isTRUE(all_ok)) {
