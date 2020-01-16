@@ -4,6 +4,12 @@ easystats_zen <- function(){
   print("Patience you must have my young padawan.")
 }
 
+#' Show CRAN check status for easystats-packages
+#' @export
+CRAN_checks <- function() {
+  .cran_checks(include_notes = TRUE)
+}
+
 
 #' Install the easystats suite from github
 #'
@@ -259,7 +265,8 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 }
 
 
-.cran_checks <- function() {
+
+.cran_checks <- function(include_notes = FALSE) {
   if (!requireNamespace("rvest", quietly = TRUE) && !requireNamespace("xml2", quietly = TRUE)) {
     return(FALSE)
   }
@@ -278,11 +285,15 @@ easystats_update <- function(which = c("all", "core", "deps")) {
           insight::print_color(sprintf("Warnings or errors in CRAN checks for package '%s'.\n", i), "red")
           error <- TRUE
         }
+
+        if (include_notes && any("NOTE" %in% tolower(check_status))) {
+          insight::print_color(sprintf("Notes in CRAN checks for package '%s'.\n", i), "blue")
+        }
       }
 
-      return(error)
+      invisible(error)
     },
-    warning = function(w) { return(FALSE) },
-    error = function(e) { return(FALSE) }
+    warning = function(w) { invisible(FALSE) },
+    error = function(e) { invisible(FALSE) }
   )
 }

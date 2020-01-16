@@ -1,7 +1,7 @@
 Package: easystats
 Type: Package
 Title: Jump in the easyverse
-Version: 0.1.4
+Version: 0.2.0
 Authors@R: c(
 	person("Daniel", 
 		"Lüdecke", 
@@ -25,6 +25,7 @@ Imports:
   performance,
   parameters,
   effectsize,
+  modelbased,
   see,
   tools,
   utils
@@ -38,7 +39,7 @@ Remotes:
 	easystats/parameters,
 	easystats/effectsize,
 	easystats/correlation,
-	easystats/estimate,
+	easystats/modelbased,
 	easystats/see,
 	easystats/report
 License: GPL-3
