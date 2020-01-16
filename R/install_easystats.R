@@ -287,7 +287,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
           i <- format(i, width = max_len)
           cat(sprintf("%s ", i))
 
-          if (any(c("error") %in% tolower(check_status))) {
+          if (any("error" %in% tolower(check_status))) {
             insight::print_color("Errors", "red")
             error <- TRUE
             all_ok <- FALSE
