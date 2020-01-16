@@ -283,7 +283,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
         if (isTRUE(full)) {
           if (any(c("error") %in% tolower(check_status))) {
-            insight::print_color(sprintf("Errors in CRAN checks for package '%s'.\n", i), "red")
+            insight::print_color(sprintf("  Errors in CRAN checks for package '%s'.\n", i), "red")
             error <- TRUE
           }
           if (any("warning" %in% tolower(check_status))) {
@@ -291,7 +291,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
             error <- TRUE
           }
           if (any("note" %in% tolower(check_status))) {
-            insight::print_color(sprintf("Notes in CRAN checks for package '%s'.\n", i), "blue")
+            insight::print_color(sprintf("   Notes in CRAN checks for package '%s'.\n", i), "blue")
           }
         } else {
           if (any(c("warning", "error") %in% tolower(check_status))) {
