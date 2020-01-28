@@ -354,6 +354,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`closest_component`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`cluster_analysis`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`cluster_discrimination`**](https://easystats.github.io/parameters/reference/index.html)
@@ -370,8 +372,6 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`component_columns`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`contr.bayes`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`convert_bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -642,6 +642,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`get_response`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`get_scores`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`get_statistic`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_varcov`**](https://easystats.github.io/insight/reference/index.html)
@@ -946,6 +948,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`r2`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`random_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`ranktransform`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`reduce_parameters`**](https://easystats.github.io/parameters/reference/index.html)
