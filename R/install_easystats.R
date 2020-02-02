@@ -206,7 +206,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     .add_easystats_dev_pkgs(out, easystats_not_on_cran)
   } else {
     easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "modelbased", "report")
-    easystats_on_cran <- c("insight", "bayestestR", "performance", "parameters", "modelbased", "see")
+    easystats_on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
     local_version <- lapply(easystats_on_cran, utils::packageVersion)
@@ -332,4 +332,45 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     warning = function(w) { invisible(FALSE) },
     error = function(e) { invisible(FALSE) }
   )
+}
+
+
+#' Show weeks since last package update on CRAN
+#'
+#' Green indicates that enough time since last submission has passed and it's ok to submit an update, yellow means it's ok, but beware it's not too often, and red means that you should probably not yet submit an update.
+#'
+#' @export
+on_CRAN <- function() {
+  if (!requireNamespace("rvest", quietly = TRUE) && !requireNamespace("xml2", quietly = TRUE)) {
+    return(FALSE)
+  }
+
+  on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
+  error <- FALSE
+  tryCatch(
+    {
+      for (i in on_cran) {
+        url <- sprintf("https://cran.r-project.org/web/packages/%s/index.html", i)
+        html_page <- xml2::read_html(url)
+        html_table <- rvest::html_table(html_page)
+        published <- grepl("^Publishe", html_table[[1]]$X1)
+        date <- html_table[[1]]$X2[published]
+        weeks_on_cran <- as.vector(difftime(as.POSIXct(Sys.Date()), as.POSIXct(date), units = "weeks"))
+        max_len <- max(nchar(on_cran))
+        i <- format(i, width = max_len)
+        cat(sprintf("%s ", i))
+        if (weeks_on_cran <= 4)
+          col <- "red"
+        else if (weeks_on_cran <= 8)
+          col <- "red"
+        else
+          col <- "green"
+        insight::print_color(sprintf("%.1f weeks\n", weeks_on_cran), col)
+      }
+    },
+    warning = function(w) { invisible(NULL) },
+    error = function(e) { invisible(NULL) }
+  )
+
+  invisible(NULL)
 }
