@@ -336,6 +336,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`chisq_to_phi`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`ci_betwithin`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`ci_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`ci_ml1`**](https://easystats.github.io/parameters/reference/index.html)
@@ -506,6 +508,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`distribution`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`dof_betwithin`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`dof_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`dof_ml1`**](https://easystats.github.io/parameters/reference/index.html)
@@ -820,6 +824,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`p_to_pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`p_value_betwithin`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`p_value_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`p_value_ml1`**](https://easystats.github.io/parameters/reference/index.html)
@@ -1070,6 +1076,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`sd_pooled`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`se_betwithin`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`se_kenward`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`se_ml1`**](https://easystats.github.io/parameters/reference/index.html)
