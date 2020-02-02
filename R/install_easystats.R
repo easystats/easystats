@@ -273,6 +273,8 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
   on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
   error <- FALSE
+  error_pkgs <- c()
+
   tryCatch(
     {
       for (i in on_cran) {
@@ -321,10 +323,14 @@ easystats_update <- function(which = c("all", "core", "deps")) {
           cat("\n")
         } else {
           if (any(c("warn", "warning", "error") %in% tolower(check_status))) {
-            insight::print_color(sprintf("Warnings or errors in CRAN checks for package '%s'.\n", i), "red")
+            error_pkgs <- c(error_pkgs, i)
             error <- TRUE
           }
         }
+      }
+
+      if (error && !full) {
+        insight::print_color(sprintf("Warnings or errors in CRAN checks for package(s) %s.\n", paste0("'", error_pkgs, "'", collapse = ", ")), "red")
       }
 
       invisible(error)

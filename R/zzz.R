@@ -45,7 +45,7 @@
   }
 
   cat("\n")
-  if (.cran_checks()) cat("\n")
+  .cran_checks()
 
   if (any(needs_update)) {
     insight::print_color("Restart the R-Session and update packages in red with 'easystats::easystats_update()'.\n", "yellow")
