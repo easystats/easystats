@@ -454,7 +454,8 @@ data %>%
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
-  scale_y_sqrt()
+  scale_y_sqrt() +
+  theme(axis.text.x = element_text(angle = 90))
 ```
 
 
@@ -476,7 +477,8 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
   scale_color_manual(values=packages_colours) +
-  scale_y_sqrt()
+  scale_y_sqrt() +
+  theme(axis.text.x = element_text(angle = 90))
 ```
 
 <!--
