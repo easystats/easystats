@@ -96,7 +96,7 @@ Find an overview of all postings [here](https://easystats.github.io/blog/posts/)
 
 Most of *easystats* packages are very lightweight, *i.e.*, they don't rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of butterfly effects (a small change in a distant downstream dependency with unexpected upstream consequences).
 
-```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
+```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE, eval=FALSE}
 library(tidyverse)
 library(devtools)
 library(miniCRAN)
@@ -160,7 +160,7 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
 
 There is one exception. The [**see**](http://easystats.github.io/see) package is one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as *ggplot2*, which itself is plugged in the *tidyverse*, increasing package dependencies by a substantial amount. On the bright side of things, it gives a good **overview of the place of *easystats* in the R ecosystem**.
 
-```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
+```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE, eval = FALSE}
 library(tidyverse)
 library(devtools)
 library(miniCRAN)

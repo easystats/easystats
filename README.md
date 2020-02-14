@@ -70,8 +70,6 @@ them as dependencies in your own packages, without the risk of butterfly
 effects (a small change in a distant downstream dependency with
 unexpected upstream consequences).
 
-![](man/figures/unnamed-chunk-3-1.png)<!-- -->
-
 There is one exception. The [**see**](http://easystats.github.io/see)
 package is one of our high-level packages that is responsible for
 plotting and creating figures, relying thus on other packages such as
@@ -79,8 +77,6 @@ plotting and creating figures, relying thus on other packages such as
 package dependencies by a substantial amount. On the bright side of
 things, it gives a good **overview of the place of *easystats* in the R
 ecosystem**.
-
-![](man/figures/unnamed-chunk-4-1.png)<!-- -->
 
 # Citation
 
@@ -228,8 +224,8 @@ follow a consistent pattern across all packages.
 
 # List of functions
 
-  - [**`%>%`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
+  - [**`%>%`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`add_plot_attributes`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`adjust`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -349,8 +345,6 @@ follow a consistent pattern across all packages.
   - [**`cluster_analysis`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`cluster_discrimination`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`cmds`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`cohens_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -508,8 +502,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`download_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`DRR`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`efa_to_cfa`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`effective_sample`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -666,8 +658,6 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`hedges_g`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`ICA`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`icc`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`interpret_agfi`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -682,8 +672,6 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`interpret_direction`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`interpret_effective_sample`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
   - [**`interpret_ess`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`interpret_g`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -768,19 +756,21 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`mhdior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`model_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`model_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`model_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`model_simulate`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`model_table`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`model_text`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`n_clusters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`n_components`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`n_factors`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -836,14 +826,6 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`palette_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`parameters_bootstrap`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`parameters_reduction`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`parameters_selection`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`parameters_simulate`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`parameters_table`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters_type`**](https://easystats.github.io/parameters/reference/index.html)
@@ -948,11 +930,27 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`ranktransform`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`reduce_data`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`reduce_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`remove_if_possible`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`rename_if_possible`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
+  - [**`reorder_if_possible`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_intercept`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_model`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_parameters`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`report_participants`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_performance`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_sample`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
@@ -1090,6 +1088,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`simulate_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`simulate_simpson`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`simulate_ttest`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`skewness`**](https://easystats.github.io/parameters/reference/index.html)
@@ -1130,13 +1130,13 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`t_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`text_initial`**](https://easystats.github.io/report/reference/index.html)
+  - [**`table_long`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`text_model`**](https://easystats.github.io/report/reference/index.html)
+  - [**`table_short`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`text_parameters`**](https://easystats.github.io/report/reference/index.html)
+  - [**`text_long`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
-  - [**`text_performance`**](https://easystats.github.io/report/reference/index.html)
+  - [**`text_short`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1150,16 +1150,6 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`theme_radar`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`to_fulltable`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`to_fulltext`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`to_table`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`to_text`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`to_values`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
   - [**`visualisation_matrix`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
   - [**`weighted_posteriors`**](https://easystats.github.io/bayestestR/reference/index.html)
