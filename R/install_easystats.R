@@ -352,7 +352,6 @@ on_CRAN <- function() {
   }
 
   on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
-  error <- FALSE
   tryCatch(
     {
       for (i in on_cran) {
@@ -368,7 +367,7 @@ on_CRAN <- function() {
         if (weeks_on_cran <= 4)
           col <- "red"
         else if (weeks_on_cran <= 8)
-          col <- "red"
+          col <- "yellow"
         else
           col <- "green"
         insight::print_color(sprintf("%.1f weeks\n", weeks_on_cran), col)
