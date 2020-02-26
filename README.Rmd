@@ -391,13 +391,13 @@ events <- rbind(events,
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
 blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
-  filter(item_date_published > "2019-03-29") %>% 
-  select(date = item_date_published,
+  filter(item_pub_date > "2019-03-29") %>% 
+  select(date = item_pub_date,
          event = item_title) %>% 
   mutate(color=color_blog) %>% 
   distinct()
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR"))
 
 
 events <- rbind(events, blogposts)
