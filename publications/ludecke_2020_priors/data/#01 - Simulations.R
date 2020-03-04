@@ -14,7 +14,17 @@ library(rstanarm)
 
 generate_data <- function(sample_size = 50, effect = 0, true_effect = .3) {
   # Generate data
-  d <- standardize(simulate_correlation(n = sample_size, r = true_effect, mean = effect, sd = 3))
+  out <- do.call(rbind, lapply(1:(sample_size / 5), function(i) {
+    corr <- rnorm(1, mean = true_effect, sd = true_effect * .25)
+    simulate_correlation(n = 5, r = corr, mean = effect, sd = 3)
+  }))
+
+  if (nrow(out) < sample_size) {
+    out <- rbind(out, simulate_correlation(n = sample_size - nrow(out), r = true_effect, mean = effect, sd = 3))
+  }
+
+  d <- standardize(out)
+  #d <- standardize(simulate_correlation(n = sample_size, r = true_effect, mean = effect, sd = 3))
   colnames(d) <- c("y", "x")
   d
 }
