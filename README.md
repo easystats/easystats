@@ -424,13 +424,13 @@ follow a consistent pattern across all packages.
     *(correlation)*
   - [**`cor_to_ci`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
+  - [**`cor_to_cov`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`cor_to_p`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`cor_to_pcor`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`cor_to_spcor`**](https://easystats.github.io/correlation/reference/index.html)
-    *(correlation)*
-  - [**`cor2cov`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`correlation`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
