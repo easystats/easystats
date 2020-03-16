@@ -206,7 +206,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     .add_easystats_dev_pkgs(out, easystats_not_on_cran)
   } else {
     easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "modelbased", "report")
-    easystats_on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
+    easystats_on_cran <- .packages_on_cran()
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
     local_version <- lapply(easystats_on_cran, utils::packageVersion)
@@ -271,7 +271,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     return(FALSE)
   }
 
-  on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
+  on_cran <- .packages_on_cran()
   error <- FALSE
   error_pkgs <- c()
 
@@ -351,7 +351,7 @@ on_CRAN <- function() {
     return(FALSE)
   }
 
-  on_cran <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "modelbased", "see")
+  on_cran <- .packages_on_cran()
   tryCatch(
     {
       for (i in on_cran) {
@@ -378,4 +378,11 @@ on_CRAN <- function() {
   )
 
   invisible(NULL)
+}
+
+
+
+.packages_on_cran <- function() {
+  c("insight", "bayestestR", "performance", "parameters", "effectsize",
+    "modelbased", "correlation", "see")
 }
