@@ -6,8 +6,8 @@ d <- result %>%
   filter(N %in% seq(20, 200, 20)) %>%
   summarise(
     Estimate = mean(Median),
-    CI_low = min(HDI_low),
-    CI_high = max(HDI_high)
+    CI_low = mean(HDI_low),
+    CI_high = mean(HDI_high)
   )
 
 p <- ggplot(d, aes(x = as.factor(N), ymin = CI_low, ymax = CI_high, color = as.factor(Location))) +
@@ -22,15 +22,16 @@ p <- ggplot(d, aes(x = as.factor(N), ymin = CI_low, ymax = CI_high, color = as.f
   theme_lucid() +
   theme(
     # panel.grid.major.x = element_blank(),
-    panel.grid.minor.x = element_blank()
+    # panel.grid.minor.x = element_blank()
   ) +
   scale_color_metro() +
-  scale_x_discrete(breaks = seq(0, 200, 50), labels = seq(0, 200, 50)) +
+  scale_x_discrete(breaks = seq(0, 200, 20), labels = seq(0, 200, 20)) +
+  scale_y_continuous(breaks = round(seq(-.9, .6, .3), 1), labels = round(seq(-.9, .6, .3), 1)) +
   guides(colour = guide_legend(reverse = TRUE, override.aes = list(alpha = 1))) +
   labs(
     title = "Posterior Median (and HDI) by Sample Size, Prior Location and Prior Scale",
     subtitle = "for True Effect of 0.3",
-    y = "Median and Maximum HDI Range",
+    y = "Median and average HDI range",
     x = "Sample Size",
     colour = "Prior Location"
   )
