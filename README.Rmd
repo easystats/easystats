@@ -310,6 +310,8 @@ downloads_effectsize <- cranlogs::cran_downloads(package = "effectsize", from = 
   mutate(Package = "effectsize")
 downloads_modelbased <- cranlogs::cran_downloads(package = "modelbased", from = "2020-01-12") %>% 
   mutate(Package = "modelbased")
+downloads_correlation <- cranlogs::cran_downloads(package = "correlation", from = "2020-03-16") %>% 
+  mutate(Package = "correlation")
 
 # Combine all data
 data <- rbind(downloads_insight,
@@ -318,7 +320,8 @@ data <- rbind(downloads_insight,
               downloads_see,
               downloads_parameters,
               downloads_effectsize,
-              downloads_modelbased) %>% 
+              downloads_modelbased,
+              downloads_correlation) %>% 
   group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
@@ -328,7 +331,7 @@ data <- rbind(downloads_insight,
          quarters = quarters(date),
          month_day = lubridate::mday(date)) %>% 
   ungroup() %>% 
-  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize", "modelbased"))
+  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize", "modelbased", "correlation"))
 
 
 events <- data.frame()
@@ -352,7 +355,8 @@ events <- rbind(events,
                                            "2019-08-26",
                                            "2019-09-26",
                                            "2019-11-15",
-                                           "2020-01-12"
+                                           "2020-01-12",
+                                           "2020-03-16"
                                            )), 
                           event=c("CRAN - insight (0.1.0)", 
                                   "CRAN - insight (0.2.0)",
@@ -369,7 +373,8 @@ events <- rbind(events,
                                   "CRAN - parameters (0.1.0)",
                                   "CRAN - parameters (0.2.0)",
                                   "CRAN - effectsize (0.0.1)",
-                                  "CRAN - modelbased (0.1.0)"
+                                  "CRAN - modelbased (0.1.0)",
+                                  "CRAN - correlation (0.1.0)"
                                   ), 
                           Package=c("insight", 
                                     "insight",
@@ -386,7 +391,8 @@ events <- rbind(events,
                                     "parameters",
                                     "parameters",
                                     "effectsize",
-                                    "modelbased"
+                                    "modelbased",
+                                    "correlation"
                                     ), 
                           color=color_CRAN, stringsAsFactors = FALSE))
 # Blogposts
@@ -397,7 +403,7 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
   mutate(color=color_blog) %>% 
   distinct()
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation"))
 
 
 events <- rbind(events, blogposts)
@@ -418,7 +424,8 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
                       "see" = unname(see::material_colors("blue")),
                       "parameters" = unname(see::material_colors("purple")),
                       "effectsize" = unname(see::material_colors("brown")),
-                      "modelbased" = unname(see::material_colors("lime")))
+                      "modelbased" = unname(see::material_colors("lime")),
+                      "correlation" = unname(see::material_colors("amber")))
 ```
 
 ### Trend

@@ -832,8 +832,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`partialize`**](https://easystats.github.io/correlation/reference/index.html)
-    *(correlation)*
   - [**`pcor_to_cor`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
