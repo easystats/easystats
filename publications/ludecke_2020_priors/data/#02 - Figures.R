@@ -7,15 +7,32 @@ library(performance)
 library(see)
 library(rstanarm)
 
-
-
 # Plots of results  -----------------------
+
+# results <- split(result, result$Scale)
+#
+# lapply(names(results), function(.i) {
+#   dat <- results[[.i]]
+#   ggplot(dat, aes(x = as.factor(N), y = Median)) +
+#     geom_point(alpha = .01, fill = NA, size = .7) +
+#     facet_wrap(~Location) +
+#     geom_hline(yintercept = .3, color = "darkred") +
+#     theme_lucid() +
+#     theme(
+#       panel.grid.major.x = element_blank(),
+#       panel.grid.minor.x = element_blank()
+#     ) +
+#     ggtitle(paste0(.i, " prior scale")) +
+#     ylim(c(-.75, .75)) +
+#     scale_x_discrete(breaks = seq(0, 200, 50), labels = seq(0, 200, 50))
+# })
+
 
 levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
 
 p <- ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location))) +
-  geom_hline(yintercept = .3, color = "#a20025", size = .6) +
-  geom_point(alpha = .01, fill = NA, size = 1) +
+  geom_hline(yintercept = .3, color = "#5a5a5a", size = .6) +
+  geom_point(alpha = .01, fill = NA, size = .9) +
   facet_wrap(~Scale) +
   theme_lucid() +
   theme(
@@ -34,31 +51,6 @@ p <- ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location
   )
 
 ggsave("result.pdf", plot = p, device = "pdf", scale = 2, width = 14, height = 12, unit = "cm", dpi = 300)
-#
-#
-# pdf("results.pdf", width = 12, height = 12)
-#
-# ggplot(result, aes(x = as.factor(N), y = Median)) +
-#   geom_point(alpha = .01, fill = NA, size = 1) +
-#   facet_wrap(~Location) +
-#   geom_hline(yintercept = .3, color = "darkred") +
-#   theme_lucid() +
-#   theme(
-#     panel.grid.major.x = element_blank(),
-#     panel.grid.minor.x = element_blank()
-#   )
-#
-# ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location))) +
-#   geom_point(alpha = .05, fill = NA, size = 1) +
-#   geom_hline(yintercept = .3, color = "darkred") +
-#   theme_lucid() +
-#   theme(
-#     # panel.grid.major.x = element_blank(),
-#     panel.grid.minor.x = element_blank()
-#   ) +
-#   scale_color_metro()
-#
-# dev.off()
 
 
 
