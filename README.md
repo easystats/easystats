@@ -394,19 +394,11 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`convert_phi_to_chisq`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`convert_posteriors_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`convert_posteriors_to_t`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`convert_probs_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`convert_r_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`convert_r_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`convert_r_to_t`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`convert_r_to_z`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`convert_t_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -434,6 +426,8 @@ follow a consistent pattern across all packages.
     *(correlation)*
   - [**`correlation`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
+  - [**`cramers_v`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`cronbachs_alpha`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`d_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -652,6 +646,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`glass_delta`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`golden_ratio`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`has_intercept`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`hdi`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -870,16 +866,14 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`phi_to_chisq`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`phi`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`pizza_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`plots`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`point_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`posteriors_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`posteriors_to_t`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`principal_components`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`print_color`**](https://easystats.github.io/insight/reference/index.html)
@@ -893,10 +887,6 @@ follow a consistent pattern across all packages.
   - [**`r_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`r_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`r_to_t`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`r_to_z`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`r2_bayes`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -1079,6 +1069,8 @@ follow a consistent pattern across all packages.
   - [**`si`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`simulate_correlation`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`simulate_difference`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`simulate_model`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
