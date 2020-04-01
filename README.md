@@ -500,6 +500,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`effective_sample`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`effectsize`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`epsilon_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`equivalence_test`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -518,8 +520,6 @@ follow a consistent pattern across all packages.
     *(modelbased)*
   - [**`estimate_smooth`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
-  - [**`eta_squared_adj`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`eta_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`eti`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -531,6 +531,8 @@ follow a consistent pattern across all packages.
   - [**`F_to_eta2_adj`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`F_to_eta2`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`F_to_f`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`F_to_omega2`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -1115,6 +1117,8 @@ follow a consistent pattern across all packages.
   - [**`t_to_eta2_adj`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`t_to_eta2`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`t_to_f`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`t_to_omega2`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
