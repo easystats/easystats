@@ -14,7 +14,7 @@
 <a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="90" /></a>
 
 </p>
-
+<br>
 The aim of **easystats** is to provide a unifying and consistent
 framework to tame, discipline and harness the scary R statistics and
 their pesky models.
