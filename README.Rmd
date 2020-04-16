@@ -403,7 +403,7 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
   mutate(color=color_blog) %>% 
   distinct()
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation"))
 
 
 events <- rbind(events, blogposts)

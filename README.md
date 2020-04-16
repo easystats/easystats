@@ -14,7 +14,6 @@
 <a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="90" /></a>
 
 </p>
-<br>
 
 The aim of **easystats** is to provide a unifying and consistent
 framework to tame, discipline and harness the scary R statistics and
@@ -192,6 +191,11 @@ follow a consistent pattern across all packages.
     contains an element with a given name (like `tibble::has_name()`),
     to reduce dependencies.
 
+\*\*`print` functions
+
+  - `print` methods should invisibly return the original (unchanged)
+    input ([\#65](https://github.com/easystats/easystats/issues/65)).
+
 **Function names**
 
   - Lower case, underscore separated if more than one verb
@@ -290,6 +294,8 @@ follow a consistent pattern across all packages.
   - [**`check_distribution`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_factorstructure`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`check_heterogeneity`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -779,6 +785,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`normalize`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`null_model`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`odds_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`odds_to_probs`**](https://easystats.github.io/effectsize/reference/index.html)
