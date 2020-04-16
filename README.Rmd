@@ -527,6 +527,10 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 
 - Own re-implementation of helper-functions, if it's not too much effort (e.g. I typically use own functions to check if a string starts / ends with a pattern, or if an object (list, data frame) contains an element with a given name (like `tibble::has_name()`), to reduce dependencies.
 
+**`print` functions
+
+- `print` methods should invisibly return the original (unchanged) input ([#65](https://github.com/easystats/easystats/issues/65)).
+
 **Function names**
 
 - Lower case, underscore separated if more than one verb
