@@ -295,8 +295,6 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`check_factorstructure`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`check_heterogeneity`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_homogeneity`**](https://easystats.github.io/performance/reference/index.html)
