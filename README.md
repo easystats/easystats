@@ -142,14 +142,14 @@ The corresponding *bibtex* entries are the following:
 
 Package version numbers indicate following:
 `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or
-less rapidly developing and changig state, the **major** version number
+less rapidly developing and changing state, the **major** version number
 is typically `0`. Once we think we will have a stable base that will
 likely not change dramatically or soon, the major version number will be
 set to `1`, and increased for following major changes that probably
 break the current API. When new features are added or (re)moved, we
-typicaly increase the **minor** version number. Minimal changes or bug
+typically increase the **minor** version number. Minimal changes or bug
 fixes only are indicated by increasing the **patch** version number.
-Current development versions of our poackages (i.e. master branchs from
+Current development versions of our packages (i.e. master branch from
 GitHub) additionally have a **development** version number. You
 typically won’t find packages on CRAN with a development version number.
 
@@ -294,6 +294,8 @@ follow a consistent pattern across all packages.
   - [**`check_distribution`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_factorstructure`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`check_heterogeneity`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -718,6 +720,8 @@ follow a consistent pattern across all packages.
   - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
     *(report)*
   - [**`is.rules`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`is_effectsize_name`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`is_model_supported`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*

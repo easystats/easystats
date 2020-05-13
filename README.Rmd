@@ -282,7 +282,7 @@ The corresponding *bibtex* entries are the following:
 
 # Versioning
 
-Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or less rapidly developing and changig state, the **major** version number is typically `0`. Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to `1`, and increased for following major changes that probably break the current API. When new features are added or (re)moved, we typicaly increase the **minor** version number. Minimal changes or bug fixes only are indicated by increasing the **patch** version number. Current development versions of our poackages (i.e. master branchs from GitHub) additionally have a **development** version number. You typically won't find packages on CRAN with a development version number.
+Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or less rapidly developing and changing state, the **major** version number is typically `0`. Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to `1`, and increased for following major changes that probably break the current API. When new features are added or (re)moved, we typically increase the **minor** version number. Minimal changes or bug fixes only are indicated by increasing the **patch** version number. Current development versions of our packages (i.e. master branch from GitHub) additionally have a **development** version number. You typically won't find packages on CRAN with a development version number.
 
 # Downloads 
 
@@ -403,7 +403,7 @@ blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/in
   mutate(color=color_blog) %>% 
   distinct()
 
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation"))
+blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation", "bayestestR"))
 
 
 events <- rbind(events, blogposts)
@@ -439,7 +439,7 @@ data %>%
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
   geom_smooth(aes(y = count),
               method = 'loess',
-              size = 1.75,
+              size = 1,
               se = FALSE) +
   geom_smooth(aes(y = count),
               method = 'lm',
@@ -447,13 +447,13 @@ data %>%
               se = FALSE) +
   # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
   # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
-  geom_text_repel(
-    data = events,
-    aes(label = event, x = date, y = event_y),
-    colour = events$color,
-    segment.colour = events$color,
-    size = 3
-  ) +
+  # geom_text_repel(
+  #   data = events,
+  #   aes(label = event, x = date, y = event_y),
+  #   colour = events$color,
+  #   segment.colour = events$color,
+  #   size = 3
+  # ) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month",
                labels = scales::date_format("%Y-%m")) +
