@@ -325,6 +325,7 @@ data <- rbind(downloads_insight,
   group_by(Package) %>% 
   mutate(cumulative_count = cumsum(count),
          average_count = zoo::rollmax(count, 10, fill=0)+10,
+         average_count= zoo::rollmean(count, k = 7, fill = NA),
          day_num = as.numeric(date) - min(as.numeric(date)),
          day = weekdays(date),
          month = months(date),
@@ -426,6 +427,8 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
                       "effectsize" = unname(see::material_colors("brown")),
                       "modelbased" = unname(see::material_colors("lime")),
                       "correlation" = unname(see::material_colors("amber")))
+
+data$download_label <- NA
 ```
 
 ### Trend
@@ -437,13 +440,15 @@ data %>%
   ungroup() %>%  
   ggplot(aes(x = date, color = Package)) +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
-  geom_smooth(aes(y = count),
-              method = 'loess',
-              size = 1,
-              se = FALSE) +
+  geom_line(aes(y = average_count), size = 1) +
+  # geom_smooth(aes(y = count),
+  #             method = 'loess',
+  #             size = 1,
+  #             se = FALSE) +
   geom_smooth(aes(y = count),
               method = 'lm',
-              size = 0.75,
+              linetype="dotted",
+              size = 0.5,
               se = FALSE) +
   # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
   # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
@@ -468,8 +473,6 @@ data %>%
 
 ### Cumulative downloads
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-data$download_label <- NA
-
 data <- data %>% 
   group_by(Package, month) %>% 
   mutate(download_label = first(cumulative_count)) %>% 
