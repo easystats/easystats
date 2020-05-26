@@ -429,6 +429,25 @@ packages_colours <- c("insight" = unname(see::material_colors("orange")),
                       "correlation" = unname(see::material_colors("amber")))
 
 data$download_label <- NA
+
+monnb <- function(d) {
+  lt <- as.POSIXlt(as.Date(d, origin = "1900-01-01"))
+  lt$year * 12 + lt$mon
+}
+
+mondf <- function(d1, d2) {
+  monnb(d2) - monnb(d1)
+}
+
+average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), function(i) {
+  tmp <- data[data$package == i & data$count > 0, ]
+  months_on_cran <- mondf(tmp$date[1], tmp$date[nrow(tmp)])
+  total_downloads <- sum(tmp$count)
+  data.frame(
+    package = i,
+    monthly_downloads = round(total_downloads / months_on_cran)
+  )
+}))
 ```
 
 ### Trend
@@ -440,7 +459,7 @@ data %>%
   ungroup() %>%  
   ggplot(aes(x = date, color = Package)) +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
-  geom_line(aes(y = average_count), size = 1) +
+  geom_line(aes(y = average_count), size = 1, alpha = 0.7) +
   # geom_smooth(aes(y = count),
   #             method = 'loess',
   #             size = 1,
@@ -448,7 +467,7 @@ data %>%
   geom_smooth(aes(y = count),
               method = 'lm',
               linetype="dotted",
-              size = 0.5,
+              size = 0.75,
               se = FALSE) +
   # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
   # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
@@ -489,6 +508,18 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
   scale_color_manual(values=packages_colours) +
   scale_y_sqrt() +
   theme(axis.text.x = element_text(angle = 90))
+```
+
+### Average monthly downloads
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
+  geom_col() +
+  see::theme_modern() +
+  scale_fill_manual(values=packages_colours) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(x = NULL, y = "Average monthly downloads", fill = "Package") +
+  scale_x_discrete(labels = NULL) +
+  scale_y_continuous(limits = c(0, 35000), breaks = seq(0, 35000, by = 5000))
 ```
 
 <!--
