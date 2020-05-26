@@ -195,7 +195,7 @@ follow a consistent pattern across all packages.
     contains an element with a given name (like `tibble::has_name()`),
     to reduce dependencies.
 
-\*\*`print` functions
+**`print` functions**
 
   - `print` methods should invisibly return the original (unchanged)
     input ([\#65](https://github.com/easystats/easystats/issues/65)).
