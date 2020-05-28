@@ -491,30 +491,45 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
   theme(axis.text.x = element_text(angle = 90))
 ```
 
+
+
+<!-- ### Cyclic Trend -->
+<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300} -->
+<!-- byweek <- lme4::lmer(count ~ day + (1|Package) + (1|month), data = data) %>%  -->
+<!--   modelbased::estimate_means() %>%  -->
+<!--   mutate(day = forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), -->
+<!--          average = mean(Mean), -->
+<!--          x = as.numeric(day) / 7, -->
+<!--          what="week", -->
+<!--          month=NA) %>%  -->
+<!--   arrange(day) -->
+
+
+<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data) %>%  -->
+<!--   modelbased::estimate_means() %>%  -->
+<!--   mutate(month = forcats::fct_relevel(as.factor(month),  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), -->
+<!--          average = mean(Mean), -->
+<!--          x = as.numeric(month) / 12, -->
+<!--          what="month", -->
+<!--          day=NA) %>%  -->
+<!--   arrange(month) -->
+
+
+<!-- rbind(byweek, bymonth) %>%  -->
+<!--   ggplot(aes(x=x, y=Mean, group = what, color=what)) + -->
+<!--   geom_polygon(fill=NA, size=1) +  -->
+<!--   geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
+<!--   theme_modern() + -->
+<!--   coord_polar(start=-pi/1.5) + -->
+<!--   see::theme_radar() + -->
+<!--   theme(axis.title.x = element_blank(), -->
+<!--         axis.title.y = element_blank(), -->
+<!--         axis.text.y = element_blank(), -->
+<!--         panel.grid.major.y = element_blank()) -->
+<!-- ``` -->
 <!--
 
-Currently not working...
 
-### By Week Day
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-# model <- rstanarm::stan_glmer(count ~ Package / day + (1|month), data = data, family = poisson(), refresh = 0) # The mixed model takes too long to compute
-# model <- rstanarm::stan_glm(count ~ Package / day, data = data, family = poisson(), refresh = 0)
-
-# modelbased::estimate_means(model) %>% 
-#   mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters")) %>% 
-#   sjmisc::rec(day, rec = "Montag=Monday;Dienstag=Tuesday;Mittwoch=Wednesday;Donnerstag=Thursday;Freitag=Friday;Samstag=Saturday;Sonntag=Sunday;else=copy", suffix = "") %>% 
-#   mutate(day = fct_relevel(day, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")) %>% 
-#   ggplot(aes(x=day, y=Median, group=Package)) +
-#   geom_ribbon(aes(ymin=CI_low, ymax=CI_high, fill=Package), alpha=0.1) +
-#   geom_line(aes(color=Package), size=1) +
-#   see::theme_modern() +
-#   scale_color_manual(values=packages_colours) +
-#   scale_fill_manual(values=packages_colours) +
-#   xlab("") +
-#   ylab("CRAN Downloads\n")
-# # scale_y_sqrt()
-```
--->
 
 # Convention of code-style
 
