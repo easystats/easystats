@@ -163,17 +163,69 @@ typically won’t find packages on CRAN with a development version number.
 
 <img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
+<!-- ### Cyclic Trend -->
+
+<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300} -->
+
+<!-- byweek <- lme4::lmer(count ~ day + (1|Package) + (1|month), data = data) %>%  -->
+
+<!--   modelbased::estimate_means() %>%  -->
+
+<!--   mutate(day = forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), -->
+
+<!--          average = mean(Mean), -->
+
+<!--          x = as.numeric(day) / 7, -->
+
+<!--          what="week", -->
+
+<!--          month=NA) %>%  -->
+
+<!--   arrange(day) -->
+
+<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data) %>%  -->
+
+<!--   modelbased::estimate_means() %>%  -->
+
+<!--   mutate(month = forcats::fct_relevel(as.factor(month),  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), -->
+
+<!--          average = mean(Mean), -->
+
+<!--          x = as.numeric(month) / 12, -->
+
+<!--          what="month", -->
+
+<!--          day=NA) %>%  -->
+
+<!--   arrange(month) -->
+
+<!-- rbind(byweek, bymonth) %>%  -->
+
+<!--   ggplot(aes(x=x, y=Mean, group = what, color=what)) + -->
+
+<!--   geom_polygon(fill=NA, size=1) +  -->
+
+<!--   geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
+
+<!--   theme_modern() + -->
+
+<!--   coord_polar(start=-pi/1.5) + -->
+
+<!--   see::theme_radar() + -->
+
+<!--   theme(axis.title.x = element_blank(), -->
+
+<!--         axis.title.y = element_blank(), -->
+
+<!--         axis.text.y = element_blank(), -->
+
+<!--         panel.grid.major.y = element_blank()) -->
+
+<!-- ``` -->
+
 ### Average monthly downloads
 
 <img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
-
-<!--
-
-Currently not working...
-
-### By Week Day
-
--->
 
 # Convention of code-style
 
@@ -733,6 +785,10 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`link_inverse`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`logodds_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`logodds_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`looic`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`mad_pooled`**](https://easystats.github.io/effectsize/reference/index.html)
