@@ -285,8 +285,6 @@ follow a consistent pattern across all packages.
 
 # List of functions
 
-  - [**`%>%`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`add_plot_attributes`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`adjust`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -817,6 +815,8 @@ follow a consistent pattern across all packages.
     *(report)*
   - [**`mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`multicollinearity`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`n_clusters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`n_components`**](https://easystats.github.io/parameters/reference/index.html)
@@ -1197,6 +1197,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`theme_radar`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`variance_decomposition`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`visualisation_matrix`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
   - [**`weighted_posteriors`**](https://easystats.github.io/bayestestR/reference/index.html)
