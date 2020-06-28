@@ -331,6 +331,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`bluebrown_colors`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`bootstrap_model`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`bootstrap_parameters`**](https://easystats.github.io/parameters/reference/index.html)
@@ -867,6 +869,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`p_value`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`palette_bluebrown`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`palette_flat`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`palette_material`**](https://easystats.github.io/see/reference/index.html)
@@ -874,6 +878,8 @@ follow a consistent pattern across all packages.
   - [**`palette_metro`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`palette_pizza`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`palette_see`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`palette_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1015,6 +1021,12 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`rules`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`scale_color_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_bluebrown_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_bluebrown`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`scale_color_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_flat_d`**](https://easystats.github.io/see/reference/index.html)
@@ -1039,11 +1051,23 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_color_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`scale_color_see_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_see_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_color_see`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`scale_color_social_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_social_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_social`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_bluebrown_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_bluebrown`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1069,11 +1093,23 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_colour_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`scale_colour_see_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_see_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_colour_see`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`scale_colour_social_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_social_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_social`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_bluebrown_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_bluebrown`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1099,6 +1135,12 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_fill_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`scale_fill_see_c`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_see_d`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`scale_fill_see`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`scale_fill_social_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_social_d`**](https://easystats.github.io/see/reference/index.html)
@@ -1115,6 +1157,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`se_satterthwaite`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`see_colors`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`select_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
