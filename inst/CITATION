@@ -1,0 +1,11 @@
+bibentry(
+    bibtype="Article",
+	title="The easystats collection of R packages.",
+	author=c(person("Dominique", "Makowski"), person("Mattan S.", "Ben-Shachar"), person("Daniel", "Lüdecke")),
+    journal="GitHub",
+    doi="",
+	year="2020",
+	url="https://github.com/easystats/easystats",
+	textVersion = "Makowski, D., Ben-Shachar, M. S. & Lüdecke, D. (2020). *Estimation of Model-Based Predictions, Contrasts and Means*. GitHub.",
+	mheader = "To cite 'easystats' in publications use:"
+)
