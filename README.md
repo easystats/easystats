@@ -615,24 +615,24 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`format_algorithm`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_bf`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_bf`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_ci`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_model`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_number`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_number`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_p`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_p`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`format_pd`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
-  - [**`format_rope`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`format_pd`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`format_rope`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_standardize`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
@@ -800,6 +800,8 @@ follow a consistent pattern across all packages.
   - [**`matrix_inverse`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`mcse`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`mediation`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`metro_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
