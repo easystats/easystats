@@ -30,6 +30,7 @@ install_easystats_latest <- function(){
                            upgrade = "never")
 }
 
+#' @rdname install_easystats_latest
 #' @export
 easystats_install_latest <- install_easystats_latest
 
@@ -50,6 +51,7 @@ install_easystats_dev <- function(){
                            upgrade = "never")
 }
 
+#' @rdname install_easystats_latest
 #' @export
 easystats_install_dev <- install_easystats_dev
 
@@ -173,12 +175,12 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 
 
-#' @importFrom utils available.packages packageVersion
+#' @importFrom utils available.packages packageVersion contrib.url
 #' @importFrom tools package_dependencies
 .easystats_version <- function() {
   pkgs <- tryCatch(
     {
-      utils::available.packages(contriburl = contrib.url("https://cloud.r-project.org", type = getOption("pkgType")))
+      utils::available.packages(contriburl = utils::contrib.url("https://cloud.r-project.org", type = getOption("pkgType")))
     },
     warning = function(w) { NULL },
     error = function(e) { NULL}
@@ -267,7 +269,11 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 
 .cran_checks <- function(full = FALSE) {
-  if (!requireNamespace("rvest", quietly = TRUE) && !requireNamespace("xml2", quietly = TRUE)) {
+  if (!requireNamespace("rvest", quietly = TRUE)) {
+    return(FALSE)
+  }
+
+  if (!requireNamespace("xml2", quietly = TRUE)) {
     return(FALSE)
   }
 
@@ -347,7 +353,11 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 #'
 #' @export
 on_CRAN <- function() {
-  if (!requireNamespace("rvest", quietly = TRUE) && !requireNamespace("xml2", quietly = TRUE)) {
+  if (!requireNamespace("rvest", quietly = TRUE)) {
+    return(FALSE)
+  }
+
+  if (!requireNamespace("xml2", quietly = TRUE)) {
     return(FALSE)
   }
 
