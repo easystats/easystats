@@ -267,16 +267,9 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 }
 
 
-
+#' @importFrom rvest html_table
+#' @importFrom xml2 read_html
 .cran_checks <- function(full = FALSE) {
-  if (!requireNamespace("rvest", quietly = TRUE)) {
-    return(FALSE)
-  }
-
-  if (!requireNamespace("xml2", quietly = TRUE)) {
-    return(FALSE)
-  }
-
   on_cran <- .packages_on_cran()
   error <- FALSE
   error_pkgs <- c()
@@ -353,14 +346,6 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 #'
 #' @export
 on_CRAN <- function() {
-  if (!requireNamespace("rvest", quietly = TRUE)) {
-    return(FALSE)
-  }
-
-  if (!requireNamespace("xml2", quietly = TRUE)) {
-    return(FALSE)
-  }
-
   on_cran <- .packages_on_cran()
   tryCatch(
     {

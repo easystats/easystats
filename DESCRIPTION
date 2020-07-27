@@ -29,8 +29,7 @@ Imports:
   correlation,
   see,
   tools,
-  utils
-Suggest:
+  utils,
   rvest,
   xml2
 Remotes: 
