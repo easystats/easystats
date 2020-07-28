@@ -1,5 +1,5 @@
 result$Scale <- factor(result$Scale)
-levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
+levels(result$Scale) <- c("ultranarrow prior scale", "narrow prior scale", "medium prior scale", "wide prior scale")
 
 d <- result %>%
   group_by(N, Location, Scale) %>%

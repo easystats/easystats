@@ -47,7 +47,9 @@ compute_models <- function(dat, location, scale) {
       autoscale = FALSE
     ),
     refresh = 0,
-    cores = 4
+    chains = 10,
+    iter = 800,
+    cores = 10
   )
 
   list(bayes = m_stan, freq = m_freq)
@@ -160,9 +162,6 @@ attr(result, "true_effect") <- true_effect
 close(pb)
 
 result$Group <- sprintf("N=%i, Location=%g, Scale=%g", result$N, result$Location, result$Scale)
-
-result$Scale <- factor(result$Scale)
-levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
 
 save(result, file = sprintf(
   "simulations_%s.RData",

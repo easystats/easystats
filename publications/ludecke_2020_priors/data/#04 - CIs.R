@@ -9,7 +9,7 @@ library(rstanarm)
 
 
 result$Scale <- factor(result$Scale)
-levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
+levels(result$Scale) <- c("ultranarrow prior scale", "narrow prior scale", "medium prior scale", "wide prior scale")
 
 d <- result %>%
   group_by(N, Location, Scale) %>%
@@ -52,7 +52,7 @@ ggsave("result_uncertainty.pdf", plot = p, device = "pdf", scale = 2, width = 14
 d <- result
 d$Scale <- factor(d$Scale)
 d$Location <- factor(d$Location)
-levels(d$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
+levels(d$Scale) <- c("ultranarrow prior scale", "narrow prior scale", "medium prior scale", "wide prior scale")
 levels(d$Location) <- c("Prior Location: -0.6", "Prior Location: -0.3", "Prior Location: 0", "Prior Location: 0.3", "Prior Location: 0.6")
 
 d <- d %>%

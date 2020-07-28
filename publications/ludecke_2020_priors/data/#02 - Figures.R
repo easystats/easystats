@@ -28,7 +28,7 @@ library(rstanarm)
 # })
 
 
-levels(result$Scale) <- c("narrow prior scale", "medium prior scale", "wide prior scale", "ultrawide prior scale")
+levels(result$Scale) <- c("ultranarrow prior scale", "narrow prior scale", "medium prior scale", "wide prior scale")
 
 p <- ggplot(result, aes(x = as.factor(N), y = Median, color = as.factor(Location))) +
   geom_hline(yintercept = .3, color = "#5a5a5a", size = .6) +
