@@ -56,9 +56,30 @@ options(knitr.kable.NA = '',
 <a href = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="90" /></a>
 <a href = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="90" /></a>
 <a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="90" /></a>
+
 </p>
 
+<br>
+<br>
+<br />
+
 The aim of **easystats** is to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.
+
+
+# Where to start
+
+**easystats** is a collection of R packages, and each has a different scope and purpose. This means you the **best way to start** is to explore and pick the one(s) that you feel might be useful to you. However, as they are built with a "bigger picture" in mind, you will realize that using more of them creates a smooth workflow, as these packages are meant to work together.
+
+There is not (yet) an unique **"easystats" way of doing data analysis**. Instead, start with one package and, when you'll face a new challenge, do check if there is an easystats answer for it in other packages. You will slowly uncover how using them together facilitates your life. And who knows, you might even end up using them all. ***Gotta catch 'em all!***  <!-- 'tis a pokémon reference for y'all grandpas -->
+
+- [**report**](https://github.com/easystats/report): 📜 🎉 Automated reporting of objects in R
+- [**correlation**](https://github.com/easystats/correlation): 🔗 Your all-in-one package to run correlations
+- [**modelbased**](https://github.com/easystats/modelbased): 📈 Estimate effects, group averages and contrasts between groups based on statistical models
+- [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great for beginners or experts of Bayesian statistics
+- [**parameters**](https://github.com/easystats/parameters): 📊 Obtain a table containing all information about the parameters of your models
+- [**performance**](https://github.com/easystats/performance): 💪 Models' quality and performance metrics (R2, ICC, LOO, AIC, BF, ...)
+- [**effectsize**](https://github.com/easystats/effectsize): 🐉 Compute, convert, interpret and work with indices of effect size and standardized parameters
+- [**insight**](https://github.com/easystats/insight): 🔮 For developers, a package to help you work with different models and packages
 
 
 # Installation
@@ -76,7 +97,7 @@ library("easystats")
 
 
 
-# Features 
+# Related posts 
 
 - [Comparison of indices of significance in the Bayesian framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
 - [News from easystats: updated parameters and see packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
@@ -449,6 +470,20 @@ average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), functio
   )
 }))
 ```
+
+
+```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+# TIME TREND
+data %>%
+  group_by(Package) %>% 
+  summarise(`Total Downloads` = max(cumulative_count)) %>% 
+  arrange(`Total Downloads`) %>%
+  bind_rows(summarise_all(., list(~ if(is.numeric(.)) sum(.) else "Total"))) %>% 
+  tidyr::pivot_wider(values_from =`Total Downloads`, names_from=Package) %>% 
+  knitr::kable()
+```
+
+
 
 ### Trend
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}

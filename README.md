@@ -15,9 +15,48 @@
 
 </p>
 
+<br> <br> <br />
+
 The aim of **easystats** is to provide a unifying and consistent
 framework to tame, discipline and harness the scary R statistics and
 their pesky models.
+
+# Where to start
+
+**easystats** is a collection of R packages, and each has a different
+scope and purpose. This means you the **best way to start** is to
+explore and pick the one(s) that you feel might be useful to you.
+However, as they are built with a “bigger picture” in mind, you will
+realize that using more of them creates a smooth workflow, as these
+packages are meant to work together.
+
+There is not (yet) an unique **“easystats” way of doing data analysis**.
+Instead, start with one package and, when you’ll face a new challenge,
+do check if there is an easystats answer for it in other packages. You
+will slowly uncover how using them together facilitates your life. And
+who knows, you might even end up using them all. ***Gotta catch ’em
+all\!*** <!-- 'tis a pokémon reference for y'all grandpas -->
+
+  - [**report**](https://github.com/easystats/report): 📜 🎉 Automated
+    reporting of objects in R
+  - [**correlation**](https://github.com/easystats/correlation): 🔗 Your
+    all-in-one package to run correlations
+  - [**modelbased**](https://github.com/easystats/modelbased): 📈
+    Estimate effects, group averages and contrasts between groups based
+    on statistical models
+  - [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great
+    for beginners or experts of Bayesian statistics
+  - [**parameters**](https://github.com/easystats/parameters): 📊 Obtain
+    a table containing all information about the parameters of your
+    models
+  - [**performance**](https://github.com/easystats/performance): 💪
+    Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
+  - [**effectsize**](https://github.com/easystats/effectsize): 🐉
+    Compute, convert, interpret and work with indices of effect size and
+    standardized parameters
+  - [**insight**](https://github.com/easystats/insight): 🔮 For
+    developers, a package to help you work with different models and
+    packages
 
 # Installation
 
@@ -33,7 +72,7 @@ devtools::install_github("easystats/easystats")
 library("easystats")
 ```
 
-# Features
+# Related posts
 
   - [Comparison of indices of significance in the Bayesian
     framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
@@ -155,13 +194,17 @@ typically won’t find packages on CRAN with a development version number.
 
 # Downloads
 
+| modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
+| ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
+|       7359 |       21121 | 35668 |     177203 |     248451 |      290271 |     318757 |  529970 | 1628800 |
+
 ### Trend
 
-<img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 ### Cumulative downloads
 
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 <!-- ### Cyclic Trend -->
 
@@ -225,7 +268,7 @@ typically won’t find packages on CRAN with a development version number.
 
 ### Average monthly downloads
 
-<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 # Convention of code-style
 
@@ -331,8 +374,6 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
-  - [**`bluebrown_colors`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`bootstrap_model`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`bootstrap_parameters`**](https://easystats.github.io/parameters/reference/index.html)
@@ -565,8 +606,6 @@ follow a consistent pattern across all packages.
     *(modelbased)*
   - [**`estimate_smooth`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
-  - [**`eta_squared_posterior`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`eta_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`eti`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -787,10 +826,6 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`link_inverse`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`logodds_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`logodds_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`looic`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`mad_pooled`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -873,8 +908,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`p_value`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`palette_bluebrown`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`palette_flat`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`palette_material`**](https://easystats.github.io/see/reference/index.html)
@@ -882,8 +915,6 @@ follow a consistent pattern across all packages.
   - [**`palette_metro`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`palette_pizza`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`palette_see`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`palette_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1025,12 +1056,6 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`rules`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`scale_color_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_bluebrown_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_bluebrown`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_color_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_flat_d`**](https://easystats.github.io/see/reference/index.html)
@@ -1055,23 +1080,11 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_color_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`scale_color_see_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_see_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_color_see`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_color_social_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_social_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_color_social`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_bluebrown_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_bluebrown`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1097,23 +1110,11 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_colour_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`scale_colour_see_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_see_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_colour_see`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_colour_social_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_social_d`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_colour_social`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_bluebrown_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_bluebrown`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_flat_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -1139,12 +1140,6 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`scale_fill_pizza`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`scale_fill_see_c`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_see_d`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
-  - [**`scale_fill_see`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`scale_fill_social_c`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`scale_fill_social_d`**](https://easystats.github.io/see/reference/index.html)
@@ -1161,8 +1156,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`se_satterthwaite`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`see_colors`**](https://easystats.github.io/see/reference/index.html)
-    *(see)*
   - [**`select_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
