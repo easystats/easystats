@@ -18,6 +18,8 @@
 
 <br />
 
+.
+
 ## What is *easystats*?
 
 **easystats** is a collection of R packages, which aims to provide a

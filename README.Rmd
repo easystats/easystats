@@ -61,6 +61,8 @@ options(knitr.kable.NA = '',
 
 <br />
 
+.
+
 ## What is *easystats*?
 
 **easystats** is a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.
