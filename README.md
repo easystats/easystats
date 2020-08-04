@@ -15,30 +15,29 @@
 
 </p>
 
-<br> <br> <br />
+## What is *easystats*?
 
-The aim of **easystats** is to provide a unifying and consistent
-framework to tame, discipline and harness the scary R statistics and
-their pesky models.
+**easystats** is a collection of R packages, which aims to provide a
+unifying and consistent framework to tame, discipline and harness the
+scary R statistics and their pesky models.
 
-# Where to start
+However, there is not (yet) an unique **“easystats” way of doing data
+analysis**. Instead, start with one package and, when you’ll face a new
+challenge, do check if there is an easystats answer for it in other
+packages. You will slowly uncover how using them together facilitates
+your life. And who knows, you might even end up using them all. ***Gotta
+catch ’em all\!*** <!-- 'tis a pokémon reference for y'all grandpas -->
 
-**easystats** is a collection of R packages, and each has a different
-scope and purpose. This means you the **best way to start** is to
-explore and pick the one(s) that you feel might be useful to you.
-However, as they are built with a “bigger picture” in mind, you will
-realize that using more of them creates a smooth workflow, as these
-packages are meant to work together.
+## Where to start
 
-There is not (yet) an unique **“easystats” way of doing data analysis**.
-Instead, start with one package and, when you’ll face a new challenge,
-do check if there is an easystats answer for it in other packages. You
-will slowly uncover how using them together facilitates your life. And
-who knows, you might even end up using them all. ***Gotta catch ’em
-all\!*** <!-- 'tis a pokémon reference for y'all grandpas -->
+Each **easystats** package has a different scope and purpose. This means
+you the **best way to start** is to explore and pick the one(s) that you
+feel might be useful to you. However, as they are built with a “bigger
+picture” in mind, you will realize that using more of them creates a
+smooth workflow, as these packages are meant to work together.
 
   - [**report**](https://github.com/easystats/report): 📜 🎉 Automated
-    reporting of objects in R
+    statistical reporting of objects in R
   - [**correlation**](https://github.com/easystats/correlation): 🔗 Your
     all-in-one package to run correlations
   - [**modelbased**](https://github.com/easystats/modelbased): 📈
@@ -58,7 +57,7 @@ all\!*** <!-- 'tis a pokémon reference for y'all grandpas -->
     developers, a package to help you work with different models and
     packages
 
-# Installation
+## Installation
 
 The whole `easystats` suite can be installed *at once* with the
 following:
@@ -72,7 +71,7 @@ devtools::install_github("easystats/easystats")
 library("easystats")
 ```
 
-# Related posts
+## Related posts
 
   - [Comparison of indices of significance in the Bayesian
     framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
@@ -101,7 +100,7 @@ library("easystats")
 Find an overview of all postings
 [here](https://easystats.github.io/blog/posts/).
 
-# Dependencies
+## Dependencies
 
 Most of *easystats* packages are very lightweight, *i.e.*, they don’t
 rely nor import any other packages\! This means that you can safely use
@@ -117,7 +116,7 @@ package dependencies by a substantial amount. On the bright side of
 things, it gives a good **overview of the place of *easystats* in the R
 ecosystem**.
 
-# Citation
+## Citation
 
 How to reference *easystats*?
 
@@ -177,7 +176,7 @@ The corresponding *bibtex* entries are the following:
         pages = {1541}
     }
 
-# Versioning
+## Versioning
 
 Package version numbers indicate following:
 `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or
@@ -192,11 +191,11 @@ Current development versions of our packages (i.e. master branch from
 GitHub) additionally have a **development** version number. You
 typically won’t find packages on CRAN with a development version number.
 
-# Downloads
+## Downloads
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|       7359 |       21121 | 35668 |     177203 |     248451 |      290271 |     318757 |  529970 | 1628800 |
+|       7409 |       21350 | 35918 |     178895 |     250148 |      291944 |     320339 |  532286 | 1638289 |
 
 ### Trend
 
@@ -270,7 +269,7 @@ typically won’t find packages on CRAN with a development version number.
 
 <img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
-# Convention of code-style
+## Convention of code-style
 
 Following conventions apply to the easystats-ecosystem, to ensure that
 function and argument names as well as element names for return-values
@@ -326,7 +325,7 @@ follow a consistent pattern across all packages.
 7)  Adjectives / verbs: all lower case, unless (1) applies (*example:*
     `high` or `low` in `CI_high` or `CI_low`)
 
-# List of functions
+## List of functions
 
   - [**`add_plot_attributes`**](https://easystats.github.io/see/reference/index.html)
     *(see)*

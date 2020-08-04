@@ -59,20 +59,21 @@ options(knitr.kable.NA = '',
 
 </p>
 
-<br>
-<br>
-<br />
+## What is *easystats*?
 
-The aim of **easystats** is to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.
+**easystats** is a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.
 
 
-# Where to start
+However, there is not (yet) an unique **"easystats" way of doing data analysis**. Instead, start with one package and, when you'll face a new challenge, do check if there is an easystats answer for it in other packages. You will slowly uncover how using them together facilitates your life. And who knows, you might even end up using them all. ***Gotta catch 'em all!***  <!-- 'tis a pokémon reference for y'all grandpas -->
 
-**easystats** is a collection of R packages, and each has a different scope and purpose. This means you the **best way to start** is to explore and pick the one(s) that you feel might be useful to you. However, as they are built with a "bigger picture" in mind, you will realize that using more of them creates a smooth workflow, as these packages are meant to work together.
 
-There is not (yet) an unique **"easystats" way of doing data analysis**. Instead, start with one package and, when you'll face a new challenge, do check if there is an easystats answer for it in other packages. You will slowly uncover how using them together facilitates your life. And who knows, you might even end up using them all. ***Gotta catch 'em all!***  <!-- 'tis a pokémon reference for y'all grandpas -->
+## Where to start
 
-- [**report**](https://github.com/easystats/report): 📜 🎉 Automated reporting of objects in R
+
+Each **easystats** package has a different scope and purpose. This means you the **best way to start** is to explore and pick the one(s) that you feel might be useful to you. However, as they are built with a "bigger picture" in mind, you will realize that using more of them creates a smooth workflow, as these packages are meant to work together.
+
+
+- [**report**](https://github.com/easystats/report): 📜 🎉 Automated statistical reporting of objects in R
 - [**correlation**](https://github.com/easystats/correlation): 🔗 Your all-in-one package to run correlations
 - [**modelbased**](https://github.com/easystats/modelbased): 📈 Estimate effects, group averages and contrasts between groups based on statistical models
 - [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great for beginners or experts of Bayesian statistics
@@ -82,7 +83,7 @@ There is not (yet) an unique **"easystats" way of doing data analysis**. Instead
 - [**insight**](https://github.com/easystats/insight): 🔮 For developers, a package to help you work with different models and packages
 
 
-# Installation
+## Installation
 
 The whole `easystats` suite can be installed *at once* with the following:
 
@@ -97,7 +98,7 @@ library("easystats")
 
 
 
-# Related posts 
+## Related posts 
 
 - [Comparison of indices of significance in the Bayesian framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
 - [News from easystats: updated parameters and see packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
@@ -113,7 +114,7 @@ library("easystats")
 
 Find an overview of all postings [here](https://easystats.github.io/blog/posts/).
 
-# Dependencies
+## Dependencies
 
 Most of *easystats* packages are very lightweight, *i.e.*, they don't rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of butterfly effects (a small change in a distant downstream dependency with unexpected upstream consequences).
 
@@ -248,7 +249,7 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
 ```
 
 
-# Citation
+## Citation
 
 How to reference *easystats*?
 
@@ -301,11 +302,11 @@ The corresponding *bibtex* entries are the following:
 }
 ```
 
-# Versioning
+## Versioning
 
 Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or less rapidly developing and changing state, the **major** version number is typically `0`. Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to `1`, and increased for following major changes that probably break the current API. When new features are added or (re)moved, we typically increase the **minor** version number. Minimal changes or bug fixes only are indicated by increasing the **patch** version number. Current development versions of our packages (i.e. master branch from GitHub) additionally have a **development** version number. You typically won't find packages on CRAN with a development version number.
 
-# Downloads 
+## Downloads 
 
 
 ```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
@@ -598,7 +599,7 @@ ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill =
 
 
 
-# Convention of code-style
+## Convention of code-style
 
 Following conventions apply to the easystats-ecosystem, to ensure that function and argument names as well as element names for return-values follow a consistent pattern across all packages.
 
@@ -636,7 +637,7 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 6) Keep conventions for reserved words (_example:_ `p`, `pd`, `Rhat`)
 7) Adjectives / verbs: all lower case, unless (1) applies (_example:_ `high` or `low` in `CI_high` or `CI_low`)
 
-# List of functions
+## List of functions
 
 
 
