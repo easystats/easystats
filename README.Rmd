@@ -85,6 +85,7 @@ Each **easystats** package has a different scope and purpose. This means you the
 - [**performance**](https://github.com/easystats/performance): 💪 Models' quality and performance metrics (R2, ICC, LOO, AIC, BF, ...)
 - [**effectsize**](https://github.com/easystats/effectsize): 🐉 Compute, convert, interpret and work with indices of effect size and standardized parameters
 - [**insight**](https://github.com/easystats/insight): 🔮 For developers, a package to help you work with different models and packages
+- [**see**](https://github.com/easystats/see): 🎨 The plotting companion to create beautiful results visualizations
 
 
 ## Frequently Asked Questions

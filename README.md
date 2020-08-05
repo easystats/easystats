@@ -61,6 +61,8 @@ smooth workflow, as these packages are meant to work together.
   - [**insight**](https://github.com/easystats/insight): 🔮 For
     developers, a package to help you work with different models and
     packages
+  - [**see**](https://github.com/easystats/see): 🎨 The plotting
+    companion to create beautiful results visualizations
 
 ## Frequently Asked Questions
 
