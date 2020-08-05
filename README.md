@@ -62,6 +62,36 @@ smooth workflow, as these packages are meant to work together.
     developers, a package to help you work with different models and
     packages
 
+## Frequently Asked Questions
+
+  - **How is *easystats* different from the *tidyverse*?**
+
+You’ve probably already heard about the
+[**tidyverse**](https://www.tidyverse.org/), another very popular
+collection of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes
+using R easier. So, should you pick the *tidyverse* or *easystats*?
+**Pick both\!** Indeed, they do not serve the same purpose. The
+*tidyverse* packages are primarily made to create a new R experience,
+where data manipulation and exploration is natural and consistent. On
+the other hand, **easystats** is more focused on helping you making this
+last mile from the analysis to your manuscript or stats report. It helps
+you understand and interpret your results and report them following best
+practices. You can definitely use the *easystats* functions in a
+*tidyverse* workflow\! **easystats + tidyverse =** ❤️
+
+  - **Can *easystats* be useful to advanced users and/or developers?**
+
+Yes, definitely\! **easystats** is built in terms of modules that are
+general enough so that they can be used inside of other packages. For
+instance, the *insight* package is made to easily implement support for
+post-processing of all the models / packages under the sun. We use it in
+all the easystats packages, but it also used for instance in
+[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),
+[**ggeffects**](https://github.com/strengejacke/ggeffects), and more.
+**So why not in yours**? Moreover, the easystats packages are very
+lightweight, with a minimal set of dependencies, which again makes it
+great if you want to rely on them.
+
 ## Installation
 
 The whole `easystats` suite can be installed *at once* with the
@@ -200,7 +230,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|       7409 |       21350 | 35918 |     178895 |     250148 |      291944 |     320339 |  532286 | 1638289 |
+|       7446 |       21559 | 36120 |     179843 |     251170 |      292891 |     321309 |  533658 | 1643996 |
 
 ### Trend
 
