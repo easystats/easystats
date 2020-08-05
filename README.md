@@ -43,16 +43,16 @@ smooth workflow, as these packages are meant to work together.
 
   - [**report**](https://github.com/easystats/report): 📜 🎉 Automated
     statistical reporting of objects in R
-  - [**correlation**](https://github.com/easystats/correlation): 🔗 Your
-    all-in-one package to run correlations
-  - [**modelbased**](https://github.com/easystats/modelbased): 📈
-    Estimate effects, group averages and contrasts between groups based
-    on statistical models
   - [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great
     for beginners or experts of Bayesian statistics
+  - [**correlation**](https://github.com/easystats/correlation): 🔗 Your
+    all-in-one package to run correlations
   - [**parameters**](https://github.com/easystats/parameters): 📊 Obtain
     a table containing all information about the parameters of your
     models
+  - [**modelbased**](https://github.com/easystats/modelbased): 📈
+    Estimate effects, group averages and contrasts between groups based
+    on statistical models
   - [**performance**](https://github.com/easystats/performance): 💪
     Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
   - [**effectsize**](https://github.com/easystats/effectsize): 🐉
