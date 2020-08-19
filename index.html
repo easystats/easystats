@@ -170,14 +170,22 @@
 </ol>
 <p>The most parsimonious approach is to cite only the particular package that helped you, e.g., “using <em>bayestestR</em> (Makowski, Ben-Shachar, &amp; Lüdecke, 2019)”. However, as <em>easystats</em> is meant to be an ecosystem, with different people working on its different aspects (some being more “citeable” than others), please consider including also the “main” publication: <a href="https://github.com/easystats/easystats/issues/24"><strong><em>not available yet</em></strong></a>.</p>
 <ol>
-<li><strong>Cite the whole ecosystem</strong></li>
+<li>
+<strong>Cite the whole ecosystem</strong> <span class="emoji" data-emoji="heart">❤️</span>
+</li>
 </ol>
-<p>Want to really help us boost our <em>h</em>-index? Or simply credit the whole network of interconnected aspects of <em>easystats</em>? This can be done with a sentence like the following:</p>
+<p>Want to credit the whole network of interconnected aspects of <em>easystats</em>? This can be done with a sentence like the following:</p>
 <blockquote>
-<p><strong>Data processing was carried out with R (R Core Team, 2019) and the <em>easystats</em> ecosystem (Lüdecke, Waggoner, &amp; Makowski, 2019; Makowski, Ben-Shachar, &amp; Lüdecke, 2019)</strong></p>
+<p><strong>Data processing was carried out with R (R Core Team, 2019) and the <em>easystats</em> ecosystem (Lüdecke, Waggoner, &amp; Makowski, 2019; Makowski, Ben-Shachar, &amp; Lüdecke, 2019; Makowski, Ben-Shachar, Patil, &amp; Lüdecke, 2020)</strong></p>
 </blockquote>
-<p>The corresponding <em>bibtex</em> entries are the following:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">@</span>article{ludecke2019insight,</span>
+<details><p><summary>Click here to see the corresponding APA and bibtex entries</summary></p>
+<p><br></p>
+<ul>
+<li>Lüdecke D, Waggoner P, Makowski D. <em>insight: A Unified Interface to Access Information from Model Objects in R</em>. Journal of Open Source Software 2019;4:1412. doi: 10.21105/joss.01412</li>
+<li>Makowski, D., Ben-Shachar, M. S., &amp; Lüdecke, D. (2019). <em>bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework</em>. Journal of Open Source Software, 4(40), 1541. 10.21105/joss.01541</li>
+<li>Makowski, D., Ben-Shachar, M. S., Patil, I., &amp; Lüdecke, D. (2019). <em>Methods and Algorithms for Correlation Analysis in R</em>. Journal of Open Source Software, 5(51), 2306. 10.21105/joss.02306</li>
+</ul>
+<!-- end list --><div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">@</span>article{ludecke2019insight,</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    journal =<span class="st"> </span>{Journal of Open Source Software},</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    doi =<span class="st"> </span>{<span class="fl">10.21105</span><span class="op">/</span>joss<span class="fl">.01412</span>},</span>
 <span id="cb3-4"><a href="#cb3-4"></a>    issn =<span class="st"> </span>{<span class="dv">2475-9066</span>},</span>
@@ -209,7 +217,19 @@
 <span id="cb3-30"><a href="#cb3-30"></a>    month =<span class="st"> </span>aug,</span>
 <span id="cb3-31"><a href="#cb3-31"></a>    year =<span class="st"> </span>{<span class="dv">2019</span>},</span>
 <span id="cb3-32"><a href="#cb3-32"></a>    pages =<span class="st"> </span>{<span class="dv">1541</span>}</span>
-<span id="cb3-33"><a href="#cb3-33"></a>}</span></code></pre></div>
+<span id="cb3-33"><a href="#cb3-33"></a>}</span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="op">@</span>article{makowski2020correlation,</span>
+<span id="cb3-36"><a href="#cb3-36"></a>  doi={<span class="fl">10.21105</span><span class="op">/</span>joss<span class="fl">.02306</span>},</span>
+<span id="cb3-37"><a href="#cb3-37"></a>  title={Methods and Algorithms <span class="cf">for</span> Correlation Analysis <span class="cf">in</span> R},</span>
+<span id="cb3-38"><a href="#cb3-38"></a>  author={Makowski, Dominique and Ben<span class="op">-</span>Shachar, Mattan and Patil, Indrajeet and L{\<span class="st">"u}decke, Daniel},</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="st">  journal={Journal of Open Source Software},</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="st">  volume={5},</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="st">  number={51},</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="st">  pages={2306},</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="st">  year={2020}</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="st">}</span></span></code></pre></div>
+</details>
 </div>
 <div id="versioning" class="section level2">
 <h2 class="hasAnchor">
@@ -404,9 +424,6 @@
 </li>
 <li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>binned_residuals</code></strong></a> <em>(performance)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>bluebrown_colors</code></strong></a> <em>(see)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>bootstrap_model</code></strong></a> <em>(parameters)</em>
@@ -757,9 +774,6 @@
 <a href="https://easystats.github.io/modelbased/reference/index.html"><strong><code>estimate_smooth</code></strong></a> <em>(modelbased)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>eta_squared_posterior</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>eta_squared</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
@@ -1090,12 +1104,6 @@
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>link_inverse</code></strong></a> <em>(insight)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>logodds_to_d</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>logodds_to_r</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>looic</code></strong></a> <em>(performance)</em>
 </li>
 <li>
@@ -1219,9 +1227,6 @@
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>p_value</code></strong></a> <em>(parameters)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>palette_bluebrown</code></strong></a> <em>(see)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>palette_flat</code></strong></a> <em>(see)</em>
 </li>
 <li>
@@ -1232,9 +1237,6 @@
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>palette_pizza</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>palette_see</code></strong></a> <em>(see)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>palette_social</code></strong></a> <em>(see)</em>
@@ -1447,15 +1449,6 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>rules</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_bluebrown_c</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_bluebrown_d</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_bluebrown</code></strong></a> <em>(see)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_flat_c</code></strong></a> <em>(see)</em>
 </li>
 <li>
@@ -1492,15 +1485,6 @@
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_pizza</code></strong></a> <em>(see)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_see_c</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_see_d</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_see</code></strong></a> <em>(see)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_social_c</code></strong></a> <em>(see)</em>
 </li>
 <li>
@@ -1508,15 +1492,6 @@
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_color_social</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_bluebrown_c</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_bluebrown_d</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_bluebrown</code></strong></a> <em>(see)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_flat_c</code></strong></a> <em>(see)</em>
@@ -1555,15 +1530,6 @@
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_pizza</code></strong></a> <em>(see)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_see_c</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_see_d</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_see</code></strong></a> <em>(see)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_social_c</code></strong></a> <em>(see)</em>
 </li>
 <li>
@@ -1571,15 +1537,6 @@
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_colour_social</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_bluebrown_c</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_bluebrown_d</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_bluebrown</code></strong></a> <em>(see)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_flat_c</code></strong></a> <em>(see)</em>
@@ -1618,15 +1575,6 @@
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_pizza</code></strong></a> <em>(see)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_see_c</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_see_d</code></strong></a> <em>(see)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_see</code></strong></a> <em>(see)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>scale_fill_social_c</code></strong></a> <em>(see)</em>
 </li>
 <li>
@@ -1649,9 +1597,6 @@
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>se_satterthwaite</code></strong></a> <em>(parameters)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/see/reference/index.html"><strong><code>see_colors</code></strong></a> <em>(see)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>select_parameters</code></strong></a> <em>(parameters)</em>
