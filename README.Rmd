@@ -304,7 +304,7 @@ Want to credit the whole network of interconnected aspects of *easystats*? This 
 	date = {2019-06-25},
 	year = {2019},
 	month = {6},
-	day = {25},
+	day = {25}
 }
 
 
