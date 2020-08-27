@@ -681,15 +681,6 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 # it would be cool to add the title / description for all functions
-library(insight)
-library(bayestestR)
-library(parameters)
-library(performance)
-library(correlation)
-library(modelbased)
-library(effectsize)
-library(report)
-
 all_funs <- data.frame()
 
 for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "report", "see")) {
