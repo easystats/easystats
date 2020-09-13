@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|       8147 |       24423 | 38245 |     194487 |     267377 |      307703 |     337305 |  568722 | 1746409 |
+|       8715 |       26686 | 39795 |     206096 |     280253 |      319219 |     350415 |  610139 | 1841318 |
 
 ### Trend
 
@@ -747,9 +747,21 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`format_value`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`geom_count_borderless`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_count2`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_jitter_borderless`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`geom_jitter2`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`geom_point_borderless`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
   - [**`geom_point2`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_pointrange_borderless`**](https://easystats.github.io/see/reference/index.html)
+    *(see)*
+  - [**`geom_pointrange2`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`geom_pooljitter`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -859,6 +871,10 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`interpret`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`is.cor`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
+  - [**`is.rules`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`is_effectsize_name`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`is_model_supported`**](https://easystats.github.io/insight/reference/index.html)
@@ -869,10 +885,6 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`is_nullmodel`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`is.cor`**](https://easystats.github.io/correlation/reference/index.html)
-    *(correlation)*
-  - [**`is.rules`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`isSquare`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`item_difficulty`**](https://easystats.github.io/performance/reference/index.html)
@@ -1037,6 +1049,10 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`point_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`posterior_predictive_check`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`pp_check`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`principal_components`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`print_color`**](https://easystats.github.io/insight/reference/index.html)
@@ -1313,6 +1329,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`theme_radar`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`unupdate`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`variance_decomposition`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`visualisation_matrix`**](https://easystats.github.io/modelbased/reference/index.html)
