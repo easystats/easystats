@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|       8715 |       26686 | 39795 |     206096 |     280253 |      319219 |     350415 |  610139 | 1841318 |
+|       9572 |       29535 | 42461 |     221751 |     299590 |      335349 |     365322 |  654594 | 1958174 |
 
 ### Trend
 
@@ -529,9 +529,11 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`convert_bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`convert_d_to_common_language`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`convert_d_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`convert_d_to_percentage`**](https://easystats.github.io/effectsize/reference/index.html)
+  - [**`convert_d_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`convert_d_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -545,21 +547,21 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`convert_odds_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`convert_oddsratio_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`convert_oddsratio_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`convert_p_to_pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`convert_pd_to_p`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`convert_percentage_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`convert_percentile_to_z`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`convert_probs_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`convert_r_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`convert_r_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`convert_z_to_percentile`**](https://easystats.github.io/effectsize/reference/index.html)
+  - [**`convert_r_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`coord_radar`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
@@ -581,9 +583,11 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`cronbachs_alpha`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`d_to_common_language`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`d_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`d_to_percentage`**](https://easystats.github.io/effectsize/reference/index.html)
+  - [**`d_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`d_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -721,14 +725,10 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`flat_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`format_algorithm`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`format_bf`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_ci`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`format_model`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
   - [**`format_number`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
@@ -787,6 +787,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`get_scores`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`get_sigma`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`get_statistic`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_varcov`**](https://easystats.github.io/insight/reference/index.html)
@@ -833,7 +835,11 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`interpret_direction`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`interpret_epsilon_squared`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`interpret_ess`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`interpret_eta_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`interpret_g`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -846,6 +852,8 @@ follow a consistent pattern across all packages.
   - [**`interpret_nnfi`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`interpret_odds`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`interpret_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`interpret_omega_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -905,6 +913,10 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`logodds_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`logoddsratio_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`logoddsratio_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`looic`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`mad_pooled`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -952,6 +964,12 @@ follow a consistent pattern across all packages.
   - [**`odds_to_probs`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`odds_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`oddsratio_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`oddsratio_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`oddsratio_to_riskratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`omega_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -1009,10 +1027,6 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`pd`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`percentage_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`percentile_to_z`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`performance_accuracy`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`performance_aic`**](https://easystats.github.io/performance/reference/index.html)
@@ -1067,6 +1081,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`r_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`r_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`r2_bayes`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_coxsnell`**](https://easystats.github.io/performance/reference/index.html)
@@ -1109,6 +1125,8 @@ follow a consistent pattern across all packages.
     *(modelbased)*
   - [**`reshape_loadings`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`riskratio_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`rmse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`rnorm_perfect`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -1340,8 +1358,6 @@ follow a consistent pattern across all packages.
   - [**`z_fisher`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`z_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
-  - [**`z_to_percentile`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`z_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*

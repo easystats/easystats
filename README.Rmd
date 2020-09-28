@@ -630,7 +630,7 @@ ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill =
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = NULL, y = "Average monthly downloads", fill = "Package") +
   scale_x_discrete(labels = NULL) +
-  scale_y_continuous(limits = c(0, 35000), breaks = seq(0, 35000, by = 5000))
+  scale_y_continuous(limits = c(0, 40000), breaks = seq(0, 40000, by = 5000))
 ```
 
 
