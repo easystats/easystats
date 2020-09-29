@@ -45,12 +45,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
@@ -130,12 +124,10 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>The whole <code>easystats</code> suite can be installed <em>at once</em> with the following:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-<span class="kw">devtools</span>::<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"easystats/easystats"</span>)
-</pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"easystats/easystats"</span><span class="op">)</span></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st"><a href="https://github.com/easystats/easystats">"easystats"</a></span>)
-</pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/easystats/easystats">"easystats"</a></span><span class="op">)</span></pre></div>
 </div>
 <div id="related-posts" class="section level2">
 <h2 class="hasAnchor">
@@ -263,15 +255,15 @@
 <th align="right">Total</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="right">8715</td>
-<td align="right">26686</td>
-<td align="right">39795</td>
-<td align="right">206096</td>
-<td align="right">280253</td>
-<td align="right">319219</td>
-<td align="right">350415</td>
-<td align="right">610139</td>
-<td align="right">1841318</td>
+<td align="right">9572</td>
+<td align="right">29535</td>
+<td align="right">42461</td>
+<td align="right">221751</td>
+<td align="right">299590</td>
+<td align="right">335349</td>
+<td align="right">365322</td>
+<td align="right">654594</td>
+<td align="right">1958174</td>
 </tr></tbody>
 </table>
 <div id="trend" class="section level3">
@@ -558,10 +550,13 @@
 <a href="https://easystats.github.io/bayestestR/reference/index.html"><strong><code>convert_bayesian_as_frequentist</code></strong></a> <em>(bayestestR)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_d_to_common_language</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_d_to_odds</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_d_to_percentage</code></strong></a> <em>(effectsize)</em>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_d_to_oddsratio</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_d_to_r</code></strong></a> <em>(effectsize)</em>
@@ -582,16 +577,16 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_odds_to_r</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_oddsratio_to_d</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_oddsratio_to_r</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/bayestestR/reference/index.html"><strong><code>convert_p_to_pd</code></strong></a> <em>(bayestestR)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/bayestestR/reference/index.html"><strong><code>convert_pd_to_p</code></strong></a> <em>(bayestestR)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_percentage_to_d</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_percentile_to_z</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_probs_to_odds</code></strong></a> <em>(effectsize)</em>
@@ -603,7 +598,7 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_r_to_odds</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_z_to_percentile</code></strong></a> <em>(effectsize)</em>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>convert_r_to_oddsratio</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>coord_radar</code></strong></a> <em>(see)</em>
@@ -636,10 +631,13 @@
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>cronbachs_alpha</code></strong></a> <em>(performance)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>d_to_common_language</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>d_to_odds</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>d_to_percentage</code></strong></a> <em>(effectsize)</em>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>d_to_oddsratio</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>d_to_r</code></strong></a> <em>(effectsize)</em>
@@ -846,16 +844,10 @@
 <a href="https://easystats.github.io/see/reference/index.html"><strong><code>flat_colors</code></strong></a> <em>(see)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>format_algorithm</code></strong></a> <em>(parameters)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>format_bf</code></strong></a> <em>(insight)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>format_ci</code></strong></a> <em>(insight)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>format_model</code></strong></a> <em>(parameters)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>format_number</code></strong></a> <em>(insight)</em>
@@ -945,6 +937,9 @@
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>get_scores</code></strong></a> <em>(parameters)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/insight/reference/index.html"><strong><code>get_sigma</code></strong></a> <em>(insight)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>get_statistic</code></strong></a> <em>(insight)</em>
 </li>
 <li>
@@ -1014,7 +1009,13 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_direction</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_epsilon_squared</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_ess</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_eta_squared</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_g</code></strong></a> <em>(effectsize)</em>
@@ -1033,6 +1034,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_odds</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_oddsratio</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>interpret_omega_squared</code></strong></a> <em>(effectsize)</em>
@@ -1122,6 +1126,12 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>logodds_to_r</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>logoddsratio_to_d</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>logoddsratio_to_r</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>looic</code></strong></a> <em>(performance)</em>
 </li>
 <li>
@@ -1192,6 +1202,15 @@
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>odds_to_r</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>oddsratio_to_d</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>oddsratio_to_r</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>oddsratio_to_riskratio</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>omega_squared</code></strong></a> <em>(effectsize)</em>
@@ -1278,12 +1297,6 @@
 <a href="https://easystats.github.io/bayestestR/reference/index.html"><strong><code>pd</code></strong></a> <em>(bayestestR)</em>
 </li>
 <li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>percentage_to_d</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>percentile_to_z</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>performance_accuracy</code></strong></a> <em>(performance)</em>
 </li>
 <li>
@@ -1365,6 +1378,9 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>r_to_odds</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>r_to_oddsratio</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>r2_bayes</code></strong></a> <em>(performance)</em>
 </li>
 <li>
@@ -1426,6 +1442,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>reshape_loadings</code></strong></a> <em>(parameters)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>riskratio_to_oddsratio</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>rmse</code></strong></a> <em>(performance)</em>
@@ -1774,9 +1793,6 @@
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>z_to_d</code></strong></a> <em>(effectsize)</em>
-</li>
-<li>
-<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>z_to_percentile</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>z_to_r</code></strong></a> <em>(effectsize)</em>
