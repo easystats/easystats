@@ -623,6 +623,7 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
 
 ### Average monthly downloads
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+plot_range <- pretty(average_monthly_downloads$monthly_downloads)
 ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
   geom_col() +
   see::theme_modern() +
@@ -630,7 +631,7 @@ ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill =
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = NULL, y = "Average monthly downloads", fill = "Package") +
   scale_x_discrete(labels = NULL) +
-  scale_y_continuous(limits = c(0, 40000), breaks = seq(0, 40000, by = 5000))
+  scale_y_continuous(limits = c(0, max(plot_range)), breaks = plot_range)
 ```
 
 
