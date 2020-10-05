@@ -65,18 +65,18 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 There was a time when most of applied researchers - psychologists, sociologists or political scientists, progressed through their career by happily using the few statistical procedures at their disposal, such as correlations, *t*-tests or ANOVAs). But such time is over. 
 
-The explosion of computational power, accompanied by theorethical breakthroughs for instance in machine learning or probabilistic computing, has deeply transfigured the field of statistics. As a result, the amount of cutting-edge statistical algorithms has never been so large and most importantly, so available. Indeed, most of these complex techniques are at one copy-pasting away, beeing implemented in free and open-source software such as R [@R-base] and Python.
+The explosion of computational power, accompanied by theoretical breakthroughs for instance in machine learning or probabilistic computing, has deeply transfigured the field of statistics. As a result, the amount of cutting-edge statistical algorithms has never been so large and most importantly, so available. Indeed, most of these complex techniques are at one copy-pasting away, being implemented in free and open-source software such as R [@R-base] and Python.
 
-On top of that accessibility explosion, the recent reproducibility crisis has recently shattered the quality standards and practices, pressuring researchers to adopt new tools and methodologies. Unfortunately, most of the them lack training in statistics and computer science to fully take advantage of this new landscape. As a consequence, many scientists find themselves crushed between these two antagonistic forces of availability and demand. For the first time, a part of science is becomming limited by the expertise rather than the tools.
+On top of that accessibility explosion, the recent reproducibility crisis has recently shattered the quality standards and practices, pressuring researchers to adopt new tools and methodologies. Unfortunately, most of the them lack training in statistics and computer science to fully take advantage of this new landscape. As a consequence, many scientists find themselves crushed between these two antagonistic forces of availability and demand. For the first time, a part of science is becoming limited by the expertise rather than the tools.
 
-Understandably, this "methodological availability\/demand" paradox can contribute to the negative feelings (reported for instance by students and young researchers) surrounding the methodological and statistical aspects of a scientific study. Moreover, this conflict can also become a threat to the academic publishing system, as finding expert (or just competent enough) reviewers for all the methods becomes a dilemma for editors (adding up to the already existing problem inherent to the current peer-review model). In turn, misused methods (and thus misinterpreted results) can pervade academic litterature, aggravating in turn the crisis of trust toward science.
+Understandably, this "methodological availability\/demand" paradox can contribute to the negative feelings (reported for instance by students and young researchers) surrounding the methodological and statistical aspects of a scientific study. Moreover, this conflict can also become a threat to the academic publishing system, as finding expert (or just competent enough) reviewers for all the methods becomes a dilemma for editors (adding up to the already existing problem inherent to the current peer-review model). In turn, misused methods (and thus misinterpreted results) can pervade academic literature, aggravating in turn the crisis of trust toward science.
 
 Thus, what could be done to ease and facilitate the transition or teaching of researchers into the post open science revolution world? It is in this multidimensional context that the *easystats* project attempts to make a small contribution to the answers.
 
 
 # Purpose
 
-Why esystats and what does it bring to the table.
+Why easystats and what does it bring to the table.
 
 
 
