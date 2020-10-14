@@ -675,6 +675,7 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 5) Abbreviations: all uppercase (_example:_ `ESS`, `MCSE`, `ROPE`)
 6) Keep conventions for reserved words (_example:_ `p`, `pd`, `Rhat`)
 7) Adjectives / verbs: all lower case, unless (1) applies (_example:_ `high` or `low` in `CI_high` or `CI_low`)
+8) In case of multiple occurrences of column names that indicate the same measure or content (like `CI_low` or `SE`), the common part is appended as suffix to the context specific part (_example:_ `CI_low` and `Eta2_partial_CI_low`, and **not** `CI_low` and `CI_low_Eta2_partial`).
 
 ## List of functions
 
