@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|      11153 |       33668 | 44550 |     235157 |     315331 |      348298 |     378899 |  691472 | 2058528 |
+|      11355 |       34308 | 44868 |     237547 |     318199 |      350631 |     381383 |  697617 | 2075908 |
 
 ### Trend
 
@@ -392,6 +392,11 @@ follow a consistent pattern across all packages.
 6)  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`)
 7)  Adjectives / verbs: all lower case, unless (1) applies (*example:*
     `high` or `low` in `CI_high` or `CI_low`)
+8)  In case of multiple occurrences of column names that indicate the
+    same measure or content (like `CI_low` or `SE`), the common part is
+    appended as suffix to the context specific part (*example:* `CI_low`
+    and `Eta2_partial_CI_low`, and **not** `CI_low` and
+    `CI_low_Eta2_partial`).
 
 ## List of functions
 
