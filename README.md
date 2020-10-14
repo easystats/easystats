@@ -386,8 +386,8 @@ follow a consistent pattern across all packages.
 3)  Using underscore rather than camelCase to separate words (*example:*
     `CI_high`)
 4)  Multiple words: common/main part first and
-    adjective/specifier/variational part after (*example:*
-    `Median_standardized`, `ROPE_percentage`)
+    adjective/specifier/variational part after, unless (8) applies
+    (*example:* `Median_standardized`, `ROPE_percentage`)
 5)  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`)
 6)  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`)
 7)  Adjectives / verbs: all lower case, unless (1) applies (*example:*
