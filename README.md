@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|      11355 |       34308 | 44868 |     237547 |     318199 |      350631 |     381383 |  697617 | 2075908 |
+|      11551 |       35212 | 45409 |     241290 |     322820 |      354480 |     385597 |  708080 | 2104439 |
 
 ### Trend
 
@@ -397,6 +397,11 @@ follow a consistent pattern across all packages.
     appended as suffix to the context specific part (*example:* `CI_low`
     and `Eta2_partial_CI_low`, and **not** `CI_low` and
     `CI_low_Eta2_partial`).
+9)  The “squared” term in column names that refers to “common”
+    statistics (`Eta2`, `Chi2`, `Omega2`, …) should be written as `2`,
+    not `sq`, `squared` or `pétit-deux` (*example:* `Chi2`, and *not*
+    `Chisq`, `Eta2`, and *not* `Eta_squared`). This rule does *not*
+    apply to function names.
 
 ## List of functions
 
@@ -524,9 +529,9 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`cohens_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`cohens_f`**](https://easystats.github.io/effectsize/reference/index.html)
+  - [**`cohens_f_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
-  - [**`cohens_f2`**](https://easystats.github.io/effectsize/reference/index.html)
+  - [**`cohens_f`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`cohens_g`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -639,6 +644,8 @@ follow a consistent pattern across all packages.
   - [**`distribution_gamma`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_mixture_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_nbinom`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -1364,8 +1371,6 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`theme_radar`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`tidy`**](https://easystats.github.io/insight/reference/index.html)
-    *(insight)*
   - [**`unupdate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`variance_decomposition`**](https://easystats.github.io/performance/reference/index.html)
