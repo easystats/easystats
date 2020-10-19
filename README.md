@@ -399,8 +399,8 @@ follow a consistent pattern across all packages.
     `CI_low_Eta2_partial`).
 9)  The “squared” term in column names that refers to “common”
     statistics (`Eta2`, `Chi2`, `Omega2`, …) should be written as `2`,
-    not `sq`, `squared` or `pétit-deux` (*example:* `Chi2`, and *not*
-    `Chisq`, `Eta2`, and *not* `Eta_squared`). This rule does *not*
+    not `sq`, `squared` or `pétit-deux` (*example:* `Chi2`, and **not**
+    `Chisq`, `Eta2`, and **not** `Eta_squared`). This rule does **not**
     apply to function names.
 
 ## List of functions
