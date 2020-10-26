@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
 | ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|      11551 |       35212 | 45409 |     241290 |     322820 |      354480 |     385597 |  708080 | 2104439 |
+|      12138 |       36711 | 46465 |     248071 |     330886 |      360923 |     394100 |  728252 | 2157546 |
 
 ### Trend
 
@@ -1085,6 +1085,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`point_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`pool_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`posterior_predictive_check`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`pp_check`**](https://easystats.github.io/performance/reference/index.html)
@@ -1122,6 +1124,8 @@ follow a consistent pattern across all packages.
   - [**`r2_nagelkerke`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_nakagawa`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`r2_posterior`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_tjur`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
