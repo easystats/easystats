@@ -261,9 +261,9 @@ typically won’t find packages on CRAN with a development version number.
 
 ## Downloads
 
-| modelbased | correlation |   see | effectsize | parameters | performance | bayestestR | insight |   Total |
-| ---------: | ----------: | ----: | ---------: | ---------: | ----------: | ---------: | ------: | ------: |
-|      12138 |       36711 | 46465 |     248071 |     330886 |      360923 |     394100 |  728252 | 2157546 |
+| modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
+| :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
+| 12,291     | 37,109      | 46,751 | 250,638    | 332,809    | 362,559     | 396,786    | 734,008 | 2,172,951 |
 
 ### Trend
 
@@ -455,6 +455,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`bootstrap_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`center`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`change_scale`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`check_autocorrelation`**](https://easystats.github.io/performance/reference/index.html)
@@ -616,6 +618,8 @@ follow a consistent pattern across all packages.
   - [**`data_to_numeric`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`degrees_of_freedom`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`degroup`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`demean`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -1304,6 +1308,10 @@ follow a consistent pattern across all packages.
   - [**`select_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`sensitivity_to_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`sexit_thresholds`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`sexit`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`si`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*

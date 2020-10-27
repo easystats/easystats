@@ -513,13 +513,15 @@ average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), functio
 
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
-data %>%
+dl_table <- data %>%
   group_by(Package) %>% 
   summarise(`Total Downloads` = max(cumulative_count)) %>% 
   arrange(`Total Downloads`) %>%
   bind_rows(summarise_all(., list(~ if(is.numeric(.)) sum(.) else "Total"))) %>% 
-  tidyr::pivot_wider(values_from =`Total Downloads`, names_from=Package) %>% 
-  knitr::kable()
+  tidyr::pivot_wider(values_from =`Total Downloads`, names_from=Package)
+
+dl_table[] <- lapply(dl_table, format, big.mark = ",")
+knitr::kable(dl_table)
 ```
 
 
