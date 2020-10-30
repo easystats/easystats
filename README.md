@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 12,291     | 37,109      | 46,751 | 250,638    | 332,809    | 362,559     | 396,786    | 734,008 | 2,172,951 |
+| 12,443     | 37,559      | 47,059 | 253,565    | 335,517    | 364,788     | 400,069    | 741,226 | 2,192,226 |
 
 ### Trend
 
@@ -1391,6 +1391,8 @@ follow a consistent pattern across all packages.
     *(modelbased)*
   - [**`weighted_posteriors`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`winsorize`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
   - [**`z_fisher`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`z_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
