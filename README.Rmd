@@ -625,15 +625,28 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
 
 ### Average monthly downloads
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-plot_range <- pretty(average_monthly_downloads$monthly_downloads)
-ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
-  geom_col() +
+# plot_range <- pretty(average_monthly_downloads$monthly_downloads)
+# ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
+#   geom_point() +
+#   see::theme_modern() +
+#   scale_fill_manual(values=packages_colours) +
+#   theme(axis.text.x = element_text(angle = 90)) +
+#   labs(x = NULL, y = "Average monthly downloads", fill = "Package") +
+#   scale_x_discrete(labels = NULL) +
+#   scale_y_continuous(limits = c(0, max(plot_range)), breaks = plot_range)
+average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
+plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
+ggplot(average_monthly_downloads, aes(x = package2, y = monthly_downloads, colour = package)) +
+  geom_point(size = 3) +
+  geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
   see::theme_modern() +
-  scale_fill_manual(values=packages_colours) +
+  scale_colour_manual(values=packages_colours) +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = NULL, y = "Average monthly downloads", fill = "Package") +
+  labs(x = NULL, y = "Average monthly downloads", colour = "Package") +
   scale_x_discrete(labels = NULL) +
-  scale_y_continuous(limits = c(0, max(plot_range)), breaks = plot_range)
+  scale_y_sqrt(breaks = plot_range, limits = c(0, max(plot_range))) + 
+  theme(axis.text.x = element_text(angle = 0), panel.grid.major.x = element_line(colour = "#aaaaaa", linetype = "dotted")) +
+  coord_flip() 
 ```
 
 
