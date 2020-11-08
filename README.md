@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 12,622     | 38,159      | 47,372 | 256,672    | 339,790    | 368,423     | 403,474    | 748,652 | 2,215,164 |
+| 12,959     | 39,524      | 48,184 | 264,148    | 349,201    | 376,290     | 411,928    | 767,651 | 2,269,885 |
 
 ### Trend
 
@@ -731,6 +731,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`find_inversions`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
+  - [**`find_offset`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`find_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_predictors`**](https://easystats.github.io/insight/reference/index.html)
@@ -997,6 +999,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`oddsratio_to_riskratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`omega_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`overlap`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -1156,6 +1160,8 @@ follow a consistent pattern across all packages.
   - [**`reshape_loadings`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`riskratio_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
+  - [**`riskratio`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`rmse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
