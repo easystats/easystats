@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 13,102     | 40,388      | 48,706 | 267,776    | 353,597    | 379,690     | 416,040    | 776,300 | 2,295,599 |
+| 13,610     | 42,547      | 50,053 | 279,392    | 367,238    | 391,011     | 429,075    | 805,773 | 2,378,699 |
 
 ### Trend
 
@@ -633,6 +633,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`diagnostic_posterior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`display`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`distance_mahalanobis`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`distribution_beta`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -705,6 +707,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`eti`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`export_table`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`F_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`F_to_epsilon2`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -1045,8 +1049,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`palette_social`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`parameters_table`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`parameters_table`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`parameters_type`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`parameters`**](https://easystats.github.io/parameters/reference/index.html)
@@ -1105,6 +1109,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`print_md`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`print_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`probs_to_odds`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -1134,6 +1140,8 @@ follow a consistent pattern across all packages.
   - [**`r2_nakagawa`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_posterior`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`r2_somers`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`r2_tjur`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
