@@ -390,6 +390,7 @@ data <- rbind(downloads_insight,
          day = weekdays(date),
          month = months(date),
          quarters = quarters(date),
+         year_month = paste0(lubridate::year(date), "-", months(date)),
          month_day = lubridate::mday(date)) %>% 
   ungroup() %>% 
   mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize", "modelbased", "correlation"))
@@ -569,10 +570,11 @@ data %>%
 ### Cumulative downloads
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 data <- data %>% 
-  group_by(Package, month) %>% 
+  group_by(Package, year_month) %>% 
   mutate(download_label = first(cumulative_count)) %>% 
   ungroup()
 
+data$download_label <- sprintf("%.1fk", data$download_label / 1000)
 data$download_label[duplicated(data$download_label)] <- NA
 
 ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color = Package)) +
