@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 13,610     | 42,547      | 50,053 | 279,392    | 367,238    | 391,011     | 429,075    | 805,773 | 2,378,699 |
+| 14,263     | 45,845      | 51,798 | 292,258    | 383,727    | 404,467     | 443,449    | 841,445 | 2,477,252 |
 
 ### Trend
 
@@ -765,6 +765,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`format_p_adjust`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`format_p`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_parameters`**](https://easystats.github.io/parameters/reference/index.html)
@@ -1179,6 +1181,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`rope`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`rotated_data`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`rules`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`scale_color_bluebrown_c`**](https://easystats.github.io/see/reference/index.html)
