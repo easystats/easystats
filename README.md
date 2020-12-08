@@ -263,7 +263,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 14,263     | 45,845      | 51,798 | 292,258    | 383,727    | 404,467     | 443,449    | 841,445 | 2,477,252 |
+| 14,514     | 46,798      | 52,300 | 294,727    | 387,414    | 407,562     | 447,108    | 848,277 | 2,498,700 |
 
 ### Trend
 
@@ -746,6 +746,8 @@ follow a consistent pattern across all packages.
   - [**`find_random`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_response`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`find_smooth`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`find_statistic`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
