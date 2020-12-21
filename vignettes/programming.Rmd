@@ -147,9 +147,13 @@ You can see methods as functions that only run **if the first argument is of a p
 
 In a nutshell, in R, things are not what they look like. This means that objects are often more that "what is shown" (we'll come back to the what-is-shown later). Let's load the `iris` dataset for example and examine it. It is a **dataframe**, which gets displayed as follows:
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
 data <- iris
 data
+```
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+data <- iris
+knitr::kable(data)
 ```
 
 This object has information attached to it, which is not displayed. This "additional" information is stored as **attributes**, which be retrieved as follows:
@@ -164,21 +168,30 @@ These attributes take the form of a **list** with elements, like column names, r
 class(data)
 ```
 
-We could modify this class attribute, and let's see what happens:
+We could modify (i.e., **overwrite**) this class attribute, and let's see what happens when we try to display it:
 
 ```{r message=FALSE, warning=FALSE}
 class(data) <- "new_class"
 data
 ```
 
-It gets displayed all weirdly! This is because "displaying" an object in R... actually runs a method. But we'll come back to that. For now, let us remember that we don't usually **replace** the class, simply add (**append**) a new one to the list, like `c("new_class", other_classes)`. That's because objects can have any number of classes.
+It gets displayed all weirdly! This is because "displaying" an object in R... actually runs a method (the **print** method), and this method is not defined for our new class. So it is showed in its purest "raw" form. For now, let us remember that we don't usually **replace** the class, simply add (**append**) a new one to the list, like `c("new_class", other_classes)`. That's because objects can have any number of classes.
 
 ```{r message=FALSE, warning=FALSE}
 class(data) <- c("new_class", class(iris))
-data
+class(data)
 ```
 
-Now, it gets displayed correctly again, because it is also a dataframe (as well as an object of class *'new_class'*).
+We can see that the class is now a list (more specifically, a *vector*) of classes. The object is *both* an object of class "new_class" and an object of class "data.frame". If a method is not found for the first class, it will try for the second. Let's see how it gets displayed now:
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+data
+```
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+knitr::kable(data)
+```
+
+Now, it gets displayed correctly again, because it is also a dataframe, so it can run the **print** method for dataframes (part of R itself).
 
 ### Define objects with classes
 
@@ -242,6 +255,8 @@ new_method(f_b(3))
 
 
 ![](https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif)
+
+
 And that's about it. That's how the R ecosystem is made! Some packages define mostly new classes, like statistical models and such, and other packages (like **easystats** or **broom**) provide new methods to interact with these objects.
 
 
