@@ -196,159 +196,1069 @@
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">iris</span>
 <span class="va">data</span></code></pre></div>
-<pre><code>&gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-&gt; 1            5.1         3.5          1.4         0.2     setosa
-&gt; 2            4.9         3.0          1.4         0.2     setosa
-&gt; 3            4.7         3.2          1.3         0.2     setosa
-&gt; 4            4.6         3.1          1.5         0.2     setosa
-&gt; 5            5.0         3.6          1.4         0.2     setosa
-&gt; 6            5.4         3.9          1.7         0.4     setosa
-&gt; 7            4.6         3.4          1.4         0.3     setosa
-&gt; 8            5.0         3.4          1.5         0.2     setosa
-&gt; 9            4.4         2.9          1.4         0.2     setosa
-&gt; 10           4.9         3.1          1.5         0.1     setosa
-&gt; 11           5.4         3.7          1.5         0.2     setosa
-&gt; 12           4.8         3.4          1.6         0.2     setosa
-&gt; 13           4.8         3.0          1.4         0.1     setosa
-&gt; 14           4.3         3.0          1.1         0.1     setosa
-&gt; 15           5.8         4.0          1.2         0.2     setosa
-&gt; 16           5.7         4.4          1.5         0.4     setosa
-&gt; 17           5.4         3.9          1.3         0.4     setosa
-&gt; 18           5.1         3.5          1.4         0.3     setosa
-&gt; 19           5.7         3.8          1.7         0.3     setosa
-&gt; 20           5.1         3.8          1.5         0.3     setosa
-&gt; 21           5.4         3.4          1.7         0.2     setosa
-&gt; 22           5.1         3.7          1.5         0.4     setosa
-&gt; 23           4.6         3.6          1.0         0.2     setosa
-&gt; 24           5.1         3.3          1.7         0.5     setosa
-&gt; 25           4.8         3.4          1.9         0.2     setosa
-&gt; 26           5.0         3.0          1.6         0.2     setosa
-&gt; 27           5.0         3.4          1.6         0.4     setosa
-&gt; 28           5.2         3.5          1.5         0.2     setosa
-&gt; 29           5.2         3.4          1.4         0.2     setosa
-&gt; 30           4.7         3.2          1.6         0.2     setosa
-&gt; 31           4.8         3.1          1.6         0.2     setosa
-&gt; 32           5.4         3.4          1.5         0.4     setosa
-&gt; 33           5.2         4.1          1.5         0.1     setosa
-&gt; 34           5.5         4.2          1.4         0.2     setosa
-&gt; 35           4.9         3.1          1.5         0.2     setosa
-&gt; 36           5.0         3.2          1.2         0.2     setosa
-&gt; 37           5.5         3.5          1.3         0.2     setosa
-&gt; 38           4.9         3.6          1.4         0.1     setosa
-&gt; 39           4.4         3.0          1.3         0.2     setosa
-&gt; 40           5.1         3.4          1.5         0.2     setosa
-&gt; 41           5.0         3.5          1.3         0.3     setosa
-&gt; 42           4.5         2.3          1.3         0.3     setosa
-&gt; 43           4.4         3.2          1.3         0.2     setosa
-&gt; 44           5.0         3.5          1.6         0.6     setosa
-&gt; 45           5.1         3.8          1.9         0.4     setosa
-&gt; 46           4.8         3.0          1.4         0.3     setosa
-&gt; 47           5.1         3.8          1.6         0.2     setosa
-&gt; 48           4.6         3.2          1.4         0.2     setosa
-&gt; 49           5.3         3.7          1.5         0.2     setosa
-&gt; 50           5.0         3.3          1.4         0.2     setosa
-&gt; 51           7.0         3.2          4.7         1.4 versicolor
-&gt; 52           6.4         3.2          4.5         1.5 versicolor
-&gt; 53           6.9         3.1          4.9         1.5 versicolor
-&gt; 54           5.5         2.3          4.0         1.3 versicolor
-&gt; 55           6.5         2.8          4.6         1.5 versicolor
-&gt; 56           5.7         2.8          4.5         1.3 versicolor
-&gt; 57           6.3         3.3          4.7         1.6 versicolor
-&gt; 58           4.9         2.4          3.3         1.0 versicolor
-&gt; 59           6.6         2.9          4.6         1.3 versicolor
-&gt; 60           5.2         2.7          3.9         1.4 versicolor
-&gt; 61           5.0         2.0          3.5         1.0 versicolor
-&gt; 62           5.9         3.0          4.2         1.5 versicolor
-&gt; 63           6.0         2.2          4.0         1.0 versicolor
-&gt; 64           6.1         2.9          4.7         1.4 versicolor
-&gt; 65           5.6         2.9          3.6         1.3 versicolor
-&gt; 66           6.7         3.1          4.4         1.4 versicolor
-&gt; 67           5.6         3.0          4.5         1.5 versicolor
-&gt; 68           5.8         2.7          4.1         1.0 versicolor
-&gt; 69           6.2         2.2          4.5         1.5 versicolor
-&gt; 70           5.6         2.5          3.9         1.1 versicolor
-&gt; 71           5.9         3.2          4.8         1.8 versicolor
-&gt; 72           6.1         2.8          4.0         1.3 versicolor
-&gt; 73           6.3         2.5          4.9         1.5 versicolor
-&gt; 74           6.1         2.8          4.7         1.2 versicolor
-&gt; 75           6.4         2.9          4.3         1.3 versicolor
-&gt; 76           6.6         3.0          4.4         1.4 versicolor
-&gt; 77           6.8         2.8          4.8         1.4 versicolor
-&gt; 78           6.7         3.0          5.0         1.7 versicolor
-&gt; 79           6.0         2.9          4.5         1.5 versicolor
-&gt; 80           5.7         2.6          3.5         1.0 versicolor
-&gt; 81           5.5         2.4          3.8         1.1 versicolor
-&gt; 82           5.5         2.4          3.7         1.0 versicolor
-&gt; 83           5.8         2.7          3.9         1.2 versicolor
-&gt; 84           6.0         2.7          5.1         1.6 versicolor
-&gt; 85           5.4         3.0          4.5         1.5 versicolor
-&gt; 86           6.0         3.4          4.5         1.6 versicolor
-&gt; 87           6.7         3.1          4.7         1.5 versicolor
-&gt; 88           6.3         2.3          4.4         1.3 versicolor
-&gt; 89           5.6         3.0          4.1         1.3 versicolor
-&gt; 90           5.5         2.5          4.0         1.3 versicolor
-&gt; 91           5.5         2.6          4.4         1.2 versicolor
-&gt; 92           6.1         3.0          4.6         1.4 versicolor
-&gt; 93           5.8         2.6          4.0         1.2 versicolor
-&gt; 94           5.0         2.3          3.3         1.0 versicolor
-&gt; 95           5.6         2.7          4.2         1.3 versicolor
-&gt; 96           5.7         3.0          4.2         1.2 versicolor
-&gt; 97           5.7         2.9          4.2         1.3 versicolor
-&gt; 98           6.2         2.9          4.3         1.3 versicolor
-&gt; 99           5.1         2.5          3.0         1.1 versicolor
-&gt; 100          5.7         2.8          4.1         1.3 versicolor
-&gt; 101          6.3         3.3          6.0         2.5  virginica
-&gt; 102          5.8         2.7          5.1         1.9  virginica
-&gt; 103          7.1         3.0          5.9         2.1  virginica
-&gt; 104          6.3         2.9          5.6         1.8  virginica
-&gt; 105          6.5         3.0          5.8         2.2  virginica
-&gt; 106          7.6         3.0          6.6         2.1  virginica
-&gt; 107          4.9         2.5          4.5         1.7  virginica
-&gt; 108          7.3         2.9          6.3         1.8  virginica
-&gt; 109          6.7         2.5          5.8         1.8  virginica
-&gt; 110          7.2         3.6          6.1         2.5  virginica
-&gt; 111          6.5         3.2          5.1         2.0  virginica
-&gt; 112          6.4         2.7          5.3         1.9  virginica
-&gt; 113          6.8         3.0          5.5         2.1  virginica
-&gt; 114          5.7         2.5          5.0         2.0  virginica
-&gt; 115          5.8         2.8          5.1         2.4  virginica
-&gt; 116          6.4         3.2          5.3         2.3  virginica
-&gt; 117          6.5         3.0          5.5         1.8  virginica
-&gt; 118          7.7         3.8          6.7         2.2  virginica
-&gt; 119          7.7         2.6          6.9         2.3  virginica
-&gt; 120          6.0         2.2          5.0         1.5  virginica
-&gt; 121          6.9         3.2          5.7         2.3  virginica
-&gt; 122          5.6         2.8          4.9         2.0  virginica
-&gt; 123          7.7         2.8          6.7         2.0  virginica
-&gt; 124          6.3         2.7          4.9         1.8  virginica
-&gt; 125          6.7         3.3          5.7         2.1  virginica
-&gt; 126          7.2         3.2          6.0         1.8  virginica
-&gt; 127          6.2         2.8          4.8         1.8  virginica
-&gt; 128          6.1         3.0          4.9         1.8  virginica
-&gt; 129          6.4         2.8          5.6         2.1  virginica
-&gt; 130          7.2         3.0          5.8         1.6  virginica
-&gt; 131          7.4         2.8          6.1         1.9  virginica
-&gt; 132          7.9         3.8          6.4         2.0  virginica
-&gt; 133          6.4         2.8          5.6         2.2  virginica
-&gt; 134          6.3         2.8          5.1         1.5  virginica
-&gt; 135          6.1         2.6          5.6         1.4  virginica
-&gt; 136          7.7         3.0          6.1         2.3  virginica
-&gt; 137          6.3         3.4          5.6         2.4  virginica
-&gt; 138          6.4         3.1          5.5         1.8  virginica
-&gt; 139          6.0         3.0          4.8         1.8  virginica
-&gt; 140          6.9         3.1          5.4         2.1  virginica
-&gt; 141          6.7         3.1          5.6         2.4  virginica
-&gt; 142          6.9         3.1          5.1         2.3  virginica
-&gt; 143          5.8         2.7          5.1         1.9  virginica
-&gt; 144          6.8         3.2          5.9         2.3  virginica
-&gt; 145          6.7         3.3          5.7         2.5  virginica
-&gt; 146          6.7         3.0          5.2         2.3  virginica
-&gt; 147          6.3         2.5          5.0         1.9  virginica
-&gt; 148          6.5         3.0          5.2         2.0  virginica
-&gt; 149          6.2         3.4          5.4         2.3  virginica
-&gt; 150          5.9         3.0          5.1         1.8  virginica</code></pre>
+<table class="table">
+<thead><tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.7</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.6</td>
+<td align="right">1.0</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.3</td>
+<td align="right">1.7</td>
+<td align="right">0.5</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.9</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.0</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.2</td>
+<td align="right">3.5</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.2</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.1</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.2</td>
+<td align="right">4.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">4.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.2</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">3.0</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.5</td>
+<td align="right">2.3</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.6</td>
+<td align="right">0.6</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.9</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.3</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.3</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">7.0</td>
+<td align="right">3.2</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.3</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">2.8</td>
+<td align="right">4.6</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.8</td>
+<td align="right">4.5</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">4.7</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">2.4</td>
+<td align="right">3.3</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.6</td>
+<td align="right">2.9</td>
+<td align="right">4.6</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.2</td>
+<td align="right">2.7</td>
+<td align="right">3.9</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">2.0</td>
+<td align="right">3.5</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.9</td>
+<td align="right">3.0</td>
+<td align="right">4.2</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.0</td>
+<td align="right">2.2</td>
+<td align="right">4.0</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">2.9</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">2.9</td>
+<td align="right">3.6</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">4.4</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">3.0</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">4.1</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.2</td>
+<td align="right">2.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.6</td>
+<td align="right">2.5</td>
+<td align="right">3.9</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.9</td>
+<td align="right">3.2</td>
+<td align="right">4.8</td>
+<td align="right">1.8</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">2.8</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">2.5</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">2.8</td>
+<td align="right">4.7</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">2.9</td>
+<td align="right">4.3</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.6</td>
+<td align="right">3.0</td>
+<td align="right">4.4</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.8</td>
+<td align="right">2.8</td>
+<td align="right">4.8</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.7</td>
+<td align="right">3.0</td>
+<td align="right">5.0</td>
+<td align="right">1.7</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.0</td>
+<td align="right">2.9</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.6</td>
+<td align="right">3.5</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">2.4</td>
+<td align="right">3.8</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.4</td>
+<td align="right">3.7</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">3.9</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.0</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="right">3.4</td>
+<td align="right">4.5</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">4.7</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.3</td>
+<td align="right">4.4</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">3.0</td>
+<td align="right">4.1</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.5</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">2.6</td>
+<td align="right">4.4</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">3.0</td>
+<td align="right">4.6</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.6</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">2.3</td>
+<td align="right">3.3</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">2.7</td>
+<td align="right">4.2</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">3.0</td>
+<td align="right">4.2</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">2.9</td>
+<td align="right">4.2</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.2</td>
+<td align="right">2.9</td>
+<td align="right">4.3</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">2.5</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.8</td>
+<td align="right">4.1</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">6.0</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.1</td>
+<td align="right">3.0</td>
+<td align="right">5.9</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.9</td>
+<td align="right">5.6</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.8</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.6</td>
+<td align="right">3.0</td>
+<td align="right">6.6</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">4.9</td>
+<td align="right">2.5</td>
+<td align="right">4.5</td>
+<td align="right">1.7</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.3</td>
+<td align="right">2.9</td>
+<td align="right">6.3</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">2.5</td>
+<td align="right">5.8</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.2</td>
+<td align="right">3.6</td>
+<td align="right">6.1</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">3.2</td>
+<td align="right">5.1</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">2.7</td>
+<td align="right">5.3</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.8</td>
+<td align="right">3.0</td>
+<td align="right">5.5</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.5</td>
+<td align="right">5.0</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.8</td>
+<td align="right">5.1</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">5.3</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.5</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.7</td>
+<td align="right">3.8</td>
+<td align="right">6.7</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.7</td>
+<td align="right">2.6</td>
+<td align="right">6.9</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="right">2.2</td>
+<td align="right">5.0</td>
+<td align="right">1.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.9</td>
+<td align="right">3.2</td>
+<td align="right">5.7</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.6</td>
+<td align="right">2.8</td>
+<td align="right">4.9</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.7</td>
+<td align="right">2.8</td>
+<td align="right">6.7</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.7</td>
+<td align="right">4.9</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.3</td>
+<td align="right">5.7</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.2</td>
+<td align="right">3.2</td>
+<td align="right">6.0</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.2</td>
+<td align="right">2.8</td>
+<td align="right">4.8</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">3.0</td>
+<td align="right">4.9</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">2.8</td>
+<td align="right">5.6</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.2</td>
+<td align="right">3.0</td>
+<td align="right">5.8</td>
+<td align="right">1.6</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.4</td>
+<td align="right">2.8</td>
+<td align="right">6.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.9</td>
+<td align="right">3.8</td>
+<td align="right">6.4</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">2.8</td>
+<td align="right">5.6</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.8</td>
+<td align="right">5.1</td>
+<td align="right">1.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.1</td>
+<td align="right">2.6</td>
+<td align="right">5.6</td>
+<td align="right">1.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.7</td>
+<td align="right">3.0</td>
+<td align="right">6.1</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">3.4</td>
+<td align="right">5.6</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.1</td>
+<td align="right">5.5</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.0</td>
+<td align="right">3.0</td>
+<td align="right">4.8</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">5.4</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">5.6</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">5.1</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.8</td>
+<td align="right">3.2</td>
+<td align="right">5.9</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.3</td>
+<td align="right">5.7</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.7</td>
+<td align="right">3.0</td>
+<td align="right">5.2</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">2.5</td>
+<td align="right">5.0</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.2</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.2</td>
+<td align="right">3.4</td>
+<td align="right">5.4</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.9</td>
+<td align="right">3.0</td>
+<td align="right">5.1</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+</tbody>
+</table>
 <p>This object has information attached to it, which is not displayed. This “additional” information is stored as <strong>attributes</strong>, which be retrieved as follows:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/attributes.html">attributes</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>&gt; $names
 &gt; [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     
@@ -367,11 +1277,11 @@
 &gt; [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
 &gt; [145] 145 146 147 148 149 150</code></pre>
 <p>These attributes take the form of a <strong>list</strong> with elements, like column names, row names and… a <strong>class</strong> name. In R, the class of an object corresponds to what is written as a <strong>class</strong> attribute. We can retrieve it directly by running the <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> function.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>&gt; [1] "data.frame"</code></pre>
-<p>We could modify this class attribute, and let’s see what happens:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<p>We could modify (i.e., <strong>overwrite</strong>) this class attribute, and let’s see what happens when we try to display it:</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"new_class"</span>
 <span class="va">data</span></code></pre></div>
 <pre><code>&gt; $Sepal.Length
@@ -458,162 +1368,1076 @@
 &gt; [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
 &gt; [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
 &gt; [145] 145 146 147 148 149 150</code></pre>
-<p>It gets displayed all weirdly! This is because “displaying” an object in R… actually runs a method. But we’ll come back to that. For now, let us remember that we don’t usually <strong>replace</strong> the class, simply add (<strong>append</strong>) a new one to the list, like <code><a href="https://rdrr.io/r/base/c.html">c("new_class", other_classes)</a></code>. That’s because objects can have any number of classes.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<p>It gets displayed all weirdly! This is because “displaying” an object in R… actually runs a method (the <strong>print</strong> method), and this method is not defined for our new class. So it is showed in its purest “raw” form. For now, let us remember that we don’t usually <strong>replace</strong> the class, simply add (<strong>append</strong>) a new one to the list, like <code><a href="https://rdrr.io/r/base/c.html">c("new_class", other_classes)</a></code>. That’s because objects can have any number of classes.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"new_class"</span>, <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">)</span>
-<span class="va">data</span></code></pre></div>
-<pre><code>&gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-&gt; 1            5.1         3.5          1.4         0.2     setosa
-&gt; 2            4.9         3.0          1.4         0.2     setosa
-&gt; 3            4.7         3.2          1.3         0.2     setosa
-&gt; 4            4.6         3.1          1.5         0.2     setosa
-&gt; 5            5.0         3.6          1.4         0.2     setosa
-&gt; 6            5.4         3.9          1.7         0.4     setosa
-&gt; 7            4.6         3.4          1.4         0.3     setosa
-&gt; 8            5.0         3.4          1.5         0.2     setosa
-&gt; 9            4.4         2.9          1.4         0.2     setosa
-&gt; 10           4.9         3.1          1.5         0.1     setosa
-&gt; 11           5.4         3.7          1.5         0.2     setosa
-&gt; 12           4.8         3.4          1.6         0.2     setosa
-&gt; 13           4.8         3.0          1.4         0.1     setosa
-&gt; 14           4.3         3.0          1.1         0.1     setosa
-&gt; 15           5.8         4.0          1.2         0.2     setosa
-&gt; 16           5.7         4.4          1.5         0.4     setosa
-&gt; 17           5.4         3.9          1.3         0.4     setosa
-&gt; 18           5.1         3.5          1.4         0.3     setosa
-&gt; 19           5.7         3.8          1.7         0.3     setosa
-&gt; 20           5.1         3.8          1.5         0.3     setosa
-&gt; 21           5.4         3.4          1.7         0.2     setosa
-&gt; 22           5.1         3.7          1.5         0.4     setosa
-&gt; 23           4.6         3.6          1.0         0.2     setosa
-&gt; 24           5.1         3.3          1.7         0.5     setosa
-&gt; 25           4.8         3.4          1.9         0.2     setosa
-&gt; 26           5.0         3.0          1.6         0.2     setosa
-&gt; 27           5.0         3.4          1.6         0.4     setosa
-&gt; 28           5.2         3.5          1.5         0.2     setosa
-&gt; 29           5.2         3.4          1.4         0.2     setosa
-&gt; 30           4.7         3.2          1.6         0.2     setosa
-&gt; 31           4.8         3.1          1.6         0.2     setosa
-&gt; 32           5.4         3.4          1.5         0.4     setosa
-&gt; 33           5.2         4.1          1.5         0.1     setosa
-&gt; 34           5.5         4.2          1.4         0.2     setosa
-&gt; 35           4.9         3.1          1.5         0.2     setosa
-&gt; 36           5.0         3.2          1.2         0.2     setosa
-&gt; 37           5.5         3.5          1.3         0.2     setosa
-&gt; 38           4.9         3.6          1.4         0.1     setosa
-&gt; 39           4.4         3.0          1.3         0.2     setosa
-&gt; 40           5.1         3.4          1.5         0.2     setosa
-&gt; 41           5.0         3.5          1.3         0.3     setosa
-&gt; 42           4.5         2.3          1.3         0.3     setosa
-&gt; 43           4.4         3.2          1.3         0.2     setosa
-&gt; 44           5.0         3.5          1.6         0.6     setosa
-&gt; 45           5.1         3.8          1.9         0.4     setosa
-&gt; 46           4.8         3.0          1.4         0.3     setosa
-&gt; 47           5.1         3.8          1.6         0.2     setosa
-&gt; 48           4.6         3.2          1.4         0.2     setosa
-&gt; 49           5.3         3.7          1.5         0.2     setosa
-&gt; 50           5.0         3.3          1.4         0.2     setosa
-&gt; 51           7.0         3.2          4.7         1.4 versicolor
-&gt; 52           6.4         3.2          4.5         1.5 versicolor
-&gt; 53           6.9         3.1          4.9         1.5 versicolor
-&gt; 54           5.5         2.3          4.0         1.3 versicolor
-&gt; 55           6.5         2.8          4.6         1.5 versicolor
-&gt; 56           5.7         2.8          4.5         1.3 versicolor
-&gt; 57           6.3         3.3          4.7         1.6 versicolor
-&gt; 58           4.9         2.4          3.3         1.0 versicolor
-&gt; 59           6.6         2.9          4.6         1.3 versicolor
-&gt; 60           5.2         2.7          3.9         1.4 versicolor
-&gt; 61           5.0         2.0          3.5         1.0 versicolor
-&gt; 62           5.9         3.0          4.2         1.5 versicolor
-&gt; 63           6.0         2.2          4.0         1.0 versicolor
-&gt; 64           6.1         2.9          4.7         1.4 versicolor
-&gt; 65           5.6         2.9          3.6         1.3 versicolor
-&gt; 66           6.7         3.1          4.4         1.4 versicolor
-&gt; 67           5.6         3.0          4.5         1.5 versicolor
-&gt; 68           5.8         2.7          4.1         1.0 versicolor
-&gt; 69           6.2         2.2          4.5         1.5 versicolor
-&gt; 70           5.6         2.5          3.9         1.1 versicolor
-&gt; 71           5.9         3.2          4.8         1.8 versicolor
-&gt; 72           6.1         2.8          4.0         1.3 versicolor
-&gt; 73           6.3         2.5          4.9         1.5 versicolor
-&gt; 74           6.1         2.8          4.7         1.2 versicolor
-&gt; 75           6.4         2.9          4.3         1.3 versicolor
-&gt; 76           6.6         3.0          4.4         1.4 versicolor
-&gt; 77           6.8         2.8          4.8         1.4 versicolor
-&gt; 78           6.7         3.0          5.0         1.7 versicolor
-&gt; 79           6.0         2.9          4.5         1.5 versicolor
-&gt; 80           5.7         2.6          3.5         1.0 versicolor
-&gt; 81           5.5         2.4          3.8         1.1 versicolor
-&gt; 82           5.5         2.4          3.7         1.0 versicolor
-&gt; 83           5.8         2.7          3.9         1.2 versicolor
-&gt; 84           6.0         2.7          5.1         1.6 versicolor
-&gt; 85           5.4         3.0          4.5         1.5 versicolor
-&gt; 86           6.0         3.4          4.5         1.6 versicolor
-&gt; 87           6.7         3.1          4.7         1.5 versicolor
-&gt; 88           6.3         2.3          4.4         1.3 versicolor
-&gt; 89           5.6         3.0          4.1         1.3 versicolor
-&gt; 90           5.5         2.5          4.0         1.3 versicolor
-&gt; 91           5.5         2.6          4.4         1.2 versicolor
-&gt; 92           6.1         3.0          4.6         1.4 versicolor
-&gt; 93           5.8         2.6          4.0         1.2 versicolor
-&gt; 94           5.0         2.3          3.3         1.0 versicolor
-&gt; 95           5.6         2.7          4.2         1.3 versicolor
-&gt; 96           5.7         3.0          4.2         1.2 versicolor
-&gt; 97           5.7         2.9          4.2         1.3 versicolor
-&gt; 98           6.2         2.9          4.3         1.3 versicolor
-&gt; 99           5.1         2.5          3.0         1.1 versicolor
-&gt; 100          5.7         2.8          4.1         1.3 versicolor
-&gt; 101          6.3         3.3          6.0         2.5  virginica
-&gt; 102          5.8         2.7          5.1         1.9  virginica
-&gt; 103          7.1         3.0          5.9         2.1  virginica
-&gt; 104          6.3         2.9          5.6         1.8  virginica
-&gt; 105          6.5         3.0          5.8         2.2  virginica
-&gt; 106          7.6         3.0          6.6         2.1  virginica
-&gt; 107          4.9         2.5          4.5         1.7  virginica
-&gt; 108          7.3         2.9          6.3         1.8  virginica
-&gt; 109          6.7         2.5          5.8         1.8  virginica
-&gt; 110          7.2         3.6          6.1         2.5  virginica
-&gt; 111          6.5         3.2          5.1         2.0  virginica
-&gt; 112          6.4         2.7          5.3         1.9  virginica
-&gt; 113          6.8         3.0          5.5         2.1  virginica
-&gt; 114          5.7         2.5          5.0         2.0  virginica
-&gt; 115          5.8         2.8          5.1         2.4  virginica
-&gt; 116          6.4         3.2          5.3         2.3  virginica
-&gt; 117          6.5         3.0          5.5         1.8  virginica
-&gt; 118          7.7         3.8          6.7         2.2  virginica
-&gt; 119          7.7         2.6          6.9         2.3  virginica
-&gt; 120          6.0         2.2          5.0         1.5  virginica
-&gt; 121          6.9         3.2          5.7         2.3  virginica
-&gt; 122          5.6         2.8          4.9         2.0  virginica
-&gt; 123          7.7         2.8          6.7         2.0  virginica
-&gt; 124          6.3         2.7          4.9         1.8  virginica
-&gt; 125          6.7         3.3          5.7         2.1  virginica
-&gt; 126          7.2         3.2          6.0         1.8  virginica
-&gt; 127          6.2         2.8          4.8         1.8  virginica
-&gt; 128          6.1         3.0          4.9         1.8  virginica
-&gt; 129          6.4         2.8          5.6         2.1  virginica
-&gt; 130          7.2         3.0          5.8         1.6  virginica
-&gt; 131          7.4         2.8          6.1         1.9  virginica
-&gt; 132          7.9         3.8          6.4         2.0  virginica
-&gt; 133          6.4         2.8          5.6         2.2  virginica
-&gt; 134          6.3         2.8          5.1         1.5  virginica
-&gt; 135          6.1         2.6          5.6         1.4  virginica
-&gt; 136          7.7         3.0          6.1         2.3  virginica
-&gt; 137          6.3         3.4          5.6         2.4  virginica
-&gt; 138          6.4         3.1          5.5         1.8  virginica
-&gt; 139          6.0         3.0          4.8         1.8  virginica
-&gt; 140          6.9         3.1          5.4         2.1  virginica
-&gt; 141          6.7         3.1          5.6         2.4  virginica
-&gt; 142          6.9         3.1          5.1         2.3  virginica
-&gt; 143          5.8         2.7          5.1         1.9  virginica
-&gt; 144          6.8         3.2          5.9         2.3  virginica
-&gt; 145          6.7         3.3          5.7         2.5  virginica
-&gt; 146          6.7         3.0          5.2         2.3  virginica
-&gt; 147          6.3         2.5          5.0         1.9  virginica
-&gt; 148          6.5         3.0          5.2         2.0  virginica
-&gt; 149          6.2         3.4          5.4         2.3  virginica
-&gt; 150          5.9         3.0          5.1         1.8  virginica</code></pre>
-<p>Now, it gets displayed correctly again, because it is also a dataframe (as well as an object of class <em>‘new_class’</em>).</p>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+<pre><code>&gt; [1] "new_class"  "data.frame"</code></pre>
+<p>We can see that the class is now a list (more specifically, a <em>vector</em>) of classes. The object is <em>both</em> an object of class “new_class” and an object of class “data.frame”. If a method is not found for the first class, it will try for the second. Let’s see how it gets displayed now:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.7</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.6</td>
+<td align="right">1.0</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.3</td>
+<td align="right">1.7</td>
+<td align="right">0.5</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.9</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.0</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.2</td>
+<td align="right">3.5</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.2</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.1</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.2</td>
+<td align="right">4.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">4.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.2</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">3.0</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.5</td>
+<td align="right">2.3</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.6</td>
+<td align="right">0.6</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.9</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.3</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.3</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">7.0</td>
+<td align="right">3.2</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.3</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">2.8</td>
+<td align="right">4.6</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.8</td>
+<td align="right">4.5</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">4.7</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">2.4</td>
+<td align="right">3.3</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.6</td>
+<td align="right">2.9</td>
+<td align="right">4.6</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.2</td>
+<td align="right">2.7</td>
+<td align="right">3.9</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">2.0</td>
+<td align="right">3.5</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.9</td>
+<td align="right">3.0</td>
+<td align="right">4.2</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.0</td>
+<td align="right">2.2</td>
+<td align="right">4.0</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">2.9</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">2.9</td>
+<td align="right">3.6</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">4.4</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">3.0</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">4.1</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.2</td>
+<td align="right">2.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.6</td>
+<td align="right">2.5</td>
+<td align="right">3.9</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.9</td>
+<td align="right">3.2</td>
+<td align="right">4.8</td>
+<td align="right">1.8</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">2.8</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">2.5</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">2.8</td>
+<td align="right">4.7</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">2.9</td>
+<td align="right">4.3</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.6</td>
+<td align="right">3.0</td>
+<td align="right">4.4</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.8</td>
+<td align="right">2.8</td>
+<td align="right">4.8</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.7</td>
+<td align="right">3.0</td>
+<td align="right">5.0</td>
+<td align="right">1.7</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.0</td>
+<td align="right">2.9</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.6</td>
+<td align="right">3.5</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">2.4</td>
+<td align="right">3.8</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.4</td>
+<td align="right">3.7</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">3.9</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.0</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="right">3.4</td>
+<td align="right">4.5</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">4.7</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.3</td>
+<td align="right">4.4</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">3.0</td>
+<td align="right">4.1</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.5</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">2.6</td>
+<td align="right">4.4</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">3.0</td>
+<td align="right">4.6</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.6</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">2.3</td>
+<td align="right">3.3</td>
+<td align="right">1.0</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.6</td>
+<td align="right">2.7</td>
+<td align="right">4.2</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">3.0</td>
+<td align="right">4.2</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">2.9</td>
+<td align="right">4.2</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.2</td>
+<td align="right">2.9</td>
+<td align="right">4.3</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">2.5</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.8</td>
+<td align="right">4.1</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">6.0</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.1</td>
+<td align="right">3.0</td>
+<td align="right">5.9</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.9</td>
+<td align="right">5.6</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.8</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.6</td>
+<td align="right">3.0</td>
+<td align="right">6.6</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">4.9</td>
+<td align="right">2.5</td>
+<td align="right">4.5</td>
+<td align="right">1.7</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.3</td>
+<td align="right">2.9</td>
+<td align="right">6.3</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">2.5</td>
+<td align="right">5.8</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.2</td>
+<td align="right">3.6</td>
+<td align="right">6.1</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">3.2</td>
+<td align="right">5.1</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">2.7</td>
+<td align="right">5.3</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.8</td>
+<td align="right">3.0</td>
+<td align="right">5.5</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">2.5</td>
+<td align="right">5.0</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.8</td>
+<td align="right">5.1</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">5.3</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.5</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.7</td>
+<td align="right">3.8</td>
+<td align="right">6.7</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.7</td>
+<td align="right">2.6</td>
+<td align="right">6.9</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.0</td>
+<td align="right">2.2</td>
+<td align="right">5.0</td>
+<td align="right">1.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.9</td>
+<td align="right">3.2</td>
+<td align="right">5.7</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.6</td>
+<td align="right">2.8</td>
+<td align="right">4.9</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.7</td>
+<td align="right">2.8</td>
+<td align="right">6.7</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.7</td>
+<td align="right">4.9</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.3</td>
+<td align="right">5.7</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.2</td>
+<td align="right">3.2</td>
+<td align="right">6.0</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.2</td>
+<td align="right">2.8</td>
+<td align="right">4.8</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.1</td>
+<td align="right">3.0</td>
+<td align="right">4.9</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">2.8</td>
+<td align="right">5.6</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.2</td>
+<td align="right">3.0</td>
+<td align="right">5.8</td>
+<td align="right">1.6</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">7.4</td>
+<td align="right">2.8</td>
+<td align="right">6.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.9</td>
+<td align="right">3.8</td>
+<td align="right">6.4</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.4</td>
+<td align="right">2.8</td>
+<td align="right">5.6</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.3</td>
+<td align="right">2.8</td>
+<td align="right">5.1</td>
+<td align="right">1.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.1</td>
+<td align="right">2.6</td>
+<td align="right">5.6</td>
+<td align="right">1.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">7.7</td>
+<td align="right">3.0</td>
+<td align="right">6.1</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">3.4</td>
+<td align="right">5.6</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.1</td>
+<td align="right">5.5</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.0</td>
+<td align="right">3.0</td>
+<td align="right">4.8</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">5.4</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">5.6</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">5.1</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.8</td>
+<td align="right">3.2</td>
+<td align="right">5.9</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.7</td>
+<td align="right">3.3</td>
+<td align="right">5.7</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.7</td>
+<td align="right">3.0</td>
+<td align="right">5.2</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.3</td>
+<td align="right">2.5</td>
+<td align="right">5.0</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.2</td>
+<td align="right">2.0</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="odd">
+<td align="right">6.2</td>
+<td align="right">3.4</td>
+<td align="right">5.4</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr class="even">
+<td align="right">5.9</td>
+<td align="right">3.0</td>
+<td align="right">5.1</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+</tbody>
+</table>
+<p>Now, it gets displayed correctly again, because it is also a dataframe, so it can run the <strong>print</strong> method for dataframes (part of R itself).</p>
 </div>
 <div id="define-objects-with-classes" class="section level3">
 <h3 class="hasAnchor">
@@ -673,7 +2497,8 @@
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">new_method</span><span class="op">(</span><span class="fu">f_b</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>&gt; [1] "This is an object of class B"</code></pre>
-<p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif"> And that’s about it. That’s how the R ecosystem is made! Some packages define mostly new classes, like statistical models and such, and other packages (like <strong>easystats</strong> or <strong>broom</strong>) provide new methods to interact with these objects.</p>
+<p><img src="https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif"></p>
+<p>And that’s about it. That’s how the R ecosystem is made! Some packages define mostly new classes, like statistical models and such, and other packages (like <strong>easystats</strong> or <strong>broom</strong>) provide new methods to interact with these objects.</p>
 </div>
 </div>
 </div>
