@@ -6,6 +6,6 @@ bibentry(
     doi="",
 	year="2020",
 	url="https://github.com/easystats/easystats",
-	textVersion = "Makowski, D., Ben-Shachar, M. S. & Lüdecke, D. (2020). *Estimation of Model-Based Predictions, Contrasts and Means*. GitHub.",
+	textVersion = "Makowski, D., Ben-Shachar, M. S. & Lüdecke, D. (2020). *The {easystats} collection of R packages*. GitHub.",
 	mheader = "To cite 'easystats' in publications use:"
 )
