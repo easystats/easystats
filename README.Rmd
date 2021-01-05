@@ -92,7 +92,9 @@ Each **easystats** package has a different scope and purpose. This means you the
 
 - **How is *easystats* different from the *tidyverse*?** 
 
-You've probably already heard about the [**tidyverse**](https://www.tidyverse.org/), another very popular collection of packages (*ggplot*, *dplyr*, *tidyr*, ...) that also makes using R easier. So, should you pick the *tidyverse* or *easystats*? **Pick both!** Indeed, they do not serve the same purpose. The *tidyverse* packages are primarily made to create a new R experience, where data manipulation and exploration is natural and consistent. On the other hand, **easystats** is more focused on helping you making this last mile from the analysis to your manuscript or stats report. It helps you understand and interpret your results and report them following best practices. You can definitely use the *easystats* functions in a *tidyverse* workflow! **easystats + tidyverse =** ❤️ 
+You've probably already heard about the [**tidyverse**](https://www.tidyverse.org/), another very popular collection of packages (*ggplot*, *dplyr*, *tidyr*, ...) that also makes using R easier. So, should you pick the *tidyverse* or *easystats*? **Pick both!** Indeed, they do not serve the same purpose. The *tidyverse* packages are primarily made to create a new R experience, where data manipulation and exploration is natural and consistent. On the other hand, **easystats** is more focused on helping you making this last mile from the analysis to your manuscript or stats report. It helps you understand and interpret your results and report them following best practices. You can definitely use the *easystats* functions in a *tidyverse* workflow! 
+
+**easystats + tidyverse =** ❤️ 
 
 
 - **Can *easystats* be useful to advanced users and/or developers?**
