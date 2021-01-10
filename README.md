@@ -5,9 +5,9 @@
 
 <a href = "https://github.com/easystats/insight"><img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/bayestestR"><img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/master/man/figures/logo.png' align="left" height="84" /></a>
+<a href = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/main/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/performance"><img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/effectsize"><img src='https://github.com/easystats/effectsize/raw/master/man/figures/logo.png' align="left" height="84" /></a>
+<a href = "https://github.com/easystats/effectsize"><img src='https://github.com/easystats/effectsize/raw/main/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/modelbased"><img src='https://github.com/easystats/modelbased/raw/master/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="84" /></a>
@@ -265,7 +265,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 18,156     | 54,978      | 58,013 | 323,826    | 421,366    | 437,186     | 480,329    | 915,653 | 2,709,507 |
+| 18,245     | 55,179      | 58,134 | 324,343    | 421,945    | 437,724     | 480,980    | 916,836 | 2,713,386 |
 
 ### Trend
 
