@@ -177,7 +177,8 @@ Want to credit the whole network of interconnected aspects of
 > **Data processing was carried out with R (R Core Team, 2019) and the
 > *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Makowski,
 > Ben-Shachar, & Lüdecke, 2019; Makowski, Ben-Shachar, Patil, & Lüdecke,
-> 2020)**
+> 2020; Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Ben-Shachar,
+> Lüdecke, & Makowski, 2020)**
 
 <details>
 
@@ -186,16 +187,24 @@ entries</summary>
 
 <br>
 
-  - Lüdecke D, Waggoner P, Makowski D. *insight: A Unified Interface to
-    Access Information from Model Objects in R*. Journal of Open Source
-    Software 2019;4:1412. doi: 10.21105/joss.01412
-  - Makowski, D., Ben-Shachar, M. S., & Lüdecke, D. (2019). *bayestestR:
+  - Lüdecke D, Waggoner P, Makowski D. (2019). insight: A Unified
+    Interface to Access Information from Model Objects in R. *Journal of
+    Open Source Software*, *4*, 1412. doi: 10.21105/joss.01412
+  - Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR:
     Describing Effects and their Uncertainty, Existence and Significance
-    within the Bayesian Framework*. Journal of Open Source Software,
-    4(40), 1541. 10.21105/joss.01541
-  - Makowski, D., Ben-Shachar, M. S., Patil, I., & Lüdecke, D. (2019).
-    *Methods and Algorithms for Correlation Analysis in R*. Journal of
-    Open Source Software, 5(51), 2306. 10.21105/joss.02306
+    within the Bayesian Framework. *Journal of Open Source Software*,
+    *4*(40), 1541. 10.21105/joss.01541
+  - Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019).
+    Methods and Algorithms for Correlation Analysis in R. *Journal of
+    Open Source Software*, *5*(51), 2306. 10.21105/joss.02306  
+  - Lüdecke D., Ben-Shachar M.S., Patil I., Makowski D. (2020).
+    parameters: Extracting, Computing and Exploring the Parameters of
+    Statistical Models using R. *Journal of Open Source Software*,
+    *5*(53), 2445. doi: 10.21105/joss.02445
+  - Ben-Shachar M.S., Lüdecke D., Makowski D. (2020). effectsize:
+    Estimation of Effect Size Indices and Standardized Parameters.
+    *Journal of Open Source Software*, *5*(56), 2815. doi:
+    10.21105/joss.02815
 
 <!-- end list -->
 
@@ -227,7 +236,7 @@ entries</summary>
         number = {40},
         urldate = {2019-08-13},
         journal = {Journal of Open Source Software},
-        author = {Makowski, Dominique and Ben-Shachar, Mattan and Lüdecke, Daniel},
+        author = {Makowski, Dominique and Ben-Shachar, Mattan S. and Lüdecke, Daniel},
         month = aug,
         year = {2019},
         pages = {1541}
@@ -236,12 +245,36 @@ entries</summary>
     @article{makowski2020correlation,
       doi={10.21105/joss.02306},
       title={Methods and Algorithms for Correlation Analysis in R},
-      author={Makowski, Dominique and Ben-Shachar, Mattan and Patil, Indrajeet and L{\"u}decke, Daniel},
+      author={Makowski, Dominique and Ben-Shachar, Mattan S. and Patil, Indrajeet and L{\"u}decke, Daniel},
       journal={Journal of Open Source Software},
       volume={5},
       number={51},
       pages={2306},
       year={2020}
+    }
+    
+    @article{ludecke20202parameters,
+      title = {parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using {R}.},
+      volume = {5},
+      doi = {10.21105/joss.02445},
+      number = {53},
+      journal = {Journal of Open Source Software},
+      author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Dominique Makowski},
+      year = {2020},
+      pages = {2445},
+    }
+    
+    @article{benchashar2020effectsize,
+      title = {{e}ffectsize: Estimation of Effect Size Indices and Standardized Parameters},
+      author = {Mattan S. Ben-Shachar and Daniel Lüdecke and Dominique Makowski},
+      year = {2020},
+      journal = {Journal of Open Source Software},
+      volume = {5},
+      number = {56},
+      pages = {2815},
+      publisher = {The Open Journal},
+      doi = {10.21105/joss.02815},
+      url = {https://doi.org/10.21105/joss.02815},
     }
 
 </details>
