@@ -407,6 +407,8 @@ follow a consistent pattern across all packages.
 
 ## List of functions
 
+![](scripts/network_functions.png)
+
   - [**`add_plot_attributes`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`adjust`**](https://easystats.github.io/effectsize/reference/index.html)
