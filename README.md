@@ -299,7 +299,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 18,481     | 55,939      | 58,596 | 327,074    | 425,109    | 440,514     | 484,032    | 923,280 | 2,733,025 |
+| 18,914     | 56,686      | 59,181 | 330,106    | 429,067    | 443,701     | 487,582    | 932,124 | 2,757,361 |
 
 ### Trend
 
@@ -721,6 +721,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`effectsize`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`ellipsis_info`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`epsilon_squared`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`equivalence_test`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -845,17 +847,33 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`geom_violinhalf`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`get_auxiliary`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_call`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`get_correlation_slope_intercept`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_data`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`get_deviance`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_df`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_intercept`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_loglikelihood`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`get_parameters`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_predicted`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_predictors`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_priors`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_random`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_residuals`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_response`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -955,13 +973,19 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`is_effectsize_name`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`is_mixed_model`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`is_model_supported`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`is_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`is_multivariate`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`is_nested_models`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`is_nullmodel`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`is_regression_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`is.cor`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
@@ -982,6 +1006,8 @@ follow a consistent pattern across all packages.
   - [**`link_function`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`link_inverse`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`loglikelihood`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`logodds_to_d`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
@@ -1011,6 +1037,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`model_name`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`model_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`model_performance`**](https://easystats.github.io/performance/reference/index.html)
@@ -1027,8 +1055,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`n_obs`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`n_parameters`**](https://easystats.github.io/parameters/reference/index.html)
-    *(parameters)*
+  - [**`n_parameters`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`normalize`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`null_model`**](https://easystats.github.io/insight/reference/index.html)
@@ -1150,6 +1178,8 @@ follow a consistent pattern across all packages.
   - [**`print_color`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`print_colour`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`print_html`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`print_md`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
