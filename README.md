@@ -180,13 +180,6 @@ Want to credit the whole network of interconnected aspects of
 > 2020; Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Ben-Shachar,
 > Lüdecke, & Makowski, 2020)**
 
-<details>
-
-<summary>Click here to see the corresponding APA and bibtex
-entries</summary>
-
-<br>
-
   - Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A
     Unified Interface to Access Information from Model Objects in R.
     *Journal of Open Source Software*, *4*, 1412. doi:
@@ -207,7 +200,12 @@ entries</summary>
     *Journal of Open Source Software*, *5*(56), 2815. doi:
     10.21105/joss.02815
 
-<!-- end list -->
+<details>
+
+<summary>Click here to see the corresponding APA and bibtex
+entries</summary>
+
+<br>
 
     @article{ludecke2019insight,
         journal = {Journal of Open Source Software},
