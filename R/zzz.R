@@ -3,8 +3,9 @@
   easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "see", "correlation", "modelbased", "report")
   needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
 
-  if (length(needed) == 0)
+  if (length(needed) == 0) {
     return()
+  }
 
   easystats_versions <- easystats_versions[easystats_versions$package %in% needed, ]
   suppressPackageStartupMessages(suppressWarnings(lapply(easystats_versions$package, library, character.only = TRUE, warn.conflicts = FALSE)))
@@ -29,10 +30,11 @@
   symbol_warning <- "\u26A0 "
 
   for (i in 1:nrow(easystats_versions)) {
-    if (needs_update[i])
+    if (needs_update[i]) {
       insight::print_color(symbol_warning, "red")
-    else
+    } else {
       insight::print_color(symbol_tick, "green")
+    }
 
     out <- paste0(
       format(easystats_versions$package[i], width = max_len_pkg),
@@ -41,10 +43,11 @@
     )
     insight::print_color(out, ifelse(needs_update[i], "red", "green"))
 
-    if (i %% 2 == 0)
+    if (i %% 2 == 0) {
       insight::print_color("\n", "red")
-    else
+    } else {
       insight::print_color("   ", "red")
+    }
   }
 
   insight::print_color("\n", "red")

@@ -1,6 +1,6 @@
 #' Welcome to the easyverse
 #' @export
-easystats_zen <- function(){
+easystats_zen <- function() {
   print("Patience you must have my young padawan.")
 }
 
@@ -17,17 +17,20 @@ CRAN_checks <- function() {
 #'
 #' @importFrom devtools install_github
 #' @export
-install_easystats_latest <- function(){
-  devtools::install_github(c("easystats/insight",
-                             "easystats/bayestestR",
-                             "easystats/performance",
-                             "easystats/parameters",
-                             "easystats/effectsize",
-                             "easystats/correlation",
-                             "easystats/modelbased",
-                             "easystats/see",
-                             "easystats/report"),
-                           upgrade = "never")
+install_easystats_latest <- function() {
+  devtools::install_github(c(
+    "easystats/insight",
+    "easystats/bayestestR",
+    "easystats/performance",
+    "easystats/parameters",
+    "easystats/effectsize",
+    "easystats/correlation",
+    "easystats/modelbased",
+    "easystats/see",
+    "easystats/report"
+  ),
+  upgrade = "never"
+  )
 }
 
 #' @rdname install_easystats_latest
@@ -37,18 +40,21 @@ easystats_install_latest <- install_easystats_latest
 #' @rdname install_easystats_latest
 #' @importFrom devtools install_github
 #' @export
-install_easystats_dev <- function(){
-  devtools::install_github(c("easystats/insight",
-                             "easystats/bayestestR",
-                             "easystats/performance",
-                             "easystats/parameters",
-                             "easystats/effectsize",
-                             "easystats/correlation",
-                             "easystats/modelbased",
-                             "easystats/see",
-                             "easystats/report"),
-                           ref = "dev",
-                           upgrade = "never")
+install_easystats_dev <- function() {
+  devtools::install_github(c(
+    "easystats/insight",
+    "easystats/bayestestR",
+    "easystats/performance",
+    "easystats/parameters",
+    "easystats/effectsize",
+    "easystats/correlation",
+    "easystats/modelbased",
+    "easystats/see",
+    "easystats/report"
+  ),
+  ref = "dev",
+  upgrade = "never"
+  )
 }
 
 #' @rdname install_easystats_latest
@@ -162,7 +168,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
   cran_version <- lapply(pkgs[pkg_deps, "Version"], package_version)
   local_version <- lapply(pkg_deps, utils::packageVersion)
 
-  behind <- mapply('>', cran_version, local_version)
+  behind <- mapply(">", cran_version, local_version)
 
   data.frame(
     package = pkg_deps,
@@ -182,8 +188,12 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     {
       utils::available.packages(contriburl = utils::contrib.url("https://cloud.r-project.org", type = getOption("pkgType")))
     },
-    warning = function(w) { NULL },
-    error = function(e) { NULL}
+    warning = function(w) {
+      NULL
+    },
+    error = function(e) {
+      NULL
+    }
   )
 
   if (!is.null(pkgs)) {
@@ -194,7 +204,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     cran_version <- lapply(pkgs[easystats_on_cran, "Version"], package_version)
     local_version <- lapply(easystats_on_cran, utils::packageVersion)
 
-    behind <- mapply('>', cran_version, local_version)
+    behind <- mapply(">", cran_version, local_version)
 
     out <- data.frame(
       package = easystats_on_cran,
@@ -235,10 +245,11 @@ easystats_update <- function(which = c("all", "core", "deps")) {
       easystats_not_on_cran,
       function(i) {
         p <- try(find.package(i, verbose = FALSE, quiet = TRUE))
-        if (!inherits(p, "try-error") && length(p) > 0)
+        if (!inherits(p, "try-error") && length(p) > 0) {
           i
-        else
+        } else {
           ""
+        }
       }
     )
 
@@ -290,30 +301,33 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
           if (any("error" %in% tolower(check_status))) {
             n <- sum("error" == tolower(check_status))
-            if (n == 1)
+            if (n == 1) {
               insight::print_color("1 Error", "red")
-            else
+            } else {
               insight::print_color(sprintf("%g Errors", n), "red")
+            }
             error <- TRUE
             all_ok <- FALSE
           }
           if (any(c("warning", "warn") %in% tolower(check_status))) {
             if (!all_ok) cat(", ")
             n <- sum("warning" == tolower(check_status)) + sum("warn" == tolower(check_status))
-            if (n == 1)
+            if (n == 1) {
               insight::print_color("1 Warning", "red")
-            else
+            } else {
               insight::print_color(sprintf("%g Warnings", n), "red")
+            }
             error <- TRUE
             all_ok <- FALSE
           }
           if (any("note" %in% tolower(check_status))) {
             if (!all_ok) cat(", ")
             n <- sum("note" == tolower(check_status))
-            if (n == 1)
+            if (n == 1) {
               insight::print_color("1 Note", "blue")
-            else
+            } else {
               insight::print_color(sprintf("%g Notes", n), "blue")
+            }
             all_ok <- FALSE
           }
           if (isTRUE(all_ok)) {
@@ -334,8 +348,12 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
       invisible(error)
     },
-    warning = function(w) { invisible(FALSE) },
-    error = function(e) { invisible(FALSE) }
+    warning = function(w) {
+      invisible(FALSE)
+    },
+    error = function(e) {
+      invisible(FALSE)
+    }
   )
 }
 
@@ -359,17 +377,22 @@ on_CRAN <- function() {
         max_len <- max(nchar(on_cran))
         i <- format(i, width = max_len)
         cat(sprintf("%s ", i))
-        if (weeks_on_cran <= 4)
+        if (weeks_on_cran <= 4) {
           col <- "red"
-        else if (weeks_on_cran <= 8)
+        } else if (weeks_on_cran <= 8) {
           col <- "yellow"
-        else
+        } else {
           col <- "green"
+        }
         insight::print_color(sprintf("%.1f weeks\n", weeks_on_cran), col)
       }
     },
-    warning = function(w) { invisible(NULL) },
-    error = function(e) { invisible(NULL) }
+    warning = function(w) {
+      invisible(NULL)
+    },
+    error = function(e) {
+      invisible(NULL)
+    }
   )
 
   invisible(NULL)
@@ -378,6 +401,8 @@ on_CRAN <- function() {
 
 
 .packages_on_cran <- function() {
-  c("insight", "bayestestR", "performance", "parameters", "effectsize",
-    "modelbased", "correlation", "see")
+  c(
+    "insight", "bayestestR", "performance", "parameters", "effectsize",
+    "modelbased", "correlation", "see"
+  )
 }

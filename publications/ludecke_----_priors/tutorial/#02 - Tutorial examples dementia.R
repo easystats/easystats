@@ -139,26 +139,36 @@ ps6$prior
 
 p <- plot_model(m2, type = "diag")
 m2_pp_data <- filter(p$data, Term == "mmse3")
-ggplot(m2_pp_data, aes(x = Estimate, fill = Sample)) + geom_density(alpha = .4) + labs(y = NULL)
+ggplot(m2_pp_data, aes(x = Estimate, fill = Sample)) +
+  geom_density(alpha = .4) +
+  labs(y = NULL)
 
 p <- plot_model(m3, type = "diag")
 m3_pp_data <- filter(p$data, Term == "mmse3")
-ggplot(m3_pp_data, aes(x = Estimate, fill = Sample)) + geom_density(alpha = .4) + labs(y = NULL)
+ggplot(m3_pp_data, aes(x = Estimate, fill = Sample)) +
+  geom_density(alpha = .4) +
+  labs(y = NULL)
 summary(m3_pp_data$Estimate[m3_pp_data$Sample == "Posterior"])
 
 p <- plot_model(m4, type = "diag")
 m4_pp_data <- filter(p$data, Term == "mmse3")
-ggplot(m4_pp_data, aes(x = Estimate, fill = Sample)) + geom_density(alpha = .4) + labs(y = NULL)
+ggplot(m4_pp_data, aes(x = Estimate, fill = Sample)) +
+  geom_density(alpha = .4) +
+  labs(y = NULL)
 summary(m4_pp_data$Estimate[m4_pp_data$Sample == "Posterior"])
 
 p <- plot_model(m5, type = "diag")
 m5_pp_data <- filter(p$data, Term == "mmse3")
-ggplot(m5_pp_data, aes(x = Estimate, fill = Sample)) + geom_density(alpha = .4) + labs(y = NULL)
+ggplot(m5_pp_data, aes(x = Estimate, fill = Sample)) +
+  geom_density(alpha = .4) +
+  labs(y = NULL)
 summary(m5_pp_data$Estimate[m5_pp_data$Sample == "Posterior"])
 
 p <- plot_model(m6, type = "diag")
 m6_pp_data <- filter(p$data, Term == "mmse3")
-ggplot(m6_pp_data, aes(x = Estimate, fill = Sample)) + geom_density(alpha = .4) + labs(y = NULL)
+ggplot(m6_pp_data, aes(x = Estimate, fill = Sample)) +
+  geom_density(alpha = .4) +
+  labs(y = NULL)
 summary(m6_pp_data$Estimate[m6_pp_data$Sample == "Posterior"])
 
 m2pd <- m2_pp_data
@@ -197,7 +207,7 @@ p + scale_fill_metro()
 m2dens <- m2_pp_data %>%
   group_by(Sample) %>%
   nest() %>%
-  mutate(dens = map(data, ~estimate_density(.$Estimate))) %>%
+  mutate(dens = map(data, ~ estimate_density(.$Estimate))) %>%
   unnest(dens) %>%
   mutate(max = x[which.max(y)]) %>%
   ungroup() %>%
@@ -206,7 +216,7 @@ m2dens <- m2_pp_data %>%
 m3dens <- m3_pp_data %>%
   group_by(Sample) %>%
   nest() %>%
-  mutate(dens = map(data, ~estimate_density(.$Estimate))) %>%
+  mutate(dens = map(data, ~ estimate_density(.$Estimate))) %>%
   unnest(dens) %>%
   mutate(max = x[which.max(y)]) %>%
   ungroup() %>%
@@ -215,7 +225,7 @@ m3dens <- m3_pp_data %>%
 m4dens <- m4_pp_data %>%
   group_by(Sample) %>%
   nest() %>%
-  mutate(dens = map(data, ~estimate_density(.$Estimate))) %>%
+  mutate(dens = map(data, ~ estimate_density(.$Estimate))) %>%
   unnest(dens) %>%
   mutate(max = x[which.max(y)]) %>%
   ungroup() %>%
@@ -224,7 +234,7 @@ m4dens <- m4_pp_data %>%
 m5dens <- m5_pp_data %>%
   group_by(Sample) %>%
   nest() %>%
-  mutate(dens = map(data, ~estimate_density(.$Estimate))) %>%
+  mutate(dens = map(data, ~ estimate_density(.$Estimate))) %>%
   unnest(dens) %>%
   mutate(max = x[which.max(y)]) %>%
   ungroup() %>%
@@ -233,7 +243,7 @@ m5dens <- m5_pp_data %>%
 m6dens <- m6_pp_data %>%
   group_by(Sample) %>%
   nest() %>%
-  mutate(dens = map(data, ~estimate_density(.$Estimate))) %>%
+  mutate(dens = map(data, ~ estimate_density(.$Estimate))) %>%
   unnest(dens) %>%
   mutate(max = x[which.max(y)]) %>%
   ungroup() %>%

@@ -31,4 +31,4 @@ p <- x %>%
   scale_fill_manual(values = c("Negative" = "#E91E63", "Positive" = "#4CAF50")) +
   theme(plot.title = element_text(hjust = 0.5))
 p
-ggsave("Figure4.png", plot = p, width = 13*0.7, height = 8*0.7, units = "in", dpi = 450)
+ggsave("Figure4.png", plot = p, width = 13 * 0.7, height = 8 * 0.7, units = "in", dpi = 450)

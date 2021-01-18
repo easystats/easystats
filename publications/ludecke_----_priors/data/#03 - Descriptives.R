@@ -33,4 +33,3 @@ result %>%
     CI_high = mean(HDI_high)
   ) %>%
   print(n = 200)
-

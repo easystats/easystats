@@ -20,9 +20,11 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   fig.path = "man/figures/"
 )
-options(knitr.kable.NA = '',
-        digits = 4,
-        width=60)
+options(
+  knitr.kable.NA = "",
+  digits = 4,
+  width = 60
+)
 ```
 
 ```{r echo=FALSE, fig.show='hold', fig.align='left', out.width="14%", out.height="14%"}
@@ -33,13 +35,13 @@ options(knitr.kable.NA = '',
 #                           "https://github.com/easystats/modelbased/raw/master/man/figures/logo.png",
 #                           "https://github.com/easystats/correlation/raw/master/man/figures/logo.png",
 #                           "https://github.com/easystats/report/raw/master/man/figures/logo.png"))
-# 
+#
 
 # library(png)
 # library(grid)
 # library(gridExtra)
 # library(RCurl)
-# 
+#
 # insight <-  rasterGrob(as.raster(readPNG(getURLContent("https://github.com/easystats/insight/raw/master/man/figures/logo.png"))), interpolate = FALSE)
 # bayestestR <-  rasterGrob(as.raster(readPNG(getURLContent("https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png"))), interpolate = FALSE)
 # grid.arrange(insight, bayestestR, ncol = 1)
@@ -145,7 +147,7 @@ library(igraph)
 library(ggnetwork)
 library(intergraph)
 
-  
+
 pkg <- devtools::as.package(".")
 
 dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "modelbased", "effectsize")
@@ -159,10 +161,10 @@ edge_list <- igraph::get.edgelist(dependency_graph)
 # dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))  # This fails at my place
 
 dependency_graph_df <- ggnetwork::ggnetwork(
-  dependency_graph
-  , layout = "fruchtermanreingold"
-  , arrow.gap = 0.015
-  , layout.par = list(niter = 5000)
+  dependency_graph,
+  layout = "fruchtermanreingold",
+  arrow.gap = 0.015,
+  layout.par = list(niter = 5000)
 )
 
 dependency_graph_df$package <- dependency_graph_df$vertex.names
@@ -185,16 +187,16 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
   geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
   geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
   geom_nodelabel_repel(
-    aes(label = package, fontface = face, color = n_dependencies)
-    , box.padding = unit(8, "pt")
+    aes(label = package, fontface = face, color = n_dependencies),
+    box.padding = unit(8, "pt")
   ) +
   geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
   scale_color_distiller(palette = "Spectral") +
   scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
   theme_blank(legend.position = "top") +
   guides(
-    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5)
-    , color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
+    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5),
+    color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
   )
 ```
 
@@ -209,7 +211,7 @@ library(igraph)
 library(ggnetwork)
 library(intergraph)
 
-  
+
 pkg <- devtools::as.package(".")
 # dependencies <- unlist(strsplit(paste(pkg$imports, "\n", pkg$depends), split = "\n"))[-1]
 # dependencies <- trimws(gsub("\\n| \\(.+\\)|,", "", dependencies))
@@ -228,10 +230,10 @@ edge_list <- igraph::get.edgelist(dependency_graph)
 # dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))
 
 dependency_graph_df <- ggnetwork::ggnetwork(
-  dependency_graph
-  , layout = "fruchtermanreingold"
-  , arrow.gap = 0.015
-  , layout.par = list(niter = 5000)
+  dependency_graph,
+  layout = "fruchtermanreingold",
+  arrow.gap = 0.015,
+  layout.par = list(niter = 5000)
 )
 
 dependency_graph_df$package <- dependency_graph_df$vertex.names
@@ -254,16 +256,16 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
   geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
   geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
   geom_nodelabel_repel(
-    aes(label = package, fontface = face, color = n_dependencies)
-    , box.padding = unit(8, "pt")
+    aes(label = package, fontface = face, color = n_dependencies),
+    box.padding = unit(8, "pt")
   ) +
   geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
   scale_color_distiller(palette = "Spectral") +
   scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
   theme_blank(legend.position = "top") +
   guides(
-    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5)
-    , color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
+    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5),
+    color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
   )
 ```
 
@@ -384,43 +386,47 @@ library(see)
 library(ggrepel)
 
 # Packages data
-downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-02-26") %>% 
+downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-02-26") %>%
   mutate(Package = "insight")
-downloads_bayestestR <- cranlogs::cran_downloads(package = "bayestestR", from = "2019-04-08") %>% 
+downloads_bayestestR <- cranlogs::cran_downloads(package = "bayestestR", from = "2019-04-08") %>%
   mutate(Package = "bayestestR")
-downloads_performance <- cranlogs::cran_downloads(package = "performance", from = "2019-04-22") %>% 
+downloads_performance <- cranlogs::cran_downloads(package = "performance", from = "2019-04-22") %>%
   mutate(Package = "performance")
-downloads_see <- cranlogs::cran_downloads(package = "see", from = "2019-05-22") %>% 
+downloads_see <- cranlogs::cran_downloads(package = "see", from = "2019-05-22") %>%
   mutate(Package = "see")
-downloads_parameters <- cranlogs::cran_downloads(package = "parameters", from = "2019-08-26") %>% 
+downloads_parameters <- cranlogs::cran_downloads(package = "parameters", from = "2019-08-26") %>%
   mutate(Package = "parameters")
-downloads_effectsize <- cranlogs::cran_downloads(package = "effectsize", from = "2019-11-15") %>% 
+downloads_effectsize <- cranlogs::cran_downloads(package = "effectsize", from = "2019-11-15") %>%
   mutate(Package = "effectsize")
-downloads_modelbased <- cranlogs::cran_downloads(package = "modelbased", from = "2020-01-12") %>% 
+downloads_modelbased <- cranlogs::cran_downloads(package = "modelbased", from = "2020-01-12") %>%
   mutate(Package = "modelbased")
-downloads_correlation <- cranlogs::cran_downloads(package = "correlation", from = "2020-03-16") %>% 
+downloads_correlation <- cranlogs::cran_downloads(package = "correlation", from = "2020-03-16") %>%
   mutate(Package = "correlation")
 
 # Combine all data
-data <- rbind(downloads_insight,
-              downloads_bayestestR,
-              downloads_performance,
-              downloads_see,
-              downloads_parameters,
-              downloads_effectsize,
-              downloads_modelbased,
-              downloads_correlation) %>% 
-  group_by(Package) %>% 
-  mutate(cumulative_count = cumsum(count),
-         average_count = zoo::rollmax(count, 10, fill=0)+10,
-         average_count= zoo::rollmean(count, k = 7, fill = NA),
-         day_num = as.numeric(date) - min(as.numeric(date)),
-         day = weekdays(date),
-         month = months(date),
-         quarters = quarters(date),
-         year_month = paste0(lubridate::year(date), "-", months(date)),
-         month_day = lubridate::mday(date)) %>% 
-  ungroup() %>% 
+data <- rbind(
+  downloads_insight,
+  downloads_bayestestR,
+  downloads_performance,
+  downloads_see,
+  downloads_parameters,
+  downloads_effectsize,
+  downloads_modelbased,
+  downloads_correlation
+) %>%
+  group_by(Package) %>%
+  mutate(
+    cumulative_count = cumsum(count),
+    average_count = zoo::rollmax(count, 10, fill = 0) + 10,
+    average_count = zoo::rollmean(count, k = 7, fill = NA),
+    day_num = as.numeric(date) - min(as.numeric(date)),
+    day = weekdays(date),
+    month = months(date),
+    quarters = quarters(date),
+    year_month = paste0(lubridate::year(date), "-", months(date)),
+    month_day = lubridate::mday(date)
+  ) %>%
+  ungroup() %>%
   mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize", "modelbased", "correlation"))
 
 
@@ -429,68 +435,77 @@ color_CRAN <- "#607D8B"
 color_blog <- "#9C27B0"
 
 # Publications
-events <- rbind(events,
-               data.frame(date = as.Date(c("2019-03-05",
-                                           "2019-03-29",
-                                           "2019-04-09",
-                                           "2019-04-23",
-                                           "2019-04-24",
-                                           "2019-05-11",
-                                           "2019-05-24",
-                                           "2019-05-29",
-                                           "2019-06-19",
-                                           "2019-06-25",
-                                           "2019-07-01",
-                                           "2019-08-05",
-                                           "2019-08-26",
-                                           "2019-09-26",
-                                           "2019-11-15",
-                                           "2020-01-12",
-                                           "2020-03-16"
-                                           )), 
-                          event=c("CRAN - insight (0.1.0)", 
-                                  "CRAN - insight (0.2.0)",
-                                  "CRAN - bayestestR (0.1.0)",
-                                  "JOSS - insight (submission)",
-                                  "CRAN - performance (0.1.0)",
-                                  "CRAN - insight (0.3.0)",
-                                  "CRAN - see (0.1.0)",
-                                  "CRAN - bayestestR (0.2.0)",
-                                  "CRAN - see (0.2.0)",
-                                  "JOSS - insight (publication)",
-                                  "CRAN - insight (0.4.0)",
-                                  "CRAN - performance (0.3.0)",
-                                  "CRAN - parameters (0.1.0)",
-                                  "CRAN - parameters (0.2.0)",
-                                  "CRAN - effectsize (0.0.1)",
-                                  "CRAN - modelbased (0.1.0)",
-                                  "CRAN - correlation (0.1.0)"
-                                  ), 
-                          Package=c("insight", 
-                                    "insight",
-                                    "bayestestR",
-                                    "insight",
-                                    "performance",
-                                    "insight",
-                                    "see",
-                                    "bayestestR",
-                                    "see",
-                                    "insight",
-                                    "insight",
-                                    "performance",
-                                    "parameters",
-                                    "parameters",
-                                    "effectsize",
-                                    "modelbased",
-                                    "correlation"
-                                    ), 
-                          color=color_CRAN, stringsAsFactors = FALSE))
+events <- rbind(
+  events,
+  data.frame(
+    date = as.Date(c(
+      "2019-03-05",
+      "2019-03-29",
+      "2019-04-09",
+      "2019-04-23",
+      "2019-04-24",
+      "2019-05-11",
+      "2019-05-24",
+      "2019-05-29",
+      "2019-06-19",
+      "2019-06-25",
+      "2019-07-01",
+      "2019-08-05",
+      "2019-08-26",
+      "2019-09-26",
+      "2019-11-15",
+      "2020-01-12",
+      "2020-03-16"
+    )),
+    event = c(
+      "CRAN - insight (0.1.0)",
+      "CRAN - insight (0.2.0)",
+      "CRAN - bayestestR (0.1.0)",
+      "JOSS - insight (submission)",
+      "CRAN - performance (0.1.0)",
+      "CRAN - insight (0.3.0)",
+      "CRAN - see (0.1.0)",
+      "CRAN - bayestestR (0.2.0)",
+      "CRAN - see (0.2.0)",
+      "JOSS - insight (publication)",
+      "CRAN - insight (0.4.0)",
+      "CRAN - performance (0.3.0)",
+      "CRAN - parameters (0.1.0)",
+      "CRAN - parameters (0.2.0)",
+      "CRAN - effectsize (0.0.1)",
+      "CRAN - modelbased (0.1.0)",
+      "CRAN - correlation (0.1.0)"
+    ),
+    Package = c(
+      "insight",
+      "insight",
+      "bayestestR",
+      "insight",
+      "performance",
+      "insight",
+      "see",
+      "bayestestR",
+      "see",
+      "insight",
+      "insight",
+      "performance",
+      "parameters",
+      "parameters",
+      "effectsize",
+      "modelbased",
+      "correlation"
+    ),
+    color = color_CRAN, stringsAsFactors = FALSE
+  )
+)
 # Blogposts
-blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>% 
-  filter(item_pub_date > "2019-03-29") %>% 
-  select(date = item_pub_date,
-         event = item_title) %>% 
-  mutate(color=color_blog) %>% 
+blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>%
+  filter(item_pub_date > "2019-03-29") %>%
+  select(
+    date = item_pub_date,
+    event = item_title
+  ) %>%
+  mutate(color = color_blog) %>%
   distinct()
 
 blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation", "bayestestR"))
@@ -503,19 +518,23 @@ data <- full_join(data, events, by = c("date", "Package"))
 
 events <- full_join(
   events,
-  group_by(data, event) %>% 
-    summarise(event_y = max(average_count)), by = "event") %>% 
-    filter(!is.na(date))
+  group_by(data, event) %>%
+    summarise(event_y = max(average_count)),
+  by = "event"
+) %>%
+  filter(!is.na(date))
 
 # Set packages colours
-packages_colours <- c("insight" = unname(see::material_colors("orange")),
-                      "bayestestR" = unname(see::material_colors("pink")),
-                      "performance" = unname(see::material_colors("green")),
-                      "see" = unname(see::material_colors("blue")),
-                      "parameters" = unname(see::material_colors("purple")),
-                      "effectsize" = unname(see::material_colors("brown")),
-                      "modelbased" = unname(see::material_colors("lime")),
-                      "correlation" = unname(see::material_colors("amber")))
+packages_colours <- c(
+  "insight" = unname(see::material_colors("orange")),
+  "bayestestR" = unname(see::material_colors("pink")),
+  "performance" = unname(see::material_colors("green")),
+  "see" = unname(see::material_colors("blue")),
+  "parameters" = unname(see::material_colors("purple")),
+  "effectsize" = unname(see::material_colors("brown")),
+  "modelbased" = unname(see::material_colors("lime")),
+  "correlation" = unname(see::material_colors("amber"))
+)
 
 data$download_label <- NA
 
@@ -543,11 +562,11 @@ average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), functio
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
 dl_table <- data %>%
-  group_by(Package) %>% 
-  summarise(`Total Downloads` = max(cumulative_count)) %>% 
+  group_by(Package) %>%
+  summarise(`Total Downloads` = max(cumulative_count)) %>%
   arrange(`Total Downloads`) %>%
-  bind_rows(summarise_all(., list(~ if(is.numeric(.)) sum(.) else "Total"))) %>% 
-  tidyr::pivot_wider(values_from =`Total Downloads`, names_from=Package)
+  bind_rows(summarise_all(., list(~ if (is.numeric(.)) sum(.) else "Total"))) %>%
+  tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package)
 
 dl_table[] <- lapply(dl_table, format, big.mark = ",")
 knitr::kable(dl_table)
@@ -559,11 +578,12 @@ knitr::kable(dl_table)
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
 data %>%
-  group_by(Package) %>% 
-  slice(1:(n()-1)) %>%  # Remove 2 last days to avoid edge issues
-  ungroup() %>%  
+  group_by(Package) %>%
+  slice(1:(n() - 1)) %>%
+  # Remove 2 last days to avoid edge issues
+  ungroup() %>%
   ggplot(aes(x = date, color = Package)) +
-  geom_hline(yintercept=c(1000, 2000, 3000), color="#EEEEEE") +
+  geom_hline(yintercept = c(1000, 2000, 3000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
   geom_line(aes(y = average_count), size = 1, alpha = 0.7) +
   # geom_smooth(aes(y = count),
@@ -571,10 +591,11 @@ data %>%
   #             size = 1,
   #             se = FALSE) +
   geom_smooth(aes(y = count),
-              method = 'lm',
-              linetype="dotted",
-              size = 0.75,
-              se = FALSE) +
+    method = "lm",
+    linetype = "dotted",
+    size = 0.75,
+    se = FALSE
+  ) +
   # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
   # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
   # geom_text_repel(
@@ -585,8 +606,10 @@ data %>%
   #   size = 3
   # ) +
   see::theme_modern() +
-  scale_x_date(date_breaks = "1 month",
-               labels = scales::date_format("%Y-%m")) +
+  scale_x_date(
+    date_breaks = "1 month",
+    labels = scales::date_format("%Y-%m")
+  ) +
   scale_color_manual(values = packages_colours) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
@@ -598,21 +621,21 @@ data %>%
 
 ### Cumulative downloads
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
-data <- data %>% 
-  group_by(Package, year_month) %>% 
-  mutate(download_label = first(cumulative_count)) %>% 
+data <- data %>%
+  group_by(Package, year_month) %>%
+  mutate(download_label = first(cumulative_count)) %>%
   ungroup()
 
 data$download_label <- sprintf("%.1fk", data$download_label / 1000)
 data$download_label[duplicated(data$download_label)] <- NA
 
 ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color = Package)) +
-  geom_line(size=0.75) +
+  geom_line(size = 0.75) +
   geom_label_repel(show.legend = FALSE) +
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
-  scale_color_manual(values=packages_colours) +
+  scale_color_manual(values = packages_colours) +
   scale_y_sqrt() +
   theme(axis.text.x = element_text(angle = 90))
 ```
@@ -671,32 +694,39 @@ ggplot(average_monthly_downloads, aes(x = package2, y = monthly_downloads, colou
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
   see::theme_modern() +
-  scale_colour_manual(values=packages_colours) +
+  scale_colour_manual(values = packages_colours) +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = NULL, y = "Average monthly downloads", colour = "Package") +
   scale_x_discrete(labels = NULL) +
-  scale_y_sqrt(breaks = plot_range, limits = c(0, max(plot_range))) + 
-  theme(axis.text.x = element_text(angle = 0), panel.grid.major.x = element_line(colour = "#aaaaaa", linetype = "dotted")) +
-  coord_flip() 
+  scale_y_sqrt(breaks = plot_range, limits = c(0, max(plot_range))) +
+  theme(
+    axis.text.x = element_text(angle = 0),
+    panel.grid.major.x = element_line(colour = "#aaaaaa", linetype = "dotted")
+  ) +
+  coord_flip()
 ```
-
-
-
 
 
 ## Convention of code-style
 
-Following conventions apply to the easystats-ecosystem, to ensure that function and argument names as well as element names for return-values follow a consistent pattern across all packages.
+Following conventions apply to the easystats-ecosystem, to ensure that function
+and argument names as well as element names for return-values follow a
+consistent pattern across all packages.
 
 **Importing other packages**
 
-- No full import, only selective import of functions
-- Use base-R wherever possible (reduce dependencies)
-- Make sure R-version requirements are not too strict
+  - No full import, only selective import of functions
+
+  - Use base-R wherever possible (reduce dependencies)
+
+  - Make sure R-version requirements are not too strict
 
 **Helper-functions**
 
-- Own re-implementation of helper-functions, if it's not too much effort (e.g. I typically use own functions to check if a string starts / ends with a pattern, or if an object (list, data frame) contains an element with a given name (like `tibble::has_name()`), to reduce dependencies.
+  - Own re-implementation of helper-functions, if it's not too much effort (e.g.
+    I typically use own functions to check if a string starts / ends with a
+    pattern, or if an object (list, data frame) contains an element with a given
+    name (like `tibble::has_name()`), to reduce dependencies.
 
 **`print` functions**
 
@@ -704,9 +734,16 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 
 **Function names**
 
-- Lower case, underscore separated if more than one verb
-- Common prefix for functions that focus on specific "tasks" or workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to find information, or **performance**, `performance_*()` to compute measures of model quality, `check_*()` to check model assumptions...)
-- Internal functions (that are not exported, like the previously mentined helper-functions) should always start with a `.` (e.g., `.do_some_internal_stuff()`).
+  - Lower case, underscore separated if more than one verb.
+  
+  - Common prefix for functions that focus on specific "tasks" or workflows
+    (e.g. **insight**, `get_*()` to get data, `find_*()` to find information, or
+    **performance**, `performance_*()` to compute measures of model quality,
+    `check_*()` to check model assumptions...).
+    
+  - Internal functions (that are not exported, like the previously mentioned
+    helper-functions) should always start with a `.` (e.g.,
+    `.do_some_internal_stuff()`).
 
 **Argument names**
 
@@ -714,15 +751,35 @@ Following conventions apply to the easystats-ecosystem, to ensure that function 
 
 **Element / Column names** (for returned data frames)
 
-1) First letter of the column name is capital, unless (6) applies (_example:_ `Parameter`)
-2) First letter of nouns is capital, unless (6) applies (_example:_ `ROPE_Percentage`, `Prior_Scale`)
-3) Using underscore rather than camelCase to separate words (_example:_ `CI_high`)
-4) Multiple words: common/main part first and adjective/specifier/variational part after, unless (8) applies (_example:_ `Median_standardized`, `ROPE_percentage`)
-5) Abbreviations: all uppercase (_example:_ `ESS`, `MCSE`, `ROPE`)
-6) Keep conventions for reserved words (_example:_ `p`, `pd`, `Rhat`)
-7) Adjectives / verbs: all lower case, unless (1) applies (_example:_ `high` or `low` in `CI_high` or `CI_low`)
-8) In case of multiple occurrences of column names that indicate the same measure or content (like `CI_low` or `SE`), the common part is appended as suffix to the context specific part (_example:_ `CI_low` and `Eta2_partial_CI_low`, and **not** `CI_low` and `CI_low_Eta2_partial`).
-9) The "squared" term in column names that refers to "common" statistics (`Eta2`, `Chi2`, `Omega2`, ...) should be written as `2`, not `sq`, `squared` or `pétit-deux` (_example:_ `Chi2`, and **not** `Chisq`, `Eta2`, and **not** `Eta_squared`). This rule does **not** apply to function names.
+1)  First letter of the column name is capital, unless (6) applies (*example:*
+    `Parameter`).
+    
+2)  First letter of nouns is capital, unless (6) applies (*example:*
+    `ROPE_Percentage`, `Prior_Scale`).
+    
+3)  Using underscore rather than camelCase to separate words (*example:*
+    `CI_high`).
+    
+4)  Multiple words: common/main part first and adjective/specifier/variational
+    part after, unless (8) applies (*example:* `Median_standardized`,
+    `ROPE_percentage`).
+    
+5)  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`).
+
+6)  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`).
+
+7)  Adjectives / verbs: all lower case, unless (1) applies (*example:* `high` or
+    `low` in `CI_high` or `CI_low`).
+    
+8)  In case of multiple occurrences of column names that indicate the same
+    measure or content (like `CI_low` or `SE`), the common part is appended as
+    suffix to the context specific part (*example:* `CI_low` and
+    `Eta2_partial_CI_low`, and **not** `CI_low` and `CI_low_Eta2_partial`).
+    
+9)  The "squared" term in column names that refers to "common" statistics
+    (`Eta2`, `Chi2`, `Omega2`, ...) should be written as `2`, not `sq`,
+    `squared` or `pétit-deux` (*example:* `Chi2`, and **not** `Chisq`, `Eta2`,
+    and **not** `Eta_squared`). This rule does **not** apply to function names.
 
 ## List of functions
 
@@ -743,30 +800,32 @@ library(see)
 all_funs <- data.frame()
 
 for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "see")) {
-  
   name <- ls(paste0("package:", package))
 
-  functions <- paste0("[**`", 
-                      name, 
-                      "`**](https://easystats.github.io/", 
-                      package, 
-                      "/reference/index.html)",
-                      " *(",
-                      package,
-                      ")*")
-  
-  functions <- data.frame("Functions" = functions,
-                          "Package" = package,
-                          "Name" = name)
-  
+  functions <- paste0(
+    "[**`",
+    name,
+    "`**](https://easystats.github.io/",
+    package,
+    "/reference/index.html)",
+    " *(",
+    package,
+    ")*"
+  )
+
+  functions <- data.frame(
+    "Functions" = functions,
+    "Package" = package,
+    "Name" = name
+  )
+
 
   all_funs <- rbind(all_funs, functions)
 }
 
 
 
-all_funs <- all_funs[!duplicated(all_funs$Name),]
+all_funs <- all_funs[!duplicated(all_funs$Name), ]
 all_funs <- sort(as.character(all_funs$Functions))
 cat(paste0(c("", all_funs), collapse = "\n- "))
 ```
-

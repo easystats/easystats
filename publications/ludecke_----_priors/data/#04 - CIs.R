@@ -67,7 +67,7 @@ d <- d %>%
 p <- ggplot(d, aes(x = as.factor(N), ymin = CI_low, ymax = CI_high, color = as.factor(Scale))) +
   geom_hline(yintercept = .3, color = "#5a5a5a", size = .6) +
   geom_errorbar(width = 0, size = .7, position = position_dodge(.8)) +
-  facet_wrap(~as.factor(Location)) +
+  facet_wrap(~ as.factor(Location)) +
   theme_lucid() +
   theme(
     # panel.grid.major.x = element_blank(),
@@ -150,4 +150,3 @@ ggplot(mapping = aes(x = N, ymin = CI_low, ymax = CI_high)) +
     # panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank()
   )
-
