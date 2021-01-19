@@ -18,7 +18,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Jump in the easyverse">
-<meta property="og:description" content="Load the easystats packages.">
+<meta property="og:description" content="The easystats is meta-package that contains a set
+    of packages, all of which aim to provide a unifying and consistent
+    framework to tame, discipline and harness the scary R statistics and
+    their pesky models. This package is designed to make it easy to
+    install and load multiple easystats packages in a single step.">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -58,6 +62,9 @@
       <a href="articles/programming.html">Contributing to R Packages: A Tutorial</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -183,8 +190,6 @@
 <blockquote>
 <p><strong>Data processing was carried out with R (R Core Team, 2019) and the <em>easystats</em> ecosystem (Lüdecke, Waggoner, &amp; Makowski, 2019; Makowski, Ben-Shachar, &amp; Lüdecke, 2019; Makowski, Ben-Shachar, Patil, &amp; Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, &amp; Makowski, 2020; Ben-Shachar, Lüdecke, &amp; Makowski, 2020)</strong></p>
 </blockquote>
-<details><p><summary>Click here to see the corresponding APA and bibtex entries</summary></p>
-<p><br></p>
 <ul>
 <li>Lüdecke, D., Waggoner, P. D., &amp; Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. <em>Journal of Open Source Software</em>, <em>4</em>, 1412. doi: 10.21105/joss.01412</li>
 <li>Makowski, D., Ben-Shachar, M.S., &amp; Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. <em>Journal of Open Source Software</em>, <em>4</em>(40), 1541. 10.21105/joss.01541</li>
@@ -193,7 +198,9 @@
 <li>Lüdecke, D., Ben-Shachar, M.S., Patil, I., Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. <em>Journal of Open Source Software</em>, <em>5</em>(53), 2445. doi: 10.21105/joss.02445</li>
 <li>Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. <em>Journal of Open Source Software</em>, <em>5</em>(56), 2815. doi: 10.21105/joss.02815</li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">@</span>article{ludecke2019insight,</span>
+<details><p><summary>Click here to see the corresponding APA and bibtex entries</summary></p>
+<p><br></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">@</span>article{ludecke2019insight,</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    journal =<span class="st"> </span>{Journal of Open Source Software},</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    doi =<span class="st"> </span>{<span class="fl">10.21105</span><span class="op">/</span>joss<span class="fl">.01412</span>},</span>
 <span id="cb3-4"><a href="#cb3-4"></a>    issn =<span class="st"> </span>{<span class="dv">2475-9066</span>},</span>
@@ -295,15 +302,15 @@
 <th align="left">Total</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left">18,914</td>
-<td align="left">56,686</td>
-<td align="left">59,181</td>
-<td align="left">330,106</td>
-<td align="left">429,067</td>
-<td align="left">443,701</td>
-<td align="left">487,582</td>
-<td align="left">932,124</td>
-<td align="left">2,757,361</td>
+<td align="left">19,250</td>
+<td align="left">57,084</td>
+<td align="left">59,653</td>
+<td align="left">331,500</td>
+<td align="left">431,577</td>
+<td align="left">445,078</td>
+<td align="left">489,128</td>
+<td align="left">935,957</td>
+<td align="left">2,769,227</td>
 </tr></tbody>
 </table>
 <div id="trend" class="section level3">
@@ -358,9 +365,9 @@
 <p>Following conventions apply to the easystats-ecosystem, to ensure that function and argument names as well as element names for return-values follow a consistent pattern across all packages.</p>
 <p><strong>Importing other packages</strong></p>
 <ul>
-<li>No full import, only selective import of functions</li>
-<li>Use base-R wherever possible (reduce dependencies)</li>
-<li>Make sure R-version requirements are not too strict</li>
+<li><p>No full import, only selective import of functions</p></li>
+<li><p>Use base-R wherever possible (reduce dependencies)</p></li>
+<li><p>Make sure R-version requirements are not too strict</p></li>
 </ul>
 <p><strong>Helper-functions</strong></p>
 <ul>
@@ -373,16 +380,24 @@
 </ul>
 <p><strong>Function names</strong></p>
 <ul>
-<li>Lower case, underscore separated if more than one verb</li>
-<li>Common prefix for functions that focus on specific “tasks” or workflows (e.g. <strong>insight</strong>, <code>get_*()</code> to get data, <code>find_*()</code> to find information, or <strong>performance</strong>, <code>performance_*()</code> to compute measures of model quality, <code>check_*()</code> to check model assumptions…)</li>
-<li>Internal functions (that are not exported, like the previously mentined helper-functions) should always start with a <code>.</code> (e.g., <code>.do_some_internal_stuff()</code>).</li>
+<li><p>Lower case, underscore separated if more than one verb.</p></li>
+<li><p>Common prefix for functions that focus on specific “tasks” or workflows (e.g. <strong>insight</strong>, <code>get_*()</code> to get data, <code>find_*()</code> to find information, or <strong>performance</strong>, <code>performance_*()</code> to compute measures of model quality, <code>check_*()</code> to check model assumptions…).</p></li>
+<li><p>Internal functions (that are not exported, like the previously mentioned helper-functions) should always start with a <code>.</code> (e.g., <code>.do_some_internal_stuff()</code>).</p></li>
 </ul>
 <p><strong>Argument names</strong></p>
 <ul>
 <li>lower case, underscore separated if more than one verb</li>
 </ul>
 <p><strong>Element / Column names</strong> (for returned data frames)</p>
-<p>1) First letter of the column name is capital, unless (6) applies (<em>example:</em> <code>Parameter</code>) 2) First letter of nouns is capital, unless (6) applies (<em>example:</em> <code>ROPE_Percentage</code>, <code>Prior_Scale</code>) 3) Using underscore rather than camelCase to separate words (<em>example:</em> <code>CI_high</code>) 4) Multiple words: common/main part first and adjective/specifier/variational part after, unless (8) applies (<em>example:</em> <code>Median_standardized</code>, <code>ROPE_percentage</code>) 5) Abbreviations: all uppercase (<em>example:</em> <code>ESS</code>, <code>MCSE</code>, <code>ROPE</code>) 6) Keep conventions for reserved words (<em>example:</em> <code>p</code>, <code>pd</code>, <code>Rhat</code>) 7) Adjectives / verbs: all lower case, unless (1) applies (<em>example:</em> <code>high</code> or <code>low</code> in <code>CI_high</code> or <code>CI_low</code>) 8) In case of multiple occurrences of column names that indicate the same measure or content (like <code>CI_low</code> or <code>SE</code>), the common part is appended as suffix to the context specific part (<em>example:</em> <code>CI_low</code> and <code>Eta2_partial_CI_low</code>, and <strong>not</strong> <code>CI_low</code> and <code>CI_low_Eta2_partial</code>). 9) The “squared” term in column names that refers to “common” statistics (<code>Eta2</code>, <code>Chi2</code>, <code>Omega2</code>, …) should be written as <code>2</code>, not <code>sq</code>, <code>squared</code> or <code>pétit-deux</code> (<em>example:</em> <code>Chi2</code>, and <strong>not</strong> <code>Chisq</code>, <code>Eta2</code>, and <strong>not</strong> <code>Eta_squared</code>). This rule does <strong>not</strong> apply to function names.</p>
+<p>1) First letter of the column name is capital, unless (6) applies (<em>example:</em> <code>Parameter</code>).</p>
+<p>2) First letter of nouns is capital, unless (6) applies (<em>example:</em> <code>ROPE_Percentage</code>, <code>Prior_Scale</code>).</p>
+<p>3) Using underscore rather than camelCase to separate words (<em>example:</em> <code>CI_high</code>).</p>
+<p>4) Multiple words: common/main part first and adjective/specifier/variational part after, unless (8) applies (<em>example:</em> <code>Median_standardized</code>, <code>ROPE_percentage</code>).</p>
+<p>5) Abbreviations: all uppercase (<em>example:</em> <code>ESS</code>, <code>MCSE</code>, <code>ROPE</code>).</p>
+<p>6) Keep conventions for reserved words (<em>example:</em> <code>p</code>, <code>pd</code>, <code>Rhat</code>).</p>
+<p>7) Adjectives / verbs: all lower case, unless (1) applies (<em>example:</em> <code>high</code> or <code>low</code> in <code>CI_high</code> or <code>CI_low</code>).</p>
+<p>8) In case of multiple occurrences of column names that indicate the same measure or content (like <code>CI_low</code> or <code>SE</code>), the common part is appended as suffix to the context specific part (<em>example:</em> <code>CI_low</code> and <code>Eta2_partial_CI_low</code>, and <strong>not</strong> <code>CI_low</code> and <code>CI_low_Eta2_partial</code>).</p>
+<p>9) The “squared” term in column names that refers to “common” statistics (<code>Eta2</code>, <code>Chi2</code>, <code>Omega2</code>, …) should be written as <code>2</code>, not <code>sq</code>, <code>squared</code> or <code>pétit-deux</code> (<em>example:</em> <code>Chi2</code>, and <strong>not</strong> <code>Chisq</code>, <code>Eta2</code>, and <strong>not</strong> <code>Eta_squared</code>). This rule does <strong>not</strong> apply to function names.</p>
 </div>
 <div id="list-of-functions" class="section level2">
 <h2 class="hasAnchor">
@@ -567,6 +582,9 @@
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>clean_parameters</code></strong></a> <em>(insight)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>cliffs_delta</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>closest_component</code></strong></a> <em>(parameters)</em>
 </li>
 <li>
@@ -586,6 +604,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>cohens_g</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>cohens_h</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>cohens_w</code></strong></a> <em>(effectsize)</em>
@@ -697,6 +718,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>d_to_r</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>data_adjust</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>data_partition</code></strong></a> <em>(parameters)</em>
@@ -843,6 +867,12 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>eta_squared</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>eta2_to_f</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>eta2_to_f2</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/bayestestR/reference/index.html"><strong><code>eti</code></strong></a> <em>(bayestestR)</em>
 </li>
 <li>
@@ -858,6 +888,9 @@
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>F_to_eta2_adj</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>f_to_eta2</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>F_to_eta2</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
@@ -871,6 +904,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>F_to_r</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>f2_to_eta2</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>factor_analysis</code></strong></a> <em>(parameters)</em>
@@ -1012,6 +1048,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>get_df</code></strong></a> <em>(insight)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>get_effectsize_label</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/insight/reference/index.html"><strong><code>get_intercept</code></strong></a> <em>(insight)</em>
@@ -1225,6 +1264,9 @@
 </li>
 <li>
 <a href="https://easystats.github.io/performance/reference/index.html"><strong><code>item_split_half</code></strong></a> <em>(performance)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>kendalls_w</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>kurtosis</code></strong></a> <em>(parameters)</em>
@@ -1561,6 +1603,12 @@
 </li>
 <li>
 <a href="https://easystats.github.io/parameters/reference/index.html"><strong><code>random_parameters</code></strong></a> <em>(parameters)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>rank_biserial</code></strong></a> <em>(effectsize)</em>
+</li>
+<li>
+<a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>rank_epsilon_squared</code></strong></a> <em>(effectsize)</em>
 </li>
 <li>
 <a href="https://easystats.github.io/effectsize/reference/index.html"><strong><code>ranktransform</code></strong></a> <em>(effectsize)</em>
