@@ -1,48 +1,54 @@
-Package: easystats
 Type: Package
+Package: easystats
 Title: Jump in the easyverse
 Version: 0.2.0
-Authors@R: c(
-	person("Daniel", 
-		"Lüdecke", 
-		role = c("aut"), 
-		email = "d.luedecke@uke.de", 
-		comment = c(ORCID = "0000-0002-8895-3206")),
-	person("Dominique", 
-		"Makowski", 
-		email = "dom.makowski@gmail.com",
-		role = c("aut", "cre"), 
-		comment = c(ORCID = "0000-0001-5375-9967"))
-	)
+Authors@R: 
+    c(person(given = "Daniel",
+             family = "Lüdecke",
+             role = "aut",
+             email = "d.luedecke@uke.de",
+             comment = c(ORCID = "0000-0002-8895-3206")),
+      person(given = "Dominique",
+             family = "Makowski",
+             role = c("aut", "cre"),
+             email = "dom.makowski@gmail.com",
+             comment = c(ORCID = "0000-0001-5375-9967")))
 Maintainer: Dominique Makowski <dom.makowski@gmail.com>
+Description: The 'easystats' is meta-package that contains a set
+    of packages, all of which aim to provide a unifying and consistent
+    framework to tame, discipline and harness the scary R statistics and
+    their pesky models. This package is designed to make it easy to
+    install and load multiple 'easystats' packages in a single step.
+License: GPL-3
 URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
-Description: Load the easystats packages.
 Imports:
-	devtools,
-  insight,
-  bayestestR,
-  performance,
-  parameters,
-  effectsize,
-  modelbased,
-  correlation,
-  see,
-  tools,
-  utils,
-  rvest,
-  xml2
+    bayestestR,
+    correlation,
+    devtools,
+    effectsize,
+    insight,
+    modelbased,
+    parameters,
+    performance,
+    rvest,
+    see,
+    tools,
+    utils,
+    xml2
+Suggests: 
+    spelling
 Remotes: 
-	easystats/insight,
-	easystats/performance,
-	easystats/bayestestR,
-	easystats/parameters,
-	easystats/effectsize,
-	easystats/correlation,
-	easystats/modelbased,
-	easystats/see,
-	easystats/report
-License: GPL-3
+    easystats/bayestestR,
+    easystats/correlation,
+    easystats/effectsize,
+    easystats/insight,
+    easystats/modelbased,
+    easystats/parameters,
+    easystats/performance,
+    easystats/report,
+    easystats/see
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 RoxygenNote: 7.1.1

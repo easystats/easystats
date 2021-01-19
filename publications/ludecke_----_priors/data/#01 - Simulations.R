@@ -24,7 +24,7 @@ generate_data <- function(sample_size = 50, effect = 0, true_effect = .3) {
   }
 
   d <- standardize(out)
-  #d <- standardize(simulate_correlation(n = sample_size, r = true_effect, mean = effect, sd = 3))
+  # d <- standardize(simulate_correlation(n = sample_size, r = true_effect, mean = effect, sd = 3))
   colnames(d) <- c("y", "x")
   d
 }
@@ -96,7 +96,7 @@ generate_and_process <- function(sample_size, effect, true_effect, location, sca
 # to r scale values of 1/sqrt(27), 1/3, 1/sqrt(3) and 1, respectively.".
 # https://www.rdocumentation.org/packages/BayesFactor/versions/0.9.12-4.2/topics/correlationBF)
 
-prior_scales <- 1/sqrt(3^(1:4))
+prior_scales <- 1 / sqrt(3^(1:4))
 
 # Setup for simulations (sample size, prior locations)  -----------------------
 

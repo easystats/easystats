@@ -1,4 +1,4 @@
-prior_scales <- 1/sqrt(3^(1:4))
+prior_scales <- 1 / sqrt(3^(1:4))
 
 dat <- do.call(rbind, lapply(prior_scales, function(i) {
   x <- bayestestR::distribution_normal(1000, sd = i)

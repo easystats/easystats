@@ -33,9 +33,13 @@ library(ggplot2)
 
 # R Programming
 
-Programming in R is actually quite simple, yet powerful compared to other languages like Python or such. Part of this power comes from the flexibility of how R works.
+Programming in R is actually quite simple, yet powerful compared to other
+languages like Python or such. Part of this power comes from the flexibility of
+how R works.
 
-Hopefully, by the end of this short crash-course, you'll have enough understanding of R programming to be able to understand how packages are made and then, contribute.
+Hopefully, by the end of this short crash-course, you'll have enough
+understanding of R programming to be able to understand how packages are made
+and then, contribute.
 
 ## Basic Elements
 
@@ -46,7 +50,12 @@ x <- rnorm(n=1)  # Generate n=1 random number
 x  # Display it
 ```
 
-Note here that we generated a random number between 0 and 1 using the `rnorm()` **function** (specifying that we want only one number using the `n` **argument**), that we **stored** it inside a **variable** called `x` (using the **assignment** operator `<-`, *kinda* similar to `=` in other languages). We also **commented** the steps using the hash symbol **\#**, so that we can write things to help us remember / explain the steps.
+Note here that we generated a random number between 0 and 1 using the `rnorm()`
+**function** (specifying that we want only one number using the `n`
+**argument**), that we **stored** it inside a **variable** called `x` (using the
+**assignment** operator `<-`, *kinda* similar to `=` in other languages). We
+also **commented** the steps using the hash symbol **\#**, so that we can write
+things to help us remember / explain the steps.
 
 
 ### If / Else
@@ -61,12 +70,17 @@ if( x > 0.5 ){
 }
 ```
 
-Note that the **condition** (here `x > 0.5`) must be place between round brackets, whereas the code chunks for the ifs and elses are between curly brackets `{}`. This "grammar" is important for R to understand what you want to do.
+Note that the **condition** (here `x > 0.5`) must be place between round
+brackets, whereas the code chunks for the `if`s and `else`s are between curly
+brackets `{}`. This "grammar" is important for R to understand what you want to
+do.
 
 
 ## Functions
 
-Similarly to the majority of programming languages, one can define ***functions*** in R. These are like little factories that take some input, do something, and then return some output. 
+Similarly to the majority of programming languages, one can define
+***functions*** in R. These are like little factories that take some input, do
+something, and then return some output.
 
 ### Simple Function
 
@@ -80,7 +94,12 @@ f <- function(x){
 f(3)
 ```
 
-We named that function `f()`, but we could have written anything (as long as there is no spaces), such as `my_new_function()`. Then, there is a **place-holder** for the input, that we named *x* (again, it could have been named anything). The last **very** important thing to know is that what is returned by the function is the *last object* in the function, in this case `x + 1`. 
+We named that function `f()`, but we could have written anything (as long as
+there is no spaces), such as `my_new_function()`. Then, there is a
+**place-holder** for the input, that we named *x* (again, it could have been
+named anything). The last **very** important thing to know is that what is
+returned by the function is the *last object* in the function, in this case `x
++ 1`.
 
 So based on that, you understand that the function we defined above is equivalent to this one:
 
@@ -93,13 +112,17 @@ my_function <- function(first_argument){
 my_function(3)
 ```
 
-Notice the last line of the function, which just contains the final object we want to return (named "output"). Finally, adding **comments** is super useful to explain and remember what each step does.
-
-
+Notice the last line of the function, which just contains the final object we
+want to return (named "output"). Finally, adding **comments** is super useful to
+explain and remember what each step does.
 
 ### Multiple Arguments
 
-A function often has multiple **arguments** (the "input" variables). This is used because a function is like a bubble, inside it (aka in the *local scope*) there is no knowledge out the "outside world" (called the *global scope*). So anything we want to know "from the outside" (for instance, things with which a user can interact) must be entered as arguments.
+A function often has multiple **arguments** (the "input" variables). This is
+used because a function is like a bubble, inside it (aka in the *local scope*)
+there is no knowledge out the "outside world" (called the *global scope*). So
+anything we want to know "from the outside" (for instance, things with which a
+user can interact) must be entered as arguments.
 
 ```{r message=FALSE, warning=FALSE}
 f2 <- function(a, b, should_we_add){
@@ -115,9 +138,14 @@ f2 <- function(a, b, should_we_add){
 f2(2, 3, TRUE)
 ```
 
-Here, the user must specify values for `a`, `b` and `should_we_add`. We added a **conditional statement** inside the function, so that different things are done if one of the argument (`should_we_add`) has a certain value (`TRUE` or `FALSE`).
+Here, the user must specify values for `a`, `b` and `should_we_add`. We added a
+**conditional statement** inside the function, so that different things are done
+if one of the argument (`should_we_add`) has a certain value (`TRUE` or
+`FALSE`).
 
-However, most of the functions in R have **default arguments**, i.e., values associated to the arguments, that are changed **only if the users specifies otherwise**. So the function above could be written as follows:
+However, most of the functions in R have **default arguments**, i.e., values
+associated to the arguments, that are changed **only if the users specifies
+otherwise**. So the function above could be written as follows:
 
 ```{r message=FALSE, warning=FALSE}
 f2 <- function(a=2, b=3, should_we_add=TRUE){
@@ -133,19 +161,28 @@ f2 <- function(a=2, b=3, should_we_add=TRUE){
 f2()
 ```
 
-The only difference is that in the **function definition** (the round brackets in which we write the arguments), each argument has some default value. That means that if the user don't manually specifies the argument, it will use the default ones. That's why the output of `f2()` (without anything) is the same as `f2(2, 3, TRUE)` 
-
-
+The only difference is that in the **function definition** (the round brackets
+in which we write the arguments), each argument has some default value. That
+means that if the user don't manually specifies the argument, it will use the
+default ones. That's why the output of `f2()` (without anything) is the same as
+`f2(2, 3, TRUE)`.
 
 ## Methods
 
-Have you ever wonder how it's possible that the **same functions**, for example `summary()`, can be applied to all kinds of different objects? And give different outputs? It's because they are not functions... *tumtumtum* but **methods**.
+Have you ever wonder how it's possible that the **same functions**, for example
+`summary()`, can be applied to all kinds of different objects? And give
+different outputs? It's because they are not functions... *tumtumtum* but
+**methods**.
 
-You can see methods as functions that only run **if the first argument is of a particular class**. What is a **class**, you might wonder? Let's see.
+You can see methods as functions that only run **if the first argument is of a
+particular class**. What is a **class**, you might wonder? Let's see.
 
 ### Attributes
 
-In a nutshell, in R, things are not what they look like. This means that objects are often more that "what is shown" (we'll come back to the what-is-shown later). Let's load the `iris` dataset for example and examine it. It is a **dataframe**, which gets displayed as follows:
+In a nutshell, in R, things are not what they look like. This means that objects
+are often more that "what is shown" (we'll come back to the what-is-shown
+later). Let's load the `iris` dataset for example and examine it. It is a
+**dataframe**, which gets displayed as follows:
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
 data <- iris
@@ -156,33 +193,47 @@ data <- iris
 knitr::kable(data)
 ```
 
-This object has information attached to it, which is not displayed. This "additional" information is stored as **attributes**, which be retrieved as follows:
+This object has information attached to it, which is not displayed. This
+"additional" information is stored as **attributes**, which be retrieved as
+follows:
 
 ```{r message=FALSE, warning=FALSE}
 attributes(data)
 ```
 
-These attributes take the form of a **list** with elements, like column names, row names and... a **class** name. In R, the class of an object corresponds to what is written as a **class** attribute. We can retrieve it directly by running the `class()` function.
+These attributes take the form of a **list** with elements, like column names,
+row names and... a **class** name. In R, the class of an object corresponds to
+what is written as a **class** attribute. We can retrieve it directly by running
+the `class()` function.
 
 ```{r message=FALSE, warning=FALSE}
 class(data)
 ```
 
-We could modify (i.e., **overwrite**) this class attribute, and let's see what happens when we try to display it:
+We could modify (i.e., **overwrite**) this class attribute, and let's see what
+happens when we try to display it:
 
 ```{r message=FALSE, warning=FALSE}
 class(data) <- "new_class"
 data
 ```
 
-It gets displayed all weirdly! This is because "displaying" an object in R... actually runs a method (the **print** method), and this method is not defined for our new class. So it is showed in its purest "raw" form. For now, let us remember that we don't usually **replace** the class, simply add (**append**) a new one to the list, like `c("new_class", other_classes)`. That's because objects can have any number of classes.
+It gets displayed all weirdly! This is because "displaying" an object in R...
+actually runs a method (the **print** method), and this method is not defined
+for our new class. So it is showed in its purest "raw" form. For now, let us
+remember that we don't usually **replace** the class, simply add (**append**) a
+new one to the list, like `c("new_class", other_classes)`. That's because
+objects can have any number of classes.
 
 ```{r message=FALSE, warning=FALSE}
 class(data) <- c("new_class", class(iris))
 class(data)
 ```
 
-We can see that the class is now a list (more specifically, a *vector*) of classes. The object is *both* an object of class "new_class" and an object of class "data.frame". If a method is not found for the first class, it will try for the second. Let's see how it gets displayed now:
+We can see that the class is now a list (more specifically, a *vector*) of
+classes. The object is *both* an object of class `"new_class"` and an object of
+class "data.frame". If a method is not found for the first class, it will try
+for the second. Let's see how it gets displayed now:
 
 ```{r message=FALSE, warning=FALSE, eval=FALSE}
 data
@@ -191,7 +242,8 @@ data
 knitr::kable(data)
 ```
 
-Now, it gets displayed correctly again, because it is also a dataframe, so it can run the **print** method for dataframes (part of R itself).
+Now, it gets displayed correctly again, because it is also a dataframe, so it
+can run the **print** method for dataframes (part of R itself).
 
 ### Define objects with classes
 
@@ -214,7 +266,9 @@ f_b <- function(x){
 f_b(3)
 ```
 
-Although having one different class, both objects remain of the 'numeric' class. This means that any method that works for 'numeric' will work for these objects, such as the square root:
+Although having one different class, both objects remain of the 'numeric' class.
+This means that any method that works for 'numeric' will work for these objects,
+such as the square root:
 
 ```{r message=FALSE, warning=FALSE}
 sqrt(f_b(3))
@@ -223,9 +277,14 @@ sqrt(f_b(3))
 
 ### Defining Methods
 
-Methods are pretty much defined like functions, with a twist. First, the name of the method must be added as a method using the `UseMethod()` function, which will tell R that this is a method.
+Methods are pretty much defined like functions, with a twist. First, the name of
+the method must be added as a method using the `UseMethod()` function, which
+will tell R that this is a method.
 
-Then, the methods are defined using the `name_of_method.name_of_class` pattern. You write the name of the class after a dot following the name of the method. This tells R **which function to use** depending on the class of the first argument.
+Then, the methods are defined using the `name_of_method.name_of_class` pattern.
+You write the name of the class after a dot following the name of the method.
+This tells R **which function to use** depending on the class of the first
+argument.
 
 A method for our two classes is defined as follows:
 
@@ -257,7 +316,9 @@ new_method(f_b(3))
 ![](https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif)
 
 
-And that's about it. That's how the R ecosystem is made! Some packages define mostly new classes, like statistical models and such, and other packages (like **easystats** or **broom**) provide new methods to interact with these objects.
+And that's about it. That's how the R ecosystem is made! Some packages define
+mostly new classes, like statistical models and such, and other packages (like
+**easystats** or **broom**) provide new methods to interact with these objects.
 
 
 # The Structure of R Packages

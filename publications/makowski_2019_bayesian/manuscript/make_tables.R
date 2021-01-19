@@ -18,18 +18,20 @@ table1 <- model1 %>%
   parameters::model_parameters() %>%
   left_join(standardize_parameters(model1), by = "Parameter") %>%
   filter(grepl("sample_size", Parameter)) %>%
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
-         True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
-         Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
-         Parameter = stringr::str_remove(Parameter, "outcome_typelinear:|outcome_typebinary:"),
-         Parameter = stringr::str_remove(Parameter, "Index"),
-         Parameter = stringr::str_remove(Parameter, ":sample_size")) %>%
+  mutate(
+    Coefficient = abs(Std_Coefficient),
+    Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
+    True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
+    Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
+    Parameter = stringr::str_remove(Parameter, "outcome_typelinear:|outcome_typebinary:"),
+    Parameter = stringr::str_remove(Parameter, "Index"),
+    Parameter = stringr::str_remove(Parameter, ":sample_size")
+  ) %>%
   select(True_Effect, Type, Parameter, Coefficient) %>%
   split(list(.$True_Effect, .$Type)) %>%
   bind_cols() %>%
   dplyr::select(-starts_with("True_Effect"), -starts_with("Type"), -Parameter1, -Parameter2, -Parameter3)
-  # arrange(True_Effect, Type, Coefficient)
+# arrange(True_Effect, Type, Coefficient)
 
 # reorder columns and rows
 table1 <- table1[c(5, 3, 4, 6, 7, 1, 2), c(1, 3, 2, 5, 4)]
@@ -52,18 +54,20 @@ table2 <- model2 %>%
   parameters::model_parameters() %>%
   left_join(standardize_parameters(model2), by = "Parameter") %>%
   filter(grepl("error", Parameter)) %>%
-  mutate(Coefficient = abs(Std_Coefficient),
-         Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
-         # True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
-         Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
-         Parameter = stringr::str_remove(Parameter, "outcome_typelinear:|outcome_typebinary:"),
-         Parameter = stringr::str_remove(Parameter, "Index"),
-         Parameter = stringr::str_remove(Parameter, ":error")) %>%
+  mutate(
+    Coefficient = abs(Std_Coefficient),
+    Type = ifelse(stringr::str_detect(Parameter, "outcome_typelinear"), "Linear", "Logistic"),
+    # True_Effect = ifelse(stringr::str_detect(Parameter, "true_effectPresence"), "Presence", "Absence"),
+    Parameter = stringr::str_remove(Parameter, "true_effectPresence:|true_effectAbsence:"),
+    Parameter = stringr::str_remove(Parameter, "outcome_typelinear:|outcome_typebinary:"),
+    Parameter = stringr::str_remove(Parameter, "Index"),
+    Parameter = stringr::str_remove(Parameter, ":error")
+  ) %>%
   select(Type, Parameter, Coefficient) %>%
   split(.$Type) %>%
   bind_cols() %>%
   dplyr::select(-starts_with("Type"), -Parameter1)
-  # arrange(Type, Coefficient)
+# arrange(Type, Coefficient)
 
 # reorder columns and rows
 table2 <- table2[c(5, 3, 4, 6, 7, 1, 2), ]
