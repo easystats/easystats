@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | modelbased | correlation | see    | effectsize | parameters | performance | bayestestR | insight | Total     |
 | :--------- | :---------- | :----- | :--------- | :--------- | :---------- | :--------- | :------ | :-------- |
-| 19,250     | 57,084      | 59,653 | 331,500    | 431,577    | 445,078     | 489,128    | 935,957 | 2,769,227 |
+| 20,206     | 59,120      | 60,920 | 341,638    | 442,919    | 452,682     | 497,508    | 959,567 | 2,834,560 |
 
 ### Trend
 
@@ -473,7 +473,7 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`bayesfactor_parameters`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`bayesfactor_pointull`**](https://easystats.github.io/bayestestR/reference/index.html)
+  - [**`bayesfactor_pointnull`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bayesfactor_restricted`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -489,7 +489,7 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`bf_parameters`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
-  - [**`bf_pointull`**](https://easystats.github.io/bayestestR/reference/index.html)
+  - [**`bf_pointnull`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bf_restricted`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
