@@ -499,19 +499,19 @@ events <- rbind(
   )
 )
 # Blogposts
-blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>%
-  filter(item_pub_date > "2019-03-29") %>%
-  select(
-    date = item_pub_date,
-    event = item_title
-  ) %>%
-  mutate(color = color_blog) %>%
-  distinct()
-
-blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation", "bayestestR", "parameters"))
-
-
-events <- rbind(events, blogposts)
+# blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>%
+#   filter(item_pub_date > "2019-03-29") %>%
+#   select(
+#     date = item_pub_date,
+#     event = item_title
+#   ) %>%
+#   mutate(color = color_blog) %>%
+#   distinct()
+# 
+# blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation", "bayestestR", "parameters"))
+# 
+# 
+# events <- rbind(events, blogposts)
 
 # Full join
 data <- full_join(data, events, by = c("date", "Package"))
@@ -566,9 +566,16 @@ dl_table <- data %>%
   summarise(`Total Downloads` = max(cumulative_count)) %>%
   arrange(`Total Downloads`) %>%
   bind_rows(summarise_all(., list(~ if (is.numeric(.)) sum(.) else "Total"))) %>%
-  tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package)
+  tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package) %>% 
+  t() %>% 
+  as.data.frame() %>% 
+  dplyr::arrange(-V1) %>% 
+  t() %>% 
+  as.data.frame()
 
+row.names(dl_table) <- NULL
 dl_table[] <- lapply(dl_table, format, big.mark = ",")
+
 knitr::kable(dl_table)
 ```
 
@@ -690,7 +697,10 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
 #   scale_y_continuous(limits = c(0, max(plot_range)), breaks = plot_range)
 average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
-ggplot(average_monthly_downloads, aes(x = package2, y = monthly_downloads, colour = package)) +
+
+average_monthly_downloads %>% 
+  mutate(package2 = forcats::fct_reorder(package2, monthly_downloads, max)) %>% 
+  ggplot(aes(x = package2, y = monthly_downloads, colour = package)) +
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
   see::theme_modern() +
