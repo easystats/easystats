@@ -24,7 +24,7 @@
     insight::print_color(" = needs update)", "blue")
   }
 
-  insight::print_color("\n", "red")
+  cat("\n")
 
   symbol_tick <- "\u2714 "
   symbol_warning <- "\u26A0 "
@@ -36,21 +36,18 @@
       insight::print_color(symbol_tick, "green")
     }
 
-    out <- paste0(
-      format(easystats_versions$package[i], width = max_len_pkg),
-      " ",
-      format(easystats_versions$local[i], width = max_len_ver)
-    )
-    insight::print_color(out, ifelse(needs_update[i], "red", "green"))
+    cat(format(easystats_versions$package[i], width = max_len_pkg))
+    cat(" ")
+    insight::print_color(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green"))
 
     if (i %% 2 == 0) {
-      insight::print_color("\n", "red")
+      cat("\n")
     } else {
-      insight::print_color("   ", "red")
+      cat("   ")
     }
   }
 
-  insight::print_color("\n", "red")
+  cat("\n")
   .cran_checks()
 
   if (any(needs_update)) {
