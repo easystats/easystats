@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight | bayestestR | performance | parameters | effectsize | see    | correlation | modelbased |
 | :-------- | :------ | :--------- | :---------- | :--------- | :--------- | :----- | :---------- | :--------- |
-| 2,912,798 | 983,235 | 513,045    | 463,174     | 455,202    | 352,841    | 62,563 | 61,268      | 21,470     |
+| 2,926,673 | 988,030 | 515,292    | 464,803     | 457,394    | 354,768    | 62,960 | 61,752      | 21,674     |
 
 ### Trend
 
@@ -1491,6 +1491,16 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`t_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`test_bf`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`test_likelihoodratio`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`test_performance`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`test_vuong`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`test_wald`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
