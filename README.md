@@ -1457,8 +1457,6 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`social_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`spcor_to_cor`**](https://easystats.github.io/correlation/reference/index.html)
-    *(correlation)*
   - [**`standard_error_robust`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`standard_error`**](https://easystats.github.io/parameters/reference/index.html)
