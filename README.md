@@ -295,9 +295,9 @@ typically won’t find packages on CRAN with a development version number.
 
 ## Downloads
 
-| Total     | insight   | bayestestR | performance | parameters | effectsize | see    | correlation | modelbased |
-| :-------- | :-------- | :--------- | :---------- | :--------- | :--------- | :----- | :---------- | :--------- |
-| 3,056,079 | 1,032,241 | 535,329    | 483,889     | 475,591    | 371,180    | 67,106 | 66,986      | 23,757     |
+| Total     | insight   | bayestestR | performance | parameters | effectsize | correlation | see    | modelbased |
+| :-------- | :-------- | :--------- | :---------- | :--------- | :--------- | :---------- | :----- | :--------- |
+| 3,064,999 | 1,035,540 | 536,695    | 485,118     | 476,802    | 372,239    | 67,474      | 67,279 | 23,852     |
 
 ### Trend
 
