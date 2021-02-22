@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | performance | parameters | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :---------- | :--------- | :--------- | :---------- | :----- | :--------- |
-| 3,064,999 | 1,035,540 | 536,695    | 485,118     | 476,802    | 372,239    | 67,474      | 67,279 | 23,852     |
+| 3,069,608 | 1,037,283 | 537,348    | 485,730     | 477,447    | 372,775    | 67,703      | 67,400 | 23,922     |
 
 ### Trend
 
@@ -595,6 +595,10 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`colour_if`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`compare_models`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
+  - [**`compare_parameters`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`compare_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`contr.bayes`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -685,6 +689,8 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`describe_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`detrend`**](https://easystats.github.io/parameters/reference/index.html)
+    *(parameters)*
   - [**`diagnostic_posterior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`display`**](https://easystats.github.io/insight/reference/index.html)
