@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | performance | parameters | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :---------- | :--------- | :--------- | :---------- | :----- | :--------- |
-| 3,219,614 | 1,090,701 | 559,058    | 504,931     | 502,779    | 390,646    | 73,872      | 71,566 | 26,061     |
+| 3,230,225 | 1,094,403 | 560,574    | 506,331     | 504,439    | 391,974    | 74,388      | 71,899 | 26,217     |
 
 ### Trend
 
@@ -451,7 +451,7 @@ follow a consistent pattern across all packages.
 
 ## List of functions
 
-![](scripts/network_functions.png)
+<!-- ![](scripts/network_functions.png) -->
 
   - [**`add_plot_attributes`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
