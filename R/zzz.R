@@ -16,43 +16,54 @@
   max_len_pkg <- max(nchar(easystats_versions$package))
   max_len_ver <- max(nchar(easystats_versions$local))
 
-  insight::print_color("# Attaching packages", "blue")
-
-  if (any(needs_update)) {
-    insight::print_color(" (", "blue")
-    insight::print_color("red", "red")
-    insight::print_color(" = needs update)", "blue")
+  color_scheme <- insight::color_theme()
+  if (!is.null(color_scheme) && color_scheme == "light") {
+    theme_color <- "black"
+  } else {
+    theme_color <- "white"
   }
 
-  cat("\n")
+  final_message <- insight::color_text("# Attaching packages", "blue")
 
-  symbol_tick <- "\u2714 "
-  symbol_warning <- "\u26A0 "
+  if (any(needs_update)) {
+    final_message <- paste0(final_message, insight::color_text(" (", "blue"))
+    final_message <- paste0(final_message, insight::color_text("red", "red"))
+    final_message <- paste0(final_message, insight::color_text(" = needs update)", "blue"))
+  }
+
+  final_message <- paste0(final_message, "\n")
+
+  # symbol_tick <- "\u2714 "
+  # symbol_warning <- "\u26A0 "
+  symbol_tick <- "v "
+  symbol_warning <- "x "
 
   for (i in 1:nrow(easystats_versions)) {
     if (needs_update[i]) {
-      insight::print_color(symbol_warning, "red")
+      final_message <- paste0(final_message, insight::color_text(symbol_warning, "red"))
     } else {
-      insight::print_color(symbol_tick, "green")
+      final_message <- paste0(final_message, insight::color_text(symbol_tick, "green"))
     }
 
-    cat(format(easystats_versions$package[i], width = max_len_pkg))
-    cat(" ")
-    insight::print_color(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green"))
+    final_message <- paste0(final_message, insight::color_text(format(easystats_versions$package[i], width = max_len_pkg), theme_color))
+    final_message <- paste0(final_message, (" "))
+    final_message <- paste0(final_message, insight::color_text(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green")))
 
     if (i %% 2 == 0) {
-      cat("\n")
+      final_message <- paste0(final_message, "\n")
     } else {
-      cat("   ")
+      final_message <- paste0(final_message, "   ")
     }
   }
 
-  cat("\n")
-  .cran_checks()
+  # final_message <- paste0(final_message, "\n")
+  # .cran_checks()
 
   if (any(needs_update)) {
-    insight::print_color("Restart the R-Session and update packages in red with 'easystats::easystats_update()'.\n", "yellow")
+    final_message <- paste0(final_message, insight::color_text("\nRestart the R-Session and update packages in red with 'easystats::easystats_update()'.\n", "yellow"))
   }
+
+  packageStartupMessage(final_message)
 }
 
 is_attached <- function(x) {
