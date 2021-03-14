@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | performance | parameters | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :---------- | :--------- | :--------- | :---------- | :----- | :--------- |
-| 3,240,376 | 1,097,925 | 562,051    | 507,672     | 506,144    | 393,246    | 74,789      | 72,195 | 26,354     |
+| 3,248,809 | 1,100,905 | 563,304    | 508,740     | 507,586    | 394,300    | 75,148      | 72,377 | 26,449     |
 
 ### Trend
 
