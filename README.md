@@ -971,6 +971,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`interpret_ifi`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`interpret_kendalls_w`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`interpret_nfi`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`interpret_nnfi`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -1517,6 +1519,8 @@ follow a consistent pattern across all packages.
     *(see)*
   - [**`theme_radar`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`unstandardize`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`unupdate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`variance_decomposition`**](https://easystats.github.io/performance/reference/index.html)
