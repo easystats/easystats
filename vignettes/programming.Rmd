@@ -190,7 +190,7 @@ data
 ```
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 data <- iris
-knitr::kable(data)
+knitr::kable(head(data))
 ```
 
 This object has information attached to it, which is not displayed. This
@@ -239,7 +239,7 @@ for the second. Let's see how it gets displayed now:
 data
 ```
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-knitr::kable(data)
+knitr::kable(head(data))
 ```
 
 Now, it gets displayed correctly again, because it is also a dataframe, so it
