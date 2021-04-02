@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :----- | :--------- |
-| 3,399,085 | 1,148,121 | 585,602    | 532,073    | 528,100     | 418,285    | 80,994      | 77,325 | 28,585     |
+| 3,408,055 | 1,150,993 | 586,990    | 533,524    | 529,303     | 419,587    | 81,322      | 77,612 | 28,724     |
 
 ### Trend
 
@@ -593,7 +593,13 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`color_if`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`color_text`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`color_theme`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`colour_if`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`colour_text`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`compare_models`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
@@ -891,11 +897,15 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`get_effectsize_label`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`get_family`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`get_intercept`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_loglikelihood`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_parameters`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_predicted_ci`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_predicted`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -1007,6 +1017,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`is_effectsize_name`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`is_gam_model`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`is_mixed_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`is_model_supported`**](https://easystats.github.io/insight/reference/index.html)
@@ -1273,8 +1285,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`rescale_weights`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
-  - [**`reshape_ci`**](https://easystats.github.io/bayestestR/reference/index.html)
-    *(bayestestR)*
+  - [**`reshape_ci`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`reshape_draws`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
   - [**`reshape_loadings`**](https://easystats.github.io/parameters/reference/index.html)
