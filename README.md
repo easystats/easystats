@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :----- | :--------- |
-| 3,455,047 | 1,168,149 | 593,581    | 540,402    | 534,946     | 426,818    | 82,884      | 79,029 | 29,238     |
+| 3,465,715 | 1,172,011 | 595,087    | 541,944    | 536,267     | 428,513    | 83,220      | 79,334 | 29,339     |
 
 ### Trend
 
@@ -494,6 +494,8 @@ follow a consistent pattern across all packages.
   - [**`bf_restricted`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bf_rope`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`bic_to_bf`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`binned_residuals`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
@@ -705,15 +707,21 @@ follow a consistent pattern across all packages.
     *(correlation)*
   - [**`distribution_beta`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`distribution_binom`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`distribution_binomial`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_cauchy`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_chisq`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_chisquared`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_custom`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_gamma`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_gaussian`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_mixture_normal`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -723,7 +731,11 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`distribution_poisson`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`distribution_student_t`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`distribution_student`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`distribution_t`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`distribution_tweedie`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -1081,8 +1093,6 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`metro_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
-  - [**`mhdior`**](https://easystats.github.io/bayestestR/reference/index.html)
-    *(bayestestR)*
   - [**`model_info`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`model_name`**](https://easystats.github.io/insight/reference/index.html)
@@ -1287,8 +1297,10 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`reshape_ci`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`reshape_draws`**](https://easystats.github.io/modelbased/reference/index.html)
-    *(modelbased)*
+  - [**`reshape_draws`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
+  - [**`reshape_iterations`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`reshape_loadings`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`riskratio_to_oddsratio`**](https://easystats.github.io/effectsize/reference/index.html)
