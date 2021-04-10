@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :----- | :--------- |
-| 3,465,715 | 1,172,011 | 595,087    | 541,944    | 536,267     | 428,513    | 83,220      | 79,334 | 29,339     |
+| 3,477,025 | 1,175,810 | 597,490    | 543,403    | 537,535     | 430,076    | 83,540      | 79,666 | 29,505     |
 
 ### Trend
 
@@ -525,6 +525,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`check_heteroscedasticity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`check_heteroskedasticity`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`check_homogeneity`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_itemscale`**](https://easystats.github.io/performance/reference/index.html)
@@ -540,6 +542,8 @@ follow a consistent pattern across all packages.
   - [**`check_outliers`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_overdispersion`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`check_posterior_predictions`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`check_prior`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
@@ -1524,6 +1528,8 @@ follow a consistent pattern across all packages.
   - [**`test_bf`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`test_likelihoodratio`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`test_lrt`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`test_performance`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
