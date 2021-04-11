@@ -590,7 +590,7 @@ data %>%
   # Remove 2 last days to avoid edge issues
   ungroup() %>%
   ggplot(aes(x = date, color = Package)) +
-  geom_hline(yintercept = c(1000, 2000, 3000), color = "#EEEEEE") +
+  geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
   geom_line(aes(y = average_count), size = 1, alpha = 0.7) +
   # geom_smooth(aes(y = count),
