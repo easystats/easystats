@@ -297,7 +297,7 @@ typically won’t find packages on CRAN with a development version number.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see    | modelbased |
 | :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :----- | :--------- |
-| 3,496,848 | 1,181,225 | 600,794    | 547,009    | 540,597     | 432,470    | 84,608      | 80,393 | 29,752     |
+| 3,503,410 | 1,183,299 | 601,841    | 548,093    | 541,569     | 433,252    | 84,901      | 80,647 | 29,808     |
 
 ### Trend
 
@@ -685,6 +685,8 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`data_plot`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`data_restoretype`**](https://easystats.github.io/modelbased/reference/index.html)
+    *(modelbased)*
   - [**`data_to_numeric`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`degrees_of_freedom`**](https://easystats.github.io/parameters/reference/index.html)
@@ -778,6 +780,10 @@ follow a consistent pattern across all packages.
   - [**`estimate_link`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
   - [**`estimate_means`**](https://easystats.github.io/modelbased/reference/index.html)
+    *(modelbased)*
+  - [**`estimate_prediction`**](https://easystats.github.io/modelbased/reference/index.html)
+    *(modelbased)*
+  - [**`estimate_relation`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
   - [**`estimate_response`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
