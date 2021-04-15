@@ -15,10 +15,10 @@ CRAN_checks <- function() {
 #'
 #' This function can be used to install all the easystats package from github, either from the master branch (the stable one) with \code{install_easystats_latest()} or from the dev branch \code{install_easystats_dev()}.
 #'
-#' @importFrom devtools install_github
+#' @importFrom remotes install_github
 #' @export
 install_easystats_latest <- function() {
-  devtools::install_github(c(
+  remotes::install_github(c(
     "easystats/insight",
     "easystats/bayestestR",
     "easystats/performance",
@@ -38,10 +38,10 @@ install_easystats_latest <- function() {
 easystats_install_latest <- install_easystats_latest
 
 #' @rdname install_easystats_latest
-#' @importFrom devtools install_github
+#' @importFrom remotes install_github
 #' @export
 install_easystats_dev <- function() {
-  devtools::install_github(c(
+  remotes::install_github(c(
     "easystats/insight",
     "easystats/bayestestR",
     "easystats/performance",
@@ -153,7 +153,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
         "report"
       ),
       pkgs,
-      recursive = F
+      recursive = FALSE
     )
 
   pkg_deps <- unique(sort(unlist(deps)))
@@ -403,6 +403,6 @@ on_CRAN <- function() {
 .packages_on_cran <- function() {
   c(
     "insight", "bayestestR", "performance", "parameters", "effectsize",
-    "modelbased", "correlation", "see"
+    "modelbased", "correlation", "see", "report"
   )
 }

@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Jump in the easyverse
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -25,12 +25,14 @@ BugReports: https://github.com/easystats/easystats/issues
 Imports:
     bayestestR,
     correlation,
-    devtools,
+    remotes,
     effectsize,
     insight,
     modelbased,
     parameters,
     performance,
+    report,
+    see,
     rvest,
     see,
     tools,
@@ -50,5 +52,4 @@ Remotes:
     easystats/see
 Encoding: UTF-8
 Language: en-US
-LazyData: true
 RoxygenNote: 7.1.1
