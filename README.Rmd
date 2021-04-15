@@ -402,6 +402,8 @@ downloads_modelbased <- cranlogs::cran_downloads(package = "modelbased", from = 
   mutate(Package = "modelbased")
 downloads_correlation <- cranlogs::cran_downloads(package = "correlation", from = "2020-03-16") %>%
   mutate(Package = "correlation")
+downloads_report <- cranlogs::cran_downloads(package = "report", from = "2021-04-15") %>%
+  mutate(Package = "report")
 
 # Combine all data
 data <- rbind(
@@ -412,7 +414,8 @@ data <- rbind(
   downloads_parameters,
   downloads_effectsize,
   downloads_modelbased,
-  downloads_correlation
+  downloads_correlation,
+  downloads_report
 ) %>%
   group_by(Package) %>%
   mutate(
@@ -427,7 +430,7 @@ data <- rbind(
     month_day = lubridate::mday(date)
   ) %>%
   ungroup() %>%
-  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize", "modelbased", "correlation"))
+  mutate(Package = fct_relevel(Package, "insight", "bayestestR", "performance", "see", "parameters", "effectsize", "modelbased", "correlation", "report"))
 
 
 events <- data.frame()
@@ -533,7 +536,8 @@ packages_colours <- c(
   "parameters" = unname(see::material_colors("purple")),
   "effectsize" = unname(see::material_colors("brown")),
   "modelbased" = unname(see::material_colors("lime")),
-  "correlation" = unname(see::material_colors("amber"))
+  "correlation" = unname(see::material_colors("amber")),
+  "report" = unname(see::material_colors("blue grey"))
 )
 
 data$download_label <- NA
@@ -805,10 +809,11 @@ library(correlation)
 library(effectsize)
 library(modelbased)
 library(see)
+library(report)
 
 all_funs <- data.frame()
 
-for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "see")) {
+for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "see", "report")) {
   name <- ls(paste0("package:", package))
 
   functions <- paste0(
