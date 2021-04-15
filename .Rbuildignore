@@ -8,3 +8,6 @@
 ^README.Rmd
 ^presentations
 ^publications
+^old
+^scripts
+^tests
