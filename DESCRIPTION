@@ -25,7 +25,6 @@ BugReports: https://github.com/easystats/easystats/issues
 Imports:
     bayestestR,
     correlation,
-    remotes,
     effectsize,
     insight,
     modelbased,
@@ -33,23 +32,13 @@ Imports:
     performance,
     report,
     see,
+    remotes,
     rvest,
-    see,
     tools,
     utils,
     xml2
 Suggests: 
     spelling
-Remotes: 
-    easystats/bayestestR,
-    easystats/correlation,
-    easystats/effectsize,
-    easystats/insight,
-    easystats/modelbased,
-    easystats/parameters,
-    easystats/performance,
-    easystats/report,
-    easystats/see
 Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.1.1
