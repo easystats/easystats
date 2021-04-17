@@ -295,9 +295,9 @@ typically won’t find packages on CRAN with a development version number.
 
 ## Downloads
 
-| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see    | modelbased |
-| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :----- | :--------- |
-| 3,516,839 | 1,187,151 | 604,030    | 550,295    | 543,666     | 434,885    | 85,524      | 81,191 | 30,097     |
+| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see    | modelbased | report |
+| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :----- | :--------- | :----- |
+| 3,552,066 | 1,198,374 | 609,635    | 556,182    | 548,605     | 439,464    | 86,856      | 82,196 | 30,670     | 84     |
 
 ### Trend
 
@@ -465,6 +465,30 @@ follow a consistent pattern across all packages.
     *(bayestestR)*
   - [**`as.numeric_ifnumeric`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
+  - [**`as.report_effectsize`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_info`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_intercept`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_model`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_parameters`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_performance`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_priors`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_random`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_statistics`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_table`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report_text`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`as.report`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`auc`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`bayesfactor_inclusion`**](https://easystats.github.io/bayestestR/reference/index.html)
@@ -573,6 +597,14 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`ci`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`cite_citation`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`cite_easystats`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`cite_packages`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`clean_citation`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`clean_names`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`clean_parameters`**](https://easystats.github.io/insight/reference/index.html)
@@ -679,12 +711,24 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`d_to_r`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`data_addprefix`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`data_addsuffix`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`data_adjust`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`data_findcols`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`data_partition`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`data_plot`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`data_remove`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`data_rename`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`data_reorder`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`data_restoretype`**](https://easystats.github.io/modelbased/reference/index.html)
     *(modelbased)*
   - [**`data_to_numeric`**](https://easystats.github.io/parameters/reference/index.html)
@@ -857,10 +901,18 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`flat_colors`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
+  - [**`format_algorithm`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`format_bf`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_ci`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`format_citation`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`format_formula`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`format_model`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`format_number`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_order`**](https://easystats.github.io/parameters/reference/index.html)
@@ -879,6 +931,8 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
+  - [**`format_text`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`format_value`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`geom_count_borderless`**](https://easystats.github.io/see/reference/index.html)
@@ -1057,6 +1111,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`is.cor`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
+  - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`is.rules`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`isSquare`**](https://easystats.github.io/correlation/reference/index.html)
@@ -1303,6 +1359,42 @@ follow a consistent pattern across all packages.
     *(parameters)*
   - [**`reduce_parameters`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
+  - [**`report_date`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_effectsize`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_info`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_intercept`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_model`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_packages`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_parameters`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_participants`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_performance`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_priors`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_random`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_sample`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_statistics`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_story`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_system`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_table`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report_text`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`report`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`rescale_weights`**](https://easystats.github.io/parameters/reference/index.html)
     *(parameters)*
   - [**`reshape_ci`**](https://easystats.github.io/insight/reference/index.html)
@@ -1543,6 +1635,18 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`test_wald`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
+  - [**`text_concatenate`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_fullstop`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_lastchar`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_paste`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_remove`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`text_wrap`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
   - [**`theme_abyss`**](https://easystats.github.io/see/reference/index.html)
     *(see)*
   - [**`theme_blackboard`**](https://easystats.github.io/see/reference/index.html)
