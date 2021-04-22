@@ -97,15 +97,15 @@
     
 <div id="r-programming" class="section level1">
 <h1 class="hasAnchor">
-<a href="#r-programming" class="anchor"></a>R Programming</h1>
+<a href="#r-programming" class="anchor" aria-hidden="true"></a>R Programming</h1>
 <p>Programming in R is actually quite simple, yet powerful compared to other languages like Python or such. Part of this power comes from the flexibility of how R works.</p>
 <p>Hopefully, by the end of this short crash-course, you’ll have enough understanding of R programming to be able to understand how packages are made and then, contribute.</p>
 <div id="basic-elements" class="section level2">
 <h2 class="hasAnchor">
-<a href="#basic-elements" class="anchor"></a>Basic Elements</h2>
+<a href="#basic-elements" class="anchor" aria-hidden="true"></a>Basic Elements</h2>
 <div id="assigning-and-commenting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#assigning-and-commenting" class="anchor"></a>Assigning and Commenting</h3>
+<a href="#assigning-and-commenting" class="anchor" aria-hidden="true"></a>Assigning and Commenting</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1</span><span class="op">)</span>  <span class="co"># Generate n=1 random number</span>
 <span class="va">x</span>  <span class="co"># Display it</span></code></pre></div>
@@ -114,7 +114,7 @@
 </div>
 <div id="if-else" class="section level3">
 <h3 class="hasAnchor">
-<a href="#if-else" class="anchor"></a>If / Else</h3>
+<a href="#if-else" class="anchor" aria-hidden="true"></a>If / Else</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
 
@@ -129,11 +129,11 @@
 </div>
 <div id="functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#functions" class="anchor"></a>Functions</h2>
+<a href="#functions" class="anchor" aria-hidden="true"></a>Functions</h2>
 <p>Similarly to the majority of programming languages, one can define <strong><em>functions</em></strong> in R. These are like little factories that take some input, do something, and then return some output.</p>
 <div id="simple-function" class="section level3">
 <h3 class="hasAnchor">
-<a href="#simple-function" class="anchor"></a>Simple Function</h3>
+<a href="#simple-function" class="anchor" aria-hidden="true"></a>Simple Function</h3>
 <p>A function can be defined like this:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
@@ -156,7 +156,7 @@
 </div>
 <div id="multiple-arguments" class="section level3">
 <h3 class="hasAnchor">
-<a href="#multiple-arguments" class="anchor"></a>Multiple Arguments</h3>
+<a href="#multiple-arguments" class="anchor" aria-hidden="true"></a>Multiple Arguments</h3>
 <p>A function often has multiple <strong>arguments</strong> (the “input” variables). This is used because a function is like a bubble, inside it (aka in the <em>local scope</em>) there is no knowledge out the “outside world” (called the <em>global scope</em>). So anything we want to know “from the outside” (for instance, things with which a user can interact) must be entered as arguments.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">should_we_add</span><span class="op">)</span><span class="op">{</span>
@@ -191,12 +191,12 @@
 </div>
 <div id="methods" class="section level2">
 <h2 class="hasAnchor">
-<a href="#methods" class="anchor"></a>Methods</h2>
+<a href="#methods" class="anchor" aria-hidden="true"></a>Methods</h2>
 <p>Have you ever wonder how it’s possible that the <strong>same functions</strong>, for example <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>, can be applied to all kinds of different objects? And give different outputs? It’s because they are not functions… <em>tumtumtum</em> but <strong>methods</strong>.</p>
 <p>You can see methods as functions that only run <strong>if the first argument is of a particular class</strong>. What is a <strong>class</strong>, you might wonder? Let’s see.</p>
 <div id="attributes" class="section level3">
 <h3 class="hasAnchor">
-<a href="#attributes" class="anchor"></a>Attributes</h3>
+<a href="#attributes" class="anchor" aria-hidden="true"></a>Attributes</h3>
 <p>In a nutshell, in R, things are not what they look like. This means that objects are often more that “what is shown” (we’ll come back to the what-is-shown later). Let’s load the <code>iris</code> dataset for example and examine it. It is a <strong>dataframe</strong>, which gets displayed as follows:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">iris</span>
@@ -430,7 +430,7 @@
 </div>
 <div id="define-objects-with-classes" class="section level3">
 <h3 class="hasAnchor">
-<a href="#define-objects-with-classes" class="anchor"></a>Define objects with classes</h3>
+<a href="#define-objects-with-classes" class="anchor" aria-hidden="true"></a>Define objects with classes</h3>
 <p>Let’s assemble everything we know and create objects with different classes:</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f_a</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
@@ -461,7 +461,7 @@
 </div>
 <div id="defining-methods" class="section level3">
 <h3 class="hasAnchor">
-<a href="#defining-methods" class="anchor"></a>Defining Methods</h3>
+<a href="#defining-methods" class="anchor" aria-hidden="true"></a>Defining Methods</h3>
 <p>Methods are pretty much defined like functions, with a twist. First, the name of the method must be added as a method using the <code><a href="https://rdrr.io/r/base/UseMethod.html" class="external-link">UseMethod()</a></code> function, which will tell R that this is a method.</p>
 <p>Then, the methods are defined using the <code>name_of_method.name_of_class</code> pattern. You write the name of the class after a dot following the name of the method. This tells R <strong>which function to use</strong> depending on the class of the first argument.</p>
 <p>A method for our two classes is defined as follows:</p>
@@ -493,17 +493,17 @@
 </div>
 <div id="the-structure-of-r-packages" class="section level1">
 <h1 class="hasAnchor">
-<a href="#the-structure-of-r-packages" class="anchor"></a>The Structure of R Packages</h1>
+<a href="#the-structure-of-r-packages" class="anchor" aria-hidden="true"></a>The Structure of R Packages</h1>
 <p>TODO.</p>
 </div>
 <div id="contributing-on-github" class="section level1">
 <h1 class="hasAnchor">
-<a href="#contributing-on-github" class="anchor"></a>Contributing on GitHub</h1>
+<a href="#contributing-on-github" class="anchor" aria-hidden="true"></a>Contributing on GitHub</h1>
 <p>TODO.</p>
 </div>
 <div id="references" class="section level1">
 <h1 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h1>
+<a href="#references" class="anchor" aria-hidden="true"></a>References</h1>
 </div>
   </div>
 
