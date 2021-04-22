@@ -647,6 +647,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`contr.bayes`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
+  - [**`contr.orthonorm`**](https://easystats.github.io/bayestestR/reference/index.html)
+    *(bayestestR)*
   - [**`convert_bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`convert_d_to_common_language`**](https://easystats.github.io/effectsize/reference/index.html)
@@ -929,6 +931,8 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`format_standardize`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`format_string`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
   - [**`format_table`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`format_text`**](https://easystats.github.io/report/reference/index.html)
@@ -978,6 +982,8 @@ follow a consistent pattern across all packages.
   - [**`get_intercept`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_loglikelihood`**](https://easystats.github.io/insight/reference/index.html)
+    *(insight)*
+  - [**`get_modelmatrix`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
   - [**`get_parameters`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
@@ -1091,6 +1097,12 @@ follow a consistent pattern across all packages.
     *(effectsize)*
   - [**`interpret`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`is.cor`**](https://easystats.github.io/correlation/reference/index.html)
+    *(correlation)*
+  - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
+    *(report)*
+  - [**`is.rules`**](https://easystats.github.io/effectsize/reference/index.html)
+    *(effectsize)*
   - [**`is_effectsize_name`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
   - [**`is_gam_model`**](https://easystats.github.io/insight/reference/index.html)
@@ -1109,12 +1121,6 @@ follow a consistent pattern across all packages.
     *(insight)*
   - [**`is_regression_model`**](https://easystats.github.io/insight/reference/index.html)
     *(insight)*
-  - [**`is.cor`**](https://easystats.github.io/correlation/reference/index.html)
-    *(correlation)*
-  - [**`is.report`**](https://easystats.github.io/report/reference/index.html)
-    *(report)*
-  - [**`is.rules`**](https://easystats.github.io/effectsize/reference/index.html)
-    *(effectsize)*
   - [**`isSquare`**](https://easystats.github.io/correlation/reference/index.html)
     *(correlation)*
   - [**`item_difficulty`**](https://easystats.github.io/performance/reference/index.html)
@@ -1147,6 +1153,8 @@ follow a consistent pattern across all packages.
     *(performance)*
   - [**`mad_pooled`**](https://easystats.github.io/effectsize/reference/index.html)
     *(effectsize)*
+  - [**`mae`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
   - [**`map_estimate`**](https://easystats.github.io/bayestestR/reference/index.html)
     *(bayestestR)*
   - [**`material_colors`**](https://easystats.github.io/see/reference/index.html)
@@ -1266,6 +1274,8 @@ follow a consistent pattern across all packages.
   - [**`performance_logloss`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`performance_lrt`**](https://easystats.github.io/performance/reference/index.html)
+    *(performance)*
+  - [**`performance_mae`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*
   - [**`performance_mse`**](https://easystats.github.io/performance/reference/index.html)
     *(performance)*

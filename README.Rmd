@@ -537,7 +537,7 @@ packages_colours <- c(
   "effectsize" = unname(see::material_colors("brown")),
   "modelbased" = unname(see::material_colors("lime")),
   "correlation" = unname(see::material_colors("amber")),
-  "report" = unname(see::material_colors("blue grey"))
+  "report" = unname(see::pizza_colors("tomato"))
 )
 
 data$download_label <- NA
@@ -554,6 +554,7 @@ mondf <- function(d1, d2) {
 average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), function(i) {
   tmp <- data[data$package == i & data$count > 0, ]
   months_on_cran <- mondf(tmp$date[1], tmp$date[nrow(tmp)])
+  if (months_on_cran < 1) months_on_cran <- 1
   total_downloads <- sum(tmp$count)
   data.frame(
     package = i,
