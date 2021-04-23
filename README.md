@@ -2,16 +2,33 @@
 # easystats
 
 <p>
-<a href = "https://github.com/easystats/insight"><img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/bayestestR"><img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/main/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/performance"><img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/effectsize"><img src='https://github.com/easystats/effectsize/raw/main/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/modelbased"><img src='https://github.com/easystats/modelbased/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<br />
+<a href = "https://github.com/easystats/insight"><img
+src='https://github.com/easystats/insight/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/bayestestR"><img
+src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/parameters"><img
+src='https://github.com/easystats/parameters/raw/main/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/performance"><img
+src='https://github.com/easystats/performance/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/effectsize"><img
+src='https://github.com/easystats/effectsize/raw/main/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/modelbased"><img
+src='https://github.com/easystats/modelbased/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/correlation"><img
+src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/see"><img
+src='https://github.com/easystats/see/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <a href =
+"https://github.com/easystats/report"><img
+src='https://github.com/easystats/report/raw/master/man/figures/logo.png'
+align="left" height="84" /></a> <br />
 </p>
 
 <br />
@@ -21,23 +38,26 @@
 ## What is *easystats*?
 
 **easystats** is a collection of R packages, which aims to provide a
-unifying and consistent framework to tame, discipline and harness the
+unifying and consistent framework to tame, discipline, and harness the
 scary R statistics and their pesky models.
 
-However, there is not (yet) an unique **“easystats” way of doing data
-analysis**. Instead, start with one package and, when you’ll face a new
-challenge, do check if there is an easystats answer for it in other
+However, there is not (yet) an *unique* “easystats” way of doing data
+analysis. Instead, start with one package and, when you’ll face a new
+challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
-your life. And who knows, you might even end up using them all. ***Gotta
-catch ’em all!*** <!-- 'tis a pokémon reference for y'all grandpas -->
+your life. And, who knows, you might even end up using them all.
+***Gotta catch ’em all!*** <!--
+'tis a pokémon reference for y'all grandpas -->
 
-## Where to start
+## Getting started
 
 Each **easystats** package has a different scope and purpose. This means
-you the **best way to start** is to explore and pick the one(s) that you
+your **best way to start** is to explore and pick the one(s) that you
 feel might be useful to you. However, as they are built with a “bigger
 picture” in mind, you will realize that using more of them creates a
-smooth workflow, as these packages are meant to work together.
+smooth workflow, as these packages are meant to work together. Ideally,
+these packages work in unison to cover all aspects of statistical
+analysis and data visualization.
 
 -   [**report**](https://github.com/easystats/report): 📜 🎉 Automated
     statistical reporting of objects in R
@@ -70,13 +90,15 @@ You’ve probably already heard about the
 [**tidyverse**](https://www.tidyverse.org/), another very popular
 collection of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes
 using R easier. So, should you pick the *tidyverse* or *easystats*?
-**Pick both!** Indeed, they do not serve the same purpose. The
-*tidyverse* packages are primarily made to create a new R experience,
-where data manipulation and exploration is natural and consistent. On
-the other hand, **easystats** is more focused on helping you making this
-last mile from the analysis to your manuscript or stats report. It helps
-you understand and interpret your results and report them following best
-practices. You can definitely use the *easystats* functions in a
+**Pick both!**
+
+Indeed, these two ecosystems have been designed with very different
+goals in mind. The *tidyverse* packages are primarily made to create a
+new R experience, where data manipulation and exploration is intuitive
+and consistent. On the other hand, **easystats** focuses more on the
+final stretch of the analysis: understanding and interpreting your
+results and reporting them in a manuscript or a report, while following
+best practices. You can definitely use the *easystats* functions in a
 *tidyverse* workflow!
 
 **easystats + tidyverse =** ❤️
@@ -84,15 +106,19 @@ practices. You can definitely use the *easystats* functions in a
 -   **Can *easystats* be useful to advanced users and/or developers?**
 
 Yes, definitely! **easystats** is built in terms of modules that are
-general enough so that they can be used inside of other packages. For
-instance, the *insight* package is made to easily implement support for
-post-processing of all the models and packages under the sun. We use it
-in all the easystats packages, but it also used for instance in
+general enough to be used inside other packages. For instance, the
+*insight* package is made to easily implement support for
+post-processing of pretty much all regression model packages under the
+sun. We use it in all the *easystats* packages, but it also used for
+instance in
 [**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),
 [**ggeffects**](https://github.com/strengejacke/ggeffects), and more.
-**So why not in yours**? Moreover, the easystats packages are very
-lightweight, with a minimal set of dependencies, which again makes it
-great if you want to rely on them.
+
+**So why not in yours**?
+
+Moreover, the *easystats* packages are very lightweight, with a minimal
+set of dependencies, which again makes it great if you want to rely on
+them.
 
 ## Installation
 
@@ -108,50 +134,52 @@ remotes::install_github("easystats/easystats")
 library("easystats")
 ```
 
-## Related posts
+## Documentation
 
--   [Comparison of indices of significance in the Bayesian
-    framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
--   [News from easystats: updated parameters and see
-    packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
--   [parameters: a powerful and lightweight alternative to broom to
-    describe your models’
-    coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
--   [Check your (Mixed) Model for Multicollinearity with
-    ‘performance’](https://easystats.github.io/blog/posts/performance_check_collinearity/)
--   [Testing Contrasts from Bayesian Models with ‘emmeans’ and
-    ‘bayestestR’](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
--   [Become a Bayesian master with bayestestR
-    (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
--   [The ‘see’ package: beautiful figures for
-    easystats](https://easystats.github.io/blog/posts/see_presentation/)
--   [Compute R2s and other performance indices for all your
-    models!](https://easystats.github.io/blog/posts/performance_presentation/)
--   [Describe and understand Bayesian models and posteriors using
-    bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
--   [A unified syntax for accessing models’
-    information](https://easystats.github.io/blog/posts/insight_presentation/)
--   [The end of errors in ANOVA
-    reporting](https://easystats.github.io/blog/posts/report_anova/)
+### Websites
 
-Find an overview of all postings
-[here](https://easystats.github.io/blog/posts/).
+Each `easystats` package has a dedicated website.
+
+For example, website for `parameters` is
+<https://easystats.github.io/parameters/>.
+
+### Blog
+
+In addition to the websites containing documentation for these packages,
+you can also read posts from `easystats` blog:
+<https://easystats.github.io/blog/posts/>.
+
+<!-- ### Other learning resources -->
+<!-- In addition to these websites and blog posts, you can also check out the -->
+<!-- following presentations and talks to learn more about this ecosystem: -->
+<!-- TODO: https://github.com/easystats/easystats/issues/103 -->
 
 ## Dependencies
 
-Most of *easystats* packages are very lightweight, *i.e.*, they don’t
-rely nor import any other packages! This means that you can safely use
-them as dependencies in your own packages, without the risk of butterfly
-effects (a small change in a distant downstream dependency with
-unexpected upstream consequences).
+Most *easystats* packages are very lightweight, *i.e.*, they don’t rely
+nor import any other packages! This means that you can safely use them
+as dependencies in your own packages, without the risk of a butterfly
+effect, where a small change in a distant downstream dependency with
+unexpected upstream consequences.
 
-There is one exception. The [**see**](http://easystats.github.io/see)
-package is one of our high-level packages that is responsible for
-plotting and creating figures, relying thus on other packages such as
-*ggplot2*, which itself is plugged in the *tidyverse*, increasing
-package dependencies by a substantial amount. On the bright side of
-things, it gives a good **overview of the place of *easystats* in the R
-ecosystem**.
+For example, the `parameters` package only relies on two other packages.
+
+![](man/figures/depnetwork_parameters-1.png)<!-- -->
+
+<!-- TODO: uncomment once on CRAN -->
+<!-- ```{r depnetwork_easystats} -->
+<!-- library(deepdep) -->
+<!-- plot_dependencies("easystats", depth = 3) -->
+<!-- ``` -->
+
+**There is one exception**!
+
+The [**see**](http://easystats.github.io/see) package is one of our
+high-level packages that is responsible for plotting and creating
+figures, relying thus on other packages such as *ggplot2*, which has a
+substantial number of dependencies.
+
+![](man/figures/depnetwork_see-1.png)<!-- -->
 
 ## Citation
 
@@ -160,28 +188,27 @@ How to reference *easystats*?
 1.  **Cite specific packages**
 
 The most parsimonious approach is to cite only the particular package
-that helped you, e.g., “using *bayestestR* (Makowski, Ben-Shachar, &
-Lüdecke, 2019)”. However, as *easystats* is meant to be an ecosystem,
-with different people working on its different aspects (some being more
-“citeable” than others), please consider including also the “main”
-publication: [***not available
-yet***](https://github.com/easystats/easystats/issues/24).
+that helped you, e.g.,
+
+> “using *bayestestR* (Makowski, Ben-Shachar, & Lüdecke, 2019)”.
 
 2.  **Cite the whole ecosystem** :heart:
 
-Want to credit the whole network of interconnected aspects of
-*easystats*? This can be done with a sentence like the following:
+Want to credit the whole *easystats* ecosystem of packages?
 
-> **Data processing was carried out with R (R Core Team, 2019) and the
-> *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Makowski,
-> Ben-Shachar, & Lüdecke, 2019; Makowski, Ben-Shachar, Patil, & Lüdecke,
-> 2020; Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Ben-Shachar,
-> Lüdecke, & Makowski, 2020)**
+This can be done with a sentence like the following:
+
+> Data processing was carried out with R (R Core Team, 2019) and the
+> *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Lüdecke,
+> Ben-Shachar, Patil, Waggoner, & Makowski, 2021; Makowski, Ben-Shachar,
+> & Lüdecke, 2019; Makowski, Ben-Shachar, Patil, & Lüdecke, 2020;
+> Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Ben-Shachar, Lüdecke, &
+> Makowski, 2020)
 
 -   Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A
     Unified Interface to Access Information from Model Objects in R.
-    *Journal of Open Source Software*, *4*, 1412. doi:
-    10.21105/joss.01412
+    *Journal of Open Source Software*, *4*, 1412.
+    <https://doi.org/10.21105/joss.01412>
 
 -   Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR:
     Describing Effects and their Uncertainty, Existence and Significance
@@ -190,17 +217,18 @@ Want to credit the whole network of interconnected aspects of
 
 -   Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019).
     Methods and Algorithms for Correlation Analysis in R. *Journal of
-    Open Source Software*, *5*(51), 2306. 10.21105/joss.02306
+    Open Source Software*, *5*(51), 2306.
+    <https://doi.org/10.21105/joss.02306>
 
 -   Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020).
     parameters: Extracting, Computing and Exploring the Parameters of
     Statistical Models using R. *Journal of Open Source Software*,
-    *5*(53), 2445. doi: 10.21105/joss.02445
+    *5*(53), 2445. <https://doi.org/10.21105/joss.02445>
 
 -   Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize:
     Estimation of Effect Size Indices and Standardized Parameters.
-    *Journal of Open Source Software*, *5*(56), 2815. doi:
-    10.21105/joss.02815
+    *Journal of Open Source Software*, *5*(56), 2815.
+    <https://doi.org/10.21105/joss.02815>
 
 -   Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., &
     Makowski, D. (2021). performance: An R Package for Assessment,
@@ -300,17 +328,24 @@ Click here to see the corresponding APA and bibtex entries
 ## Versioning
 
 Package version numbers indicate following:
-`MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or
-less rapidly developing and changing state, the **major** version number
-is typically `0`. Once we think we will have a stable base that will
-likely not change dramatically or soon, the major version number will be
-set to `1`, and increased for following major changes that probably
-break the current API. When new features are added or (re)moved, we
-typically increase the **minor** version number. Minimal changes or bug
-fixes only are indicated by increasing the **patch** version number.
-Current development versions of our packages (i.e. master branch from
-GitHub) additionally have a **development** version number. You
-typically won’t find packages on CRAN with a development version number.
+`MAJOR.MINOR.PATCH.DEVELOPMENT`. Here are key steps to keep in mind:
+
+-   As long as packages are in a more or less rapidly developing and
+    changing state, the **major** version number is typically `0`.
+
+-   Once we think we will have a stable base that will likely not change
+    dramatically or soon, the major version number will be set to `1`,
+    and will be increased for following major changes that probably
+    break the current API.
+
+-   When new features are added or (re)moved, we typically increase the
+    **minor** version number.
+
+-   Minimal changes or bug fixes only are indicated by increasing the
+    **patch** version number.
+
+Current development versions of our packages (i.e. master/main branch
+from GitHub) additionally have a **development** version number.
 
 ## Downloads
 
@@ -320,124 +355,62 @@ typically won’t find packages on CRAN with a development version number.
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
 ### Cumulative downloads
 
-<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
 
 <!-- ### Cyclic Trend -->
-<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300} -->
-<!-- byweek <- lme4::lmer(count ~ day + (1|Package) + (1|month), data = data) %>%  -->
-<!--   modelbased::estimate_means() %>%  -->
-<!--   mutate(day = forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), -->
-<!--          average = mean(Mean), -->
-<!--          x = as.numeric(day) / 7, -->
-<!--          what="week", -->
-<!--          month=NA) %>%  -->
-<!--   arrange(day) -->
-<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data) %>%  -->
-<!--   modelbased::estimate_means() %>%  -->
-<!--   mutate(month = forcats::fct_relevel(as.factor(month),  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), -->
-<!--          average = mean(Mean), -->
-<!--          x = as.numeric(month) / 12, -->
-<!--          what="month", -->
-<!--          day=NA) %>%  -->
-<!--   arrange(month) -->
-<!-- rbind(byweek, bymonth) %>%  -->
-<!--   ggplot(aes(x=x, y=Mean, group = what, color=what)) + -->
-<!--   geom_polygon(fill=NA, size=1) +  -->
-<!--   geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
-<!--   theme_modern() + -->
-<!--   coord_polar(start=-pi/1.5) + -->
-<!--   see::theme_radar() + -->
-<!--   theme(axis.title.x = element_blank(), -->
-<!--         axis.title.y = element_blank(), -->
-<!--         axis.text.y = element_blank(), -->
-<!--         panel.grid.major.y = element_blank()) -->
+<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
+fig.align='center', echo=FALSE, dpi=300} -->
+<!-- byweek <- lme4::lmer(count ~
+day + (1|Package) + (1|month), data = data) %>% -->
+<!--
+modelbased::estimate_means() %>% -->
+<!-- mutate(day =
+forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday",
+"Thursday", "Friday", "Saturday", "Sunday"), -->
+<!-- average = mean(Mean), -->
+<!-- x = as.numeric(day) / 7, -->
+<!-- what="week", -->
+<!-- month=NA) %>% -->
+<!-- arrange(day) -->
+<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data)
+%>% -->
+<!-- modelbased::estimate_means() %>% -->
+<!-- mutate(month =
+forcats::fct_relevel(as.factor(month), "January", "February", "March", "April",
+"May", "June", "July", "August", "September", "October", "November",
+"December"), -->
+<!-- average = mean(Mean), -->
+<!-- x = as.numeric(month) / 12,
+-->
+<!-- what="month", -->
+<!-- day=NA) %>% -->
+<!-- arrange(month) -->
+<!-- rbind(byweek, bymonth) %>% -->
+<!-- ggplot(aes(x=x, y=Mean, group = what,
+color=what)) + -->
+<!-- geom_polygon(fill=NA, size=1) + -->
+<!--
+geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
+<!--
+theme_modern() + -->
+<!-- coord_polar(start=-pi/1.5) + -->
+<!--
+see::theme_radar() + -->
+<!-- theme(axis.title.x = element_blank(), -->
+<!--
+axis.title.y = element_blank(), -->
+<!-- axis.text.y = element_blank(), -->
+<!--
+panel.grid.major.y = element_blank()) -->
 <!-- ``` -->
 
 ### Average monthly downloads
 
-<img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
-
-## Convention of code-style
-
-Following conventions apply to the easystats-ecosystem, to ensure that
-function and argument names as well as element names for return-values
-follow a consistent pattern across all packages.
-
-**Importing other packages**
-
--   No full import, only selective import of functions
-
--   Use base-R wherever possible (reduce dependencies)
-
--   Make sure R-version requirements are not too strict
-
-**Helper-functions**
-
--   Own re-implementation of helper-functions, if it’s not too much
-    effort (e.g. I typically use own functions to check if a string
-    starts / ends with a pattern, or if an object (list, data frame)
-    contains an element with a given name (like `tibble::has_name()`),
-    to reduce dependencies.
-
-**`print` functions**
-
--   `print` methods should invisibly return the original (unchanged)
-    input ([\#65](https://github.com/easystats/easystats/issues/65)).
-
-**Function names**
-
--   Lower case, underscore separated if more than one verb.
-
--   Common prefix for functions that focus on specific “tasks” or
-    workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to
-    find information, or **performance**, `performance_*()` to compute
-    measures of model quality, `check_*()` to check model assumptions…).
-
--   Internal functions (that are not exported, like the previously
-    mentioned helper-functions) should always start with a `.` (e.g.,
-    `.do_some_internal_stuff()`).
-
-**Argument names**
-
--   lower case, underscore separated if more than one verb
-
-**Element / Column names** (for returned data frames)
-
-1.  First letter of the column name is capital, unless (6) applies
-    (*example:* `Parameter`).
-
-2.  First letter of nouns is capital, unless (6) applies (*example:*
-    `ROPE_Percentage`, `Prior_Scale`).
-
-3.  Using underscore rather than camelCase to separate words (*example:*
-    `CI_high`).
-
-4.  Multiple words: common/main part first and
-    adjective/specifier/variational part after, unless (8) applies
-    (*example:* `Median_standardized`, `ROPE_percentage`).
-
-5.  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`).
-
-6.  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`).
-
-7.  Adjectives / verbs: all lower case, unless (1) applies (*example:*
-    `high` or `low` in `CI_high` or `CI_low`).
-
-8.  In case of multiple occurrences of column names that indicate the
-    same measure or content (like `CI_low` or `SE`), the common part is
-    appended as suffix to the context specific part (*example:* `CI_low`
-    and `Eta2_partial_CI_low`, and **not** `CI_low` and
-    `CI_low_Eta2_partial`).
-
-9.  The “squared” term in column names that refers to “common”
-    statistics (`Eta2`, `Chi2`, `Omega2`, …) should be written as `2`,
-    not `sq`, `squared` or `pétit-deux` (*example:* `Chi2`, and **not**
-    `Chisq`, `Eta2`, and **not** `Eta_squared`). This rule does **not**
-    apply to function names.
+<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 ## List of functions
 
