@@ -61,6 +61,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/conventions.html">Coding style conventions</a>
+    </li>
+    <li>
       <a href="articles/programming.html">Contributing to R Packages: A Tutorial</a>
     </li>
   </ul>
@@ -371,48 +374,6 @@
 <a href="#average-monthly-downloads" class="anchor" aria-hidden="true"></a>Average monthly downloads</h3>
 <p><img src="reference/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;"></p>
 </div>
-</div>
-<div id="convention-of-code-style" class="section level2">
-<h2 class="hasAnchor">
-<a href="#convention-of-code-style" class="anchor" aria-hidden="true"></a>Convention of code-style</h2>
-<p>Following conventions apply to the easystats-ecosystem, to ensure that function and argument names as well as element names for return-values follow a consistent pattern across all packages.</p>
-<p><strong>Importing other packages</strong></p>
-<ul>
-<li><p>No full import, only selective import of functions</p></li>
-<li><p>Use base-R wherever possible (reduce dependencies)</p></li>
-<li><p>Make sure R-version requirements are not too strict</p></li>
-</ul>
-<p><strong>Helper-functions</strong></p>
-<ul>
-<li>Own re-implementation of helper-functions, if it’s not too much effort (e.g. I typically use own functions to check if a string starts / ends with a pattern, or if an object (list, data frame) contains an element with a given name (like <code><a href="https://rlang.r-lib.org/reference/has_name.html" class="external-link">tibble::has_name()</a></code>), to reduce dependencies.</li>
-</ul>
-<p><strong><code>print</code> functions</strong></p>
-<ul>
-<li>
-<code>print</code> methods should invisibly return the original (unchanged) input (<a href="https://github.com/easystats/easystats/issues/65" class="external-link">#65</a>).</li>
-</ul>
-<p><strong>Function names</strong></p>
-<ul>
-<li><p>Lower case, underscore separated if more than one verb.</p></li>
-<li><p>Common prefix for functions that focus on specific “tasks” or workflows (e.g. <strong>insight</strong>, <code>get_*()</code> to get data, <code>find_*()</code> to find information, or <strong>performance</strong>, <code>performance_*()</code> to compute measures of model quality, <code>check_*()</code> to check model assumptions…).</p></li>
-<li><p>Internal functions (that are not exported, like the previously mentioned helper-functions) should always start with a <code>.</code> (e.g., <code>.do_some_internal_stuff()</code>).</p></li>
-</ul>
-<p><strong>Argument names</strong></p>
-<ul>
-<li>lower case, underscore separated if more than one verb</li>
-</ul>
-<p><strong>Element / Column names</strong> (for returned data frames)</p>
-<ol style="list-style-type: decimal">
-<li><p>First letter of the column name is capital, unless (6) applies (<em>example:</em> <code>Parameter</code>).</p></li>
-<li><p>First letter of nouns is capital, unless (6) applies (<em>example:</em> <code>ROPE_Percentage</code>, <code>Prior_Scale</code>).</p></li>
-<li><p>Using underscore rather than camelCase to separate words (<em>example:</em> <code>CI_high</code>).</p></li>
-<li><p>Multiple words: common/main part first and adjective/specifier/variational part after, unless (8) applies (<em>example:</em> <code>Median_standardized</code>, <code>ROPE_percentage</code>).</p></li>
-<li><p>Abbreviations: all uppercase (<em>example:</em> <code>ESS</code>, <code>MCSE</code>, <code>ROPE</code>).</p></li>
-<li><p>Keep conventions for reserved words (<em>example:</em> <code>p</code>, <code>pd</code>, <code>Rhat</code>).</p></li>
-<li><p>Adjectives / verbs: all lower case, unless (1) applies (<em>example:</em> <code>high</code> or <code>low</code> in <code>CI_high</code> or <code>CI_low</code>).</p></li>
-<li><p>In case of multiple occurrences of column names that indicate the same measure or content (like <code>CI_low</code> or <code>SE</code>), the common part is appended as suffix to the context specific part (<em>example:</em> <code>CI_low</code> and <code>Eta2_partial_CI_low</code>, and <strong>not</strong> <code>CI_low</code> and <code>CI_low_Eta2_partial</code>).</p></li>
-<li><p>The “squared” term in column names that refers to “common” statistics (<code>Eta2</code>, <code>Chi2</code>, <code>Omega2</code>, …) should be written as <code>2</code>, not <code>sq</code>, <code>squared</code> or <code>pétit-deux</code> (<em>example:</em> <code>Chi2</code>, and <strong>not</strong> <code>Chisq</code>, <code>Eta2</code>, and <strong>not</strong> <code>Eta_squared</code>). This rule does <strong>not</strong> apply to function names.</p></li>
-</ol>
 </div>
 <div id="list-of-functions" class="section level2">
 <h2 class="hasAnchor">

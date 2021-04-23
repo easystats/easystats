@@ -57,6 +57,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/conventions.html">Coding style conventions</a>
+    </li>
+    <li>
       <a href="../articles/programming.html">Contributing to R Packages: A Tutorial</a>
     </li>
   </ul>
@@ -107,8 +110,8 @@
 <h3 class="hasAnchor">
 <a href="#assigning-and-commenting" class="anchor" aria-hidden="true"></a>Assigning and Commenting</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1</span><span class="op">)</span>  <span class="co"># Generate n=1 random number</span>
-<span class="va">x</span>  <span class="co"># Display it</span></code></pre></div>
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># Generate n=1 random number</span>
+<span class="va">x</span> <span class="co"># Display it</span></code></pre></div>
 <pre><code>&gt; [1] -0.083</code></pre>
 <p>Note here that we generated a random number between 0 and 1 using the <code><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm()</a></code> <strong>function</strong> (specifying that we want only one number using the <code>n</code> <strong>argument</strong>), that we <strong>stored</strong> it inside a <strong>variable</strong> called <code>x</code> (using the <strong>assignment</strong> operator <code><a href="https://rdrr.io/r/base/assignOps.html" class="external-link">&lt;-</a></code>, <em>kinda</em> similar to <code><a href="https://rdrr.io/r/base/assignOps.html" class="external-link">=</a></code> in other languages). We also <strong>commented</strong> the steps using the hash symbol <strong>#</strong>, so that we can write things to help us remember / explain the steps.</p>
 </div>
@@ -116,11 +119,11 @@
 <h3 class="hasAnchor">
 <a href="#if-else" class="anchor" aria-hidden="true"></a>If / Else</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 
-<span class="kw">if</span><span class="op">(</span> <span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0.5</span> <span class="op">)</span><span class="op">{</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"Yes!"</span><span class="op">)</span>
-<span class="op">}</span> <span class="kw">else</span><span class="op">{</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"No :("</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <pre><code>&gt; [1] "Yes!"</code></pre>
@@ -136,7 +139,7 @@
 <a href="#simple-function" class="anchor" aria-hidden="true"></a>Simple Function</h3>
 <p>A function can be defined like this:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span>
 <span class="op">}</span>
 
@@ -145,9 +148,9 @@
 <p>We named that function <code>f()</code>, but we could have written anything (as long as there is no spaces), such as <code>my_new_function()</code>. Then, there is a <strong>place-holder</strong> for the input, that we named <em>x</em> (again, it could have been named anything). The last <strong>very</strong> important thing to know is that what is returned by the function is the <em>last object</em> in the function, in this case <code>x + 1</code>.</p>
 <p>So based on that, you understand that the function we defined above is equivalent to this one:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">first_argument</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">output</span> <span class="op">&lt;-</span> <span class="va">first_argument</span> <span class="op">+</span> <span class="fl">1</span>  <span class="co"># Make addition</span>
-  <span class="va">output</span>  <span class="co"># Return the stuff</span>
+<code class="sourceCode R"><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">first_argument</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">output</span> <span class="op">&lt;-</span> <span class="va">first_argument</span> <span class="op">+</span> <span class="fl">1</span> <span class="co"># Make addition</span>
+  <span class="va">output</span> <span class="co"># Return the stuff</span>
 <span class="op">}</span>
 
 <span class="fu">my_function</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -159,11 +162,11 @@
 <a href="#multiple-arguments" class="anchor" aria-hidden="true"></a>Multiple Arguments</h3>
 <p>A function often has multiple <strong>arguments</strong> (the “input” variables). This is used because a function is like a bubble, inside it (aka in the <em>local scope</em>) there is no knowledge out the “outside world” (called the <em>global scope</em>). So anything we want to know “from the outside” (for instance, things with which a user can interact) must be entered as arguments.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">should_we_add</span><span class="op">)</span><span class="op">{</span>
+<code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">should_we_add</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">*</span> <span class="va">b</span>
-  <span class="kw">if</span><span class="op">(</span><span class="va">should_we_add</span> <span class="op">==</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">{</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">should_we_add</span> <span class="op">==</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="fl">3</span>
-  <span class="op">}</span> <span class="kw">else</span><span class="op">{</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
     <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">-</span> <span class="fl">3</span>
   <span class="op">}</span>
   <span class="va">z</span>
@@ -174,11 +177,11 @@
 <p>Here, the user must specify values for <code>a</code>, <code>b</code> and <code>should_we_add</code>. We added a <strong>conditional statement</strong> inside the function, so that different things are done if one of the argument (<code>should_we_add</code>) has a certain value (<code>TRUE</code> or <code>FALSE</code>).</p>
 <p>However, most of the functions in R have <strong>default arguments</strong>, i.e., values associated to the arguments, that are changed <strong>only if the users specifies otherwise</strong>. So the function above could be written as follows:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span><span class="op">=</span><span class="fl">2</span>, <span class="va">b</span><span class="op">=</span><span class="fl">3</span>, <span class="va">should_we_add</span><span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">{</span>
+<code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span> <span class="op">=</span> <span class="fl">2</span>, <span class="va">b</span> <span class="op">=</span> <span class="fl">3</span>, <span class="va">should_we_add</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">*</span> <span class="va">b</span>
-  <span class="kw">if</span><span class="op">(</span><span class="va">should_we_add</span> <span class="op">==</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">{</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">should_we_add</span> <span class="op">==</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="fl">3</span>
-  <span class="op">}</span> <span class="kw">else</span><span class="op">{</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
     <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">-</span> <span class="fl">3</span>
   <span class="op">}</span>
   <span class="va">z</span>
@@ -433,17 +436,17 @@
 <a href="#define-objects-with-classes" class="anchor" aria-hidden="true"></a>Define objects with classes</h3>
 <p>Let’s assemble everything we know and create objects with different classes:</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f_a</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+<code class="sourceCode R"><span class="va">f_a</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">output</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span>
   <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"class_a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">output</span>  
+  <span class="va">output</span>
 <span class="op">}</span>
 <span class="fu">f_a</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>&gt; [1] 6
 &gt; attr(,"class")
 &gt; [1] "class_a" "numeric"</code></pre>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f_b</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+<code class="sourceCode R"><span class="va">f_b</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">output</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">3</span>
   <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"class_b"</span>, <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span><span class="op">)</span>
   <span class="va">output</span>
@@ -466,16 +469,16 @@
 <p>Then, the methods are defined using the <code>name_of_method.name_of_class</code> pattern. You write the name of the class after a dot following the name of the method. This tells R <strong>which function to use</strong> depending on the class of the first argument.</p>
 <p>A method for our two classes is defined as follows:</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">new_method</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+<code class="sourceCode R"><span class="va">new_method</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="kw"><a href="https://rdrr.io/r/base/UseMethod.html" class="external-link">UseMethod</a></span><span class="op">(</span><span class="st">"new_method"</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="va">new_method.class_a</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+<span class="va">new_method.class_a</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"This is an object of class A"</span>
   <span class="va">text</span>
 <span class="op">}</span>
 
-<span class="va">new_method.class_b</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+<span class="va">new_method.class_b</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"This is an object of class B"</span>
   <span class="va">text</span>
 <span class="op">}</span></code></pre></div>
