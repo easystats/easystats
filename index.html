@@ -135,7 +135,9 @@
 <p><strong>How is <em>easystats</em> different from the <em>tidyverse</em>?</strong></p>
 <p>You’ve probably already heard about the <a href="https://www.tidyverse.org/" class="external-link"><strong>tidyverse</strong></a>, another very popular collection of packages (<em>ggplot</em>, <em>dplyr</em>, <em>tidyr</em>, …) that also makes using R easier. So, should you pick the <em>tidyverse</em> or <em>easystats</em>? <strong>Pick both!</strong></p>
 <p>Indeed, these two ecosystems have been designed with very different goals in mind. The <em>tidyverse</em> packages are primarily made to create a new R experience, where data manipulation and exploration is intuitive and consistent. On the other hand, <strong>easystats</strong> focuses more on the final stretch of the analysis: understanding and interpreting your results and reporting them in a manuscript or a report, while following best practices. You can definitely use the <em>easystats</em> functions in a <em>tidyverse</em> workflow!</p>
+<blockquote>
 <p><strong>easystats + tidyverse =</strong> ❤️</p>
+</blockquote>
 <p><strong>Can <em>easystats</em> be useful to advanced users and/or developers?</strong></p>
 <p>Yes, definitely! <strong>easystats</strong> is built in terms of modules that are general enough to be used inside other packages. For instance, the <em>insight</em> package is made to easily implement support for post-processing of pretty much all regression model packages under the sun. We use it in all the <em>easystats</em> packages, but it also used for instance in <a href="https://github.com/IndrajeetPatil/ggstatsplot" class="external-link"><strong>ggstatsplot</strong></a>, <a href="https://github.com/strengejacke/ggeffects" class="external-link"><strong>ggeffects</strong></a>, and more.</p>
 <p><strong>So why not in yours</strong>?</p>
@@ -307,8 +309,8 @@
 <li><p>Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to <code>1</code>, and will be increased for following major changes that probably break the current API.</p></li>
 <li><p>When new features are added or (re)moved, we typically increase the <strong>minor</strong> version number.</p></li>
 <li><p>Minimal changes or bug fixes only are indicated by increasing the <strong>patch</strong> version number.</p></li>
+<li><p>Current development versions of our packages (i.e. master/main branch from GitHub) additionally have a <strong>development</strong> version number.</p></li>
 </ul>
-<p>Current development versions of our packages (i.e. master/main branch from GitHub) additionally have a <strong>development</strong> version number.</p>
 </div>
 <div id="downloads" class="section level2">
 <h2 class="hasAnchor">
@@ -362,7 +364,7 @@
 <p><img src="reference/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;"></p>
 <!-- ### Cyclic Trend -->
 <!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
-fig.align='center', echo=FALSE, dpi=300} -->
+fig.align='center', echo=FALSE} -->
 <!-- byweek <- lme4::lmer(count ~
 day + (1|Package) + (1|month), data = data) %>% -->
 <!--
