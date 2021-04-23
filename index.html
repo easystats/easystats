@@ -143,8 +143,8 @@
 <a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
 <p>The whole <code>easystats</code> suite can be installed <em>at once</em> with the following:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"easystats/easystats"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"easystats/easystats"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/easystats/easystats" class="external-link">"easystats"</a></span><span class="op">)</span></code></pre></div>
 </div>
@@ -190,12 +190,12 @@
 <p><strong>Data processing was carried out with R (R Core Team, 2019) and the <em>easystats</em> ecosystem (Lüdecke, Waggoner, &amp; Makowski, 2019; Makowski, Ben-Shachar, &amp; Lüdecke, 2019; Makowski, Ben-Shachar, Patil, &amp; Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, &amp; Makowski, 2020; Ben-Shachar, Lüdecke, &amp; Makowski, 2020)</strong></p>
 </blockquote>
 <ul>
-<li>Lüdecke, D., Waggoner, P. D., &amp; Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. <em>Journal of Open Source Software</em>, <em>4</em>, 1412. doi: 10.21105/joss.01412</li>
-<li>Makowski, D., Ben-Shachar, M.S., &amp; Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. <em>Journal of Open Source Software</em>, <em>4</em>(40), 1541. 10.21105/joss.01541</li>
-<li>Makowski, D., Ben-Shachar, M.S., Patil, I., &amp; Lüdecke, D. (2019). Methods and Algorithms for Correlation Analysis in R. <em>Journal of Open Source Software</em>, <em>5</em>(51), 2306. 10.21105/joss.02306<br>
-</li>
-<li>Lüdecke, D., Ben-Shachar, M.S., Patil, I., Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. <em>Journal of Open Source Software</em>, <em>5</em>(53), 2445. doi: 10.21105/joss.02445</li>
-<li>Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. <em>Journal of Open Source Software</em>, <em>5</em>(56), 2815. doi: 10.21105/joss.02815</li>
+<li><p>Lüdecke, D., Waggoner, P. D., &amp; Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. <em>Journal of Open Source Software</em>, <em>4</em>, 1412. doi: 10.21105/joss.01412</p></li>
+<li><p>Makowski, D., Ben-Shachar, M.S., &amp; Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. <em>Journal of Open Source Software</em>, <em>4</em>(40), 1541. 10.21105/joss.01541</p></li>
+<li><p>Makowski, D., Ben-Shachar, M.S., Patil, I., &amp; Lüdecke, D. (2019). Methods and Algorithms for Correlation Analysis in R. <em>Journal of Open Source Software</em>, <em>5</em>(51), 2306. 10.21105/joss.02306</p></li>
+<li><p>Lüdecke, D., Ben-Shachar, M.S., Patil, I., &amp; Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. <em>Journal of Open Source Software</em>, <em>5</em>(53), 2445. doi: 10.21105/joss.02445</p></li>
+<li><p>Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. <em>Journal of Open Source Software</em>, <em>5</em>(56), 2815. doi: 10.21105/joss.02815</p></li>
+<li><p>Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., &amp; Makowski, D. (2021). performance: An R Package for Assessment, Comparison and Testing of Statistical Models. <em>Journal of Open Source Software</em>, <em>6</em>(60), 3139. <a href="https://doi.org/10.21105/joss.03139" class="external-link uri">https://doi.org/10.21105/joss.03139</a></p></li>
 </ul>
 <details><p><summary> Click here to see the corresponding APA and bibtex entries </summary></p>
 <p><br></p>
@@ -266,7 +266,18 @@
 <span id="cb3-65"><a href="#cb3-65"></a><span class="st">  publisher = {The Open Journal},</span></span>
 <span id="cb3-66"><a href="#cb3-66"></a><span class="st">  doi = {10.21105/joss.02815},</span></span>
 <span id="cb3-67"><a href="#cb3-67"></a><span class="st">  url = {https://doi.org/10.21105/joss.02815},</span></span>
-<span id="cb3-68"><a href="#cb3-68"></a><span class="st">}</span></span></code></pre></div>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="st">}</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="st">@Article{Lüdecke2021performance,</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="st">    title = {{performance}: An {R} Package for Assessment, Comparison and Testing of Statistical Models},</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="st">    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Philip Waggoner and Dominique Makowski},</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="st">    year = {2021},</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="st">    journal = {Journal of Open Source Software},</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="st">    volume = {6},</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a><span class="st">    number = {60},</span></span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="st">    pages = {3139},</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="st">    doi = {10.21105/joss.03139},</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="st">  }</span></span></code></pre></div>
 </details>
 </div>
 <div id="versioning" class="section level2">
