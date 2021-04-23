@@ -18,8 +18,11 @@ editor_options:
 knitr::opts_chunk$set(
   dpi = 600,
   collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
   fig.path = "man/figures/"
 )
+
 options(
   knitr.kable.NA = "",
   digits = 4,
@@ -103,21 +106,18 @@ You've probably already heard about the [**tidyverse**](https://www.tidyverse.or
 
 Yes, definitely! **easystats** is built in terms of modules that are general enough so that they can be used inside of other packages. For instance, the *insight* package is made to easily implement support for post-processing of all the models and packages under the sun. We use it in all the easystats packages, but it also used for instance in [**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot), [**ggeffects**](https://github.com/strengejacke/ggeffects), and more. **So why not in yours**? Moreover, the easystats packages are very lightweight, with a minimal set of dependencies, which again makes it great if you want to rely on them.
 
-
 ## Installation
 
 The whole `easystats` suite can be installed *at once* with the following:
 
 ```r
-install.packages("devtools")
-devtools::install_github("easystats/easystats")
+install.packages("remotes")
+remotes::install_github("easystats/easystats")
 ```
 
 ```r
 library("easystats")
 ```
-
-
 
 ## Related posts 
 
@@ -139,7 +139,7 @@ Find an overview of all postings [here](https://easystats.github.io/blog/posts/)
 
 Most of *easystats* packages are very lightweight, *i.e.*, they don't rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of butterfly effects (a small change in a distant downstream dependency with unexpected upstream consequences).
 
-```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE, eval=FALSE}
+```{r, include=TRUE, results="hide", echo=FALSE, eval=FALSE}
 library(tidyverse)
 library(devtools)
 library(miniCRAN)
@@ -203,7 +203,7 @@ ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
 
 There is one exception. The [**see**](http://easystats.github.io/see) package is one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as *ggplot2*, which itself is plugged in the *tidyverse*, increasing package dependencies by a substantial amount. On the bright side of things, it gives a good **overview of the place of *easystats* in the R ecosystem**.
 
-```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE, eval = FALSE}
+```{r, include=TRUE, results="hide", echo=FALSE, eval = FALSE}
 library(tidyverse)
 library(devtools)
 library(miniCRAN)
@@ -285,10 +285,19 @@ Want to credit the whole network of interconnected aspects of *easystats*? This 
 > **Data processing was carried out with R (R Core Team, 2019) and the *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Makowski, Ben-Shachar, & Lüdecke, 2019; Makowski, Ben-Shachar, Patil, & Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Ben-Shachar, Lüdecke, & Makowski, 2020)**
 
 - Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. _Journal of Open Source Software_, *4*, 1412. doi: 10.21105/joss.01412
+
 - Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. _Journal of Open Source Software_, *4*(40), 1541. 10.21105/joss.01541
+
 - Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019). Methods and Algorithms for Correlation Analysis in R. _Journal of Open Source Software_, *5*(51), 2306. 10.21105/joss.02306  
-- Lüdecke, D., Ben-Shachar, M.S., Patil, I., Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. _Journal of Open Source Software_, *5*(53), 2445. doi: 10.21105/joss.02445
+
+- Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. _Journal of Open Source Software_, *5*(53), 2445. doi: 10.21105/joss.02445
+
 - Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. _Journal of Open Source Software_, *5*(56), 2815. doi: 10.21105/joss.02815
+
+- Lüdecke, D., Ben-Shachar, M.S.,  Patil, I., Waggoner, P. D., & Makowski, D.
+(2021). performance: An R Package for Assessment, Comparison and Testing of
+Statistical Models. _Journal of Open Source Software_, _6_(60), 3139.
+https://doi.org/10.21105/joss.03139
 
 <details>
 <summary>Click here to see the corresponding APA and bibtex entries</summary>
@@ -364,15 +373,34 @@ Want to credit the whole network of interconnected aspects of *easystats*? This 
   doi = {10.21105/joss.02815},
   url = {https://doi.org/10.21105/joss.02815},
 }
+
+@Article{Lüdecke2021performance,
+    title = {{performance}: An {R} Package for Assessment, Comparison and Testing of Statistical Models},
+    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Philip Waggoner and Dominique Makowski},
+    year = {2021},
+    journal = {Journal of Open Source Software},
+    volume = {6},
+    number = {60},
+    pages = {3139},
+    doi = {10.21105/joss.03139},
+  }
 ```
 </details>
 
 
-
-
 ## Versioning
 
-Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As long as packages are in a more or less rapidly developing and changing state, the **major** version number is typically `0`. Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to `1`, and increased for following major changes that probably break the current API. When new features are added or (re)moved, we typically increase the **minor** version number. Minimal changes or bug fixes only are indicated by increasing the **patch** version number. Current development versions of our packages (i.e. master branch from GitHub) additionally have a **development** version number. You typically won't find packages on CRAN with a development version number.
+Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As
+long as packages are in a more or less rapidly developing and changing state,
+the **major** version number is typically `0`. Once we think we will have a
+stable base that will likely not change dramatically or soon, the major version
+number will be set to `1`, and increased for following major changes that
+probably break the current API. When new features are added or (re)moved, we
+typically increase the **minor** version number. Minimal changes or bug fixes
+only are indicated by increasing the **patch** version number. Current
+development versions of our packages (i.e. master branch from GitHub)
+additionally have a **development** version number. You typically won't find
+packages on CRAN with a development version number.
 
 ## Downloads 
 
@@ -510,10 +538,10 @@ events <- rbind(
 #   ) %>%
 #   mutate(color = color_blog) %>%
 #   distinct()
-# 
+#
 # blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation", "bayestestR", "parameters"))
-# 
-# 
+#
+#
 # events <- rbind(events, blogposts)
 
 # Full join
@@ -571,11 +599,11 @@ dl_table <- data %>%
   summarise(`Total Downloads` = max(cumulative_count)) %>%
   arrange(`Total Downloads`) %>%
   bind_rows(summarise_all(., list(~ if (is.numeric(.)) sum(.) else "Total"))) %>%
-  tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package) %>% 
-  t() %>% 
-  as.data.frame() %>% 
-  dplyr::arrange(-V1) %>% 
-  t() %>% 
+  tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package) %>%
+  t() %>%
+  as.data.frame() %>%
+  dplyr::arrange(-V1) %>%
+  t() %>%
   as.data.frame()
 
 row.names(dl_table) <- NULL
@@ -703,8 +731,8 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
 average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
 
-average_monthly_downloads %>% 
-  mutate(package2 = forcats::fct_reorder(package2, monthly_downloads, max)) %>% 
+average_monthly_downloads %>%
+  mutate(package2 = forcats::fct_reorder(package2, monthly_downloads, max)) %>%
   ggplot(aes(x = package2, y = monthly_downloads, colour = package)) +
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +

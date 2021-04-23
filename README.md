@@ -100,8 +100,8 @@ The whole `easystats` suite can be installed *at once* with the
 following:
 
 ``` r
-install.packages("devtools")
-devtools::install_github("easystats/easystats")
+install.packages("remotes")
+remotes::install_github("easystats/easystats")
 ```
 
 ``` r
@@ -182,21 +182,31 @@ Want to credit the whole network of interconnected aspects of
     Unified Interface to Access Information from Model Objects in R.
     *Journal of Open Source Software*, *4*, 1412. doi:
     10.21105/joss.01412
+
 -   Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR:
     Describing Effects and their Uncertainty, Existence and Significance
     within the Bayesian Framework. *Journal of Open Source Software*,
     *4*(40), 1541. 10.21105/joss.01541
+
 -   Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019).
     Methods and Algorithms for Correlation Analysis in R. *Journal of
-    Open Source Software*, *5*(51), 2306. 10.21105/joss.02306  
--   Lüdecke, D., Ben-Shachar, M.S., Patil, I., Makowski, D. (2020).
+    Open Source Software*, *5*(51), 2306. 10.21105/joss.02306
+
+-   Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020).
     parameters: Extracting, Computing and Exploring the Parameters of
     Statistical Models using R. *Journal of Open Source Software*,
     *5*(53), 2445. doi: 10.21105/joss.02445
+
 -   Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize:
     Estimation of Effect Size Indices and Standardized Parameters.
     *Journal of Open Source Software*, *5*(56), 2815. doi:
     10.21105/joss.02815
+
+-   Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., &
+    Makowski, D. (2021). performance: An R Package for Assessment,
+    Comparison and Testing of Statistical Models. *Journal of Open
+    Source Software*, *6*(60), 3139.
+    <https://doi.org/10.21105/joss.03139>
 
 <details>
 <summary>
@@ -273,6 +283,17 @@ Click here to see the corresponding APA and bibtex entries
       doi = {10.21105/joss.02815},
       url = {https://doi.org/10.21105/joss.02815},
     }
+
+    @Article{Lüdecke2021performance,
+        title = {{performance}: An {R} Package for Assessment, Comparison and Testing of Statistical Models},
+        author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Philip Waggoner and Dominique Makowski},
+        year = {2021},
+        journal = {Journal of Open Source Software},
+        volume = {6},
+        number = {60},
+        pages = {3139},
+        doi = {10.21105/joss.03139},
+      }
 
 </details>
 
