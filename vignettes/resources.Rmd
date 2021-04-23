@@ -1,0 +1,52 @@
+---
+title: "Learning resources"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    fig_width: 10.08
+    fig_height: 6
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{Learning resources}
+  %\VignetteEngine{knitr::rmarkdown}
+bibliography: bibliography.bib
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+options(
+  knitr.kable.NA = "",
+  digits = 2
+)
+
+knitr::opts_chunk$set(
+  comment = ">",
+  dpi = 450,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+# Introduction
+
+One of the best resources to learn about functionality afforded by `easystats`
+package is to read the dedicated websites for each package. A lot of love and
+work has gone into writing detailed function documentation and vignettes for
+these websites and we will highly recommend you check them out.
+
+But, we are certainly not the only ones talking about them, and below are some
+other resources that might be helpful for you to learn about `easystats`
+packages.
+
+# YouTube videos
+
+## `performance` package:
+
+- Yury Zablotski's package review:
+  <https://www.youtube.com/watch?v=EPIxQ5i5oxs>
+
+# Presentations
+
+## `bayestestR` package:
+
+ - Mattan S. Ben-Shachar's presentation about Bayesian analysis using
+   `bayestestR` <https://mattansb.github.io/bayesian-evidence-iscop-2021/#1>
