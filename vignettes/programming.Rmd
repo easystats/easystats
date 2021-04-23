@@ -1,10 +1,6 @@
 ---
 title: "Contributing to R Packages: A Tutorial"
 output: 
-  github_document:
-    toc: true
-    fig_width: 10.08
-    fig_height: 6
   rmarkdown::html_vignette:
     toc: true
     fig_width: 10.08
@@ -20,10 +16,14 @@ bibliography: bibliography.bib
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-library(knitr)
-options(knitr.kable.NA = '')
-knitr::opts_chunk$set(comment = ">", dpi = 450)
-options(digits = 2)
+options(knitr.kable.NA = "", digits = 2)
+
+knitr::opts_chunk$set(
+  comment = ">",
+  dpi = 450,
+  message = FALSE,
+  warning = FALSE
+)
 
 set.seed(333)
 
@@ -45,9 +45,9 @@ and then, contribute.
 
 ### Assigning and Commenting
 
-```{r message=FALSE, warning=FALSE}
-x <- rnorm(n=1)  # Generate n=1 random number
-x  # Display it
+```{r}
+x <- rnorm(n = 1) # Generate n=1 random number
+x # Display it
 ```
 
 Note here that we generated a random number between 0 and 1 using the `rnorm()`
@@ -60,12 +60,12 @@ things to help us remember / explain the steps.
 
 ### If / Else
 
-```{r message=FALSE, warning=FALSE}
-x <- rnorm(n=1)
+```{r}
+x <- rnorm(n = 1)
 
-if( x > 0.5 ){
+if (x > 0.5) {
   print("Yes!")
-} else{
+} else {
   print("No :(")
 }
 ```
@@ -86,8 +86,8 @@ something, and then return some output.
 
 A function can be defined like this:
 
-```{r message=FALSE, warning=FALSE}
-f <- function(x){
+```{r}
+f <- function(x) {
   x + 1
 }
 
@@ -103,10 +103,10 @@ returned by the function is the *last object* in the function, in this case `x
 
 So based on that, you understand that the function we defined above is equivalent to this one:
 
-```{r message=FALSE, warning=FALSE}
-my_function <- function(first_argument){
-  output <- first_argument + 1  # Make addition
-  output  # Return the stuff
+```{r}
+my_function <- function(first_argument) {
+  output <- first_argument + 1 # Make addition
+  output # Return the stuff
 }
 
 my_function(3)
@@ -124,12 +124,12 @@ there is no knowledge out the "outside world" (called the *global scope*). So
 anything we want to know "from the outside" (for instance, things with which a
 user can interact) must be entered as arguments.
 
-```{r message=FALSE, warning=FALSE}
-f2 <- function(a, b, should_we_add){
+```{r}
+f2 <- function(a, b, should_we_add) {
   y <- a * b
-  if(should_we_add == TRUE){
+  if (should_we_add == TRUE) {
     z <- y + 3
-  } else{
+  } else {
     z <- y - 3
   }
   z
@@ -147,12 +147,12 @@ However, most of the functions in R have **default arguments**, i.e., values
 associated to the arguments, that are changed **only if the users specifies
 otherwise**. So the function above could be written as follows:
 
-```{r message=FALSE, warning=FALSE}
-f2 <- function(a=2, b=3, should_we_add=TRUE){
+```{r}
+f2 <- function(a = 2, b = 3, should_we_add = TRUE) {
   y <- a * b
-  if(should_we_add == TRUE){
+  if (should_we_add == TRUE) {
     z <- y + 3
-  } else{
+  } else {
     z <- y - 3
   }
   z
@@ -197,7 +197,7 @@ This object has information attached to it, which is not displayed. This
 "additional" information is stored as **attributes**, which be retrieved as
 follows:
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 attributes(data)
 ```
 
@@ -206,14 +206,14 @@ row names and... a **class** name. In R, the class of an object corresponds to
 what is written as a **class** attribute. We can retrieve it directly by running
 the `class()` function.
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 class(data)
 ```
 
 We could modify (i.e., **overwrite**) this class attribute, and let's see what
 happens when we try to display it:
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 class(data) <- "new_class"
 data
 ```
@@ -225,7 +225,7 @@ remember that we don't usually **replace** the class, simply add (**append**) a
 new one to the list, like `c("new_class", other_classes)`. That's because
 objects can have any number of classes.
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 class(data) <- c("new_class", class(iris))
 class(data)
 ```
@@ -235,10 +235,10 @@ classes. The object is *both* an object of class `"new_class"` and an object of
 class "data.frame". If a method is not found for the first class, it will try
 for the second. Let's see how it gets displayed now:
 
-```{r message=FALSE, warning=FALSE, eval=FALSE}
+```{r, eval=FALSE}
 data
 ```
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+```{r, echo=FALSE}
 knitr::kable(head(data))
 ```
 
@@ -249,16 +249,16 @@ can run the **print** method for dataframes (part of R itself).
 
 Let's assemble everything we know and create objects with different classes:
 
-```{r message=FALSE, warning=FALSE}
-f_a <- function(x){
+```{r}
+f_a <- function(x) {
   output <- x * 2
   class(output) <- c("class_a", class(output))
-  output  
+  output
 }
 f_a(3)
 
 
-f_b <- function(x){
+f_b <- function(x) {
   output <- x * 3
   class(output) <- c("class_b", class(output))
   output
@@ -270,7 +270,7 @@ Although having one different class, both objects remain of the 'numeric' class.
 This means that any method that works for 'numeric' will work for these objects,
 such as the square root:
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 sqrt(f_b(3))
 ```
 
@@ -288,17 +288,17 @@ argument.
 
 A method for our two classes is defined as follows:
 
-```{r message=FALSE, warning=FALSE}
-new_method <- function(x){
+```{r}
+new_method <- function(x) {
   UseMethod("new_method")
 }
 
-new_method.class_a <- function(x){
+new_method.class_a <- function(x) {
   text <- "This is an object of class A"
   text
 }
 
-new_method.class_b <- function(x){
+new_method.class_b <- function(x) {
   text <- "This is an object of class B"
   text
 }
@@ -307,7 +307,7 @@ new_method.class_b <- function(x){
 
 We can now run `new_method()` on our two functions and see if it does something different.
 
-```{r message=FALSE, warning=FALSE}
+```{r}
 new_method(f_a(3))
 new_method(f_b(3))
 ```
