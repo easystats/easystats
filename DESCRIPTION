@@ -1,6 +1,6 @@
 Type: Package
 Package: easystats
-Title: Jump in the easyverse
+Title: Jump in the Easyverse
 Version: 0.4.0
 Authors@R: 
     c(person(given = "Daniel",
@@ -30,15 +30,15 @@ Imports:
     modelbased (>= 0.6.0),
     parameters (>= 0.13.0),
     performance (>= 0.7.1),
-    remotes,
     report (>= 0.3.0),
-    rvest,
     see (>= 0.6.3),
     tools,
-    utils,
-    xml2
+    utils
 Suggests: 
-    spelling
+    remotes,
+    rvest,
+    spelling,
+    xml2
 Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.1.1.9001
