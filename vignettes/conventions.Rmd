@@ -24,10 +24,6 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE
 )
-
-set.seed(333)
-
-library(ggplot2)
 ```
 
 # Coding style conventions
