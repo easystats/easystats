@@ -7,15 +7,15 @@ Authors@R:
              family = "Lüdecke",
              role = "aut",
              email = "d.luedecke@uke.de",
-             comment = c(ORCID = "0000-0002-8895-3206")),
+             comment = c(ORCID = "0000-0002-8895-3206", Twitter = "@strengejacke")),
       person(given = "Dominique",
              family = "Makowski",
              role = c("aut", "cre"),
              email = "dom.makowski@gmail.com",
-             comment = c(ORCID = "0000-0001-5375-9967")))
+             comment = c(ORCID = "0000-0001-5375-9967", Twitter = "@Dom_Makowski")))
 Maintainer: Dominique Makowski <dom.makowski@gmail.com>
-Description: The 'easystats' is meta-package that contains a set
-    of packages, all of which aim to provide a unifying and consistent
+Description: The 'easystats' is meta-package that contains a set of
+    packages, all of which aim to provide a unifying and consistent
     framework to tame, discipline and harness the scary R statistics and
     their pesky models. This package is designed to make it easy to
     install and load multiple 'easystats' packages in a single step.
@@ -23,17 +23,17 @@ License: GPL-3
 URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
 Imports:
-    bayestestR,
-    correlation,
-    effectsize,
-    insight,
-    modelbased,
-    parameters,
-    performance,
-    report,
-    see,
+    bayestestR (>= 0.9.0),
+    correlation (>= 0.6.1),
+    effectsize (>= 0.4.4-1),
+    insight (>= 0.13.2),
+    modelbased (>= 0.6.0),
+    parameters (>= 0.13.0),
+    performance (>= 0.7.1),
     remotes,
+    report (>= 0.3.0),
     rvest,
+    see (>= 0.6.3),
     tools,
     utils,
     xml2
@@ -41,4 +41,4 @@ Suggests:
     spelling
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.1.9001
