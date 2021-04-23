@@ -13,9 +13,11 @@ CRAN_checks <- function() {
 
 #' Install the easystats suite from github
 #'
-#' This function can be used to install all the easystats package from github, either from the master branch (the stable one) with \code{install_easystats_latest()} or from the dev branch \code{install_easystats_dev()}.
+#' This function can be used to install all the easystats package from github,
+#' either from the master branch (the stable one) with
+#' \code{install_easystats_latest()} or from the dev branch
+#' \code{install_easystats_dev()}.
 #'
-#' @importFrom remotes install_github
 #' @export
 install_easystats_latest <- function() {
   remotes::install_github(c(
@@ -38,7 +40,6 @@ install_easystats_latest <- function() {
 easystats_install_latest <- install_easystats_latest
 
 #' @rdname install_easystats_latest
-#' @importFrom remotes install_github
 #' @export
 install_easystats_dev <- function() {
   remotes::install_github(c(
@@ -66,7 +67,9 @@ easystats_install_dev <- install_easystats_dev
 
 #' Update easystats-packages and its dependencies from CRAN, if necessary.
 #'
-#' @param which String, indicates whether easystats-packages (\code{which = "core"}), dependencies (\code{which = "deps"}) or both (\code{which = "all"}) should be checked for available updates.
+#' @param which String, indicates whether easystats-packages (\code{which =
+#'   "core"}), dependencies (\code{which = "deps"}) or both (\code{which =
+#'   "all"}) should be checked for available updates.
 #' @importFrom utils menu install.packages
 #' @export
 easystats_update <- function(which = c("all", "core", "deps")) {
@@ -278,8 +281,6 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 }
 
 
-#' @importFrom rvest html_table
-#' @importFrom xml2 read_html
 .cran_checks <- function(full = FALSE) {
   on_cran <- .packages_on_cran()
   error <- FALSE
@@ -360,7 +361,9 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 #' Show weeks since last package update on CRAN
 #'
-#' Green indicates that enough time since last submission has passed and it's ok to submit an update, yellow means it's ok, but beware it's not too often, and red means that you should probably not yet submit an update.
+#' Green indicates that enough time since last submission has passed and it's ok
+#' to submit an update, yellow means it's ok, but beware it's not too often, and
+#' red means that you should probably not yet submit an update.
 #'
 #' @export
 on_CRAN <- function() {

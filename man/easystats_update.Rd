@@ -7,7 +7,9 @@
 easystats_update(which = c("all", "core", "deps"))
 }
 \arguments{
-\item{which}{String, indicates whether easystats-packages (\code{which = "core"}), dependencies (\code{which = "deps"}) or both (\code{which = "all"}) should be checked for available updates.}
+\item{which}{String, indicates whether easystats-packages (\code{which =
+"core"}), dependencies (\code{which = "deps"}) or both (\code{which =
+"all"}) should be checked for available updates.}
 }
 \description{
 Update easystats-packages and its dependencies from CRAN, if necessary.
