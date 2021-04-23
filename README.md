@@ -84,7 +84,7 @@ results and reporting them in a manuscript or a report, while following
 best practices. You can definitely use the *easystats* functions in a
 *tidyverse* workflow!
 
-**easystats + tidyverse =** ❤️
+> **easystats + tidyverse =** ❤️
 
 **Can *easystats* be useful to advanced users and/or developers?**
 
@@ -329,8 +329,9 @@ Package version numbers indicate following:
 -   Minimal changes or bug fixes only are indicated by increasing the
     **patch** version number.
 
-Current development versions of our packages (i.e. master/main branch
-from GitHub) additionally have a **development** version number.
+-   Current development versions of our packages (i.e. master/main
+    branch from GitHub) additionally have a **development** version
+    number.
 
 ## Downloads
 
@@ -348,7 +349,7 @@ from GitHub) additionally have a **development** version number.
 
 <!-- ### Cyclic Trend -->
 <!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
-fig.align='center', echo=FALSE, dpi=300} -->
+fig.align='center', echo=FALSE} -->
 <!-- byweek <- lme4::lmer(count ~
 day + (1|Package) + (1|month), data = data) %>% -->
 <!--

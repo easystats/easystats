@@ -16,7 +16,7 @@ editor_options:
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
-  dpi = 600,
+  dpi = 300,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
@@ -126,7 +126,7 @@ understanding and interpreting your results and reporting them in a manuscript
 or a report, while following best practices. You can definitely use the
 *easystats* functions in a *tidyverse* workflow!
 
-**easystats + tidyverse =** ❤️
+> **easystats + tidyverse =** ❤️
 
 **Can *easystats* be useful to advanced users and/or developers?**
 
@@ -369,12 +369,12 @@ version number.
 - Minimal changes or bug fixes only are indicated by increasing the **patch**
 version number.
 
-Current development versions of our packages (i.e. master/main branch from
+- Current development versions of our packages (i.e. master/main branch from
 GitHub) additionally have a **development** version number.
 
 ## Downloads 
 
-```{r include=TRUE, results="hide", echo=FALSE}
+```{r, include=TRUE, results="hide", echo=FALSE}
 library(tidyverse)
 library(zoo)
 library(cranlogs)
@@ -560,7 +560,7 @@ average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), functio
 }))
 ```
 
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+```{r, fig.align='center', echo=FALSE}
 # TIME TREND
 dl_table <- data %>%
   group_by(Package) %>%
@@ -582,7 +582,7 @@ knitr::kable(dl_table)
 
 ### Trend
 
-```{r, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+```{r, eval = TRUE, fig.align='center', echo=FALSE}
 # TIME TREND
 data %>%
   group_by(Package) %>%
@@ -627,7 +627,7 @@ data %>%
 
 ### Cumulative downloads
 
-```{r, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+```{r, eval = TRUE, fig.align='center', echo=FALSE}
 data <- data %>%
   group_by(Package, year_month) %>%
   mutate(download_label = first(cumulative_count)) %>%
@@ -636,7 +636,10 @@ data <- data %>%
 data$download_label <- sprintf("%.1fk", data$download_label / 1000)
 data$download_label[duplicated(data$download_label)] <- NA
 
-ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color = Package)) +
+ggplot(
+  data,
+  aes(x = date, y = cumulative_count, label = download_label, color = Package)
+) +
   geom_line(size = 0.75) +
   geom_label_repel(show.legend = FALSE) +
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
@@ -648,7 +651,7 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
 ```
 
 <!-- ### Cyclic Trend --> <!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
-fig.align='center', echo=FALSE, dpi=300} --> <!-- byweek <- lme4::lmer(count ~
+fig.align='center', echo=FALSE} --> <!-- byweek <- lme4::lmer(count ~
 day + (1|Package) + (1|month), data = data) %>% --> <!--
 modelbased::estimate_means() %>% --> <!-- mutate(day =
 forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday",
@@ -673,7 +676,7 @@ panel.grid.major.y = element_blank()) --> <!-- ``` -->
 
 ### Average monthly downloads
 
-```{r, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+```{r, fig.align='center', echo=FALSE}
 # plot_range <- pretty(average_monthly_downloads$monthly_downloads)
 # ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
 #   geom_point() +
@@ -752,4 +755,3 @@ all_funs <- sort(as.character(all_funs$Functions))
 
 cat(paste0(c("", all_funs), collapse = "\n- "))
 ```
-
