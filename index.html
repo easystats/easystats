@@ -100,13 +100,14 @@
 <div id="what-is-easystats" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-is-easystats" class="anchor" aria-hidden="true"></a>What is <em>easystats</em>?</h2>
-<p><strong>easystats</strong> is a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.</p>
-<p>However, there is not (yet) an unique <strong>“easystats” way of doing data analysis</strong>. Instead, start with one package and, when you’ll face a new challenge, do check if there is an easystats answer for it in other packages. You will slowly uncover how using them together facilitates your life. And who knows, you might even end up using them all. <strong><em>Gotta catch ’em all!</em></strong> <!-- 'tis a pokémon reference for y'all grandpas --></p>
+<p><strong>easystats</strong> is a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline, and harness the scary R statistics and their pesky models.</p>
+<p>However, there is not (yet) an <em>unique</em> “easystats” way of doing data analysis. Instead, start with one package and, when you’ll face a new challenge, do check if there is an <em>easystats</em> answer for it in other packages. You will slowly uncover how using them together facilitates your life. And, who knows, you might even end up using them all. <strong><em>Gotta catch ’em all!</em></strong> <!--
+'tis a pokémon reference for y'all grandpas --></p>
 </div>
-<div id="where-to-start" class="section level2">
+<div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
-<a href="#where-to-start" class="anchor" aria-hidden="true"></a>Where to start</h2>
-<p>Each <strong>easystats</strong> package has a different scope and purpose. This means you the <strong>best way to start</strong> is to explore and pick the one(s) that you feel might be useful to you. However, as they are built with a “bigger picture” in mind, you will realize that using more of them creates a smooth workflow, as these packages are meant to work together.</p>
+<a href="#getting-started" class="anchor" aria-hidden="true"></a>Getting started</h2>
+<p>Each <strong>easystats</strong> package has a different scope and purpose. This means your <strong>best way to start</strong> is to explore and pick the one(s) that you feel might be useful to you. However, as they are built with a “bigger picture” in mind, you will realize that using more of them creates a smooth workflow, as these packages are meant to work together. Ideally, these packages work in unison to cover all aspects of statistical analysis and data visualization.</p>
 <ul>
 <li>
 <a href="https://github.com/easystats/report" class="external-link"><strong>report</strong></a>: 📜 🎉 Automated statistical reporting of objects in R</li>
@@ -131,15 +132,14 @@
 <div id="frequently-asked-questions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#frequently-asked-questions" class="anchor" aria-hidden="true"></a>Frequently Asked Questions</h2>
-<ul>
-<li><strong>How is <em>easystats</em> different from the <em>tidyverse</em>?</strong></li>
-</ul>
-<p>You’ve probably already heard about the <a href="https://www.tidyverse.org/" class="external-link"><strong>tidyverse</strong></a>, another very popular collection of packages (<em>ggplot</em>, <em>dplyr</em>, <em>tidyr</em>, …) that also makes using R easier. So, should you pick the <em>tidyverse</em> or <em>easystats</em>? <strong>Pick both!</strong> Indeed, they do not serve the same purpose. The <em>tidyverse</em> packages are primarily made to create a new R experience, where data manipulation and exploration is natural and consistent. On the other hand, <strong>easystats</strong> is more focused on helping you making this last mile from the analysis to your manuscript or stats report. It helps you understand and interpret your results and report them following best practices. You can definitely use the <em>easystats</em> functions in a <em>tidyverse</em> workflow!</p>
+<p><strong>How is <em>easystats</em> different from the <em>tidyverse</em>?</strong></p>
+<p>You’ve probably already heard about the <a href="https://www.tidyverse.org/" class="external-link"><strong>tidyverse</strong></a>, another very popular collection of packages (<em>ggplot</em>, <em>dplyr</em>, <em>tidyr</em>, …) that also makes using R easier. So, should you pick the <em>tidyverse</em> or <em>easystats</em>? <strong>Pick both!</strong></p>
+<p>Indeed, these two ecosystems have been designed with very different goals in mind. The <em>tidyverse</em> packages are primarily made to create a new R experience, where data manipulation and exploration is intuitive and consistent. On the other hand, <strong>easystats</strong> focuses more on the final stretch of the analysis: understanding and interpreting your results and reporting them in a manuscript or a report, while following best practices. You can definitely use the <em>easystats</em> functions in a <em>tidyverse</em> workflow!</p>
 <p><strong>easystats + tidyverse =</strong> ❤️</p>
-<ul>
-<li><strong>Can <em>easystats</em> be useful to advanced users and/or developers?</strong></li>
-</ul>
-<p>Yes, definitely! <strong>easystats</strong> is built in terms of modules that are general enough so that they can be used inside of other packages. For instance, the <em>insight</em> package is made to easily implement support for post-processing of all the models and packages under the sun. We use it in all the easystats packages, but it also used for instance in <a href="https://github.com/IndrajeetPatil/ggstatsplot" class="external-link"><strong>ggstatsplot</strong></a>, <a href="https://github.com/strengejacke/ggeffects" class="external-link"><strong>ggeffects</strong></a>, and more. <strong>So why not in yours</strong>? Moreover, the easystats packages are very lightweight, with a minimal set of dependencies, which again makes it great if you want to rely on them.</p>
+<p><strong>Can <em>easystats</em> be useful to advanced users and/or developers?</strong></p>
+<p>Yes, definitely! <strong>easystats</strong> is built in terms of modules that are general enough to be used inside other packages. For instance, the <em>insight</em> package is made to easily implement support for post-processing of pretty much all regression model packages under the sun. We use it in all the <em>easystats</em> packages, but it also used for instance in <a href="https://github.com/IndrajeetPatil/ggstatsplot" class="external-link"><strong>ggstatsplot</strong></a>, <a href="https://github.com/strengejacke/ggeffects" class="external-link"><strong>ggeffects</strong></a>, and more.</p>
+<p><strong>So why not in yours</strong>?</p>
+<p>Moreover, the <em>easystats</em> packages are very lightweight, with a minimal set of dependencies, which again makes it great if you want to rely on them.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -148,32 +148,43 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"easystats/easystats"</span><span class="op">)</span></code></pre></div>
+<p>You can then load the entire ecosystem by running:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/easystats/easystats" class="external-link">"easystats"</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="related-posts" class="section level2">
+<div id="documentation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#related-posts" class="anchor" aria-hidden="true"></a>Related posts</h2>
-<ul>
-<li><a href="https://easystats.github.io/blog/posts/bayestestr_evidence_ani/" class="external-link">Comparison of indices of significance in the Bayesian framework</a></li>
-<li><a href="https://easystats.github.io/blog/posts/parameters_and_see_update/" class="external-link">News from easystats: updated parameters and see packages</a></li>
-<li><a href="https://easystats.github.io/blog/posts/parameters_presentation/" class="external-link">parameters: a powerful and lightweight alternative to broom to describe your models’ coefficients</a></li>
-<li><a href="https://easystats.github.io/blog/posts/performance_check_collinearity/" class="external-link">Check your (Mixed) Model for Multicollinearity with ‘performance’</a></li>
-<li><a href="https://easystats.github.io/blog/posts/bayestestr_emmeans/" class="external-link">Testing Contrasts from Bayesian Models with ‘emmeans’ and ‘bayestestR’</a></li>
-<li><a href="https://easystats.github.io/blog/posts/bayestestr_v2/" class="external-link">Become a Bayesian master with bayestestR (0.2)</a></li>
-<li><a href="https://easystats.github.io/blog/posts/see_presentation/" class="external-link">The ‘see’ package: beautiful figures for easystats</a></li>
-<li><a href="https://easystats.github.io/blog/posts/performance_presentation/" class="external-link">Compute R2s and other performance indices for all your models!</a></li>
-<li><a href="https://easystats.github.io/blog/posts/bayestestr_presentation/" class="external-link">Describe and understand Bayesian models and posteriors using bayestestR</a></li>
-<li><a href="https://easystats.github.io/blog/posts/insight_presentation/" class="external-link">A unified syntax for accessing models’ information</a></li>
-<li><a href="https://easystats.github.io/blog/posts/report_anova/" class="external-link">The end of errors in ANOVA reporting</a></li>
-</ul>
-<p>Find an overview of all postings <a href="https://easystats.github.io/blog/posts/" class="external-link">here</a>.</p>
+<a href="#documentation" class="anchor" aria-hidden="true"></a>Documentation</h2>
+<div id="websites" class="section level3">
+<h3 class="hasAnchor">
+<a href="#websites" class="anchor" aria-hidden="true"></a>Websites</h3>
+<p>Each <code>easystats</code> package has a dedicated website.</p>
+<p>For example, website for <code>parameters</code> is <a href="https://easystats.github.io/parameters/" class="external-link uri">https://easystats.github.io/parameters/</a>.</p>
+</div>
+<div id="blog" class="section level3">
+<h3 class="hasAnchor">
+<a href="#blog" class="anchor" aria-hidden="true"></a>Blog</h3>
+<p>In addition to the websites containing documentation for these packages, you can also read posts from <code>easystats</code> blog: <a href="https://easystats.github.io/blog/posts/" class="external-link uri">https://easystats.github.io/blog/posts/</a>.</p>
+<!-- ### Other learning resources -->
+<!-- In addition to these websites and blog posts, you can also check out the -->
+<!-- following presentations and talks to learn more about this ecosystem: -->
+<!-- TODO: https://github.com/easystats/easystats/issues/103 -->
+</div>
 </div>
 <div id="dependencies" class="section level2">
 <h2 class="hasAnchor">
 <a href="#dependencies" class="anchor" aria-hidden="true"></a>Dependencies</h2>
-<p>Most of <em>easystats</em> packages are very lightweight, <em>i.e.</em>, they don’t rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of butterfly effects (a small change in a distant downstream dependency with unexpected upstream consequences).</p>
-<p>There is one exception. The <a href="http://easystats.github.io/see" class="external-link"><strong>see</strong></a> package is one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as <em>ggplot2</em>, which itself is plugged in the <em>tidyverse</em>, increasing package dependencies by a substantial amount. On the bright side of things, it gives a good <strong>overview of the place of <em>easystats</em> in the R ecosystem</strong>.</p>
+<p>Most <em>easystats</em> packages are very lightweight, <em>i.e.</em>, they don’t rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of a butterfly effect, where a small change in a distant downstream dependency with unexpected upstream consequences.</p>
+<p>For example, the <code>parameters</code> package only relies on two other packages.</p>
+<p><img src="reference/figures/depnetwork_parameters-1.png"><!-- --></p>
+<!-- TODO: uncomment once on CRAN -->
+<!-- ```{r depnetwork_easystats} -->
+<!-- library(deepdep) -->
+<!-- plot_dependencies("easystats", depth = 3) -->
+<!-- ``` -->
+<p><strong>There is one exception</strong>!</p>
+<p>The <a href="http://easystats.github.io/see" class="external-link"><strong>see</strong></a> package is one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as <em>ggplot2</em>, which has a substantial number of dependencies.</p>
+<p><img src="reference/figures/depnetwork_see-1.png"><!-- --></p>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
@@ -182,22 +193,26 @@
 <ol style="list-style-type: decimal">
 <li><strong>Cite specific packages</strong></li>
 </ol>
-<p>The most parsimonious approach is to cite only the particular package that helped you, e.g., “using <em>bayestestR</em> (Makowski, Ben-Shachar, &amp; Lüdecke, 2019)”. However, as <em>easystats</em> is meant to be an ecosystem, with different people working on its different aspects (some being more “citeable” than others), please consider including also the “main” publication: <a href="https://github.com/easystats/easystats/issues/24" class="external-link"><strong><em>not available yet</em></strong></a>.</p>
+<p>The most parsimonious approach is to cite only the particular package that helped you, e.g.,</p>
+<blockquote>
+<p>“using <em>bayestestR</em> (Makowski, Ben-Shachar, &amp; Lüdecke, 2019)”.</p>
+</blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li>
 <strong>Cite the whole ecosystem</strong> <span class="emoji" data-emoji="heart">❤️</span>
 </li>
 </ol>
-<p>Want to credit the whole network of interconnected aspects of <em>easystats</em>? This can be done with a sentence like the following:</p>
+<p>Want to credit the whole <em>easystats</em> ecosystem of packages?</p>
+<p>This can be done with a sentence like the following:</p>
 <blockquote>
-<p><strong>Data processing was carried out with R (R Core Team, 2019) and the <em>easystats</em> ecosystem (Lüdecke, Waggoner, &amp; Makowski, 2019; Makowski, Ben-Shachar, &amp; Lüdecke, 2019; Makowski, Ben-Shachar, Patil, &amp; Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, &amp; Makowski, 2020; Ben-Shachar, Lüdecke, &amp; Makowski, 2020)</strong></p>
+<p>Data processing was carried out with R (R Core Team, 2019) and the <em>easystats</em> ecosystem (Lüdecke, Waggoner, &amp; Makowski, 2019; Lüdecke, Ben-Shachar, Patil, Waggoner, &amp; Makowski, 2021; Makowski, Ben-Shachar, &amp; Lüdecke, 2019; Makowski, Ben-Shachar, Patil, &amp; Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, &amp; Makowski, 2020; Ben-Shachar, Lüdecke, &amp; Makowski, 2020)</p>
 </blockquote>
 <ul>
-<li><p>Lüdecke, D., Waggoner, P. D., &amp; Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. <em>Journal of Open Source Software</em>, <em>4</em>, 1412. doi: 10.21105/joss.01412</p></li>
-<li><p>Makowski, D., Ben-Shachar, M.S., &amp; Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. <em>Journal of Open Source Software</em>, <em>4</em>(40), 1541. 10.21105/joss.01541</p></li>
-<li><p>Makowski, D., Ben-Shachar, M.S., Patil, I., &amp; Lüdecke, D. (2019). Methods and Algorithms for Correlation Analysis in R. <em>Journal of Open Source Software</em>, <em>5</em>(51), 2306. 10.21105/joss.02306</p></li>
-<li><p>Lüdecke, D., Ben-Shachar, M.S., Patil, I., &amp; Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. <em>Journal of Open Source Software</em>, <em>5</em>(53), 2445. doi: 10.21105/joss.02445</p></li>
-<li><p>Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. <em>Journal of Open Source Software</em>, <em>5</em>(56), 2815. doi: 10.21105/joss.02815</p></li>
+<li><p>Lüdecke, D., Waggoner, P. D., &amp; Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. <em>Journal of Open Source Software</em>, <em>4</em>, 1412. <a href="https://doi.org/10.21105/joss.01412" class="external-link uri">https://doi.org/10.21105/joss.01412</a></p></li>
+<li><p>Makowski, D., Ben-Shachar, M.S., &amp; Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. <em>Journal of Open Source Software</em>, <em>4</em>(40), 1541. <a href="https://doi.org/10.21105/joss.01541" class="external-link uri">https://doi.org/10.21105/joss.01541</a></p></li>
+<li><p>Makowski, D., Ben-Shachar, M.S., Patil, I., &amp; Lüdecke, D. (2019). Methods and Algorithms for Correlation Analysis in R. <em>Journal of Open Source Software</em>, <em>5</em>(51), 2306. <a href="https://doi.org/10.21105/joss.02306" class="external-link uri">https://doi.org/10.21105/joss.02306</a></p></li>
+<li><p>Lüdecke, D., Ben-Shachar, M.S., Patil, I., &amp; Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. <em>Journal of Open Source Software</em>, <em>5</em>(53), 2445. <a href="https://doi.org/10.21105/joss.02445" class="external-link uri">https://doi.org/10.21105/joss.02445</a></p></li>
+<li><p>Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. <em>Journal of Open Source Software</em>, <em>5</em>(56), 2815. <a href="https://doi.org/10.21105/joss.02815" class="external-link uri">https://doi.org/10.21105/joss.02815</a></p></li>
 <li><p>Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., &amp; Makowski, D. (2021). performance: An R Package for Assessment, Comparison and Testing of Statistical Models. <em>Journal of Open Source Software</em>, <em>6</em>(60), 3139. <a href="https://doi.org/10.21105/joss.03139" class="external-link uri">https://doi.org/10.21105/joss.03139</a></p></li>
 </ul>
 <details><p><summary> Click here to see the corresponding APA and bibtex entries </summary></p>
@@ -286,7 +301,14 @@
 <div id="versioning" class="section level2">
 <h2 class="hasAnchor">
 <a href="#versioning" class="anchor" aria-hidden="true"></a>Versioning</h2>
-<p>Package version numbers indicate following: <code>MAJOR.MINOR.PATCH.DEVELOPMENT</code>. As long as packages are in a more or less rapidly developing and changing state, the <strong>major</strong> version number is typically <code>0</code>. Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to <code>1</code>, and increased for following major changes that probably break the current API. When new features are added or (re)moved, we typically increase the <strong>minor</strong> version number. Minimal changes or bug fixes only are indicated by increasing the <strong>patch</strong> version number. Current development versions of our packages (i.e. master branch from GitHub) additionally have a <strong>development</strong> version number. You typically won’t find packages on CRAN with a development version number.</p>
+<p>Package version numbers indicate following: <code>MAJOR.MINOR.PATCH.DEVELOPMENT</code>. Here are key steps to keep in mind:</p>
+<ul>
+<li><p>As long as packages are in a more or less rapidly developing and changing state, the <strong>major</strong> version number is typically <code>0</code>.</p></li>
+<li><p>Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to <code>1</code>, and will be increased for following major changes that probably break the current API.</p></li>
+<li><p>When new features are added or (re)moved, we typically increase the <strong>minor</strong> version number.</p></li>
+<li><p>Minimal changes or bug fixes only are indicated by increasing the <strong>patch</strong> version number.</p></li>
+</ul>
+<p>Current development versions of our packages (i.e. master/main branch from GitHub) additionally have a <strong>development</strong> version number.</p>
 </div>
 <div id="downloads" class="section level2">
 <h2 class="hasAnchor">
@@ -332,47 +354,63 @@
 <div id="trend" class="section level3">
 <h3 class="hasAnchor">
 <a href="#trend" class="anchor" aria-hidden="true"></a>Trend</h3>
-<p><img src="reference/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="cumulative-downloads" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cumulative-downloads" class="anchor" aria-hidden="true"></a>Cumulative downloads</h3>
-<p><img src="reference/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;"></p>
 <!-- ### Cyclic Trend -->
-<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300} -->
-<!-- byweek <- lme4::lmer(count ~ day + (1|Package) + (1|month), data = data) %>%  -->
-<!--   modelbased::estimate_means() %>%  -->
-<!--   mutate(day = forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), -->
-<!--          average = mean(Mean), -->
-<!--          x = as.numeric(day) / 7, -->
-<!--          what="week", -->
-<!--          month=NA) %>%  -->
-<!--   arrange(day) -->
-<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data) %>%  -->
-<!--   modelbased::estimate_means() %>%  -->
-<!--   mutate(month = forcats::fct_relevel(as.factor(month),  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), -->
-<!--          average = mean(Mean), -->
-<!--          x = as.numeric(month) / 12, -->
-<!--          what="month", -->
-<!--          day=NA) %>%  -->
-<!--   arrange(month) -->
-<!-- rbind(byweek, bymonth) %>%  -->
-<!--   ggplot(aes(x=x, y=Mean, group = what, color=what)) + -->
-<!--   geom_polygon(fill=NA, size=1) +  -->
-<!--   geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
-<!--   theme_modern() + -->
-<!--   coord_polar(start=-pi/1.5) + -->
-<!--   see::theme_radar() + -->
-<!--   theme(axis.title.x = element_blank(), -->
-<!--         axis.title.y = element_blank(), -->
-<!--         axis.text.y = element_blank(), -->
-<!--         panel.grid.major.y = element_blank()) -->
+<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
+fig.align='center', echo=FALSE, dpi=300} -->
+<!-- byweek <- lme4::lmer(count ~
+day + (1|Package) + (1|month), data = data) %>% -->
+<!--
+modelbased::estimate_means() %>% -->
+<!-- mutate(day =
+forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday",
+"Thursday", "Friday", "Saturday", "Sunday"), -->
+<!-- average = mean(Mean), -->
+<!-- x = as.numeric(day) / 7, -->
+<!-- what="week", -->
+<!-- month=NA) %>% -->
+<!-- arrange(day) -->
+<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data)
+%>% -->
+<!-- modelbased::estimate_means() %>% -->
+<!-- mutate(month =
+forcats::fct_relevel(as.factor(month), "January", "February", "March", "April",
+"May", "June", "July", "August", "September", "October", "November",
+"December"), -->
+<!-- average = mean(Mean), -->
+<!-- x = as.numeric(month) / 12,
+-->
+<!-- what="month", -->
+<!-- day=NA) %>% -->
+<!-- arrange(month) -->
+<!-- rbind(byweek, bymonth) %>% -->
+<!-- ggplot(aes(x=x, y=Mean, group = what,
+color=what)) + -->
+<!-- geom_polygon(fill=NA, size=1) + -->
+<!--
+geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
+<!--
+theme_modern() + -->
+<!-- coord_polar(start=-pi/1.5) + -->
+<!--
+see::theme_radar() + -->
+<!-- theme(axis.title.x = element_blank(), -->
+<!--
+axis.title.y = element_blank(), -->
+<!-- axis.text.y = element_blank(), -->
+<!--
+panel.grid.major.y = element_blank()) -->
 <!-- ``` -->
 </div>
 <div id="average-monthly-downloads" class="section level3">
 <h3 class="hasAnchor">
 <a href="#average-monthly-downloads" class="anchor" aria-hidden="true"></a>Average monthly downloads</h3>
-<p><img src="reference/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="list-of-functions" class="section level2">
