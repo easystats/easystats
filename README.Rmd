@@ -70,41 +70,78 @@ options(
 
 ## What is *easystats*?
 
-**easystats** is a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline and harness the scary R statistics and their pesky models.
+**easystats** is a collection of R packages, which aims to provide a unifying
+and consistent framework to tame, discipline, and harness the scary R statistics
+and their pesky models.
 
+However, there is not (yet) an *unique* "easystats" way of doing data
+analysis. Instead, start with one package and, when you'll face a new
+challenge, do check if there is an _easystats_ answer for it in other packages.
+You will slowly uncover how using them together facilitates your life. And, who
+knows, you might even end up using them all. ***Gotta catch 'em all!*** <!--
+'tis a pokémon reference for y'all grandpas -->
 
-However, there is not (yet) an unique **"easystats" way of doing data analysis**. Instead, start with one package and, when you'll face a new challenge, do check if there is an easystats answer for it in other packages. You will slowly uncover how using them together facilitates your life. And who knows, you might even end up using them all. ***Gotta catch 'em all!***  <!-- 'tis a pokémon reference for y'all grandpas -->
+## Getting started
 
+Each **easystats** package has a different scope and purpose. This means your
+**best way to start** is to explore and pick the one(s) that you feel might be
+useful to you. However, as they are built with a "bigger picture" in mind, you
+will realize that using more of them creates a smooth workflow, as these
+packages are meant to work together. Ideally, these packages work in unison to
+cover all aspects of statistical analysis and data visualization.
 
-## Where to start
-
-
-Each **easystats** package has a different scope and purpose. This means you the **best way to start** is to explore and pick the one(s) that you feel might be useful to you. However, as they are built with a "bigger picture" in mind, you will realize that using more of them creates a smooth workflow, as these packages are meant to work together.
-
-
-- [**report**](https://github.com/easystats/report): 📜 🎉 Automated statistical reporting of objects in R
-- [**correlation**](https://github.com/easystats/correlation): 🔗 Your all-in-one package to run correlations
-- [**modelbased**](https://github.com/easystats/modelbased): 📈 Estimate effects, group averages and contrasts between groups based on statistical models
-- [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great for beginners or experts of Bayesian statistics
-- [**parameters**](https://github.com/easystats/parameters): 📊 Obtain a table containing all information about the parameters of your models
-- [**performance**](https://github.com/easystats/performance): 💪 Models' quality and performance metrics (R2, ICC, LOO, AIC, BF, ...)
-- [**effectsize**](https://github.com/easystats/effectsize): 🐉 Compute, convert, interpret and work with indices of effect size and standardized parameters
-- [**insight**](https://github.com/easystats/insight): 🔮 For developers, a package to help you work with different models and packages
-- [**see**](https://github.com/easystats/see): 🎨 The plotting companion to create beautiful results visualizations
-
+- [**report**](https://github.com/easystats/report): 📜 🎉 Automated statistical
+  reporting of objects in R
+- [**correlation**](https://github.com/easystats/correlation): 🔗 Your all-in-one
+  package to run correlations
+- [**modelbased**](https://github.com/easystats/modelbased): 📈 Estimate effects,
+  group averages and contrasts between groups based on statistical models
+- [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great for
+  beginners or experts of Bayesian statistics
+- [**parameters**](https://github.com/easystats/parameters): 📊 Obtain a table
+  containing all information about the parameters of your models
+- [**performance**](https://github.com/easystats/performance): 💪 Models' quality
+  and performance metrics (R2, ICC, LOO, AIC, BF, ...)
+- [**effectsize**](https://github.com/easystats/effectsize): 🐉 Compute, convert,
+  interpret and work with indices of effect size and standardized parameters
+- [**insight**](https://github.com/easystats/insight): 🔮 For developers, a
+  package to help you work with different models and packages
+- [**see**](https://github.com/easystats/see): 🎨 The plotting companion to
+  create beautiful results visualizations
 
 ## Frequently Asked Questions
 
-- **How is *easystats* different from the *tidyverse*?** 
+- **How is *easystats* different from the *tidyverse*?**
 
-You've probably already heard about the [**tidyverse**](https://www.tidyverse.org/), another very popular collection of packages (*ggplot*, *dplyr*, *tidyr*, ...) that also makes using R easier. So, should you pick the *tidyverse* or *easystats*? **Pick both!** Indeed, they do not serve the same purpose. The *tidyverse* packages are primarily made to create a new R experience, where data manipulation and exploration is natural and consistent. On the other hand, **easystats** is more focused on helping you making this last mile from the analysis to your manuscript or stats report. It helps you understand and interpret your results and report them following best practices. You can definitely use the *easystats* functions in a *tidyverse* workflow! 
+You've probably already heard about the
+[**tidyverse**](https://www.tidyverse.org/), another very popular collection of
+packages (*ggplot*, *dplyr*, *tidyr*, ...) that also makes using R easier. So,
+should you pick the *tidyverse* or *easystats*? **Pick both!** 
 
-**easystats + tidyverse =** ❤️ 
+Indeed, these two ecosystems have been designed with very different goals in
+mind. The *tidyverse* packages are primarily made to create a new R experience,
+where data manipulation and exploration is intuitive and consistent. On the
+other hand, **easystats** focuses more on the final stretch of the analysis:
+understanding and interpreting your results and reporting them in a manuscript
+or a report, while following best practices. You can definitely use the
+*easystats* functions in a *tidyverse* workflow!
 
+**easystats + tidyverse =** ❤️
 
 - **Can *easystats* be useful to advanced users and/or developers?**
 
-Yes, definitely! **easystats** is built in terms of modules that are general enough so that they can be used inside of other packages. For instance, the *insight* package is made to easily implement support for post-processing of all the models and packages under the sun. We use it in all the easystats packages, but it also used for instance in [**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot), [**ggeffects**](https://github.com/strengejacke/ggeffects), and more. **So why not in yours**? Moreover, the easystats packages are very lightweight, with a minimal set of dependencies, which again makes it great if you want to rely on them.
+Yes, definitely! **easystats** is built in terms of modules that are general
+enough to be used inside other packages. For instance, the *insight* package is
+made to easily implement support for post-processing of pretty much all
+regression model packages under the sun. We use it in all the *easystats*
+packages, but it also used for instance in
+[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),
+[**ggeffects**](https://github.com/strengejacke/ggeffects), and more. 
+
+**So why not in yours**? 
+
+Moreover, the *easystats* packages are very lightweight, with a minimal set of
+dependencies, which again makes it great if you want to rely on them.
 
 ## Installation
 
@@ -119,160 +156,60 @@ remotes::install_github("easystats/easystats")
 library("easystats")
 ```
 
-## Related posts 
+## Documentation
 
-- [Comparison of indices of significance in the Bayesian framework](https://easystats.github.io/blog/posts/bayestestr_evidence_ani/)
-- [News from easystats: updated parameters and see packages](https://easystats.github.io/blog/posts/parameters_and_see_update/)
-- [parameters: a powerful and lightweight alternative to broom to describe your models' coefficients](https://easystats.github.io/blog/posts/parameters_presentation/)
-- [Check your (Mixed) Model for Multicollinearity with 'performance'](https://easystats.github.io/blog/posts/performance_check_collinearity/)
-- [Testing Contrasts from Bayesian Models with 'emmeans' and 'bayestestR'](https://easystats.github.io/blog/posts/bayestestr_emmeans/)
-- [Become a Bayesian master with bayestestR (0.2)](https://easystats.github.io/blog/posts/bayestestr_v2/)
-- [The 'see' package: beautiful figures for easystats](https://easystats.github.io/blog/posts/see_presentation/)
-- [Compute R2s and other performance indices for all your models!](https://easystats.github.io/blog/posts/performance_presentation/)
-- [Describe and understand Bayesian models and posteriors using bayestestR](https://easystats.github.io/blog/posts/bayestestr_presentation/)
-- [A unified syntax for accessing models' information](https://easystats.github.io/blog/posts/insight_presentation/)
-- [The end of errors in ANOVA reporting](https://easystats.github.io/blog/posts/report_anova/)
+### Websites
 
-Find an overview of all postings [here](https://easystats.github.io/blog/posts/).
+Each `easystats` package has a dedicated website.
+
+For example, website for `parameters` is
+<https://easystats.github.io/parameters/>.
+
+### Blog
+
+In addition to the websites containing documentation for these packages, you can
+also read posts from `easystats` blog:
+<https://easystats.github.io/blog/posts/>.
+
+<!-- ### Other learning resources -->
+
+<!-- In addition to these websites and blog posts, you can also check out the -->
+<!-- following presentations and talks to learn more about this ecosystem: -->
+
+<!-- TODO: https://github.com/easystats/easystats/issues/103 -->
 
 ## Dependencies
 
-Most of *easystats* packages are very lightweight, *i.e.*, they don't rely nor
+Most *easystats* packages are very lightweight, *i.e.*, they don't rely nor
 import any other packages! This means that you can safely use them as
-dependencies in your own packages, without the risk of butterfly effects (a
-small change in a distant downstream dependency with unexpected upstream
-consequences).
+dependencies in your own packages, without the risk of a butterfly effect, where
+a small change in a distant downstream dependency with unexpected upstream
+consequences.
 
-```{r, include=TRUE, results="hide", echo=FALSE, eval=FALSE}
-library(tidyverse)
-library(devtools)
-library(miniCRAN)
-library(igraph)
-library(ggnetwork)
-library(intergraph)
+For example, the `parameters` package only relies on two other packages.
 
-
-pkg <- devtools::as.package(".")
-
-dependencies <- c("insight", "performance", "bayestestR", "parameters", "correlation", "report", "modelbased", "effectsize")
-
-dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
-class(dependency_graph) <- "igraph"
-dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::edges(as.vector(rbind(dependencies, pkg$package)))
-dependency_graph <- igraph::simplify(dependency_graph)
-
-edge_list <- igraph::get.edgelist(dependency_graph)
-# dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))  # This fails at my place
-
-dependency_graph_df <- ggnetwork::ggnetwork(
-  dependency_graph,
-  layout = "fruchtermanreingold",
-  arrow.gap = 0.015,
-  layout.par = list(niter = 5000)
-)
-
-dependency_graph_df$package <- dependency_graph_df$vertex.names
-dependency_graph_df$face <- ifelse(dependency_graph_df$package == pkg$package, "bold", "plain")
-
-dependency_graph_df$n_dependencies <- as.vector(table(gsub("\\|.+", "", attr(igraph::E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
-dependency_graph_df$n_dependencies[is.na(dependency_graph_df$n_dependencies)] <- 0
-
-dependency_graph_df$importance <- as.vector(table(gsub(".+\\|", "", attr(E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
-dependency_graph_df$importance[is.na(dependency_graph_df$importance)] <- 0
-
-max_downstream_deps <- max(dependency_graph_df$importance)
-
-dependency_graph_df$importance <- dependency_graph_df$importance / max_downstream_deps
-dependency_graph_df$importance <- abs(1 - dependency_graph_df$importance)
-
-dependency_graph_df <- as.data.frame(lapply(dependency_graph_df, as.vector))
-
-ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
-  geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
-  geom_nodelabel_repel(
-    aes(label = package, fontface = face, color = n_dependencies),
-    box.padding = unit(8, "pt")
-  ) +
-  geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
-  scale_color_distiller(palette = "Spectral") +
-  scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
-  theme_blank(legend.position = "top") +
-  guides(
-    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5),
-    color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
-  )
+```{r depnetwork_parameters, echo=FALSE}
+library(deepdep)
+plot_dependencies("parameters", depth = 3)
 ```
 
+<!-- TODO: uncomment once on CRAN -->
 
-There is one exception. The [**see**](http://easystats.github.io/see) package is one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as *ggplot2*, which itself is plugged in the *tidyverse*, increasing package dependencies by a substantial amount. On the bright side of things, it gives a good **overview of the place of *easystats* in the R ecosystem**.
+<!-- ```{r depnetwork_easystats} -->
+<!-- library(deepdep) -->
+<!-- plot_dependencies("easystats", depth = 3) -->
+<!-- ``` -->
 
-```{r, include=TRUE, results="hide", echo=FALSE, eval = FALSE}
-library(tidyverse)
-library(devtools)
-library(miniCRAN)
-library(igraph)
-library(ggnetwork)
-library(intergraph)
+**There is one exception**!
 
+The [**see**](http://easystats.github.io/see) package is
+one of our high-level packages that is responsible for plotting and creating
+figures, relying thus on other packages such as *ggplot2*, which has a substantial number of dependencies.
 
-pkg <- devtools::as.package(".")
-# dependencies <- unlist(strsplit(paste(pkg$imports, "\n", pkg$depends), split = "\n"))[-1]
-# dependencies <- trimws(gsub("\\n| \\(.+\\)|,", "", dependencies))
-
-dependencies <- c(
-  "insight", "bayestestR", "performance", "parameters", "see",
-  "correlation", "modelbased", "report", "effectsize"
-)
-
-dependency_graph <- miniCRAN::makeDepGraph(dependencies, suggests = FALSE, enhances = FALSE)
-class(dependency_graph) <- "igraph"
-dependency_graph <- dependency_graph + igraph::vertices(pkg$package) + igraph::edges(as.vector(rbind(dependencies, pkg$package)))
-dependency_graph <- igraph::simplify(dependency_graph)
-
-edge_list <- igraph::get.edgelist(dependency_graph)
-# dependency_graph <- igraph::graph(rbind(edge_list[, 2], edge_list[, 1]))
-
-dependency_graph_df <- ggnetwork::ggnetwork(
-  dependency_graph,
-  layout = "fruchtermanreingold",
-  arrow.gap = 0.015,
-  layout.par = list(niter = 5000)
-)
-
-dependency_graph_df$package <- dependency_graph_df$vertex.names
-dependency_graph_df$face <- ifelse(dependency_graph_df$package == pkg$package, "bold", "plain")
-
-dependency_graph_df$n_dependencies <- as.vector(table(gsub("\\|.+", "", attr(igraph::E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
-dependency_graph_df$n_dependencies[is.na(dependency_graph_df$n_dependencies)] <- 0
-
-dependency_graph_df$importance <- as.vector(table(gsub(".+\\|", "", attr(E(dependency_graph), "vnames")))[as.character(dependency_graph_df$package)])
-dependency_graph_df$importance[is.na(dependency_graph_df$importance)] <- 0
-
-max_downstream_deps <- max(dependency_graph_df$importance)
-
-dependency_graph_df$importance <- dependency_graph_df$importance / max_downstream_deps
-dependency_graph_df$importance <- abs(1 - dependency_graph_df$importance)
-
-dependency_graph_df <- as.data.frame(lapply(dependency_graph_df, as.vector))
-
-ggplot(dependency_graph_df, aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_nodes(aes(color = n_dependencies), size = 6.5, alpha = 0.4) +
-  geom_edges(arrow = arrow(length = unit(4, "pt"), type = "closed"), color = grey(0.4)) +
-  geom_nodelabel_repel(
-    aes(label = package, fontface = face, color = n_dependencies),
-    box.padding = unit(8, "pt")
-  ) +
-  geom_nodes(aes(color = n_dependencies, size = 7 * importance)) +
-  scale_color_distiller(palette = "Spectral") +
-  scale_size(labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))) +
-  theme_blank(legend.position = "top") +
-  guides(
-    size = guide_legend(title = "Downstream dependencies", title.position = "top", title.hjust = 0.5, label.position = "bottom", label.hjust = 0.5),
-    color = guide_colorbar(title = "Upstream dependencies", title.position = "top", title.hjust = 0.5, barwidth = unit(130, "pt"), barheight = unit(4, "pt"))
-  )
+```{r depnetwork_see, echo=FALSE}
+library(deepdep)
+plot_dependencies("see", depth = 3)
 ```
-
 
 ## Citation
 
@@ -280,31 +217,52 @@ How to reference *easystats*?
 
 1. **Cite specific packages**
 
-The most parsimonious approach is to cite only the particular package that helped you, e.g., "using *bayestestR* (Makowski, Ben-Shachar, & Lüdecke, 2019)". However, as *easystats* is meant to be an ecosystem, with different people working on its different aspects (some being more "citeable" than others), please consider including also the "main" publication: [***not available yet***](https://github.com/easystats/easystats/issues/24). 
+The most parsimonious approach is to cite only the particular package that
+helped you, e.g., 
+
+> "using *bayestestR* (Makowski, Ben-Shachar, & Lüdecke, 2019)".
 
 2. **Cite the whole ecosystem** :heart:
 
-Want to credit the whole network of interconnected aspects of *easystats*? This can be done with a sentence like the following:
+Want to credit the whole *easystats* ecosystem of packages? 
 
-> **Data processing was carried out with R (R Core Team, 2019) and the *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Makowski, Ben-Shachar, & Lüdecke, 2019; Makowski, Ben-Shachar, Patil, & Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Ben-Shachar, Lüdecke, & Makowski, 2020)**
+This can be done with a sentence like the following:
 
-- Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A Unified Interface to Access Information from Model Objects in R. _Journal of Open Source Software_, *4*, 1412. doi: 10.21105/joss.01412
+> Data processing was carried out with R (R Core Team, 2019) and the *easystats*
+ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Lüdecke, Ben-Shachar, Patil,
+Waggoner, & Makowski, 2021; Makowski, Ben-Shachar, & Lüdecke, 2019; Makowski,
+Ben-Shachar, Patil, & Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, & Makowski,
+2020; Ben-Shachar, Lüdecke, & Makowski, 2020)
 
-- Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR: Describing Effects and their Uncertainty, Existence and Significance within the Bayesian Framework. _Journal of Open Source Software_, *4*(40), 1541. 10.21105/joss.01541
+- Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A Unified
+  Interface to Access Information from Model Objects in R. _Journal of Open
+  Source Software_, *4*, 1412. https://doi.org/10.21105/joss.01412
 
-- Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019). Methods and Algorithms for Correlation Analysis in R. _Journal of Open Source Software_, *5*(51), 2306. 10.21105/joss.02306  
+- Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR: Describing
+  Effects and their Uncertainty, Existence and Significance within the Bayesian
+  Framework. _Journal of Open Source Software_, *4*(40), 1541.
+  https://doi.org/10.21105/joss.01541
 
-- Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020). parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using R. _Journal of Open Source Software_, *5*(53), 2445. doi: 10.21105/joss.02445
+- Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019). Methods and
+  Algorithms for Correlation Analysis in R. _Journal of Open Source Software_,
+  *5*(51), 2306. https://doi.org/10.21105/joss.02306
 
-- Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of Effect Size Indices and Standardized Parameters. _Journal of Open Source Software_, *5*(56), 2815. doi: 10.21105/joss.02815
+- Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020). parameters:
+  Extracting, Computing and Exploring the Parameters of Statistical Models using
+  R. _Journal of Open Source Software_, *5*(53), 2445.
+  https://doi.org/10.21105/joss.02445
 
-- Lüdecke, D., Ben-Shachar, M.S.,  Patil, I., Waggoner, P. D., & Makowski, D.
-(2021). performance: An R Package for Assessment, Comparison and Testing of
-Statistical Models. _Journal of Open Source Software_, _6_(60), 3139.
-https://doi.org/10.21105/joss.03139
+- Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of
+  Effect Size Indices and Standardized Parameters. _Journal of Open Source
+  Software_, *5*(56), 2815. https://doi.org/10.21105/joss.02815
 
-<details>
-<summary>Click here to see the corresponding APA and bibtex entries</summary>
+- Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., & Makowski, D.
+  (2021). performance: An R Package for Assessment, Comparison and Testing of
+  Statistical Models. _Journal of Open Source Software_, _6_(60), 3139.
+  https://doi.org/10.21105/joss.03139
+
+<details> <summary>Click here to see the corresponding APA and bibtex
+entries</summary>
 
 <br>
 
@@ -391,25 +349,30 @@ https://doi.org/10.21105/joss.03139
 ```
 </details>
 
-
 ## Versioning
 
-Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. As
-long as packages are in a more or less rapidly developing and changing state,
-the **major** version number is typically `0`. Once we think we will have a
-stable base that will likely not change dramatically or soon, the major version
-number will be set to `1`, and increased for following major changes that
-probably break the current API. When new features are added or (re)moved, we
-typically increase the **minor** version number. Minimal changes or bug fixes
-only are indicated by increasing the **patch** version number. Current
-development versions of our packages (i.e. master branch from GitHub)
-additionally have a **development** version number. You typically won't find
-packages on CRAN with a development version number.
+Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. 
+Here are key steps to keep in mind:
+
+- As long as packages are in a more or less rapidly developing and changing
+state, the **major** version number is typically `0`.
+
+- Once we think we will have a stable base that will likely not change
+dramatically or soon, the major version number will be set to `1`, and will be
+increased for following major changes that probably break the current API.
+
+- When new features are added or (re)moved, we typically increase the **minor**
+version number.
+
+- Minimal changes or bug fixes only are indicated by increasing the **patch**
+version number.
+
+Current development versions of our packages (i.e. master/main branch from
+GitHub) additionally have a **development** version number.
 
 ## Downloads 
 
-
-```{r message=FALSE, warning=FALSE, include=TRUE, results="hide", echo=FALSE}
+```{r include=TRUE, results="hide", echo=FALSE}
 library(tidyverse)
 library(zoo)
 library(cranlogs)
@@ -595,7 +558,6 @@ average_monthly_downloads <- do.call(rbind, lapply(unique(data$package), functio
 }))
 ```
 
-
 ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
 dl_table <- data %>%
@@ -616,10 +578,9 @@ dl_table[] <- lapply(dl_table, format, big.mark = ",")
 knitr::kable(dl_table)
 ```
 
-
-
 ### Trend
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+
+```{r, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # TIME TREND
 data %>%
   group_by(Package) %>%
@@ -662,9 +623,9 @@ data %>%
   theme(axis.text.x = element_text(angle = 90))
 ```
 
-
 ### Cumulative downloads
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+
+```{r, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 data <- data %>%
   group_by(Package, year_month) %>%
   mutate(download_label = first(cumulative_count)) %>%
@@ -684,45 +645,33 @@ ggplot(data, aes(x = date, y = cumulative_count, label = download_label, color =
   theme(axis.text.x = element_text(angle = 90))
 ```
 
+<!-- ### Cyclic Trend --> <!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
+fig.align='center', echo=FALSE, dpi=300} --> <!-- byweek <- lme4::lmer(count ~
+day + (1|Package) + (1|month), data = data) %>% --> <!--
+modelbased::estimate_means() %>% --> <!-- mutate(day =
+forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday",
+"Thursday", "Friday", "Saturday", "Sunday"), --> <!-- average = mean(Mean), -->
+<!-- x = as.numeric(day) / 7, --> <!-- what="week", --> <!-- month=NA) %>% -->
+<!-- arrange(day) -->
 
+<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data)
+%>% --> <!-- modelbased::estimate_means() %>% --> <!-- mutate(month =
+forcats::fct_relevel(as.factor(month), "January", "February", "March", "April",
+"May", "June", "July", "August", "September", "October", "November",
+"December"), --> <!-- average = mean(Mean), --> <!-- x = as.numeric(month) / 12,
+--> <!-- what="month", --> <!-- day=NA) %>% --> <!-- arrange(month) -->
 
-<!-- ### Cyclic Trend -->
-<!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300} -->
-<!-- byweek <- lme4::lmer(count ~ day + (1|Package) + (1|month), data = data) %>%  -->
-<!--   modelbased::estimate_means() %>%  -->
-<!--   mutate(day = forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), -->
-<!--          average = mean(Mean), -->
-<!--          x = as.numeric(day) / 7, -->
-<!--          what="week", -->
-<!--          month=NA) %>%  -->
-<!--   arrange(day) -->
-
-
-<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data) %>%  -->
-<!--   modelbased::estimate_means() %>%  -->
-<!--   mutate(month = forcats::fct_relevel(as.factor(month),  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), -->
-<!--          average = mean(Mean), -->
-<!--          x = as.numeric(month) / 12, -->
-<!--          what="month", -->
-<!--          day=NA) %>%  -->
-<!--   arrange(month) -->
-
-
-<!-- rbind(byweek, bymonth) %>%  -->
-<!--   ggplot(aes(x=x, y=Mean, group = what, color=what)) + -->
-<!--   geom_polygon(fill=NA, size=1) +  -->
-<!--   geom_hline(yintercept = byweek$average[1], linetype="dotted") + -->
-<!--   theme_modern() + -->
-<!--   coord_polar(start=-pi/1.5) + -->
-<!--   see::theme_radar() + -->
-<!--   theme(axis.title.x = element_blank(), -->
-<!--         axis.title.y = element_blank(), -->
-<!--         axis.text.y = element_blank(), -->
-<!--         panel.grid.major.y = element_blank()) -->
-<!-- ``` -->
+<!-- rbind(byweek, bymonth) %>% --> <!-- ggplot(aes(x=x, y=Mean, group = what,
+color=what)) + --> <!-- geom_polygon(fill=NA, size=1) + --> <!--
+geom_hline(yintercept = byweek$average[1], linetype="dotted") + --> <!--
+theme_modern() + --> <!-- coord_polar(start=-pi/1.5) + --> <!--
+see::theme_radar() + --> <!-- theme(axis.title.x = element_blank(), --> <!--
+axis.title.y = element_blank(), --> <!-- axis.text.y = element_blank(), --> <!--
+panel.grid.major.y = element_blank()) --> <!-- ``` -->
 
 ### Average monthly downloads
-```{r, message=FALSE, warning=FALSE, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
+
+```{r, eval = TRUE, fig.align='center', echo=FALSE, dpi=300}
 # plot_range <- pretty(average_monthly_downloads$monthly_downloads)
 # ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
 #   geom_point() +
@@ -757,7 +706,7 @@ average_monthly_downloads %>%
 
 <!-- ![](scripts/network_functions.png) -->
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+```{r echo=FALSE, results='asis'}
 # it would be cool to add the title / description for all functions
 library(insight)
 library(bayestestR)
@@ -796,8 +745,9 @@ for (package in c("insight", "bayestestR", "parameters", "performance", "effects
 }
 
 
-
 all_funs <- all_funs[!duplicated(all_funs$Name), ]
 all_funs <- sort(as.character(all_funs$Functions))
+
 cat(paste0(c("", all_funs), collapse = "\n- "))
 ```
+
