@@ -67,7 +67,7 @@ analysis and data visualization.
 
 ## Frequently Asked Questions
 
--   **How is *easystats* different from the *tidyverse*?**
+**How is *easystats* different from the *tidyverse*?**
 
 You’ve probably already heard about the
 [**tidyverse**](https://www.tidyverse.org/), another very popular
@@ -86,7 +86,7 @@ best practices. You can definitely use the *easystats* functions in a
 
 **easystats + tidyverse =** ❤️
 
--   **Can *easystats* be useful to advanced users and/or developers?**
+**Can *easystats* be useful to advanced users and/or developers?**
 
 Yes, definitely! **easystats** is built in terms of modules that are
 general enough to be used inside other packages. For instance, the
@@ -112,6 +112,8 @@ following:
 install.packages("remotes")
 remotes::install_github("easystats/easystats")
 ```
+
+You can then load the entire ecosystem by running:
 
 ``` r
 library("easystats")
