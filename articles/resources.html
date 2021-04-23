@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coding style conventions • easystats</title>
+<title>Learning resources • easystats</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Coding style conventions">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Learning resources">
 <meta property="og:description" content="easystats">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -88,60 +88,48 @@
 
       
 
-      </header><script src="conventions_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="resources_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Coding style conventions</h1>
+      <h1 data-toc-skip>Learning resources</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/master/vignettes/conventions.Rmd" class="external-link"><code>vignettes/conventions.Rmd</code></a></small>
-      <div class="hidden name"><code>conventions.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/master/vignettes/resources.Rmd" class="external-link"><code>vignettes/resources.Rmd</code></a></small>
+      <div class="hidden name"><code>resources.Rmd</code></div>
 
     </div>
 
     
     
-<div id="coding-style-conventions" class="section level1">
+<div id="introduction" class="section level1">
 <h1 class="hasAnchor">
-<a href="#coding-style-conventions" class="anchor" aria-hidden="true"></a>Coding style conventions</h1>
-<p>Following conventions apply to the easystats-ecosystem, to ensure that function and argument names as well as element names for return-values follow a consistent pattern across all packages.</p>
-<p><strong>Importing other packages</strong></p>
+<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h1>
+<p>One of the best resources to learn about functionality afforded by <code>easystats</code> package is to read the dedicated websites for each package. A lot of love and work has gone into writing detailed function documentation and vignettes for these websites and we will highly recommend you check them out.</p>
+<p>But, we are certainly not the only ones talking about them, and below are some other resources that might be helpful for you to learn about <code>easystats</code> packages.</p>
+</div>
+<div id="youtube-videos" class="section level1">
+<h1 class="hasAnchor">
+<a href="#youtube-videos" class="anchor" aria-hidden="true"></a>YouTube videos</h1>
+<div id="performance-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#performance-package" class="anchor" aria-hidden="true"></a><code>performance</code> package:</h2>
 <ul>
-<li><p>No full import, only selective import of functions</p></li>
-<li><p>Use base-R wherever possible (reduce dependencies)</p></li>
-<li><p>Make sure R-version requirements are not too strict</p></li>
+<li>Yury Zablotski’s package review: <a href="https://www.youtube.com/watch?v=EPIxQ5i5oxs" class="external-link uri">https://www.youtube.com/watch?v=EPIxQ5i5oxs</a>
+</li>
 </ul>
-<p><strong>Helper-functions</strong></p>
+</div>
+</div>
+<div id="presentations" class="section level1">
+<h1 class="hasAnchor">
+<a href="#presentations" class="anchor" aria-hidden="true"></a>Presentations</h1>
+<div id="bayestestr-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bayestestr-package" class="anchor" aria-hidden="true"></a><code>bayestestR</code> package:</h2>
 <ul>
-<li>Own re-implementation of helper-functions, if it’s not too much effort (e.g. I typically use own functions to check if a string starts / ends with a pattern, or if an object (list, data frame) contains an element with a given name (like <code><a href="https://rlang.r-lib.org/reference/has_name.html" class="external-link">tibble::has_name()</a></code>), to reduce dependencies.</li>
+<li>Mattan S. Ben-Shachar’s presentation about Bayesian analysis using <code>bayestestR</code> <a href="https://mattansb.github.io/bayesian-evidence-iscop-2021/#1" class="external-link uri">https://mattansb.github.io/bayesian-evidence-iscop-2021/#1</a>
+</li>
 </ul>
-<p><strong><code>print</code> functions</strong></p>
-<ul>
-<li>
-<code>print</code> methods should invisibly return the original (unchanged) input (<a href="https://github.com/easystats/easystats/issues/65" class="external-link">#65</a>).</li>
-</ul>
-<p><strong>Function names</strong></p>
-<ul>
-<li><p>Lower case, underscore separated if more than one verb.</p></li>
-<li><p>Common prefix for functions that focus on specific “tasks” or workflows (e.g. <strong>insight</strong>, <code>get_*()</code> to get data, <code>find_*()</code> to find information, or <strong>performance</strong>, <code>performance_*()</code> to compute measures of model quality, <code>check_*()</code> to check model assumptions…).</p></li>
-<li><p>Internal functions (that are not exported, like the previously mentioned helper-functions) should always start with a <code>.</code> (e.g., <code>.do_some_internal_stuff()</code>).</p></li>
-</ul>
-<p><strong>Argument names</strong></p>
-<ul>
-<li>lower case, underscore separated if more than one verb</li>
-</ul>
-<p><strong>Element / Column names</strong> (for returned data frames)</p>
-<ol style="list-style-type: decimal">
-<li><p>First letter of the column name is capital, unless (6) applies (<em>example:</em> <code>Parameter</code>).</p></li>
-<li><p>First letter of nouns is capital, unless (6) applies (<em>example:</em> <code>ROPE_Percentage</code>, <code>Prior_Scale</code>).</p></li>
-<li><p>Using underscore rather than camelCase to separate words (<em>example:</em> <code>CI_high</code>).</p></li>
-<li><p>Multiple words: common/main part first and adjective/specifier/variational part after, unless (8) applies (<em>example:</em> <code>Median_standardized</code>, <code>ROPE_percentage</code>).</p></li>
-<li><p>Abbreviations: all uppercase (<em>example:</em> <code>ESS</code>, <code>MCSE</code>, <code>ROPE</code>).</p></li>
-<li><p>Keep conventions for reserved words (<em>example:</em> <code>p</code>, <code>pd</code>, <code>Rhat</code>).</p></li>
-<li><p>Adjectives / verbs: all lower case, unless (1) applies (<em>example:</em> <code>high</code> or <code>low</code> in <code>CI_high</code> or <code>CI_low</code>).</p></li>
-<li><p>In case of multiple occurrences of column names that indicate the same measure or content (like <code>CI_low</code> or <code>SE</code>), the common part is appended as suffix to the context specific part (<em>example:</em> <code>CI_low</code> and <code>Eta2_partial_CI_low</code>, and <strong>not</strong> <code>CI_low</code> and <code>CI_low_Eta2_partial</code>).</p></li>
-<li><p>The “squared” term in column names that refers to “common” statistics (<code>Eta2</code>, <code>Chi2</code>, <code>Omega2</code>, …) should be written as <code>2</code>, not <code>sq</code>, <code>squared</code> or <code>pétit-deux</code> (<em>example:</em> <code>Chi2</code>, and <strong>not</strong> <code>Chisq</code>, <code>Eta2</code>, and <strong>not</strong> <code>Eta_squared</code>). This rule does <strong>not</strong> apply to function names.</p></li>
-</ol>
+</div>
 </div>
   </div>
 
