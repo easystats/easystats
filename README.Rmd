@@ -68,7 +68,7 @@ options(
 
 .
 
-## What is *easystats*?
+# What is *easystats*?
 
 **easystats** is a collection of R packages, which aims to provide a unifying
 and consistent framework to tame, discipline, and harness the scary R statistics
@@ -81,7 +81,7 @@ You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all. ***Gotta catch 'em all!*** <!--
 'tis a pokémon reference for y'all grandpas -->
 
-## Getting started
+# Getting started
 
 Each **easystats** package has a different scope and purpose. This means your
 **best way to start** is to explore and pick the one(s) that you feel might be
@@ -109,7 +109,7 @@ cover all aspects of statistical analysis and data visualization.
 - [**see**](https://github.com/easystats/see): 🎨 The plotting companion to
   create beautiful results visualizations
 
-## Frequently Asked Questions
+# Frequently Asked Questions
 
 **How is *easystats* different from the *tidyverse*?**
 
@@ -143,7 +143,7 @@ packages, but it also used for instance in
 Moreover, the *easystats* packages are very lightweight, with a minimal set of
 dependencies, which again makes it great if you want to rely on them.
 
-## Installation
+# Installation
 
 The whole `easystats` suite can be installed *at once* with the following:
 
@@ -158,29 +158,29 @@ You can then load the entire ecosystem by running:
 library("easystats")
 ```
 
-## Documentation
+# Documentation
 
-### Websites
+## Websites
 
 Each `easystats` package has a dedicated website.
 
 For example, website for `parameters` is
 <https://easystats.github.io/parameters/>.
 
-### Blog
+## Blog
 
 In addition to the websites containing documentation for these packages, you can
 also read posts from `easystats` blog:
 <https://easystats.github.io/blog/posts/>.
 
-<!-- ### Other learning resources -->
+## Other learning resources
 
-<!-- In addition to these websites and blog posts, you can also check out the -->
-<!-- following presentations and talks to learn more about this ecosystem: -->
+In addition to these websites and blog posts, you can also check out the
+following presentations and talks to learn more about this ecosystem:
 
-<!-- TODO: https://github.com/easystats/easystats/issues/103 -->
+<https://easystats.github.io/easystats/articles/resources.html>
 
-## Dependencies
+# Dependencies
 
 Most *easystats* packages are very lightweight, *i.e.*, they don't rely nor
 import any other packages! This means that you can safely use them as
@@ -213,7 +213,7 @@ library(deepdep)
 plot_dependencies("see", depth = 3)
 ```
 
-## Citation
+# Citation
 
 How to reference *easystats*?
 
@@ -351,7 +351,7 @@ entries</summary>
 ```
 </details>
 
-## Versioning
+# Versioning
 
 Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. 
 Here are key steps to keep in mind:
@@ -372,7 +372,7 @@ version number.
 - Current development versions of our packages (i.e. master/main branch from
 GitHub) additionally have a **development** version number.
 
-## Downloads 
+# Downloads 
 
 ```{r, include=TRUE, results="hide", echo=FALSE}
 library(tidyverse)
@@ -650,30 +650,6 @@ ggplot(
   theme(axis.text.x = element_text(angle = 90))
 ```
 
-<!-- ### Cyclic Trend --> <!-- ```{r, message=FALSE, warning=FALSE, eval = TRUE,
-fig.align='center', echo=FALSE} --> <!-- byweek <- lme4::lmer(count ~
-day + (1|Package) + (1|month), data = data) %>% --> <!--
-modelbased::estimate_means() %>% --> <!-- mutate(day =
-forcats::fct_relevel(as.factor(day), "Monday", "Tuesday", "Wednesday",
-"Thursday", "Friday", "Saturday", "Sunday"), --> <!-- average = mean(Mean), -->
-<!-- x = as.numeric(day) / 7, --> <!-- what="week", --> <!-- month=NA) %>% -->
-<!-- arrange(day) -->
-
-<!-- bymonth <- lme4::lmer(count ~ month + (1|Package) + (1|day), data = data)
-%>% --> <!-- modelbased::estimate_means() %>% --> <!-- mutate(month =
-forcats::fct_relevel(as.factor(month), "January", "February", "March", "April",
-"May", "June", "July", "August", "September", "October", "November",
-"December"), --> <!-- average = mean(Mean), --> <!-- x = as.numeric(month) / 12,
---> <!-- what="month", --> <!-- day=NA) %>% --> <!-- arrange(month) -->
-
-<!-- rbind(byweek, bymonth) %>% --> <!-- ggplot(aes(x=x, y=Mean, group = what,
-color=what)) + --> <!-- geom_polygon(fill=NA, size=1) + --> <!--
-geom_hline(yintercept = byweek$average[1], linetype="dotted") + --> <!--
-theme_modern() + --> <!-- coord_polar(start=-pi/1.5) + --> <!--
-see::theme_radar() + --> <!-- theme(axis.title.x = element_blank(), --> <!--
-axis.title.y = element_blank(), --> <!-- axis.text.y = element_blank(), --> <!--
-panel.grid.major.y = element_blank()) --> <!-- ``` -->
-
 ### Average monthly downloads
 
 ```{r, fig.align='center', echo=FALSE}
@@ -707,11 +683,11 @@ average_monthly_downloads %>%
   coord_flip()
 ```
 
-## List of functions
+<!-- # List of functions -->
 
 <!-- ![](scripts/network_functions.png) -->
 
-```{r echo=FALSE, results='asis'}
+```{r echo=FALSE, results='asis', eval=FALSE}
 # it would be cool to add the title / description for all functions
 library(insight)
 library(bayestestR)
@@ -755,3 +731,23 @@ all_funs <- sort(as.character(all_funs$Functions))
 
 cat(paste0(c("", all_funs), collapse = "\n- "))
 ```
+
+# Contributing
+
+We are happy to receive bug reports, suggestions, questions, and (most of all)
+contributions to fix problems and add features. Pull Requests for contributions are encouraged.
+
+Here are some simple ways in which you can contribute (in the increasing order
+of commitment):
+
+  - Read and correct any inconsistencies in the documentation
+
+  - Raise issues about bugs or wanted features
+
+  - Review code
+
+  - Add new functionality
+
+# Code of Conduct
+
+Please note that the 'easystats' project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
