@@ -32,3 +32,4 @@ references.bib
 ^\.github/workflows/pr-commands\.yaml$
 hextools
 ^WIP/.
+^CODE_OF_CONDUCT\.md$
