@@ -1,0 +1,75 @@
+---
+title: "List of functions"
+output: 
+  rmarkdown::html_vignette:
+    toc: false
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{List of functions}
+  %\VignetteEngine{knitr::rmarkdown}
+bibliography: bibliography.bib
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+options(
+  knitr.kable.NA = "",
+  digits = 2
+)
+
+knitr::opts_chunk$set(
+  comment = ">",
+  dpi = 450,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+This vignette keeps a detailed catalog of **all** functions in the `easystats`
+package ecosystem.
+
+<!-- ![](scripts/network_functions.png) -->
+
+```{r echo=FALSE, results='asis'}
+# it would be cool to add the title / description for all functions
+library(insight)
+library(bayestestR)
+library(parameters)
+library(performance)
+library(correlation)
+library(effectsize)
+library(modelbased)
+library(see)
+library(report)
+
+all_funs <- data.frame()
+
+for (package in c("insight", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "see", "report")) {
+  name <- ls(paste0("package:", package))
+
+  functions <- paste0(
+    "[**`",
+    name,
+    "`**](https://easystats.github.io/",
+    package,
+    "/reference/index.html)",
+    " *(",
+    package,
+    ")*"
+  )
+
+  functions <- data.frame(
+    "Functions" = functions,
+    "Package" = package,
+    "Name" = name
+  )
+
+
+  all_funs <- rbind(all_funs, functions)
+}
+
+
+all_funs <- all_funs[!duplicated(all_funs$Name), ]
+all_funs <- sort(as.character(all_funs$Functions))
+
+cat(paste0(c("", all_funs), collapse = "\n- "))
+```
