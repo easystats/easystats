@@ -134,8 +134,8 @@ Yes, definitely! **easystats** is built in terms of modules that are general
 enough to be used inside other packages. For instance, the *insight* package is
 made to easily implement support for post-processing of pretty much all
 regression model packages under the sun. We use it in all the *easystats*
-packages, but it also used for instance in
-[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),
+packages, but it is also used in other non-easystats packages, such as 
+[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),  [**modelsummary**](https://github.com/vincentarelbundock/modelsummary/), 
 [**ggeffects**](https://github.com/strengejacke/ggeffects), and more. 
 
 **So why not in yours**? 
