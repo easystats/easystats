@@ -20,7 +20,7 @@ CRAN_checks <- function() {
 #'
 #' @export
 install_easystats_latest <- function() {
-  insight::check_if_installed("remotes")
+  insight::check_if_installed("remotes", "for installing R packages from GitHub")
 
   remotes::install_github(c(
     "easystats/insight",
@@ -44,7 +44,7 @@ easystats_install_latest <- install_easystats_latest
 #' @rdname install_easystats_latest
 #' @export
 install_easystats_dev <- function() {
-  insight::check_if_installed("remotes")
+  insight::check_if_installed("remotes", "for installing R packages from GitHub")
 
   remotes::install_github(c(
     "easystats/insight",
