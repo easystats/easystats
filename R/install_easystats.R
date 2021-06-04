@@ -20,9 +20,7 @@ CRAN_checks <- function() {
 #'
 #' @export
 install_easystats_latest <- function() {
-  if (!requireNamespace("remotes", quietly = TRUE)) {
-    stop("Package `remotes` required for installing R packages from GitHub. Please install it by running `install.packages('remotes').", call. = FALSE)
-  }
+  insight::check_if_installed("remotes")
 
   remotes::install_github(c(
     "easystats/insight",
@@ -46,9 +44,7 @@ easystats_install_latest <- install_easystats_latest
 #' @rdname install_easystats_latest
 #' @export
 install_easystats_dev <- function() {
-  if (!requireNamespace("remotes", quietly = TRUE)) {
-    stop("Package `remotes` required for installing R packages from GitHub. Please install it by running `install.packages('remotes').", call. = FALSE)
-  }
+  insight::check_if_installed("remotes")
 
   remotes::install_github(c(
     "easystats/insight",
@@ -289,13 +285,8 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 }
 
 .cran_checks <- function(full = FALSE) {
-  if (!requireNamespace("rvest", quietly = TRUE)) {
-    stop("Package `rvest` required. Please install it by running `install.packages('rvest').", call. = FALSE)
-  }
-
-  if (!requireNamespace("xml2", quietly = TRUE)) {
-    stop("Package `xml2` required. Please install it by running `install.packages('xml2').", call. = FALSE)
-  }
+  insight::check_if_installed("rvest")
+  insight::check_if_installed("xml2")
 
   on_cran <- .packages_on_cran()
   error <- FALSE
