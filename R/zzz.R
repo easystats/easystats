@@ -2,16 +2,16 @@
   easystats_versions <- .easystats_version()
 
   easystats_pkgs <- c(
-      "insight",
-      "bayestestR",
-      "performance",
-      "parameters",
-      "effectsize",
-      "see",
-      "correlation",
-      "modelbased",
-      "report"
-    )
+    "insight",
+    "bayestestR",
+    "performance",
+    "parameters",
+    "effectsize",
+    "see",
+    "correlation",
+    "modelbased",
+    "report"
+  )
 
   needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
 
@@ -35,7 +35,10 @@
     theme_color <- "white"
   }
 
-  final_message <- insight::color_text("# Attaching packages", "blue")
+  final_message <- insight::color_text(
+    paste0("# Attaching packages: easystats ", packageVersion("easystats")),
+    "blue"
+  )
 
   if (any(needs_update)) {
     final_message <- paste0(final_message, insight::color_text(" (", "blue"))
@@ -45,7 +48,6 @@
 
   final_message <- paste0(final_message, "\n")
 
-  # symbol_tick <- "\u2714 "
   # symbol_warning <- "\u26A0 "
   symbol_tick <- "\u2714 "
   symbol_warning <- "x "
@@ -67,9 +69,6 @@
       final_message <- paste0(final_message, "   ")
     }
   }
-
-  # final_message <- paste0(final_message, "\n")
-  # .cran_checks()
 
   if (any(needs_update)) {
     final_message <- paste0(final_message, insight::color_text("\nRestart the R-Session and update packages in red with 'easystats::easystats_update()'.\n", "yellow"))
