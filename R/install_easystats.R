@@ -14,9 +14,8 @@ CRAN_checks <- function() {
 #' Install the easystats suite from github
 #'
 #' This function can be used to install all the easystats package from github,
-#' either from the master branch (the stable one) with
-#' \code{install_easystats_latest()} or from the dev branch
-#' \code{install_easystats_dev()}.
+#' either from the master/main branch (the stable one) with
+#' \code{install_easystats_latest()}.
 #'
 #' @export
 install_easystats_latest <- function() {
@@ -40,33 +39,6 @@ install_easystats_latest <- function() {
 #' @rdname install_easystats_latest
 #' @export
 easystats_install_latest <- install_easystats_latest
-
-#' @rdname install_easystats_latest
-#' @export
-install_easystats_dev <- function() {
-  insight::check_if_installed("remotes", "for installing R packages from GitHub")
-
-  remotes::install_github(c(
-    "easystats/insight",
-    "easystats/bayestestR",
-    "easystats/performance",
-    "easystats/parameters",
-    "easystats/effectsize",
-    "easystats/correlation",
-    "easystats/modelbased",
-    "easystats/see",
-    "easystats/report"
-  ),
-  ref = "dev",
-  upgrade = "never"
-  )
-}
-
-#' @rdname install_easystats_latest
-#' @export
-easystats_install_dev <- install_easystats_dev
-
-
 
 
 #' Update easystats-packages and its dependencies from CRAN, if necessary.
@@ -204,7 +176,18 @@ easystats_update <- function(which = c("all", "core", "deps")) {
   )
 
   if (!is.null(pkgs)) {
-    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "modelbased", "report")
+    easystats_pkgs <- c(
+      "insight",
+      "bayestestR",
+      "performance",
+      "parameters",
+      "see",
+      "effectsize",
+      "correlation",
+      "modelbased",
+      "report"
+    )
+
     easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
@@ -224,7 +207,17 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
     .add_easystats_dev_pkgs(out, easystats_not_on_cran)
   } else {
-    easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "see", "effectsize", "correlation", "modelbased", "report")
+    easystats_pkgs <- c(
+      "insight",
+      "bayestestR",
+      "performance",
+      "parameters",
+      "see",
+      "effectsize",
+      "correlation",
+      "modelbased",
+      "report"
+    )
     easystats_on_cran <- .packages_on_cran()
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 

@@ -1,6 +1,18 @@
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
-  easystats_pkgs <- c("insight", "bayestestR", "performance", "parameters", "effectsize", "see", "correlation", "modelbased", "report")
+
+  easystats_pkgs <- c(
+      "insight",
+      "bayestestR",
+      "performance",
+      "parameters",
+      "effectsize",
+      "see",
+      "correlation",
+      "modelbased",
+      "report"
+    )
+
   needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
 
   if (length(needed) == 0) {
@@ -35,7 +47,7 @@
 
   # symbol_tick <- "\u2714 "
   # symbol_warning <- "\u26A0 "
-  symbol_tick <- "v "
+  symbol_tick <- "\u2714 "
   symbol_warning <- "x "
 
   for (i in 1:nrow(easystats_versions)) {
