@@ -48,9 +48,33 @@
 
   final_message <- paste0(final_message, "\n")
 
-  # symbol_warning <- "\u26A0 "
-  symbol_tick <- "\u2714 "
-  symbol_warning <- "x "
+  # adapted from cli pakcage
+  is_latex_output <- function () {
+    if (!("knitr" %in% loadedNamespaces())) {
+      return(FALSE)
+    }
+    get("is_latex_output", asNamespace("knitr"))()
+  }
+  is_utf8_output <- function() {
+    opt <- getOption("cli.unicode", NULL)
+    if (!is.null(opt)) {
+      isTRUE(opt)
+    }
+    else {
+      l10n_info()$`UTF-8` && !is_latex_output()
+    }
+  }
+
+  if (is_utf8_output()) {
+    # symbol_warning <- "\u26A0 "
+    symbol_tick <- "\u2714 "
+    symbol_warning <- "\u2716 "
+    symbol_info <- "\u2139 "
+  } else {
+    symbol_tick <- "\u221A "
+    symbol_warning <- "x "
+    symbol_info <- "i "
+  }
 
   for (i in 1:nrow(easystats_versions)) {
     if (needs_update[i]) {
