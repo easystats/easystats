@@ -49,7 +49,7 @@
   final_message <- paste0(final_message, "\n")
 
   # adapted from cli pakcage
-  is_latex_output <- function () {
+  is_latex_output <- function() {
     if (!("knitr" %in% loadedNamespaces())) {
       return(FALSE)
     }
