@@ -29,6 +29,7 @@
   max_len_ver <- max(nchar(easystats_versions$local))
 
   color_scheme <- insight::color_theme()
+
   if (!is.null(color_scheme) && color_scheme == "light") {
     theme_color <- "black"
   } else {
@@ -48,19 +49,19 @@
 
   final_message <- paste0(final_message, "\n")
 
-  # adapted from cli pakcage
+  # adapted from {cli} pakcage
   is_latex_output <- function() {
     if (!("knitr" %in% loadedNamespaces())) {
       return(FALSE)
     }
     get("is_latex_output", asNamespace("knitr"))()
   }
+
   is_utf8_output <- function() {
     opt <- getOption("cli.unicode", NULL)
     if (!is.null(opt)) {
       isTRUE(opt)
-    }
-    else {
+    } else {
       l10n_info()$`UTF-8` && !is_latex_output()
     }
   }
