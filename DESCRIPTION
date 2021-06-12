@@ -30,7 +30,7 @@ Imports:
     modelbased (>= 0.7.0),
     parameters (>= 0.14.0),
     performance (>= 0.7.2),
-    report (>= 0.3.0),
+    report (>= 0.3.5),
     see (>= 0.6.4),
     tools,
     utils
