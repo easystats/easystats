@@ -14,7 +14,7 @@ Authors@R:
              email = "dom.makowski@gmail.com",
              comment = c(ORCID = "0000-0001-5375-9967", Twitter = "@Dom_Makowski")))
 Maintainer: Dominique Makowski <dom.makowski@gmail.com>
-Description: The 'easystats' is meta-package that contains a set of
+Description: The 'easystats' is a meta-package that contains a set of
     packages, all of which aim to provide a unifying and consistent
     framework to tame, discipline and harness the scary R statistics and
     their pesky models. This package is designed to make it easy to
