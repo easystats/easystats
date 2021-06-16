@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Jump in the Easyverse
-Version: 0.4.0
+Version: 0.4.1
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",

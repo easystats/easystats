@@ -13,12 +13,12 @@ CRAN_checks <- function() {
 
 #' Install the easystats suite from github
 #'
-#' This function can be used to install all the easystats package from github,
+#' This function can be used to install all the easystats packages from GitHub,
 #' either from the master/main branch (the stable one) with
 #' \code{install_easystats_latest()}.
 #'
 #' @export
-install_easystats_latest <- function() {
+install_latest <- function() {
   insight::check_if_installed("remotes", "for installing R packages from GitHub")
 
   remotes::install_github(c(
@@ -36,9 +36,6 @@ install_easystats_latest <- function() {
   )
 }
 
-#' @rdname install_easystats_latest
-#' @export
-easystats_install_latest <- install_easystats_latest
 
 
 #' Update easystats-packages and its dependencies from CRAN, if necessary.
@@ -46,7 +43,6 @@ easystats_install_latest <- install_easystats_latest
 #' @param which String, indicates whether easystats-packages (\code{which =
 #'   "core"}), dependencies (\code{which = "deps"}) or both (\code{which =
 #'   "all"}) should be checked for available updates.
-#' @importFrom utils menu install.packages
 #' @export
 easystats_update <- function(which = c("all", "core", "deps")) {
   which <- match.arg(which)
@@ -113,8 +109,6 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 }
 
 
-#' @importFrom utils available.packages packageVersion
-#' @importFrom tools package_dependencies
 .easystats_deps <- function() {
   pkgs <- utils::available.packages()
 
@@ -160,8 +154,6 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 
 
-#' @importFrom utils available.packages packageVersion contrib.url
-#' @importFrom tools package_dependencies
 .easystats_version <- function() {
   pkgs <- tryCatch(
     {
@@ -366,6 +358,9 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 #'
 #' @export
 on_CRAN <- function() {
+  insight::check_if_installed("rvest")
+  insight::check_if_installed("xml2")
+
   on_cran <- .packages_on_cran()
   tryCatch(
     {
