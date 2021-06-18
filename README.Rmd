@@ -61,6 +61,7 @@ options(
 <a href = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="84" /></a>
 <a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="84" /></a>
+<a href = "https://github.com/easystats/datawizard"><img src='https://github.com/easystats/datawizard/raw/master/man/figures/logo.png' align="left" height="84" /></a>
 <br />
 </p>
 
@@ -108,6 +109,7 @@ cover all aspects of statistical analysis and data visualization.
   package to help you work with different models and packages
 - [**see**](https://github.com/easystats/see): 🎨 The plotting companion to
   create beautiful results visualizations
+- [**datawizard**](https://github.com/easystats/datawizard): Magic potions to clean and transform your data 🧙 
 
 # Frequently Asked Questions
 
