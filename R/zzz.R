@@ -25,7 +25,7 @@
   }
 
   final_message <- insight::color_text(
-    paste0("# Attaching packages: easystats ", packageVersion("easystats")),
+    paste0("# Attaching packages: easystats ", utils::packageVersion("easystats")),
     "blue"
   )
 
