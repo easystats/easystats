@@ -1,3 +1,7 @@
+# easystats 0.4.1
+
+* Add *datawizard* package.
+
 # easystats 0.4.0
 
 * Includes a new package for automated reporting of statistical analyses:

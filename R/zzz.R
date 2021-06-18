@@ -1,18 +1,6 @@
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
-
-  easystats_pkgs <- c(
-    "insight",
-    "bayestestR",
-    "performance",
-    "parameters",
-    "effectsize",
-    "see",
-    "correlation",
-    "modelbased",
-    "report"
-  )
-
+  easystats_pkgs <- .packages_on_cran()
   needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
 
   if (length(needed) == 0) {

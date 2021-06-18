@@ -23,6 +23,7 @@ install_latest <- function() {
 
   remotes::install_github(c(
     "easystats/insight",
+    "easystats/datawizard",
     "easystats/bayestestR",
     "easystats/performance",
     "easystats/parameters",
@@ -111,24 +112,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 .easystats_deps <- function() {
   pkgs <- utils::available.packages()
-
-  deps <-
-    tools::package_dependencies(
-      c(
-        "insight",
-        "bayestestR",
-        "performance",
-        "parameters",
-        "see",
-        "effectsize",
-        "modelbased",
-        "correlation",
-        "report"
-      ),
-      pkgs,
-      recursive = FALSE
-    )
-
+  deps <- tools::package_dependencies(.packages_on_cran(), pkgs, recursive = FALSE)
   pkg_deps <- unique(sort(unlist(deps)))
 
   base_pkgs <- c(
@@ -168,18 +152,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
   )
 
   if (!is.null(pkgs)) {
-    easystats_pkgs <- c(
-      "insight",
-      "bayestestR",
-      "performance",
-      "parameters",
-      "see",
-      "effectsize",
-      "correlation",
-      "modelbased",
-      "report"
-    )
-
+    easystats_pkgs <- .packages_on_github()
     easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
@@ -199,17 +172,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
     .add_easystats_dev_pkgs(out, easystats_not_on_cran)
   } else {
-    easystats_pkgs <- c(
-      "insight",
-      "bayestestR",
-      "performance",
-      "parameters",
-      "see",
-      "effectsize",
-      "correlation",
-      "modelbased",
-      "report"
-    )
+    easystats_pkgs <- .packages_on_github()
     easystats_on_cran <- .packages_on_cran()
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
 
@@ -399,7 +362,15 @@ on_CRAN <- function() {
 
 .packages_on_cran <- function() {
   c(
-    "insight", "bayestestR", "performance", "parameters", "effectsize",
+    "insight", "datawizard", "bayestestR", "performance", "parameters", "effectsize",
+    "modelbased", "correlation", "see", "report"
+  )
+}
+
+
+.packages_on_github <- function() {
+  c(
+    "insight", "datawizard", "bayestestR", "performance", "parameters", "effectsize",
     "modelbased", "correlation", "see", "report"
   )
 }
