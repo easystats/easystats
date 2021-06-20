@@ -49,6 +49,9 @@
     <loc>/reference/install_latest.html</loc>
   </url>
   <url>
+    <loc>/reference/install_suggested.html</loc>
+  </url>
+  <url>
     <loc>/reference/on_CRAN.html</loc>
   </url>
 </urlset>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • easystats</title>
+<title>Download all suggested packages — install_suggested • easystats</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Download all suggested packages — install_suggested" />
+<meta property="og:description" content="Download all suggested packages" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -74,7 +75,7 @@
   <body data-spy="scroll" data-target="#toc">
     
 
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -139,72 +140,42 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Download all suggested packages</h1>
+    <small class="dont-index">Source: <a href='https://github.com/easystats/easystats/blob/master/R/install_suggested.R'><code>R/install_suggested.R</code></a></small>
+    <div class="hidden name"><code>install_suggested.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Download all suggested packages</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>install_suggested</span><span class='op'>(</span>package <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></code></pre></div>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="CRAN_checks.html">CRAN_checks()</a></code> </p>
-        </td>
-        <td><p>Show CRAN check status for easystats-packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="easystats_update.html">easystats_update()</a></code> </p>
-        </td>
-        <td><p>Update easystats-packages and its dependencies from CRAN, if necessary.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="easystats_zen.html">easystats_zen()</a></code> </p>
-        </td>
-        <td><p>Welcome to the easyverse</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="install_latest.html">install_latest()</a></code> </p>
-        </td>
-        <td><p>Install the easystats suite from github</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="install_suggested.html">install_suggested()</a></code> </p>
-        </td>
-        <td><p>Download all suggested packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="on_CRAN.html">on_CRAN()</a></code> </p>
-        </td>
-        <td><p>Show weeks since last package update on CRAN</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>package</th>
+      <td><p>If <code>NULL</code>, all suggested packages for all 'easystats'
+packages will be installed. If a specific package is specified, only
+suggested packages for that package will be installed.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Useful only for its side-effect of installing the needed packages.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>To reduce the dependency load, 'easystats' packages by default will not
+download all internally needed packages. It will ask the user to download
+them only if they are needed. The current function can help install all
+packages a given 'easystats' package might need. For example,
+<code>install_suggested("see")</code>.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
