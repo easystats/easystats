@@ -2,7 +2,7 @@
 title: "Citing 'easystats'"
 output: 
   rmarkdown::html_vignette:
-    toc: true
+    toc: false
     fig_width: 10.08
     fig_height: 6
 vignette: >
