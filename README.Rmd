@@ -82,6 +82,31 @@ You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all. ***Gotta catch 'em all!*** <!--
 'tis a pokémon reference for y'all grandpas -->
 
+# Installation
+
+The whole `easystats` suite can be installed *at once* with the following:
+
+```r
+install.packages("remotes")
+remotes::install_github("easystats/easystats")
+```
+
+You can then load the entire ecosystem by running:
+
+```r
+library("easystats")
+```
+
+The package is currently not available on CRAN, but we are working on submitting
+it there soon.
+
+# Citation
+
+Do you wish to cite *easystats*? ❤️
+
+Have a look at this article on how you can do so!
+<https://easystats.github.io/easystats/articles/resources.html>
+
 # Getting started
 
 Each **easystats** package has a different scope and purpose. This means your
@@ -109,7 +134,7 @@ cover all aspects of statistical analysis and data visualization.
   package to help you work with different models and packages
 - [**see**](https://github.com/easystats/see): 🎨 The plotting companion to
   create beautiful results visualizations
-- [**datawizard**](https://github.com/easystats/datawizard): Magic potions to clean and transform your data 🧙 
+- [**datawizard**](https://github.com/easystats/datawizard): 🧙 Magic potions to clean and transform your data
 
 # Frequently Asked Questions
 
@@ -144,21 +169,6 @@ packages, but it is also used in other non-easystats packages, such as
 
 Moreover, the *easystats* packages are very lightweight, with a minimal set of
 dependencies, which again makes it great if you want to rely on them.
-
-# Installation
-
-The whole `easystats` suite can be installed *at once* with the following:
-
-```r
-install.packages("remotes")
-remotes::install_github("easystats/easystats")
-```
-
-You can then load the entire ecosystem by running:
-
-```r
-library("easystats")
-```
 
 # Documentation
 
@@ -215,144 +225,6 @@ library(deepdep)
 plot_dependencies("see", depth = 3)
 ```
 
-# Citation
-
-How to reference *easystats*?
-
-1. **Cite specific packages**
-
-The most parsimonious approach is to cite only the particular package that
-helped you, e.g., 
-
-> "using *bayestestR* (Makowski, Ben-Shachar, & Lüdecke, 2019)".
-
-2. **Cite the whole ecosystem** :heart:
-
-Want to credit the whole *easystats* ecosystem of packages? 
-
-This can be done with a sentence like the following:
-
-> Data processing was carried out with R (R Core Team, 2019) and the *easystats*
-ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Lüdecke, Ben-Shachar, Patil,
-Waggoner, & Makowski, 2021; Makowski, Ben-Shachar, & Lüdecke, 2019; Makowski,
-Ben-Shachar, Patil, & Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, & Makowski,
-2020; Lüdecke et al., 2021; Ben-Shachar, Lüdecke, & Makowski, 2020)
-
-- Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A Unified
-  Interface to Access Information from Model Objects in R. _Journal of Open
-  Source Software_, *4*, 1412. https://doi.org/10.21105/joss.01412
-
-- Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR: Describing
-  Effects and their Uncertainty, Existence and Significance within the Bayesian
-  Framework. _Journal of Open Source Software_, *4*(40), 1541.
-  https://doi.org/10.21105/joss.01541
-
-- Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019). Methods and
-  Algorithms for Correlation Analysis in R. _Journal of Open Source Software_,
-  *5*(51), 2306. https://doi.org/10.21105/joss.02306
-
-- Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020). parameters:
-  Extracting, Computing and Exploring the Parameters of Statistical Models using
-  R. _Journal of Open Source Software_, *5*(53), 2445.
-  https://doi.org/10.21105/joss.02445
-
-- Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize: Estimation of
-  Effect Size Indices and Standardized Parameters. _Journal of Open Source
-  Software_, *5*(56), 2815. https://doi.org/10.21105/joss.02815
-
-- Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., & Makowski, D.
-  (2021). performance: An R Package for Assessment, Comparison and Testing of
-  Statistical Models. _Journal of Open Source Software_, _6_(60), 3139.
-  https://doi.org/10.21105/joss.03139
-
-<details> <summary>Click here to see the corresponding APA and bibtex
-entries</summary>
-
-<br>
-
-```
-@article{ludecke2019insight,
-	journal = {Journal of Open Source Software},
-	doi = {10.21105/joss.01412},
-	issn = {2475-9066},
-	number = {38},
-	publisher = {The Open Journal},
-	title = {insight: A Unified Interface to Access Information from Model Objects in R},
-	url = {http://dx.doi.org/10.21105/joss.01412},
-	volume = {4},
-	author = {Lüdecke, Daniel and Waggoner, Philip and Makowski, Dominique},
-	pages = {1412},
-	date = {2019-06-25},
-	year = {2019},
-	month = {6},
-	day = {25}
-}
-
-
-@article{makowski2019bayestestr,
-	title = {{bayestestR}: {Describing} {Effects} and their {Uncertainty}, {Existence} and {Significance} within the {Bayesian} {Framework}},
-	volume = {4},
-	issn = {2475-9066},
-	shorttitle = {{bayestestR}},
-	url = {https://joss.theoj.org/papers/10.21105/joss.01541},
-	doi = {10.21105/joss.01541},
-	number = {40},
-	urldate = {2019-08-13},
-	journal = {Journal of Open Source Software},
-	author = {Makowski, Dominique and Ben-Shachar, Mattan S. and Lüdecke, Daniel},
-	month = aug,
-	year = {2019},
-	pages = {1541}
-}
-
-@article{makowski2020correlation,
-  doi={10.21105/joss.02306},
-  title={Methods and Algorithms for Correlation Analysis in R},
-  author={Makowski, Dominique and Ben-Shachar, Mattan S. and Patil, Indrajeet and L{\"u}decke, Daniel},
-  journal={Journal of Open Source Software},
-  volume={5},
-  number={51},
-  pages={2306},
-  year={2020}
-}
-
-@article{ludecke20202parameters,
-  title = {parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using {R}.},
-  volume = {5},
-  doi = {10.21105/joss.02445},
-  number = {53},
-  journal = {Journal of Open Source Software},
-  author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Dominique Makowski},
-  year = {2020},
-  pages = {2445},
-}
-
-@article{benchashar2020effectsize,
-  title = {{e}ffectsize: Estimation of Effect Size Indices and Standardized Parameters},
-  author = {Mattan S. Ben-Shachar and Daniel Lüdecke and Dominique Makowski},
-  year = {2020},
-  journal = {Journal of Open Source Software},
-  volume = {5},
-  number = {56},
-  pages = {2815},
-  publisher = {The Open Journal},
-  doi = {10.21105/joss.02815},
-  url = {https://doi.org/10.21105/joss.02815},
-}
-
-@Article{Lüdecke2021performance,
-    title = {{performance}: An {R} Package for Assessment, Comparison and Testing of Statistical Models},
-    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Philip Waggoner and Dominique Makowski},
-    year = {2021},
-    journal = {Journal of Open Source Software},
-    volume = {6},
-    number = {60},
-    pages = {3139},
-    doi = {10.21105/joss.03139},
-  }
-```
-</details>
-
 # Versioning
 
 Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. 
@@ -385,23 +257,23 @@ library(see)
 library(ggrepel)
 
 # Packages data
-downloads_insight <- cranlogs::cran_downloads(package = "insight", from = "2019-02-26") %>%
+downloads_insight <- cranlogs::cran_downloads("insight", from = "2019-02-26") %>%
   mutate(Package = "insight")
-downloads_bayestestR <- cranlogs::cran_downloads(package = "bayestestR", from = "2019-04-08") %>%
+downloads_bayestestR <- cranlogs::cran_downloads("bayestestR", from = "2019-04-08") %>%
   mutate(Package = "bayestestR")
-downloads_performance <- cranlogs::cran_downloads(package = "performance", from = "2019-04-22") %>%
+downloads_performance <- cranlogs::cran_downloads("performance", from = "2019-04-22") %>%
   mutate(Package = "performance")
-downloads_see <- cranlogs::cran_downloads(package = "see", from = "2019-05-22") %>%
+downloads_see <- cranlogs::cran_downloads("see", from = "2019-05-22") %>%
   mutate(Package = "see")
-downloads_parameters <- cranlogs::cran_downloads(package = "parameters", from = "2019-08-26") %>%
+downloads_parameters <- cranlogs::cran_downloads("parameters", from = "2019-08-26") %>%
   mutate(Package = "parameters")
-downloads_effectsize <- cranlogs::cran_downloads(package = "effectsize", from = "2019-11-15") %>%
+downloads_effectsize <- cranlogs::cran_downloads("effectsize", from = "2019-11-15") %>%
   mutate(Package = "effectsize")
-downloads_modelbased <- cranlogs::cran_downloads(package = "modelbased", from = "2020-01-12") %>%
+downloads_modelbased <- cranlogs::cran_downloads("modelbased", from = "2020-01-12") %>%
   mutate(Package = "modelbased")
-downloads_correlation <- cranlogs::cran_downloads(package = "correlation", from = "2020-03-16") %>%
+downloads_correlation <- cranlogs::cran_downloads("correlation", from = "2020-03-16") %>%
   mutate(Package = "correlation")
-downloads_report <- cranlogs::cran_downloads(package = "report", from = "2021-04-15") %>%
+downloads_report <- cranlogs::cran_downloads("report", from = "2021-04-15") %>%
   mutate(Package = "report")
 
 # Combine all data
@@ -595,25 +467,12 @@ data %>%
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
   geom_line(aes(y = average_count), size = 1, alpha = 0.7) +
-  # geom_smooth(aes(y = count),
-  #             method = 'loess',
-  #             size = 1,
-  #             se = FALSE) +
   geom_smooth(aes(y = count),
     method = "lm",
     linetype = "dotted",
     size = 0.75,
     se = FALSE
   ) +
-  # geom_linerange(data=events, aes(x = date, ymin = 0, ymax = event_y), colour = events$color, size = .5, linetype="dashed") +
-  # geom_label_repel(data=events, aes(label = event, x = date, y = event_y), fill = events$color, colour = "white", segment.colour = events$color) +
-  # geom_text_repel(
-  #   data = events,
-  #   aes(label = event, x = date, y = event_y),
-  #   colour = events$color,
-  #   segment.colour = events$color,
-  #   size = 3
-  # ) +
   see::theme_modern() +
   scale_x_date(
     date_breaks = "1 month",
@@ -629,7 +488,7 @@ data %>%
 
 ### Cumulative downloads
 
-```{r, eval = TRUE, fig.align='center', echo=FALSE}
+```{r, fig.align='center', echo=FALSE}
 data <- data %>%
   group_by(Package, year_month) %>%
   mutate(download_label = first(cumulative_count)) %>%
@@ -655,15 +514,6 @@ ggplot(
 ### Average monthly downloads
 
 ```{r, fig.align='center', echo=FALSE}
-# plot_range <- pretty(average_monthly_downloads$monthly_downloads)
-# ggplot(average_monthly_downloads, aes(x = package, y = monthly_downloads, fill = package)) +
-#   geom_point() +
-#   see::theme_modern() +
-#   scale_fill_manual(values=packages_colours) +
-#   theme(axis.text.x = element_text(angle = 90)) +
-#   labs(x = NULL, y = "Average monthly downloads", fill = "Package") +
-#   scale_x_discrete(labels = NULL) +
-#   scale_y_continuous(limits = c(0, max(plot_range)), breaks = plot_range)
 average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
 
@@ -694,11 +544,8 @@ Here are some simple ways in which you can contribute (in the increasing order
 of commitment):
 
   - Read and correct any inconsistencies in the documentation
-
   - Raise issues about bugs or wanted features
-
   - Review code
-
   - Add new functionality
 
 # Code of Conduct

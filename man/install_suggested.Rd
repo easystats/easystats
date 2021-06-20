@@ -8,8 +8,8 @@ install_suggested(package = NULL)
 }
 \arguments{
 \item{package}{If \code{NULL}, all suggested packages for all 'easystats'
-packages will be installed. If a specific package(s) are specified, only
-suggested packages for those package(s) will be installed.}
+packages will be installed. If specific packages are specified, only
+suggested packages for those packages will be installed.}
 }
 \value{
 Useful only for its side-effect of installing the needed packages.

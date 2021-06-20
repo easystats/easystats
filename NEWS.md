@@ -2,6 +2,8 @@
 
 * Add *datawizard* package.
 
+* Adds a new function `install_suggested()` to install suggested packages.
+
 # easystats 0.4.0
 
 * Includes a new package for automated reporting of statistical analyses:
