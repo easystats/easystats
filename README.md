@@ -213,9 +213,9 @@ Package version numbers indicate following:
 
 # Downloads
 
-| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see   | modelbased | report |
-| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :---- | :--------- | :----- |
-| 4,140,470 | 1,387,142 | 702,619    | 650,066    | 629,257     | 517,366    | 109,335     | 1e+05 | 39,569     | 5,093  |
+| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see     | modelbased | report |
+| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :------ | :--------- | :----- |
+| 4,145,432 | 1,388,710 | 703,364    | 650,854    | 629,892     | 518,010    | 109,573     | 100,173 | 39,666     | 5,190  |
 
 ### Trend
 
