@@ -19,22 +19,9 @@ CRAN_checks <- function() {
 #'
 #' @export
 install_latest <- function() {
-  insight::check_if_installed("remotes", "for installing R packages from GitHub")
-
-  remotes::install_github(c(
-    "easystats/insight",
-    "easystats/datawizard",
-    "easystats/bayestestR",
-    "easystats/performance",
-    "easystats/parameters",
-    "easystats/effectsize",
-    "easystats/correlation",
-    "easystats/modelbased",
-    "easystats/see",
-    "easystats/report"
-  ),
-  upgrade = "never"
-  )
+  install.packages(c("insight", "datawizard", "bayestestR", "performance",
+                     "parameters", "effectsize", "correlation", "modelbased",
+                     "see", "report"), repos = "https://easystats.r-universe.dev")
 }
 
 
