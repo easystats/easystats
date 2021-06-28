@@ -1,26 +1,6 @@
 
 # easystats
 
-<p>
-
-<a href = "https://github.com/easystats/insight"><img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/bayestestR"><img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/main/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/performance"><img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/effectsize"><img src='https://github.com/easystats/effectsize/raw/main/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/modelbased"><img src='https://github.com/easystats/modelbased/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/datawizard"><img src='https://github.com/easystats/datawizard/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<br />
-
-</p>
-
-<br />
-
-.
-
 # What is *easystats*?
 
 **easystats** is a collection of R packages, which aims to provide a
@@ -32,8 +12,10 @@ analysis. Instead, start with one package and, when you’ll face a new
 challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
-***Gotta catch ’em all\!*** <!--
+***Gotta catch ’em all!*** <!--
 'tis a pokémon reference for y'all grandpas -->
+
+<img src="man/figures/logo_wall.png" width="100%" />
 
 # Installation
 
@@ -41,8 +23,7 @@ The whole `easystats` suite can be installed *at once* with the
 following:
 
 ``` r
-install.packages("remotes")
-remotes::install_github("easystats/easystats")
+install.packages("easystats", repos = "https://easystats.r-universe.dev")
 ```
 
 You can then load the entire ecosystem by running:
@@ -58,7 +39,7 @@ submitting it there soon.
 
 Do you wish to cite *easystats*? ❤️
 
-Have a look at this article on how you can do so\!
+Have a look at this article on how you can do so!
 <https://easystats.github.io/easystats/articles/resources.html>
 
 # Getting started
@@ -71,29 +52,29 @@ smooth workflow, as these packages are meant to work together. Ideally,
 these packages work in unison to cover all aspects of statistical
 analysis and data visualization.
 
-  - [**report**](https://github.com/easystats/report): 📜 🎉 Automated
+-   [**report**](https://github.com/easystats/report): 📜 🎉 Automated
     statistical reporting of objects in R
-  - [**correlation**](https://github.com/easystats/correlation): 🔗 Your
+-   [**correlation**](https://github.com/easystats/correlation): 🔗 Your
     all-in-one package to run correlations
-  - [**modelbased**](https://github.com/easystats/modelbased): 📈
+-   [**modelbased**](https://github.com/easystats/modelbased): 📈
     Estimate effects, group averages and contrasts between groups based
     on statistical models
-  - [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great
+-   [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great
     for beginners or experts of Bayesian statistics
-  - [**parameters**](https://github.com/easystats/parameters): 📊 Obtain
+-   [**parameters**](https://github.com/easystats/parameters): 📊 Obtain
     a table containing all information about the parameters of your
     models
-  - [**performance**](https://github.com/easystats/performance): 💪
+-   [**performance**](https://github.com/easystats/performance): 💪
     Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
-  - [**effectsize**](https://github.com/easystats/effectsize): 🐉
+-   [**effectsize**](https://github.com/easystats/effectsize): 🐉
     Compute, convert, interpret and work with indices of effect size and
     standardized parameters
-  - [**insight**](https://github.com/easystats/insight): 🔮 For
+-   [**insight**](https://github.com/easystats/insight): 🔮 For
     developers, a package to help you work with different models and
     packages
-  - [**see**](https://github.com/easystats/see): 🎨 The plotting
+-   [**see**](https://github.com/easystats/see): 🎨 The plotting
     companion to create beautiful results visualizations
-  - [**datawizard**](https://github.com/easystats/datawizard): 🧙 Magic
+-   [**datawizard**](https://github.com/easystats/datawizard): 🧙 Magic
     potions to clean and transform your data
 
 # Frequently Asked Questions
@@ -104,7 +85,7 @@ You’ve probably already heard about the
 [**tidyverse**](https://www.tidyverse.org/), another very popular
 collection of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes
 using R easier. So, should you pick the *tidyverse* or *easystats*?
-**Pick both\!**
+**Pick both!**
 
 Indeed, these two ecosystems have been designed with very different
 goals in mind. The *tidyverse* packages are primarily made to create a
@@ -113,13 +94,13 @@ and consistent. On the other hand, **easystats** focuses more on the
 final stretch of the analysis: understanding and interpreting your
 results and reporting them in a manuscript or a report, while following
 best practices. You can definitely use the *easystats* functions in a
-*tidyverse* workflow\!
+*tidyverse* workflow!
 
 > **easystats + tidyverse =** ❤️
 
 **Can *easystats* be useful to advanced users and/or developers?**
 
-Yes, definitely\! **easystats** is built in terms of modules that are
+Yes, definitely! **easystats** is built in terms of modules that are
 general enough to be used inside other packages. For instance, the
 *insight* package is made to easily implement support for
 post-processing of pretty much all regression model packages under the
@@ -160,74 +141,70 @@ following presentations and talks to learn more about this ecosystem:
 # Dependencies
 
 Most *easystats* packages are very lightweight, *i.e.*, they don’t rely
-nor import any other packages\! This means that you can safely use them
+nor import any other packages! This means that you can safely use them
 as dependencies in your own packages, without the risk of a butterfly
 effect, where a small change in a distant downstream dependency with
 unexpected upstream consequences.
 
 For example, the `parameters` package only relies on two other packages.
 
-![](man/figures/depnetwork_parameters-1.png)<!-- -->
+<img src="man/figures/depnetwork_parameters-1.png" width="100%" />
 
 <!-- TODO: uncomment once on CRAN -->
-
 <!-- ```{r depnetwork_easystats} -->
-
 <!-- library(deepdep) -->
-
 <!-- plot_dependencies("easystats", depth = 3) -->
-
 <!-- ``` -->
 
-**There is one exception**\!
+**There is one exception**!
 
 The [**see**](http://easystats.github.io/see) package is one of our
 high-level packages that is responsible for plotting and creating
 figures, relying thus on other packages such as *ggplot2*, which has a
 substantial number of dependencies.
 
-![](man/figures/depnetwork_see-1.png)<!-- -->
+<img src="man/figures/depnetwork_see-1.png" width="100%" />
+
+# Downloads
+
+| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see     | modelbased | report | datawizard |
+|:----------|:----------|:-----------|:-----------|:------------|:-----------|:------------|:--------|:-----------|:-------|:-----------|
+| 4,204,067 | 1,409,167 | 712,242    | 659,987    | 636,859     | 525,685    | 111,392     | 101,611 | 40,246     | 5,735  | 1,143      |
+
+### Trend
+
+<img src="man/figures/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
+
+### Cumulative downloads
+
+<img src="man/figures/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" />
+
+### Average monthly downloads
+
+<img src="man/figures/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" />
 
 # Versioning
 
 Package version numbers indicate following:
 `MAJOR.MINOR.PATCH.DEVELOPMENT`. Here are key steps to keep in mind:
 
-  - As long as packages are in a more or less rapidly developing and
+-   As long as packages are in a more or less rapidly developing and
     changing state, the **major** version number is typically `0`.
 
-  - Once we think we will have a stable base that will likely not change
+-   Once we think we will have a stable base that will likely not change
     dramatically or soon, the major version number will be set to `1`,
     and will be increased for following major changes that probably
     break the current API.
 
-  - When new features are added or (re)moved, we typically increase the
+-   When new features are added or (re)moved, we typically increase the
     **minor** version number.
 
-  - Minimal changes or bug fixes only are indicated by increasing the
+-   Minimal changes or bug fixes only are indicated by increasing the
     **patch** version number.
 
-  - Current development versions of our packages (i.e. master/main
+-   Current development versions of our packages (i.e. master/main
     branch from GitHub) additionally have a **development** version
     number.
-
-# Downloads
-
-| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see     | modelbased | report |
-| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :------ | :--------- | :----- |
-| 4,198,078 | 1,407,516 | 711,479    | 659,238    | 636,254     | 525,026    | 111,179     | 101,498 | 40,188     | 5,700  |
-
-### Trend
-
-<img src="man/figures/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
-
-### Cumulative downloads
-
-<img src="man/figures/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
-
-### Average monthly downloads
-
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 # Contributing
 
@@ -238,10 +215,10 @@ for contributions are encouraged.
 Here are some simple ways in which you can contribute (in the increasing
 order of commitment):
 
-  - Read and correct any inconsistencies in the documentation
-  - Raise issues about bugs or wanted features
-  - Review code
-  - Add new functionality
+-   Read and correct any inconsistencies in the documentation
+-   Raise issues about bugs or wanted features
+-   Review code
+-   Add new functionality
 
 # Code of Conduct
 
