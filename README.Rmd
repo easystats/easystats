@@ -1,18 +1,8 @@
 ---
-output: 
-  github_document:
-    toc: false
-    fig_width: 10.08
-    fig_height: 6
-tags: [r, reports]
-vignette: >
-  \usepackage[utf8]{inputenc}
-  %\VignetteEngine{knitr::rmarkdown}
-editor_options: 
-  chunk_output_type: console
+output: github_document
 ---
 
-# easystats
+# *easystats*: Jump in the Easyverse
 
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
@@ -20,14 +10,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  out.width = "100%",
   fig.path = "man/figures/"
-)
-
-options(
-  knitr.kable.NA = "",
-  digits = 4,
-  width = 60
 )
 ```
 
@@ -44,7 +27,7 @@ You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all. ***Gotta catch 'em all!*** <!--
 'tis a pokémon reference for y'all grandpas -->
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="100%"}
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
@@ -58,7 +41,7 @@ install.packages("easystats", repos = "https://easystats.r-universe.dev")
 
 You can then load the entire ecosystem by running:
 
-```{r}
+```{r, eval=FALSE}
 library("easystats")
 ```
 

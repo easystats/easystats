@@ -1,5 +1,5 @@
 
-# easystats
+# *easystats*: Jump in the Easyverse
 
 # What is *easystats*?
 
@@ -148,7 +148,7 @@ unexpected upstream consequences.
 
 For example, the `parameters` package only relies on two other packages.
 
-<img src="man/figures/depnetwork_parameters-1.png" width="100%" />
+![](man/figures/depnetwork_parameters-1.png)<!-- -->
 
 <!-- TODO: uncomment once on CRAN -->
 <!-- ```{r depnetwork_easystats} -->
@@ -163,7 +163,7 @@ high-level packages that is responsible for plotting and creating
 figures, relying thus on other packages such as *ggplot2*, which has a
 substantial number of dependencies.
 
-<img src="man/figures/depnetwork_see-1.png" width="100%" />
+![](man/figures/depnetwork_see-1.png)<!-- -->
 
 # Downloads
 
@@ -173,15 +173,15 @@ substantial number of dependencies.
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 ### Cumulative downloads
 
-<img src="man/figures/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 ### Average monthly downloads
 
-<img src="man/figures/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 # Versioning
 
