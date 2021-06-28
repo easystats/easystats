@@ -14,12 +14,13 @@ editor_options:
 
 # easystats
 
-```{r, echo = FALSE}
+```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
   dpi = 300,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
+  out.width = "100%",
   fig.path = "man/figures/"
 )
 
@@ -29,45 +30,6 @@ options(
   width = 60
 )
 ```
-
-```{r echo=FALSE, fig.show='hold', fig.align='left', out.width="14%", out.height="14%"}
-# knitr::include_graphics(c("https://github.com/easystats/insight/raw/master/man/figures/logo.png",
-#                           "https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png",
-#                           "https://github.com/easystats/parameters/raw/master/man/figures/logo.png",
-#                           "https://github.com/easystats/performance/raw/master/man/figures/logo.png",
-#                           "https://github.com/easystats/modelbased/raw/master/man/figures/logo.png",
-#                           "https://github.com/easystats/correlation/raw/master/man/figures/logo.png",
-#                           "https://github.com/easystats/report/raw/master/man/figures/logo.png"))
-#
-
-# library(png)
-# library(grid)
-# library(gridExtra)
-# library(RCurl)
-#
-# insight <-  rasterGrob(as.raster(readPNG(getURLContent("https://github.com/easystats/insight/raw/master/man/figures/logo.png"))), interpolate = FALSE)
-# bayestestR <-  rasterGrob(as.raster(readPNG(getURLContent("https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png"))), interpolate = FALSE)
-# grid.arrange(insight, bayestestR, ncol = 1)
-```
-
-<p>
-
-<a href = "https://github.com/easystats/insight"><img src='https://github.com/easystats/insight/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/bayestestR"><img src='https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/parameters"><img src='https://github.com/easystats/parameters/raw/main/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/performance"><img src='https://github.com/easystats/performance/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/effectsize"><img src='https://github.com/easystats/effectsize/raw/main/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/modelbased"><img src='https://github.com/easystats/modelbased/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/correlation"><img src='https://github.com/easystats/correlation/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/see"><img src='https://github.com/easystats/see/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/report"><img src='https://github.com/easystats/report/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<a href = "https://github.com/easystats/datawizard"><img src='https://github.com/easystats/datawizard/raw/master/man/figures/logo.png' align="left" height="84" /></a>
-<br />
-</p>
-
-<br />
-
-.
 
 # What is *easystats*?
 
@@ -82,18 +44,21 @@ You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all. ***Gotta catch 'em all!*** <!--
 'tis a pokémon reference for y'all grandpas -->
 
+```{r, echo=FALSE}
+knitr::include_graphics("man/figures/logo_wall.png")
+```
+
 # Installation
 
 The whole `easystats` suite can be installed *at once* with the following:
 
-```r
-install.packages("remotes")
-remotes::install_github("easystats/easystats")
+```{r, eval=FALSE}
+install.packages("easystats", repos = "https://easystats.r-universe.dev")
 ```
 
 You can then load the entire ecosystem by running:
 
-```r
+```{r}
 library("easystats")
 ```
 
@@ -225,27 +190,6 @@ library(deepdep)
 plot_dependencies("see", depth = 3)
 ```
 
-# Versioning
-
-Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. 
-Here are key steps to keep in mind:
-
-- As long as packages are in a more or less rapidly developing and changing
-state, the **major** version number is typically `0`.
-
-- Once we think we will have a stable base that will likely not change
-dramatically or soon, the major version number will be set to `1`, and will be
-increased for following major changes that probably break the current API.
-
-- When new features are added or (re)moved, we typically increase the **minor**
-version number.
-
-- Minimal changes or bug fixes only are indicated by increasing the **patch**
-version number.
-
-- Current development versions of our packages (i.e. master/main branch from
-GitHub) additionally have a **development** version number.
-
 # Downloads 
 
 ```{r, include=TRUE, results="hide", echo=FALSE}
@@ -275,6 +219,8 @@ downloads_correlation <- cranlogs::cran_downloads("correlation", from = "2020-03
   mutate(Package = "correlation")
 downloads_report <- cranlogs::cran_downloads("report", from = "2021-04-15") %>%
   mutate(Package = "report")
+downloads_datawizard <- cranlogs::cran_downloads("datawizard", from = "2021-06-18") %>%
+  mutate(Package = "datawizard")
 
 # Combine all data
 data <- rbind(
@@ -286,7 +232,8 @@ data <- rbind(
   downloads_effectsize,
   downloads_modelbased,
   downloads_correlation,
-  downloads_report
+  downloads_report,
+  downloads_datawizard
 ) %>%
   group_by(Package) %>%
   mutate(
@@ -329,7 +276,8 @@ events <- rbind(
       "2019-09-26",
       "2019-11-15",
       "2020-01-12",
-      "2020-03-16"
+      "2020-03-16",
+      "2021-06-18"
     )),
     event = c(
       "CRAN - insight (0.1.0)",
@@ -348,7 +296,8 @@ events <- rbind(
       "CRAN - parameters (0.2.0)",
       "CRAN - effectsize (0.0.1)",
       "CRAN - modelbased (0.1.0)",
-      "CRAN - correlation (0.1.0)"
+      "CRAN - correlation (0.1.0)",
+      "CRAN - datawizard (0.1.0)"
     ),
     Package = c(
       "insight",
@@ -367,25 +316,12 @@ events <- rbind(
       "parameters",
       "effectsize",
       "modelbased",
-      "correlation"
+      "correlation",
+      "datawizard"
     ),
     color = color_CRAN, stringsAsFactors = FALSE
   )
 )
-# Blogposts
-# blogposts <- tidyRSS::tidyfeed("https://easystats.github.io/blog/categories/r/index.xml") %>%
-#   filter(item_pub_date > "2019-03-29") %>%
-#   select(
-#     date = item_pub_date,
-#     event = item_title
-#   ) %>%
-#   mutate(color = color_blog) %>%
-#   distinct()
-#
-# blogposts$Package <- rev(c("insight", "bayestestR", "bayestestR", "performance", "bayestestR", "see", "bayestestR", "bayestestR", "performance", "parameters", "parameters", "parameters", "bayestestR", "insight", "bayestestR", "correlation", "correlation", "bayestestR", "parameters"))
-#
-#
-# events <- rbind(events, blogposts)
 
 # Full join
 data <- full_join(data, events, by = c("date", "Package"))
@@ -408,7 +344,8 @@ packages_colours <- c(
   "effectsize" = unname(see::material_colors("brown")),
   "modelbased" = unname(see::material_colors("lime")),
   "correlation" = unname(see::material_colors("amber")),
-  "report" = unname(see::pizza_colors("tomato"))
+  "report" = unname(see::pizza_colors("tomato")),
+  "datawizard" = unname(see::pizza_colors("diavola"))
 )
 
 data$download_label <- NA
@@ -456,7 +393,7 @@ knitr::kable(dl_table)
 
 ### Trend
 
-```{r, eval = TRUE, fig.align='center', echo=FALSE}
+```{r, fig.align='center', echo=FALSE}
 # TIME TREND
 data %>%
   group_by(Package) %>%
@@ -499,10 +436,13 @@ data$download_label[duplicated(data$download_label)] <- NA
 
 ggplot(
   data,
-  aes(x = date, y = cumulative_count, label = download_label, color = Package)
+  aes(x = date, 
+      y = cumulative_count, 
+      #label = download_label, 
+      color = Package)
 ) +
   geom_line(size = 0.75) +
-  geom_label_repel(show.legend = FALSE) +
+  #geom_label_repel(show.legend = FALSE) +
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
@@ -534,6 +474,27 @@ average_monthly_downloads %>%
   ) +
   coord_flip()
 ```
+
+# Versioning
+
+Package version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. 
+Here are key steps to keep in mind:
+
+- As long as packages are in a more or less rapidly developing and changing
+state, the **major** version number is typically `0`.
+
+- Once we think we will have a stable base that will likely not change
+dramatically or soon, the major version number will be set to `1`, and will be
+increased for following major changes that probably break the current API.
+
+- When new features are added or (re)moved, we typically increase the **minor**
+version number.
+
+- Minimal changes or bug fixes only are indicated by increasing the **patch**
+version number.
+
+- Current development versions of our packages (i.e. master/main branch from
+GitHub) additionally have a **development** version number.
 
 # Contributing
 
