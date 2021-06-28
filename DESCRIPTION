@@ -12,7 +12,22 @@ Authors@R:
              family = "Makowski",
              role = c("aut", "cre"),
              email = "dom.makowski@gmail.com",
-             comment = c(ORCID = "0000-0001-5375-9967", Twitter = "@Dom_Makowski")))
+             comment = c(ORCID = "0000-0001-5375-9967", Twitter = "@Dom_Makowski")),
+      person(given = "Mattan S.",
+             family = "Ben-Shachar",
+             role = "aut",
+             email = "matanshm@post.bgu.ac.il",
+             comment = c(ORCID = "0000-0002-4287-4801")),
+      person(given = "Indrajeet",
+             family = "Patil",
+             role = "aut",
+             email = "patilindrajeet.science@gmail.com",
+             comment = c(ORCID = "0000-0003-1995-6531", Twitter = "@patilindrajeets")),
+      person(given = "Brenton M.",
+             family = "Wiernik",
+             role = "aut",
+             email = "brenton@wiernik.org",
+             comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")))
 Maintainer: Dominique Makowski <dom.makowski@gmail.com>
 Description: The 'easystats' is a meta-package that contains a set of
     packages, all of which aim to provide a unifying and consistent
@@ -24,8 +39,8 @@ URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
 Imports:
     bayestestR (>= 0.10.0),
-    datawizard,
     correlation (>= 0.6.1),
+    datawizard,
     effectsize (>= 0.4.5),
     insight (>= 0.14.1),
     modelbased (>= 0.7.0),
@@ -36,10 +51,10 @@ Imports:
     tools,
     utils
 Suggests: 
+    knitr,
     rvest,
     spelling,
-    xml2,
-    knitr
+    xml2
 Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.1.1.9001
