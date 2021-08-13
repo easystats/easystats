@@ -3,8 +3,6 @@ title: "Contributing to R Packages: A Tutorial"
 output: 
   rmarkdown::html_vignette:
     toc: true
-    fig_width: 10.08
-    fig_height: 6
 tags: [r, programing]
 vignette: >
   \usepackage[utf8]{inputenc}
@@ -12,7 +10,6 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
-bibliography: bibliography.bib
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}

@@ -2,7 +2,7 @@
 title: "Citing 'easystats'"
 output: 
   rmarkdown::html_vignette:
-    toc: false
+    toc: true
 vignette: >
   \usepackage[utf8]{inputenc}
   %\VignetteIndexEntry{Citing 'easystats'}
@@ -161,5 +161,17 @@ entries</summary>
     pages = {3139},
     doi = {10.21105/joss.03139},
   }
+  
+@Article{Lüdecke2021see,
+    title = {{see}: An {R} Package for Visualizing Statistical Models},
+    author = {Daniel Lüdecke and Indrajeet Patil and Mattan S. Ben-Shachar and Brenton M. Wiernik and Philip Waggoner and Dominique Makowski},
+    journal = {Journal of Open Source Software},
+    year = {2021},
+    volume = {6},
+    number = {64},
+    pages = {3393},
+    doi = {10.21105/joss.03393},
+  }
+  
 ```
 </details>

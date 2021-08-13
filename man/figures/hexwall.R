@@ -30,8 +30,15 @@ path <- c(
 # scale_coords:     Should the coordinates be scaled to the hexagon size?
 # remove_size:      Should hexagons of an abnormal size be removed?
 # sort_mode:        How should the files be sorted?
-hexwall <- function(path, sticker_row_size = 16, sticker_width = 500, remove_small = TRUE, total_stickers = NULL, remove_size = TRUE,
-                    coords = NULL, scale_coords = TRUE, sort_mode = c("filename", "random", "color", "colour")) {
+hexwall <- function(path,
+                    sticker_row_size = 16,
+                    sticker_width = 500,
+                    remove_small = TRUE,
+                    total_stickers = NULL,
+                    remove_size = TRUE,
+                    coords = NULL,
+                    scale_coords = TRUE,
+                    sort_mode = c("filename", "random", "color", "colour")) {
   sort_mode <- match.arg(sort_mode)
 
   # Load stickers

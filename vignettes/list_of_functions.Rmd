@@ -7,7 +7,6 @@ vignette: >
   \usepackage[utf8]{inputenc}
   %\VignetteIndexEntry{List of functions}
   %\VignetteEngine{knitr::rmarkdown}
-bibliography: bibliography.bib
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}

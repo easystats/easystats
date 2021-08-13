@@ -3,13 +3,10 @@ title: "Learning resources"
 output: 
   rmarkdown::html_vignette:
     toc: true
-    fig_width: 10.08
-    fig_height: 6
 vignette: >
   \usepackage[utf8]{inputenc}
   %\VignetteIndexEntry{Learning resources}
   %\VignetteEngine{knitr::rmarkdown}
-bibliography: bibliography.bib
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
