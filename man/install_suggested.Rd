@@ -15,7 +15,7 @@ suggested packages for those packages will be installed.}
 Useful only for its side-effect of installing the needed packages.
 }
 \description{
-Download all suggested packages
+In \code{easystats}, we have a 0-dependency policy, which makes our packages fairly light and fast to install. However, we rely on many many (many) packages for testing (at least all the packages for functions that we support) and some specific features. These "soft dependencies" can be downloaded at once using this function. This will allow you to fully utilize 100\% of easystats' functionalities without errors.
 }
 \details{
 To reduce the dependency load, 'easystats' packages by default will not

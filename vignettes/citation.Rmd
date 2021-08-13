@@ -3,13 +3,10 @@ title: "Citing 'easystats'"
 output: 
   rmarkdown::html_vignette:
     toc: false
-    fig_width: 10.08
-    fig_height: 6
 vignette: >
   \usepackage[utf8]{inputenc}
   %\VignetteIndexEntry{Citing 'easystats'}
   %\VignetteEngine{knitr::rmarkdown}
-bibliography: bibliography.bib
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
@@ -75,6 +72,9 @@ Ben-Shachar, Patil, & Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, & Makowski,
   (2021). performance: An R Package for Assessment, Comparison and Testing of
   Statistical Models. _Journal of Open Source Software_, _6_(60), 3139.
   https://doi.org/10.21105/joss.03139
+
+- Lüdecke, D., Patil, I., Ben-Schachar, M.S., Wiernik, B.M., Waggoner, P., &    Makowski, D. (2021). see: An R Package for Visualizing Statistical Models.    _Journal of Open Source Software_, _6_(64), 3393,
+  https://doi.org/10.21105/joss.03393
 
 <details> <summary>Click here to see the corresponding APA and bibtex
 entries</summary>

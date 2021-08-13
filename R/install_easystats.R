@@ -19,9 +19,11 @@ CRAN_checks <- function() {
 #'
 #' @export
 install_latest <- function() {
-  install.packages(c("insight", "datawizard", "bayestestR", "performance",
-                     "parameters", "effectsize", "correlation", "modelbased",
-                     "see", "report"), repos = "https://easystats.r-universe.dev")
+  install.packages(c(
+    "insight", "datawizard", "bayestestR", "performance",
+    "parameters", "effectsize", "correlation", "modelbased",
+    "see", "report"
+  ), repos = "https://easystats.r-universe.dev")
 }
 
 
