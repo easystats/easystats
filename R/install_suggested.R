@@ -20,19 +20,21 @@
 #'
 #' @export
 install_suggested <- function(package = NULL) {
+  suggested_packages <- .suggested_pkgs()
+
   if (is.null(package)) {
-    package <- names(.suggested_pkgs)
+    package <- names(suggested_packages)
   }
 
   # unique suggested packages to download
-  pkg_download <- unique(unlist(.suggested_pkgs[package]))
+  pkg_download <- unique(unlist(suggested_packages[package]))
 
 
   # install only the packages not yet installed
-  installed_packages <- pkg_download %in% rownames(installed.packages())
+  installed_packages <- pkg_download %in% rownames(utils::installed.packages())
 
   if (any(!installed_packages)) {
-    install.packages(pkg_download[!installed_packages])
+    utils::install.packages(pkg_download[!installed_packages])
   } else {
     message("All of the suggested packages are already installed :)")
   }
@@ -40,7 +42,26 @@ install_suggested <- function(package = NULL) {
 
 
 #' @keywords internal_list
-.suggested_pkgs <- list(
+.suggested_pkgs <- function() {
+  list(
+    insight = .find_suggested("insight"),
+    datawizard = .find_suggested("datawizard"),
+    performance = .find_suggested("performance"),
+    parameters = .find_suggested("parameters"),
+    see = .find_suggested("see"),
+    effectsize = .find_suggested("effectsize"),
+    bayestestR = .find_suggested("bayestestR"),
+    correlation = .find_suggested("correlation"),
+    report = .find_suggested("report"),
+    modelbased = .find_suggested("modelbased")
+  )
+}
+
+
+
+
+#' @keywords internal_list
+.suggested_pkgs_old <- list(
   # if you add a new instance of `check_if_installed`, please edit the corresponding entry
   # duplicated entries are fine; we are using unique values anyway
   # please use alphabetical order
@@ -67,7 +88,7 @@ install_suggested <- function(package = NULL) {
 
 
   # `parameters` --------
-  parameters_suggested = c(
+  parameters = c(
     "aod", "BayesFactor", "cAIC4", "cplm", "DRR", "EGAnet", "fastICA", "glmmTMB",
     "emmeans", "lavaan", "lavaSearch2", "MASS", "lme4", "lmerTest", "loo", "Matrix",
     "mice", "nFactors", "projpred", "sandwich"
@@ -101,3 +122,30 @@ install_suggested <- function(package = NULL) {
   # `modelbased` ----------
   modelbased = c("emmeans")
 )
+
+
+
+
+# crawl suggestion fields
+
+.find_suggested <- function(package) {
+  insight::check_if_installed("xml2")
+
+  url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
+  html_page <- xml2::read_html(url)
+  elements <- xml2::as_list(html_page)
+  suggest_field <- elements$html$body$div$table[[4]][[3]]
+
+  pkgs <- lapply(suggest_field, function(i) {
+    if (is.list(i)) {
+      i[[1]]
+    } else {
+      NA
+    }
+  })
+
+  suggested_packages <- as.vector(unname(stats::na.omit(unlist(pkgs))))
+
+  # remove Bioconductor packages
+  setdiff(suggested_packages, "M3C")
+}
