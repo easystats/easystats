@@ -18,11 +18,18 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
+#' @examples
+#' \dontrun{
+#' install_suggested("easystats")
+#' }
+#'
 #' @export
-install_suggested <- function(package = NULL) {
+install_suggested <- function(package = "easystats") {
+
+
   suggested_packages <- .suggested_pkgs()
 
-  if (is.null(package)) {
+  if (is.null(package) || "easystast" %in% package) {
     package <- names(suggested_packages)
   }
 

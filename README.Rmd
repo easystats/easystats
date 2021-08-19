@@ -48,6 +48,12 @@ library("easystats")
 The package is currently not available on CRAN, but we are working on submitting
 it there soon.
 
+Finally, as *easystats* sometimes depends on some additional packages for specific functions that are not downloaded by default. If you want to benefit from the **full *easystats* experience** without any hiccups, simply run the following:
+
+```{r, eval=FALSE}
+easystats::install_suggested()
+```
+
 # Citation
 
 Do you wish to cite *easystats*? ❤️

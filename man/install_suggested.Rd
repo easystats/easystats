@@ -4,7 +4,7 @@
 \alias{install_suggested}
 \title{Download all suggested packages}
 \usage{
-install_suggested(package = NULL)
+install_suggested(package = "easystats")
 }
 \arguments{
 \item{package}{If \code{NULL}, all suggested packages for all 'easystats'
@@ -23,4 +23,10 @@ download all internally needed packages. It will ask the user to download
 them only if they are needed. The current function can help install all
 packages a given 'easystats' package might need. For example,
 \code{install_suggested("see")}.
+}
+\examples{
+\dontrun{
+install_suggested("easystats")
+}
+
 }
