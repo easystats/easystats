@@ -35,6 +35,15 @@ library("easystats")
 The package is currently not available on CRAN, but we are working on
 submitting it there soon.
 
+Finally, as *easystats* sometimes depends on some additional packages
+for specific functions that are not downloaded by default. If you want
+to benefit from the **full *easystats* experience** without any hiccups,
+simply run the following:
+
+``` r
+easystats::install_suggested()
+```
+
 # Citation
 
 Do you wish to cite *easystats*? ❤️
@@ -173,19 +182,19 @@ substantial number of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see     | modelbased | datawizard | report |
 | :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :------ | :--------- | :--------- | :----- |
-| 4,628,282 | 1,527,503 | 775,196    | 717,709    | 689,323     | 574,135    | 126,882     | 116,073 | 47,791     | 45,412     | 8,258  |
+| 4,640,173 | 1,531,219 | 776,605    | 718,944    | 690,373     | 575,246    | 127,386     | 116,558 | 48,122     | 47,401     | 8,319  |
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
 ### Cumulative downloads
 
-<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 ### Average monthly downloads
 
-<img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 # Versioning
 
