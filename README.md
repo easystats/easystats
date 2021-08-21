@@ -180,9 +180,9 @@ substantial number of dependencies.
 
 # Downloads
 
-| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see     | modelbased | datawizard | report |
+| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | see     | datawizard | modelbased | report |
 | :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :------ | :--------- | :--------- | :----- |
-| 4,640,173 | 1,531,219 | 776,605    | 718,944    | 690,373     | 575,246    | 127,386     | 116,558 | 48,122     | 47,401     | 8,319  |
+| 4,650,881 | 1,534,340 | 777,901    | 720,104    | 691,403     | 576,218    | 127,882     | 117,038 | 49,143     | 48,447     | 8,405  |
 
 ### Trend
 
