@@ -28,7 +28,7 @@ install_latest <- function(source = c("github", "cran")) {
     repos <- getOption("repos")['CRAN']
   }
 
-  install.packages(c(
+  utils::install.packages(c(
     "insight", "datawizard", "bayestestR", "performance",
     "parameters", "effectsize", "correlation", "modelbased",
     "see", "report"
