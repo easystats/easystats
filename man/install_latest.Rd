@@ -2,16 +2,16 @@
 % Please edit documentation in R/install_easystats.R
 \name{install_latest}
 \alias{install_latest}
-\title{Install the easystats suite from GitHub or CRAN}
+\title{Install the easystats suite from R-universe (GitHub) or CRAN}
 \usage{
-install_latest(source = c("github", "cran"))
+install_latest(source = c("development", "cran"))
 }
 \arguments{
-\item{source}{Character. Either `"github"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")$CRAN`.}
+\item{source}{Character. Either `"development"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")$CRAN`.}
 }
 \description{
-This function can be used to install all the easystats packages from either
-GitHub (for the latest develolpment versions) or from CRAN (for the current
-version on CRAN), If installed from GitHub, packages will be installed from
-the stable branch (master/main) for each package.
+This function can be used to install all the easystats packages, either 
+latest develolpment versions (from R-universe/GitHub) or the current 
+versions from CRAN. If the development versions are installed, packages 
+will be installed from the stable branch (master/main) for each package.
 }
