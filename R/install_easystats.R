@@ -11,19 +11,29 @@ CRAN_checks <- function() {
 }
 
 
-#' Install the easystats suite from github
+#' Install the easystats suite from R-universe (GitHub) or CRAN
 #'
-#' This function can be used to install all the easystats packages from GitHub,
-#' either from the master/main branch (the stable one) with
-#' \code{install_easystats_latest()}.
+#' This function can be used to install all the easystats packages, either
+#' latest develolpment versions (from R-universe/GitHub) or the current
+#' versions from CRAN. If the development versions are installed, packages
+#' will be installed from the stable branch (master/main) for each package.
+#'
+#' @param source Character. Either `"development"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")$CRAN`.
 #'
 #' @export
-install_latest <- function() {
-  install.packages(c(
+install_latest <- function(source = c("development", "cran")) {
+  source <- match.arg(source, c("development", "cran"))
+  if (source == "development") {
+    repos <- "https://easystats.r-universe.dev"
+  } else {
+    repos <- getOption("repos")['CRAN']
+  }
+
+  utils::install.packages(c(
     "insight", "datawizard", "bayestestR", "performance",
     "parameters", "effectsize", "correlation", "modelbased",
     "see", "report"
-  ), repos = "https://easystats.r-universe.dev")
+  ), repos = repos)
 }
 
 
