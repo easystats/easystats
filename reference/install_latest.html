@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Install the easystats suite from github — install_latest • easystats</title>
+<title>Install the easystats suite from R-universe (GitHub) or CRAN — install_latest • easystats</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,11 @@
 
 
 
-<meta property="og:title" content="Install the easystats suite from github — install_latest" />
-<meta property="og:description" content="This function can be used to install all the easystats packages from GitHub,
-either from the master/main branch (the stable one) with
-install_easystats_latest()." />
+<meta property="og:title" content="Install the easystats suite from R-universe (GitHub) or CRAN — install_latest" />
+<meta property="og:description" content="This function can be used to install all the easystats packages, either 
+latest develolpment versions (from R-universe/GitHub) or the current 
+versions from CRAN. If the development versions are installed, packages 
+will be installed from the stable branch (master/main) for each package." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -147,19 +148,28 @@ install_easystats_latest()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Install the easystats suite from github</h1>
+    <h1>Install the easystats suite from R-universe (GitHub) or CRAN</h1>
     <small class="dont-index">Source: <a href='https://github.com/easystats/easystats/blob/master/R/install_easystats.R'><code>R/install_easystats.R</code></a></small>
     <div class="hidden name"><code>install_latest.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function can be used to install all the easystats packages from GitHub,
-either from the master/main branch (the stable one) with
-<code>install_easystats_latest()</code>.</p>
+    <p>This function can be used to install all the easystats packages, either 
+latest develolpment versions (from R-universe/GitHub) or the current 
+versions from CRAN. If the development versions are installed, packages 
+will be installed from the stable branch (master/main) for each package.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>install_latest</span><span class='op'>(</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>install_latest</span><span class='op'>(</span>source <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"development"</span>, <span class='st'>"cran"</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>source</th>
+      <td><p>Character. Either `"development"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")$CRAN`.</p></td>
+    </tr>
+    </table>
 
 
   </div>
