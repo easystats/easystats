@@ -13,8 +13,8 @@ CRAN_checks <- function() {
 
 #' Install the easystats suite from R-universe (GitHub) or CRAN
 #'
-#' This function can be used to install all the easystats packages, either
-#' latest develolpment versions (from R-universe/GitHub) or the current
+#' This function can be used to install all the *easystats* packages, either
+#' latest development versions (from R-universe/GitHub) or the current
 #' versions from CRAN. If the development versions are installed, packages
 #' will be installed from the stable branch (master/main) for each package.
 #'
@@ -38,11 +38,12 @@ install_latest <- function(source = c("development", "cran")) {
 
 
 
-#' Update easystats-packages and its dependencies from CRAN, if necessary.
+#' Update *easystats*-packages and its dependencies from CRAN, if necessary.
 #'
-#' @param which String, indicates whether easystats-packages (\code{which =
-#'   "core"}), dependencies (\code{which = "deps"}) or both (\code{which =
-#'   "all"}) should be checked for available updates.
+#' @param which String, indicates whether easystats-packages (`which = "core"`),
+#'   dependencies (`which = "deps"`) or both (`which = "all"`) should be
+#'   checked for available updates.
+#'
 #' @export
 easystats_update <- function(which = c("all", "core", "deps")) {
   which <- match.arg(which)

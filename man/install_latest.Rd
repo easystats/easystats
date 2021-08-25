@@ -7,11 +7,11 @@
 install_latest(source = c("development", "cran"))
 }
 \arguments{
-\item{source}{Character. Either `"development"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")$CRAN`.}
+\item{source}{Character. Either \code{"development"} or \code{"cran"}. If \code{"cran"}, packages will be installed from the default CRAN mirror returned by \code{getOption("repos")$CRAN}.}
 }
 \description{
-This function can be used to install all the easystats packages, either 
-latest develolpment versions (from R-universe/GitHub) or the current 
-versions from CRAN. If the development versions are installed, packages 
+This function can be used to install all the \emph{easystats} packages, either
+latest development versions (from R-universe/GitHub) or the current
+versions from CRAN. If the development versions are installed, packages
 will be installed from the stable branch (master/main) for each package.
 }

@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Jump in the Easyverse
-Version: 0.4.2
+Version: 0.4.3
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -57,4 +57,5 @@ Suggests:
     xml2
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.1.1.9001
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
