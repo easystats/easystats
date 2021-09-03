@@ -18,7 +18,7 @@ CRAN_checks <- function() {
 #' versions from CRAN. If the development versions are installed, packages
 #' will be installed from the stable branch (master/main) for each package.
 #'
-#' @param source Character. Either `"development"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")$CRAN`.
+#' @param source Character. Either `"development"` or `"cran"`. If `"cran"`, packages will be installed from the default CRAN mirror returned by `getOption("repos")['CRAN']`.
 #'
 #' @export
 install_latest <- function(source = c("development", "cran")) {
