@@ -26,7 +26,7 @@ install_latest <- function(source = c("development", "cran")) {
   if (source == "development") {
     repos <- "https://easystats.r-universe.dev"
   } else {
-    repos <- getOption("repos")['CRAN']
+    repos <- getOption("repos")["CRAN"]
   }
 
   utils::install.packages(c(
