@@ -56,8 +56,10 @@ img.icon {
   float: right;
 }
 
-img {
+/* Ensure in-page images don't run outside their container */
+.contents img {
   max-width: 100%;
+  height: auto;
 }
 
 /* Fix bug in bootstrap (only seen in firefox) */
@@ -276,14 +278,12 @@ pre {
   border: 1px solid #eee;
 }
 
-pre .img {
+pre .img, pre .r-plt {
   margin: 5px 0;
 }
 
-pre .img img {
+pre .img img, pre .r-plt img {
   background-color: #fff;
-  display: block;
-  height: auto;
 }
 
 code a, pre a {
@@ -358,4 +358,28 @@ mark {
   code a:link:after, code a:visited:after {
     content: "";
   }
+}
+
+/* Section anchors ---------------------------------
+   Added in pandoc 2.11: https://github.com/jgm/pandoc-templates/commit/9904bf71
+*/
+
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
