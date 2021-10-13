@@ -33,6 +33,9 @@ knitr::include_graphics("man/figures/logo_wall.png")
 
 # Installation
 
+[![:registry status badge](https://easystats.r-universe.dev/badges/:registry)](https://easystats.r-universe.dev)
+[![:total status badge](https://easystats.r-universe.dev/badges/:total)](https://easystats.r-universe.dev)
+
 The whole `easystats` suite can be installed *at once* with the following:
 
 ```{r, eval=FALSE}
