@@ -19,6 +19,11 @@ your life. And, who knows, you might even end up using them all.
 
 # Installation
 
+[![:registry status
+badge](https://easystats.r-universe.dev/badges/:registry)](https://easystats.r-universe.dev)
+[![:total status
+badge](https://easystats.r-universe.dev/badges/:total)](https://easystats.r-universe.dev)
+
 The whole `easystats` suite can be installed *at once* with the
 following:
 
@@ -155,34 +160,19 @@ as dependencies in your own packages, without the risk of a butterfly
 effect, where a small change in a distant downstream dependency with
 unexpected upstream consequences.
 
-For example, the `parameters` package only relies on two other packages.
+![](man/figures/depnetwork-1.png)<!-- -->
 
-![](man/figures/depnetwork_parameters-1.png)<!-- -->
-
-<!-- TODO: uncomment once on CRAN -->
-
-<!-- ```{r depnetwork_easystats} -->
-
-<!-- library(deepdep) -->
-
-<!-- plot_dependencies("easystats", depth = 3) -->
-
-<!-- ``` -->
-
-**There is one exception**\!
-
-The [**see**](http://easystats.github.io/see) package is one of our
-high-level packages that is responsible for plotting and creating
-figures, relying thus on other packages such as *ggplot2*, which has a
-substantial number of dependencies.
-
-![](man/figures/depnetwork_see-1.png)<!-- -->
+As we can see, the only exception is the
+[**see**](http://easystats.github.io/see) package, one of our high-level
+packages that is responsible for plotting and creating figures, relying
+thus on other packages such as *ggplot2*, which has a substantial number
+of dependencies.
 
 # Downloads
 
-| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | datawizard | see     | modelbased | report |
-| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :--------- | :------ | :--------- | :----- |
-| 5,206,997 | 1,695,782 | 853,910    | 786,647    | 754,119     | 632,416    | 147,210     | 137,057    | 134,307 | 53,817     | 11,732 |
+| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | datawizard | see     | modelbased | report | easystats |
+| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :--------- | :------ | :--------- | :----- | :-------- |
+| 5,191,713 | 1,691,999 | 851,884    | 784,767    | 751,930     | 630,622    | 146,739     | 134,657    | 133,769 | 53,685     | 11,661 | 0         |
 
 ### Trend
 
