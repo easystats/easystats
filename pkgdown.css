@@ -80,11 +80,10 @@ dd {
 /* Section anchors ---------------------------------*/
 
 a.anchor {
-  margin-left: -30px;
-  display:inline-block;
-  width: 30px;
-  height: 30px;
-  visibility: hidden;
+  display: none;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
 
   background-image: url(./link.svg);
   background-repeat: no-repeat;
@@ -92,16 +91,14 @@ a.anchor {
   background-position: center center;
 }
 
-.hasAnchor:hover a.anchor {
-  visibility: visible;
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+  display: inline-block;
 }
-
-@media (max-width: 767px) {
-  .hasAnchor:hover a.anchor {
-    visibility: hidden;
-  }
-}
-
 
 /* Fixes for fixed navbar --------------------------*/
 
