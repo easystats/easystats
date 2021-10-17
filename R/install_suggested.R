@@ -27,7 +27,7 @@
 install_suggested <- function(package = "easystats") {
   suggested_packages <- .suggested_pkgs()
 
-  if (is.null(package) || "easystast" %in% package) {
+  if (is.null(package) || "easystats" %in% package) {
     package <- names(suggested_packages)
   }
 
