@@ -170,9 +170,9 @@ of dependencies.
 
 # Downloads
 
-| Total     | insight   | bayestestR | parameters | performance | effectsize | correlation | datawizard | see     | modelbased | report | easystats |
-| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :---------- | :--------- | :------ | :--------- | :----- | :-------- |
-| 5,280,762 | 1,716,813 | 863,061    | 795,454    | 764,067     | 640,560    | 149,684     | 148,050    | 136,478 | 54,491     | 12,104 | 0         |
+| Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
+| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :--------- | :---------- | :------ | :--------- | :----- | :-------- |
+| 5,298,446 | 1,722,040 | 865,024    | 798,654    | 766,222     | 642,299    | 150,418    | 150,158     | 136,839 | 54,614     | 12,178 | 0         |
 
 ### Trend
 
