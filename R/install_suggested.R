@@ -47,21 +47,22 @@ install_suggested <- function(package = "easystats") {
 
 
 #' @keywords internal_list
+# styler: off
 .suggested_pkgs <- function() {
   list(
-    insight = .find_suggested("insight"),
-    datawizard = .find_suggested("datawizard"),
+    insight     = .find_suggested("insight"),
+    datawizard  = .find_suggested("datawizard"),
     performance = .find_suggested("performance"),
-    parameters = .find_suggested("parameters"),
-    see = .find_suggested("see"),
-    effectsize = .find_suggested("effectsize"),
-    bayestestR = .find_suggested("bayestestR"),
+    parameters  = .find_suggested("parameters"),
+    see         = .find_suggested("see"),
+    effectsize  = .find_suggested("effectsize"),
+    bayestestR  = .find_suggested("bayestestR"),
     correlation = .find_suggested("correlation"),
-    report = .find_suggested("report"),
-    modelbased = .find_suggested("modelbased")
+    report      = .find_suggested("report"),
+    modelbased  = .find_suggested("modelbased")
   )
 }
-
+# styler: on
 
 
 
@@ -117,7 +118,8 @@ install_suggested <- function(package = "easystats") {
 
   # `correlation` --------
   correlation = c(
-    "BayesFactor", "Hmisc", "polycor", "psych", "wdm"
+    "BayesFactor", "energy", "Hmisc", "mbend", "polycor", "ppcor", "psych",
+    "rmcorr", "wdm"
   ),
 
   # `report` ----------
