@@ -263,9 +263,11 @@ table {
 
 /* Syntax highlighting ---------------------------------------------------- */
 
-pre, pre code {
+pre, code, pre code {
   background-color: #f8f8f8;
   color: #333;
+}
+pre, pre code {
   white-space: pre-wrap;
   word-break: break-all;
   overflow-wrap: break-word;
