@@ -62,7 +62,7 @@ easystats::install_suggested()
 Do you wish to cite *easystats*? ❤️
 
 Have a look at this article on how you can do so!
-<https://easystats.github.io/easystats/articles/resources.html>
+<https://easystats.github.io/easystats/articles/citation.html>
 
 # Getting started
 
