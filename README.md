@@ -1,18 +1,17 @@
+# _easystats_: Jump in the Easyverse
 
-# *easystats*: Jump in the Easyverse
-
-# What is *easystats*?
+# What is _easystats_?
 
 **easystats** is a collection of R packages, which aims to provide a
 unifying and consistent framework to tame, discipline, and harness the
 scary R statistics and their pesky models.
 
-However, there is not (yet) an *unique* “easystats” way of doing data
+However, there is not (yet) an _unique_ “easystats” way of doing data
 analysis. Instead, start with one package and, when you’ll face a new
-challenge, do check if there is an *easystats* answer for it in other
+challenge, do check if there is an _easystats_ answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
-***Gotta catch ’em all!*** <!--
+**_Gotta catch ’em all!_** <!--
 'tis a pokémon reference for y'all grandpas -->
 
 <img src="man/figures/logo_wall.png" width="100%" />
@@ -24,34 +23,34 @@ badge](https://easystats.r-universe.dev/badges/:registry)](https://easystats.r-u
 [![:total status
 badge](https://easystats.r-universe.dev/badges/:total)](https://easystats.r-universe.dev)
 
-The whole `easystats` suite can be installed *at once* with the
+The whole `easystats` suite can be installed _at once_ with the
 following:
 
-``` r
+```r
 install.packages("easystats", repos = "https://easystats.r-universe.dev")
 ```
 
 You can then load the entire ecosystem by running:
 
-``` r
+```r
 library("easystats")
 ```
 
 The package is currently not available on CRAN, but we are working on
 submitting it there soon.
 
-Finally, as *easystats* sometimes depends on some additional packages
+Finally, as _easystats_ sometimes depends on some additional packages
 for specific functions that are not downloaded by default. If you want
-to benefit from the **full *easystats* experience** without any hiccups,
+to benefit from the **full _easystats_ experience** without any hiccups,
 simply run the following:
 
-``` r
+```r
 easystats::install_suggested()
 ```
 
 # Citation
 
-Do you wish to cite *easystats*? ❤️
+Do you wish to cite _easystats_? ❤️
 
 Have a look at this article on how you can do so!
 <https://easystats.github.io/easystats/articles/resources.html>
@@ -66,59 +65,59 @@ smooth workflow, as these packages are meant to work together. Ideally,
 these packages work in unison to cover all aspects of statistical
 analysis and data visualization.
 
--   [**report**](https://github.com/easystats/report): 📜 🎉 Automated
-    statistical reporting of objects in R
--   [**correlation**](https://github.com/easystats/correlation): 🔗 Your
-    all-in-one package to run correlations
--   [**modelbased**](https://github.com/easystats/modelbased): 📈
-    Estimate effects, group averages and contrasts between groups based
-    on statistical models
--   [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great
-    for beginners or experts of Bayesian statistics
--   [**parameters**](https://github.com/easystats/parameters): 📊 Obtain
-    a table containing all information about the parameters of your
-    models
--   [**performance**](https://github.com/easystats/performance): 💪
-    Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
--   [**effectsize**](https://github.com/easystats/effectsize): 🐉
-    Compute, convert, interpret and work with indices of effect size and
-    standardized parameters
--   [**insight**](https://github.com/easystats/insight): 🔮 For
-    developers, a package to help you work with different models and
-    packages
--   [**see**](https://github.com/easystats/see): 🎨 The plotting
-    companion to create beautiful results visualizations
--   [**datawizard**](https://github.com/easystats/datawizard): 🧙 Magic
-    potions to clean and transform your data
+- [**report**](https://github.com/easystats/report): 📜 🎉 Automated
+  statistical reporting of objects in R
+- [**correlation**](https://github.com/easystats/correlation): 🔗 Your
+  all-in-one package to run correlations
+- [**modelbased**](https://github.com/easystats/modelbased): 📈
+  Estimate effects, group averages and contrasts between groups based
+  on statistical models
+- [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great
+  for beginners or experts of Bayesian statistics
+- [**parameters**](https://github.com/easystats/parameters): 📊 Obtain
+  a table containing all information about the parameters of your
+  models
+- [**performance**](https://github.com/easystats/performance): 💪
+  Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
+- [**effectsize**](https://github.com/easystats/effectsize): 🐉
+  Compute, convert, interpret and work with indices of effect size and
+  standardized parameters
+- [**insight**](https://github.com/easystats/insight): 🔮 For
+  developers, a package to help you work with different models and
+  packages
+- [**see**](https://github.com/easystats/see): 🎨 The plotting
+  companion to create beautiful results visualizations
+- [**datawizard**](https://github.com/easystats/datawizard): 🧙 Magic
+  potions to clean and transform your data
 
 # Frequently Asked Questions
 
-**How is *easystats* different from the *tidyverse*?**
+**How is _easystats_ different from the _tidyverse_?**
 
 You’ve probably already heard about the
 [**tidyverse**](https://www.tidyverse.org/), another very popular
-collection of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes
-using R easier. So, should you pick the *tidyverse* or *easystats*?
+collection of packages (_ggplot_, _dplyr_, _tidyr_, …) that also makes
+using R easier. So, should you pick the _tidyverse_ or _easystats_?
 **Pick both!**
 
 Indeed, these two ecosystems have been designed with very different
-goals in mind. The *tidyverse* packages are primarily made to create a
+goals in mind. The _tidyverse_ packages are primarily made to create a
 new R experience, where data manipulation and exploration is intuitive
 and consistent. On the other hand, **easystats** focuses more on the
 final stretch of the analysis: understanding and interpreting your
 results and reporting them in a manuscript or a report, while following
-best practices. You can definitely use the *easystats* functions in a
-*tidyverse* workflow!
+best practices. You can definitely use the _easystats_ functions in a
+_tidyverse_ workflow!
 
 > **easystats + tidyverse =** ❤️
 
-**Can *easystats* be useful to advanced users and/or developers?**
+**Can _easystats_ be useful to advanced users and/or developers?**
 
 Yes, definitely! **easystats** is built in terms of modules that are
 general enough to be used inside other packages. For instance, the
-*insight* package is made to easily implement support for
+_insight_ package is made to easily implement support for
 post-processing of pretty much all regression model packages under the
-sun. We use it in all the *easystats* packages, but it is also used in
+sun. We use it in all the _easystats_ packages, but it is also used in
 other non-easystats packages, such as
 [**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),
 [**modelsummary**](https://github.com/vincentarelbundock/modelsummary/),
@@ -126,7 +125,7 @@ other non-easystats packages, such as
 
 **So why not in yours**?
 
-Moreover, the *easystats* packages are very lightweight, with a minimal
+Moreover, the _easystats_ packages are very lightweight, with a minimal
 set of dependencies, which again makes it great if you want to rely on
 them.
 
@@ -154,7 +153,7 @@ following presentations and talks to learn more about this ecosystem:
 
 # Dependencies
 
-Most *easystats* packages are very lightweight, *i.e.*, they don’t rely
+Most _easystats_ packages are very lightweight, _i.e._, they don’t rely
 nor import any other packages! This means that you can safely use them
 as dependencies in your own packages, without the risk of a butterfly
 effect, where a small change in a distant downstream dependency with
@@ -165,13 +164,13 @@ unexpected upstream consequences.
 As we can see, the only exception is the
 [**see**](http://easystats.github.io/see) package, one of our high-level
 packages that is responsible for plotting and creating figures, relying
-thus on other packages such as *ggplot2*, which has a substantial number
+thus on other packages such as _ggplot2_, which has a substantial number
 of dependencies.
 
 # Downloads
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
-|:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
+| :-------- | :-------- | :--------- | :--------- | :---------- | :--------- | :--------- | :---------- | :------ | :--------- | :----- | :-------- |
 | 5,536,937 | 1,785,290 | 898,223    | 833,216    | 797,649     | 667,032    | 185,171    | 157,285     | 142,484 | 57,108     | 13,479 | 0         |
 
 ### Trend
@@ -191,23 +190,23 @@ of dependencies.
 Package version numbers indicate following:
 `MAJOR.MINOR.PATCH.DEVELOPMENT`. Here are key steps to keep in mind:
 
--   As long as packages are in a more or less rapidly developing and
-    changing state, the **major** version number is typically `0`.
+- As long as packages are in a more or less rapidly developing and
+  changing state, the **major** version number is typically `0`.
 
--   Once we think we will have a stable base that will likely not change
-    dramatically or soon, the major version number will be set to `1`,
-    and will be increased for following major changes that probably
-    break the current API.
+- Once we think we will have a stable base that will likely not change
+  dramatically or soon, the major version number will be set to `1`,
+  and will be increased for following major changes that probably
+  break the current API.
 
--   When new features are added or (re)moved, we typically increase the
-    **minor** version number.
+- When new features are added or (re)moved, we typically increase the
+  **minor** version number.
 
--   Minimal changes or bug fixes only are indicated by increasing the
-    **patch** version number.
+- Minimal changes or bug fixes only are indicated by increasing the
+  **patch** version number.
 
--   Current development versions of our packages (i.e. master/main
-    branch from GitHub) additionally have a **development** version
-    number.
+- Current development versions of our packages (i.e. master/main
+  branch from GitHub) additionally have a **development** version
+  number.
 
 # Contributing
 
@@ -218,10 +217,10 @@ for contributions are encouraged.
 Here are some simple ways in which you can contribute (in the increasing
 order of commitment):
 
--   Read and correct any inconsistencies in the documentation
--   Raise issues about bugs or wanted features
--   Review code
--   Add new functionality
+- Read and correct any inconsistencies in the documentation
+- Raise issues about bugs or wanted features
+- Review code
+- Add new functionality
 
 # Code of Conduct
 
