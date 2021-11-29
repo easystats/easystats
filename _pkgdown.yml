@@ -9,3 +9,19 @@ authors:
     href: https://sites.google.com/site/indrajeetspatilmorality/
   Brenton M. Wiernik:
     href: https://wiernik.org/
+
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#0054AD"
+
+
+navbar:
+  structure:
+    right: [twitter, github]
+  components:
+    twitter:
+      icon: fa-twitter
+      href: http://twitter.com/easystats4u
+      aria-label: Twitter
