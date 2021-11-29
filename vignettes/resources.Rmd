@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Introduction
+## Introduction
 
 One of the best resources to learn about functionality afforded by `easystats`
 package is to read the dedicated websites for each package. A lot of love and
@@ -34,16 +34,21 @@ But, we are certainly not the only ones talking about them, and below are some
 other resources that might be helpful for you to learn about `easystats`
 packages.
 
-# YouTube videos
+## YouTube videos
 
-## `performance` package:
+### `performance` package:
 
-- Yury Zablotski's package review:
-  <https://www.youtube.com/watch?v=EPIxQ5i5oxs>
+- [Yury Zablotski's package review](https://www.youtube.com/watch?v=EPIxQ5i5oxs)
 
-# Presentations
+- [easystats: Quickly investigate model performance](https://www.youtube.com/watch?v=Bi8sHIo3s1Y)
 
-## `bayestestR` package:
+### `report`` package:
+  
+- [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)  
 
- - Mattan S. Ben-Shachar's presentation about Bayesian analysis using
-   `bayestestR` <https://mattansb.github.io/bayesian-evidence-iscop-2021/#1>
+
+## Presentations
+
+### `bayestestR` package:
+
+ - [Mattan S. Ben-Shachar's presentation about Bayesian analysis](https://mattansb.github.io/bayesian-evidence-iscop-2021)
