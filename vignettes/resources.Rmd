@@ -38,7 +38,7 @@ packages.
 
 ### `performance` package:
 
-- [Yury Zablotski's package review](https://www.youtube.com/watch?v=EPIxQ5i5oxs)
+- [Package review (Yury Zablotski)](https://www.youtube.com/watch?v=EPIxQ5i5oxs)
 
 - [easystats: Quickly investigate model performance](https://www.youtube.com/watch?v=Bi8sHIo3s1Y)
 
@@ -51,4 +51,4 @@ packages.
 
 ### `bayestestR` package:
 
- - [Mattan S. Ben-Shachar's presentation about Bayesian analysis](https://mattansb.github.io/bayesian-evidence-iscop-2021)
+ - [Evaluating Evidence and Making Decisions using Bayesian Statistics (Mattan S. Ben-Shachar)](https://mattansb.github.io/bayesian-evidence)
