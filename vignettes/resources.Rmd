@@ -42,7 +42,7 @@ packages.
 
 - [easystats: Quickly investigate model performance](https://www.youtube.com/watch?v=Bi8sHIo3s1Y)
 
-### `report`` package:
+### `report` package:
   
 - [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)  
 
