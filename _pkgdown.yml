@@ -25,3 +25,18 @@ navbar:
       icon: fa-twitter
       href: http://twitter.com/easystats4u
       aria-label: Twitter
+
+reference:
+
+  - title: Installation and update
+  - contents:
+      - starts_with("install_")
+      - ends_with("_update")
+
+  - title: CRAN status
+  - contents:
+      - contains("CRAN")
+
+  - title: Zen
+  - contents:
+      - easystats_zen
