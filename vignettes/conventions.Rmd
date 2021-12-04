@@ -23,8 +23,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Coding style conventions
-
 Following conventions apply to the easystats-ecosystem, to ensure that function
 and argument names as well as element names for return-values follow a
 consistent pattern across all packages.
