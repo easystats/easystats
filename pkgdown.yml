@@ -1,11 +1,11 @@
 pandoc: 2.7.3
 pkgdown: 2.0.1.9000
-pkgdown_sha: 953a87771f74e405f2e648750b1b74db1806770a
+pkgdown_sha: bbefae3575a7c2484810f9b3b60af4b1faf0d2f4
 articles:
   citation: citation.html
   conventions: conventions.html
   list_of_functions: list_of_functions.html
   programming: programming.html
   resources: resources.html
-last_built: 2021-12-04T07:55Z
+last_built: 2021-12-11T01:54Z
 
