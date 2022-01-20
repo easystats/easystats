@@ -2,9 +2,12 @@
 % Please edit documentation in R/install_suggested.R
 \name{install_suggested}
 \alias{install_suggested}
+\alias{show_suggested}
 \title{Download all suggested packages}
 \usage{
 install_suggested(package = "easystats")
+
+show_suggested(package = "easystats")
 }
 \arguments{
 \item{package}{If \code{NULL}, all suggested packages for all 'easystats'
@@ -27,7 +30,9 @@ To reduce the dependency load, 'easystats' packages by default will not
 download all internally needed packages. It will ask the user to download
 them only if they are needed. The current function can help install all
 packages a given 'easystats' package might need. For example,
-\code{install_suggested("see")}.
+\code{install_suggested("see")}. \code{show_suggested()} is a convenient helper
+to show the current list of suggested packages for each 'easystats'
+package.
 }
 \examples{
 \dontrun{

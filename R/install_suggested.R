@@ -37,7 +37,9 @@
 #' download all internally needed packages. It will ask the user to download
 #' them only if they are needed. The current function can help install all
 #' packages a given 'easystats' package might need. For example,
-#' `install_suggested("see")`.
+#' `install_suggested("see")`. `show_suggested()` is a convenient helper
+#' to show the current list of suggested packages for each 'easystats'
+#' package.
 #'
 #' @return
 #'
@@ -69,6 +71,31 @@ install_suggested <- function(package = "easystats") {
     message("All of the suggested packages are already installed :)")
   }
 }
+
+
+#' @rdname install_suggested
+#' @export
+show_suggested <- function(package = "easystats") {
+  suggested_packages <- .suggested_pkgs()
+
+  if (is.null(package) || "easystats" %in% package) {
+    package <- names(suggested_packages)
+  }
+
+  x <- suggested_packages[package]
+
+  for (p in sort(names(x))) {
+    if (length(x[[p]])) {
+      sep <- strrep("-", nchar(p))
+      insight::print_color(paste0(p, "\n", sep, "\n"), "red")
+      cat(insight::format_message(paste(x[[p]], collapse = ", ")))
+      cat("\n\n")
+    }
+  }
+
+  invisible(x)
+}
+
 
 # crawl suggestion fields
 
