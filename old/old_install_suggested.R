@@ -1,24 +1,4 @@
 #' @keywords internal_list
-# styler: off
-.suggested_pkgs <- function() {
-  list(
-    insight     = .find_suggested("insight"),
-    datawizard  = .find_suggested("datawizard"),
-    performance = .find_suggested("performance"),
-    parameters  = .find_suggested("parameters"),
-    see         = .find_suggested("see"),
-    effectsize  = .find_suggested("effectsize"),
-    bayestestR  = .find_suggested("bayestestR"),
-    correlation = .find_suggested("correlation"),
-    report      = .find_suggested("report"),
-    modelbased  = .find_suggested("modelbased")
-  )
-}
-# styler: on
-
-
-
-#' @keywords internal_list
 .suggested_pkgs_old <- list(
   # if you add a new instance of `check_if_installed`, please edit the corresponding entry
   # duplicated entries are fine; we are using unique values anyway
