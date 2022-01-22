@@ -25,7 +25,7 @@ jobs:
           - {os: macOS-latest,   r: 'release'}
           - {os: ubuntu-18.04,   r: 'release'}
           - {os: windows-latest, r: 'oldrel'}
-          - {os: macOS-latest,   r: 'oldrel'}
+          #- {os: macOS-latest,   r: 'oldrel'}
           - {os: ubuntu-18.04,   r: 'oldrel'}
           - {os: ubuntu-18.04,   r: '3.6.0'}
           - {os: ubuntu-18.04,   r: '3.5.0'}
