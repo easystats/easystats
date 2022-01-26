@@ -164,19 +164,22 @@ pkgsnms <- rownames(easystats_pkgs)
 
 library("miniCRAN")
 
-dg <- makeDepGraph(easystats_pkgs[,"Package"], 
-                   availPkgs = easystats_pkgs,
-                   depends = TRUE, suggests = FALSE, enhances = FALSE, 
-                   includeBasePkgs = FALSE)
+dg <- makeDepGraph(easystats_pkgs[, "Package"],
+  availPkgs = easystats_pkgs,
+  depends = TRUE, suggests = FALSE, enhances = FALSE,
+  includeBasePkgs = FALSE
+)
 
 # plot(dg, main = NULL, legendPosition = c(-1, 1), vertex.size = 15, cex = 0.8)
 
 x <- dg
 class(x) <- "igraph"
 
-ndeps <- lapply(easystats_pkgs[,"Package"], pkgDep, availPkgs = easystats_pkgs,
-                depends = TRUE, suggests = FALSE, enhances = FALSE, 
-                includeBasePkgs = FALSE)
+ndeps <- lapply(easystats_pkgs[, "Package"], pkgDep,
+  availPkgs = easystats_pkgs,
+  depends = TRUE, suggests = FALSE, enhances = FALSE,
+  includeBasePkgs = FALSE
+)
 ndeps <- sapply(ndeps, length)
 
 
@@ -184,24 +187,25 @@ pnames <- igraph::V(x)$name
 cols <- viridis::inferno(4, begin = 0.3, end = 0.8)
 pcols <- setNames(character(length = length(pnames)), pnames)
 pcols[] <- "red"
-pcols[ndeps<=7] <- cols[4]
-pcols[ndeps<=4] <- cols[3]
-pcols[ndeps==2] <- cols[2]
-pcols[ndeps==1] <- cols[1]
-pcols[!pnames %in% easystats_pkgs[,"Package"]] <- "white"
+pcols[ndeps <= 7] <- cols[4]
+pcols[ndeps <= 4] <- cols[3]
+pcols[ndeps == 2] <- cols[2]
+pcols[ndeps == 1] <- cols[1]
+pcols[!pnames %in% easystats_pkgs[, "Package"]] <- "white"
 
+set.seed(123)
 par(mai = rep(0, 4))
-igraph::plot.igraph(x, 
-                    vertex.size = 15,
-                    edge.arrow.size = 0.5, 
-                    edge.color = "grey",
-                    vertex.label.cex = 0.8,
-                    vertex.label.color = "black", 
-                    vertex.color = pcols,
-                    vertex.shape = "circle",
-                    vertex.label.font = 2, 
-                    xlim = c(-1.5, 1))
-
+igraph::plot.igraph(x,
+  vertex.size = 15,
+  edge.arrow.size = 0.5,
+  edge.color = "grey",
+  vertex.label.cex = 0.8,
+  vertex.label.color = "black",
+  vertex.color = pcols,
+  vertex.shape = "circle",
+  vertex.label.font = 2,
+  xlim = c(-1.5, 1)
+)
 ```
 
 
@@ -224,7 +228,7 @@ downloads_all <- map_dfr(pkgsnms, cranlogs::cran_downloads, from = "2019-02-26")
 
 # Combine all data
 data <- downloads_all %>%
-  rename(Package = package) %>% 
+  rename(Package = package) %>%
   group_by(Package) %>%
   mutate(
     cumulative_count = cumsum(count),
@@ -313,7 +317,7 @@ events <- rbind(
 )
 
 # Full join
-data <- full_join(data, events, by = c("date", "Package")) %>% 
+data <- full_join(data, events, by = c("date", "Package")) %>%
   mutate(Package = fct_reorder(Package, count, .fun = sum, .desc = TRUE))
 
 events <- full_join(
@@ -405,7 +409,7 @@ data %>%
     date_breaks = "1 month",
     labels = scales::date_format("%Y-%m")
   ) +
-  see::scale_color_material_d() + 
+  see::scale_color_material_d() +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
@@ -426,17 +430,19 @@ data$download_label[duplicated(data$download_label)] <- NA
 
 ggplot(
   data,
-  aes(x = date, 
-      y = cumulative_count, 
-      #label = download_label, 
-      color = Package)
+  aes(
+    x = date,
+    y = cumulative_count,
+    # label = download_label,
+    color = Package
+  )
 ) +
   geom_line(size = 0.75) +
-  #geom_label_repel(show.legend = FALSE) +
+  # geom_label_repel(show.legend = FALSE) +
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
-  see::scale_color_material_d() + 
+  see::scale_color_material_d() +
   scale_y_sqrt() +
   theme(axis.text.x = element_text(angle = 90))
 ```
@@ -453,7 +459,7 @@ average_monthly_downloads %>%
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
   see::theme_modern() +
-  see::scale_color_material_d() + 
+  see::scale_color_material_d() +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = NULL, y = "Average monthly downloads", colour = "Package") +
   scale_x_discrete(labels = NULL) +
