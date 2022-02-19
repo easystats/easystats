@@ -38,16 +38,16 @@ License: GPL-3
 URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
 Imports:
-    bayestestR (>= 0.10.5),
-    correlation (>= 0.6.1),
-    datawizard (>= 0.1.0),
-    effectsize (>= 0.4.5),
-    insight (>= 0.14.1),
-    modelbased (>= 0.7.0),
-    parameters (>= 0.14.0),
-    performance (>= 0.7.2),
-    report (>= 0.3.5),
-    see (>= 0.6.4),
+    bayestestR (>= 0.11.5),
+    correlation (>= 0.8.0),
+    datawizard (>= 0.2.0),
+    effectsize (>= 0.6.0),
+    insight (>= 0.16.0),
+    modelbased (>= 0.7.1),
+    parameters (>= 0.16.0),
+    performance (>= 0.8.0),
+    report (>= 0.5.0),
+    see (>= 0.6.9),
     tools,
     utils
 Suggests: 
