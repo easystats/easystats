@@ -50,6 +50,8 @@ Imports:
     see (>= 0.6.9),
     tools,
     utils
+Remotes:
+    easystats/report
 Suggests: 
     knitr,
     rvest,
