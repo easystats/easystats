@@ -1,6 +1,6 @@
 # easystats 0.4.1
 
-* Add *datawizard* package.
+* Adds *datawizard* package.
 
 * Adds a new function `install_suggested()` to install suggested packages.
 
