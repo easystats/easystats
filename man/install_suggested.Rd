@@ -3,11 +3,14 @@
 \name{install_suggested}
 \alias{install_suggested}
 \alias{show_suggested}
+\alias{show_reverse_dependencies}
 \title{Download all suggested packages}
 \usage{
 install_suggested(package = "easystats")
 
 show_suggested(package = "easystats")
+
+show_reverse_dependencies(package = "easystats")
 }
 \arguments{
 \item{package}{If \code{NULL}, all suggested packages for all 'easystats'

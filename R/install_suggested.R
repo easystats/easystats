@@ -14,6 +14,21 @@
     modelbased  = .find_suggested("modelbased")
   )
 }
+
+.revdep_pkgs <- function() {
+  list(
+    insight     = .find_reverse_dependencies("insight"),
+    datawizard  = .find_reverse_dependencies("datawizard"),
+    performance = .find_reverse_dependencies("performance"),
+    parameters  = .find_reverse_dependencies("parameters"),
+    see         = .find_reverse_dependencies("see"),
+    effectsize  = .find_reverse_dependencies("effectsize"),
+    bayestestR  = .find_reverse_dependencies("bayestestR"),
+    correlation = .find_reverse_dependencies("correlation"),
+    report      = .find_reverse_dependencies("report"),
+    modelbased  = .find_reverse_dependencies("modelbased")
+  )
+}
 # styler: on
 
 
@@ -97,6 +112,31 @@ show_suggested <- function(package = "easystats") {
 }
 
 
+#' @rdname install_suggested
+#' @export
+show_reverse_dependencies <- function(package = "easystats") {
+  revdep_packages <- .revdep_pkgs()
+
+  if (is.null(package) || "easystats" %in% package) {
+    package <- names(revdep_packages)
+  }
+
+  x <- revdep_packages[package]
+
+  for (p in sort(names(x))) {
+    if (length(x[[p]])) {
+      sep <- strrep("-", nchar(p))
+      insight::print_color(paste0(p, "\n", sep, "\n"), "red")
+      cat(insight::format_message(paste(x[[p]], collapse = ", ")))
+      cat("\n\n")
+    }
+  }
+
+  invisible(x)
+}
+
+
+
 # crawl suggestion fields
 
 .find_suggested <- function(package) {
@@ -119,4 +159,29 @@ show_suggested <- function(package = "easystats") {
 
   # remove Bioconductor packages
   setdiff(suggested_packages, "M3C")
+}
+
+
+# crawl reverse-dependency fields
+
+.find_reverse_dependencies <- function(package) {
+  insight::check_if_installed("xml2")
+
+
+  url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
+  html_page <- xml2::read_html(url)
+  elements <- xml2::as_list(html_page)
+  rev_import_field <- elements$html$body$div[[15]][[1]][[3]]
+
+
+  pkgs <- lapply(rev_import_field, function(i) {
+    if (is.list(i)) {
+      i[[1]]
+    } else {
+      NA
+    }
+  })
+
+
+  as.vector(unname(stats::na.omit(unlist(pkgs))))
 }
