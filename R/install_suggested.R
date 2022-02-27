@@ -65,6 +65,10 @@
 #' install_suggested("easystats")
 #' }
 #'
+#' # listing all reverse dependencies of easystats packages
+#' \donttest{
+#' show_reverse_dependencies()
+#' }
 #' @export
 install_suggested <- function(package = "easystats") {
   suggested_packages <- .suggested_pkgs()

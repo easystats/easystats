@@ -42,4 +42,8 @@ package.
 install_suggested("easystats")
 }
 
+# listing all reverse dependencies of easystats packages
+\donttest{
+show_reverse_dependencies()
+}
 }

@@ -173,9 +173,9 @@ knitr::include_graphics("figures/Figure2.png")
 <!-- DL: This needs some manual fixing in the docx, I guess, because I couldn't manage to align the columns of the header row with the columns of the subsequent rows. -->
 
 ```{r Table1, message=FALSE, warning=FALSE, echo=FALSE, out.width = "\\textwidth", results = "asis"}
-kable(table1, "latex", digits = 2, row.names = FALSE, booktabs = TRUE, caption = "Sensitivity to sample size. This table shows the standardized coefficient between the sample size and the value of each index, adjusted for error, and stratified by model type and presence of true effect. The stronger the coefficient is, the stronger the relationship with sample size.") %>% 
+kable(table1, "latex", digits = 2, row.names = FALSE, booktabs = TRUE, caption = "Sensitivity to sample size. This table shows the standardized coefficient between the sample size and the value of each index, adjusted for error, and stratified by model type and presence of true effect. The stronger the coefficient is, the stronger the relationship with sample size.") %>%
   kableExtra::kable_styling(font_size = 9) %>%
-  kableExtra::column_spec(2:5, width = "3cm") 
+  kableExtra::column_spec(2:5, width = "3cm")
 ```
 
 Consistently with **Figure 2**, the model investigating the sensitivity of sample size on the different indices suggests that *BF* indices are sensitive to sample size both when an effect is present (null hypothesis is false) and absent (null hypothesis is true). *ROPE* indices are particularly sensitive to sample size when the null hypothesis is true, while *p*-value, *pd* and MAP-based *p*-value are only sensitive to sample size when the null hypothesis is false, in which case they are more sensitive than *ROPE* indices. These findings can be related to the concept of consistency: as the number of data points increases, the statistic converges toward some "true" value. Here, we observe that *p*-value, *pd* and the MAP-based *p*-value are consistent only when the null hypothesis is false. In other words, as sample size increases, they tend to reflect more strongly that the effect is present. On the other hand, *ROPE* indices appear as consistent when the effect is absent. Finally, *BFs* are consistent both when the effect is absent and when it is present, and *BF (vs. ROPE)*, compared to *BF (vs. 0)*, is more sensitive to sample size when the null hypothesis is true, and *ROPE (full)* is overall slightly more consistent than *ROPE (95\%)*. 
@@ -193,9 +193,9 @@ knitr::include_graphics("figures/Figure3.png")
 
 
 ```{r Table2, message=FALSE, warning=FALSE, echo=FALSE, out.width = "\\textwidth", results = "asis"}
-kable(table2, "latex", digits = 2, row.names = FALSE, booktabs = TRUE, caption = "Sensitivity to noise. This table shows the standardized coefficient between noise and the value of each index when the true effect is present, adjusted for sample size and stratified by model type. The stronger the coefficient is, the stronger the relationship with noise.") %>% 
+kable(table2, "latex", digits = 2, row.names = FALSE, booktabs = TRUE, caption = "Sensitivity to noise. This table shows the standardized coefficient between noise and the value of each index when the true effect is present, adjusted for sample size and stratified by model type. The stronger the coefficient is, the stronger the relationship with noise.") %>%
   kableExtra::kable_styling(font_size = 9) %>%
-  kableExtra::column_spec(2:3, width = "3cm") 
+  kableExtra::column_spec(2:3, width = "3cm")
 ```
 
 Consistently with **Figure 3**, the model investigating the sensitivity of noise when an effect is present (as there is only noise in the absence of effect), adjusted for sample size, suggests that BFs (especially *vs.* ROPE), followed by the MAP-based *p*-value and percentages in *ROPE*, are the most sensitive to noise. As noise is a proxy of effect size (linearly related to the absolute value of the coefficient of the parameter), this result highlights the fact that these indices are sensitive to the magnitude of the effect. For example, as noise increases, evidence for an effect becomes weak, and data seems to support the absence of an effect (or at the very least the presence of a negligible effect), which is reflected in *BF*s being consistently smaller than 1. On the other hand, as the *p*-value and the *pd* quantify evidence only for the presence of an effect, as noise increases, they are become more dependent on larger sample size to be able to detect the presence of an effect.
@@ -257,9 +257,9 @@ What is the point of comparing Bayesian indices with the frequentist *p*-value, 
 
 
 ```{r table3, message=FALSE, warning=FALSE, echo=FALSE, out.width = "\\textwidth", results = "asis"}
-kable(table3, "latex", booktabs = TRUE, caption = "Summary of Bayesian Indices of Effect Existence and Significance.") %>% 
+kable(table3, "latex", booktabs = TRUE, caption = "Summary of Bayesian Indices of Effect Existence and Significance.") %>%
   kableExtra::kable_styling(font_size = 6, latex_options = c("hold_position")) %>%
-  kableExtra::column_spec(2:5, width = "3cm") 
+  kableExtra::column_spec(2:5, width = "3cm")
 ```
 
 
