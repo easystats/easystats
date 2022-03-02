@@ -43,7 +43,7 @@ Imports:
     datawizard (>= 0.2.0),
     effectsize (>= 0.6.0),
     insight (>= 0.16.0),
-    modelbased (>= 0.7.1),
+    modelbased (>= 0.7.2),
     parameters (>= 0.16.0),
     performance (>= 0.8.0),
     report (>= 0.5.1),
