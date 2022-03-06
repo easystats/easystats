@@ -45,9 +45,7 @@ jobs:
             any::zoo
 
       - name: Render README
-        run: |
-          RMD_PATH=($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'README.Rmd'))
-          Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f)' ${RMD_PATH[*]}
+        run: Rscript -e 'rmarkdown::render("README.Rmd")'
 
       - name: Commit Results
         run: |
