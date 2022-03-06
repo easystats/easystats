@@ -13,10 +13,10 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 0 * * *'
 
-name: render-rmarkdown
+name: render-readme
 
 jobs:
-  render-rmarkdown:
+  render-readme:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -43,6 +43,8 @@ jobs:
             any::cranlogs
             any::tidyverse
             any::zoo
+            any::igraph
+            any::viridis
 
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd")'
