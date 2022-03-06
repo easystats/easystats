@@ -10,7 +10,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  fig.path = "man/figures/"
+  fig.path = "man/figures/",
+  fig.width = 0.7 * 16.18034,
+  fig.height = 0.7 * 10
 )
 ```
 
@@ -329,18 +331,19 @@ events <- full_join(
   filter(!is.na(date))
 
 # Set packages colours
-# packages_colours <- c(
-#   "insight" = unname(see::material_colors("orange")),
-#   "bayestestR" = unname(see::material_colors("pink")),
-#   "performance" = unname(see::material_colors("green")),
-#   "see" = unname(see::material_colors("blue")),
-#   "parameters" = unname(see::material_colors("purple")),
-#   "effectsize" = unname(see::material_colors("brown")),
-#   "modelbased" = unname(see::material_colors("lime")),
-#   "correlation" = unname(see::material_colors("amber")),
-#   "report" = unname(see::pizza_colors("tomato")),
-#   "datawizard" = unname(see::pizza_colors("diavola"))
-# )
+packages_colours <- c(
+  "insight" = unname(see::material_colors("orange")),
+  "datawizard" = unname(see::material_colors("cyan")),
+  "bayestestR" = unname(see::material_colors("pink")),
+  "effectsize" = unname(see::pizza_colors("tomato")),
+  "performance" = unname(see::material_colors("purple")),
+  "parameters" = unname(see::material_colors("red")),
+  "modelbased" = unname(see::material_colors("indigo")),
+  "correlation" = unname(see::material_colors("amber")),
+  "report" = unname(see::material_colors("green")),
+  "see" = unname(see::material_colors("blue")),
+  "easystats" = unname(see::material_colors("brown"))
+)
 
 data$download_label <- NA
 
@@ -394,6 +397,7 @@ data %>%
   slice(1:(n() - 1)) %>%
   # Remove 2 last days to avoid edge issues
   ungroup() %>%
+  mutate(Package = fct_relevel(Package, names(packages_colours))) |> 
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
@@ -409,7 +413,7 @@ data %>%
     date_breaks = "1 month",
     labels = scales::date_format("%Y-%m")
   ) +
-  see::scale_color_material_d() +
+  scale_colour_manual(values = packages_colours) +
   xlab("") +
   ylab("Daily CRAN Downloads\n") +
   coord_cartesian(ylim = c(0, max(data$count) + 100), expand = FALSE) +
@@ -442,7 +446,7 @@ ggplot(
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +
   scale_x_date(date_breaks = "1 month", labels = scales::date_format("%Y-%m")) +
-  see::scale_color_material_d() +
+  scale_colour_manual(values = packages_colours) +
   scale_y_sqrt() +
   theme(axis.text.x = element_text(angle = 90))
 ```
@@ -459,7 +463,7 @@ average_monthly_downloads %>%
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
   see::theme_modern() +
-  see::scale_color_material_d() +
+  scale_colour_manual(values = packages_colours) +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = NULL, y = "Average monthly downloads", colour = "Package") +
   scale_x_discrete(labels = NULL) +
