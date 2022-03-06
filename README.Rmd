@@ -220,9 +220,7 @@ figures, relying thus on other packages such as *ggplot2*, which has a substanti
 library(tidyverse)
 library(zoo)
 library(cranlogs)
-library(rstanarm)
 library(see)
-library(ggrepel)
 library(purrr)
 
 # Packages data
@@ -397,7 +395,7 @@ data %>%
   slice(1:(n() - 1)) %>%
   # Remove 2 last days to avoid edge issues
   ungroup() %>%
-  mutate(Package = fct_relevel(Package, names(packages_colours))) |> 
+  mutate(Package = fct_relevel(Package, names(packages_colours))) |>
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
