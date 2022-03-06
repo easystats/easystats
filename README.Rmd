@@ -222,7 +222,7 @@ library(zoo)
 library(cranlogs)
 library(rstanarm)
 library(see)
-library(ggrepel)
+#library(ggrepel)
 library(purrr)
 
 # Packages data
