@@ -12,10 +12,10 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 0 * * *'
 
-name: render-README
+name: render-rmarkdown
 
 jobs:
-  render-README:
+  render-rmarkdown:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
