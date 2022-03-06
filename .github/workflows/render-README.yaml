@@ -44,7 +44,8 @@ jobs:
 
       - name: Render README file
         run: |
-          Rscript -e 'rmarkdown::render("README.Rmd")'
+          RMD_PATH=($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'README.Rmd'))
+          Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f)' ${RMD_PATH[*]}
 
       - name: Commit Results
         run: |
