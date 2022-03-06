@@ -8,10 +8,6 @@ on:
   pull_request:
     branches: [main, master]
     paths: README.Rmd
-  schedule:
-    # run every day
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 0 * * *'
 
 name: render-rmarkdown
 
@@ -33,16 +29,16 @@ jobs:
 
       - uses: r-lib/actions/setup-renv@v2
 
-     - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: |
-              deps::.
-              any::sessioninfo
-              any::deepdep
-              any::miniCRAN
-              any::cranlogs
-              any::tidyverse
-              any::zoo
+            deps::.
+            any::sessioninfo
+            any::deepdep
+            any::miniCRAN
+            any::cranlogs
+            any::tidyverse
+            any::zoo
 
       - name: Render README
         run: |
