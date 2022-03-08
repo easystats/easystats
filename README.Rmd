@@ -160,7 +160,6 @@ a small change in a distant downstream dependency with unexpected upstream
 consequences.
 
 ```{r depnetwork, echo=FALSE}
-
 easystats_pkgs <- available.packages(repos = "https://easystats.r-universe.dev")
 pkgsnms <- rownames(easystats_pkgs)
 
@@ -217,11 +216,17 @@ figures, relying thus on other packages such as *ggplot2*, which has a substanti
 # Downloads 
 
 ```{r, include=TRUE, results="hide", echo=FALSE}
-library(tidyverse)
 library(zoo)
 library(cranlogs)
 library(see)
+
+# tidverse packages
 library(purrr)
+library(forcats)
+library(lubridate)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
 
 # Packages data
 downloads_all <- map_dfr(pkgsnms, cranlogs::cran_downloads, from = "2019-02-26")
@@ -376,7 +381,7 @@ dl_table <- data %>%
   tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package) %>%
   t() %>%
   as.data.frame() %>%
-  dplyr::arrange(-V1) %>%
+  arrange(-V1) %>%
   t() %>%
   as.data.frame()
 

@@ -41,7 +41,12 @@ jobs:
             any::deepdep
             any::miniCRAN
             any::cranlogs
-            any::tidyverse
+            any::purrr
+            any::forcats
+            any::lubridate
+            any::ggplot2
+            any::dplyr
+            any::tidyr
             any::zoo
             any::igraph
             any::viridis
