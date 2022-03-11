@@ -8,9 +8,9 @@ on:
   pull_request:
     branches: [main, master]
     paths: README.Rmd
+  # run every day
+  # `*` is a special character in YAML so you have to quote this string
   schedule:
-    # run every day
-    # * is a special character in YAML so you have to quote this string
     - cron:  '0 0 * * *'
 
 name: render-readme
