@@ -4,12 +4,15 @@
 \alias{install_latest}
 \title{Install the easystats suite from R-universe (GitHub) or CRAN}
 \usage{
-install_latest(source = c("development", "cran"))
+install_latest(source = c("development", "cran"), packages = "all")
 }
 \arguments{
 \item{source}{Character. Either \code{"development"} or \code{"cran"}. If \code{"cran"},
 packages will be installed from the default CRAN mirror returned by
 \code{getOption("repos")['CRAN']}.}
+
+\item{packages}{Character vector, indicating which packages to be installed.
+By default, the option \code{"all"} will install all \strong{easystats} packages.}
 }
 \description{
 This function can be used to install all the \emph{easystats} packages, either

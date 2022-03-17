@@ -21,21 +21,29 @@ CRAN_checks <- function() {
 #' @param source Character. Either `"development"` or `"cran"`. If `"cran"`,
 #'   packages will be installed from the default CRAN mirror returned by
 #'   `getOption("repos")['CRAN']`.
+#' @param packages Character vector, indicating which packages to be installed.
+#'   By default, the option `"all"` will install all **easystats** packages.
+#'
 #'
 #' @export
-install_latest <- function(source = c("development", "cran")) {
+install_latest <- function(source = c("development", "cran"), packages = "all") {
   source <- match.arg(source, c("development", "cran"))
+  pkg <- c("insight", "datawizard", "bayestestR", "performance", "parameters",
+           "effectsize", "correlation", "modelbased", "see", "report")
+
+  if (all(packages == "all")) {
+    packages <- pkg
+  } else {
+    packages <- intersect(packages, pkg)
+  }
+
   if (source == "development") {
     repos <- "https://easystats.r-universe.dev"
   } else {
     repos <- getOption("repos")["CRAN"]
   }
 
-  utils::install.packages(c(
-    "insight", "datawizard", "bayestestR", "performance",
-    "parameters", "effectsize", "correlation", "modelbased",
-    "see", "report"
-  ), repos = repos)
+  utils::install.packages(packages, repos = repos)
 }
 
 
