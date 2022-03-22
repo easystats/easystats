@@ -28,8 +28,10 @@ CRAN_checks <- function() {
 #' @export
 install_latest <- function(source = c("development", "cran"), packages = "all") {
   source <- match.arg(source, c("development", "cran"))
-  pkg <- c("insight", "datawizard", "bayestestR", "performance", "parameters",
-           "effectsize", "correlation", "modelbased", "see", "report")
+  pkg <- c(
+    "insight", "datawizard", "bayestestR", "performance", "parameters",
+    "effectsize", "correlation", "modelbased", "see", "report"
+  )
 
   if (all(packages == "all")) {
     packages <- pkg
