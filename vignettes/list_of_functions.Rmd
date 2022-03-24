@@ -31,6 +31,7 @@ package ecosystem.
 ```{r echo=FALSE, results='asis'}
 # it would be cool to add the title / description for all functions
 library(insight)
+library(datawizard)
 library(bayestestR)
 library(parameters)
 library(performance)
