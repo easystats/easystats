@@ -43,11 +43,11 @@ Imports:
     datawizard (>= 0.4.0),
     effectsize (>= 0.6.0),
     insight (>= 0.17.0),
-    modelbased (>= 0.7.2),
+    modelbased (>= 0.8.0),
     parameters (>= 0.17.0),
     performance (>= 0.9.0),
     report (>= 0.5.1),
-    see (>= 0.6.9),
+    see (>= 0.7.0),
     tools,
     utils
 Suggests: 
