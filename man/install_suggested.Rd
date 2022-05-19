@@ -13,9 +13,10 @@ show_suggested(package = "easystats")
 show_reverse_dependencies(package = "easystats")
 }
 \arguments{
-\item{package}{If \code{NULL}, all suggested packages for all 'easystats'
-packages will be installed. If specific packages are specified, only
-suggested packages for those packages will be installed.}
+\item{package}{If \code{NULL} or \code{"easystats"} (the default), all suggested
+packages for all 'easystats' packages will be installed. If specific
+packages are specified, only suggested packages for those packages will be
+installed.}
 }
 \value{
 Useful only for its side-effect of installing the needed packages.
@@ -40,10 +41,9 @@ package.
 \examples{
 \dontrun{
 install_suggested("easystats")
-}
 
 # listing all reverse dependencies of easystats packages
-\donttest{
 show_reverse_dependencies()
 }
+
 }

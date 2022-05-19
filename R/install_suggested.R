@@ -42,9 +42,10 @@
 #' downloaded at once using this function. This will allow you to fully utilize
 #' 100\% of easystats' functionalities without errors.
 #'
-#' @param package If `NULL`, all suggested packages for all 'easystats'
-#'   packages will be installed. If specific packages are specified, only
-#'   suggested packages for those packages will be installed.
+#' @param package If `NULL` or `"easystats"` (the default), all suggested
+#'   packages for all 'easystats' packages will be installed. If specific
+#'   packages are specified, only suggested packages for those packages will be
+#'   installed.
 #'
 #' @details
 #'
@@ -63,12 +64,11 @@
 #' @examples
 #' \dontrun{
 #' install_suggested("easystats")
-#' }
 #'
 #' # listing all reverse dependencies of easystats packages
-#' \donttest{
 #' show_reverse_dependencies()
 #' }
+#'
 #' @export
 install_suggested <- function(package = "easystats") {
   suggested_packages <- .suggested_pkgs()

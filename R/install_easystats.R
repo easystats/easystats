@@ -20,7 +20,8 @@ CRAN_checks <- function() {
 #'
 #' @param source Character. Either `"development"` or `"cran"`. If `"cran"`,
 #'   packages will be installed from the default CRAN mirror returned by
-#'   `getOption("repos")['CRAN']`.
+#'   `getOption("repos")['CRAN']`. If `"development"` (the default), packages
+#'   are installed from the r-universe repository (https://easystats.r-universe.dev/).
 #' @param packages Character vector, indicating which packages to be installed.
 #'   By default, the option `"all"` will install all **easystats** packages.
 #'

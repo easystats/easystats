@@ -9,7 +9,8 @@ install_latest(source = c("development", "cran"), packages = "all")
 \arguments{
 \item{source}{Character. Either \code{"development"} or \code{"cran"}. If \code{"cran"},
 packages will be installed from the default CRAN mirror returned by
-\code{getOption("repos")['CRAN']}.}
+\code{getOption("repos")['CRAN']}. If \code{"development"} (the default), packages
+are installed from the r-universe repository (https://easystats.r-universe.dev/).}
 
 \item{packages}{Character vector, indicating which packages to be installed.
 By default, the option \code{"all"} will install all \strong{easystats} packages.}
