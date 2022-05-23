@@ -1,7 +1,7 @@
 #' @keywords internal_list
 # styler: off
 .suggested_pkgs <- function() {
-  list(
+  insight::compact_list(list(
     insight     = .find_suggested("insight"),
     datawizard  = .find_suggested("datawizard"),
     performance = .find_suggested("performance"),
@@ -12,11 +12,11 @@
     correlation = .find_suggested("correlation"),
     report      = .find_suggested("report"),
     modelbased  = .find_suggested("modelbased")
-  )
+  ))
 }
 
 .revdep_pkgs <- function() {
-  list(
+  insight::compact_list(list(
     insight     = .find_reverse_dependencies("insight"),
     datawizard  = .find_reverse_dependencies("datawizard"),
     performance = .find_reverse_dependencies("performance"),
@@ -27,7 +27,7 @@
     correlation = .find_reverse_dependencies("correlation"),
     report      = .find_reverse_dependencies("report"),
     modelbased  = .find_reverse_dependencies("modelbased")
-  )
+  ))
 }
 # styler: on
 
@@ -145,7 +145,13 @@ show_reverse_dependencies <- function(package = "easystats") {
 
 .find_suggested <- function(package) {
   # read suggests field from package description
-  suggests <- utils::packageDescription(package)$Suggests
+  suggests <- tryCatch(suppressWarnings(utils::packageDescription(package)$Suggests),
+                       error = function(e) NULL)
+
+  if (is.null(suggests)) {
+    return(NULL)
+  }
+
   # clean
   suggested_packages <- insight::trim_ws(gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE))))
   # remove Bioconductor packages
