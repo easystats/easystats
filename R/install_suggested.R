@@ -144,23 +144,10 @@ show_reverse_dependencies <- function(package = "easystats") {
 # crawl suggestion fields
 
 .find_suggested <- function(package) {
-  insight::check_if_installed("xml2")
-
-  url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
-  html_page <- xml2::read_html(url)
-  elements <- xml2::as_list(html_page)
-  suggest_field <- elements$html$body$div$table[[4]][[3]]
-
-  pkgs <- lapply(suggest_field, function(i) {
-    if (is.list(i)) {
-      i[[1]]
-    } else {
-      NA
-    }
-  })
-
-  suggested_packages <- as.vector(unname(stats::na.omit(unlist(pkgs))))
-
+  # read suggests field from package description
+  suggests <- utils::packageDescription(package)$Suggests
+  # clean
+  suggested_packages <- insight::trim_ws(gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE))))
   # remove Bioconductor packages
   setdiff(suggested_packages, "M3C")
 }
