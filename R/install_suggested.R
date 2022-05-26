@@ -146,7 +146,8 @@ show_reverse_dependencies <- function(package = "easystats") {
 .find_suggested <- function(package) {
   # read suggests field from package description
   suggests <- tryCatch(suppressWarnings(utils::packageDescription(package)$Suggests),
-                       error = function(e) NULL)
+    error = function(e) NULL
+  )
 
   if (is.null(suggests)) {
     return(NULL)

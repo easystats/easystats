@@ -39,12 +39,12 @@ URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
 Imports:
     bayestestR (>= 0.12.1),
-    correlation (>= 0.8.0),
+    correlation (>= 0.8.1),
     datawizard (>= 0.4.1),
     effectsize (>= 0.6.0.1),
     insight (>= 0.17.1),
     modelbased (>= 0.8.0),
-    parameters (>= 0.17.0),
+    parameters (>= 0.18.0),
     performance (>= 0.9.0),
     report (>= 0.5.1),
     see (>= 0.7.0),
