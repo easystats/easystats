@@ -221,15 +221,16 @@ library(cranlogs)
 library(see)
 
 # tidverse packages
-library(purrr)
-library(forcats)
 library(lubridate)
 library(ggplot2)
-library(tidyr)
-library(dplyr)
+library(poorman)
+library(datawizard)
 
 # Packages data
-downloads_all <- map_dfr(pkgsnms, cranlogs::cran_downloads, from = "2019-02-26")
+downloads <- lapply(pkgsnms, function(x) {
+  cranlogs::cran_downloads(x, from = "2019-02-26")
+})
+downloads_all <- do.call("rbind", downloads)
 
 # Combine all data
 data <- downloads_all %>%
@@ -246,7 +247,8 @@ data <- downloads_all %>%
     year_month = paste0(lubridate::year(date), "-", months(date)),
     month_day = lubridate::mday(date)
   ) %>%
-  ungroup()
+  ungroup() %>% 
+  as.data.frame()
 
 
 events <- data.frame()
@@ -322,10 +324,10 @@ events <- rbind(
 )
 
 # Full join
-data <- full_join(data, events, by = c("date", "Package")) %>%
-  mutate(Package = fct_reorder(Package, count, .fun = sum, .desc = TRUE))
+data <- data_join(data, events, by = c("date", "Package")) %>%
+  mutate(Package = reorder(Package, count, sum, decreasing = TRUE))
 
-events <- full_join(
+events <- data_join(
   events,
   group_by(data, event) %>%
     summarise(event_y = max(average_count)),
@@ -376,16 +378,19 @@ average_monthly_downloads <- do.call(rbind, average_monthly_downloads)
 dl_table <- data %>%
   group_by(Package) %>%
   summarise(`Total Downloads` = max(cumulative_count)) %>%
-  arrange(`Total Downloads`) %>%
-  bind_rows(summarise_all(., list(~ if (is.numeric(.)) sum(.) else "Total"))) %>%
-  tidyr::pivot_wider(values_from = `Total Downloads`, names_from = Package) %>%
-  t() %>%
-  as.data.frame() %>%
-  arrange(-V1) %>%
-  t() %>%
-  as.data.frame()
+  ungroup() %>% 
+  arrange(-`Total Downloads`) %>% 
+  t() %>% 
+  as.data.frame() 
 
-row.names(dl_table) <- NULL
+names(dl_table) <- dl_table[1, ]
+dl_table <- dl_table[-1, ]
+dl_table[] <- lapply(dl_table, as.numeric)
+dl_table <- dl_table %>% 
+  mutate(Total = rowSums(dl_table[1, ])) %>% 
+  select(Total, everything())
+rownames(dl_table) <- NULL
+
 dl_table[] <- lapply(dl_table, format, big.mark = ",")
 
 knitr::kable(dl_table)
@@ -400,7 +405,7 @@ data %>%
   slice(1:(n() - 1)) %>%
   # Remove 2 last days to avoid edge issues
   ungroup() %>%
-  mutate(Package = fct_relevel(Package, names(packages_colours))) |>
+  mutate(Package = relevel(Package, "bayestestR", names(packages_colours))) |>
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
@@ -461,7 +466,7 @@ average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, 
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
 
 average_monthly_downloads %>%
-  mutate(package2 = forcats::fct_reorder(package2, monthly_downloads, max)) %>%
+  mutate(package2 = reorder(package2, monthly_downloads, max)) %>%
   ggplot(aes(x = package2, y = monthly_downloads, colour = package)) +
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
