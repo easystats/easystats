@@ -32,6 +32,7 @@ package ecosystem.
 # it would be cool to add the title / description for all functions
 library(insight)
 library(datawizard)
+library(poorman)
 library(bayestestR)
 library(parameters)
 library(performance)
@@ -41,35 +42,37 @@ library(modelbased)
 library(see)
 library(report)
 
-all_funs <- data.frame()
+all_funs <- c()
 
 for (package in c("insight", "datawizard", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "see", "report")) {
-  name <- ls(paste0("package:", package))
-
-  functions <- paste0(
-    "[**`",
-    name,
-    "`**](https://easystats.github.io/",
-    package,
-    "/reference/index.html)",
-    " *(",
-    package,
-    ")*"
+  
+  fns <- ls(paste0("package:", package)) 
+  
+  all_fns <- as.data.frame(
+    readRDS(paste0(find.package(package), "/help/aliases.rds"))
   )
-
-  functions <- data.frame(
-    "Functions" = functions,
-    "Package" = package,
-    "Name" = name
-  )
-
-
-  all_funs <- rbind(all_funs, functions)
+  all_fns <- rownames_as_column(all_fns)
+  names(all_fns) <- c("func", "file")
+  all_fns <- all_fns %>% 
+    filter(func %in% fns) %>% 
+    mutate(file = paste0(file, ".html"))
+  
+  functions <- apply(all_fns, 1, function(x) {
+    paste0(
+      "[**`",
+      x[1],
+      "`**](https://easystats.github.io/",
+      package,
+      "/reference/",
+      x[2],
+      ") *(",
+      package,
+      ")*"
+    )
+  })
+  all_funs <- c(all_funs, functions)
 }
 
 
-all_funs <- all_funs[!duplicated(all_funs$Name), ]
-all_funs <- sort(as.character(all_funs$Functions))
-
-cat(paste0(c("", all_funs), collapse = "\n- "))
+cat(paste0(c("", sort(all_funs)), collapse = "\n- "))
 ```
