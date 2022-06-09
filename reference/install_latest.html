@@ -81,9 +81,18 @@ will be installed from the stable branch (master/main) for each package.</p>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <p></p>
-<p></p>
-    </div>
+    <dl><dt>source</dt>
+<dd><p>Character. Either <code>"development"</code> or <code>"cran"</code>. If <code>"cran"</code>,
+packages will be installed from the default CRAN mirror returned by
+<code>getOption("repos")['CRAN']</code>. If <code>"development"</code> (the default), packages
+are installed from the r-universe repository (https://easystats.r-universe.dev/).</p></dd>
+
+
+<dt>packages</dt>
+<dd><p>Character vector, indicating which packages to be installed.
+By default, the option <code>"all"</code> will install all <strong>easystats</strong> packages.</p></dd>
+
+</dl></div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
