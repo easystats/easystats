@@ -75,25 +75,25 @@ will realize that using more of them creates a smooth workflow, as these
 packages are meant to work together. Ideally, these packages work in unison to
 cover all aspects of statistical analysis and data visualization.
 
-- [**report**](https://github.com/easystats/report): 📜 🎉 Automated statistical
+- [**report**](https://easystats.github.io/report): 📜 🎉 Automated statistical
   reporting of objects in R
-- [**correlation**](https://github.com/easystats/correlation): 🔗 Your all-in-one
+- [**correlation**](https://easystats.github.io/correlation): 🔗 Your all-in-one
   package to run correlations
-- [**modelbased**](https://github.com/easystats/modelbased): 📈 Estimate effects,
+- [**modelbased**](https://easystats.github.io/modelbased): 📈 Estimate effects,
   group averages and contrasts between groups based on statistical models
-- [**bayestestR**](https://github.com/easystats/bayestestR): 👻 Great for
+- [**bayestestR**](https://easystats.github.io/bayestestR): 👻 Great for
   beginners or experts of Bayesian statistics
-- [**parameters**](https://github.com/easystats/parameters): 📊 Obtain a table
+- [**parameters**](https://easystats.github.io/parameters): 📊 Obtain a table
   containing all information about the parameters of your models
-- [**performance**](https://github.com/easystats/performance): 💪 Models' quality
+- [**performance**](https://easystats.github.io/performance): 💪 Models' quality
   and performance metrics (R2, ICC, LOO, AIC, BF, ...)
-- [**effectsize**](https://github.com/easystats/effectsize): 🐉 Compute, convert,
+- [**effectsize**](https://easystats.github.io/effectsize): 🐉 Compute, convert,
   interpret and work with indices of effect size and standardized parameters
-- [**insight**](https://github.com/easystats/insight): 🔮 For developers, a
+- [**insight**](https://easystats.github.io/insight): 🔮 For developers, a
   package to help you work with different models and packages
-- [**see**](https://github.com/easystats/see): 🎨 The plotting companion to
+- [**see**](https://easystats.github.io/see): 🎨 The plotting companion to
   create beautiful results visualizations
-- [**datawizard**](https://github.com/easystats/datawizard): 🧙 Magic potions to clean and transform your data
+- [**datawizard**](https://easystats.github.io/datawizard): 🧙 Magic potions to clean and transform your data
 
 # Frequently Asked Questions
 
