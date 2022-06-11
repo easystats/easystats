@@ -1,24 +1,26 @@
 # Pull Request and Code Review Standards
 
--   Unless it's a trivial change (spelling mistake, code formatting, etc.), there should be an existing issue that will be closed by the given PR.
+-   Please check if there is an existing issue that will be closed by the given PR. Unless it's a trivial change (spelling mistake, code formatting, etc.), this is likely the case.
 
--   The branch name from which PR is being made should follow the convention: `\<issue_number\>-short-description` (e.g. \`186_implement_data_extract\`).
+-   Give the branch for the PR an informative name
+    - If the PR will close an existing issue, name the branch with this format: `\<issue_number\>-short-description` (e.g. \`186_implement_data_extract\`).
+    - If the PR doesn't close an existing issue, name the branch with this format: `\short-description` (e.g. \`improve-reshape-docs\`)
 
 -   The title for the PR should provide a brief description about the changes.
 
 -   The PR should be linked to the issue(s) that it targets, either by using [keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) (like `fixes`, `closes`, etc.) in the PR description or by using `development` feature.
 
--   Even if the PR doesn't close any issues, it should refer to the comment or discussion that motivated it. Lacking any of these, the PR description should be self-sufficient to explain the motivation for the PR.
+-  If the PR doesn't close any issues, please either link to the comment or discussion that motivated it or provide a detailed description to explain the motivation for the PR.
 
--   If the PR is a work in progress, you can convert it to a draft PR and add `WIP` to the PR title.
+-   If the PR is a work in progress, please mark it as a draft PR using the GitHub checkbox and add `[WIP]` to the PR title.
 
--   Reviewers should not conduct code review of draft PRs, unless otherwise requested by the contributors.
+-   Reviewers will delay code review of draft PRs until they are marked ready for review (by removing `[WIP]` from the title and unchecking the "Draft" box), unless otherwise requested by the contributors.
 
 -   Once the PR is marked as "Ready for Review", contributors should remember to remove `WIP` from the PR title.
 
--   Before marking the PR as "Ready for Review", contributors should also make sure that they are following the tidyverse style guide (enforced via `{styler}` package) and to make sure that CI/CD pipelines are executing successfully. If this is not possible for some reason (e.g. because the code in *other repositories* must be changed) - the contributor should create new issue(s) for those required code changes, link them in the PR, and shortly explain why the change in the PR itself is not possible.
+-   Before marking the PR as "Ready for Review", contributors should also make sure that they are following the tidyverse style guide (enforced via `{styler}` package) and to make sure that automatic GitHub tests all finish successfully. If it is not possible for tests to finish successfully for some reason (e.g., because the PR relies on changes in *other repositories*), then the contributor should create new issue(s) for those required code changes, link them in the PR, and shortly explain why the change in the PR itself is not possible.
 
--   Ideally, there should be a one-to-one mapping of issues to PR, although if a number of issues are related to the same underlying functionality, it is completely acceptable to address multiple issues in a single PR.
+-   In general, fix one issue in a PR, and open new PRs to fix other issues. If a number of issues are related to the same underlying functionality, it is okay to address multiple issues in a single PR.
 
 -   If it's a PR that adds significant new functionality, there might be multiple tasks to be completed. In such cases, try to prepare a checklist in the PR description and keep it updated so that the reviewers and contributors always have an up-to-date view of the status of the PR.
 
