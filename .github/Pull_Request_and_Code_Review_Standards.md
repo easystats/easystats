@@ -8,13 +8,9 @@
 
 -   The PR should be linked to the issue(s) that it targets, either by using [keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) (like `fixes`, `closes`, etc.) in the PR description or by using `development` feature.
 
-    ![](figures/development.png)
-
 -   Even if the PR doesn't close any issues, it should refer to the comment or discussion that motivated it. Lacking any of these, the PR description should be self-sufficient to explain the motivation for the PR.
 
 -   If the PR is a work in progress, you can convert it to a draft PR and add `WIP` to the PR title.
-
-    ![](figures/draft.png)
 
 -   Reviewers should not conduct code review of draft PRs, unless otherwise requested by the contributors.
 
