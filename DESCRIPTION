@@ -54,7 +54,6 @@ Imports:
     utils
 Suggests: 
     knitr,
-    poorman,
     rmarkdown,
     rvest,
     xml2
