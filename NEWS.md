@@ -1,3 +1,9 @@
+# easystats 0.5.0
+
+* Bumps needed minimum R version to `3.5`.
+
+* Updates minimum needed versions of all packages to the latest versions.
+
 # easystats 0.4.1
 
 * Adds *datawizard* package.
