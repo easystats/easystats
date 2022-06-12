@@ -155,6 +155,7 @@ show_reverse_dependencies <- function(package = "easystats") {
 
   # clean
   suggested_packages <- insight::trim_ws(gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE))))
+
   # remove Bioconductor packages
   setdiff(suggested_packages, "M3C")
 }
@@ -165,12 +166,10 @@ show_reverse_dependencies <- function(package = "easystats") {
 .find_reverse_dependencies <- function(package) {
   insight::check_if_installed("xml2")
 
-
   url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
   html_page <- xml2::read_html(url)
   elements <- xml2::as_list(html_page)
   rev_import_field <- elements$html$body$div[[15]][[1]][[3]]
-
 
   pkgs <- lapply(rev_import_field, function(i) {
     if (is.list(i)) {
@@ -179,7 +178,6 @@ show_reverse_dependencies <- function(package = "easystats") {
       NA
     }
   })
-
 
   as.vector(unname(stats::na.omit(unlist(pkgs))))
 }
