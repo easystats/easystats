@@ -44,19 +44,20 @@ library(report)
 
 all_funs <- c()
 
-for (package in c("insight", "datawizard", "bayestestR", "parameters", "performance", "effectsize", "correlation", "modelbased", "see", "report")) {
-  
-  fns <- ls(paste0("package:", package)) 
-  
+for (package in easystats:::.packages_on_cran()) {
+  fns <- ls(paste0("package:", package))
+
   all_fns <- as.data.frame(
     readRDS(paste0(find.package(package), "/help/aliases.rds"))
   )
+
   all_fns <- rownames_as_column(all_fns)
   names(all_fns) <- c("func", "file")
-  all_fns <- all_fns %>% 
-    filter(func %in% fns) %>% 
+
+  all_fns <- all_fns %>%
+    filter(func %in% fns) %>%
     mutate(file = paste0(file, ".html"))
-  
+
   functions <- apply(all_fns, 1, function(x) {
     paste0(
       "[**`",
@@ -70,9 +71,9 @@ for (package in c("insight", "datawizard", "bayestestR", "parameters", "performa
       ")*"
     )
   })
+
   all_funs <- c(all_funs, functions)
 }
-
 
 cat(paste0(c("", sort(all_funs)), collapse = "\n- "))
 ```

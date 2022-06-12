@@ -55,7 +55,6 @@ Suggests:
     poorman,
     rmarkdown,
     rvest,
-    spelling,
     xml2
 VignetteBuilder: 
     knitr

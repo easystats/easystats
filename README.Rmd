@@ -247,7 +247,7 @@ data <- downloads_all %>%
     year_month = paste0(lubridate::year(date), "-", months(date)),
     month_day = lubridate::mday(date)
   ) %>%
-  ungroup() %>% 
+  ungroup() %>%
   as.data.frame()
 
 
@@ -378,16 +378,16 @@ average_monthly_downloads <- do.call(rbind, average_monthly_downloads)
 dl_table <- data %>%
   group_by(Package) %>%
   summarise(`Total Downloads` = max(cumulative_count)) %>%
-  ungroup() %>% 
-  arrange(-`Total Downloads`) %>% 
-  t() %>% 
-  as.data.frame() 
+  ungroup() %>%
+  arrange(-`Total Downloads`) %>%
+  t() %>%
+  as.data.frame()
 
 names(dl_table) <- dl_table[1, ]
 dl_table <- dl_table[-1, ]
 dl_table[] <- lapply(dl_table, as.numeric)
-dl_table <- dl_table %>% 
-  mutate(Total = rowSums(dl_table[1, ])) %>% 
+dl_table <- dl_table %>%
+  mutate(Total = rowSums(dl_table[1, ])) %>%
   select(Total, everything())
 rownames(dl_table) <- NULL
 
