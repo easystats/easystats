@@ -8,7 +8,7 @@
 
 -   The title for the PR should provide a brief description about the changes.
 
--   The PR should be linked to the issue(s) that it targets, either by using [keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) (like `fixes`, `closes`, etc.) in the PR description or by using `development` feature.
+-   The PR should be linked to the issue(s) that it targets, either by using [keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) (like `fixes`, `closes`, etc.) in the PR description or by searching for the issue in the dropdown menu of the **Development** section of the right-side sidebar on the GitHub website.
 
 -  If the PR doesn't close any issues, please either link to the comment or discussion that motivated it or provide a detailed description to explain the motivation for the PR.
 
