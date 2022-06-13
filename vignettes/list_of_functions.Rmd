@@ -32,7 +32,6 @@ package ecosystem.
 # it would be cool to add the title / description for all functions
 library(insight)
 library(datawizard)
-library(poorman)
 library(bayestestR)
 library(parameters)
 library(performance)
@@ -54,9 +53,8 @@ for (package in easystats:::.packages_on_cran()) {
   all_fns <- rownames_as_column(all_fns)
   names(all_fns) <- c("func", "file")
 
-  all_fns <- all_fns %>%
-    filter(func %in% fns) %>%
-    mutate(file = paste0(file, ".html"))
+  all_fns <- data_filter(all_fns, func %in% fns)
+  all_fns$file <- paste0(all_fns$file, ".html")
 
   functions <- apply(all_fns, 1, function(x) {
     paste0(
