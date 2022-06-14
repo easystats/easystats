@@ -1,5 +1,5 @@
 pandoc: 2.14.2
-pkgdown: 2.0.3
+pkgdown: 2.0.4
 pkgdown_sha: ~
 articles:
   citation: citation.html
@@ -7,5 +7,5 @@ articles:
   list_of_functions: list_of_functions.html
   programming: programming.html
   resources: resources.html
-last_built: 2022-06-12T21:45Z
+last_built: 2022-06-14T15:47Z
 
