@@ -24,7 +24,7 @@
 
 -   If it's a PR that adds significant new functionality, there might be multiple tasks to be completed. In such cases, try to prepare a checklist in the PR description and keep it updated so that the reviewers and contributors always have an up-to-date view of the status of the PR.
 
--   Any PR that makes a user-visible change should include a bump to package version number and entry in the `NEWS.md` (with the name of the contributor if the contributor is not an author and issue number if available).
+-   Any PR that makes a user-visible change should include a bump to package version number (`x.y.z.v` -> `x.y.z.v + 1`) and entry in the `NEWS.md` (with the name of the contributor if the contributor is not an author and issue number if available).
 
 -   Reviewers should do their due diligence to understand the underlying issue, instead of asking contributors to reiterate the details that have already been outlined in GitHub Issues/Discussions.
 
