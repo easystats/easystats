@@ -223,7 +223,6 @@ library(see)
 # tidverse packages
 library(lubridate)
 library(ggplot2)
-library(poorman)
 library(datawizard)
 
 # Packages data
@@ -233,23 +232,23 @@ downloads <- lapply(pkgsnms, function(x) {
 downloads_all <- do.call("rbind", downloads)
 
 # Combine all data
-data <- downloads_all %>%
-  rename(Package = package) %>%
-  group_by(Package) %>%
-  mutate(
-    cumulative_count = cumsum(count),
-    average_count = zoo::rollmax(count, 10, fill = 0) + 10,
-    average_count = zoo::rollmean(count, k = 7, fill = NA),
-    day_num = as.numeric(date) - min(as.numeric(date)),
-    day = weekdays(date),
-    month = months(date),
-    quarters = quarters(date),
-    year_month = paste0(lubridate::year(date), "-", months(date)),
-    month_day = lubridate::mday(date)
-  ) %>%
-  ungroup() %>%
-  as.data.frame()
+data <- downloads_all |>
+  data_rename("package", "Package") 
 
+tmp <- lapply(split(data, data$Package), function(x) {
+  x$cumulative_count <- cumsum(x$count)
+  x$average_count<- zoo::rollmean(x$count, k = 7, fill = NA)
+  x$day_num<- as.numeric(x$date) - min(as.numeric(x$date))
+  x$day<- weekdays(x$date)
+  x$month<- months(x$date)
+  x$quarters<- quarters(x$date)
+  x$year_month<- paste0(lubridate::year(x$date), "-", months(x$date))
+  x$month_day<- lubridate::mday(x$date)
+  as.data.frame(x)
+})
+
+data <- do.call(rbind, tmp)
+data <- data[order(data$Package, data$date), ]
 
 events <- data.frame()
 color_CRAN <- "#607D8B"
@@ -324,16 +323,16 @@ events <- rbind(
 )
 
 # Full join
-data <- data_join(data, events, by = c("date", "Package")) %>%
-  mutate(Package = reorder(Package, count, sum, decreasing = TRUE))
+data <- data_join(data, events, by = c("date", "Package")) 
+data$Package <- reorder(data$Package, data$count, sum, decreasing = TRUE)
 
-events <- data_join(
-  events,
-  group_by(data, event) %>%
-    summarise(event_y = max(average_count)),
-  by = "event"
-) %>%
-  filter(!is.na(date))
+tmp <- lapply(split(data, data$event), function(x) {
+  x$event_y <- rep(max(x$average_count), times = nrow(x))
+  x[, c("event", "event_y")]
+})
+tmp <- do.call(rbind, tmp)
+
+events <- data_join(events, tmp, by = "event") 
 
 # Set packages colours
 packages_colours <- c(
@@ -375,20 +374,21 @@ average_monthly_downloads <- do.call(rbind, average_monthly_downloads)
 
 ```{r, fig.align='center', echo=FALSE}
 # TIME TREND
-dl_table <- data %>%
-  group_by(Package) %>%
-  summarise(`Total Downloads` = max(cumulative_count)) %>%
-  ungroup() %>%
-  arrange(-`Total Downloads`) %>%
-  t() %>%
+dl_table <- data
+
+tmp <- lapply(split(dl_table, dl_table$Package), function(x) {
+  x$`Total Downloads` <- max(x$cumulative_count)
+  x[1, c("Package", "Total Downloads")]
+})
+dl_table <- do.call(rbind, tmp)
+dl_table <- dl_table[order(dl_table$`Total Downloads`, decreasing = TRUE), ] |>
+  t() |>
   as.data.frame()
 
-names(dl_table) <- dl_table[1, ]
 dl_table <- dl_table[-1, ]
 dl_table[] <- lapply(dl_table, as.numeric)
-dl_table <- dl_table %>%
-  mutate(Total = rowSums(dl_table[1, ])) %>%
-  select(Total, everything())
+dl_table$Total <- rowSums(dl_table[1, ])
+dl_table <- dl_table[, c(12, 1:11)]
 rownames(dl_table) <- NULL
 
 dl_table[] <- lapply(dl_table, format, big.mark = ",")
@@ -400,12 +400,12 @@ knitr::kable(dl_table)
 
 ```{r, fig.align='center', echo=FALSE}
 # TIME TREND
-data %>%
-  group_by(Package) %>%
-  slice(1:(n() - 1)) %>%
-  # Remove 2 last days to avoid edge issues
-  ungroup() %>%
-  mutate(Package = relevel(Package, "bayestestR", names(packages_colours))) |>
+tmp <- lapply(split(data, data$Package), function(x) {
+  x[-nrow(x), ]
+})
+tmp <- do.call(rbind, tmp)
+tmp$Package <- relevel(tmp$Package, "bayestestR", names(packages_colours))
+tmp |>
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
@@ -432,10 +432,11 @@ data %>%
 ### Cumulative downloads
 
 ```{r, fig.align='center', echo=FALSE}
-data <- data %>%
-  group_by(Package, year_month) %>%
-  mutate(download_label = first(cumulative_count)) %>%
-  ungroup()
+tmp <- lapply(split(data, list(data$Package, data$year_month)), function(x) {
+  x$download_label <- x$cumulative_count[[1]]
+  return(x)
+})
+data <- do.call(rbind, tmp)
 
 data$download_label <- sprintf("%.1fk", data$download_label / 1000)
 data$download_label[duplicated(data$download_label)] <- NA
@@ -465,8 +466,10 @@ ggplot(
 average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
 
-average_monthly_downloads %>%
-  mutate(package2 = reorder(package2, monthly_downloads, max)) %>%
+tmp <- average_monthly_downloads
+tmp$package2 <- reorder(tmp$package2, tmp$monthly_downloads, max)
+
+tmp |>
   ggplot(aes(x = package2, y = monthly_downloads, colour = package)) +
   geom_point(size = 3) +
   geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +

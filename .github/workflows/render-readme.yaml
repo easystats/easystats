@@ -41,7 +41,6 @@ jobs:
             any::cranlogs
             any::lubridate
             any::ggplot2
-            any::poorman
             any::zoo
             any::igraph
             any::viridis
