@@ -207,7 +207,6 @@ easystats_update <- function(which = c("all", "core", "deps")) {
 
 .add_easystats_dev_pkgs <- function(out, easystats_not_on_cran) {
   if (length(easystats_not_on_cran) > 0) {
-
     # check if any dev-version is actually installed
     easystats_not_on_cran <- sapply(
       easystats_not_on_cran,
