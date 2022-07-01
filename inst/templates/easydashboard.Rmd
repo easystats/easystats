@@ -11,9 +11,6 @@ output:
         google: Prompt
       code_font:
         google: JetBrains Mono
-    orientation: columns
-    vertical_layout: fill
-    out.width: "100%"
 params:
   model: model
 ---
@@ -24,7 +21,7 @@ library(easystats)
 
 knitr::opts_chunk$set(
   error = TRUE,
-  comment = "#>"
+  out.width = "100%"
 )
 ```
 

@@ -22,6 +22,12 @@
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
 #'
+#' @examples
+#' if (FALSE) {
+#'   mod <- lm(wt ~ mpg, mtcars)
+#'   easystats_model_dashboard(mod)
+#' }
+#'
 #' @export
 easystats_model_dashboard <- function(model,
                                       output_file = "easydashboard.html",

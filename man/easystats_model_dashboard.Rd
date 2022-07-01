@@ -37,3 +37,10 @@ A dashboard containing the following details for the entered regression model:
 \item a text report
 }
 }
+\examples{
+if (FALSE) {
+ mod <- lm(wt ~ mpg, mtcars)
+ easystats_model_dashboard(mod)
+}
+
+}
