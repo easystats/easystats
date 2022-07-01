@@ -53,6 +53,7 @@ Imports:
     tools,
     utils
 Suggests: 
+    flexdashboard,
     knitr,
     rmarkdown,
     rvest,

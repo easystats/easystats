@@ -33,6 +33,10 @@ reference:
       - starts_with("install_")
       - ends_with("_update")
 
+  - title: Dashboard
+  - contents:
+      - ends_with("_dashboard")
+
   - title: CRAN status
   - contents:
       - contains("CRAN")
