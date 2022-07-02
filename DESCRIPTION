@@ -29,7 +29,7 @@ Authors@R:
              email = "brenton@wiernik.org",
              comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")))
 Maintainer: Dominique Makowski <dom.makowski@gmail.com>
-Description: The 'easystats' is a meta-package that contains a set of
+Description: The 'easystats' package is a meta-package that contains a set of
     packages, all of which provide a unifying and consistent framework for 
     statistical modeling, visualization, and reporting. This package installs 
     and loads multiple 'easystats' packages in a single step. Additionally, 
