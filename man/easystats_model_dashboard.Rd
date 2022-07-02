@@ -39,8 +39,8 @@ A dashboard containing the following details for the entered regression model:
 }
 \examples{
 if (FALSE) {
- mod <- lm(wt ~ mpg, mtcars)
- easystats_model_dashboard(mod)
+  mod <- lm(wt ~ mpg, mtcars)
+  easystats_model_dashboard(mod)
 }
 
 }
