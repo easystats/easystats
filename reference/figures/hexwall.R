@@ -43,7 +43,8 @@ hexwall <- function(path,
 
   # Load stickers
   stickers <- c() # Initialize empty vector
-  for (p in path) { # Setup a loop to make it vectorized
+  for (p in path) {
+    # Setup a loop to make it vectorized
     if (tools::file_ext(p) == "") {
       # Surely a folder name
       stickers <- c(stickers, file.path(p, list.files(p)))
