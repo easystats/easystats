@@ -1,6 +1,6 @@
 Type: Package
 Package: easystats
-Title: Jump in the Easyverse
+Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
 Version: 0.5.0
 Authors@R: 
     c(person(given = "Daniel",
@@ -30,10 +30,12 @@ Authors@R:
              comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")))
 Maintainer: Dominique Makowski <dom.makowski@gmail.com>
 Description: The 'easystats' is a meta-package that contains a set of
-    packages, all of which aim to provide a unifying and consistent
-    framework to tame, discipline and harness the scary R statistics and
-    their pesky models. This package is designed to make it easy to
-    install and load multiple 'easystats' packages in a single step.
+    packages, all of which provide a unifying and consistent framework for 
+    statistical modeling, visualization, and reporting. This package installs 
+    and loads multiple 'easystats' packages in a single step. Additionally, 
+    it provides articles targeted at instructors for teaching 'easystats',
+    and a dashboard targeted at new R users for easily conducting statistical analysis 
+    by accessing summary results, model fit indices, and visualizations.
 License: GPL-3
 URL: https://github.com/easystats/easystats
 BugReports: https://github.com/easystats/easystats/issues
