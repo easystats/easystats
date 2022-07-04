@@ -46,16 +46,16 @@ text_report <- report(model)
 Model fit 
 =====================================  
 
-Column {data-width=550}
+Column {data-width=700}
 -----------------------------------------------------------------------
 
 ### Assumption checks
 
-```{r check-model, fig.height=10, fig.width=8, out.width="60%"}
+```{r check-model, fig.height=11, fig.width=9, out.width="90%"}
 check_model(model)
 ```
 
-Column {data-width=450}
+Column {data-width=300}
 -----------------------------------------------------------------------
 
 ### Indices of model fit
