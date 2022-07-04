@@ -40,8 +40,10 @@ table_performance <- do.call(performance::performance, performance_args)
 model_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
 if (is.null(model_terms)) {
   model_terms <- find_variables(model)$conditional
+} else {
+  model_terms <- clean_names(model_terms)
 }
-text_modelbased <- lapply(model_terms, function(i) {
+text_modelbased <- lapply(unique(model_terms), function(i) {
   grid <- get_datagrid(model, at = i)
   estimate_expectation(model, data = grid)
 })
@@ -106,7 +108,15 @@ Column {data-width=600}
 
 ```{r expected-values, fig.height=10, fig.width=10}
 ggplot2::theme_set(theme_modern())
-see::plots(lapply(text_modelbased, plot), n_columns = round(sqrt(length(text_modelbased))))
+# all_plots <- lapply(text_modelbased, function(i) {
+#   out <- do.call(visualisation_recipe, c(list(i), modelbased_args))
+#   plot(out) + ggplot2::ggtitle("")
+# })
+all_plots <- lapply(text_modelbased, function(i) {
+  out <- visualisation_recipe(i, show_data = "none")
+  plot(out) + ggplot2::ggtitle("")
+})
+see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
 ```
 
 Column {data-width=400}
