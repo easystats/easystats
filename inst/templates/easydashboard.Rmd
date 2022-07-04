@@ -55,7 +55,7 @@ Column {data-width=450}
 ### Indices of model fit
 
 ```{r}
-table_performance
+print(table_performance, layout = "vertical")
 ```
 
 Parameter estimates
