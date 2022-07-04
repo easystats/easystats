@@ -33,8 +33,13 @@
 #'
 #' @export
 model_dashboard <- function(model,
-                            exponentiate = FALSE,
+                            ci = .95,
+                            ci_method = NULL,
                             ci_random = FALSE,
+                            standardize = NULL,
+                            exponentiate = FALSE,
+                            vcov = NULL,
+                            vcov_args = NULL,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
                             rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {

@@ -13,8 +13,13 @@ output:
         google: JetBrains Mono
 params:
   model: model
-  exponentiate: exponentiate
+  ci: ci
+  ci_method: ci_method
   ci_random: ci_random
+  standardize: standardize
+  exponentiate: exponentiate
+  vcov: vcov
+  vcov_args: vcov_args
 ---
 
 ```{r setup, include=FALSE}
@@ -30,12 +35,26 @@ knitr::opts_chunk$set(
 ```{r}
 # Get user-specified model data
 model <- params$model
+ci <- params$ci
+ci_method <- params$ci_method
+ci_random <- params$ci_random
+standardize <- params$standardize
+exponentiate <- params$exponentiate
+vcov <- params$vcov
+vcov_args <- params$vcov_args
+
 
 table_parameters <- parameters(
   model, 
-  exponentiate = params$exponentiate,
-  ci_random = params$ci_random
+  ci = ci,
+  ci_method = ci_method,
+  ci_random = ci_random,
+  exponentiate = exponentiate,
+  standardize = standardize,
+  vcov = vcov,
+  vcov_args = vcov_args
 )
+
 table_performance <- performance(model)
 
 
