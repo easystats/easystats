@@ -6,24 +6,15 @@
 \usage{
 model_dashboard(
   model,
+  exponentiate = FALSE,
+  ci_random = FALSE,
   output_file = "easydashboard.html",
   output_dir = getwd(),
-  rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
-  exponentiate = FALSE
+  rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")
 )
 }
 \arguments{
 \item{model}{A regression model object.}
-
-\item{output_file}{A string specifying the file name in \code{rmarkdown::render()}.
-Default is \code{"easydashboard.html"}.}
-
-\item{output_dir}{A string specifying the path to the output directory for
-report in \code{rmarkdown::render()}. Default is to use the working directory.}
-
-\item{rmd_dir}{A string specifying the path to the directory containing the
-RMarkdown template file. By default, package uses the template shipped with
-the package installation (\code{inst/templates/easydashboard.Rmd}).}
 
 \item{exponentiate}{Logical, indicating whether or not to exponentiate the
 the coefficients (and related confidence intervals). This is typical for
@@ -36,6 +27,27 @@ transformed coefficient. The transformed confidence interval more clearly
 captures this uncertainty. For \code{compare_parameters()},
 \code{exponentiate = "nongaussian"} will only exponentiate coefficients
 from non-Gaussian families.}
+
+\item{ci_random}{Logical, if \code{TRUE}, includes the confidence intervals for
+random effects parameters. Only applies if \code{effects} is not \code{"fixed"} and
+if \code{ci} is not \code{NULL}. Set \code{ci_random = FALSE} if computation of the model
+summary is too much time consuming. By default, \code{ci_random = NULL}, which
+uses a heuristic to guess if computation of confidence intervals for random
+effects is fast enough or not. For models with larger sample size and/or
+more complex random effects structures, confidence intervals will not be
+computed by default, for simpler models or fewer observations, confidence
+intervals will be included. Set explicitly to \code{TRUE} or \code{FALSE} to enforce
+or omit calculation of confidence intervals.}
+
+\item{output_file}{A string specifying the file name in \code{rmarkdown::render()}.
+Default is \code{"easydashboard.html"}.}
+
+\item{output_dir}{A string specifying the path to the output directory for
+report in \code{rmarkdown::render()}. Default is to use the working directory.}
+
+\item{rmd_dir}{A string specifying the path to the directory containing the
+RMarkdown template file. By default, package uses the template shipped with
+the package installation (\code{inst/templates/easydashboard.Rmd}).}
 }
 \value{
 An HTML dashboard.

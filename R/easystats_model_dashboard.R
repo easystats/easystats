@@ -23,6 +23,7 @@
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
 #'
 #' @inheritParams parameters::model_parameters.default
+#' @inheritParams parameters::model_parameters.cpglmm
 #'
 #' @examples
 #' if (FALSE) {
@@ -32,10 +33,11 @@
 #'
 #' @export
 model_dashboard <- function(model,
+                            exponentiate = FALSE,
+                            ci_random = FALSE,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
-                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
-                            exponentiate = FALSE) {
+                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
   insight::check_if_installed("flexdashboard")
 
   # Render report into html
@@ -50,7 +52,7 @@ model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
-      params = list(model = model, exponentiate = exponentiate)
+      params = list(model = model, exponentiate = exponentiate, ci_random = ci_random)
     )
   )
 

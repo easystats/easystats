@@ -13,6 +13,8 @@ output:
         google: JetBrains Mono
 params:
   model: model
+  exponentiate: exponentiate
+  ci_random: ci_random
 ---
 
 ```{r setup, include=FALSE}
@@ -29,7 +31,11 @@ knitr::opts_chunk$set(
 # Get user-specified model data
 model <- params$model
 
-table_parameters <- parameters(model, exponentiate = params$exponentiate)
+table_parameters <- parameters(
+  model, 
+  exponentiate = params$exponentiate,
+  ci_random = params$ci_random
+)
 table_performance <- performance(model)
 
 
