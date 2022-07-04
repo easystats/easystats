@@ -14,11 +14,11 @@
 #' An HTML dashboard.
 #'
 #' @param model A regression model object.
-#' @param parameters_arg A list of named arguments that are passed down to
+#' @param parameters_args A list of named arguments that are passed down to
 #'   `parameters::model_parameters()`. For further documentation and details
 #'   about the arguments, see [this website](https://easystats.github.io/parameters/reference/model_parameters.html).
 #'   See also 'Examples'.
-#' @param performance_arg A list of named arguments that are passed down to
+#' @param performance_args A list of named arguments that are passed down to
 #'   `performance::model_performance()`. For further documentation and details
 #'   about the arguments, see [this website](https://easystats.github.io/performance/reference/model_performance.html).
 #'   See also 'Examples'.

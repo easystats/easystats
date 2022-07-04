@@ -16,6 +16,16 @@ model_dashboard(
 \arguments{
 \item{model}{A regression model object.}
 
+\item{parameters_args}{A list of named arguments that are passed down to
+\code{parameters::model_parameters()}. For further documentation and details
+about the arguments, see \href{https://easystats.github.io/parameters/reference/model_parameters.html}{this website}.
+See also 'Examples'.}
+
+\item{performance_args}{A list of named arguments that are passed down to
+\code{performance::model_performance()}. For further documentation and details
+about the arguments, see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
+See also 'Examples'.}
+
 \item{output_file}{A string specifying the file name in \code{rmarkdown::render()}.
 Default is \code{"easydashboard.html"}.}
 
@@ -25,16 +35,6 @@ report in \code{rmarkdown::render()}. Default is to use the working directory.}
 \item{rmd_dir}{A string specifying the path to the directory containing the
 RMarkdown template file. By default, package uses the template shipped with
 the package installation (\code{inst/templates/easydashboard.Rmd}).}
-
-\item{parameters_arg}{A list of named arguments that are passed down to
-\code{parameters::model_parameters()}. For further documentation and details
-about the arguments, see \href{https://easystats.github.io/parameters/reference/model_parameters.html}{this website}.
-See also 'Examples'.}
-
-\item{performance_arg}{A list of named arguments that are passed down to
-\code{performance::model_performance()}. For further documentation and details
-about the arguments, see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
-See also 'Examples'.}
 }
 \value{
 An HTML dashboard.
