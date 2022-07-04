@@ -22,17 +22,20 @@
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
 #'
+#' @inheritParams parameters::model_parameters.default
+#'
 #' @examples
 #' if (FALSE) {
 #'   mod <- lm(wt ~ mpg, mtcars)
-#'   easystats_model_dashboard(mod)
+#'   model_dashboard(mod)
 #' }
 #'
 #' @export
-easystats_model_dashboard <- function(model,
-                                      output_file = "easydashboard.html",
-                                      output_dir = getwd(),
-                                      rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
+model_dashboard <- function(model,
+                            output_file = "easydashboard.html",
+                            output_dir = getwd(),
+                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
+                            exponentiate = FALSE) {
   insight::check_if_installed("flexdashboard")
 
   # Render report into html
@@ -47,7 +50,7 @@ easystats_model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
-      params = list(model = model)
+      params = list(model = model, exponentiate = exponentiate)
     )
   )
 
