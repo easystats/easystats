@@ -14,6 +14,14 @@
 #' An HTML dashboard.
 #'
 #' @param model A regression model object.
+#' @param parameters_arg A list of named arguments that are passed down to
+#'   `parameters::model_parameters()`. For further documentation and details
+#'   about the arguments can be found [here](https://easystats.github.io/parameters/reference/model_parameters.html).
+#'   See also 'Examples'.
+#' @param performance_arg A list of named arguments that are passed down to
+#'   `performance::model_performance()`. For further documentation and details
+#'   about the arguments can be found [here](https://easystats.github.io/performance/reference/model_performance.html).
+#'   See also 'Examples'.
 #' @param output_file A string specifying the file name in `rmarkdown::render()`.
 #' Default is `"easydashboard.html"`.
 #' @param output_dir A string specifying the path to the output directory for
@@ -22,27 +30,22 @@
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
 #'
-#' @inheritParams parameters::model_parameters.default
-#' @inheritParams parameters::model_parameters.cpglmm
-#'
-#' @details For further documentation and details about the arguments can be
-#' found [here](https://easystats.github.io/parameters/reference/model_parameters.html).
-#'
 #' @examples
 #' if (FALSE) {
 #'   mod <- lm(wt ~ mpg, mtcars)
 #'   model_dashboard(mod)
+#'
+#'   # standardize coefficients
+#'   model_dashboard(mod, parameters_args = list(standardize = "refit"))
+#'
+#'   # only show selected performance metrics
+#'   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 #' }
 #'
 #' @export
 model_dashboard <- function(model,
-                            ci = .95,
-                            ci_method = NULL,
-                            ci_random = FALSE,
-                            standardize = NULL,
-                            exponentiate = FALSE,
-                            vcov = NULL,
-                            vcov_args = NULL,
+                            parameters_args = NULL,
+                            performance_args = NULL,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
                             rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
@@ -60,9 +63,7 @@ model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
-      params = list(model = model, ci = ci, ci_method = ci_method, ci_random = ci_random,
-                    exponentiate = exponentiate, standardize = standardize, vcov = vcov,
-                    vcov_args = vcov_args)
+      params = list(model = model, parameters_args = parameters_args, performance_args = performance_args)
     )
   )
 
