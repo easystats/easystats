@@ -83,6 +83,8 @@ Column {data-width=300}
 print(table_performance, layout = "vertical")
 ```
 
+For interpretation of performance metrics, please refer to [this documentation](https://easystats.github.io/performance/reference/model_performance.html).
+
 Parameter estimates
 =====================================  
 
@@ -103,6 +105,9 @@ Column {data-width=450}
 ```{r}
 table_parameters
 ```
+
+To find out more about table summary options, please refer to [this documentation](https://easystats.github.io/parameters/reference/model_parameters.html).
+
 
 Extra {data-orientation=rows}
 =====================================    
