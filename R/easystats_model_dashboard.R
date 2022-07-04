@@ -25,6 +25,9 @@
 #' @inheritParams parameters::model_parameters.default
 #' @inheritParams parameters::model_parameters.cpglmm
 #'
+#' @details For further documentation and details about the arguments can be
+#' found [here](https://easystats.github.io/parameters/reference/model_parameters.html).
+#'
 #' @examples
 #' if (FALSE) {
 #'   mod <- lm(wt ~ mpg, mtcars)

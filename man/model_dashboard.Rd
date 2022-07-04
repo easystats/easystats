@@ -117,6 +117,10 @@ A dashboard containing the following details for the entered regression model:
 \item a text report
 }
 }
+\details{
+For further documentation and details about the arguments can be
+found \href{https://easystats.github.io/parameters/reference/model_parameters.html}{here}.
+}
 \examples{
 if (FALSE) {
   mod <- lm(wt ~ mpg, mtcars)
