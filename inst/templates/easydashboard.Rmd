@@ -47,7 +47,7 @@ Column {data-width=700}
 
 ### Assumption checks
 
-```{r check-model, fig.height=11, fig.width=9, out.width="90%"}
+```{r check-model, fig.height=10, fig.width=10}
 check_model(model)
 ```
 
@@ -86,12 +86,17 @@ print_md(table_parameters, caption = NULL)
 To find out more about table summary options, please refer to [this documentation](https://easystats.github.io/parameters/reference/model_parameters.html).
 
 
-Extra {data-orientation=rows}
+Extra
 =====================================    
+
+Column {data-width=500}
+-----------------------------------------------------------------------
 
 ### Textual summary
 
-```{r}
-text_report
+```{r results='asis'}
+gsub("]", ")", gsub("[", "(", text_report, fixed = TRUE), fixed = TRUE)
 ```
 
+Column {data-width=500}
+-----------------------------------------------------------------------
