@@ -1,5 +1,5 @@
 
-# *easystats*: Jump in the Easyverse
+# *easystats*: Framework for Easy Statistical Modeling, Visualization, and Reporting
 
 # What is *easystats*?
 
@@ -12,7 +12,7 @@ analysis. Instead, start with one package and, when you’ll face a new
 challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
-***Gotta catch ’em all!*** <!--
+<!--***Gotta catch 'em all!*** 
 'tis a pokémon reference for y'all grandpas -->
 
 <img src="man/figures/logo_wall.png" width="100%" />
@@ -160,6 +160,8 @@ as dependencies in your own packages, without the risk of a butterfly
 effect, where a small change in a distant downstream dependency with
 unexpected upstream consequences.
 
+    ## Error in readRDS(file) : unknown input format
+
 ![](man/figures/depnetwork-1.png)<!-- -->
 
 As we can see, the only exception is the
@@ -172,7 +174,7 @@ of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 8,816,988 | 2,725,122 | 1,270,434  | 1,244,193  | 1,165,581   | 969,198    | 851,295    | 247,606     | 220,446 | 84,968     | 38,145 | 0         |
+| 8,842,531 | 2,733,145 | 1,272,596  | 1,246,590  | 1,168,035   | 970,902    | 858,598    | 248,220     | 220,985 | 85,118     | 38,342 | 0         |
 
 ### Trend
 
