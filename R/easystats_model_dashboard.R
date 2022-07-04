@@ -60,7 +60,9 @@ model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
-      params = list(model = model, exponentiate = exponentiate, ci_random = ci_random)
+      params = list(model = model, ci = ci, ci_method = ci_method, ci_random = ci_random,
+                    exponentiate = exponentiate, standardize = standardize, vcov = vcov,
+                    vcov_args = vcov_args)
     )
   )
 
