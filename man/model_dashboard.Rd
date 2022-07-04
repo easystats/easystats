@@ -28,12 +28,12 @@ the package installation (\code{inst/templates/easydashboard.Rmd}).}
 
 \item{parameters_arg}{A list of named arguments that are passed down to
 \code{parameters::model_parameters()}. For further documentation and details
-about the arguments can be found \href{https://easystats.github.io/parameters/reference/model_parameters.html}{here}.
+about the arguments, see \href{https://easystats.github.io/parameters/reference/model_parameters.html}{this website}.
 See also 'Examples'.}
 
 \item{performance_arg}{A list of named arguments that are passed down to
 \code{performance::model_performance()}. For further documentation and details
-about the arguments can be found \href{https://easystats.github.io/performance/reference/model_performance.html}{here}.
+about the arguments, see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
 See also 'Examples'.}
 }
 \value{

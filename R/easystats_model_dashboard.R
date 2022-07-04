@@ -16,11 +16,11 @@
 #' @param model A regression model object.
 #' @param parameters_arg A list of named arguments that are passed down to
 #'   `parameters::model_parameters()`. For further documentation and details
-#'   about the arguments can be found [here](https://easystats.github.io/parameters/reference/model_parameters.html).
+#'   about the arguments, see [this website](https://easystats.github.io/parameters/reference/model_parameters.html).
 #'   See also 'Examples'.
 #' @param performance_arg A list of named arguments that are passed down to
 #'   `performance::model_performance()`. For further documentation and details
-#'   about the arguments can be found [here](https://easystats.github.io/performance/reference/model_performance.html).
+#'   about the arguments, see [this website](https://easystats.github.io/performance/reference/model_performance.html).
 #'   See also 'Examples'.
 #' @param output_file A string specifying the file name in `rmarkdown::render()`.
 #' Default is `"easydashboard.html"`.
