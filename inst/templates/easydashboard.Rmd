@@ -36,6 +36,16 @@ performance_args <- c(list(model), params$performance_args)
 table_parameters <- do.call(parameters::parameters, parameters_args)
 table_performance <- do.call(performance::performance, performance_args)
 
+# modelbased
+model_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
+if (is.null(model_terms)) {
+  model_terms <- find_variables(model)$conditional
+}
+text_modelbased <- lapply(model_terms, function(i) {
+  grid <- get_datagrid(model, at = i)
+  estimate_expectation(model, data = grid)
+})
+
 text_report <- report(model)
 ```
 
@@ -84,6 +94,33 @@ print_md(table_parameters, caption = NULL)
 ```
 
 To find out more about table summary options, please refer to [this documentation](https://easystats.github.io/parameters/reference/model_parameters.html).
+
+
+Predicted Values
+=====================================  
+
+Column {data-width=600}
+-----------------------------------------------------------------------
+
+### Plot
+
+```{r expected-values, fig.height=10, fig.width=10}
+ggplot2::theme_set(theme_modern())
+see::plots(lapply(text_modelbased, plot), n_columns = round(sqrt(length(text_modelbased))))
+```
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Estimated response
+
+```{r}
+lapply(text_modelbased, function(i) {
+  print_md(i)
+})
+```
+
+
 
 
 Extra
