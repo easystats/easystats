@@ -37,11 +37,15 @@ table_parameters <- do.call(parameters::parameters, parameters_args)
 table_performance <- do.call(performance::performance, performance_args)
 
 # modelbased
-model_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
-if (is.null(model_terms)) {
-  model_terms <- find_variables(model)$conditional
+int_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
+con_terms <- find_variables(model)$conditional
+
+if (is.null(int_terms)) {
+  model_terms <- con_terms
 } else {
-  model_terms <- clean_names(model_terms)
+  model_terms <- clean_names(int_terms)
+  int_terms <- unique(unlist(strsplit(clean_names(int_terms), ":", fixed = TRUE)))
+  model_terms <- c(model_terms, setdiff(con_terms, int_terms))
 }
 text_modelbased <- lapply(unique(model_terms), function(i) {
   grid <- get_datagrid(model, at = i)
