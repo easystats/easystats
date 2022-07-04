@@ -126,7 +126,7 @@ see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
 Column {data-width=400}
 -----------------------------------------------------------------------
 
-### Estimated response
+### Tabular summary
 
 ```{r}
 lapply(text_modelbased, function(i) {
