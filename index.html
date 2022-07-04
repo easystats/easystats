@@ -97,15 +97,15 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1"><div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="easystats-jump-in-the-easyverse">
-<em>easystats</em>: Jump in the Easyverse<a class="anchor" aria-label="anchor" href="#easystats-jump-in-the-easyverse"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="easystats-framework-for-easy-statistical-modeling-visualization-and-reporting">
+<em>easystats</em>: Framework for Easy Statistical Modeling, Visualization, and Reporting<a class="anchor" aria-label="anchor" href="#easystats-framework-for-easy-statistical-modeling-visualization-and-reporting"></a>
 </h1>
 </div></div>
 <div class="section level1">
 <h1 id="what-is-easystats">What is <em>easystats</em>?<a class="anchor" aria-label="anchor" href="#what-is-easystats"></a>
 </h1>
 <p><strong>easystats</strong> is a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline, and harness the scary R statistics and their pesky models.</p>
-<p>However, there is not (yet) an <em>unique</em> “easystats” way of doing data analysis. Instead, start with one package and, when you’ll face a new challenge, do check if there is an <em>easystats</em> answer for it in other packages. You will slowly uncover how using them together facilitates your life. And, who knows, you might even end up using them all. <strong><em>Gotta catch ’em all!</em></strong> <!--
+<p>However, there is not (yet) an <em>unique</em> “easystats” way of doing data analysis. Instead, start with one package and, when you’ll face a new challenge, do check if there is an <em>easystats</em> answer for it in other packages. You will slowly uncover how using them together facilitates your life. And, who knows, you might even end up using them all. <!--***Gotta catch 'em all!*** 
 'tis a pokémon reference for y'all grandpas --></p>
 <p><img src="reference/figures/logo_wall.png" width="100%"></p>
 </div>
@@ -194,6 +194,7 @@
 <h1 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
 </h1>
 <p>Most <em>easystats</em> packages are very lightweight, <em>i.e.</em>, they don’t rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of a butterfly effect, where a small change in a distant downstream dependency with unexpected upstream consequences.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in readRDS(file) : unknown input format</span></span></code></pre></div>
 <p><img src="reference/figures/depnetwork-1.png"><!-- --></p>
 <p>As we can see, the only exception is the <a href="http://easystats.github.io/see" class="external-link"><strong>see</strong></a> package, one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as <em>ggplot2</em>, which has a substantial number of dependencies.</p>
 </div>
@@ -230,17 +231,17 @@
 <th align="left">easystats</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left">8,816,988</td>
-<td align="left">2,725,122</td>
-<td align="left">1,270,434</td>
-<td align="left">1,244,193</td>
-<td align="left">1,165,581</td>
-<td align="left">969,198</td>
-<td align="left">851,295</td>
-<td align="left">247,606</td>
-<td align="left">220,446</td>
-<td align="left">84,968</td>
-<td align="left">38,145</td>
+<td align="left">8,842,531</td>
+<td align="left">2,733,145</td>
+<td align="left">1,272,596</td>
+<td align="left">1,246,590</td>
+<td align="left">1,168,035</td>
+<td align="left">970,902</td>
+<td align="left">858,598</td>
+<td align="left">248,220</td>
+<td align="left">220,985</td>
+<td align="left">85,118</td>
+<td align="left">38,342</td>
 <td align="left">0</td>
 </tr></tbody>
 </table>
