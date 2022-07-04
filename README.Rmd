@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# *easystats*: Jump in the Easyverse
+# *easystats*: Framework for Easy Statistical Modeling, Visualization, and Reporting
 
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
@@ -26,7 +26,7 @@ However, there is not (yet) an *unique* "easystats" way of doing data
 analysis. Instead, start with one package and, when you'll face a new
 challenge, do check if there is an _easystats_ answer for it in other packages.
 You will slowly uncover how using them together facilitates your life. And, who
-knows, you might even end up using them all. ***Gotta catch 'em all!*** <!--
+knows, you might even end up using them all. <!--***Gotta catch 'em all!*** 
 'tis a pokémon reference for y'all grandpas -->
 
 ```{r, echo=FALSE, out.width="100%"}
