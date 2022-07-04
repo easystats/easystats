@@ -6,8 +6,13 @@
 \usage{
 model_dashboard(
   model,
-  exponentiate = FALSE,
+  ci = 0.95,
+  ci_method = NULL,
   ci_random = FALSE,
+  standardize = NULL,
+  exponentiate = FALSE,
+  vcov = NULL,
+  vcov_args = NULL,
   output_file = "easydashboard.html",
   output_dir = getwd(),
   rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")
@@ -15,6 +20,46 @@ model_dashboard(
 }
 \arguments{
 \item{model}{A regression model object.}
+
+\item{ci}{Confidence Interval (CI) level. Default to \code{0.95} (\verb{95\%}).}
+
+\item{ci_method}{Method for computing degrees of freedom for
+confidence intervals (CI) and the related p-values. Allowed are following
+options (which vary depending on the model class): \code{"residual"},
+\code{"normal"}, \code{"likelihood"}, \code{"satterthwaite"}, \code{"kenward"}, \code{"wald"},
+\code{"profile"}, \code{"boot"}, \code{"uniroot"}, \code{"ml1"}, \code{"betwithin"}, \code{"hdi"},
+\code{"quantile"}, \code{"ci"}, \code{"eti"}, \code{"si"}, \code{"bci"}, or \code{"bcai"}. See section
+\emph{Confidence intervals and approximation of degrees of freedom} in
+\code{\link[parameters:model_parameters]{model_parameters()}} for further details. When \code{ci_method=NULL}, in most
+cases \code{"wald"} is used then.}
+
+\item{ci_random}{Logical, if \code{TRUE}, includes the confidence intervals for
+random effects parameters. Only applies if \code{effects} is not \code{"fixed"} and
+if \code{ci} is not \code{NULL}. Set \code{ci_random = FALSE} if computation of the model
+summary is too much time consuming. By default, \code{ci_random = NULL}, which
+uses a heuristic to guess if computation of confidence intervals for random
+effects is fast enough or not. For models with larger sample size and/or
+more complex random effects structures, confidence intervals will not be
+computed by default, for simpler models or fewer observations, confidence
+intervals will be included. Set explicitly to \code{TRUE} or \code{FALSE} to enforce
+or omit calculation of confidence intervals.}
+
+\item{standardize}{The method used for standardizing the parameters. Can be
+\code{NULL} (default; no standardization), \code{"refit"} (for re-fitting the model
+on standardized data) or one of \code{"basic"}, \code{"posthoc"}, \code{"smart"},
+\code{"pseudo"}. See 'Details' in \code{\link[parameters:standardize_parameters]{standardize_parameters()}}.
+\strong{Important:}
+\itemize{
+\item The \code{"refit"} method does \emph{not} standardized categorical predictors (i.e.
+factors), which may be a different behaviour compared to other R packages
+(such as \strong{lm.beta}) or other software packages (like SPSS). to mimic
+such behaviours, either use \code{standardize="basic"} or standardize the data
+with \code{datawizard::standardize(force=TRUE)} \emph{before} fitting the model.
+\item For mixed models, when using methods other than \code{"refit"}, only the fixed
+effects will be returned.
+\item Robust estimation (i.e., \code{vcov} set to a value other than \code{NULL}) of standardized parameters only
+works when \code{standardize="refit"}.
+}}
 
 \item{exponentiate}{Logical, indicating whether or not to exponentiate the
 the coefficients (and related confidence intervals). This is typical for
@@ -28,16 +73,26 @@ captures this uncertainty. For \code{compare_parameters()},
 \code{exponentiate = "nongaussian"} will only exponentiate coefficients
 from non-Gaussian families.}
 
-\item{ci_random}{Logical, if \code{TRUE}, includes the confidence intervals for
-random effects parameters. Only applies if \code{effects} is not \code{"fixed"} and
-if \code{ci} is not \code{NULL}. Set \code{ci_random = FALSE} if computation of the model
-summary is too much time consuming. By default, \code{ci_random = NULL}, which
-uses a heuristic to guess if computation of confidence intervals for random
-effects is fast enough or not. For models with larger sample size and/or
-more complex random effects structures, confidence intervals will not be
-computed by default, for simpler models or fewer observations, confidence
-intervals will be included. Set explicitly to \code{TRUE} or \code{FALSE} to enforce
-or omit calculation of confidence intervals.}
+\item{vcov}{Variance-covariance matrix used to compute uncertainty estimates
+(e.g., for robust standard errors). This argument accepts a covariance matrix,
+a function which returns a covariance matrix, or a string which identifies
+the function to be used to compute the covariance matrix.
+\itemize{
+\item A covariance matrix
+\item A function which returns a covariance matrix (e.g., \code{stats::vcov()})
+\item A string which indicates the kind of uncertainty estimates to return.
+\itemize{
+\item Heteroskedasticity-consistent: \code{"vcovHC"}, \code{"HC"}, \code{"HC0"}, \code{"HC1"}, \code{"HC2"}, \code{"HC3"}, \code{"HC4"}, \code{"HC4m"}, \code{"HC5"}. See \code{?sandwich::vcovHC}.
+\item Cluster-robust: \code{"vcovCR"}, \code{"CR0"}, \code{"CR1"}, \code{"CR1p"}, \code{"CR1S"}, \code{"CR2"}, \code{"CR3"}. See \code{?clubSandwich::vcovCR}.
+\item Bootstrap: \code{"vcovBS"}, \code{"xy"}, \code{"residual"}, \code{"wild"}, \code{"mammen"}, \code{"webb"}. See \code{?sandwich::vcovBS}.
+\item Other \code{sandwich} package functions: \code{"vcovHAC"}, \code{"vcovPC"}, \code{"vcovCL"}, \code{"vcovPL"}.
+}
+}}
+
+\item{vcov_args}{List of arguments to be passed to the function identified by
+the \code{vcov} argument. This function is typically supplied by the \strong{sandwich}
+or \strong{clubSandwich} packages. Please refer to their documentation (e.g.,
+\code{?sandwich::vcovHAC}) to see the list of available arguments.}
 
 \item{output_file}{A string specifying the file name in \code{rmarkdown::render()}.
 Default is \code{"easydashboard.html"}.}
