@@ -24,10 +24,16 @@ CRAN_checks <- function() {
 #'   are installed from the r-universe repository (https://easystats.r-universe.dev/).
 #' @param packages Character vector, indicating which packages to be installed.
 #'   By default, the option `"all"` will install all **easystats** packages.
-#'
+#' @param check_version Logical, if `TRUE`, only those packages with a newer
+#'   version number will be installed. Use `check_version=FALSE` to force
+#'   installation of packages. This only applies when `source="development"`,
+#'   because usually CRAN-versions have a lower version number, hence
+#'   `install.latest(source="CRAN")` will not work when installation of
+#'   CRAN-versions is required to overwrite installed development-versions
+#'   of packages.
 #'
 #' @export
-install_latest <- function(source = c("development", "cran"), packages = "all") {
+install_latest <- function(source = c("development", "cran"), packages = "all", check_version = TRUE) {
   source <- match.arg(source, c("development", "cran"))
   pkg <- c(
     "insight", "datawizard", "bayestestR", "performance", "parameters",
@@ -44,6 +50,25 @@ install_latest <- function(source = c("development", "cran"), packages = "all") 
     repos <- "https://easystats.r-universe.dev"
   } else {
     repos <- getOption("repos")["CRAN"]
+  }
+
+  # only install newer versions?
+  if (isTRUE(check_version) && source == "development") {
+    insight::check_if_installed("jsonlite", reason = "to check for updates among development packages")
+    # get current CRAN and local versions
+    easy_pkgs <- .easystats_version()
+    # for development versions, overwrite CRAN version with r-universe version
+    for (i in packages) {
+      js <- jsonlite::fromJSON(paste0("https://easystats.r-universe.dev/packages/", i))
+      easy_pkgs$cran[easy_pkgs$package == i] <- js$Version[1]
+    }
+    easy_pkgs$behind <- easy_pkgs$cran > easy_pkgs$local
+    packages <- easy_pkgs$package[packages %in% easy_pkgs$package & easy_pkgs$behind]
+  }
+
+  if (is.null(packages) || !length(packages)) {
+    insight::print_color("All easystats-packages are up to date!\n", "green")
+    return(invisible())
   }
 
   utils::install.packages(packages, repos = repos)
