@@ -47,12 +47,14 @@ if (is.null(int_terms)) {
   int_terms <- unique(unlist(strsplit(clean_names(int_terms), ":", fixed = TRUE)))
   model_terms <- c(model_terms, setdiff(con_terms, int_terms))
 }
+
 text_modelbased <- lapply(unique(model_terms), function(i) {
   grid <- get_datagrid(model, at = i)
   estimate_expectation(model, data = grid)
 })
 
 text_report <- report(model)
+text_report_performance <- report_performance(model)
 ```
 
 Model fit 
@@ -120,6 +122,7 @@ all_plots <- lapply(text_modelbased, function(i) {
   out <- visualisation_recipe(i, show_data = "none")
   plot(out) + ggplot2::ggtitle("")
 })
+
 see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
 ```
 
@@ -137,7 +140,7 @@ lapply(text_modelbased, function(i) {
 
 
 
-Extra
+Text reports
 =====================================    
 
 Column {data-width=500}
@@ -145,8 +148,10 @@ Column {data-width=500}
 
 ### Textual summary
 
-```{r results='asis'}
+```{r, results='asis', collapse=TRUE}
 gsub("]", ")", gsub("[", "(", text_report, fixed = TRUE), fixed = TRUE)
+cat("\n")
+gsub("]", ")", gsub("[", "(", text_report_performance, fixed = TRUE), fixed = TRUE)
 ```
 
 Column {data-width=500}
