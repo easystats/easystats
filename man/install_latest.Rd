@@ -4,7 +4,11 @@
 \alias{install_latest}
 \title{Install the easystats suite from R-universe (GitHub) or CRAN}
 \usage{
-install_latest(source = c("development", "cran"), packages = "all")
+install_latest(
+  source = c("development", "cran"),
+  packages = "all",
+  check_version = TRUE
+)
 }
 \arguments{
 \item{source}{Character. Either \code{"development"} or \code{"cran"}. If \code{"cran"},
@@ -14,6 +18,14 @@ are installed from the r-universe repository (https://easystats.r-universe.dev/)
 
 \item{packages}{Character vector, indicating which packages to be installed.
 By default, the option \code{"all"} will install all \strong{easystats} packages.}
+
+\item{check_version}{Logical, if \code{TRUE}, only those packages with a newer
+version number will be installed. Use \code{check_version=FALSE} to force
+installation of packages. This only applies when \code{source="development"},
+because usually CRAN-versions have a lower version number, hence
+\code{install.latest(source="CRAN")} will not work when installation of
+CRAN-versions is required to overwrite installed development-versions
+of packages.}
 }
 \description{
 This function can be used to install all the \emph{easystats} packages, either

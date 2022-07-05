@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -56,6 +56,7 @@ Imports:
     tools,
     utils
 Suggests: 
+    jsonlite,
     knitr,
     rmarkdown,
     rvest,
