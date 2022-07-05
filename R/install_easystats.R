@@ -63,7 +63,7 @@ install_latest <- function(source = c("development", "cran"), packages = "all", 
       easy_pkgs$cran[easy_pkgs$package == i] <- js$Version[1]
     }
     easy_pkgs$behind <- easy_pkgs$cran > easy_pkgs$local
-    packages <- easy_pkgs$package[packages %in% easy_pkgs$package & isTRUE(easy_pkgs$behind)]
+    packages <- easy_pkgs$package[packages %in% easy_pkgs$package & easy_pkgs$behind]
   }
 
   if (is.null(packages) || !length(packages)) {
