@@ -13,7 +13,7 @@ CRAN_checks <- function() {
 
 #' Install the easystats suite from R-universe (GitHub) or CRAN
 #'
-#' This function can be used to install all the *easystats* packages, either
+#' This function can be used to install all the **easystats** packages, either
 #' latest development versions (from R-universe/GitHub) or the current
 #' versions from CRAN. If the development versions are installed, packages
 #' will be installed from the stable branch (master/main) for each package.
@@ -26,11 +26,9 @@ CRAN_checks <- function() {
 #'   By default, the option `"all"` will install all **easystats** packages.
 #' @param check_version Logical, if `TRUE`, only those packages with a newer
 #'   version number will be installed. Use `check_version=FALSE` to force
-#'   installation of packages. This only applies when `source="development"`,
-#'   because usually CRAN-versions have a lower version number, hence
-#'   `install.latest(source="CRAN")` will not work when installation of
-#'   CRAN-versions is required to overwrite installed development-versions
-#'   of packages.
+#'   installation of all packages, even if the version number for the locally
+#'   installed packages is identical to the latest development-versions. Only
+#'   applies when `source="development"`.
 #' @param verbose Toggle messages.
 #'
 #' @export

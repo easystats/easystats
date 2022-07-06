@@ -22,16 +22,14 @@ By default, the option \code{"all"} will install all \strong{easystats} packages
 
 \item{check_version}{Logical, if \code{TRUE}, only those packages with a newer
 version number will be installed. Use \code{check_version=FALSE} to force
-installation of packages. This only applies when \code{source="development"},
-because usually CRAN-versions have a lower version number, hence
-\code{install.latest(source="CRAN")} will not work when installation of
-CRAN-versions is required to overwrite installed development-versions
-of packages.}
+installation of all packages, even if the version number for the locally
+installed packages is identical to the latest development-versions. Only
+applies when \code{source="development"}.}
 
 \item{verbose}{Toggle messages.}
 }
 \description{
-This function can be used to install all the \emph{easystats} packages, either
+This function can be used to install all the \strong{easystats} packages, either
 latest development versions (from R-universe/GitHub) or the current
 versions from CRAN. If the development versions are installed, packages
 will be installed from the stable branch (master/main) for each package.
