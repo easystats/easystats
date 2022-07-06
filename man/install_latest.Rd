@@ -7,7 +7,8 @@
 install_latest(
   source = c("development", "cran"),
   packages = "all",
-  check_version = TRUE
+  check_version = TRUE,
+  verbose = TRUE
 )
 }
 \arguments{
@@ -26,6 +27,8 @@ because usually CRAN-versions have a lower version number, hence
 \code{install.latest(source="CRAN")} will not work when installation of
 CRAN-versions is required to overwrite installed development-versions
 of packages.}
+
+\item{verbose}{Toggle messages.}
 }
 \description{
 This function can be used to install all the \emph{easystats} packages, either
