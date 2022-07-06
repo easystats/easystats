@@ -71,6 +71,14 @@ install_latest <- function(source = c("development", "cran"),
     }
     easy_pkgs$behind <- easy_pkgs$cran > easy_pkgs$local
     packages <- easy_pkgs$package[packages %in% easy_pkgs$package & easy_pkgs$behind]
+
+    if (isTRUE(verbose) && !is.null(packages) && length(packages)) {
+      colnames(easy_pkgs) <- c("Package", "Latest", "Installed", "behind")
+      easy_pkgs <- easy_pkgs[easy_pkgs$behind, ]
+      cat(insight::print_color("\nInstalling following packages:\n\n", "blue"))
+      cat(insight::export_table(easy_pkgs[c("Package", "Latest", "Installed")]))
+      cat("\n")
+    }
   }
 
   if (is.null(packages) || !length(packages)) {
