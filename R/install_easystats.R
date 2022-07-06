@@ -31,9 +31,13 @@ CRAN_checks <- function() {
 #'   `install.latest(source="CRAN")` will not work when installation of
 #'   CRAN-versions is required to overwrite installed development-versions
 #'   of packages.
+#' @param verbose Toggle messages.
 #'
 #' @export
-install_latest <- function(source = c("development", "cran"), packages = "all", check_version = TRUE) {
+install_latest <- function(source = c("development", "cran"),
+                           packages = "all",
+                           check_version = TRUE,
+                           verbose = TRUE) {
   source <- match.arg(source, c("development", "cran"))
   pkg <- c(
     "insight", "datawizard", "bayestestR", "performance", "parameters",
@@ -55,6 +59,9 @@ install_latest <- function(source = c("development", "cran"), packages = "all", 
   # only install newer versions?
   if (isTRUE(check_version) && source == "development") {
     insight::check_if_installed("jsonlite", reason = "to check for updates among development packages")
+    if (isTRUE(verbose)) {
+      insight::print_color("Looking for newer package versions...\n", "blue")
+    }
     # get current CRAN and local versions
     easy_pkgs <- .easystats_version()
     # for development versions, overwrite CRAN version with r-universe version
@@ -64,10 +71,20 @@ install_latest <- function(source = c("development", "cran"), packages = "all", 
     }
     easy_pkgs$behind <- easy_pkgs$cran > easy_pkgs$local
     packages <- easy_pkgs$package[packages %in% easy_pkgs$package & easy_pkgs$behind]
+
+    if (isTRUE(verbose) && !is.null(packages) && length(packages)) {
+      colnames(easy_pkgs) <- c("Package", "Latest", "Installed", "behind")
+      easy_pkgs <- easy_pkgs[easy_pkgs$behind, ]
+      cat(insight::print_color("\nInstalling following packages:\n\n", "blue"))
+      cat(insight::export_table(easy_pkgs[c("Package", "Latest", "Installed")]))
+      cat("\n\n")
+    }
   }
 
   if (is.null(packages) || !length(packages)) {
-    insight::print_color("All easystats-packages are up to date!\n", "green")
+    if (isTRUE(verbose)) {
+      insight::print_color("All easystats-packages are up to date!\n", "green")
+    }
     return(invisible())
   }
 
