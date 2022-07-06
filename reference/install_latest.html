@@ -67,7 +67,7 @@ will be installed from the stable branch (master/main) for each package."><meta 
     </div>
 
     <div class="ref-description section level2">
-    <p>This function can be used to install all the <em>easystats</em> packages, either
+    <p>This function can be used to install all the <strong>easystats</strong> packages, either
 latest development versions (from R-universe/GitHub) or the current
 versions from CRAN. If the development versions are installed, packages
 will be installed from the stable branch (master/main) for each package.</p>
@@ -100,11 +100,9 @@ By default, the option <code>"all"</code> will install all <strong>easystats</st
 <dt>check_version</dt>
 <dd><p>Logical, if <code>TRUE</code>, only those packages with a newer
 version number will be installed. Use <code>check_version=FALSE</code> to force
-installation of packages. This only applies when <code>source="development"</code>,
-because usually CRAN-versions have a lower version number, hence
-<code>install.latest(source="CRAN")</code> will not work when installation of
-CRAN-versions is required to overwrite installed development-versions
-of packages.</p></dd>
+installation of all packages, even if the version number for the locally
+installed packages is identical to the latest development-versions. Only
+applies when <code>source="development"</code>.</p></dd>
 
 
 <dt>verbose</dt>
