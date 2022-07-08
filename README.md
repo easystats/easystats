@@ -160,8 +160,6 @@ as dependencies in your own packages, without the risk of a butterfly
 effect, where a small change in a distant downstream dependency with
 unexpected upstream consequences.
 
-    ## Error in readRDS(file) : unknown input format
-
 ![](man/figures/depnetwork-1.png)<!-- -->
 
 As we can see, the only exception is the
@@ -174,7 +172,7 @@ of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 8,842,531 | 2,733,145 | 1,272,596  | 1,246,590  | 1,168,035   | 970,902    | 858,598    | 248,220     | 220,985 | 85,118     | 38,342 | 0         |
+| 8,903,713 | 2,752,324 | 1,278,481  | 1,252,806  | 1,174,526   | 975,462    | 873,346    | 249,829     | 222,487 | 85,569     | 38,883 | 0         |
 
 ### Trend
 
