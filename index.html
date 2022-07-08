@@ -194,7 +194,6 @@
 <h1 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
 </h1>
 <p>Most <em>easystats</em> packages are very lightweight, <em>i.e.</em>, they don’t rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of a butterfly effect, where a small change in a distant downstream dependency with unexpected upstream consequences.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in readRDS(file) : unknown input format</span></span></code></pre></div>
 <p><img src="reference/figures/depnetwork-1.png"><!-- --></p>
 <p>As we can see, the only exception is the <a href="http://easystats.github.io/see" class="external-link"><strong>see</strong></a> package, one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as <em>ggplot2</em>, which has a substantial number of dependencies.</p>
 </div>
@@ -231,17 +230,17 @@
 <th align="left">easystats</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left">8,842,531</td>
-<td align="left">2,733,145</td>
-<td align="left">1,272,596</td>
-<td align="left">1,246,590</td>
-<td align="left">1,168,035</td>
-<td align="left">970,902</td>
-<td align="left">858,598</td>
-<td align="left">248,220</td>
-<td align="left">220,985</td>
-<td align="left">85,118</td>
-<td align="left">38,342</td>
+<td align="left">8,903,713</td>
+<td align="left">2,752,324</td>
+<td align="left">1,278,481</td>
+<td align="left">1,252,806</td>
+<td align="left">1,174,526</td>
+<td align="left">975,462</td>
+<td align="left">873,346</td>
+<td align="left">249,829</td>
+<td align="left">222,487</td>
+<td align="left">85,569</td>
+<td align="left">38,883</td>
 <td align="left">0</td>
 </tr></tbody>
 </table>
