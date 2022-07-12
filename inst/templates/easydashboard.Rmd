@@ -131,10 +131,14 @@ Column {data-width=400}
 
 ### Tabular summary
 
-```{r}
-lapply(text_modelbased, function(i) {
-  print_md(i)
-})
+```{r results="asis"}
+for (i in text_modelbased) {
+  tmp <- print_md(i)
+  tmp <- gsub("Variable predicted", "\nVariable predicted", tmp)
+  tmp <- gsub("Predictors modulated", "\nPredictors modulated", tmp)
+  tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp)
+  print(tmp)
+}
 ```
 
 
