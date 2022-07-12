@@ -78,7 +78,7 @@ Column {data-width=300}
 print_md(table_performance, layout = "vertical", caption = NULL)
 ```
 
-For interpretation of performance metrics, please refer to [this documentation](https://easystats.github.io/performance/reference/model_performance.html).
+For interpretation of performance metrics, please refer to <a href="https://easystats.github.io/performance/reference/model_performance.html" target="_blank">this documentation</a>.
 
 Parameter estimates
 =====================================  
@@ -101,7 +101,7 @@ Column {data-width=450}
 print_md(table_parameters, caption = NULL)
 ```
 
-To find out more about table summary options, please refer to [this documentation](https://easystats.github.io/parameters/reference/model_parameters.html).
+To find out more about table summary options, please refer to <a href="https://easystats.github.io/parameters/reference/model_parameters.html" target="_blank">this documentation</a>.
 
 
 Predicted Values
