@@ -15,7 +15,7 @@ name: render-readme
 
 jobs:
   render-readme:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
