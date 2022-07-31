@@ -233,17 +233,17 @@ downloads_all <- do.call("rbind", downloads)
 
 # Combine all data
 data <- downloads_all |>
-  data_rename("package", "Package") 
+  data_rename("package", "Package")
 
 tmp <- lapply(split(data, data$Package), function(x) {
   x$cumulative_count <- cumsum(x$count)
-  x$average_count<- zoo::rollmean(x$count, k = 7, fill = NA)
-  x$day_num<- as.numeric(x$date) - min(as.numeric(x$date))
-  x$day<- weekdays(x$date)
-  x$month<- months(x$date)
-  x$quarters<- quarters(x$date)
-  x$year_month<- paste0(lubridate::year(x$date), "-", months(x$date))
-  x$month_day<- lubridate::mday(x$date)
+  x$average_count <- zoo::rollmean(x$count, k = 7, fill = NA)
+  x$day_num <- as.numeric(x$date) - min(as.numeric(x$date))
+  x$day <- weekdays(x$date)
+  x$month <- months(x$date)
+  x$quarters <- quarters(x$date)
+  x$year_month <- paste0(lubridate::year(x$date), "-", months(x$date))
+  x$month_day <- lubridate::mday(x$date)
   as.data.frame(x)
 })
 
@@ -323,7 +323,7 @@ events <- rbind(
 )
 
 # Full join
-data <- data_join(data, events, by = c("date", "Package")) 
+data <- data_join(data, events, by = c("date", "Package"))
 data$Package <- reorder(data$Package, data$count, sum, decreasing = TRUE)
 
 tmp <- lapply(split(data, data$event), function(x) {
@@ -332,7 +332,7 @@ tmp <- lapply(split(data, data$event), function(x) {
 })
 tmp <- do.call(rbind, tmp)
 
-events <- data_join(events, tmp, by = "event") 
+events <- data_join(events, tmp, by = "event")
 
 # Set packages colours
 packages_colours <- c(
