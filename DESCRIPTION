@@ -61,6 +61,8 @@ Suggests:
     knitr,
     rmarkdown,
     rvest,
+    testthat (>= 3.0.0),
+    withr,
     xml2
 VignetteBuilder: 
     knitr
@@ -68,3 +70,4 @@ Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.2.1
 Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3

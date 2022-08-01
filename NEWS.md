@@ -1,5 +1,8 @@
 # easystats 0.5.0
 
+* Adds new `model_dashboard()` function to generate a dashboard with regression
+  model summary from `{easystats}`.
+
 * Bumps needed minimum R version to `3.5`.
 
 * Updates minimum needed versions of all packages to the latest versions.
