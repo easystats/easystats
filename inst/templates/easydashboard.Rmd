@@ -21,6 +21,11 @@ params:
 library(flexdashboard)
 library(easystats)
 
+# Since not all regression model are supported across all packages, make the
+# dashboard chunks more fault-tolerant. E.g. a model might be supported in
+# `{parameters}`, but not in `{report}`.
+# 
+# For this reason, `error = TRUE`
 knitr::opts_chunk$set(
   error = TRUE,
   out.width = "100%"
