@@ -49,37 +49,6 @@ if (!is_supported) {
 ```
 
 
-```{r, eval=is_supported}
-# `{parameters}`
-parameters_args <- c(list(model), params$parameters_args)
-table_parameters <- do.call(parameters::parameters, parameters_args)
-
-# `{performance}`
-performance_args <- c(list(model), params$performance_args)
-table_performance <- do.call(performance::performance, performance_args)
-
-# `{modelbased}`
-int_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
-con_terms <- find_variables(model)$conditional
-
-if (is.null(int_terms)) {
-  model_terms <- con_terms
-} else {
-  model_terms <- clean_names(int_terms)
-  int_terms <- unique(unlist(strsplit(clean_names(int_terms), ":", fixed = TRUE)))
-  model_terms <- c(model_terms, setdiff(con_terms, int_terms))
-}
-
-text_modelbased <- lapply(unique(model_terms), function(i) {
-  grid <- get_datagrid(model, at = i)
-  estimate_expectation(model, data = grid)
-})
-
-# `{report}`
-text_report <- report(model)
-text_report_performance <- report_performance(model)
-```
-
 Model fit 
 =====================================  
 
@@ -102,6 +71,9 @@ Column {data-width=300}
 ### Indices of model fit
 
 ```{r, eval=is_supported}
+# `{performance}`
+performance_args <- c(list(model), params$performance_args)
+table_performance <- do.call(performance::performance, performance_args)
 print_md(table_performance, layout = "vertical", caption = NULL)
 ```
 
@@ -121,6 +93,10 @@ Column {data-width=550}
 ### Plot
 
 ```{r dot-whisker, eval=is_supported}
+# `{parameters}`
+parameters_args <- c(list(model), params$parameters_args)
+table_parameters <- do.call(parameters::parameters, parameters_args)
+
 plot(table_parameters)
 ```
 
@@ -155,6 +131,23 @@ Column {data-width=600}
 ### Plot
 
 ```{r expected-values, eval=is_supported, fig.height=10, fig.width=10}
+# `{modelbased}`
+int_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
+con_terms <- find_variables(model)$conditional
+
+if (is.null(int_terms)) {
+  model_terms <- con_terms
+} else {
+  model_terms <- clean_names(int_terms)
+  int_terms <- unique(unlist(strsplit(clean_names(int_terms), ":", fixed = TRUE)))
+  model_terms <- c(model_terms, setdiff(con_terms, int_terms))
+}
+
+text_modelbased <- lapply(unique(model_terms), function(i) {
+  grid <- get_datagrid(model, at = i)
+  estimate_expectation(model, data = grid)
+})
+
 ggplot2::theme_set(theme_modern())
 # all_plots <- lapply(text_modelbased, function(i) {
 #   out <- do.call(visualisation_recipe, c(list(i), modelbased_args))
@@ -203,6 +196,10 @@ Column {data-width=500}
 ### Textual summary
 
 ```{r, eval=is_supported, results='asis', collapse=TRUE}
+# `{report}`
+text_report <- report(model)
+text_report_performance <- report_performance(model)
+
 gsub("]", ")", gsub("[", "(", text_report, fixed = TRUE), fixed = TRUE)
 cat("\n")
 gsub("]", ")", gsub("[", "(", text_report_performance, fixed = TRUE), fixed = TRUE)
