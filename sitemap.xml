@@ -55,6 +55,9 @@
     <loc>/reference/install_suggested.html</loc>
   </url>
   <url>
+    <loc>/reference/model_dashboard.html</loc>
+  </url>
+  <url>
     <loc>/reference/on_CRAN.html</loc>
   </url>
 </urlset>
