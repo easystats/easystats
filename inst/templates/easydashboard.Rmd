@@ -58,7 +58,7 @@ Column {data-width=700}
 ### Assumption checks
 
 ```{r check-model, eval=is_supported, fig.height=10, fig.width=10}
-check_model(model)
+plot(check_model(model))
 ```
 
 ```{r, eval=!is_supported}
