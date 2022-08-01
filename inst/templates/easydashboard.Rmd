@@ -35,13 +35,30 @@ knitr::opts_chunk$set(
 ```{r}
 # Get user-specified model data
 model <- params$model
-parameters_args <- c(list(model), params$parameters_args)
-performance_args <- c(list(model), params$performance_args)
 
+# Is it supported by `{easystats}`? Skip evaluation of the following chunks if not.
+is_supported <- insight::is_model_supported(mod)
+
+if (!is_supported) {
+  unsupported_message <- sprintf(
+    "Unfortunately, objects of class '%s' are not yet supported in {easystats}.\n
+    For a list of supported models, see `insight::supported_models()`.",
+    class(model)[1]
+  )
+}
+```
+
+
+```{r, eval=is_supported}
+# `{parameters}`
+parameters_args <- c(list(model), params$parameters_args)
 table_parameters <- do.call(parameters::parameters, parameters_args)
+
+# `{performance}`
+performance_args <- c(list(model), params$performance_args)
 table_performance <- do.call(performance::performance, performance_args)
 
-# modelbased
+# `{modelbased}`
 int_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
 con_terms <- find_variables(model)$conditional
 
@@ -58,6 +75,7 @@ text_modelbased <- lapply(unique(model_terms), function(i) {
   estimate_expectation(model, data = grid)
 })
 
+# `{report}`
 text_report <- report(model)
 text_report_performance <- report_performance(model)
 ```
@@ -70,8 +88,12 @@ Column {data-width=700}
 
 ### Assumption checks
 
-```{r check-model, fig.height=10, fig.width=10}
+```{r check-model, eval=is_supported, fig.height=10, fig.width=10}
 check_model(model)
+```
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
 ```
 
 Column {data-width=300}
@@ -79,8 +101,13 @@ Column {data-width=300}
 
 ### Indices of model fit
 
-```{r}
+```{r, eval=is_supported}
 print_md(table_performance, layout = "vertical", caption = NULL)
+```
+
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
 ```
 
 For interpretation of performance metrics, please refer to <a href="https://easystats.github.io/performance/reference/model_performance.html" target="_blank">this documentation</a>.
@@ -93,8 +120,13 @@ Column {data-width=550}
 
 ### Plot
 
-```{r dot-whisker}
+```{r dot-whisker, eval=is_supported}
 plot(table_parameters)
+```
+
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
 ```
 
 Column {data-width=450}
@@ -102,8 +134,13 @@ Column {data-width=450}
 
 ### Tabular summary
 
-```{r}
+```{r, eval=is_supported}
 print_md(table_parameters, caption = NULL)
+```
+
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
 ```
 
 To find out more about table summary options, please refer to <a href="https://easystats.github.io/parameters/reference/model_parameters.html" target="_blank">this documentation</a>.
@@ -117,7 +154,7 @@ Column {data-width=600}
 
 ### Plot
 
-```{r expected-values, fig.height=10, fig.width=10}
+```{r expected-values, eval=is_supported, fig.height=10, fig.width=10}
 ggplot2::theme_set(theme_modern())
 # all_plots <- lapply(text_modelbased, function(i) {
 #   out <- do.call(visualisation_recipe, c(list(i), modelbased_args))
@@ -131,12 +168,17 @@ all_plots <- lapply(text_modelbased, function(i) {
 see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
 ```
 
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
+```
+
 Column {data-width=400}
 -----------------------------------------------------------------------
 
 ### Tabular summary
 
-```{r results="asis"}
+```{r, eval=is_supported, results="asis"}
 for (i in text_modelbased) {
   tmp <- print_md(i)
   tmp <- gsub("Variable predicted", "\nVariable predicted", tmp)
@@ -147,6 +189,9 @@ for (i in text_modelbased) {
 ```
 
 
+```{r, eval=!is_supported}
+cat(unsupported_message)
+```
 
 
 Text reports
@@ -157,10 +202,15 @@ Column {data-width=500}
 
 ### Textual summary
 
-```{r, results='asis', collapse=TRUE}
+```{r, eval=is_supported, results='asis', collapse=TRUE}
 gsub("]", ")", gsub("[", "(", text_report, fixed = TRUE), fixed = TRUE)
 cat("\n")
 gsub("]", ")", gsub("[", "(", text_report_performance, fixed = TRUE), fixed = TRUE)
+```
+
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
 ```
 
 Column {data-width=500}
