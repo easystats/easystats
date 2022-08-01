@@ -33,12 +33,14 @@
 #' @examples
 #' if (FALSE) {
 #'   mod <- lm(wt ~ mpg, mtcars)
+#'
+#'   # with default options
 #'   model_dashboard(mod)
 #'
-#'   # standardize coefficients
+#'   # customizing {parameters} output: standardize coefficients
 #'   model_dashboard(mod, parameters_args = list(standardize = "refit"))
 #'
-#'   # only show selected performance metrics
+#'   # customizing {performance} output: only show selected performance metrics
 #'   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 #' }
 #'
@@ -51,7 +53,7 @@ model_dashboard <- function(model,
                             rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
   insight::check_if_installed("flexdashboard")
 
-  # Render report into html
+  # render report into HTML
   suppressWarnings(
     rmarkdown::render(
       input = rmd_dir,
@@ -63,7 +65,11 @@ model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
-      params = list(model = model, parameters_args = parameters_args, performance_args = performance_args)
+      params = list(
+        model = model,
+        parameters_args = parameters_args,
+        performance_args = performance_args
+      )
     )
   )
 
