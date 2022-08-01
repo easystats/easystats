@@ -37,7 +37,7 @@ knitr::opts_chunk$set(
 model <- params$model
 
 # Is it supported by `{easystats}`? Skip evaluation of the following chunks if not.
-is_supported <- insight::is_model_supported(mod)
+is_supported <- insight::is_model_supported(model)
 
 if (!is_supported) {
   unsupported_message <- sprintf(
