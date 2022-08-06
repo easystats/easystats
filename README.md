@@ -66,30 +66,28 @@ smooth workflow, as these packages are meant to work together. Ideally,
 these packages work in unison to cover all aspects of statistical
 analysis and data visualization.
 
--   [**report**](https://easystats.github.io/report): 📜 🎉 Automated
-    statistical reporting of objects in R
--   [**correlation**](https://easystats.github.io/correlation): 🔗 Your
-    all-in-one package to run correlations
--   [**modelbased**](https://easystats.github.io/modelbased): 📈
-    Estimate effects, group averages and contrasts between groups based
-    on statistical models
--   [**bayestestR**](https://easystats.github.io/bayestestR): 👻 Great
-    for beginners or experts of Bayesian statistics
--   [**parameters**](https://easystats.github.io/parameters): 📊 Obtain
-    a table containing all information about the parameters of your
-    models
--   [**performance**](https://easystats.github.io/performance): 💪
-    Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
--   [**effectsize**](https://easystats.github.io/effectsize): 🐉
-    Compute, convert, interpret and work with indices of effect size and
-    standardized parameters
--   [**insight**](https://easystats.github.io/insight): 🔮 For
-    developers, a package to help you work with different models and
-    packages
--   [**see**](https://easystats.github.io/see): 🎨 The plotting
-    companion to create beautiful results visualizations
--   [**datawizard**](https://easystats.github.io/datawizard): 🧙 Magic
-    potions to clean and transform your data
+- [**report**](https://easystats.github.io/report): 📜 🎉 Automated
+  statistical reporting of objects in R
+- [**correlation**](https://easystats.github.io/correlation): 🔗 Your
+  all-in-one package to run correlations
+- [**modelbased**](https://easystats.github.io/modelbased): 📈 Estimate
+  effects, group averages and contrasts between groups based on
+  statistical models
+- [**bayestestR**](https://easystats.github.io/bayestestR): 👻 Great for
+  beginners or experts of Bayesian statistics
+- [**parameters**](https://easystats.github.io/parameters): 📊 Obtain a
+  table containing all information about the parameters of your models
+- [**performance**](https://easystats.github.io/performance): 💪 Models’
+  quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
+- [**effectsize**](https://easystats.github.io/effectsize): 🐉 Compute,
+  convert, interpret and work with indices of effect size and
+  standardized parameters
+- [**insight**](https://easystats.github.io/insight): 🔮 For developers,
+  a package to help you work with different models and packages
+- [**see**](https://easystats.github.io/see): 🎨 The plotting companion
+  to create beautiful results visualizations
+- [**datawizard**](https://easystats.github.io/datawizard): 🧙 Magic
+  potions to clean and transform your data
 
 # Frequently Asked Questions
 
@@ -172,7 +170,7 @@ of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,274,741 | 2,869,138 | 1,313,119  | 1,289,693  | 1,212,039   | 1,002,716  | 968,249    | 258,492     | 232,080 | 87,812     | 41,403 | 0         |
+| 9,337,276 | 2,888,340 | 1,319,035  | 1,295,884  | 1,218,461   | 1,007,363  | 984,563    | 259,785     | 233,804 | 88,170     | 41,871 | 0         |
 
 ### Trend
 
@@ -191,23 +189,22 @@ of dependencies.
 Package version numbers indicate following:
 `MAJOR.MINOR.PATCH.DEVELOPMENT`. Here are key steps to keep in mind:
 
--   As long as packages are in a more or less rapidly developing and
-    changing state, the **major** version number is typically `0`.
+- As long as packages are in a more or less rapidly developing and
+  changing state, the **major** version number is typically `0`.
 
--   Once we think we will have a stable base that will likely not change
-    dramatically or soon, the major version number will be set to `1`,
-    and will be increased for following major changes that probably
-    break the current API.
+- Once we think we will have a stable base that will likely not change
+  dramatically or soon, the major version number will be set to `1`, and
+  will be increased for following major changes that probably break the
+  current API.
 
--   When new features are added or (re)moved, we typically increase the
-    **minor** version number.
+- When new features are added or (re)moved, we typically increase the
+  **minor** version number.
 
--   Minimal changes or bug fixes only are indicated by increasing the
-    **patch** version number.
+- Minimal changes or bug fixes only are indicated by increasing the
+  **patch** version number.
 
--   Current development versions of our packages (i.e. master/main
-    branch from GitHub) additionally have a **development** version
-    number.
+- Current development versions of our packages (i.e. master/main branch
+  from GitHub) additionally have a **development** version number.
 
 # Contributing
 
@@ -218,10 +215,10 @@ for contributions are encouraged.
 Here are some simple ways in which you can contribute (in the increasing
 order of commitment):
 
--   Read and correct any inconsistencies in the documentation
--   Raise issues about bugs or wanted features
--   Review code
--   Add new functionality
+- Read and correct any inconsistencies in the documentation
+- Raise issues about bugs or wanted features
+- Review code
+- Add new functionality
 
 # Code of Conduct
 
