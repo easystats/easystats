@@ -127,6 +127,13 @@ a text report
 <dd><p>A regression model object.</p></dd>
 
 
+<dt>check_model_args</dt>
+<dd><p>A list of named arguments that are passed down to
+<code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">performance::check_model()</a></code>. For further documentation and details
+about the arguments, see <a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">this website</a>.
+See also 'Examples'.</p></dd>
+
+
 <dt>parameters_args</dt>
 <dd><p>A list of named arguments that are passed down to
 <code><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">parameters::model_parameters()</a></code>. For further documentation and details
@@ -177,6 +184,9 @@ the package installation (<code>inst/templates/easydashboard.Rmd</code>).</p></d
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co"># customizing {performance} output: only show selected performance metrics</span></span></span>
 <span class="r-in"><span>  <span class="fu">model_dashboard</span><span class="op">(</span><span class="va">mod</span>, performance_args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AIC"</span>, <span class="st">"RMSE"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># customizing output of model assumptions plot: don't show dots (faster plot)</span></span></span>
+<span class="r-in"><span>  <span class="fu">model_dashboard</span><span class="op">(</span><span class="va">mod</span>, check_model_args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>show_dots <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
