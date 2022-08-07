@@ -14,6 +14,10 @@
 #' An HTML dashboard.
 #'
 #' @param model A regression model object.
+#' @param check_model_args A list of named arguments that are passed down to
+#'   `performance::check_model()`. For further documentation and details
+#'   about the arguments, see [this website](https://easystats.github.io/performance/reference/check_model.html).
+#'   See also 'Examples'.
 #' @param parameters_args A list of named arguments that are passed down to
 #'   `parameters::model_parameters()`. For further documentation and details
 #'   about the arguments, see [this website](https://easystats.github.io/parameters/reference/model_parameters.html).
@@ -42,6 +46,9 @@
 #'
 #'   # customizing {performance} output: only show selected performance metrics
 #'   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
+#'
+#'   # customizing output of model assumptions plot: don't show dots (faster plot)
+#'   model_dashboard(mod, check_model_args = list(show_dots = FALSE))
 #' }
 #'
 #' @export

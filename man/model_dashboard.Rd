@@ -17,6 +17,11 @@ model_dashboard(
 \arguments{
 \item{model}{A regression model object.}
 
+\item{check_model_args}{A list of named arguments that are passed down to
+\code{performance::check_model()}. For further documentation and details
+about the arguments, see \href{https://easystats.github.io/performance/reference/check_model.html}{this website}.
+See also 'Examples'.}
+
 \item{parameters_args}{A list of named arguments that are passed down to
 \code{parameters::model_parameters()}. For further documentation and details
 about the arguments, see \href{https://easystats.github.io/parameters/reference/model_parameters.html}{this website}.
@@ -62,6 +67,9 @@ if (FALSE) {
 
   # customizing {performance} output: only show selected performance metrics
   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
+
+  # customizing output of model assumptions plot: don't show dots (faster plot)
+  model_dashboard(mod, check_model_args = list(show_dots = FALSE))
 }
 
 }
