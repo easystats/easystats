@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://easystats.github.io/easystats/404.html</loc>
   </url>
   <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
+    <loc>https://easystats.github.io/easystats/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://easystats.github.io/easystats/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/Pull_Request_and_Code_Review_Standards.html</loc>
+    <loc>https://easystats.github.io/easystats/Pull_Request_and_Code_Review_Standards.html</loc>
   </url>
   <url>
-    <loc>/articles/citation.html</loc>
+    <loc>https://easystats.github.io/easystats/articles/citation.html</loc>
   </url>
   <url>
-    <loc>/articles/conventions.html</loc>
+    <loc>https://easystats.github.io/easystats/articles/conventions.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://easystats.github.io/easystats/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/list_of_functions.html</loc>
+    <loc>https://easystats.github.io/easystats/articles/list_of_functions.html</loc>
   </url>
   <url>
-    <loc>/articles/resources.html</loc>
+    <loc>https://easystats.github.io/easystats/articles/resources.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://easystats.github.io/easystats/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://easystats.github.io/easystats/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://easystats.github.io/easystats/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/CRAN_checks.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/CRAN_checks.html</loc>
   </url>
   <url>
-    <loc>/reference/easystats_update.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/easystats_update.html</loc>
   </url>
   <url>
-    <loc>/reference/easystats_zen.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/easystats_zen.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/install_latest.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/install_latest.html</loc>
   </url>
   <url>
-    <loc>/reference/install_suggested.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/install_suggested.html</loc>
   </url>
   <url>
-    <loc>/reference/model_dashboard.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/model_dashboard.html</loc>
   </url>
   <url>
-    <loc>/reference/on_CRAN.html</loc>
+    <loc>https://easystats.github.io/easystats/reference/on_CRAN.html</loc>
   </url>
 </urlset>
