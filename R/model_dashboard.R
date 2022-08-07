@@ -46,6 +46,7 @@
 #'
 #' @export
 model_dashboard <- function(model,
+                            check_model_args = NULL,
                             parameters_args = NULL,
                             performance_args = NULL,
                             output_file = "easydashboard.html",
@@ -67,6 +68,7 @@ model_dashboard <- function(model,
       intermediates_dir = output_dir,
       params = list(
         model = model,
+        check_model_args = check_model_args,
         parameters_args = parameters_args,
         performance_args = performance_args
       )

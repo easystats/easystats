@@ -13,6 +13,7 @@ output:
         google: JetBrains Mono
 params:
   model: model
+  check_model_args: check_model_args
   parameters_args: parameters_args
   performance_args: performance_args
 ---
@@ -58,7 +59,8 @@ Column {data-width=700}
 ### Assumption checks
 
 ```{r check-model, eval=is_supported, fig.height=10, fig.width=10}
-check_model(model)
+check_model_args <- c(list(model), params$check_model_args)
+do.call(performance::check_model, check_model_args)
 ```
 
 ```{r, eval=!is_supported}

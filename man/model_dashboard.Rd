@@ -6,6 +6,7 @@
 \usage{
 model_dashboard(
   model,
+  check_model_args = NULL,
   parameters_args = NULL,
   performance_args = NULL,
   output_file = "easydashboard.html",
