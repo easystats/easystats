@@ -4,18 +4,6 @@ template:
   bootstrap: 5
   package: easystatstemplate
 
-authors:
-  Daniel Lüdecke:
-    href: https://github.com/strengejacke
-  Dominique Makowski:
-    href: https://dominiquemakowski.github.io/
-  Mattan S. Ben-Shachar:
-    href: https://github.com/mattansb
-  Indrajeet Patil:
-    href: https://sites.google.com/site/indrajeetspatilmorality/
-  Brenton M. Wiernik:
-    href: https://wiernik.org/
-
 reference:
 
   - title: Installation and update
