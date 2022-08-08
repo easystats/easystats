@@ -45,9 +45,9 @@ Depends:
 Imports:
     bayestestR (>= 0.12.1),
     correlation (>= 0.8.1),
-    datawizard (>= 0.4.1),
+    datawizard (>= 0.5.0),
     effectsize (>= 0.7.0),
-    insight (>= 0.17.1),
+    insight (>= 0.18.0),
     modelbased (>= 0.8.1),
     parameters (>= 0.18.1),
     performance (>= 0.9.1),
