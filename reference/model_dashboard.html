@@ -170,6 +170,18 @@ the package installation (<code>inst/templates/easydashboard.Rmd</code>).</p></d
 
 <p>An HTML dashboard.</p>
     </div>
+    <div class="section level2">
+    <h2 id="troubleshooting">Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"></a></h2>
+    
+
+<p>For models with many observations, or for more complex models in general,
+generating the model assumptions plot might become very slow. One reason
+is that the underlying graphic engine becomes slow for plotting many data
+points. In such cases, setting the argument <code>check_model_args = list(show_dots = FALSE)</code>
+might help. Furthermore, look at other arguments of <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">?performance::check_model</a></code>,
+which can be set using <code>check_model_args</code>, to increase performance (in
+particular) the <code>check</code>-argument can help, to skip some unnecessary checks).</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
