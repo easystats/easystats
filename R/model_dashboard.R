@@ -34,6 +34,15 @@
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
 #'
+#' @section Troubleshooting:
+#' For models with many observations, or for more complex models in general,
+#' generating the model assumptions plot might become very slow. One reason
+#' is that the underlying graphic engine becomes slow for plotting many data
+#' points. In such cases, setting the argument `check_model_args = list(show_dots = FALSE)`
+#' might help. Furthermore, look at other arguments of `?performance::check_model`,
+#' which can be set using `check_model_args`, to increase performance (in
+#' particular) the `check`-argument can help, to skip some unnecessary checks).
+#'
 #' @examples
 #' if (FALSE) {
 #'   mod <- lm(wt ~ mpg, mtcars)

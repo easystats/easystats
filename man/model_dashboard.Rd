@@ -55,6 +55,17 @@ A dashboard containing the following details for the entered regression model:
 \item a text report
 }
 }
+\section{Troubleshooting}{
+
+For models with many observations, or for more complex models in general,
+generating the model assumptions plot might become very slow. One reason
+is that the underlying graphic engine becomes slow for plotting many data
+points. In such cases, setting the argument \code{check_model_args = list(show_dots = FALSE)}
+might help. Furthermore, look at other arguments of \code{?performance::check_model},
+which can be set using \code{check_model_args}, to increase performance (in
+particular) the \code{check}-argument can help, to skip some unnecessary checks).
+}
+
 \examples{
 if (FALSE) {
   mod <- lm(wt ~ mpg, mtcars)
