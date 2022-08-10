@@ -104,7 +104,7 @@ will be installed from the stable branch (master/main) for each package.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">install_latest</span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"development"</span>, <span class="st">"cran"</span><span class="op">)</span>,</span>
 <span>  packages <span class="op">=</span> <span class="st">"all"</span>,</span>
-<span>  check_version <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  force <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -123,9 +123,9 @@ are installed from the r-universe repository (https://easystats.r-universe.dev/)
 By default, the option <code>"all"</code> will install all <strong>easystats</strong> packages.</p></dd>
 
 
-<dt>check_version</dt>
-<dd><p>Logical, if <code>TRUE</code>, only those packages with a newer
-version number will be installed. Use <code>check_version=FALSE</code> to force
+<dt>force</dt>
+<dd><p>Logical, if <code>FALSE</code>, only those packages with a newer
+version number will be installed. Use <code>force=TRUE</code> to force
 installation of all packages, even if the version number for the locally
 installed packages is identical to the latest development-versions. Only
 applies when <code>source="development"</code>.</p></dd>
