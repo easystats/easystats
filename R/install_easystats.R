@@ -24,8 +24,8 @@ CRAN_checks <- function() {
 #'   are installed from the r-universe repository (https://easystats.r-universe.dev/).
 #' @param packages Character vector, indicating which packages to be installed.
 #'   By default, the option `"all"` will install all **easystats** packages.
-#' @param check_version Logical, if `TRUE`, only those packages with a newer
-#'   version number will be installed. Use `check_version=FALSE` to force
+#' @param force Logical, if `FALSE`, only those packages with a newer
+#'   version number will be installed. Use `force=TRUE` to force
 #'   installation of all packages, even if the version number for the locally
 #'   installed packages is identical to the latest development-versions. Only
 #'   applies when `source="development"`.
@@ -34,7 +34,7 @@ CRAN_checks <- function() {
 #' @export
 install_latest <- function(source = c("development", "cran"),
                            packages = "all",
-                           check_version = TRUE,
+                           force = FALSE,
                            verbose = TRUE) {
   source <- match.arg(source, c("development", "cran"))
   pkg <- c(
@@ -55,7 +55,7 @@ install_latest <- function(source = c("development", "cran"),
   }
 
   # only install newer versions?
-  if (isTRUE(check_version) && source == "development") {
+  if (isTRUE(force) && source == "development") {
     insight::check_if_installed("jsonlite", reason = "to check for updates among development packages")
     if (isTRUE(verbose)) {
       insight::print_color("Looking for newer package versions...\n", "blue")

@@ -7,7 +7,7 @@
 install_latest(
   source = c("development", "cran"),
   packages = "all",
-  check_version = TRUE,
+  force = FALSE,
   verbose = TRUE
 )
 }
@@ -20,8 +20,8 @@ are installed from the r-universe repository (https://easystats.r-universe.dev/)
 \item{packages}{Character vector, indicating which packages to be installed.
 By default, the option \code{"all"} will install all \strong{easystats} packages.}
 
-\item{check_version}{Logical, if \code{TRUE}, only those packages with a newer
-version number will be installed. Use \code{check_version=FALSE} to force
+\item{force}{Logical, if \code{FALSE}, only those packages with a newer
+version number will be installed. Use \code{force=TRUE} to force
 installation of all packages, even if the version number for the locally
 installed packages is identical to the latest development-versions. Only
 applies when \code{source="development"}.}
