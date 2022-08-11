@@ -55,7 +55,7 @@ install_latest <- function(source = c("development", "cran"),
   }
 
   # only install newer versions?
-  if (isTRUE(force) && source == "development") {
+  if (isFALSE(force) && source == "development") {
     insight::check_if_installed("jsonlite", reason = "to check for updates among development packages")
     if (isTRUE(verbose)) {
       insight::print_color("Looking for newer package versions...\n", "blue")
