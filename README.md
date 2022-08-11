@@ -152,25 +152,25 @@ following presentations and talks to learn more about this ecosystem:
 
 # Dependencies
 
-Most *easystats* packages are very lightweight, *i.e.*, they don’t rely
-nor import any other packages! This means that you can safely use them
-as dependencies in your own packages, without the risk of a butterfly
-effect, where a small change in a distant downstream dependency with
-unexpected upstream consequences.
+*easystats* packages are designed to be lightweight, *i.e.*, they don’t
+have any third-party hard dependencies, other than base-R packages or
+other *easystats* packages! If you develop R packages, this means that
+you can safely use *easystats* packages as dependencies in your own
+packages, without the risk of entering the [dependency
+hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
 ![](man/figures/depnetwork-1.png)<!-- -->
 
 As we can see, the only exception is the
-[**see**](http://easystats.github.io/see) package, one of our high-level
-packages that is responsible for plotting and creating figures, relying
-thus on other packages such as *ggplot2*, which has a substantial number
-of dependencies.
+[`{see}`](http://easystats.github.io/see) package, which is responsible
+for plotting and creating figures and relies on `{ggplot2}`, which does
+have a substantial number of dependencies.
 
 # Downloads
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,346,380 | 2,891,280 | 1,319,828  | 1,296,681  | 1,219,288   | 1,008,009  | 987,121    | 259,977     | 234,025 | 88,243     | 41,928 | 0         |
+| 9,379,429 | 2,900,675 | 1,322,770  | 1,299,795  | 1,222,323   | 1,010,302  | 997,171    | 260,835     | 234,872 | 88,491     | 42,195 | 0         |
 
 ### Trend
 
@@ -183,28 +183,6 @@ of dependencies.
 ### Average monthly downloads
 
 <img src="man/figures/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
-
-# Versioning
-
-Package version numbers indicate following:
-`MAJOR.MINOR.PATCH.DEVELOPMENT`. Here are key steps to keep in mind:
-
-- As long as packages are in a more or less rapidly developing and
-  changing state, the **major** version number is typically `0`.
-
-- Once we think we will have a stable base that will likely not change
-  dramatically or soon, the major version number will be set to `1`, and
-  will be increased for following major changes that probably break the
-  current API.
-
-- When new features are added or (re)moved, we typically increase the
-  **minor** version number.
-
-- Minimal changes or bug fixes only are indicated by increasing the
-  **patch** version number.
-
-- Current development versions of our packages (i.e. master/main branch
-  from GitHub) additionally have a **development** version number.
 
 # Contributing
 

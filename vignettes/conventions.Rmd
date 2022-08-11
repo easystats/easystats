@@ -31,9 +31,13 @@ consistent pattern across all packages.
 
   - No full import, only selective import of functions
 
-  - Use base-R wherever possible (reduce dependencies)
+  - Use base-R wherever possible (to reduce hard dependencies)
 
   - Make sure R-version requirements are not too strict
+
+**Package versioning**
+
+  - Package versions follow [Semantic Versioning](https://semver.org/) conventions.
 
 **Helper-functions**
 
@@ -94,3 +98,4 @@ consistent pattern across all packages.
     (`Eta2`, `Chi2`, `Omega2`, ...) should be written as `2`, not `sq`,
     `squared` or `pétit-deux` (*example:* `Chi2`, and **not** `Chisq`, `Eta2`,
     and **not** `Eta_squared`). This rule does **not** apply to function names.
+
