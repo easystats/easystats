@@ -225,9 +225,9 @@
 <div class="section level1">
 <h1 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
 </h1>
-<p>Most <em>easystats</em> packages are very lightweight, <em>i.e.</em>, they don’t rely nor import any other packages! This means that you can safely use them as dependencies in your own packages, without the risk of a butterfly effect, where a small change in a distant downstream dependency with unexpected upstream consequences.</p>
+<p><em>easystats</em> packages are designed to be lightweight, <em>i.e.</em>, they don’t have any third-party hard dependencies, other than base-R packages or other <em>easystats</em> packages! If you develop R packages, this means that you can safely use <em>easystats</em> packages as dependencies in your own packages, without the risk of entering the <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="external-link">dependency hell</a>.</p>
 <p><img src="reference/figures/depnetwork-1.png"><!-- --></p>
-<p>As we can see, the only exception is the <a href="http://easystats.github.io/see" class="external-link"><strong>see</strong></a> package, one of our high-level packages that is responsible for plotting and creating figures, relying thus on other packages such as <em>ggplot2</em>, which has a substantial number of dependencies.</p>
+<p>As we can see, the only exception is the <a href="http://easystats.github.io/see" class="external-link"><code>{see}</code></a> package, which is responsible for plotting and creating figures and relies on <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a>, which does have a substantial number of dependencies.</p>
 </div>
 <div class="section level1">
 <h1 id="downloads">Downloads<a class="anchor" aria-label="anchor" href="#downloads"></a>
@@ -291,18 +291,6 @@
 </h3>
 <p><img src="reference/figures/unnamed-chunk-10-1.png" style="display: block; margin: auto;"></p>
 </div>
-</div>
-<div class="section level1">
-<h1 id="versioning">Versioning<a class="anchor" aria-label="anchor" href="#versioning"></a>
-</h1>
-<p>Package version numbers indicate following: <code>MAJOR.MINOR.PATCH.DEVELOPMENT</code>. Here are key steps to keep in mind:</p>
-<ul>
-<li><p>As long as packages are in a more or less rapidly developing and changing state, the <strong>major</strong> version number is typically <code>0</code>.</p></li>
-<li><p>Once we think we will have a stable base that will likely not change dramatically or soon, the major version number will be set to <code>1</code>, and will be increased for following major changes that probably break the current API.</p></li>
-<li><p>When new features are added or (re)moved, we typically increase the <strong>minor</strong> version number.</p></li>
-<li><p>Minimal changes or bug fixes only are indicated by increasing the <strong>patch</strong> version number.</p></li>
-<li><p>Current development versions of our packages (i.e. master/main branch from GitHub) additionally have a <strong>development</strong> version number.</p></li>
-</ul>
 </div>
 <div class="section level1">
 <h1 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
