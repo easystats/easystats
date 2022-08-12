@@ -425,9 +425,9 @@ tmp |>
   theme(axis.text.x = element_text(angle = 90))
 ```
 
+```{r, fig.align='center', echo=FALSE, eval=FALSE}
 ### Cumulative downloads
 
-```{r, fig.align='center', echo=FALSE}
 tmp <- lapply(split(data, list(data$Package, data$year_month)), function(x) {
   x$download_label <- x$cumulative_count[[1]]
   return(x)
