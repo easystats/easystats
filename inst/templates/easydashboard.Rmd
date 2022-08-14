@@ -146,7 +146,7 @@ if (is.null(int_terms)) {
 }
 
 text_modelbased <- lapply(unique(model_terms), function(i) {
-  grid <- get_datagrid(model, at = i)
+  grid <- get_datagrid(model, at = i, range = "grid", preserve_range = FALSE)
   estimate_expectation(model, data = grid)
 })
 
