@@ -170,15 +170,11 @@ have a substantial number of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,379,429 | 2,900,675 | 1,322,770  | 1,299,795  | 1,222,323   | 1,010,302  | 997,171    | 260,835     | 234,872 | 88,491     | 42,195 | 0         |
+| 9,398,390 | 2,906,413 | 1,324,205  | 1,301,621  | 1,224,396   | 1,012,019  | 1,001,870  | 261,614     | 235,375 | 88,571     | 42,306 | 0         |
 
 ### Trend
 
 <img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
-
-### Cumulative downloads
-
-<img src="man/figures/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
 ### Average monthly downloads
 
