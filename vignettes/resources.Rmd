@@ -10,14 +10,8 @@ vignette: >
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-options(
-  knitr.kable.NA = "",
-  digits = 2
-)
-
 knitr::opts_chunk$set(
   comment = ">",
-  dpi = 450,
   message = FALSE,
   warning = FALSE
 )
@@ -39,7 +33,7 @@ But, we are certainly not the only ones talking about them, and below are some o
 
 ### `{report}` package:
   
-- [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)  
+- [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)
 
 
 ## Presentations

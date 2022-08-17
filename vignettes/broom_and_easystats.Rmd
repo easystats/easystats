@@ -1,0 +1,23 @@
+---
+title: "Equivalence between 'broom' and 'easystats'"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{Equivalence between 'broom' and 'easystats'}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(
+  comment = ">",
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+## Introduction
+
+| Goal | `{broom}` | `{easystats}` |
+| :--: | :-------: | :-----------: |
