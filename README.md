@@ -168,9 +168,9 @@ have a substantial number of dependencies.
 
 # Downloads
 
-| Total     | insight   | bayestestR | parameters | performance | effectsize | datawizard | correlation | see     | modelbased | report | easystats |
+| Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,455,216 | 2,924,017 | 1,328,181  | 1,307,810  | 1,230,148   | 1,016,738  | 1,016,513  | 263,363     | 236,867 | 88,898     | 42,681 | 0         |
+| 9,504,935 | 2,938,447 | 1,331,677  | 1,313,590  | 1,235,788   | 1,029,242  | 1,021,471  | 264,567     | 238,019 | 89,164     | 42,970 | 0         |
 
 ### Trend
 
