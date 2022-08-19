@@ -71,3 +71,7 @@ Language: en-US
 RoxygenNote: 7.2.1
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
+Config/Needs/website:
+    rstudio/bslib,
+    r-lib/pkgdown,
+    easystats/easystatstemplate
