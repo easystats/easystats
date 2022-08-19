@@ -21,8 +21,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.2/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.2.0/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.2.0/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.2/font.css" rel="stylesheet">
 <link href="deps/JetBrains_Mono-0.4.2/font.css" rel="stylesheet">
 <link href="deps/Roboto_Slab-0.4.2/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -128,11 +128,13 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
 <img src="logo.png" class="logo" alt=""><h1 id="easystats-framework-for-easy-statistical-modeling-visualization-and-reporting">
 <em>easystats</em>: Framework for Easy Statistical Modeling, Visualization, and Reporting<a class="anchor" aria-label="anchor" href="#easystats-framework-for-easy-statistical-modeling-visualization-and-reporting"></a>
 </h1>
-</div></div>
+</div>
+</div>
 <div class="section level1">
 <h1 id="what-is-easystats">What is <em>easystats</em>?<a class="anchor" aria-label="anchor" href="#what-is-easystats"></a>
 </h1>
@@ -195,7 +197,9 @@
 <p><strong>How is <em>easystats</em> different from the <em>tidyverse</em>?</strong></p>
 <p>You’ve probably already heard about the <a href="https://www.tidyverse.org/" class="external-link"><strong>tidyverse</strong></a>, another very popular collection of packages (<em>ggplot</em>, <em>dplyr</em>, <em>tidyr</em>, …) that also makes using R easier. So, should you pick the <em>tidyverse</em> or <em>easystats</em>? <strong>Pick both!</strong></p>
 <p>Indeed, these two ecosystems have been designed with very different goals in mind. The <em>tidyverse</em> packages are primarily made to create a new R experience, where data manipulation and exploration is intuitive and consistent. On the other hand, <strong>easystats</strong> focuses more on the final stretch of the analysis: understanding and interpreting your results and reporting them in a manuscript or a report, while following best practices. You can definitely use the <em>easystats</em> functions in a <em>tidyverse</em> workflow!</p>
-<blockquote><p><strong>easystats + tidyverse =</strong> ❤️</p></blockquote>
+<blockquote>
+<p><strong>easystats + tidyverse =</strong> ❤️</p>
+</blockquote>
 <p><strong>Can <em>easystats</em> be useful to advanced users and/or developers?</strong></p>
 <p>Yes, definitely! <strong>easystats</strong> is built in terms of modules that are general enough to be used inside other packages. For instance, the <em>insight</em> package is made to easily implement support for post-processing of pretty much all regression model packages under the sun. We use it in all the <em>easystats</em> packages, but it is also used in other non-easystats packages, such as <a href="https://github.com/IndrajeetPatil/ggstatsplot" class="external-link"><strong>ggstatsplot</strong></a>, <a href="https://github.com/vincentarelbundock/modelsummary/" class="external-link"><strong>modelsummary</strong></a>, <a href="https://github.com/strengejacke/ggeffects" class="external-link"><strong>ggeffects</strong></a>, and more.</p>
 <p><strong>So why not in yours</strong>?</p>
