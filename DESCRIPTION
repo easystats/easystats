@@ -55,7 +55,8 @@ Imports:
     see (>= 0.7.2),
     tools,
     utils
-Suggests: 
+Suggests:
+    DT,
     flexdashboard,
     jsonlite,
     knitr,

@@ -214,3 +214,17 @@ cat(unsupported_message)
 
 Column {data-width=500}
 -----------------------------------------------------------------------
+
+### Model information
+
+```{r, eval=is_supported}
+model_info_data <- insight::model_info(model)
+
+model_info_data <- datawizard::data_to_long(as.data.frame(model_info_data))
+
+DT::datatable(model_info_data)
+```
+
+```{r, eval=!is_supported}
+cat(unsupported_message)
+```

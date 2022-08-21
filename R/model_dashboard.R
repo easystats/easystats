@@ -68,7 +68,7 @@ model_dashboard <- function(model,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
                             rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
-  insight::check_if_installed("flexdashboard")
+  insight::check_if_installed(c("DT", "flexdashboard"))
 
   # render report into HTML
   suppressWarnings(
