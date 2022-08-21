@@ -3,7 +3,7 @@
 
 # What is *easystats*?
 
-**easystats** is a collection of R packages, which aims to provide a
+*easystats* is a collection of R packages, which aims to provide a
 unifying and consistent framework to tame, discipline, and harness the
 scary R statistics and their pesky models.
 
@@ -12,8 +12,6 @@ analysis. Instead, start with one package and, when you’ll face a new
 challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
-<!--***Gotta catch 'em all!*** 
-'tis a pokémon reference for y'all grandpas -->
 
 <img src="man/figures/logo_wall.png" width="100%" />
 
@@ -58,7 +56,7 @@ Have a look at this article on how you can do so!
 
 # Getting started
 
-Each **easystats** package has a different scope and purpose. This means
+Each *easystats* package has a different scope and purpose. This means
 your **best way to start** is to explore and pick the one(s) that you
 feel might be useful to you. However, as they are built with a “bigger
 picture” in mind, you will realize that using more of them creates a
@@ -166,19 +164,19 @@ As we can see, the only exception is the
 for plotting and creating figures and relies on `{ggplot2}`, which does
 have a substantial number of dependencies.
 
-# Downloads
+# Usage
+
+### Total downloads
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,543,646 | 2,949,542 | 1,334,822  | 1,317,725  | 1,239,809   | 1,039,915  | 1,024,559  | 265,533     | 238,951 | 89,544     | 43,246 | 0         |
+| 9,559,982 | 2,954,314 | 1,336,149  | 1,319,403  | 1,241,402   | 1,044,511  | 1,025,797  | 266,013     | 239,327 | 89,735     | 43,331 | 0         |
 
 ### Trend
 
 <img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
 
-### Average monthly downloads
-
-<img src="man/figures/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<!-- ### Average monthly downloads -->
 
 # Contributing
 
