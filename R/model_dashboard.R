@@ -4,11 +4,12 @@
 #'
 #' A dashboard containing the following details for the entered regression model:
 #'
-#' - tabular summary of parameter estimates
+#' - a tabular summary of parameter estimates
 #' - a dot-and-whisker plot for parameter estimates
-#' - tabular summary of indices for the quality of model fit
+#' - a tabular summary of indices for the quality of model fit
 #' - a collection of models for checking model assumptions
 #' - a text report
+#' - a model information table
 #'
 #' @return
 #' An HTML dashboard.

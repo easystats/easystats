@@ -48,11 +48,12 @@ An HTML dashboard.
 \description{
 A dashboard containing the following details for the entered regression model:
 \itemize{
-\item tabular summary of parameter estimates
+\item a tabular summary of parameter estimates
 \item a dot-and-whisker plot for parameter estimates
-\item tabular summary of indices for the quality of model fit
+\item a tabular summary of indices for the quality of model fit
 \item a collection of models for checking model assumptions
 \item a text report
+\item a model information table
 }
 }
 \section{Troubleshooting}{
