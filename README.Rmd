@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# *easystats*: Framework for Easy Statistical Modeling, Visualization, and Reporting
+# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
