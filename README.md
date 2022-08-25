@@ -1,7 +1,7 @@
 
-# *easystats*: Framework for Easy Statistical Modeling, Visualization, and Reporting
+# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
-# What is *easystats*?
+## What is *easystats*?
 
 *easystats* is a collection of R packages, which aims to provide a
 unifying and consistent framework to tame, discipline, and harness the
@@ -15,7 +15,7 @@ your life. And, who knows, you might even end up using them all.
 
 <img src="man/figures/logo_wall.png" width="100%" />
 
-# Installation
+## Installation
 
 [![:registry status
 badge](https://easystats.r-universe.dev/badges/:registry)](https://easystats.r-universe.dev)
@@ -47,14 +47,14 @@ simply run the following:
 easystats::install_suggested()
 ```
 
-# Citation
+## Citation
 
 Do you wish to cite *easystats*? ❤️
 
 Have a look at this article on how you can do so!
 <https://easystats.github.io/easystats/articles/citation.html>
 
-# Getting started
+## Getting started
 
 Each *easystats* package has a different scope and purpose. This means
 your **best way to start** is to explore and pick the one(s) that you
@@ -87,7 +87,7 @@ analysis and data visualization.
 - [**datawizard**](https://easystats.github.io/datawizard): 🧙 Magic
   potions to clean and transform your data
 
-# Frequently Asked Questions
+## Frequently Asked Questions
 
 **How is *easystats* different from the *tidyverse*?**
 
@@ -126,29 +126,29 @@ Moreover, the *easystats* packages are very lightweight, with a minimal
 set of dependencies, which again makes it great if you want to rely on
 them.
 
-# Documentation
+## Documentation
 
-## Websites
+### Websites
 
 Each `easystats` package has a dedicated website.
 
 For example, website for `parameters` is
 <https://easystats.github.io/parameters/>.
 
-## Blog
+### Blog
 
 In addition to the websites containing documentation for these packages,
 you can also read posts from `easystats` blog:
 <https://easystats.github.io/blog/posts/>.
 
-## Other learning resources
+### Other learning resources
 
 In addition to these websites and blog posts, you can also check out the
 following presentations and talks to learn more about this ecosystem:
 
 <https://easystats.github.io/easystats/articles/resources.html>
 
-# Dependencies
+## Dependencies
 
 *easystats* packages are designed to be lightweight, *i.e.*, they don’t
 have any third-party hard dependencies, other than base-R packages or
@@ -164,13 +164,13 @@ As we can see, the only exception is the
 for plotting and creating figures and relies on `{ggplot2}`, which does
 have a substantial number of dependencies.
 
-# Usage
+## Usage
 
 ### Total downloads
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,569,882 | 2,957,475 | 1,336,836  | 1,320,268  | 1,242,242   | 1,047,536  | 1,026,442  | 266,273     | 239,541 | 89,884     | 43,385 | 0         |
+| 9,618,628 | 2,971,755 | 1,340,609  | 1,325,037  | 1,246,931   | 1,061,730  | 1,030,083  | 267,489     | 240,646 | 90,388     | 43,960 | 0         |
 
 ### Trend
 
@@ -178,7 +178,7 @@ have a substantial number of dependencies.
 
 <!-- ### Average monthly downloads -->
 
-# Contributing
+## Contributing
 
 We are happy to receive bug reports, suggestions, questions, and (most
 of all) contributions to fix problems and add features. Pull Requests
@@ -192,7 +192,7 @@ order of commitment):
 - Review code
 - Add new functionality
 
-# Code of Conduct
+## Code of Conduct
 
 Please note that the ‘easystats’ project is released with a [Contributor
 Code of
