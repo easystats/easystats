@@ -58,3 +58,5 @@ jobs:
         with:
           error-on: '"note"'
           upload-snapshots: true
+        env:
+          _R_CHECK_PACKAGES_USED_IGNORE_UNUSED_IMPORTS_: false
