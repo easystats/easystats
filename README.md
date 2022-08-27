@@ -162,9 +162,9 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell).
 ![](man/figures/depnetwork-1.png)<!-- -->
 
 As we can see, the only exception is the
-[`{see}`](http://easystats.github.io/see/) package, which is responsible
-for plotting and creating figures and relies on `{ggplot2}`, which does
-have a substantial number of dependencies.
+[`{see}`](https://easystats.github.io/see/) package, which is
+responsible for plotting and creating figures and relies on `{ggplot2}`,
+which does have a substantial number of dependencies.
 
 ## Usage
 

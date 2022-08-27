@@ -205,7 +205,7 @@ igraph::plot.igraph(x,
 )
 ```
 
-As we can see, the only exception is the [`{see}`](http://easystats.github.io/see/) package, which is responsible for plotting and creating
+As we can see, the only exception is the [`{see}`](https://easystats.github.io/see/) package, which is responsible for plotting and creating
 figures and relies on `{ggplot2}`, which does have a substantial number of dependencies.
 
 ## Usage 
