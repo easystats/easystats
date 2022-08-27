@@ -135,7 +135,28 @@ applies when <code>source="development"</code>.</p></dd>
 <dd><p>Toggle messages.</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
 
+<p>Invisible <code>NULL</code>.</p>
+    </div>
+
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># install latest development-version of easystats packages from</span></span></span>
+<span class="r-in"><span><span class="co"># the r-universe repository, but only those packages that have newer</span></span></span>
+<span class="r-in"><span><span class="co"># versions available</span></span></span>
+<span class="r-in"><span><span class="fu">install.latest</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># install all latest development-version of easystats packages from</span></span></span>
+<span class="r-in"><span><span class="co"># the r-universe repository, no matter whether local installations</span></span></span>
+<span class="r-in"><span><span class="co"># are up to date or not.</span></span></span>
+<span class="r-in"><span><span class="fu">install.latest</span><span class="op">(</span>force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
