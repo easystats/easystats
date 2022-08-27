@@ -6,6 +6,13 @@
 \usage{
 easystats_zen()
 }
+\value{
+A reassuring message.
+}
 \description{
 Welcome to the easyverse
+}
+\examples{
+easystats_zen()
+
 }

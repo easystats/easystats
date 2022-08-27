@@ -1,4 +1,10 @@
 #' Welcome to the easyverse
+#'
+#' @return A reassuring message.
+#'
+#' @examples
+#' easystats_zen()
+#'
 #' @export
 easystats_zen <- function() {
   print("Patience you must have my young padawan.")
@@ -31,6 +37,20 @@ CRAN_checks <- function() {
 #'   applies when `source="development"`.
 #' @param verbose Toggle messages.
 #'
+#' @return Invisible `NULL`.
+#'
+#' @examples
+#' \dontrun{
+#' # install latest development-version of easystats packages from
+#' # the r-universe repository, but only those packages that have newer
+#' # versions available
+#' install.latest()
+#'
+#' # install all latest development-version of easystats packages from
+#' # the r-universe repository, no matter whether local installations
+#' # are up to date or not.
+#' install.latest(force = TRUE)
+#' }
 #' @export
 install_latest <- function(source = c("development", "cran"),
                            packages = "all",
