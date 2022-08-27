@@ -45,7 +45,7 @@
 #' particular) the `check`-argument can help, to skip some unnecessary checks).
 #'
 #' @examples
-#' if (FALSE) {
+#' if (interactive()) {
 #'   mod <- lm(wt ~ mpg, mtcars)
 #'
 #'   # with default options

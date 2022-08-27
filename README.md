@@ -1,7 +1,7 @@
 
-# *easystats*: Framework for Easy Statistical Modeling, Visualization, and Reporting
+# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
-# What is *easystats*?
+## What is *easystats*?
 
 *easystats* is a collection of R packages, which aims to provide a
 unifying and consistent framework to tame, discipline, and harness the
@@ -15,7 +15,7 @@ your life. And, who knows, you might even end up using them all.
 
 <img src="man/figures/logo_wall.png" width="100%" />
 
-# Installation
+## Installation
 
 [![:registry status
 badge](https://easystats.r-universe.dev/badges/:registry)](https://easystats.r-universe.dev)
@@ -47,14 +47,14 @@ simply run the following:
 easystats::install_suggested()
 ```
 
-# Citation
+## Citation
 
 Do you wish to cite *easystats*? ❤️
 
 Have a look at this article on how you can do so!
 <https://easystats.github.io/easystats/articles/citation.html>
 
-# Getting started
+## Getting started
 
 Each *easystats* package has a different scope and purpose. This means
 your **best way to start** is to explore and pick the one(s) that you
@@ -64,30 +64,32 @@ smooth workflow, as these packages are meant to work together. Ideally,
 these packages work in unison to cover all aspects of statistical
 analysis and data visualization.
 
-- [**report**](https://easystats.github.io/report): 📜 🎉 Automated
-  statistical reporting of objects in R
-- [**correlation**](https://easystats.github.io/correlation): 🔗 Your
-  all-in-one package to run correlations
-- [**modelbased**](https://easystats.github.io/modelbased): 📈 Estimate
-  effects, group averages and contrasts between groups based on
-  statistical models
-- [**bayestestR**](https://easystats.github.io/bayestestR): 👻 Great for
-  beginners or experts of Bayesian statistics
-- [**parameters**](https://easystats.github.io/parameters): 📊 Obtain a
-  table containing all information about the parameters of your models
-- [**performance**](https://easystats.github.io/performance): 💪 Models’
-  quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
-- [**effectsize**](https://easystats.github.io/effectsize): 🐉 Compute,
-  convert, interpret and work with indices of effect size and
-  standardized parameters
-- [**insight**](https://easystats.github.io/insight): 🔮 For developers,
-  a package to help you work with different models and packages
-- [**see**](https://easystats.github.io/see): 🎨 The plotting companion
-  to create beautiful results visualizations
-- [**datawizard**](https://easystats.github.io/datawizard): 🧙 Magic
-  potions to clean and transform your data
+-   [**report**](https://easystats.github.io/report/): 📜 🎉 Automated
+    statistical reporting of objects in R
+-   [**correlation**](https://easystats.github.io/correlation/): 🔗 Your
+    all-in-one package to run correlations
+-   [**modelbased**](https://easystats.github.io/modelbased/): 📈
+    Estimate effects, group averages and contrasts between groups based
+    on statistical models
+-   [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
+    for beginners or experts of Bayesian statistics
+-   [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain
+    a table containing all information about the parameters of your
+    models
+-   [**performance**](https://easystats.github.io/performance/): 💪
+    Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
+-   [**effectsize**](https://easystats.github.io/effectsize/): 🐉
+    Compute, convert, interpret and work with indices of effect size and
+    standardized parameters
+-   [**insight**](https://easystats.github.io/insight/): 🔮 For
+    developers, a package to help you work with different models and
+    packages
+-   [**see**](https://easystats.github.io/see/): 🎨 The plotting
+    companion to create beautiful results visualizations
+-   [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
+    potions to clean and transform your data
 
-# Frequently Asked Questions
+## Frequently Asked Questions
 
 **How is *easystats* different from the *tidyverse*?**
 
@@ -126,29 +128,29 @@ Moreover, the *easystats* packages are very lightweight, with a minimal
 set of dependencies, which again makes it great if you want to rely on
 them.
 
-# Documentation
+## Documentation
 
-## Websites
+### Websites
 
 Each `easystats` package has a dedicated website.
 
 For example, website for `parameters` is
 <https://easystats.github.io/parameters/>.
 
-## Blog
+### Blog
 
 In addition to the websites containing documentation for these packages,
 you can also read posts from `easystats` blog:
 <https://easystats.github.io/blog/posts/>.
 
-## Other learning resources
+### Other learning resources
 
 In addition to these websites and blog posts, you can also check out the
 following presentations and talks to learn more about this ecosystem:
 
 <https://easystats.github.io/easystats/articles/resources.html>
 
-# Dependencies
+## Dependencies
 
 *easystats* packages are designed to be lightweight, *i.e.*, they don’t
 have any third-party hard dependencies, other than base-R packages or
@@ -160,17 +162,17 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell).
 ![](man/figures/depnetwork-1.png)<!-- -->
 
 As we can see, the only exception is the
-[`{see}`](http://easystats.github.io/see) package, which is responsible
-for plotting and creating figures and relies on `{ggplot2}`, which does
-have a substantial number of dependencies.
+[`{see}`](https://easystats.github.io/see/) package, which is
+responsible for plotting and creating figures and relies on `{ggplot2}`,
+which does have a substantial number of dependencies.
 
-# Usage
+## Usage
 
 ### Total downloads
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,569,882 | 2,957,475 | 1,336,836  | 1,320,268  | 1,242,242   | 1,047,536  | 1,026,442  | 266,273     | 239,541 | 89,884     | 43,385 | 0         |
+| 9,656,906 | 2,982,960 | 1,343,894  | 1,329,025  | 1,250,985   | 1,071,500  | 1,033,081  | 268,394     | 241,996 | 90,668     | 44,403 | 0         |
 
 ### Trend
 
@@ -178,7 +180,7 @@ have a substantial number of dependencies.
 
 <!-- ### Average monthly downloads -->
 
-# Contributing
+## Contributing
 
 We are happy to receive bug reports, suggestions, questions, and (most
 of all) contributions to fix problems and add features. Pull Requests
@@ -187,12 +189,12 @@ for contributions are encouraged.
 Here are some simple ways in which you can contribute (in the increasing
 order of commitment):
 
-- Read and correct any inconsistencies in the documentation
-- Raise issues about bugs or wanted features
-- Review code
-- Add new functionality
+-   Read and correct any inconsistencies in the documentation
+-   Raise issues about bugs or wanted features
+-   Review code
+-   Add new functionality
 
-# Code of Conduct
+## Code of Conduct
 
 Please note that the ‘easystats’ project is released with a [Contributor
 Code of
