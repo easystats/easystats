@@ -46,4 +46,4 @@ But, we are certainly not the only ones talking about them, and below are some o
 
 ### `{bayestestR}` package:
 
- - [Evaluating Evidence and Making Decisions using Bayesian Statistics (Mattan S. Ben-Shachar)](https://mattansb.github.io/bayesian-evidence)
+ - [Evaluating Evidence and Making Decisions using Bayesian Statistics (Mattan S. Ben-Shachar)](https://mattansb.github.io/bayesian-evidence/)
