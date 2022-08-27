@@ -64,28 +64,29 @@ smooth workflow, as these packages are meant to work together. Ideally,
 these packages work in unison to cover all aspects of statistical
 analysis and data visualization.
 
--   [**report**](https://easystats.github.io/report): 📜 🎉 Automated
+-   [**report**](https://easystats.github.io/report/): 📜 🎉 Automated
     statistical reporting of objects in R
--   [**correlation**](https://easystats.github.io/correlation): 🔗 Your
+-   [**correlation**](https://easystats.github.io/correlation/): 🔗 Your
     all-in-one package to run correlations
--   [**modelbased**](https://easystats.github.io/modelbased): 📈 Estimate
-    effects, group averages and contrasts between groups based on
-    statistical models
--   [**bayestestR**](https://easystats.github.io/bayestestR): 👻 Great
+-   [**modelbased**](https://easystats.github.io/modelbased/): 📈
+    Estimate effects, group averages and contrasts between groups based
+    on statistical models
+-   [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
     for beginners or experts of Bayesian statistics
--   [**parameters**](https://easystats.github.io/parameters): 📊 Obtain a
-    table containing all information about the parameters of your models
--   [**performance**](https://easystats.github.io/performance): 💪
+-   [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain
+    a table containing all information about the parameters of your
+    models
+-   [**performance**](https://easystats.github.io/performance/): 💪
     Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
--   [**effectsize**](https://easystats.github.io/effectsize): 🐉 Compute,
-    convert, interpret and work with indices of effect size and
+-   [**effectsize**](https://easystats.github.io/effectsize/): 🐉
+    Compute, convert, interpret and work with indices of effect size and
     standardized parameters
--   [**insight**](https://easystats.github.io/insight): 🔮 For
+-   [**insight**](https://easystats.github.io/insight/): 🔮 For
     developers, a package to help you work with different models and
     packages
--   [**see**](https://easystats.github.io/see): 🎨 The plotting companion
-    to create beautiful results visualizations
--   [**datawizard**](https://easystats.github.io/datawizard): 🧙 Magic
+-   [**see**](https://easystats.github.io/see/): 🎨 The plotting
+    companion to create beautiful results visualizations
+-   [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
     potions to clean and transform your data
 
 ## Frequently Asked Questions
@@ -161,7 +162,7 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell).
 ![](man/figures/depnetwork-1.png)<!-- -->
 
 As we can see, the only exception is the
-[`{see}`](http://easystats.github.io/see) package, which is responsible
+[`{see}`](http://easystats.github.io/see/) package, which is responsible
 for plotting and creating figures and relies on `{ggplot2}`, which does
 have a substantial number of dependencies.
 

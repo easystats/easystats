@@ -28,7 +28,7 @@ Authors@R:
              role = "aut",
              email = "brenton@wiernik.org",
              comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")))
-Maintainer: Dominique Makowski <dom.makowski@gmail.com>
+Maintainer: Daniel Lüdecke <d.luedecke@uke.de>
 Description: The 'easystats' package is a meta-package that contains a set of
     packages, all of which provide a unifying and consistent framework for 
     statistical modeling, visualization, and reporting. This package installs 
