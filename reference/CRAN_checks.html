@@ -82,7 +82,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Show CRAN check status for easystats-packages</h1>
-      <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/HEAD/R/install_easystats.R" class="external-link"><code>R/install_easystats.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/HEAD/R/CRAN_checks.R" class="external-link"><code>R/CRAN_checks.R</code></a></small>
       <div class="d-none name"><code>CRAN_checks.Rd</code></div>
     </div>
 
@@ -95,8 +95,28 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">CRAN_checks</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
 
-  </main></div>
+<p><code>TRUE</code> if any of the easystats-packages show check-failures on CRAN,
+<code>FALSE</code> otherwise.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>This functions is intended for maintainance-purposes, to timely detect
+any check-issues on CRAN for easystats-packages.</p>
+    </div>
+
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">CRAN_checks</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
