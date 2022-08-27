@@ -6,7 +6,7 @@ output: github_document
 
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
-  dpi = 300,
+  dpi = 150,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
