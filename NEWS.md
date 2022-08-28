@@ -1,3 +1,13 @@
+# easystats 0.5.2
+
+* Initial CRAN submission.
+
+# easystats 0.5.1
+
+* `install_latest()` gains a `force` argument, to either force all packages
+  to be updates, or only update locally installed packages where newer
+  versions are available.
+
 # easystats 0.5.0
 
 * Adds new `model_dashboard()` function to generate a dashboard with regression
