@@ -68,7 +68,7 @@ particular) the \code{check}-argument can help, to skip some unnecessary checks)
 }
 
 \examples{
-if (interactive()) {
+if (FALSE) {
   mod <- lm(wt ~ mpg, mtcars)
 
   # with default options
