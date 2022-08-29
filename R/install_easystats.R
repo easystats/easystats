@@ -8,7 +8,7 @@
 #' @param source Character. Either `"development"` or `"cran"`. If `"cran"`,
 #'   packages will be installed from the default CRAN mirror returned by
 #'   `getOption("repos")['CRAN']`. If `"development"` (the default), packages
-#'   are installed from the r-universe repository (https://easystats.r-universe.dev/).
+#'   are installed from the r-universe repository (<https://easystats.r-universe.dev/>).
 #' @param packages Character vector, indicating which packages to be installed.
 #'   By default, the option `"all"` will install all **easystats** packages.
 #' @param force Logical, if `FALSE`, only those packages with a newer
