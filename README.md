@@ -44,7 +44,7 @@ To cite the package, run the following command:
 ``` r
 citation("easystats")
 
-To cite datawizard in publications use:
+To cite easystats in publications use:
 
   Lüdecke, Patil, Ben-Shachar, Wiernik, & Makowski (2022). easystats:
   Framework for Easy Statistical Modeling, Visualization, and
