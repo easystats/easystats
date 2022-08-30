@@ -142,23 +142,64 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p><a href="https://easystats.r-universe.dev" class="external-link"><img src="https://easystats.r-universe.dev/badges/:registry" alt=":registry status badge"></a> <a href="https://easystats.r-universe.dev" class="external-link"><img src="https://easystats.r-universe.dev/badges/:total" alt=":total status badge"></a></p>
-<p>The whole <code>easystats</code> suite can be installed <em>at once</em> with the following:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"easystats"</span>, repos <span class="op">=</span> <span class="st">"https://easystats.r-universe.dev"</span><span class="op">)</span></span></code></pre></div>
-<p>You can then load the entire ecosystem by running:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/easystats/">"easystats"</a></span><span class="op">)</span></span></code></pre></div>
-<p>The package is currently not available on CRAN, but we are working on submitting it there soon.</p>
+<p><a href="https://cran.r-project.org/package=easystats" class="external-link"><img src="https://www.r-pkg.org/badges/version/easystats" alt="CRAN_Status_Badge"></a> <a href="https://easystats.r-universe.dev" class="external-link"><img src="https://easystats.r-universe.dev/badges/easystats" alt="insight status badge"></a> <a href="https://github.com/easystats/easystats/actions" class="external-link"><img src="https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main" alt="R-CMD-check"></a></p>
+<table class="table">
+<colgroup>
+<col width="12%">
+<col width="11%">
+<col width="75%">
+</colgroup>
+<thead><tr class="header">
+<th>Type</th>
+<th>Source</th>
+<th>Command</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Release</td>
+<td>CRAN</td>
+<td><code>install.packages("easystats")</code></td>
+</tr>
+<tr class="even">
+<td>Development</td>
+<td>r-universe</td>
+<td><code>install.packages("easystats", repos = "https://easystats.r-universe.dev")</code></td>
+</tr>
+<tr class="odd">
+<td>Development</td>
+<td>GitHub</td>
+<td><code>remotes::install_github("easystats/easystats")</code></td>
+</tr>
+</tbody>
+</table>
 <p>Finally, as <em>easystats</em> sometimes depends on some additional packages for specific functions that are not downloaded by default. If you want to benefit from the <strong>full <em>easystats</em> experience</strong> without any hiccups, simply run the following:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">easystats</span><span class="fu">::</span><span class="fu"><a href="reference/install_suggested.html">install_suggested</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
-<p>Do you wish to cite <em>easystats</em>? ❤️</p>
-<p>Have a look at this article on how you can do so! <a href="https://easystats.github.io/easystats/articles/citation.html" class="uri">https://easystats.github.io/easystats/articles/citation.html</a></p>
+<p>To cite the package, run the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"easystats"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>To cite datawizard <span class="cf">in</span> publications use<span class="sc">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  Lüdecke, Patil, Ben<span class="sc">-</span>Shachar, Wiernik, <span class="sc">&amp;</span> <span class="fu">Makowski</span> (<span class="dv">2022</span>). easystats<span class="sc">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  Framework <span class="cf">for</span> Easy Statistical Modeling, Visualization, and</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  Reporting. CRAN. Available from</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  https<span class="sc">:</span><span class="er">//</span>easystats.github.io<span class="sc">/</span>easystats<span class="sc">/</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">@</span>Article{,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">=</span> {easystats<span class="sc">:</span> Framework <span class="cf">for</span> Easy Statistical Modeling, Visualization, and Reporting},</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    author <span class="ot">=</span> {Daniel Lüdecke and Mattan S. Ben<span class="sc">-</span>Shachar and Indrajeet Patil and Brenton M. Wiernik and Dominique Makowski},</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    journal <span class="ot">=</span> {CRAN},</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">=</span> {<span class="dv">2022</span>},</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    note <span class="ot">=</span> {R package},</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>easystats.github.io<span class="sc">/</span>easystats<span class="sc">/</span>},</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>If you want to do this only for certain packages in the ecosystem, have a look at this article on how you can do so! <a href="https://easystats.github.io/easystats/articles/citation.html" class="uri">https://easystats.github.io/easystats/articles/citation.html</a></p>
 </div>
 <div class="section level2">
 <h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
@@ -265,17 +306,17 @@
 <th align="left">easystats</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left">9,656,906</td>
-<td align="left">2,982,960</td>
-<td align="left">1,343,894</td>
-<td align="left">1,329,025</td>
-<td align="left">1,250,985</td>
-<td align="left">1,071,500</td>
-<td align="left">1,033,081</td>
-<td align="left">268,394</td>
-<td align="left">241,996</td>
-<td align="left">90,668</td>
-<td align="left">44,403</td>
+<td align="left">9,692,270</td>
+<td align="left">2,994,577</td>
+<td align="left">1,346,627</td>
+<td align="left">1,332,252</td>
+<td align="left">1,254,032</td>
+<td align="left">1,081,741</td>
+<td align="left">1,035,444</td>
+<td align="left">269,165</td>
+<td align="left">242,743</td>
+<td align="left">90,920</td>
+<td align="left">44,769</td>
 <td align="left">0</td>
 </tr></tbody>
 </table>
@@ -283,7 +324,7 @@
 <div class="section level3">
 <h3 id="trend">Trend<a class="anchor" aria-label="anchor" href="#trend"></a>
 </h3>
-<p><img src="reference/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;"></p>
 <!-- ### Average monthly downloads -->
 </div>
 </div>
