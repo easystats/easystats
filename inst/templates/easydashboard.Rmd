@@ -42,7 +42,7 @@ is_supported <- insight::is_model_supported(model)
 
 if (!is_supported) {
   unsupported_message <- sprintf(
-    "Unfortunately, objects of class '%s' are not yet supported in {easystats}.\n
+    "Unfortunately, objects of class `%s` are not yet supported in {easystats}.\n
     For a list of supported models, see `insight::supported_models()`.",
     class(model)[1]
   )
@@ -199,8 +199,8 @@ Column {data-width=500}
 
 ```{r, eval=is_supported, results='asis', collapse=TRUE}
 # `{report}`
-text_report <- report(model)
-text_report_performance <- report_performance(model)
+text_report <- report(model, verbose = FALSE)
+text_report_performance <- report_performance(model, verbose = FALSE)
 
 gsub("]", ")", gsub("[", "(", text_report, fixed = TRUE), fixed = TRUE)
 cat("\n")
@@ -218,7 +218,7 @@ Column {data-width=500}
 ### Model information
 
 ```{r, eval=is_supported}
-model_info_data <- insight::model_info(model)
+model_info_data <- insight::model_info(model, verbose = FALSE)
 
 model_info_data <- datawizard::data_to_long(as.data.frame(model_info_data))
 
