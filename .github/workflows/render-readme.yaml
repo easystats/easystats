@@ -35,6 +35,7 @@ jobs:
         with:
           extra-packages: |
             deps::.
+            any::easystats
             any::sessioninfo
             any::deepdep
             any::miniCRAN
