@@ -2,7 +2,7 @@
 % Please edit documentation in R/model_dashboard.R
 \name{model_dashboard}
 \alias{model_dashboard}
-\title{Generate a regression model summary from \code{{easystats}}}
+\title{Generate a regression model summary from \code{easystats}}
 \usage{
 model_dashboard(
   model,
@@ -64,7 +64,7 @@ is that the underlying graphic engine becomes slow for plotting many data
 points. In such cases, setting the argument \code{check_model_args = list(show_dots = FALSE)}
 might help. Furthermore, look at other arguments of \code{?performance::check_model},
 which can be set using \code{check_model_args}, to increase performance (in
-particular) the \code{check}-argument can help, to skip some unnecessary checks).
+particular the \code{check}-argument can help, to skip some unnecessary checks).
 }
 
 \examples{
@@ -74,10 +74,10 @@ if (interactive()) {
   # with default options
   model_dashboard(mod)
 
-  # customizing {parameters} output: standardize coefficients
+  # customizing 'parameters' output: standardize coefficients
   model_dashboard(mod, parameters_args = list(standardize = "refit"))
 
-  # customizing {performance} output: only show selected performance metrics
+  # customizing 'performance' output: only show selected performance metrics
   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 
   # customizing output of model assumptions plot: don't show dots (faster plot)

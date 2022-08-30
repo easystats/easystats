@@ -214,3 +214,9 @@
     "modelbased", "correlation", "see", "report"
   )
 }
+
+.installed_packages <- function() {
+  lib.loc <- .libPaths()
+  all_pkgs <- list.files(lib.loc)
+  all_pkgs[all_pkgs != "_cache"]
+}

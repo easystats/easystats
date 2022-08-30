@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.5.1
+Version: 0.5.2
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -29,14 +29,13 @@ Authors@R:
              email = "brenton@wiernik.org",
              comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")))
 Maintainer: Daniel Lüdecke <d.luedecke@uke.de>
-Description: The 'easystats' package is a meta-package that contains a set of
-    packages, all of which provide a unifying and consistent framework for 
-    statistical modeling, visualization, and reporting. This package installs 
-    and loads multiple 'easystats' packages in a single step. Additionally, 
-    it provides articles targeted at instructors for teaching 'easystats',
-    and a dashboard targeted at new R users for easily conducting statistical 
-    analysis by accessing summary results, model fit indices, and visualizations 
-    with minimal programming.
+Description: A meta-package that installs and loads a set of packages from 
+    'easystats' ecosystem in a single step. This collection of packages provide 
+    a unifying and consistent framework for statistical modeling, visualization, 
+    and reporting. Additionally, it provides articles targeted at instructors for 
+    teaching 'easystats', and a dashboard targeted at new R users for easily 
+    conducting statistical analysis by accessing summary results, model fit indices, 
+    and visualizations with minimal programming.
 License: GPL-3
 URL: https://easystats.github.io/easystats/
 BugReports: https://github.com/easystats/easystats/issues

@@ -82,7 +82,7 @@ install_suggested <- function(package = "easystats") {
 
 
   # install only the packages not yet installed
-  installed_packages <- pkg_download %in% rownames(utils::installed.packages())
+  installed_packages <- pkg_download %in% .installed_packages()
 
   if (any(!installed_packages)) {
     utils::install.packages(pkg_download[!installed_packages])

@@ -4,7 +4,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE
-^vignettes
 ^README.Rmd
 ^presentations
 ^publications

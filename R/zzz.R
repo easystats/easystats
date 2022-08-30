@@ -65,16 +65,19 @@
     symbol_info <- "i "
   }
 
-  for (i in 1:nrow(easystats_versions)) {
+  for (i in seq_len(nrow(easystats_versions))) {
     if (needs_update[i]) {
       final_message <- paste0(final_message, insight::color_text(symbol_warning, "red"))
     } else {
       final_message <- paste0(final_message, insight::color_text(symbol_tick, "green"))
     }
 
-    final_message <- paste0(final_message, insight::color_text(format(easystats_versions$package[i], width = max_len_pkg), theme_color))
-    final_message <- paste0(final_message, (" "))
-    final_message <- paste0(final_message, insight::color_text(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green")))
+    final_message <- paste0(
+      final_message,
+      insight::color_text(format(easystats_versions$package[i], width = max_len_pkg), theme_color),
+      " ",
+      insight::color_text(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green"))
+    )
 
     if (i %% 2 == 0) {
       final_message <- paste0(final_message, "\n")
@@ -84,7 +87,10 @@
   }
 
   if (any(needs_update)) {
-    final_message <- paste0(final_message, insight::color_text("\nRestart the R-Session and update packages in red with 'easystats::easystats_update()'.\n", "yellow"))
+    final_message <- paste0(
+      final_message,
+      insight::color_text("\nRestart the R-Session and update packages in red with `easystats::easystats_update()`.\n", "yellow")
+    )
   }
 
   packageStartupMessage(final_message)

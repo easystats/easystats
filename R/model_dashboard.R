@@ -1,4 +1,4 @@
-#' @title Generate a regression model summary from `{easystats}`
+#' @title Generate a regression model summary from `easystats`
 #'
 #' @description
 #'
@@ -42,7 +42,7 @@
 #' points. In such cases, setting the argument `check_model_args = list(show_dots = FALSE)`
 #' might help. Furthermore, look at other arguments of `?performance::check_model`,
 #' which can be set using `check_model_args`, to increase performance (in
-#' particular) the `check`-argument can help, to skip some unnecessary checks).
+#' particular the `check`-argument can help, to skip some unnecessary checks).
 #'
 #' @examples
 #' if (interactive()) {
@@ -51,10 +51,10 @@
 #'   # with default options
 #'   model_dashboard(mod)
 #'
-#'   # customizing {parameters} output: standardize coefficients
+#'   # customizing 'parameters' output: standardize coefficients
 #'   model_dashboard(mod, parameters_args = list(standardize = "refit"))
 #'
-#'   # customizing {performance} output: only show selected performance metrics
+#'   # customizing 'performance' output: only show selected performance metrics
 #'   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 #'
 #'   # customizing output of model assumptions plot: don't show dots (faster plot)
