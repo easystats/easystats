@@ -44,7 +44,7 @@ To cite the package, run the following command:
 ``` r
 citation("easystats")
 
-To cite datawizard in publications use:
+To cite easystats in publications use:
 
   Lüdecke, Patil, Ben-Shachar, Wiernik, & Makowski (2022). easystats:
   Framework for Easy Statistical Modeling, Visualization, and
@@ -81,25 +81,26 @@ analysis and data visualization.
   statistical reporting of objects in R
 - [**correlation**](https://easystats.github.io/correlation/): 🔗 Your
   all-in-one package to run correlations
-- [**modelbased**](https://easystats.github.io/modelbased/): 📈 Estimate
-  effects, group averages and contrasts between groups based on
-  statistical models
+- [**modelbased**](https://easystats.github.io/modelbased/): 📈
+  Estimate effects, group averages and contrasts between groups based
+  on statistical models
 - [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
-  for beginners or experts of Bayesian statistics
-- [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a
-  table containing all information about the parameters of your models
+    for beginners or experts of Bayesian statistics
+- [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain
+  a table containing all information about the parameters of your
+  models
 - [**performance**](https://easystats.github.io/performance/): 💪
   Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
-- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute,
-  convert, interpret and work with indices of effect size and
+- [**effectsize**](https://easystats.github.io/effectsize/): 🐉
+  Compute, convert, interpret and work with indices of effect size and
   standardized parameters
 - [**insight**](https://easystats.github.io/insight/): 🔮 For
   developers, a package to help you work with different models and
   packages
-- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion
-  to create beautiful results visualizations
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting
+  companion to create beautiful results visualizations
 - [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
-  potions to clean and transform your data
+    potions to clean and transform your data
 
 ## Frequently Asked Questions
 
@@ -184,7 +185,7 @@ which does have a substantial number of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,692,270 | 2,994,577 | 1,346,627  | 1,332,252  | 1,254,032   | 1,081,741  | 1,035,444  | 269,165     | 242,743 | 90,920     | 44,769 | 0         |
+| 9,710,010 | 2,999,900 | 1,348,110  | 1,334,120  | 1,255,815   | 1,086,307  | 1,036,879  | 269,690     | 243,180 | 91,051     | 44,958 | 0         |
 
 ### Trend
 
