@@ -1,3 +1,8 @@
+# easystats 0.5.3
+
+* The `model_dashboard()` is now less verbose when some of the various functions
+  do not support the provided model class, to keep the output clean.
+
 # easystats 0.5.2
 
 * Initial CRAN submission.

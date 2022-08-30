@@ -151,22 +151,33 @@ if (is.null(int_terms)) {
   model_terms <- c(model_terms, setdiff(con_terms, int_terms))
 }
 
-text_modelbased <- lapply(unique(model_terms), function(i) {
-  grid <- get_datagrid(model, at = i, range = "grid", preserve_range = FALSE, verbose = FALSE)
-  estimate_expectation(model, data = grid, verbose = FALSE)
-})
+text_modelbased <- tryCatch(
+  {
+    lapply(unique(model_terms), function(i) {
+      grid <- get_datagrid(model, at = i, range = "grid", preserve_range = FALSE, verbose = FALSE)
+      estimate_expectation(model, data = grid, verbose = FALSE)
+    })
+  },
+  error = function(e) {
+    NULL
+  }
+)
 
-ggplot2::theme_set(theme_modern())
-# all_plots <- lapply(text_modelbased, function(i) {
-#   out <- do.call(visualisation_recipe, c(list(i), modelbased_args))
-#   plot(out) + ggplot2::ggtitle("")
-# })
-all_plots <- lapply(text_modelbased, function(i) {
-  out <- visualisation_recipe(i, show_data = "none")
-  plot(out) + ggplot2::ggtitle("")
-})
+if (!is.null(text_modelbased)) {
+  ggplot2::theme_set(theme_modern())
+  # all_plots <- lapply(text_modelbased, function(i) {
+  #   out <- do.call(visualisation_recipe, c(list(i), modelbased_args))
+  #   plot(out) + ggplot2::ggtitle("")
+  # })
+  all_plots <- lapply(text_modelbased, function(i) {
+    out <- visualisation_recipe(i, show_data = "none")
+    plot(out) + ggplot2::ggtitle("")
+  })
 
-see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
+  see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
+} else {
+  cat(unsupported_message)
+}
 ```
 
 
@@ -180,12 +191,16 @@ Column {data-width=400}
 ### Tabular summary
 
 ```{r, eval=is_supported, results="asis"}
-for (i in text_modelbased) {
-  tmp <- print_md(i)
-  tmp <- gsub("Variable predicted", "\nVariable predicted", tmp)
-  tmp <- gsub("Predictors modulated", "\nPredictors modulated", tmp)
-  tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp)
-  print(tmp)
+if (!is.null(text_modelbased)) {
+  for (i in text_modelbased) {
+    tmp <- print_md(i)
+    tmp <- gsub("Variable predicted", "\nVariable predicted", tmp)
+    tmp <- gsub("Predictors modulated", "\nPredictors modulated", tmp)
+    tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp)
+    print(tmp)
+  }
+} else {
+  cat(unsupported_message)
 }
 ```
 
@@ -225,7 +240,6 @@ Column {data-width=500}
 
 ```{r, eval=is_supported}
 model_info_data <- insight::model_info(model, verbose = FALSE)
-
 model_info_data <- datawizard::data_to_long(as.data.frame(model_info_data))
 
 DT::datatable(model_info_data)
