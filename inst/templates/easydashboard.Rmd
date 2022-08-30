@@ -60,6 +60,8 @@ Column {data-width=700}
 
 ```{r check-model, eval=is_supported, fig.height=10, fig.width=10}
 check_model_args <- c(list(model), params$check_model_args)
+# add verbose, if not done yet
+if (is.null(check_model_args$verbose)) check_model_args$verbose <- FALSE
 do.call(performance::check_model, check_model_args)
 ```
 
@@ -75,6 +77,8 @@ Column {data-width=300}
 ```{r, eval=is_supported}
 # `{performance}`
 performance_args <- c(list(model), params$performance_args)
+# add verbose, if not done yet
+if (is.null(performance_args$verbose)) performance_args$verbose <- FALSE
 table_performance <- do.call(performance::performance, performance_args)
 print_md(table_performance, layout = "vertical", caption = NULL)
 ```
@@ -97,6 +101,8 @@ Column {data-width=550}
 ```{r dot-whisker, eval=is_supported}
 # `{parameters}`
 parameters_args <- c(list(model), params$parameters_args)
+# add verbose, if not done yet
+if (is.null(parameters_args$verbose)) parameters_args$verbose <- FALSE
 table_parameters <- do.call(parameters::parameters, parameters_args)
 
 plot(table_parameters)
@@ -146,8 +152,8 @@ if (is.null(int_terms)) {
 }
 
 text_modelbased <- lapply(unique(model_terms), function(i) {
-  grid <- get_datagrid(model, at = i, range = "grid", preserve_range = FALSE)
-  estimate_expectation(model, data = grid)
+  grid <- get_datagrid(model, at = i, range = "grid", preserve_range = FALSE, verbose = FALSE)
+  estimate_expectation(model, data = grid, verbose = FALSE)
 })
 
 ggplot2::theme_set(theme_modern())
