@@ -17,5 +17,5 @@ bibentry(
     paste("Lüdecke, Patil, Ben-Shachar, Wiernik, & Makowski (2022). easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting. CRAN.",
           "Available from https://easystats.github.io/easystats/"
     ),
-  mheader = "To cite datawizard in publications use:"
+  mheader = "To cite easystats in publications use:"
 )
