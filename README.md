@@ -17,26 +17,16 @@ your life. And, who knows, you might even end up using them all.
 
 ## Installation
 
-[![:registry status
-badge](https://easystats.r-universe.dev/badges/:registry)](https://easystats.r-universe.dev)
-[![:total status
-badge](https://easystats.r-universe.dev/badges/:total)](https://easystats.r-universe.dev)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/easystats)](https://cran.r-project.org/package=easystats)
+[![insight status
+badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-universe.dev)
+[![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
 
-The whole `easystats` suite can be installed *at once* with the
-following:
-
-``` r
-install.packages("easystats", repos = "https://easystats.r-universe.dev")
-```
-
-You can then load the entire ecosystem by running:
-
-``` r
-library("easystats")
-```
-
-The package is currently not available on CRAN, but we are working on
-submitting it there soon.
+| Type        | Source     | Command                                                                     |
+|-------------|------------|-----------------------------------------------------------------------------|
+| Release     | CRAN       | `install.packages("easystats")`                                             |
+| Development | r-universe | `install.packages("easystats", repos = "https://easystats.r-universe.dev")` |
+| Development | GitHub     | `remotes::install_github("easystats/easystats")`                            |
 
 Finally, as *easystats* sometimes depends on some additional packages
 for specific functions that are not downloaded by default. If you want
@@ -49,9 +39,32 @@ easystats::install_suggested()
 
 ## Citation
 
-Do you wish to cite *easystats*? ❤️
+To cite the package, run the following command:
 
-Have a look at this article on how you can do so!
+``` r
+citation("easystats")
+
+To cite datawizard in publications use:
+
+  Lüdecke, Patil, Ben-Shachar, Wiernik, & Makowski (2022). easystats:
+  Framework for Easy Statistical Modeling, Visualization, and
+  Reporting. CRAN. Available from
+  https://easystats.github.io/easystats/
+
+A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting},
+    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Dominique Makowski},
+    journal = {CRAN},
+    year = {2022},
+    note = {R package},
+    url = {https://easystats.github.io/easystats/},
+  }
+```
+
+If you want to do this only for certain packages in the ecosystem, have
+a look at this article on how you can do so!
 <https://easystats.github.io/easystats/articles/citation.html>
 
 ## Getting started
@@ -64,30 +77,29 @@ smooth workflow, as these packages are meant to work together. Ideally,
 these packages work in unison to cover all aspects of statistical
 analysis and data visualization.
 
--   [**report**](https://easystats.github.io/report/): 📜 🎉 Automated
-    statistical reporting of objects in R
--   [**correlation**](https://easystats.github.io/correlation/): 🔗 Your
-    all-in-one package to run correlations
--   [**modelbased**](https://easystats.github.io/modelbased/): 📈
-    Estimate effects, group averages and contrasts between groups based
-    on statistical models
--   [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
-    for beginners or experts of Bayesian statistics
--   [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain
-    a table containing all information about the parameters of your
-    models
--   [**performance**](https://easystats.github.io/performance/): 💪
-    Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
--   [**effectsize**](https://easystats.github.io/effectsize/): 🐉
-    Compute, convert, interpret and work with indices of effect size and
-    standardized parameters
--   [**insight**](https://easystats.github.io/insight/): 🔮 For
-    developers, a package to help you work with different models and
-    packages
--   [**see**](https://easystats.github.io/see/): 🎨 The plotting
-    companion to create beautiful results visualizations
--   [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
-    potions to clean and transform your data
+- [**report**](https://easystats.github.io/report/): 📜 🎉 Automated
+  statistical reporting of objects in R
+- [**correlation**](https://easystats.github.io/correlation/): 🔗 Your
+  all-in-one package to run correlations
+- [**modelbased**](https://easystats.github.io/modelbased/): 📈 Estimate
+  effects, group averages and contrasts between groups based on
+  statistical models
+- [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
+  for beginners or experts of Bayesian statistics
+- [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a
+  table containing all information about the parameters of your models
+- [**performance**](https://easystats.github.io/performance/): 💪
+  Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
+- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute,
+  convert, interpret and work with indices of effect size and
+  standardized parameters
+- [**insight**](https://easystats.github.io/insight/): 🔮 For
+  developers, a package to help you work with different models and
+  packages
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion
+  to create beautiful results visualizations
+- [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
+  potions to clean and transform your data
 
 ## Frequently Asked Questions
 
@@ -172,11 +184,11 @@ which does have a substantial number of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,656,906 | 2,982,960 | 1,343,894  | 1,329,025  | 1,250,985   | 1,071,500  | 1,033,081  | 268,394     | 241,996 | 90,668     | 44,403 | 0         |
+| 9,692,270 | 2,994,577 | 1,346,627  | 1,332,252  | 1,254,032   | 1,081,741  | 1,035,444  | 269,165     | 242,743 | 90,920     | 44,769 | 0         |
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
 <!-- ### Average monthly downloads -->
 
@@ -189,10 +201,10 @@ for contributions are encouraged.
 Here are some simple ways in which you can contribute (in the increasing
 order of commitment):
 
--   Read and correct any inconsistencies in the documentation
--   Raise issues about bugs or wanted features
--   Review code
--   Add new functionality
+- Read and correct any inconsistencies in the documentation
+- Raise issues about bugs or wanted features
+- Review code
+- Add new functionality
 
 ## Code of Conduct
 
