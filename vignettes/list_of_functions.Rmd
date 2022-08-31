@@ -44,7 +44,7 @@ library(easystats)
 
 all_funs <- c()
 
-for (package in easystats:::.packages_on_cran()) {
+for (package in c(easystats:::.packages_on_cran(), "easystats")) {
   fns <- ls(paste0("package:", package))
 
   all_fns <- as.data.frame(
