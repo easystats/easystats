@@ -161,10 +161,25 @@ if (is.null(int_terms)) {
   model_terms <- c(model_terms, setdiff(con_terms, int_terms))
 }
 
+# check some exceptions here: logistic regression models with factor response
+# usually require the response to be included in the model, else `get_modelmatrix()`
+# fails, which is required to compute SE/CI for `get_predicted()`
+response <- find_response(model)
+minfo <- model_info(model)
+model_data <- get_data(model)
+include_response <- minfo$is_binomial && minfo$is_logit && is.factor(model_data[[response]])
+
 text_modelbased <- tryCatch(
   {
     lapply(unique(model_terms), function(i) {
-      grid <- get_datagrid(model, at = i, range = "grid", preserve_range = FALSE, verbose = FALSE)
+      grid <- get_datagrid(
+        model,
+        at = i,
+        range = "grid",
+        preserve_range = FALSE,
+        verbose = FALSE,
+        include_response = include_response
+      )
       estimate_expectation(model, data = grid, verbose = FALSE)
     })
   },
