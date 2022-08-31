@@ -263,11 +263,12 @@ text_report_performance <- tryCatch(
 )
 
 if (!is.null(text_report)) {
-  bracket_to_parantheses(text_report)
+  cat(bracket_to_parantheses(text_report))
   cat("\n")
 }
+
 if (!is.null(text_report_performance)) {
-  bracket_to_parantheses(text_report_performance)
+  cat(bracket_to_parantheses(text_report_performance))
 }
 ```
 
