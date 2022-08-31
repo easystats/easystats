@@ -151,6 +151,7 @@
             error <- TRUE
             all_ok <- FALSE
           }
+
           if (any(c("warning", "warn") %in% tolower(check_status))) {
             if (!all_ok) cat(", ")
             n <- sum("warning" == tolower(check_status)) + sum("warn" == tolower(check_status))
@@ -162,6 +163,7 @@
             error <- TRUE
             all_ok <- FALSE
           }
+
           if (any("note" %in% tolower(check_status))) {
             if (!all_ok) cat(", ")
             n <- sum("note" == tolower(check_status))
@@ -172,9 +174,11 @@
             }
             all_ok <- FALSE
           }
+
           if (isTRUE(all_ok)) {
             insight::print_color("Ok", "green")
           }
+
           cat("\n")
         } else {
           if (any(c("warn", "warning", "error") %in% tolower(check_status))) {
@@ -202,8 +206,8 @@
 
 .packages_on_cran <- function() {
   c(
-    "insight", "datawizard", "bayestestR", "performance", "parameters", "effectsize",
-    "modelbased", "correlation", "see", "report", "easystats"
+    "bayestestR", "correlation", "datawizard", "easystats", "effectsize", "insight",
+    "modelbased", "performance", "parameters", "report", "see",
   )
 }
 
