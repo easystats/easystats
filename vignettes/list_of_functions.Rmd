@@ -40,6 +40,7 @@ library(effectsize)
 library(modelbased)
 library(see)
 library(report)
+library(easystats)
 
 all_funs <- c()
 

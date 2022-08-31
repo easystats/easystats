@@ -203,17 +203,12 @@
 .packages_on_cran <- function() {
   c(
     "insight", "datawizard", "bayestestR", "performance", "parameters", "effectsize",
-    "modelbased", "correlation", "see", "report"
+    "modelbased", "correlation", "see", "report", "easystats"
   )
 }
 
 
-.packages_on_github <- function() {
-  c(
-    "insight", "datawizard", "bayestestR", "performance", "parameters", "effectsize",
-    "modelbased", "correlation", "see", "report"
-  )
-}
+.packages_on_github <- .packages_on_cran
 
 .installed_packages <- function() {
   lib.loc <- .libPaths()
