@@ -13,6 +13,7 @@ output:
         google: JetBrains Mono
 params:
   model: model
+  model_name: model_name
   check_model_args: check_model_args
   parameters_args: parameters_args
   performance_args: performance_args
@@ -69,12 +70,23 @@ check_model_args <- c(list(model), params$check_model_args)
 if (is.null(check_model_args$verbose)) check_model_args$verbose <- FALSE
 tryCatch(
   {
+    log("a")
     do.call(performance::check_model, check_model_args)
   },
   error = function(e) {
+    check_model_args[[1]] <- NULL
+    if (length(check_model_args) > 0) {
+      args <- vector(length = length(check_model_args))
+      for (i in seq_along(check_model_args)) {
+        args[i] <- paste(",", names(check_model_args)[i], "=", check_model_args[[i]])
+      } 
+    } else {
+      args <- ""
+    }
+    code_to_run <- paste0("performance::check_model(", params$model_name, paste(args, collapse = ""), ")")
+    
     cat(insight::format_message(
-      "\nSomething did not work as expected. Please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:",
-      paste0("\n`", e$message, "`")
+      "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/performance/issues/} with the output of the code above. If you don't have an error in R, please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:\n", e$message
     ))
   }
 )
