@@ -3,6 +3,11 @@
 * The `model_dashboard()` is now less verbose when some of the various functions
   do not support the provided model class, to keep the output clean.
 
+* The `model_dashboard()` now better captures errors and providing more
+  informative messages on how to seek help.
+
+* Fixed NOTEs in CRAN checks.
+
 # easystats 0.5.2
 
 * Initial CRAN submission.

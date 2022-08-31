@@ -67,7 +67,17 @@ Column {data-width=700}
 check_model_args <- c(list(model), params$check_model_args)
 # add verbose, if not done yet
 if (is.null(check_model_args$verbose)) check_model_args$verbose <- FALSE
-do.call(performance::check_model, check_model_args)
+tryCatch(
+  {
+    do.call(performance::check_model, check_model_args)
+  },
+  error = function(e) {
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:",
+      paste0("\n`", e$message, "`")
+    ))
+  }
+)
 ```
 
 ```{r easydashboard-2, eval=!is_supported}
@@ -164,6 +174,10 @@ text_modelbased <- tryCatch(
     })
   },
   error = function(e) {
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:",
+      paste0("\n`", e$message, "`")
+    ))
     NULL
   }
 )
@@ -180,8 +194,6 @@ if (!is.null(text_modelbased)) {
   })
 
   see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
-} else {
-  cat(unsupported_message)
 }
 ```
 
@@ -204,8 +216,6 @@ if (!is.null(text_modelbased)) {
     tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp)
     print(tmp)
   }
-} else {
-  cat(unsupported_message)
 }
 ```
 
@@ -225,12 +235,40 @@ Column {data-width=500}
 
 ```{r easydashboard-11, eval=is_supported, results='asis', collapse=TRUE}
 # `{report}`
-text_report <- report(model, verbose = FALSE)
-text_report_performance <- report_performance(model, verbose = FALSE)
+text_report <- tryCatch(
+  {
+    report(model, verbose = FALSE)
+  },
+  error = function(e) {
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:",
+      paste0("\n`", e$message, "`")
+    ))
+    NULL
+  }
+)
 
-bracket_to_parantheses(text_report)
-cat("\n")
-bracket_to_parantheses(text_report_performance)
+
+text_report_performance <- tryCatch(
+  {
+    report_performance(model, verbose = FALSE)
+  },
+  error = function(e) {
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:",
+      paste0("\n`", e$message, "`")
+    ))
+    NULL
+  }
+)
+
+if (!is.null(text_report)) {
+  bracket_to_parantheses(text_report)
+  cat("\n")
+}
+if (!is.null(text_report_performance)) {
+  bracket_to_parantheses(text_report_performance)
+}
 ```
 
 
