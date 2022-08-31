@@ -31,9 +31,14 @@ knitr::opts_chunk$set(
   error = TRUE,
   out.width = "100%"
 )
+
+# helper function for printing `{report}` outputs
+bracket_to_parantheses <- function(text) {
+  gsub("]", ")", gsub("[", "(", text, fixed = TRUE), fixed = TRUE)
+}
 ```
 
-```{r}
+```{r easydashboard-1}
 # Get user-specified model data
 model <- params$model
 
@@ -65,7 +70,7 @@ if (is.null(check_model_args$verbose)) check_model_args$verbose <- FALSE
 do.call(performance::check_model, check_model_args)
 ```
 
-```{r, eval=!is_supported}
+```{r easydashboard-2, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -74,7 +79,7 @@ Column {data-width=300}
 
 ### Indices of model fit
 
-```{r, eval=is_supported}
+```{r easydashboard-3, eval=is_supported}
 # `{performance}`
 performance_args <- c(list(model), params$performance_args)
 # add verbose, if not done yet
@@ -84,7 +89,7 @@ print_md(table_performance, layout = "vertical", caption = NULL)
 ```
 
 
-```{r, eval=!is_supported}
+```{r easydashboard-4, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -109,7 +114,7 @@ plot(table_parameters)
 ```
 
 
-```{r, eval=!is_supported}
+```{r easydashboard-5, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -118,12 +123,12 @@ Column {data-width=450}
 
 ### Tabular summary
 
-```{r, eval=is_supported}
+```{r easydashboard-6, eval=is_supported}
 print_md(table_parameters, caption = NULL)
 ```
 
 
-```{r, eval=!is_supported}
+```{r easydashboard-7, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -181,7 +186,7 @@ if (!is.null(text_modelbased)) {
 ```
 
 
-```{r, eval=!is_supported}
+```{r easydashboard-8, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -190,7 +195,7 @@ Column {data-width=400}
 
 ### Tabular summary
 
-```{r, eval=is_supported, results="asis"}
+```{r easydashboard-9, eval=is_supported, results="asis"}
 if (!is.null(text_modelbased)) {
   for (i in text_modelbased) {
     tmp <- print_md(i)
@@ -205,7 +210,7 @@ if (!is.null(text_modelbased)) {
 ```
 
 
-```{r, eval=!is_supported}
+```{r easydashboard-10, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -218,18 +223,18 @@ Column {data-width=500}
 
 ### Textual summary
 
-```{r, eval=is_supported, results='asis', collapse=TRUE}
+```{r easydashboard-11, eval=is_supported, results='asis', collapse=TRUE}
 # `{report}`
 text_report <- report(model, verbose = FALSE)
 text_report_performance <- report_performance(model, verbose = FALSE)
 
-gsub("]", ")", gsub("[", "(", text_report, fixed = TRUE), fixed = TRUE)
+bracket_to_parantheses(text_report)
 cat("\n")
-gsub("]", ")", gsub("[", "(", text_report_performance, fixed = TRUE), fixed = TRUE)
+bracket_to_parantheses(text_report_performance)
 ```
 
 
-```{r, eval=!is_supported}
+```{r easydashboard-12, eval=!is_supported}
 cat(unsupported_message)
 ```
 
@@ -238,13 +243,13 @@ Column {data-width=500}
 
 ### Model information
 
-```{r, eval=is_supported}
+```{r easydashboard-13, eval=is_supported}
 model_info_data <- insight::model_info(model, verbose = FALSE)
 model_info_data <- datawizard::data_to_long(as.data.frame(model_info_data))
 
 DT::datatable(model_info_data)
 ```
 
-```{r, eval=!is_supported}
+```{r easydashboard-14, eval=!is_supported}
 cat(unsupported_message)
 ```
