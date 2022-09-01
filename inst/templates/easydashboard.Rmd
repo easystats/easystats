@@ -75,14 +75,10 @@ tryCatch(
   },
   error = function(e) {
     check_model_args[[1]] <- NULL
-    if (length(check_model_args) > 0) {
-      args <- vector(length = length(check_model_args))
-      for (i in seq_along(check_model_args)) {
-        args[i] <- paste(",", names(check_model_args)[i], "=", check_model_args[[i]])
-      } 
-    } else {
-      args <- ""
-    }
+    args <- vector(length = length(check_model_args))
+    for (i in seq_along(check_model_args)) {
+      args[i] <- paste(",", names(check_model_args)[i], "=", check_model_args[[i]])
+    } 
     code_to_run <- paste0("performance::check_model(", params$model_name, paste(args, collapse = ""), ")")
     
     cat(insight::format_message(
@@ -106,8 +102,25 @@ Column {data-width=300}
 performance_args <- c(list(model), params$performance_args)
 # add verbose, if not done yet
 if (is.null(performance_args$verbose)) performance_args$verbose <- FALSE
-table_performance <- do.call(performance::performance, performance_args)
-print_md(table_performance, layout = "vertical", caption = NULL)
+tryCatch(
+  {
+    log("a")
+    table_performance <- do.call(performance::performance, performance_args)
+    print_md(table_performance, layout = "vertical", caption = NULL)
+  },
+  error = function(e) {
+    performance_args[[1]] <- NULL
+    args <- vector(length = length(performance_args))
+    for (i in seq_along(performance_args)) {
+      args[i] <- paste(",", names(performance_args)[i], "=", performance_args[[i]])
+    } 
+    code_to_run <- paste0("table_performance <- performance::performance(", params$model_name, paste(args, collapse = ""), ")\n  print_md(table_performance, layout = \"vertical\", caption = NULL)")
+    
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/performance/issues/} with the output of the code above. If you don't have an error in R, please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:\n", e$message
+    ))
+  }
+)
 ```
 
 
@@ -130,9 +143,25 @@ Column {data-width=550}
 parameters_args <- c(list(model), params$parameters_args)
 # add verbose, if not done yet
 if (is.null(parameters_args$verbose)) parameters_args$verbose <- FALSE
-table_parameters <- do.call(parameters::parameters, parameters_args)
-
-plot(table_parameters)
+tryCatch(
+  {
+    log("a")
+    table_parameters <- do.call(parameters::parameters, parameters_args)
+    plot(table_parameters)
+  },
+  error = function(e) {
+    parameters_args[[1]] <- NULL
+    args <- vector(length = length(parameters_args))
+    for (i in seq_along(parameters_args)) {
+      args[i] <- paste(",", names(parameters_args)[i], "=", parameters_args[[i]])
+    } 
+    code_to_run <- paste0("parameters::parameters(", params$model_name, paste(args, collapse = ""), ")")
+    
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/parameters/issues/} with the output of the code above. If you don't have an error in R, please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:\n", e$message
+    ))
+  }
+)
 ```
 
 
@@ -146,7 +175,24 @@ Column {data-width=450}
 ### Tabular summary
 
 ```{r easydashboard-6, eval=is_supported}
-print_md(table_parameters, caption = NULL)
+tryCatch(
+  {
+    log("a")
+    print_md(table_parameters, caption = NULL)
+  },
+  error = function(e) {
+    parameters_args[[1]] <- NULL
+    args <- vector(length = length(parameters_args))
+    for (i in seq_along(parameters_args)) {
+      args[i] <- paste(",", names(parameters_args)[i], "=", parameters_args[[i]])
+    } 
+    code_to_run <- paste0("table_parameters <- parameters::parameters(", params$model_name, paste(args, collapse = ""), ")\n  print_md(table_parameters, caption = NULL)")
+  
+    cat(insight::format_message(
+      "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/parameters/issues/} with the output of the code above."
+    ))
+  }
+)
 ```
 
 
