@@ -29,7 +29,9 @@
 .easystats_version <- function() {
   pkgs <- tryCatch(
     {
-      utils::available.packages(contriburl = utils::contrib.url("https://cloud.r-project.org", type = getOption("pkgType")))
+      utils::available.packages(
+        contriburl = utils::contrib.url("https://cloud.r-project.org", type = getOption("pkgType"))
+      )
     },
     warning = function(w) {
       NULL
@@ -81,13 +83,13 @@
 
 
 .add_easystats_dev_pkgs <- function(out, easystats_not_on_cran) {
-  if (length(easystats_not_on_cran) > 0) {
+  if (length(easystats_not_on_cran) > 0L) {
     # check if any dev-version is actually installed
     easystats_not_on_cran <- sapply(
       easystats_not_on_cran,
       function(i) {
         p <- try(find.package(i, verbose = FALSE, quiet = TRUE))
-        if (!inherits(p, "try-error") && length(p) > 0) {
+        if (!inherits(p, "try-error") && length(p) > 0L) {
           i
         } else {
           ""
@@ -99,7 +101,7 @@
     easystats_not_on_cran <- easystats_not_on_cran[nchar(easystats_not_on_cran) > 0]
 
     # only check for dev-versions when these are actually installed...
-    if (length(easystats_not_on_cran) > 0) {
+    if (length(easystats_not_on_cran) > 0L) {
       local_version_dev <- lapply(easystats_not_on_cran, utils::packageVersion)
 
       out <- rbind(
@@ -210,7 +212,6 @@
     "insight", "modelbased", "performance", "parameters", "report", "see"
   )
 }
-
 
 .packages_on_github <- .packages_on_cran
 
