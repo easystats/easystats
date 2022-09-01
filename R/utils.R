@@ -206,8 +206,8 @@
 
 .packages_on_cran <- function() {
   c(
-    "bayestestR", "correlation", "datawizard", "effectsize", "insight",
-    "modelbased", "performance", "parameters", "report", "see"
+    "bayestestR", "correlation", "datawizard", "easystats", "effectsize",
+    "insight", "modelbased", "performance", "parameters", "report", "see"
   )
 }
 
