@@ -38,10 +38,7 @@ install_latest <- function(source = c("development", "cran"),
                            force = FALSE,
                            verbose = TRUE) {
   source <- match.arg(source, c("development", "cran"))
-  pkg <- c(
-    "insight", "datawizard", "bayestestR", "performance", "parameters",
-    "effectsize", "correlation", "modelbased", "see", "report"
-  )
+  pkg <- .packages_on_cran()
 
   if (all(packages == "all")) {
     packages <- pkg
