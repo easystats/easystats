@@ -6,7 +6,7 @@ output:
 tags: [r, programing]
 vignette: >
   \usepackage[utf8]{inputenc}
-  %\VignetteIndexEntry{Coding style conventions}
+  %\VignetteIndexEntry{Analystic workflow: preparing and bringing data into shape}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
