@@ -1,6 +1,12 @@
 
 # *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
+[![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION)
+[![downloads](http://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/)
+[![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+
 ## What is *easystats*?
 
 *easystats* is a collection of R packages, which aims to provide a
@@ -86,18 +92,18 @@ analysis and data visualization.
   statistical models
 - [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
   for beginners or experts of Bayesian statistics
+- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute,
+  convert, interpret and work with indices of effect size and
+  standardized parameters
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion
+  to create beautiful results visualizations
 - [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a
   table containing all information about the parameters of your models
 - [**performance**](https://easystats.github.io/performance/): 💪
   Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
-- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute,
-  convert, interpret and work with indices of effect size and
-  standardized parameters
 - [**insight**](https://easystats.github.io/insight/): 🔮 For
   developers, a package to help you work with different models and
   packages
-- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion
-  to create beautiful results visualizations
 - [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
   potions to clean and transform your data
 
@@ -184,7 +190,7 @@ which does have a substantial number of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,752,118 | 3,011,678 | 1,351,571  | 1,338,415  | 1,260,075   | 1,096,619  | 1,040,263  | 271,007     | 244,552 | 91,709     | 45,662 | 567       |
+| 9,770,858 | 3,017,177 | 1,353,162  | 1,340,375  | 1,261,898   | 1,101,374  | 1,041,737  | 271,497     | 245,024 | 91,943     | 45,932 | 739       |
 
 ### Trend
 

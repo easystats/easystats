@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
-
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
   dpi = 150,
@@ -15,6 +13,12 @@ knitr::opts_chunk$set(
   fig.height = 0.7 * 10
 )
 ```
+
+# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
+
+[![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION)
+[![downloads](http://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/) [![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## What is *easystats*?
 
