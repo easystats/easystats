@@ -77,6 +77,8 @@ cover all aspects of statistical analysis and data visualization.
   group averages and contrasts between groups based on statistical models
 - [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great for
   beginners or experts of Bayesian statistics
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion to
+  create beautiful results visualizations
 - [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a table
   containing all information about the parameters of your models
 - [**performance**](https://easystats.github.io/performance/): 💪 Models' quality
@@ -85,8 +87,6 @@ cover all aspects of statistical analysis and data visualization.
   interpret and work with indices of effect size and standardized parameters
 - [**insight**](https://easystats.github.io/insight/): 🔮 For developers, a
   package to help you work with different models and packages
-- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion to
-  create beautiful results visualizations
 - [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic potions to clean and transform your data
 
 ## Frequently Asked Questions
