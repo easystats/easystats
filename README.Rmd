@@ -77,16 +77,16 @@ cover all aspects of statistical analysis and data visualization.
   group averages and contrasts between groups based on statistical models
 - [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great for
   beginners or experts of Bayesian statistics
+- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute, convert,
+  interpret and work with indices of effect size and standardized parameters
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion to
+  create beautiful results visualizations
 - [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a table
   containing all information about the parameters of your models
 - [**performance**](https://easystats.github.io/performance/): 💪 Models' quality
   and performance metrics (R2, ICC, LOO, AIC, BF, ...)
-- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute, convert,
-  interpret and work with indices of effect size and standardized parameters
 - [**insight**](https://easystats.github.io/insight/): 🔮 For developers, a
   package to help you work with different models and packages
-- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion to
-  create beautiful results visualizations
 - [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic potions to clean and transform your data
 
 ## Frequently Asked Questions
@@ -115,8 +115,8 @@ enough to be used inside other packages. For instance, the *insight* package is
 made to easily implement support for post-processing of pretty much all
 regression model packages under the sun. We use it in all the *easystats*
 packages, but it is also used in other non-easystats packages, such as 
-[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),  [**modelsummary**](https://github.com/vincentarelbundock/modelsummary/), 
-[**ggeffects**](https://github.com/strengejacke/ggeffects), and more. 
+[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot), [**modelsummary**](https://github.com/vincentarelbundock/modelsummary/), 
+[**ggeffects**](https://github.com/strengejacke/ggeffects), and more.
 
 **So why not in yours**? 
 
