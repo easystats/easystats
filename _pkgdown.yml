@@ -7,18 +7,22 @@ template:
 reference:
 
   - title: Installation and update
-  - contents:
+    desc: ~
+    contents:
       - starts_with("install_")
       - ends_with("_update")
 
   - title: Dashboard
-  - contents:
+    desc: ~
+    contents:
       - ends_with("_dashboard")
 
   - title: CRAN status
-  - contents:
+    desc: ~
+    contents:
       - contains("CRAN")
 
   - title: Zen
-  - contents:
+    desc: ~
+    contents:
       - easystats_zen
