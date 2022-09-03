@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
-
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
   dpi = 150,
@@ -15,6 +13,12 @@ knitr::opts_chunk$set(
   fig.height = 0.7 * 10
 )
 ```
+
+# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
+
+[![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION)
+[![downloads](http://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/) [![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## What is *easystats*?
 
@@ -77,16 +81,16 @@ cover all aspects of statistical analysis and data visualization.
   group averages and contrasts between groups based on statistical models
 - [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great for
   beginners or experts of Bayesian statistics
+- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute, convert,
+  interpret and work with indices of effect size and standardized parameters
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion to
+  create beautiful results visualizations
 - [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a table
   containing all information about the parameters of your models
 - [**performance**](https://easystats.github.io/performance/): 💪 Models' quality
   and performance metrics (R2, ICC, LOO, AIC, BF, ...)
-- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute, convert,
-  interpret and work with indices of effect size and standardized parameters
 - [**insight**](https://easystats.github.io/insight/): 🔮 For developers, a
   package to help you work with different models and packages
-- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion to
-  create beautiful results visualizations
 - [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic potions to clean and transform your data
 
 ## Frequently Asked Questions
@@ -115,8 +119,8 @@ enough to be used inside other packages. For instance, the *insight* package is
 made to easily implement support for post-processing of pretty much all
 regression model packages under the sun. We use it in all the *easystats*
 packages, but it is also used in other non-easystats packages, such as 
-[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot),  [**modelsummary**](https://github.com/vincentarelbundock/modelsummary/), 
-[**ggeffects**](https://github.com/strengejacke/ggeffects), and more. 
+[**ggstatsplot**](https://github.com/IndrajeetPatil/ggstatsplot), [**modelsummary**](https://github.com/vincentarelbundock/modelsummary/), 
+[**ggeffects**](https://github.com/strengejacke/ggeffects), and more.
 
 **So why not in yours**? 
 
