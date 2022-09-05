@@ -268,6 +268,10 @@
 <h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
 </h2>
 <p><em>easystats</em> packages are designed to be lightweight, <em>i.e.</em>, they don’t have any third-party hard dependencies, other than base-R packages or other <em>easystats</em> packages! If you develop R packages, this means that you can safely use <em>easystats</em> packages as dependencies in your own packages, without the risk of entering the <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="external-link">dependency hell</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dominikrafacz.github.io/deepdep/" class="external-link">deepdep</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">plot_dependencies</span><span class="op">(</span><span class="st">"easystats"</span>, depth <span class="op">=</span> <span class="fl">2</span>, show_stamp <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/depnetwork-1.png" width="100%"></p>
 <p>As we can see, the only exception is the <a href="https://easystats.github.io/see/" class="external-link"><code>{see}</code></a> package, which is responsible for plotting and creating figures and relies on <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a>, which does have a substantial number of dependencies.</p>
 </div>
