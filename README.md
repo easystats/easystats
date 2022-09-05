@@ -177,6 +177,12 @@ you can safely use *easystats* packages as dependencies in your own
 packages, without the risk of entering the [dependency
 hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
+``` r
+library(deepdep)
+
+plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+```
+
 <img src="man/figures/depnetwork-1.png" width="100%" />
 
 As we can see, the only exception is the

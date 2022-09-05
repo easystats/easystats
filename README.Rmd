@@ -155,7 +155,7 @@ following presentations and talks to learn more about this ecosystem:
 *easystats* packages are designed to be lightweight, *i.e.*, they don't have any third-party hard dependencies, other than base-R packages or other *easystats* packages!
 If you develop R packages, this means that you can safely use *easystats* packages as dependencies in your own packages, without the risk of entering the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-```{r depnetwork, echo=FALSE}
+```{r depnetwork}
 library(deepdep)
 
 plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
