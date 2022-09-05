@@ -34,7 +34,6 @@ jobs:
             any::easystats
             any::sessioninfo
             any::deepdep
-            any::miniCRAN
             any::cranlogs
             any::lubridate
             any::ggplot2
