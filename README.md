@@ -177,7 +177,13 @@ you can safely use *easystats* packages as dependencies in your own
 packages, without the risk of entering the [dependency
 hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-![](man/figures/depnetwork-1.png)<!-- -->
+``` r
+library(deepdep)
+
+plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+```
+
+<img src="man/figures/depnetwork-1.png" width="100%" />
 
 As we can see, the only exception is the
 [`{see}`](https://easystats.github.io/see/) package, which is
@@ -190,11 +196,11 @@ which does have a substantial number of dependencies.
 
 | Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
 |:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,770,858 | 3,017,177 | 1,353,162  | 1,340,375  | 1,261,898   | 1,101,374  | 1,041,737  | 271,497     | 245,024 | 91,943     | 45,932 | 739       |
+| 9,841,368 | 3,038,611 | 1,359,029  | 1,347,324  | 1,268,715   | 1,119,349  | 1,047,257  | 273,531     | 246,733 | 92,631     | 46,961 | 1,227     |
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
 
 <!-- ### Average monthly downloads -->
 
