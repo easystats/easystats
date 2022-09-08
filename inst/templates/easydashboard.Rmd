@@ -145,7 +145,6 @@ parameters_args <- c(list(model), params$parameters_args)
 if (is.null(parameters_args$verbose)) parameters_args$verbose <- FALSE
 tryCatch(
   {
-    log("a")
     table_parameters <- do.call(parameters::parameters, parameters_args)
     plot(table_parameters)
   },
@@ -177,7 +176,6 @@ Column {data-width=450}
 ```{r easydashboard-6, eval=is_supported}
 tryCatch(
   {
-    log("a")
     print_md(table_parameters, caption = NULL)
   },
   error = function(e) {
@@ -189,7 +187,7 @@ tryCatch(
     code_to_run <- paste0("table_parameters <- parameters::parameters(", params$model_name, paste(args, collapse = ""), ")\n  print_md(table_parameters, caption = NULL)")
   
     cat(insight::format_message(
-      "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/parameters/issues/} with the output of the code above."
+      "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/parameters/issues/} with the output of the code above. If you don't have an error in R, please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:\n", e$message
     ))
   }
 )
@@ -234,6 +232,7 @@ include_response <- minfo$is_binomial && minfo$is_logit && is.factor(model_data[
 
 text_modelbased <- tryCatch(
   {
+    log("a")
     lapply(unique(model_terms), function(i) {
       grid <- get_datagrid(
         model,
@@ -247,26 +246,47 @@ text_modelbased <- tryCatch(
     })
   },
   error = function(e) {
-    cat(insight::format_message(
-      "\nSomething did not work as expected. Please file an issue at {.url https://github.com/easystats/easystats/issues/} and post the following output:",
-      paste0("\n`", e$message, "`")
-    ))
     NULL
   }
 )
 
 if (!is.null(text_modelbased)) {
   ggplot2::theme_set(theme_modern())
-  # all_plots <- lapply(text_modelbased, function(i) {
-  #   out <- do.call(visualisation_recipe, c(list(i), modelbased_args))
-  #   plot(out) + ggplot2::ggtitle("")
-  # })
+  
   all_plots <- lapply(text_modelbased, function(i) {
     out <- visualisation_recipe(i, show_data = "none")
     plot(out) + ggplot2::ggtitle("")
   })
-
+    
   see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))
+} else {
+  code_to_run <- paste(
+"text_modelbased <- lapply(unique(c(\"", paste(model_terms, collapse = "\", \""), "\")), function(i) {
+    grid <- get_datagrid(", 
+      params$model_name, ", 
+      at = i,
+      range = \"grid\",
+      preserve_range = FALSE,
+      verbose = FALSE,
+      include_response = ", include_response, "
+    )
+    estimate_expectation(", params$model_name, ", data = grid, verbose = FALSE)
+ })
+      
+ all_plots <- lapply(text_modelbased, function(i) {
+   out <- visualisation_recipe(i, show_data = \"none\")
+   plot(out) + ggplot2::ggtitle(\"\")
+ })
+
+ see::plots(all_plots, n_columns = round(sqrt(length(text_modelbased))))",
+sep = ""
+)
+
+      cat(insight::format_message(
+        "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\n\nIf there is an error, please file an issue at {.url https://github.com/easystats/easystats/issues/} with the output of the code above.", line_length = 1000
+      ))
+    
+  format_next_chunk <- ifelse(is.null(text_modelbased), "markup", "asis")
 }
 ```
 
@@ -280,7 +300,7 @@ Column {data-width=400}
 
 ### Tabular summary
 
-```{r easydashboard-9, eval=is_supported, results="asis"}
+```{r easydashboard-9, eval=is_supported, results = if (is.null(text_modelbased)) "markup" else "asis"}
 if (!is.null(text_modelbased)) {
   for (i in text_modelbased) {
     tmp <- print_md(i)
@@ -289,6 +309,31 @@ if (!is.null(text_modelbased)) {
     tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp)
     print(tmp)
   }
+} else {
+  code_to_run <- paste0(
+"text_modelbased <- lapply(unique(c(\"", paste(model_terms, collapse = "\", \""), "\")), function(i) {
+    grid <- get_datagrid(", 
+      params$model_name, ", 
+      at = i,
+      range = \"grid\",
+      preserve_range = FALSE,
+      verbose = FALSE,
+      include_response = ", include_response, "
+    )
+    estimate_expectation(", params$model_name, ", data = grid, verbose = FALSE)
+ })
+
+ for (i in text_modelbased) {
+    tmp <- print_md(i)
+    tmp <- gsub(\"Variable predicted\", \"\\nVariable predicted\", tmp)
+    tmp <- gsub(\"Predictors modulated\", \"\\nPredictors modulated\", tmp)
+    tmp <- gsub(\"Predictors controlled\", \"\\nPredictors controlled\", tmp)
+    print(tmp)
+  }
+")
+  cat(insight::format_message(
+        "\nSomething did not work as expected. Try to run the following code:\n", code_to_run, "\nIf there is an error, please file an issue at {.url https://github.com/easystats/easystats/issues/} with the output of the code above.", line_length = 1000
+      ))
 }
 ```
 
