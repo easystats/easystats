@@ -86,7 +86,13 @@ check_status_on_cran <- function() {
       }
 
       if (error && !full) {
-        insight::print_color(sprintf("Warnings or errors in CRAN checks for package(s) %s.\n", paste0("'", error_pkgs, "'", collapse = ", ")), "red")
+        insight::print_color(
+          sprintf(
+            "Warnings or errors in CRAN checks for package(s) %s.\n",
+            paste0("'", error_pkgs, "'", collapse = ", ")
+          ),
+          "red"
+        )
       }
 
       invisible(error)
