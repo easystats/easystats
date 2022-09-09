@@ -10,9 +10,9 @@
 #' @return Invisible `NULL`.
 #'
 #' @examples
-#' on_CRAN()
+#' last_updated_on_cran()
 #' @export
-on_CRAN <- function() {
+last_updated_on_cran <- function() {
   insight::check_if_installed("rvest")
   insight::check_if_installed("xml2")
 

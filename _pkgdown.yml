@@ -20,7 +20,7 @@ reference:
   - title: CRAN status
     desc: ~
     contents:
-      - contains("CRAN")
+      - contains("cran")
 
   - title: Zen
     desc: ~
