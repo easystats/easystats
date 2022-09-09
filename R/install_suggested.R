@@ -1,5 +1,4 @@
-#' @keywords internal_list
-# styler: off
+#' @keywords internal
 .suggested_pkgs <- function() {
   insight::compact_list(list(
     insight     = .find_suggested("insight"),
@@ -15,6 +14,7 @@
   ))
 }
 
+#' @keywords internal
 .revdep_pkgs <- function() {
   insight::compact_list(list(
     insight     = .find_reverse_dependencies("insight"),
@@ -29,8 +29,6 @@
     modelbased  = .find_reverse_dependencies("modelbased")
   ))
 }
-# styler: on
-
 
 
 #' Download all suggested packages
@@ -79,7 +77,6 @@ install_suggested <- function(package = "easystats") {
 
   # unique suggested packages to download
   pkg_download <- unique(unlist(suggested_packages[package]))
-
 
   # install only the packages not yet installed
   installed_packages <- pkg_download %in% .installed_packages()
