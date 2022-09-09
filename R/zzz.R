@@ -1,7 +1,7 @@
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
   easystats_pkgs <- .packages_on_cran()
-  needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
+  needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
 
   if (length(needed) == 0) {
     return()
@@ -96,6 +96,6 @@
   packageStartupMessage(final_message)
 }
 
-is_attached <- function(x) {
+.is_attached <- function(x) {
   paste0("package:", x) %in% search()
 }
