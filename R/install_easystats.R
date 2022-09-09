@@ -40,7 +40,7 @@ install_latest <- function(source = c("development", "cran"),
   source <- match.arg(source, c("development", "cran"))
   pkg <- .packages_on_cran()
 
-  if (all(packages == "all")) {
+  if (packages == "all") {
     packages <- pkg
   } else {
     packages <- intersect(packages, pkg)

@@ -8,7 +8,14 @@
   }
 
   easystats_versions <- easystats_versions[easystats_versions$package %in% needed, ]
-  suppressPackageStartupMessages(suppressWarnings(lapply(easystats_versions$package, library, character.only = TRUE, warn.conflicts = FALSE)))
+  suppressPackageStartupMessages(suppressWarnings(
+    lapply(
+      easystats_versions$package,
+      library,
+      character.only = TRUE,
+      warn.conflicts = FALSE
+    )
+  ))
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]
