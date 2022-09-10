@@ -36,7 +36,10 @@ check_last_cran_update <- function() {
         } else {
           col <- "green"
         }
-        insight::print_color(sprintf("%.1f weeks\n", weeks_on_cran), col)
+        insight::print_color(
+          sprintf("%.1f weeks (%s)\n", weeks_on_cran, as.character(as.POSIXct(date))),
+          col
+        )
       }
     },
     warning = function(w) {
