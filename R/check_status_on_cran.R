@@ -8,10 +8,10 @@
 #'
 #' @examples
 #' if (interactive()) {
-#'   check_status_on_cran()
+#'   check_cran_status()
 #' }
 #' @export
-check_status_on_cran <- function() {
+check_cran_status <- function() {
   .cran_checks(full = TRUE)
 }
 

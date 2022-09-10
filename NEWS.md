@@ -2,8 +2,8 @@
 
 * Following functions have been renamed (old -> new):
 
-  - `CRAN_checks()` -> `check_status_on_cran()`
-  - `on_CRAN()` -> `last_updated_on_cran()`
+  - `CRAN_checks()` -> `check_cran_status()`
+  - `on_CRAN()` -> `check_last_cran_update()`
 
 * The `model_dashboard()` is now less verbose when some of the various functions
   do not support the provided model class, to keep the output clean.
@@ -51,5 +51,5 @@
   `suppressPackageStartupMessages()`.
 
 * The CRAN-check for errors or warnings in `easystats`-packages is no longer
-  shown by default on startup. Use `easystats::check_status_on_cran()` to see them.
+  shown by default on startup. Use `easystats::check_cran_status()` to see them.
 
