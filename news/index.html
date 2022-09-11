@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.2.5</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.2.6</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,16 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.3" id="easystats-053">easystats 0.5.3<a class="anchor" aria-label="anchor" href="#easystats-053"></a></h2>
-<ul><li><p>The <code><a href="../reference/model_dashboard.html">model_dashboard()</a></code> is now less verbose when some of the various functions do not support the provided model class, to keep the output clean.</p></li>
+<ul><li>
+<p>Following functions have been renamed (old -&gt; new):</p>
+<ul><li>
+<code>CRAN_checks()</code> -&gt; <code><a href="../reference/check_cran_status.html">check_cran_status()</a></code>
+</li>
+<li>
+<code>on_CRAN()</code> -&gt; <code><a href="../reference/check_last_cran_update.html">check_last_cran_update()</a></code>
+</li>
+</ul></li>
+<li><p>The <code><a href="../reference/model_dashboard.html">model_dashboard()</a></code> is now less verbose when some of the various functions do not support the provided model class, to keep the output clean.</p></li>
 <li><p>The <code><a href="../reference/model_dashboard.html">model_dashboard()</a></code> now better captures errors and providing more informative messages on how to seek help.</p></li>
 <li><p>Fixed NOTEs in CRAN checks.</p></li>
 </ul></div>
@@ -119,7 +128,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="easystats-030">easystats 0.3.0<a class="anchor" aria-label="anchor" href="#easystats-030"></a></h2>
 <ul><li><p>Revised startup-messages, so these can be suppressed by using <code><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressPackageStartupMessages()</a></code>.</p></li>
-<li><p>The CRAN-check for errors or warnings in <code>easystats</code>-packages is no longer shown by default on startup. Use <code><a href="../reference/CRAN_checks.html">easystats::CRAN_checks()</a></code> to see them.</p></li>
+<li><p>The CRAN-check for errors or warnings in <code>easystats</code>-packages is no longer shown by default on startup. Use <code><a href="../reference/check_cran_status.html">easystats::check_cran_status()</a></code> to see them.</p></li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
