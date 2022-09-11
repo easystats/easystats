@@ -22,7 +22,7 @@ check_cran_status <- function() {
 
   on_cran <- .packages_on_cran()
   error <- FALSE
-  error_pkgs <- c()
+  error_pkgs <- NULL
 
   tryCatch(
     {

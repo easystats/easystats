@@ -29,6 +29,12 @@ check_last_cran_update <- function() {
         max_len <- max(nchar(on_cran))
         i <- format(i, width = max_len)
         cat(sprintf("%s ", i))
+
+        # CRAN policy (https://cran.r-project.org/web/packages/policies.html):
+        #
+        # "Submitting updates should be done responsibly and with respect for the
+        # volunteers' time. Once a package is established (which may take
+        # several rounds), 'no more than every 1–2 months' seems appropriate."
         if (weeks_on_cran <= 4) {
           col <- "red"
         } else if (weeks_on_cran <= 8) {
