@@ -1,9 +1,10 @@
 # easystats 0.5.3
 
-* Following functions have been renamed (old -> new):
+* Following functions have been removed since they are not expected to be of
+  any relevance for the users:
 
-  - `CRAN_checks()` -> `check_cran_status()`
-  - `on_CRAN()` -> `check_last_cran_update()`
+  - `CRAN_checks()`
+  - `on_CRAN()`
 
 * The `model_dashboard()` is now less verbose when some of the various functions
   do not support the provided model class, to keep the output clean.
