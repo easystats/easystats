@@ -77,7 +77,7 @@ install_latest <- function(source = c("development", "cran"),
       colnames(easy_pkgs) <- c("Package", "Latest", "Installed", "behind")
       easy_pkgs <- easy_pkgs[easy_pkgs$behind, ]
       cat(insight::print_color("\nInstalling following packages:\n\n", "blue"))
-      cat(insight::export_table(easy_pkgs[c("Package", "Latest", "Installed")]))
+      cat(insight::export_table(easy_pkgs[c("Package", "Installed", "Latest")]))
       cat("\n\n")
     }
   }
