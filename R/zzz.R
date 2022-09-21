@@ -1,14 +1,21 @@
 .onAttach <- function(...) {
   easystats_versions <- .easystats_version()
   easystats_pkgs <- .packages_on_cran()
-  needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
+  needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
 
   if (length(needed) == 0) {
     return()
   }
 
   easystats_versions <- easystats_versions[easystats_versions$package %in% needed, ]
-  suppressPackageStartupMessages(suppressWarnings(lapply(easystats_versions$package, library, character.only = TRUE, warn.conflicts = FALSE)))
+  suppressPackageStartupMessages(suppressWarnings(
+    lapply(
+      easystats_versions$package,
+      library,
+      character.only = TRUE,
+      warn.conflicts = FALSE
+    )
+  ))
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]
@@ -96,6 +103,6 @@
   packageStartupMessage(final_message)
 }
 
-is_attached <- function(x) {
+.is_attached <- function(x) {
   paste0("package:", x) %in% search()
 }

@@ -14,7 +14,7 @@ easystats_zen <- function() {
 # Suppress R CMD check note
 # Namespace in Imports field not imported from: PKG
 #   All declared Imports should be used.
-ignore_unused_imports <- function() {
+.ignore_unused_imports <- function() {
   bayestestR::describe_posterior()
   correlation::correlation()
   datawizard::data_tabulate()

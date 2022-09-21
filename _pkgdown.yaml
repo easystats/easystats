@@ -17,11 +17,6 @@ reference:
     contents:
       - ends_with("_dashboard")
 
-  - title: CRAN status
-    desc: ~
-    contents:
-      - contains("CRAN")
-
   - title: Zen
     desc: ~
     contents:

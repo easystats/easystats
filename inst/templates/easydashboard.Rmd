@@ -304,9 +304,9 @@ Column {data-width=400}
 if (!is.null(text_modelbased)) {
   for (i in text_modelbased) {
     tmp <- print_md(i)
-    tmp <- gsub("Variable predicted", "\nVariable predicted", tmp)
-    tmp <- gsub("Predictors modulated", "\nPredictors modulated", tmp)
-    tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp)
+    tmp <- gsub("Variable predicted", "\nVariable predicted", tmp, fixed = TRUE)
+    tmp <- gsub("Predictors modulated", "\nPredictors modulated", tmp, fixed = TRUE)
+    tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp, fixed = TRUE)
     print(tmp)
   }
 } else {

@@ -1,5 +1,11 @@
 # easystats 0.5.3
 
+* Following functions have been removed since they are not expected to be of
+  any relevance for the users:
+
+  - `CRAN_checks()`
+  - `on_CRAN()`
+
 * The `model_dashboard()` is now less verbose when some of the various functions
   do not support the provided model class, to keep the output clean.
 
@@ -46,5 +52,5 @@
   `suppressPackageStartupMessages()`.
 
 * The CRAN-check for errors or warnings in `easystats`-packages is no longer
-  shown by default on startup. Use `easystats::CRAN_checks()` to see them.
+  shown by default on startup. Use `easystats::check_cran_status()` to see them.
 
