@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.5.2.8
+Version: 0.5.2.9
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -40,11 +40,11 @@ License: GPL-3
 URL: https://easystats.github.io/easystats/
 BugReports: https://github.com/easystats/easystats/issues
 Depends:
-    R (>= 3.5)
+    R (>= 3.6)
 Imports:
     bayestestR (>= 0.13.0),
     correlation (>= 0.8.2),
-    datawizard (>= 0.6.0),
+    datawizard (>= 0.6.1),
     effectsize (>= 0.7.0.5),
     insight (>= 0.18.4),
     modelbased (>= 0.8.5),
