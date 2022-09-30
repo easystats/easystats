@@ -15,6 +15,7 @@
 #' @docType package
 #' @aliases easystats easystats-package
 #' @name easystats-package
+#' @keywords internal
 "_PACKAGE"
 
 # Suppress R CMD check note
