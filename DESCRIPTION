@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.5.2.9
+Version: 0.5.2.10
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -44,14 +44,14 @@ Depends:
 Imports:
     bayestestR (>= 0.13.0),
     correlation (>= 0.8.2),
-    datawizard (>= 0.6.1),
+    datawizard (>= 0.6.2),
     effectsize (>= 0.7.0.5),
     insight (>= 0.18.4),
     modelbased (>= 0.8.5),
-    parameters (>= 0.18.2),
-    performance (>= 0.9.2),
+    parameters (>= 0.19.0),
+    performance (>= 0.10.0),
     report (>= 0.5.1),
-    see (>= 0.7.2),
+    see (>= 0.7.3),
     tools,
     utils
 Suggests:
