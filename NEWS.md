@@ -1,4 +1,8 @@
-# easystats 0.5.3
+# easystats (development version)
+
+## Breaking Changes
+
+- The minimum needed R version has been bumped to `3.6`.
 
 * Following functions have been removed since they are not expected to be of
   any relevance for the users:
