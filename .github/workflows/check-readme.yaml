@@ -34,16 +34,11 @@ jobs:
           extra-packages: |
             deps::.
             any::easystats
-            any::sessioninfo
             any::deepdep
-            any::ggraph
-            any::graphlayouts
             any::cranlogs
             any::lubridate
             any::ggplot2
             any::zoo
-            any::igraph
-            any::viridis
 
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd")'
