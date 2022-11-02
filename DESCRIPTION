@@ -56,7 +56,7 @@ Imports:
     utils
 Suggests:
     DT,
-    flexdashboard,
+    flexdashboard (>= 0.6.0),
     jsonlite,
     knitr,
     rmarkdown,
