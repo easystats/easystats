@@ -1,0 +1,11 @@
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: check-link-rot
+
+jobs:
+  check-link-rot:
+    uses: easystats/workflows/.github/workflows/check-link-rot.yaml@main
