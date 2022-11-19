@@ -1,0 +1,11 @@
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: pkgdown-no-suggests
+
+jobs:
+  pkgdown-no-suggests:
+    uses: easystats/workflows/.github/workflows/pkgdown-no-suggests.yaml@main
