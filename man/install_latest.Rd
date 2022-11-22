@@ -38,15 +38,15 @@ versions from CRAN. If the development versions are installed, packages
 will be installed from the stable branch (master/main) for each package.
 }
 \examples{
-\dontrun{
-# install latest development-version of easystats packages from
-# the r-universe repository, but only those packages that have newer
-# versions available
-install.latest()
+if (FALSE) {
+  # install latest development-version of easystats packages from
+  # the r-universe repository, but only those packages that have newer
+  # versions available
+  install_latest()
 
-# install all latest development-version of easystats packages from
-# the r-universe repository, no matter whether local installations
-# are up to date or not.
-install.latest(force = TRUE)
+  # install all latest development-version of easystats packages from
+  # the r-universe repository, no matter whether local installations
+  # are up to date or not.
+  install_latest(force = TRUE)
 }
 }
