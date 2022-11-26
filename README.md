@@ -1,8 +1,9 @@
 
 # *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
-[![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION)
-[![downloads](http://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
+<!-- [![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION) -->
+
+[![downloads](https://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/)
 [![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
@@ -194,9 +195,9 @@ which does have a substantial number of dependencies.
 
 ### Total downloads
 
-| Total      | insight   | bayestestR | parameters | datawizard | performance | effectsize | correlation | see     | modelbased | report | easystats |
+| Total      | insight   | datawizard | bayestestR | parameters | performance | effectsize | correlation | see     | modelbased | report | easystats |
 |:-----------|:----------|:-----------|:-----------|:-----------|:------------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 11,367,642 | 3,492,356 | 1,509,693  | 1,505,043  | 1,497,583  | 1,424,625   | 1,175,274  | 312,150     | 280,292 | 103,490    | 60,857 | 6,279     |
+| 11,470,704 | 3,523,083 | 1,522,861  | 1,519,241  | 1,517,897  | 1,434,488   | 1,183,372  | 314,559     | 282,617 | 104,208    | 61,787 | 6,591     |
 
 ### Trend
 

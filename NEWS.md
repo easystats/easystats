@@ -10,6 +10,10 @@
   - `CRAN_checks()`
   - `on_CRAN()`
 
+## Major Changes
+
+* All hard dependencies have been bumped to their latest versions.
+
 * The `model_dashboard()` is now less verbose when some of the various functions
   do not support the provided model class, to keep the output clean.
 
