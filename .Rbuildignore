@@ -35,3 +35,4 @@ hextools
 ^WIP/.
 ^CODE_OF_CONDUCT\.md$
 \.code-workspace$
+^CRAN-SUBMISSION$
