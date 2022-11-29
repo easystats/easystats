@@ -15,6 +15,7 @@
 ^pkgdown$
 ^_pkgdown$
 ^_pkgdown.yml$
+^_pkgdown.yaml$
 ^\.httr-oauth$
 ^CRAN-RELEASE$
 tests\^spelling
