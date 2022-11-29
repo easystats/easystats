@@ -1,4 +1,4 @@
-# easystats (development version)
+# easystats 0.6.0
 
 ## Breaking Changes
 

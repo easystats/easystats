@@ -27,7 +27,7 @@ fairly light and fast to install. However, we rely on many many (many)
 packages for testing (at least all the packages for functions that we
 support) and some specific features. These "soft dependencies" can be
 downloaded at once using this function. This will allow you to fully utilize
-100\\% of easystats' functionalities without errors.
+all of easystats' functionalities without errors.
 }
 \details{
 To reduce the dependency load, 'easystats' packages by default will not
