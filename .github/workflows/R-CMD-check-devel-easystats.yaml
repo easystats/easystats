@@ -1,0 +1,11 @@
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Trigger once a day at midnight.
+    - cron: "0 0 * * *"
+
+name: R-CMD-check-devel-easystats
+
+jobs:
+  R-CMD-check-devel-easystats:
+    uses: easystats/workflows/.github/workflows/R-CMD-check-devel-easystats.yaml@main
