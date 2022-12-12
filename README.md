@@ -53,16 +53,16 @@ citation("easystats")
 
 To cite easystats in publications use:
 
-  Lüdecke, Patil, Ben-Shachar, Wiernik, & Makowski (2022). easystats:
-  Framework for Easy Statistical Modeling, Visualization, and
-  Reporting. CRAN. Available from
+  Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, & Makowski (2022).
+  easystats: Framework for Easy Statistical Modeling, Visualization,
+  and Reporting. CRAN. Available from
   https://easystats.github.io/easystats/
 
 A BibTeX entry for LaTeX users is
 
   @Article{,
     title = {easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting},
-    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Dominique Makowski},
+    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Etienne Bacher and Dominique Makowski},
     journal = {CRAN},
     year = {2022},
     note = {R package},
@@ -197,7 +197,7 @@ which does have a substantial number of dependencies.
 
 | Total      | insight   | datawizard | parameters | bayestestR | performance | effectsize | correlation | see     | modelbased | report | easystats |
 |:-----------|:----------|:-----------|:-----------|:-----------|:------------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 11,723,798 | 3,595,700 | 1,581,161  | 1,546,248  | 1,541,135  | 1,464,855   | 1,201,134  | 322,636     | 289,882 | 108,937    | 64,043 | 8,067     |
+| 11,836,360 | 3,627,051 | 1,606,958  | 1,558,741  | 1,551,891  | 1,477,431   | 1,209,644  | 326,562     | 292,943 | 111,248    | 65,175 | 8,716     |
 
 ### Trend
 
