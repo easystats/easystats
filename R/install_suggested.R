@@ -34,6 +34,9 @@
 #' # listing all reverse dependencies of easystats packages
 #' show_reverse_dependencies()
 #'
+#' # listing all soft/weak dependencies of easystats packages
+#' show_suggested()
+#'
 #' @export
 install_suggested <- function(package = "easystats") {
   suggested_packages <- .suggested_pkgs()

@@ -46,5 +46,8 @@ if (FALSE) {
 
 # listing all reverse dependencies of easystats packages
 show_reverse_dependencies()
+
+# listing all soft/weak dependencies of easystats packages
+show_suggested()
 \dontshow{\}) # examplesIf}
 }
