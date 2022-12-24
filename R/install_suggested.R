@@ -1,36 +1,3 @@
-#' @keywords internal
-.suggested_pkgs <- function() {
-  insight::compact_list(list(
-    insight     = .find_suggested("insight"),
-    datawizard  = .find_suggested("datawizard"),
-    performance = .find_suggested("performance"),
-    parameters  = .find_suggested("parameters"),
-    see         = .find_suggested("see"),
-    effectsize  = .find_suggested("effectsize"),
-    bayestestR  = .find_suggested("bayestestR"),
-    correlation = .find_suggested("correlation"),
-    report      = .find_suggested("report"),
-    modelbased  = .find_suggested("modelbased")
-  ))
-}
-
-#' @keywords internal
-.revdep_pkgs <- function() {
-  insight::compact_list(list(
-    insight     = .find_reverse_dependencies("insight"),
-    datawizard  = .find_reverse_dependencies("datawizard"),
-    performance = .find_reverse_dependencies("performance"),
-    parameters  = .find_reverse_dependencies("parameters"),
-    see         = .find_reverse_dependencies("see"),
-    effectsize  = .find_reverse_dependencies("effectsize"),
-    bayestestR  = .find_reverse_dependencies("bayestestR"),
-    correlation = .find_reverse_dependencies("correlation"),
-    report      = .find_reverse_dependencies("report"),
-    modelbased  = .find_reverse_dependencies("modelbased")
-  ))
-}
-
-
 #' Download all suggested packages
 #'
 #' In `easystats`, we have a 0-dependency policy, which makes our packages
@@ -59,7 +26,7 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
-#' @examples
+#' @examplesIf insight::check_if_installed("xml2")
 #' if (FALSE) {
 #'   install_suggested("easystats")
 #' }
@@ -136,7 +103,37 @@ show_reverse_dependencies <- function(package = "easystats") {
   invisible(x)
 }
 
+#' @keywords internal
+.suggested_pkgs <- function() {
+  insight::compact_list(list(
+    insight     = .find_suggested("insight"),
+    datawizard  = .find_suggested("datawizard"),
+    performance = .find_suggested("performance"),
+    parameters  = .find_suggested("parameters"),
+    see         = .find_suggested("see"),
+    effectsize  = .find_suggested("effectsize"),
+    bayestestR  = .find_suggested("bayestestR"),
+    correlation = .find_suggested("correlation"),
+    report      = .find_suggested("report"),
+    modelbased  = .find_suggested("modelbased")
+  ))
+}
 
+#' @keywords internal
+.revdep_pkgs <- function() {
+  insight::compact_list(list(
+    insight     = .find_reverse_dependencies("insight"),
+    datawizard  = .find_reverse_dependencies("datawizard"),
+    performance = .find_reverse_dependencies("performance"),
+    parameters  = .find_reverse_dependencies("parameters"),
+    see         = .find_reverse_dependencies("see"),
+    effectsize  = .find_reverse_dependencies("effectsize"),
+    bayestestR  = .find_reverse_dependencies("bayestestR"),
+    correlation = .find_reverse_dependencies("correlation"),
+    report      = .find_reverse_dependencies("report"),
+    modelbased  = .find_reverse_dependencies("modelbased")
+  ))
+}
 
 # crawl suggestion fields
 

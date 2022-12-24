@@ -39,11 +39,12 @@ to show the current list of suggested packages for each 'easystats'
 package.
 }
 \examples{
+\dontshow{if (insight::check_if_installed("xml2")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 if (FALSE) {
   install_suggested("easystats")
 }
 
 # listing all reverse dependencies of easystats packages
 show_reverse_dependencies()
-
+\dontshow{\}) # examplesIf}
 }

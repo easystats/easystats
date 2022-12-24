@@ -62,7 +62,6 @@ Suggests:
     jsonlite,
     knitr,
     rmarkdown,
-    rvest,
     testthat (>= 3.1.0),
     withr,
     xml2
