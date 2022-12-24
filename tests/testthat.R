@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(easystats)
+suppressPackageStartupMessages(library(easystats))
 
 test_check("easystats")

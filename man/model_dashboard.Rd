@@ -11,7 +11,8 @@ model_dashboard(
   performance_args = NULL,
   output_file = "easydashboard.html",
   output_dir = getwd(),
-  rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")
+  rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
+  quiet = FALSE
 )
 }
 \arguments{
@@ -41,6 +42,11 @@ report in \code{rmarkdown::render()}. Default is to use the working directory.}
 \item{rmd_dir}{A string specifying the path to the directory containing the
 RMarkdown template file. By default, package uses the template shipped with
 the package installation (\code{inst/templates/easydashboard.Rmd}).}
+
+\item{quiet}{An option to suppress printing during rendering from knitr,
+pandoc command line and others. To only suppress printing of the last
+"Output created: " message, you can set \code{rmarkdown.render.message} to
+\code{FALSE}}
 }
 \value{
 An HTML dashboard.

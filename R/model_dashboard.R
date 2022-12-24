@@ -34,6 +34,7 @@
 #' @param rmd_dir A string specifying the path to the directory containing the
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
+#' @inheritParams rmarkdown::render
 #'
 #' @section Troubleshooting:
 #' For models with many observations, or for more complex models in general,
@@ -73,7 +74,8 @@ model_dashboard <- function(model,
                             performance_args = NULL,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
-                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
+                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
+                            quiet = FALSE) {
   insight::check_if_installed(c("DT", "flexdashboard"))
 
   # render report into HTML
@@ -88,6 +90,7 @@ model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
+      quiet = quiet,
       params = list(
         model = model,
         check_model_args = check_model_args,
