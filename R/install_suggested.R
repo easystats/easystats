@@ -60,12 +60,12 @@
 #' Useful only for its side-effect of installing the needed packages.
 #'
 #' @examples
-#' \dontrun{
-#' install_suggested("easystats")
+#' if (FALSE) {
+#'   install_suggested("easystats")
+#' }
 #'
 #' # listing all reverse dependencies of easystats packages
 #' show_reverse_dependencies()
-#' }
 #'
 #' @export
 install_suggested <- function(package = "easystats") {

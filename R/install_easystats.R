@@ -20,18 +20,16 @@
 #'
 #' @return Invisible `NULL`.
 #'
-#' @examples
-#' if (FALSE) {
-#'   # install latest development-version of easystats packages from
-#'   # the r-universe repository, but only those packages that have newer
-#'   # versions available
-#'   install_latest()
+#' @examplesIf FALSE
+#' # install latest development-version of easystats packages from
+#' # the r-universe repository, but only those packages that have newer
+#' # versions available
+#' install_latest()
 #'
-#'   # install all latest development-version of easystats packages from
-#'   # the r-universe repository, no matter whether local installations
-#'   # are up to date or not.
-#'   install_latest(force = TRUE)
-#' }
+#' # install all latest development-version of easystats packages from
+#' # the r-universe repository, no matter whether local installations
+#' # are up to date or not.
+#' install_latest(force = TRUE)
 #' @export
 install_latest <- function(source = c("development", "cran"),
                            packages = "all",

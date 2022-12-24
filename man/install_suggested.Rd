@@ -39,11 +39,11 @@ to show the current list of suggested packages for each 'easystats'
 package.
 }
 \examples{
-\dontrun{
-install_suggested("easystats")
+if (FALSE) {
+  install_suggested("easystats")
+}
 
 # listing all reverse dependencies of easystats packages
 show_reverse_dependencies()
-}
 
 }

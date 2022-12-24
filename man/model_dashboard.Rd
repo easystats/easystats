@@ -68,20 +68,21 @@ particular the \code{check}-argument can help, to skip some unnecessary checks).
 }
 
 \examples{
-if (interactive()) {
-  mod <- lm(wt ~ mpg, mtcars)
+\dontshow{if (interactive() && insight::check_if_installed(c("DT", "flexdashboard"))) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
-  # with default options
-  model_dashboard(mod)
+# define a regression model
+mod <- lm(wt ~ mpg, mtcars)
 
-  # customizing 'parameters' output: standardize coefficients
-  model_dashboard(mod, parameters_args = list(standardize = "refit"))
+# with default options
+model_dashboard(mod)
 
-  # customizing 'performance' output: only show selected performance metrics
-  model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
+# customizing 'parameters' output: standardize coefficients
+model_dashboard(mod, parameters_args = list(standardize = "refit"))
 
-  # customizing output of model assumptions plot: don't show dots (faster plot)
-  model_dashboard(mod, check_model_args = list(show_dots = FALSE))
-}
+# customizing 'performance' output: only show selected performance metrics
+model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 
+# customizing output of model assumptions plot: don't show dots (faster plot)
+model_dashboard(mod, check_model_args = list(show_dots = FALSE))
+\dontshow{\}) # examplesIf}
 }
