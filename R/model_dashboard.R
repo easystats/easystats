@@ -4,12 +4,12 @@
 #'
 #' A dashboard containing the following details for the entered regression model:
 #'
-#' - a tabular summary of parameter estimates
-#' - a dot-and-whisker plot for parameter estimates
-#' - a tabular summary of indices for the quality of model fit
-#' - a collection of models for checking model assumptions
-#' - a text report
-#' - a model information table
+#' - tabular summary of parameter estimates
+#' - dot-and-whisker plot for parameter estimates
+#' - tabular summary of indices for the quality of model fit
+#' - collection of models for checking model assumptions
+#' - text report
+#' - model information table
 #'
 #' @return
 #' An HTML dashboard.
@@ -43,6 +43,10 @@
 #' might help. Furthermore, look at other arguments of `?performance::check_model`,
 #' which can be set using `check_model_args`, to increase performance (in
 #' particular the `check`-argument can help, to skip some unnecessary checks).
+#'
+#' @examples
+#' # the only required argument is a regression model; without it, the function won't work
+#' try({ model_dashboard() })
 #'
 #' @examplesIf interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)
 #' # define a regression model

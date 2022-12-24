@@ -27,8 +27,10 @@
 #' Useful only for its side-effect of installing the needed packages.
 #'
 #' @examplesIf require("xml2", quietly = TRUE)
-#' if (FALSE) {
-#'   install_suggested("easystats")
+#'
+#' # download all suggested packages
+#' \donttest{
+#' install_suggested("easystats")
 #' }
 #'
 #' # listing all reverse dependencies of easystats packages

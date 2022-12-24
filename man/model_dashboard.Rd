@@ -48,12 +48,12 @@ An HTML dashboard.
 \description{
 A dashboard containing the following details for the entered regression model:
 \itemize{
-\item a tabular summary of parameter estimates
-\item a dot-and-whisker plot for parameter estimates
-\item a tabular summary of indices for the quality of model fit
-\item a collection of models for checking model assumptions
-\item a text report
-\item a model information table
+\item tabular summary of parameter estimates
+\item dot-and-whisker plot for parameter estimates
+\item tabular summary of indices for the quality of model fit
+\item collection of models for checking model assumptions
+\item text report
+\item model information table
 }
 }
 \section{Troubleshooting}{
@@ -68,6 +68,9 @@ particular the \code{check}-argument can help, to skip some unnecessary checks).
 }
 
 \examples{
+# the only required argument is a regression model; without it, the function won't work
+try({ model_dashboard() })
+
 \dontshow{if (interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # define a regression model
 mod <- lm(wt ~ mpg, mtcars)
