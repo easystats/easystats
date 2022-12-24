@@ -26,7 +26,7 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
-#' @examplesIf insight::check_if_installed("xml2")
+#' @examplesIf require("xml2", quietly = TRUE)
 #' if (FALSE) {
 #'   install_suggested("easystats")
 #' }
