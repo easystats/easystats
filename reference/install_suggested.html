@@ -143,11 +143,63 @@ package.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="fu">install_suggested</span><span class="op">(</span><span class="st">"easystats"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">install_suggested</span><span class="op">(</span><span class="st">"easystats"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># listing all reverse dependencies of easystats packages</span></span></span>
 <span class="r-in"><span><span class="fu">show_reverse_dependencies</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">bayestestR</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> brmsmargins, correlation, easystats, effectsize, fbst, modelbased,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multifear, neatStats, parameters, performance, psycho, report, see,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sjPlot, sjstats, snSMART, SSVS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">correlation</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">-----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> easystats, ggstatsplot, popstudy, see, statsExpressions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">datawizard</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bayestestR, correlation, easystats, effectsize, ggstatsplot, modelbased,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters, performance, report, see, sjlabelled, sjPlot, sjstats,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   statsExpressions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">effectsize</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bruceR, easystats, modelbased, multifear, psycho, rempsyc, report, see,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sjPlot, sjstats, statsExpressions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">insight</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">-------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bayestestR, clinicalsignificance, correlation, datawizard, easystats,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   effects, effectsize, ggDoE, ggeffects, ggstatsplot, insurancerating,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   marginaleffects, modelbased, modelsummary, parameters, performance,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   psycho, psycModel, rempsyc, report, see, SimplyAgree, sjlabelled,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sjmisc, sjPlot, sjstats, statsExpressions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">modelbased</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> easystats, see</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">parameters</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> correlation, cvms, dotwhisker, easystats, effectsize, ggstatsplot,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   glmglrt, MCM, modelbased, modelsummary, psycho, psycModel, regport,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   report, see, sjPlot, sjstats, statsExpressions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">performance</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">-----------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bruceR, easystats, effectsize, ggstatsplot, modelbased, modelsummary,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   psycModel, rempsyc, report, see, sjPlot, sjstats, statsExpressions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">report</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">------</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> easystats, SqueakR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">see</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">---</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bruceR, easystats, jsmodule</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
