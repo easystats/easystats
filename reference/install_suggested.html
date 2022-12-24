@@ -142,9 +142,19 @@ package.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="fu">install_suggested</span><span class="op">(</span><span class="st">"easystats"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># download all suggested packages</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu">install_suggested</span><span class="op">(</span><span class="st">"easystats"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Installing packages into ‘/home/runner/work/_temp/Library’</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> (as ‘lib’ is unspecified)</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>dependency ‘Biobase’ is not available</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> also installing the dependency ‘semPlot’</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>installation of package ‘semPlot’ had non-zero exit status</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>installation of package ‘ClassDiscovery’ had non-zero exit status</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>installation of package ‘EGAnet’ had non-zero exit status</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>installation of package ‘PCDimension’ had non-zero exit status</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># listing all reverse dependencies of easystats packages</span></span></span>
 <span class="r-in"><span><span class="fu">show_reverse_dependencies</span><span class="op">(</span><span class="op">)</span></span></span>
