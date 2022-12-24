@@ -69,7 +69,9 @@ particular the \code{check}-argument can help, to skip some unnecessary checks).
 
 \examples{
 # the only required argument is a regression model; without it, the function won't work
-try({ model_dashboard() })
+try({
+  model_dashboard()
+})
 
 \dontshow{if (interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # define a regression model

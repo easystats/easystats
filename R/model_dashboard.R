@@ -46,7 +46,9 @@
 #'
 #' @examples
 #' # the only required argument is a regression model; without it, the function won't work
-#' try({ model_dashboard() })
+#' try({
+#'   model_dashboard()
+#' })
 #'
 #' @examplesIf interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)
 #' # define a regression model

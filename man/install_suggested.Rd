@@ -42,8 +42,8 @@ package.
 \dontshow{if (require("xml2", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # download all suggested packages
-\donttest{
-install_suggested("easystats")
+if (FALSE) {
+  install_suggested("easystats")
 }
 
 # listing all reverse dependencies of easystats packages
