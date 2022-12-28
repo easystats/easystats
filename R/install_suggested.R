@@ -53,7 +53,7 @@ install_suggested <- function(package = "easystats") {
   # install only the packages not yet installed
   installed_packages <- pkg_download %in% .installed_packages()
 
-  if (any(!installed_packages)) {
+  if (!all(installed_packages)) {
     utils::install.packages(pkg_download[!installed_packages])
   } else {
     message("All of the suggested packages are already installed :)")
@@ -152,8 +152,9 @@ show_reverse_dependencies <- function(package = "easystats") {
     return(NULL)
   }
 
-  # clean
-  suggested_packages <- insight::trim_ws(gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE))))
+  suggested_packages <- insight::trim_ws(
+    gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE)))
+  )
 
   # remove Bioconductor packages
   setdiff(suggested_packages, "M3C")
