@@ -13,7 +13,7 @@
   cran_version <- lapply(pkgs[pkg_deps, "Version"], package_version)
   local_version <- lapply(pkg_deps, utils::packageVersion)
 
-  behind <- Map(">", cran_version, local_version)
+  behind <- unlist(Map(">", cran_version, local_version))
 
   data.frame(
     package = pkg_deps,
@@ -49,7 +49,7 @@
     cran_version <- lapply(pkgs[easystats_on_cran, "Version"], package_version)
     local_version <- lapply(easystats_on_cran, utils::packageVersion)
 
-    behind <- mapply(">", cran_version, local_version)
+    behind <- unlist(Map(">", cran_version, local_version))
 
     out <- data.frame(
       package = easystats_on_cran,
