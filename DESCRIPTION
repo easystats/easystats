@@ -69,7 +69,7 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.2.3
+RoxygenNote: 7.2.3.9000
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 Config/Needs/website:

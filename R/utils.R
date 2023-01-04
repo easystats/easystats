@@ -13,12 +13,12 @@
   cran_version <- lapply(pkgs[pkg_deps, "Version"], package_version)
   local_version <- lapply(pkg_deps, utils::packageVersion)
 
-  behind <- mapply(">", cran_version, local_version)
+  behind <- unlist(Map(">", cran_version, local_version))
 
   data.frame(
     package = pkg_deps,
-    cran = sapply(cran_version, as.character),
-    local = sapply(local_version, as.character),
+    cran = vapply(cran_version, as.character, FUN.VALUE = character(1L)),
+    local = vapply(local_version, as.character, FUN.VALUE = character(1L)),
     behind = behind,
     stringsAsFactors = FALSE
   )
@@ -49,12 +49,12 @@
     cran_version <- lapply(pkgs[easystats_on_cran, "Version"], package_version)
     local_version <- lapply(easystats_on_cran, utils::packageVersion)
 
-    behind <- mapply(">", cran_version, local_version)
+    behind <- unlist(Map(">", cran_version, local_version))
 
     out <- data.frame(
       package = easystats_on_cran,
-      cran = sapply(cran_version, as.character),
-      local = sapply(local_version, as.character),
+      cran = vapply(cran_version, as.character, FUN.VALUE = character(1L)),
+      local = vapply(local_version, as.character, FUN.VALUE = character(1L)),
       behind = behind,
       stringsAsFactors = FALSE,
       row.names = NULL
@@ -71,7 +71,7 @@
     out <- data.frame(
       package = easystats_on_cran,
       cran = NA,
-      local = sapply(local_version, as.character),
+      local = vapply(local_version, as.character, FUN.VALUE = character(1L)),
       behind = FALSE,
       stringsAsFactors = FALSE,
       row.names = NULL
@@ -85,7 +85,7 @@
 .add_easystats_dev_pkgs <- function(out, easystats_not_on_cran) {
   if (length(easystats_not_on_cran) > 0L) {
     # check if any dev-version is actually installed
-    easystats_not_on_cran <- sapply(
+    easystats_not_on_cran <- vapply(
       easystats_not_on_cran,
       function(i) {
         p <- try(find.package(i, verbose = FALSE, quiet = TRUE))
@@ -94,7 +94,8 @@
         } else {
           ""
         }
-      }
+      },
+      FUN.VALUE = character(1L)
     )
 
     # remove empty
@@ -109,7 +110,7 @@
         data.frame(
           package = easystats_not_on_cran,
           cran = NA,
-          local = sapply(local_version_dev, as.character),
+          local = vapply(local_version_dev, as.character, FUN.VALUE = character(1L)),
           behind = FALSE,
           stringsAsFactors = FALSE,
           row.names = NULL
