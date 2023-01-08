@@ -1,0 +1,15 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+#
+# R CMD Check will fail on a `NOTE`.
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: R-CMD-check-strict
+
+jobs:
+  R-CMD-check-strict:
+    uses: easystats/workflows/.github/workflows/R-CMD-check-strict.yaml@main
