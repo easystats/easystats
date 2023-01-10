@@ -1,0 +1,9 @@
+on:
+  pull_request:
+    branches: [main, master]
+
+name: revdepcheck
+
+jobs:
+  revdepcheck:
+    uses: easystats/workflows/.github/workflows/revdepcheck.yaml@main
