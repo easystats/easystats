@@ -1,0 +1,11 @@
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: check-spelling
+
+jobs:
+  check-spelling:
+    uses: easystats/workflows/.github/workflows/check-spelling.yaml@main
