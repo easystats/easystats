@@ -1,3 +1,8 @@
+# easystats (development version)
+
+- Given their significant contributions throughout the ecosystem, the package
+  gains two new authors: Etienne Bacher and Rémi Thériault. Welcome onboard!
+
 # easystats 0.6.0
 
 ## Breaking Changes

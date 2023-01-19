@@ -7,6 +7,7 @@ bibentry(
   person("Indrajeet", "Patil"),
   person("Brenton M.", "Wiernik"),
   person("Etienne", "Bacher"),
+  person("Rémi", "Thériault"),
   person("Dominique", "Makowski")
   ),
   journal="CRAN",
@@ -15,7 +16,7 @@ bibentry(
   url="https://easystats.github.io/easystats/",
 
   textVersion =
-    paste("Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, & Makowski (2022). easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting. CRAN.",
+    paste("Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, Thériault, & Makowski (2022). easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting. CRAN.",
           "Available from https://easystats.github.io/easystats/"
     ),
   mheader = "To cite easystats in publications use:"
