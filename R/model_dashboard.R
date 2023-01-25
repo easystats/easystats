@@ -45,13 +45,7 @@
 #' which can be set using `check_model_args`, to increase performance (in
 #' particular the `check`-argument can help, to skip some unnecessary checks).
 #'
-#' @examples
-#' # the only required argument is a regression model; without it, the function won't work
-#' try({
-#'   model_dashboard()
-#' })
-#'
-#' @examplesIf interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)
+#' @examplesIf FALSE && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)
 #' # define a regression model
 #' mod <- lm(wt ~ mpg, mtcars)
 #'
