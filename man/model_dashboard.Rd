@@ -74,7 +74,7 @@ particular the \code{check}-argument can help, to skip some unnecessary checks).
 }
 
 \examples{
-\dontshow{if (FALSE && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # define a regression model
 mod <- lm(wt ~ mpg, mtcars)
 
