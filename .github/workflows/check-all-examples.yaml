@@ -1,0 +1,19 @@
+# Make sure all examples run successfully, even the ones that are not supposed
+# to be run or tested on CRAN machines by default.
+#
+# The examples that fail should use
+#  - `if (FALSE) { ... }` (if example is included only for illustrative purposes)
+#  - `try({ ... })` (if the intent is to show the error)
+#
+# This workflow helps find such failing examples that need to be modified.
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: check-all-examples
+
+jobs:
+  check-all-examples:
+    uses: easystats/workflows/.github/workflows/check-all-examples.yaml@main

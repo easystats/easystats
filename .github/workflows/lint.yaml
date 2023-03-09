@@ -5,12 +5,9 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  release:
-    types: [published]
-  workflow_dispatch:
 
-name: pkgdown
+name: lint
 
 jobs:
-  pkgdown:
-    uses: easystats/workflows/.github/workflows/pkgdown.yaml@main
+  lint:
+    uses: easystats/workflows/.github/workflows/lint.yaml@main

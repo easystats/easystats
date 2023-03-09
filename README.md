@@ -1,6 +1,13 @@
 
 # *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
+<!-- [![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION) -->
+
+[![downloads](https://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/)
+[![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+
 ## What is *easystats*?
 
 *easystats* is a collection of R packages, which aims to provide a
@@ -46,16 +53,16 @@ citation("easystats")
 
 To cite easystats in publications use:
 
-  Lüdecke, Patil, Ben-Shachar, Wiernik, & Makowski (2022). easystats:
-  Framework for Easy Statistical Modeling, Visualization, and
-  Reporting. CRAN. Available from
+  Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, Thériault, & Makowski
+  (2022). easystats: Framework for Easy Statistical Modeling,
+  Visualization, and Reporting. CRAN. Available from
   https://easystats.github.io/easystats/
 
 A BibTeX entry for LaTeX users is
 
   @Article{,
     title = {easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting},
-    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Dominique Makowski},
+    author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Etienne Bacher and Rémi Thériault and Dominique Makowski},
     journal = {CRAN},
     year = {2022},
     note = {R package},
@@ -86,18 +93,18 @@ analysis and data visualization.
   statistical models
 - [**bayestestR**](https://easystats.github.io/bayestestR/): 👻 Great
   for beginners or experts of Bayesian statistics
+- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute,
+  convert, interpret and work with indices of effect size and
+  standardized parameters
+- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion
+  to create beautiful results visualizations
 - [**parameters**](https://easystats.github.io/parameters/): 📊 Obtain a
   table containing all information about the parameters of your models
 - [**performance**](https://easystats.github.io/performance/): 💪
   Models’ quality and performance metrics (R2, ICC, LOO, AIC, BF, …)
-- [**effectsize**](https://easystats.github.io/effectsize/): 🐉 Compute,
-  convert, interpret and work with indices of effect size and
-  standardized parameters
 - [**insight**](https://easystats.github.io/insight/): 🔮 For
   developers, a package to help you work with different models and
   packages
-- [**see**](https://easystats.github.io/see/): 🎨 The plotting companion
-  to create beautiful results visualizations
 - [**datawizard**](https://easystats.github.io/datawizard/): 🧙 Magic
   potions to clean and transform your data
 
@@ -171,7 +178,13 @@ you can safely use *easystats* packages as dependencies in your own
 packages, without the risk of entering the [dependency
 hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-![](man/figures/depnetwork-1.png)<!-- -->
+``` r
+library(deepdep)
+
+plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+```
+
+<img src="man/figures/depnetwork-1.png" width="100%" />
 
 As we can see, the only exception is the
 [`{see}`](https://easystats.github.io/see/) package, which is
@@ -182,13 +195,13 @@ which does have a substantial number of dependencies.
 
 ### Total downloads
 
-| Total     | insight   | bayestestR | parameters | performance | datawizard | effectsize | correlation | see     | modelbased | report | easystats |
-|:----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 9,752,118 | 3,011,678 | 1,351,571  | 1,338,415  | 1,260,075   | 1,096,619  | 1,040,263  | 271,007     | 244,552 | 91,709     | 45,662 | 567       |
+| Total      | insight   | datawizard | parameters | bayestestR | performance | effectsize | correlation | see     | modelbased | report | easystats |
+|:-----------|:----------|:-----------|:-----------|:-----------|:------------|:-----------|:------------|:--------|:-----------|:-------|:----------|
+| 13,123,444 | 3,997,858 | 1,923,267  | 1,700,731  | 1,664,070  | 1,612,713   | 1,306,008  | 366,736     | 321,926 | 139,838    | 76,940 | 13,357    |
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="man/figures/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
 
 <!-- ### Average monthly downloads -->
 

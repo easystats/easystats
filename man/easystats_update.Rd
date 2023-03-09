@@ -18,12 +18,12 @@ Invisible \code{NULL}.
 Update \emph{easystats}-packages and its dependencies from CRAN, if necessary.
 }
 \examples{
-\dontrun{
+\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # check which local easystats-packages (and their dependencies)
 # are out of date and install updates from CRAN
 easystats_update()
 
 # update only easystats core-packages
 easystats_update("core")
-}
+\dontshow{\}) # examplesIf}
 }

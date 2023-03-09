@@ -42,7 +42,7 @@ hexwall <- function(path,
   sort_mode <- match.arg(sort_mode)
 
   # Load stickers
-  stickers <- c() # Initialize empty vector
+  stickers <- NULL # Initialize empty vector
   for (p in path) {
     # Setup a loop to make it vectorized
     if (tools::file_ext(p) == "") {

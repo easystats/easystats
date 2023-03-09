@@ -1,6 +1,6 @@
-# Getting help with `{datawizard}`
+# Getting help with `{easystats}`
 
-Thanks for using `{datawizard}`. Before filing an issue, there are a few places
+Thanks for using `{easystats}`. Before filing an issue, there are a few places
 to explore and pieces to put together to make the process as smooth as possible.
 
 Start by making a minimal **repr**oducible **ex**ample using the 
