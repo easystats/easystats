@@ -1,4 +1,23 @@
-# easystats 0.5.3
+# easystats (development version)
+
+- Given their significant contributions throughout the ecosystem, the package
+  gains two new authors: Etienne Bacher and Rémi Thériault. Welcome onboard!
+
+# easystats 0.6.0
+
+## Breaking Changes
+
+- The minimum needed R version has been bumped to `3.6`.
+
+* Following functions have been removed since they are not expected to be of
+  any relevance for the users:
+
+  - `CRAN_checks()`
+  - `on_CRAN()`
+
+## Major Changes
+
+* All hard dependencies have been bumped to their latest versions.
 
 * The `model_dashboard()` is now less verbose when some of the various functions
   do not support the provided model class, to keep the output clean.
@@ -46,5 +65,5 @@
   `suppressPackageStartupMessages()`.
 
 * The CRAN-check for errors or warnings in `easystats`-packages is no longer
-  shown by default on startup. Use `easystats::CRAN_checks()` to see them.
+  shown by default on startup. Use `easystats::check_cran_status()` to see them.
 

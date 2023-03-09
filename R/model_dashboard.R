@@ -4,12 +4,12 @@
 #'
 #' A dashboard containing the following details for the entered regression model:
 #'
-#' - a tabular summary of parameter estimates
-#' - a dot-and-whisker plot for parameter estimates
-#' - a tabular summary of indices for the quality of model fit
-#' - a collection of models for checking model assumptions
-#' - a text report
-#' - a model information table
+#' - tabular summary of parameter estimates
+#' - dot-and-whisker plot for parameter estimates
+#' - tabular summary of indices for the quality of model fit
+#' - collection of models for checking model assumptions
+#' - text report
+#' - model information table
 #'
 #' @return
 #' An HTML dashboard.
@@ -34,6 +34,7 @@
 #' @param rmd_dir A string specifying the path to the directory containing the
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
+#' @inheritParams rmarkdown::render
 #'
 #' @section Troubleshooting:
 #' For models with many observations, or for more complex models in general,
@@ -44,22 +45,21 @@
 #' which can be set using `check_model_args`, to increase performance (in
 #' particular the `check`-argument can help, to skip some unnecessary checks).
 #'
-#' @examples
-#' if (interactive()) {
-#'   mod <- lm(wt ~ mpg, mtcars)
+#' @examplesIf interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)
+#' # define a regression model
+#' mod <- lm(wt ~ mpg, mtcars)
 #'
-#'   # with default options
-#'   model_dashboard(mod)
+#' # with default options
+#' model_dashboard(mod)
 #'
-#'   # customizing 'parameters' output: standardize coefficients
-#'   model_dashboard(mod, parameters_args = list(standardize = "refit"))
+#' # customizing 'parameters' output: standardize coefficients
+#' model_dashboard(mod, parameters_args = list(standardize = "refit"))
 #'
-#'   # customizing 'performance' output: only show selected performance metrics
-#'   model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
+#' # customizing 'performance' output: only show selected performance metrics
+#' model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 #'
-#'   # customizing output of model assumptions plot: don't show dots (faster plot)
-#'   model_dashboard(mod, check_model_args = list(show_dots = FALSE))
-#' }
+#' # customizing output of model assumptions plot: don't show dots (faster plot)
+#' model_dashboard(mod, check_model_args = list(show_dots = FALSE))
 #'
 #' @export
 model_dashboard <- function(model,
@@ -68,7 +68,8 @@ model_dashboard <- function(model,
                             performance_args = NULL,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
-                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")) {
+                            rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
+                            quiet = FALSE) {
   insight::check_if_installed(c("DT", "flexdashboard"))
 
   # render report into HTML
@@ -83,6 +84,7 @@ model_dashboard <- function(model,
       output_file = output_file,
       output_dir = output_dir,
       intermediates_dir = output_dir,
+      quiet = quiet,
       params = list(
         model = model,
         check_model_args = check_model_args,

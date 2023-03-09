@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.5.2.5
+Version: 0.6.0.8
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -27,7 +27,14 @@ Authors@R:
              family = "Wiernik",
              role = "aut",
              email = "brenton@wiernik.org",
-             comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")))
+             comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")),
+      person("Etienne", "Bacher", , "etienne.bacher@protonmail.com", role = "aut",
+             comment = c(ORCID = "0000-0002-9271-5075")),
+      person(given = "Rémi", 
+             family = "Thériault",
+             role = "aut", 
+             email = "remi.theriault@mail.mcgill.ca",
+             comment = c(ORCID = "0000-0003-4315-6788", Twitter = "@rempsyc")))
 Maintainer: Daniel Lüdecke <d.luedecke@uke.de>
 Description: A meta-package that installs and loads a set of packages from 
     'easystats' ecosystem in a single step. This collection of packages provide 
@@ -40,27 +47,26 @@ License: GPL-3
 URL: https://easystats.github.io/easystats/
 BugReports: https://github.com/easystats/easystats/issues
 Depends:
-    R (>= 3.5)
+    R (>= 3.6)
 Imports:
-    bayestestR (>= 0.12.1),
-    correlation (>= 0.8.2),
-    datawizard (>= 0.5.1),
-    effectsize (>= 0.7.0.5),
-    insight (>= 0.18.2),
-    modelbased (>= 0.8.5),
-    parameters (>= 0.18.2),
-    performance (>= 0.9.2),
+    bayestestR (>= 0.13.0),
+    correlation (>= 0.8.3),
+    datawizard (>= 0.6.5),
+    effectsize (>= 0.8.3),
+    insight (>= 0.18.8),
+    modelbased (>= 0.8.6),
+    parameters (>= 0.20.2),
+    performance (>= 0.10.2),
     report (>= 0.5.1),
-    see (>= 0.7.2),
+    see (>= 0.7.4),
     tools,
     utils
 Suggests:
     DT,
-    flexdashboard,
+    flexdashboard (>= 0.6.0),
     jsonlite,
     knitr,
     rmarkdown,
-    rvest,
     testthat (>= 3.1.0),
     withr,
     xml2
@@ -68,7 +74,7 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3.9000
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 Config/Needs/website:

@@ -11,7 +11,8 @@ model_dashboard(
   performance_args = NULL,
   output_file = "easydashboard.html",
   output_dir = getwd(),
-  rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats")
+  rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
+  quiet = FALSE
 )
 }
 \arguments{
@@ -41,6 +42,11 @@ report in \code{rmarkdown::render()}. Default is to use the working directory.}
 \item{rmd_dir}{A string specifying the path to the directory containing the
 RMarkdown template file. By default, package uses the template shipped with
 the package installation (\code{inst/templates/easydashboard.Rmd}).}
+
+\item{quiet}{An option to suppress printing during rendering from knitr,
+pandoc command line and others. To only suppress printing of the last
+"Output created: " message, you can set \code{rmarkdown.render.message} to
+\code{FALSE}}
 }
 \value{
 An HTML dashboard.
@@ -48,12 +54,12 @@ An HTML dashboard.
 \description{
 A dashboard containing the following details for the entered regression model:
 \itemize{
-\item a tabular summary of parameter estimates
-\item a dot-and-whisker plot for parameter estimates
-\item a tabular summary of indices for the quality of model fit
-\item a collection of models for checking model assumptions
-\item a text report
-\item a model information table
+\item tabular summary of parameter estimates
+\item dot-and-whisker plot for parameter estimates
+\item tabular summary of indices for the quality of model fit
+\item collection of models for checking model assumptions
+\item text report
+\item model information table
 }
 }
 \section{Troubleshooting}{
@@ -68,20 +74,20 @@ particular the \code{check}-argument can help, to skip some unnecessary checks).
 }
 
 \examples{
-if (interactive()) {
-  mod <- lm(wt ~ mpg, mtcars)
+\dontshow{if (interactive() && require("xml2", quietly = TRUE) && require("flexdashboard", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+# define a regression model
+mod <- lm(wt ~ mpg, mtcars)
 
-  # with default options
-  model_dashboard(mod)
+# with default options
+model_dashboard(mod)
 
-  # customizing 'parameters' output: standardize coefficients
-  model_dashboard(mod, parameters_args = list(standardize = "refit"))
+# customizing 'parameters' output: standardize coefficients
+model_dashboard(mod, parameters_args = list(standardize = "refit"))
 
-  # customizing 'performance' output: only show selected performance metrics
-  model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
+# customizing 'performance' output: only show selected performance metrics
+model_dashboard(mod, performance_args = list(metrics = c("AIC", "RMSE")))
 
-  # customizing output of model assumptions plot: don't show dots (faster plot)
-  model_dashboard(mod, check_model_args = list(show_dots = FALSE))
-}
-
+# customizing output of model assumptions plot: don't show dots (faster plot)
+model_dashboard(mod, check_model_args = list(show_dots = FALSE))
+\dontshow{\}) # examplesIf}
 }

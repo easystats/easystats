@@ -1,38 +1,3 @@
-#' @keywords internal_list
-# styler: off
-.suggested_pkgs <- function() {
-  insight::compact_list(list(
-    insight     = .find_suggested("insight"),
-    datawizard  = .find_suggested("datawizard"),
-    performance = .find_suggested("performance"),
-    parameters  = .find_suggested("parameters"),
-    see         = .find_suggested("see"),
-    effectsize  = .find_suggested("effectsize"),
-    bayestestR  = .find_suggested("bayestestR"),
-    correlation = .find_suggested("correlation"),
-    report      = .find_suggested("report"),
-    modelbased  = .find_suggested("modelbased")
-  ))
-}
-
-.revdep_pkgs <- function() {
-  insight::compact_list(list(
-    insight     = .find_reverse_dependencies("insight"),
-    datawizard  = .find_reverse_dependencies("datawizard"),
-    performance = .find_reverse_dependencies("performance"),
-    parameters  = .find_reverse_dependencies("parameters"),
-    see         = .find_reverse_dependencies("see"),
-    effectsize  = .find_reverse_dependencies("effectsize"),
-    bayestestR  = .find_reverse_dependencies("bayestestR"),
-    correlation = .find_reverse_dependencies("correlation"),
-    report      = .find_reverse_dependencies("report"),
-    modelbased  = .find_reverse_dependencies("modelbased")
-  ))
-}
-# styler: on
-
-
-
 #' Download all suggested packages
 #'
 #' In `easystats`, we have a 0-dependency policy, which makes our packages
@@ -40,7 +5,7 @@
 #' packages for testing (at least all the packages for functions that we
 #' support) and some specific features. These "soft dependencies" can be
 #' downloaded at once using this function. This will allow you to fully utilize
-#' 100\% of easystats' functionalities without errors.
+#' all of easystats' functionalities without errors.
 #'
 #' @param package If `NULL` or `"easystats"` (the default), all suggested
 #'   packages for all 'easystats' packages will be installed. If specific
@@ -61,13 +26,18 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
-#' @examples
-#' \dontrun{
-#' install_suggested("easystats")
+#' @examplesIf require("xml2", quietly = TRUE)
+#'
+#' # download all suggested packages
+#' if (FALSE) {
+#'   install_suggested("easystats")
+#' }
 #'
 #' # listing all reverse dependencies of easystats packages
 #' show_reverse_dependencies()
-#' }
+#'
+#' # listing all soft/weak dependencies of easystats packages
+#' show_suggested()
 #'
 #' @export
 install_suggested <- function(package = "easystats") {
@@ -80,11 +50,10 @@ install_suggested <- function(package = "easystats") {
   # unique suggested packages to download
   pkg_download <- unique(unlist(suggested_packages[package]))
 
-
   # install only the packages not yet installed
   installed_packages <- pkg_download %in% .installed_packages()
 
-  if (any(!installed_packages)) {
+  if (!all(installed_packages)) {
     utils::install.packages(pkg_download[!installed_packages])
   } else {
     message("All of the suggested packages are already installed :)")
@@ -139,7 +108,37 @@ show_reverse_dependencies <- function(package = "easystats") {
   invisible(x)
 }
 
+#' @keywords internal
+.suggested_pkgs <- function() {
+  insight::compact_list(list(
+    insight     = .find_suggested("insight"),
+    datawizard  = .find_suggested("datawizard"),
+    performance = .find_suggested("performance"),
+    parameters  = .find_suggested("parameters"),
+    see         = .find_suggested("see"),
+    effectsize  = .find_suggested("effectsize"),
+    bayestestR  = .find_suggested("bayestestR"),
+    correlation = .find_suggested("correlation"),
+    report      = .find_suggested("report"),
+    modelbased  = .find_suggested("modelbased")
+  ))
+}
 
+#' @keywords internal
+.revdep_pkgs <- function() {
+  insight::compact_list(list(
+    insight     = .find_reverse_dependencies("insight"),
+    datawizard  = .find_reverse_dependencies("datawizard"),
+    performance = .find_reverse_dependencies("performance"),
+    parameters  = .find_reverse_dependencies("parameters"),
+    see         = .find_reverse_dependencies("see"),
+    effectsize  = .find_reverse_dependencies("effectsize"),
+    bayestestR  = .find_reverse_dependencies("bayestestR"),
+    correlation = .find_reverse_dependencies("correlation"),
+    report      = .find_reverse_dependencies("report"),
+    modelbased  = .find_reverse_dependencies("modelbased")
+  ))
+}
 
 # crawl suggestion fields
 
@@ -153,8 +152,9 @@ show_reverse_dependencies <- function(package = "easystats") {
     return(NULL)
   }
 
-  # clean
-  suggested_packages <- insight::trim_ws(gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE))))
+  suggested_packages <- insight::trim_ws(
+    gsub("(\n|\\(.*\\))", "", unlist(strsplit(suggests, ",", fixed = TRUE)))
+  )
 
   # remove Bioconductor packages
   setdiff(suggested_packages, "M3C")
