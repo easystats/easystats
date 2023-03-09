@@ -1,14 +1,21 @@
-.onAttach <- function(...) {
+.onAttach <- function(libname, pkgname) {
   easystats_versions <- .easystats_version()
   easystats_pkgs <- .packages_on_cran()
-  needed <- easystats_pkgs[!is_attached(easystats_pkgs)]
+  needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
 
-  if (length(needed) == 0) {
+  if (length(needed) == 0L) {
     return()
   }
 
   easystats_versions <- easystats_versions[easystats_versions$package %in% needed, ]
-  suppressPackageStartupMessages(suppressWarnings(lapply(easystats_versions$package, library, character.only = TRUE, warn.conflicts = FALSE)))
+  suppressPackageStartupMessages(suppressWarnings(
+    lapply(
+      easystats_versions$package,
+      library,
+      character.only = TRUE,
+      warn.conflicts = FALSE
+    )
+  ))
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]
@@ -37,7 +44,7 @@
 
   final_message <- paste0(final_message, "\n")
 
-  # adapted from {cli} pakcage
+  # adapted from {cli} package
   is_latex_output <- function() {
     if (!("knitr" %in% loadedNamespaces())) {
       return(FALSE)
@@ -74,12 +81,18 @@
 
     final_message <- paste0(
       final_message,
-      insight::color_text(format(easystats_versions$package[i], width = max_len_pkg), theme_color),
+      insight::color_text(
+        format(easystats_versions$package[i], width = max_len_pkg),
+        theme_color
+      ),
       " ",
-      insight::color_text(format(easystats_versions$local[i], width = max_len_ver), ifelse(needs_update[i], "red", "green"))
+      insight::color_text(
+        format(easystats_versions$local[i], width = max_len_ver),
+        ifelse(needs_update[i], "red", "green")
+      )
     )
 
-    if (i %% 2 == 0) {
+    if (i %% 2 == 0L) {
       final_message <- paste0(final_message, "\n")
     } else {
       final_message <- paste0(final_message, "   ")
@@ -96,6 +109,6 @@
   packageStartupMessage(final_message)
 }
 
-is_attached <- function(x) {
+.is_attached <- function(x) {
   paste0("package:", x) %in% search()
 }

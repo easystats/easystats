@@ -15,6 +15,7 @@
 ^pkgdown$
 ^_pkgdown$
 ^_pkgdown.yml$
+^_pkgdown.yaml$
 ^\.httr-oauth$
 ^CRAN-RELEASE$
 tests\^spelling
@@ -35,3 +36,4 @@ hextools
 ^WIP/.
 ^CODE_OF_CONDUCT\.md$
 \.code-workspace$
+^CRAN-SUBMISSION$

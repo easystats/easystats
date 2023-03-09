@@ -1,16 +1,12 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
-  push:
-    branches: [main, master]
   pull_request:
     branches: [main, master]
-  release:
-    types: [published]
-  workflow_dispatch:
+    paths: ["**.[rR]", "**.[qrR]md", "**.[rR]markdown", "**.[rR]nw"]
 
-name: pkgdown
+name: Style
 
 jobs:
-  pkgdown:
-    uses: easystats/workflows/.github/workflows/pkgdown.yaml@main
+  styler:
+    uses: easystats/workflows/.github/workflows/styler.yaml@main

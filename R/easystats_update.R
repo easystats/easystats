@@ -6,15 +6,14 @@
 #'
 #' @return Invisible `NULL`.
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf FALSE
 #' # check which local easystats-packages (and their dependencies)
 #' # are out of date and install updates from CRAN
 #' easystats_update()
 #'
 #' # update only easystats core-packages
 #' easystats_update("core")
-#' }
+#'
 #' @export
 easystats_update <- function(which = c("all", "core", "deps")) {
   which <- match.arg(which)

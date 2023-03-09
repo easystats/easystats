@@ -20,18 +20,16 @@
 #'
 #' @return Invisible `NULL`.
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf FALSE
 #' # install latest development-version of easystats packages from
 #' # the r-universe repository, but only those packages that have newer
 #' # versions available
-#' install.latest()
+#' install_latest()
 #'
 #' # install all latest development-version of easystats packages from
 #' # the r-universe repository, no matter whether local installations
 #' # are up to date or not.
-#' install.latest(force = TRUE)
-#' }
+#' install_latest(force = TRUE)
 #' @export
 install_latest <- function(source = c("development", "cran"),
                            packages = "all",
@@ -39,8 +37,13 @@ install_latest <- function(source = c("development", "cran"),
                            verbose = TRUE) {
   source <- match.arg(source, c("development", "cran"))
   pkg <- .packages_on_cran()
+  install_all_packages <- FALSE
 
-  if (all(packages == "all")) {
+  if (length(packages) == 1L && packages == "all") {
+    install_all_packages <- TRUE
+  }
+
+  if (install_all_packages) {
     packages <- pkg
   } else {
     packages <- intersect(packages, pkg)
@@ -72,7 +75,7 @@ install_latest <- function(source = c("development", "cran"),
       colnames(easy_pkgs) <- c("Package", "Latest", "Installed", "behind")
       easy_pkgs <- easy_pkgs[easy_pkgs$behind, ]
       cat(insight::print_color("\nInstalling following packages:\n\n", "blue"))
-      cat(insight::export_table(easy_pkgs[c("Package", "Latest", "Installed")]))
+      cat(insight::export_table(easy_pkgs[c("Package", "Installed", "Latest")]))
       cat("\n\n")
     }
   }

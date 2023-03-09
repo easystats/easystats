@@ -2,19 +2,24 @@
 output: github_document
 ---
 
-# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
-
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
   dpi = 150,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
+  out.width = "100%",
   fig.path = "man/figures/",
   fig.width = 0.7 * 16.18034,
   fig.height = 0.7 * 10
 )
 ```
+
+# *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
+
+<!-- [![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION) -->
+[![downloads](https://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/) [![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## What is *easystats*?
 
@@ -150,54 +155,10 @@ following presentations and talks to learn more about this ecosystem:
 *easystats* packages are designed to be lightweight, *i.e.*, they don't have any third-party hard dependencies, other than base-R packages or other *easystats* packages!
 If you develop R packages, this means that you can safely use *easystats* packages as dependencies in your own packages, without the risk of entering the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-```{r depnetwork, echo=FALSE}
-easystats_pkgs <- available.packages(repos = "https://easystats.r-universe.dev")
-pkgsnms <- rownames(easystats_pkgs)
+```{r depnetwork}
+library(deepdep)
 
-library("miniCRAN")
-
-dg <- makeDepGraph(easystats_pkgs[, "Package"],
-  availPkgs = easystats_pkgs,
-  depends = TRUE, suggests = FALSE, enhances = FALSE,
-  includeBasePkgs = FALSE
-)
-
-# plot(dg, main = NULL, legendPosition = c(-1, 1), vertex.size = 15, cex = 0.8)
-
-x <- dg
-class(x) <- "igraph"
-
-ndeps <- lapply(easystats_pkgs[, "Package"], pkgDep,
-  availPkgs = easystats_pkgs,
-  depends = TRUE, suggests = FALSE, enhances = FALSE,
-  includeBasePkgs = FALSE
-)
-ndeps <- sapply(ndeps, length)
-
-
-pnames <- igraph::V(x)$name
-cols <- viridis::inferno(4, begin = 0.3, end = 0.8)
-pcols <- setNames(character(length = length(pnames)), pnames)
-pcols[] <- "red"
-pcols[ndeps <= 7] <- cols[4]
-pcols[ndeps <= 4] <- cols[3]
-pcols[ndeps == 2] <- cols[2]
-pcols[ndeps == 1] <- cols[1]
-pcols[!pnames %in% easystats_pkgs[, "Package"]] <- "white"
-
-set.seed(123)
-par(mai = rep(0, 4))
-igraph::plot.igraph(x,
-  vertex.size = 15,
-  edge.arrow.size = 0.5,
-  edge.color = "grey",
-  vertex.label.cex = 0.8,
-  vertex.label.color = "black",
-  vertex.color = pcols,
-  vertex.shape = "circle",
-  vertex.label.font = 2,
-  xlim = c(-1.5, 1)
-)
+plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
 ```
 
 As we can see, the only exception is the [`{see}`](https://easystats.github.io/see/) package, which is responsible for plotting and creating
@@ -214,6 +175,9 @@ library(datawizard)
 # tidverse packages
 library(lubridate)
 library(ggplot2)
+
+easystats_pkgs <- available.packages(repos = "https://easystats.r-universe.dev")
+pkgsnms <- rownames(easystats_pkgs)
 
 # Packages data
 downloads <- lapply(pkgsnms, function(x) {
@@ -400,8 +364,8 @@ tmp$Package <- relevel(tmp$Package, "bayestestR", names(packages_colours))
 tmp |>
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
-  geom_line(aes(y = count), size = 0.5, alpha = 0.1) +
-  geom_line(aes(y = average_count), size = 1, alpha = 0.7) +
+  geom_line(aes(y = count), linewidth = 0.5, alpha = 0.1) +
+  geom_line(aes(y = average_count), linewidth = 1, alpha = 0.7) +
   geom_smooth(aes(y = count),
     method = "lm",
     linetype = "dotted",
