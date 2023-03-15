@@ -53,11 +53,11 @@ Imports:
     correlation (>= 0.8.3),
     datawizard (>= 0.6.5),
     effectsize (>= 0.8.3),
-    insight (>= 0.18.8),
+    insight (>= 0.19.0),
     modelbased (>= 0.8.6),
     parameters (>= 0.20.2),
     performance (>= 0.10.2),
-    report (>= 0.5.1),
+    report (>= 0.5.6),
     see (>= 0.7.4),
     tools,
     utils
