@@ -1,0 +1,12 @@
+# Run tests in random order
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: check-random-test-order
+
+jobs:
+  check-random-test-order:
+    uses: easystats/workflows/.github/workflows/check-random-test-order.yaml@main
