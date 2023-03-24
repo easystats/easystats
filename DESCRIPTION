@@ -58,16 +58,16 @@ Imports:
     parameters (>= 0.20.2),
     performance (>= 0.10.2),
     report (>= 0.5.7),
-    see (>= 0.7.4),
+    see (>= 0.7.5),
     tools,
     utils
 Suggests:
     DT,
-    flexdashboard (>= 0.6.0),
+    flexdashboard (>= 0.6.1),
     jsonlite,
     knitr,
     rmarkdown,
-    testthat (>= 3.1.0),
+    testthat (>= 3.1.7),
     withr,
     xml2
 VignetteBuilder: 
@@ -81,4 +81,3 @@ Config/Needs/website:
     rstudio/bslib,
     r-lib/pkgdown,
     easystats/easystatstemplate
-Remotes: easystats/datawizard, easystats/insight
