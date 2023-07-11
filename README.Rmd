@@ -176,8 +176,9 @@ library(datawizard)
 library(lubridate)
 library(ggplot2)
 
-easystats_pkgs <- available.packages(repos = "https://easystats.r-universe.dev")
-pkgsnms <- rownames(easystats_pkgs)
+pkgsnms <- c("bayestestR", "correlation", "datawizard", "easystats", 
+        "effectsize", "insight", "modelbased", "performance", 
+        "parameters", "report", "see")
 
 # Packages data
 downloads <- lapply(pkgsnms, function(x) {
