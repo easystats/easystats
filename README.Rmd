@@ -176,8 +176,7 @@ library(datawizard)
 library(lubridate)
 library(ggplot2)
 
-easystats_pkgs <- available.packages(repos = "https://easystats.r-universe.dev")
-pkgsnms <- rownames(easystats_pkgs)
+pkgsnms <- easystats:::.packages_on_cran()
 
 # Packages data
 downloads <- lapply(pkgsnms, function(x) {
