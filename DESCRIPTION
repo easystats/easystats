@@ -53,7 +53,7 @@ Imports:
     correlation (>= 0.8.4),
     datawizard (>= 0.8.0),
     effectsize (>= 0.8.3),
-    insight (>= 0.19.3),
+    insight (>= 0.19.3.2),
     modelbased (>= 0.8.6),
     parameters (>= 0.21.1),
     performance (>= 0.10.4),
@@ -81,3 +81,4 @@ Config/Needs/website:
     rstudio/bslib,
     r-lib/pkgdown,
     easystats/easystatstemplate
+Remotes: easystats/insight
