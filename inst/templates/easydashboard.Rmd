@@ -90,7 +90,7 @@ Column {data-width=300}
 ### Indices of model fit
 
 ```{r easydashboard-3, eval=is_supported}
-# `{performance}`
+# {performance}
 performance_args <- c(list(model), params$performance_args)
 # add verbose, if not done yet
 if (is.null(performance_args$verbose)) performance_args$verbose <- FALSE
@@ -154,7 +154,7 @@ Column {data-width=600}
 ### Plot
 
 ```{r expected-values, eval=is_supported, fig.height=10, fig.width=10}
-# `{modelbased}`
+# {modelbased}
 int_terms <- find_interactions(model, component = "conditional", flatten = TRUE)
 con_terms <- find_variables(model)$conditional
 
@@ -249,7 +249,7 @@ Column {data-width=500}
 ### Textual summary
 
 ```{r easydashboard-11, eval=is_supported, results='asis', collapse=TRUE}
-# `{report}`
+# {report}
 text_report <- tryCatch(
   {
     report(model, verbose = FALSE)
