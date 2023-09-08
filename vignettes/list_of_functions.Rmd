@@ -9,7 +9,19 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+library(insight)
+library(datawizard)
+library(bayestestR)
+library(parameters)
+library(performance)
+library(correlation)
+library(effectsize)
+library(modelbased)
+library(see)
+library(report)
+library(easystats)
+
 options(
   knitr.kable.NA = "",
   digits = 2
@@ -30,17 +42,6 @@ package ecosystem.
 
 ```{r echo=FALSE, results='asis'}
 # it would be cool to add the title / description for all functions
-library(insight)
-library(datawizard)
-library(bayestestR)
-library(parameters)
-library(performance)
-library(correlation)
-library(effectsize)
-library(modelbased)
-library(see)
-library(report)
-library(easystats)
 
 all_funs <- NULL
 
