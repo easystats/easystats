@@ -53,10 +53,10 @@ install_suggested <- function(package = "easystats") {
   # install only the packages not yet installed
   installed_packages <- pkg_download %in% .installed_packages()
 
-  if (!all(installed_packages)) {
-    utils::install.packages(pkg_download[!installed_packages])
-  } else {
+  if (all(installed_packages)) {
     message("All of the suggested packages are already installed :)")
+  } else {
+    utils::install.packages(pkg_download[!installed_packages])
   }
 }
 
