@@ -26,7 +26,7 @@ model information table
     
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0.12</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0.13</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,7 +121,8 @@ model information table
 <span>  output_file <span class="op">=</span> <span class="st">"easydashboard.html"</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  rmd_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"templates/easydashboard.Rmd"</span>, package <span class="op">=</span> <span class="st">"easystats"</span><span class="op">)</span>,</span>
-<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  browse_html <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -134,14 +135,16 @@ model information table
 <dt>check_model_args</dt>
 <dd><p>A list of named arguments that are passed down to
 <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">performance::check_model()</a></code>. For further documentation and details
-about the arguments, see <a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">this website</a>.
+about the arguments,
+see <a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">this website</a>.
 See also 'Examples'.</p></dd>
 
 
 <dt>parameters_args</dt>
 <dd><p>A list of named arguments that are passed down to
 <code><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">parameters::model_parameters()</a></code>. For further documentation and details
-about the arguments, see <a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">this website</a>.
+about the arguments,
+see <a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">this website</a>.
 See also 'Examples'.</p></dd>
 
 
@@ -173,6 +176,11 @@ the package installation (<code>inst/templates/easydashboard.Rmd</code>).</p></d
 pandoc command line and others. To only suppress printing of the last
 "Output created: " message, you can set <code>rmarkdown.render.message</code> to
 <code>FALSE</code></p></dd>
+
+
+<dt>browse_html</dt>
+<dd><p>A logical deciding if the rendered HTML should be opened
+in the browser. Defaults to <code><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
