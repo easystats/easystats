@@ -34,6 +34,7 @@ references.bib
 ^\.github/workflows/pr-commands\.yaml$
 hextools
 ^WIP/.
+^.dev/.
 ^CODE_OF_CONDUCT\.md$
 \.code-workspace$
 ^CRAN-SUBMISSION$

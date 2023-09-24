@@ -1,0 +1,46 @@
+---
+title: "easystats-benchmark"
+format: html
+---
+
+```{r}
+#| warning: false
+#| message: false
+#| cache: false
+library(easystats)
+```
+
+## Benchmarking dashboard
+
+```{r}
+options(
+  tibble.width      = Inf,
+  pillar.bold       = TRUE,
+  pillar.neg        = TRUE,
+  pillar.subtle_num = TRUE,
+  pillar.min_chars  = Inf,
+  pillar.sigfig     = 10L
+)
+
+withr::with_tempdir({
+  suppressPackageStartupMessages(library(lme4, warn.conflicts = TRUE))
+  m <- lme4::lmer(formula = Reaction ~ Days + (Days | Subject), data = sleepstudy)
+
+  bench_df <- bench::mark(
+    "dashboard" = {
+       easystats::model_dashboard(m, quiet = TRUE, browse_html = FALSE)
+    },
+    iterations = 50L,
+    time_unit = "ms"
+  )
+
+  print(bench_df)
+})
+```
+
+## Session info
+
+```{r}
+Sys.time()
+sessioninfo::session_info(include_base = TRUE)
+```

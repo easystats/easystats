@@ -16,24 +16,28 @@
 #'
 #' @param model A regression model object.
 #' @param check_model_args A list of named arguments that are passed down to
-#'   `performance::check_model()`. For further documentation and details
-#'   about the arguments, see [this website](https://easystats.github.io/performance/reference/check_model.html).
+#'   [performance::check_model()]. For further documentation and details
+#'   about the arguments,
+#'   see [this website](https://easystats.github.io/performance/reference/check_model.html).
 #'   See also 'Examples'.
 #' @param parameters_args A list of named arguments that are passed down to
-#'   `parameters::model_parameters()`. For further documentation and details
-#'   about the arguments, see [this website](https://easystats.github.io/parameters/reference/model_parameters.html).
+#'   [parameters::model_parameters()]. For further documentation and details
+#'   about the arguments,
+#'   see [this website](https://easystats.github.io/parameters/reference/model_parameters.html).
 #'   See also 'Examples'.
 #' @param performance_args A list of named arguments that are passed down to
-#'   `performance::model_performance()`. For further documentation and details
+#'   [performance::model_performance()]. For further documentation and details
 #'   about the arguments, see [this website](https://easystats.github.io/performance/reference/model_performance.html).
 #'   See also 'Examples'.
-#' @param output_file A string specifying the file name in `rmarkdown::render()`.
-#' Default is `"easydashboard.html"`.
+#' @param output_file A string specifying the file name in [rmarkdown::render()].
+#'   Default is `"easydashboard.html"`.
 #' @param output_dir A string specifying the path to the output directory for
 #'   report in `rmarkdown::render()`. Default is to use the working directory.
 #' @param rmd_dir A string specifying the path to the directory containing the
 #'   RMarkdown template file. By default, package uses the template shipped with
 #'   the package installation (`inst/templates/easydashboard.Rmd`).
+#' @param browse_html A logical deciding if the rendered HTML should be opened
+#'   in the browser. Defaults to [interactive()].
 #' @inheritParams rmarkdown::render
 #'
 #' @section Troubleshooting:
@@ -69,7 +73,8 @@ model_dashboard <- function(model,
                             output_file = "easydashboard.html",
                             output_dir = getwd(),
                             rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
-                            quiet = FALSE) {
+                            quiet = FALSE,
+                            browse_html = interactive()) {
   insight::check_if_installed(c("DT", "flexdashboard"))
 
   # render report into HTML
@@ -96,5 +101,7 @@ model_dashboard <- function(model,
 
   # open dashboard
   report_path <- path.expand(file.path(output_dir, output_file))
-  utils::browseURL(report_path)
+  if (browse_html) {
+    utils::browseURL(report_path)
+  }
 }

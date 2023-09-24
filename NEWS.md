@@ -1,7 +1,15 @@
 # easystats (development version)
 
+## Major Changes
+
 - Given their significant contributions throughout the ecosystem, the package
-  gains two new authors: Etienne Bacher and Rémi Thériault. Welcome onboard!
+  gains two new authors: [Etienne Bacher](https://github.com/etiennebacher) 
+  and [Rémi Thériault](https://github.com/rempsyc). Welcome on-board!
+  
+## Minor Changes
+
+- `model_dashboard()` gains a new argument `browse_html` to control if the
+  rendered dashboard is opened in the browser.
 
 # easystats 0.6.0
 
