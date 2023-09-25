@@ -16,7 +16,7 @@ test_that("it doesn't fail for unsupported models", {
 
 test_that("it opens HTML in browser in interactive context", {
   # you don't want to open the browser during testing for real,
-  # so we need to mock this base function
+  # so we need to use mock testing
   local_mocked_bindings(browse_mock_function = function(...) TRUE)
 
   withr::with_tempdir(code = {
