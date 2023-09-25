@@ -105,8 +105,3 @@ model_dashboard <- function(model,
     utils::browseURL(report_path)
   }
 }
-
-# necessary for writing a mock test (see `/tests/testthat/test-model-dashboard.R`)
-# cf. https://testthat.r-lib.org/reference/local_mocked_bindings.html#namespaced-calls
-browse_url_wrapper <- function(...) utils::browseURL(...)
-browse_mock_function <- function() browse_url_wrapper()

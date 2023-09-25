@@ -15,13 +15,12 @@ test_that("it doesn't fail for unsupported models", {
 })
 
 test_that("it opens HTML in browser in interactive context", {
-  # you don't want to open the browser during testing for real,
-  # so we need to use mock testing
-  local_mocked_bindings(browse_mock_function = function(...) TRUE)
+  skip_if_not_installed("mockery")
 
   withr::with_tempdir(code = {
-    filename <- "myfile.html"
-    model_dashboard(NULL, output_file = filename, quiet = TRUE, browse_html = TRUE)
-    expect_true(file.exists(filename))
+    mockery::stub(easystats::model_dashboard, "utils::browseURL", NULL)
+
+    expect_null(model_dashboard(NULL, quiet = TRUE, browse_html = TRUE))
+    expect_invisible(model_dashboard(NULL, quiet = TRUE, browse_html = FALSE))
   })
 })

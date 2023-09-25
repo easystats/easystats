@@ -66,6 +66,7 @@ Suggests:
     flexdashboard (>= 0.6.2),
     jsonlite,
     knitr,
+    mockery,
     rmarkdown,
     testthat (>= 3.1.10),
     withr,
