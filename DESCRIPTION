@@ -43,7 +43,7 @@ Description: A meta-package that installs and loads a set of packages from
     teaching 'easystats', and a dashboard targeted at new R users for easily 
     conducting statistical analysis by accessing summary results, model fit indices, 
     and visualizations with minimal programming.
-License: GPL-3
+License: MIT + file LICENSE
 URL: https://easystats.github.io/easystats/
 BugReports: https://github.com/easystats/easystats/issues
 Depends:

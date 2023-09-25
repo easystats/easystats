@@ -5,6 +5,8 @@
 - Given their significant contributions throughout the ecosystem, the package
   gains two new authors: [Etienne Bacher](https://github.com/etiennebacher) 
   and [Rémi Thériault](https://github.com/rempsyc). Welcome on-board!
+
+- This release changes the licensing model of `{easystats}` to an MIT license.
   
 ## Minor Changes
 
