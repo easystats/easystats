@@ -13,3 +13,15 @@ test_that("it doesn't fail for unsupported models", {
     expect_true(file.exists(filename))
   })
 })
+
+test_that("it opens HTML in browser in interactive context", {
+  # you don't want to open the browser during testing for real,
+  # so we need to mock this base function
+  local_mocked_bindings(browse_mock_function = function(...) TRUE)
+
+  withr::with_tempdir(code = {
+    filename <- "myfile.html"
+    model_dashboard(NULL, output_file = filename, quiet = TRUE, browse_html = TRUE)
+    expect_true(file.exists(filename))
+  })
+})
