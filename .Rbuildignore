@@ -3,7 +3,6 @@
 ^.git/.
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE
 ^README.Rmd
 ^presentations
 ^publications
