@@ -28,7 +28,7 @@ withr::with_tempdir({
 
   bench_df <- bench::mark(
     "dashboard" = {
-       easystats::model_dashboard(m, quiet = TRUE, browse_html = FALSE)
+      easystats::model_dashboard(m, quiet = TRUE, browse_html = FALSE)
     },
     iterations = 50L,
     time_unit = "ms"
