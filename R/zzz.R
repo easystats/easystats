@@ -102,7 +102,10 @@
   if (any(needs_update)) {
     final_message <- paste0(
       final_message,
-      insight::color_text("\nRestart the R-Session and update packages in red with `easystats::easystats_update()`.\n", "yellow")
+      insight::color_text(
+        "\nRestart the R-Session and update packages with `easystats::easystats_update()`.\n",
+        "yellow"
+      )
     )
   }
 
