@@ -27,7 +27,8 @@
 #'   See also 'Examples'.
 #' @param performance_args A list of named arguments that are passed down to
 #'   [performance::model_performance()]. For further documentation and details
-#'   about the arguments, see [this website](https://easystats.github.io/performance/reference/model_performance.html).
+#'   about the arguments,
+#'   see [this website](https://easystats.github.io/performance/reference/model_performance.html).
 #'   See also 'Examples'.
 #' @param output_file A string specifying the file name in [rmarkdown::render()].
 #'   Default is `"easydashboard.html"`.

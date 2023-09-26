@@ -33,7 +33,8 @@ See also 'Examples'.}
 
 \item{performance_args}{A list of named arguments that are passed down to
 \code{\link[performance:model_performance]{performance::model_performance()}}. For further documentation and details
-about the arguments, see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
+about the arguments,
+see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
 See also 'Examples'.}
 
 \item{output_file}{A string specifying the file name in \code{\link[rmarkdown:render]{rmarkdown::render()}}.
