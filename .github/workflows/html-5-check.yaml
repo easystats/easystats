@@ -9,5 +9,5 @@ on:
 name: HTML5 check
 
 jobs:
-  HTML5-check:
+  html-5-check:
     uses: easystats/workflows/.github/workflows/html-5-check.yaml@main
