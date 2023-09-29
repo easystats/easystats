@@ -99,9 +99,9 @@
     )
 
     # remove empty
-    easystats_not_on_cran <- easystats_not_on_cran[nchar(easystats_not_on_cran) > 0]
+    easystats_not_on_cran <- easystats_not_on_cran[nchar(easystats_not_on_cran) > 0L]
 
-    # only check for dev-versions when these are actually installed...
+    # only check for dev-versions when these are actually installed
     if (length(easystats_not_on_cran) > 0L) {
       local_version_dev <- lapply(easystats_not_on_cran, utils::packageVersion)
 
