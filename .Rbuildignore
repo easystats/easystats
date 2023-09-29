@@ -8,7 +8,6 @@
 ^publications
 ^old
 ^scripts
-^tests
 ^paper
 ^cran-comments\.md$
 ^pkgdown$
