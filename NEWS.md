@@ -7,6 +7,8 @@
   and [Rémi Thériault](https://github.com/rempsyc). Welcome on-board!
 
 - This release changes the licensing model of `{easystats}` to an MIT license.
+
+- All component packages have been bumped to their latest versions.
   
 ## Minor Changes
 
