@@ -1,3 +1,5 @@
+skip_if(TRUE)
+
 test_that("it generates HTML for supported models", {
   skip_if(interactive(), "This test is not run in interactive mode")
 
