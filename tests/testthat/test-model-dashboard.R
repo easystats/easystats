@@ -1,5 +1,7 @@
+skip_if_not_installed("flexdashboard")
+skip_if_not_installed("DT")
+
 test_that("it generates HTML for supported models", {
-  skip_on_cran()
   skip_if(interactive(), "This test is not run in interactive mode")
 
   withr::with_tempdir(code = {
@@ -10,7 +12,6 @@ test_that("it generates HTML for supported models", {
 })
 
 test_that("it doesn't fail for unsupported models", {
-  skip_on_cran()
   skip_if(interactive(), "This test is not run in interactive mode")
 
   withr::with_tempdir(code = {
@@ -21,7 +22,6 @@ test_that("it doesn't fail for unsupported models", {
 })
 
 test_that("it opens HTML in browser in interactive context", {
-  skip_on_cran()
   skip_if(interactive(), "This test is not run in interactive mode")
   skip_if_not_installed("mockery")
 
