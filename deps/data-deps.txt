@@ -2,6 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet" />
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script>
+<script src="deps/bslib-component-js-0.5.1.9000/components.min.js"></script>
+<script src="deps/bslib-component-js-0.5.1.9000/web-components.min.js" type="module"></script>
+<link href="deps/bslib-component-css-0.5.1.9000/components.css" rel="stylesheet" />
 <link href="deps/Roboto-0.4.7/font.css" rel="stylesheet" />
 <link href="deps/JetBrains_Mono-0.4.7/font.css" rel="stylesheet" />
 <link href="deps/Roboto_Slab-0.4.7/font.css" rel="stylesheet" />
