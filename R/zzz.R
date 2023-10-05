@@ -65,11 +65,9 @@
     # symbol_warning <- "\u26A0 "
     symbol_tick <- "\u2714 "
     symbol_warning <- "\u2716 "
-    symbol_info <- "\u2139 "
   } else {
     symbol_tick <- "\u221A "
     symbol_warning <- "x "
-    symbol_info <- "i "
   }
 
   for (i in seq_len(nrow(easystats_versions))) {

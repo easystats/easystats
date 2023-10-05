@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# To run on
+# - mac:     > sh <filename>.sh
+# - windows: > bash <filename>.sh
+
 # Define the search and replace strings
 search_string="# sanity check"
 replace_string="# validation check"
