@@ -41,7 +41,24 @@
     }
   )
 
-  if (!is.null(pkgs)) {
+  if (is.null(pkgs)) {
+    easystats_pkgs <- .packages_on_github()
+    easystats_on_cran <- .packages_on_cran()
+    easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
+
+    local_version <- lapply(easystats_on_cran, utils::packageVersion)
+
+    out <- data.frame(
+      package = easystats_on_cran,
+      cran = NA,
+      local = vapply(local_version, as.character, FUN.VALUE = character(1L)),
+      behind = FALSE,
+      stringsAsFactors = FALSE,
+      row.names = NULL
+    )
+
+    .add_easystats_dev_pkgs(out, easystats_not_on_cran)
+  } else {
     easystats_pkgs <- .packages_on_github()
     easystats_on_cran <- intersect(easystats_pkgs, rownames(pkgs))
     easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
@@ -56,23 +73,6 @@
       cran = vapply(cran_version, as.character, FUN.VALUE = character(1L)),
       local = vapply(local_version, as.character, FUN.VALUE = character(1L)),
       behind = behind,
-      stringsAsFactors = FALSE,
-      row.names = NULL
-    )
-
-    .add_easystats_dev_pkgs(out, easystats_not_on_cran)
-  } else {
-    easystats_pkgs <- .packages_on_github()
-    easystats_on_cran <- .packages_on_cran()
-    easystats_not_on_cran <- setdiff(easystats_pkgs, easystats_on_cran)
-
-    local_version <- lapply(easystats_on_cran, utils::packageVersion)
-
-    out <- data.frame(
-      package = easystats_on_cran,
-      cran = NA,
-      local = vapply(local_version, as.character, FUN.VALUE = character(1L)),
-      behind = FALSE,
       stringsAsFactors = FALSE,
       row.names = NULL
     )
@@ -99,7 +99,7 @@
     )
 
     # remove empty
-    easystats_not_on_cran <- easystats_not_on_cran[nchar(easystats_not_on_cran) > 0L]
+    easystats_not_on_cran <- easystats_not_on_cran[nzchar(easystats_not_on_cran, keepNA = TRUE)]
 
     # only check for dev-versions when these are actually installed
     if (length(easystats_not_on_cran) > 0L) {
