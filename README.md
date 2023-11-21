@@ -194,9 +194,9 @@ which does have a substantial number of dependencies.
 
 ### Total downloads
 
-| Total      | insight   | datawizard | parameters | bayestestR | performance | effectsize | correlation | see     | modelbased | report  | easystats |
-|:-----------|:----------|:-----------|:-----------|:-----------|:------------|:-----------|:------------|:--------|:-----------|:--------|:----------|
-| 17,954,605 | 5,434,033 | 3,106,920  | 2,194,492  | 2,113,023  | 2,099,008   | 1,669,569  | 523,713     | 431,562 | 227,630    | 124,933 | 29,722    |
+| Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
+|:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
+| 18,522,652 | 5,579,722 | 3,214,792  | 2,266,332  | 2,174,431   | 2,171,426  | 1,719,845  | 542,909     | 448,746 | 238,769    | 131,828 | 33,852    |
 
 ### Trend
 

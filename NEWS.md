@@ -1,3 +1,5 @@
+# easystats (development version)
+
 # easystats 0.7.0
 
 ## Major Changes
