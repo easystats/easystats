@@ -166,8 +166,8 @@ show_reverse_dependencies <- function(package = "easystats") {
 .find_reverse_dependencies <- function(package) {
   insight::check_if_installed("xml2")
 
-  url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
-  html_page <- xml2::read_html(url)
+  pkg_url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
+  html_page <- xml2::read_html(pkg_url)
   elements <- xml2::as_list(html_page)
   rev_import_field <- elements$html$body$div[[15]][[1]][[3]]
 
