@@ -53,7 +53,7 @@ Imports:
     correlation (>= 0.8.4),
     datawizard (>= 0.9.1),
     effectsize (>= 0.8.6),
-    insight (>= 0.19.7),
+    insight (>= 0.19.8),
     modelbased (>= 0.8.6),
     parameters (>= 0.21.3),
     performance (>= 0.10.8),
