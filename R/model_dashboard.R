@@ -78,6 +78,8 @@ model_dashboard <- function(model,
                             browse_html = interactive()) {
   insight::check_if_installed(c("DT", "flexdashboard"))
 
+  model_name <- substitute(model)
+
   # render report into HTML
   suppressWarnings(
     rmarkdown::render(
@@ -93,6 +95,7 @@ model_dashboard <- function(model,
       quiet = quiet,
       params = list(
         model = model,
+        model_name = model_name,
         check_model_args = check_model_args,
         parameters_args = parameters_args,
         performance_args = performance_args
