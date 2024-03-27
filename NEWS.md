@@ -1,5 +1,10 @@
 # easystats (development version)
 
+## Bug fix
+
+* Fixed issue with detecting correct version of development packages when version
+  numbers on CRAN and GitHub were identical.
+
 # easystats 0.7.0
 
 ## Major Changes
