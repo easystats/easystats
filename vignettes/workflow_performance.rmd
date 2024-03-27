@@ -82,7 +82,7 @@ In *performance*, we can conduct a comprehensive visual inspection of our model 
 For now, we want to focus on the _posterior predictive checks_, _dispersion and zero-inflation_ as well as the Q-Q plot (_uniformity of residuals_).
 
 ```{r fig.height=12, fig.width=10}
-check_model(model1, dot_size = 1.2)
+check_model(model1)
 ```
 
 Note that unlike `plot()`, which is a base R function to create diagnostic plots, `check_model()` relies on *simulated residuals* for the Q-Q plot, which is more accurate for non-Gaussian models. See [this vignette](https://easystats.github.io/performance/articles/simulate_residuals.html) and the documentation of `simulate_residuals()` for further details.
@@ -108,7 +108,7 @@ model2 <- glmmTMB::glmmTMB(
   family = poisson,
   data = glmmTMB::Salamanders
 )
-check_model(model2, dot_size = 1.2)
+check_model(model2)
 ```
 
 Looking at the above plots, the zero-inflation seems to be addressed properly (see especially _posterior predictive checks_ and _uniformity of residuals_, the Q-Q plot). However, the overdispersion still could be present. We can check for these problems using `check_overdispersion()` and `check_zeroinflation()` again.
@@ -132,7 +132,7 @@ model3 <- glmmTMB::glmmTMB(
   family = glmmTMB::nbinom1,
   data = glmmTMB::Salamanders
 )
-check_model(model3, dot_size = 1.2)
+check_model(model3)
 ```
 
 Now we see that the plot showing _misspecified dispersion and zero-inflation_ suggests that the overdispersion is better addressed than before. Let us check again:
@@ -195,7 +195,7 @@ model4 <- glmmTMB::glmmTMB(
   family = glmmTMB::nbinom2,
   data = glmmTMB::Salamanders
 )
-check_model(model4, dot_size = 1.2)
+check_model(model4)
 
 check_overdispersion(model4)
 
