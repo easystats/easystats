@@ -177,7 +177,7 @@ include_response <- minfo$is_binomial && minfo$is_logit && is.factor(model_data[
 text_modelbased <- tryCatch(
   {
     lapply(unique(model_terms), function(i) {
-      grid <- get_datagrid(
+      dgrid <- get_datagrid(
         model,
         at = i,
         range = "grid",
@@ -185,7 +185,7 @@ text_modelbased <- tryCatch(
         verbose = FALSE,
         include_response = include_response
       )
-      estimate_expectation(model, data = grid, verbose = FALSE)
+      estimate_expectation(model, data = dgrid, verbose = FALSE)
     })
   },
   error = function(e) {
