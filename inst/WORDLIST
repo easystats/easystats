@@ -1,3 +1,4 @@
+AICc
 CMD
 Dom
 Mattan
@@ -19,15 +20,19 @@ dplyr
 easystats’
 easyverse
 effectsize
+equidispersion
 et
 ggeffects
 ggplot
 ggstatsplot
 github
+glmmTMB
 https
 io
 knitr
 lifecycle
+misspecification
+misspecified
 modelbased
 modelsummary
 pandoc
