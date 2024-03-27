@@ -213,7 +213,7 @@ vignette</a>.</p>
 checks</em>, <em>dispersion and zero-inflation</em> as well as the Q-Q
 plot (<em>uniformity of residuals</em>).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model1</span>, dot_size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
 <p><img src="workflow_performance_files/figure-html/unnamed-chunk-4-1.png" width="100%" height="100%"></p>
 <p>Note that unlike <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>, which is a base R function to
@@ -259,7 +259,7 @@ zero-inflation component:</p>
 <span>  family <span class="op">=</span> <span class="va">poisson</span>,</span>
 <span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model2</span>, dot_size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
 <p><img src="workflow_performance_files/figure-html/unnamed-chunk-6-1.png" width="100%" height="100%"></p>
 <p>Looking at the above plots, the zero-inflation seems to be addressed
@@ -298,7 +298,7 @@ instead of using a Poisson distribution.</p>
 <span>  family <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/nbinom2.html" class="external-link">nbinom1</a></span>,</span>
 <span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model3</span>, dot_size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
 <p><img src="workflow_performance_files/figure-html/unnamed-chunk-8-1.png" width="100%" height="100%"></p>
 <p>Now we see that the plot showing <em>misspecified dispersion and
@@ -448,7 +448,7 @@ might find a better distributional family for our model, and try
 <span>  family <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/nbinom2.html" class="external-link">nbinom2</a></span>,</span>
 <span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model4</span>, dot_size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
 <p><img src="workflow_performance_files/figure-html/unnamed-chunk-14-1.png" width="100%" height="100%"></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
