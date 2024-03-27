@@ -1,12 +1,12 @@
 ---
-title: "Analystic workflow: Assessing model fit"
+title: "Analytic workflow: Assessing model fit"
 output: 
   rmarkdown::html_vignette:
     toc: true
 tags: [r, programing]
 vignette: >
   \usepackage[utf8]{inputenc}
-  %\VignetteIndexEntry{Analystic workflow: Assessing model fit}
+  %\VignetteIndexEntry{Analytic workflow: Assessing model fit}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
