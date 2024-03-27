@@ -51,14 +51,14 @@ Depends:
 Imports:
     bayestestR (>= 0.13.2),
     correlation (>= 0.8.4),
-    datawizard (>= 0.9.1),
+    datawizard (>= 0.10.0),
     effectsize (>= 0.8.6),
-    insight (>= 0.19.8),
+    insight (>= 0.19.10),
     modelbased (>= 0.8.7),
-    parameters (>= 0.21.5),
-    performance (>= 0.10.9),
+    parameters (>= 0.21.6),
+    performance (>= 0.11.0),
     report (>= 0.5.8),
-    see (>= 0.8.2),
+    see (>= 0.8.3),
     tools,
     utils
 Suggests:
