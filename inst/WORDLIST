@@ -32,7 +32,8 @@ io
 knitr
 lifecycle
 misspecification
-misspecifiedmodelbased
+misspecified
+modelbased
 modelsummary
 pandoc
 patilindrajeets
