@@ -20,3 +20,17 @@ reference:
     desc: ~
     contents:
       - easystats_zen
+
+articles:
+  - title: Analytic workflows of easystats packages
+    navbar: ~
+    contents:
+      - workflow_performance
+
+  - title: Miscellaneous
+    navbar: ~
+    contents:
+      - citation
+      - conventions
+      - list_of_functions
+      - resources
