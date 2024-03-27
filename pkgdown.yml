@@ -6,7 +6,8 @@ articles:
   conventions: conventions.html
   list_of_functions: list_of_functions.html
   resources: resources.html
-last_built: 2024-03-27T09:11Z
+  workflow_performance: workflow_performance.html
+last_built: 2024-03-27T14:54Z
 urls:
   reference: https://easystats.github.io/easystats/reference
   article: https://easystats.github.io/easystats/articles
