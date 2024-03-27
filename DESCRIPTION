@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.7.0.4
+Version: 0.7.1
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -75,7 +75,7 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.2.3.9000
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 Config/Needs/website:

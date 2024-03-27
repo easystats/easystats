@@ -76,7 +76,7 @@ show_suggested <- function(package = "easystats") {
     if (length(x[[p]])) {
       sep <- strrep("-", nchar(p))
       insight::print_color(paste0(p, "\n", sep, "\n"), "red")
-      cat(insight::format_message(paste(x[[p]], collapse = ", ")))
+      cat(insight::format_message(toString(x[[p]])))
       cat("\n\n")
     }
   }
@@ -100,7 +100,7 @@ show_reverse_dependencies <- function(package = "easystats") {
     if (length(x[[p]])) {
       sep <- strrep("-", nchar(p))
       insight::print_color(paste0(p, "\n", sep, "\n"), "red")
-      cat(insight::format_message(paste(x[[p]], collapse = ", ")))
+      cat(insight::format_message(toString(x[[p]])))
       cat("\n\n")
     }
   }
