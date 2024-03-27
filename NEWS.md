@@ -1,7 +1,26 @@
 # easystats (development version)
 
+## Bug fix
+
+* Fixed issue with detecting correct version of development packages when version
+  numbers on CRAN and GitHub were identical.
+
+# easystats 0.7.0
+
+## Major Changes
+
 - Given their significant contributions throughout the ecosystem, the package
-  gains two new authors: Etienne Bacher and Rémi Thériault. Welcome onboard!
+  gains two new authors: [Etienne Bacher](https://github.com/etiennebacher) 
+  and [Rémi Thériault](https://github.com/rempsyc). Welcome on-board!
+
+- This release changes the licensing model of `{easystats}` to an MIT license.
+
+- All component packages have been bumped to their latest versions.
+  
+## Minor Changes
+
+- `model_dashboard()` gains a new argument `browse_html` to control if the
+  rendered dashboard is opened in the browser.
 
 # easystats 0.6.0
 

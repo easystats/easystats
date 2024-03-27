@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.6.0.8
+Version: 0.7.0.4
 Authors@R: 
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -43,31 +43,32 @@ Description: A meta-package that installs and loads a set of packages from
     teaching 'easystats', and a dashboard targeted at new R users for easily 
     conducting statistical analysis by accessing summary results, model fit indices, 
     and visualizations with minimal programming.
-License: GPL-3
+License: MIT + file LICENSE
 URL: https://easystats.github.io/easystats/
 BugReports: https://github.com/easystats/easystats/issues
 Depends:
     R (>= 3.6)
 Imports:
-    bayestestR (>= 0.13.0),
-    correlation (>= 0.8.3),
-    datawizard (>= 0.6.5),
-    effectsize (>= 0.8.3),
-    insight (>= 0.18.8),
-    modelbased (>= 0.8.6),
-    parameters (>= 0.20.2),
-    performance (>= 0.10.2),
-    report (>= 0.5.1),
-    see (>= 0.7.4),
+    bayestestR (>= 0.13.2),
+    correlation (>= 0.8.4),
+    datawizard (>= 0.9.1),
+    effectsize (>= 0.8.6),
+    insight (>= 0.19.8),
+    modelbased (>= 0.8.7),
+    parameters (>= 0.21.5),
+    performance (>= 0.10.9),
+    report (>= 0.5.8),
+    see (>= 0.8.2),
     tools,
     utils
 Suggests:
     DT,
-    flexdashboard (>= 0.6.0),
+    flexdashboard (>= 0.6.2),
     jsonlite,
     knitr,
+    mockery,
     rmarkdown,
-    testthat (>= 3.1.0),
+    testthat (>= 3.2.1),
     withr,
     xml2
 VignetteBuilder: 

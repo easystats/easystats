@@ -7,5 +7,5 @@
 #'
 #' @export
 easystats_zen <- function() {
-  print("Patience you must have my young padawan.")
+  cat("Patience you must have my young padawan.")
 }

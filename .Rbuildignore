@@ -3,13 +3,11 @@
 ^.git/.
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE
 ^README.Rmd
 ^presentations
 ^publications
 ^old
 ^scripts
-^tests
 ^paper
 ^cran-comments\.md$
 ^pkgdown$
@@ -34,6 +32,7 @@ references.bib
 ^\.github/workflows/pr-commands\.yaml$
 hextools
 ^WIP/.
+^.dev/.
 ^CODE_OF_CONDUCT\.md$
 \.code-workspace$
 ^CRAN-SUBMISSION$

@@ -1,0 +1,10 @@
+on:
+  schedule:
+    # Check for dependency updates once a month
+    - cron: "0 0 1 * *"
+
+name: update-to-latest-easystats
+
+jobs:
+  update-to-latest-easystats:
+    uses: easystats/workflows/.github/workflows/update-to-latest-easystats.yaml@main

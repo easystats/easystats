@@ -12,28 +12,32 @@ model_dashboard(
   output_file = "easydashboard.html",
   output_dir = getwd(),
   rmd_dir = system.file("templates/easydashboard.Rmd", package = "easystats"),
-  quiet = FALSE
+  quiet = FALSE,
+  browse_html = interactive()
 )
 }
 \arguments{
 \item{model}{A regression model object.}
 
 \item{check_model_args}{A list of named arguments that are passed down to
-\code{performance::check_model()}. For further documentation and details
-about the arguments, see \href{https://easystats.github.io/performance/reference/check_model.html}{this website}.
+\code{\link[performance:check_model]{performance::check_model()}}. For further documentation and details
+about the arguments,
+see \href{https://easystats.github.io/performance/reference/check_model.html}{this website}.
 See also 'Examples'.}
 
 \item{parameters_args}{A list of named arguments that are passed down to
-\code{parameters::model_parameters()}. For further documentation and details
-about the arguments, see \href{https://easystats.github.io/parameters/reference/model_parameters.html}{this website}.
+\code{\link[parameters:model_parameters]{parameters::model_parameters()}}. For further documentation and details
+about the arguments,
+see \href{https://easystats.github.io/parameters/reference/model_parameters.html}{this website}.
 See also 'Examples'.}
 
 \item{performance_args}{A list of named arguments that are passed down to
-\code{performance::model_performance()}. For further documentation and details
-about the arguments, see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
+\code{\link[performance:model_performance]{performance::model_performance()}}. For further documentation and details
+about the arguments,
+see \href{https://easystats.github.io/performance/reference/model_performance.html}{this website}.
 See also 'Examples'.}
 
-\item{output_file}{A string specifying the file name in \code{rmarkdown::render()}.
+\item{output_file}{A string specifying the file name in \code{\link[rmarkdown:render]{rmarkdown::render()}}.
 Default is \code{"easydashboard.html"}.}
 
 \item{output_dir}{A string specifying the path to the output directory for
@@ -47,6 +51,9 @@ the package installation (\code{inst/templates/easydashboard.Rmd}).}
 pandoc command line and others. To only suppress printing of the last
 "Output created: " message, you can set \code{rmarkdown.render.message} to
 \code{FALSE}}
+
+\item{browse_html}{A logical deciding if the rendered HTML should be opened
+in the browser. Defaults to \code{\link[=interactive]{interactive()}}.}
 }
 \value{
 An HTML dashboard.

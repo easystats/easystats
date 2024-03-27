@@ -68,7 +68,7 @@ install_latest <- function(source = c("development", "cran"),
       js <- jsonlite::fromJSON(paste0("https://easystats.r-universe.dev/packages/", i))
       easy_pkgs$cran[easy_pkgs$package == i] <- js$Version[1]
     }
-    easy_pkgs$behind <- easy_pkgs$cran > easy_pkgs$local
+    easy_pkgs$behind <- package_version(easy_pkgs$cran) > package_version(easy_pkgs$local)
     packages <- easy_pkgs$package[packages %in% easy_pkgs$package & easy_pkgs$behind]
 
     if (isTRUE(verbose) && !is.null(packages) && length(packages)) {

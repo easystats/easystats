@@ -50,7 +50,6 @@ To cite the package, run the following command:
 
 ``` r
 citation("easystats")
-
 To cite easystats in publications use:
 
   Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, Thériault, & Makowski
@@ -195,9 +194,9 @@ which does have a substantial number of dependencies.
 
 ### Total downloads
 
-| Total      | insight   | datawizard | parameters | bayestestR | performance | effectsize | correlation | see     | modelbased | report | easystats |
-|:-----------|:----------|:-----------|:-----------|:-----------|:------------|:-----------|:------------|:--------|:-----------|:-------|:----------|
-| 13,123,444 | 3,997,858 | 1,923,267  | 1,700,731  | 1,664,070  | 1,612,713   | 1,306,008  | 366,736     | 321,926 | 139,838    | 76,940 | 13,357    |
+| Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
+|:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
+| 20,093,761 | 5,990,415 | 3,512,644  | 2,457,398  | 2,362,567   | 2,345,213  | 1,851,786  | 599,877     | 497,442 | 275,746    | 157,527 | 43,146    |
 
 ### Trend
 

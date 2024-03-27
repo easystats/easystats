@@ -31,7 +31,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     message(paste0(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")", collapse = "\n"))
 
     message("Update now?")
-    do_it <- utils::menu(c("Yes", "No")) == 1
+    do_it <- utils::menu(c("Yes", "No")) == 1L
 
     if (!do_it) {
       return(invisible())
