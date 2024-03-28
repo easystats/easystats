@@ -3,7 +3,6 @@
 \docType{package}
 \name{easystats-package}
 \alias{easystats-package}
-\alias{_PACKAGE}
 \alias{easystats}
 \title{easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting}
 \description{

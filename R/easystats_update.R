@@ -57,7 +57,7 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     }
 
     message("The following packages are out of date:")
-    message(paste0(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")"), collapse = "\n")
+    message(" * ", format(behind$package), " (", behind$local, " -> ", behind$cran, ")", collapse = "\n")
 
     message("Update now?")
     do_it <- utils::menu(c("Yes", "No")) == 1

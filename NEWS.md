@@ -1,4 +1,4 @@
-# easystats (development version)
+# easystats 0.7.1
 
 ## Bug fix
 
