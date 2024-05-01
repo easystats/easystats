@@ -110,19 +110,19 @@ will be installed from the stable branch (master/main) for each package.</p>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>source</dt>
+    <dl><dt id="arg-source">source<a class="anchor" aria-label="anchor" href="#arg-source"></a></dt>
 <dd><p>Character. Either <code>"development"</code> or <code>"cran"</code>. If <code>"cran"</code>,
 packages will be installed from the default CRAN mirror returned by
 <code>getOption("repos")['CRAN']</code>. If <code>"development"</code> (the default), packages
 are installed from the r-universe repository (<a href="https://easystats.r-universe.dev/" class="external-link">https://easystats.r-universe.dev/</a>).</p></dd>
 
 
-<dt>packages</dt>
+<dt id="arg-packages">packages<a class="anchor" aria-label="anchor" href="#arg-packages"></a></dt>
 <dd><p>Character vector, indicating which packages to be installed.
 By default, the option <code>"all"</code> will install all <strong>easystats</strong> packages.</p></dd>
 
 
-<dt>force</dt>
+<dt id="arg-force">force<a class="anchor" aria-label="anchor" href="#arg-force"></a></dt>
 <dd><p>Logical, if <code>FALSE</code>, only those packages with a newer
 version number will be installed. Use <code>force=TRUE</code> to force
 installation of all packages, even if the version number for the locally
@@ -130,7 +130,7 @@ installed packages is identical to the latest development-versions. Only
 applies when <code>source="development"</code>.</p></dd>
 
 
-<dt>verbose</dt>
+<dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
 <dd><p>Toggle messages.</p></dd>
 
 </dl></div>
