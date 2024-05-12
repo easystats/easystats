@@ -37,7 +37,7 @@ previous 4 versions. This corresponds to the [version policy of the
 Supposing R updates keep happening once a year in Spring, this table shows the 
 corresponding latest R version and the oldest supported version:
 
-| Year | Latest R version | Oldest R supported version |
+| Year | Latest R version | Oldest supported R version |
 |------|----------------|--------------------------|
 | 2024 | 4.4            | 4.0                      |
 | 2025 | 4.5            | 4.1                      |
