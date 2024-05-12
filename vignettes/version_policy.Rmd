@@ -1,0 +1,57 @@
+---
+title: "R version support"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{R version support}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+options(
+  knitr.kable.NA = "",
+  digits = 2
+)
+
+knitr::opts_chunk$set(
+  comment = ">",
+  dpi = 450,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+R evolves every year. Each update brings many bug fixes and performance 
+improvements, but also sometimes changes the default value of some parameters
+(such as switching from `stringsAsFactors = TRUE` to `FALSE` in R 4.0.0).
+
+While there is benefit in supporting older R versions, doing so adds some 
+maintenance burden, especially in a large ecosystem like **easystats** that
+contains 10 packages. Therefore, **easystats** is supported (meaning
+thoroughly tested) on the latest R version, the future one (R-devel) and the
+previous 4 versions. This corresponds to the [version policy of the
+`tidyverse`](https://www.tidyverse.org/blog/2019/04/r-version-support/).
+
+Supposing R updates keep happening once a year in Spring, this table shows the 
+corresponding latest R version and the oldest supported version:
+
+| Year | Latest R version | Oldest R supported version |
+|------|----------------|--------------------------|
+| 2024 | 4.4            | 4.0                      |
+| 2025 | 4.5            | 4.1                      |
+| 2026 | 4.6            | 4.2                      |
+| 2027 | 4.7            | 4.3                      |
+| 2028 | 4.8            | 4.4                      |
+
+## Implications
+
+The implications are simple:
+
+* if you are a user and your R version is below the oldest supported one, you
+  must update it to use the **easystats** packages;
+
+* if you are a developer and your package depends on one of the **easystats**
+  packages, the oldest version that your package supports corresponds to the 
+  oldest version supported by **easystats**.
