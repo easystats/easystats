@@ -150,6 +150,22 @@ following presentations and talks to learn more about this ecosystem:
 
 <https://easystats.github.io/easystats/articles/resources.html>
 
+## Which versions of R do easystats packages support?
+
+Our general policy is to support 
+
+  - the **development** version
+  - the **current** version
+  - **four previous** versions of R
+
+| Year | Current R version | Minimum supported version |
+|-----:|:------------------|:--------------------------|
+| 2024 | 4.4               | 4.0                       |
+| 2025 | 4.5               | 4.1                       |
+| 2026 | 4.6               | 4.2                       |
+| 2027 | 4.7               | 4.3                       |
+| 2028 | 4.8               | 4.4                       |
+
 ## Dependencies
 
 *easystats* packages are designed to be lightweight, *i.e.*, they don't have any third-party hard dependencies, other than base-R packages or other *easystats* packages!
@@ -158,7 +174,7 @@ If you develop R packages, this means that you can safely use *easystats* packag
 ```{r depnetwork}
 library(deepdep)
 
-plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+plot_dependencies("easystats", depth = 2L, show_stamp = FALSE)
 ```
 
 As we can see, the only exception is the [`{see}`](https://easystats.github.io/see/) package, which is responsible for plotting and creating

@@ -168,6 +168,22 @@ following presentations and talks to learn more about this ecosystem:
 
 <https://easystats.github.io/easystats/articles/resources.html>
 
+## Which versions of R do easystats packages support?
+
+Our general policy is to support
+
+- the **development** version
+- the **current** version
+- **four previous** versions of R
+
+| Year | Current R version | Minimum supported version |
+|-----:|:------------------|:--------------------------|
+| 2024 | 4.4               | 4.0                       |
+| 2025 | 4.5               | 4.1                       |
+| 2026 | 4.6               | 4.2                       |
+| 2027 | 4.7               | 4.3                       |
+| 2028 | 4.8               | 4.4                       |
+
 ## Dependencies
 
 *easystats* packages are designed to be lightweight, *i.e.*, they don’t
@@ -180,7 +196,7 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell).
 ``` r
 library(deepdep)
 
-plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+plot_dependencies("easystats", depth = 2L, show_stamp = FALSE)
 ```
 
 <img src="man/figures/depnetwork-1.png" width="100%" />
@@ -196,7 +212,7 @@ which does have a substantial number of dependencies.
 
 | Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
 |:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
-| 21,195,888 | 6,273,055 | 3,717,723  | 2,590,374  | 2,503,577   | 2,474,783  | 1,948,598  | 635,200     | 530,305 | 302,549    | 169,797 | 49,927    |
+| 21,567,680 | 6,364,277 | 3,789,839  | 2,633,157  | 2,548,990   | 2,517,662  | 1,983,955  | 648,095     | 543,151 | 311,609    | 174,636 | 52,309    |
 
 ### Trend
 
