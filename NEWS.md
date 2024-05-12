@@ -1,5 +1,8 @@
 # easystats (development version)
 
+* Add a vignette on the R version policy for all packages in the **easystats**
+  ecosystem (#403).
+
 # easystats 0.7.1
 
 ## Bug fix
