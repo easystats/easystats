@@ -26,6 +26,7 @@ corresponding latest R version and the oldest supported version:
 
 | Year | Latest R version | Oldest supported R version |
 |------|------------------|----------------------------|
+| 2023 | 4.3              | 3.6                        |
 | 2024 | 4.4              | 4.0                        |
 | 2025 | 4.5              | 4.1                        |
 | 2026 | 4.6              | 4.2                        |
@@ -36,13 +37,16 @@ corresponding latest R version and the oldest supported version:
 
 The implications are simple:
 
-* if you are a user and your R version is below the oldest supported one, you
+* If you are a user and your R version is below the oldest supported one, you
   must update it to use the **easystats** packages. Alternatively, you can
   also download a version of the package that is compatible with your R version
   from the [CRAN archive](https://cran.r-project.org/src/contrib/Archive/) and
-  then build it locally.
+  then install it locally. Finally, the package `remotes` gives a way to install
+  an old version of a package. For instance, 
+  `remotes::install_version("insight", version = "0.10.0")` installs a version
+  of `insight` that is compatible with R 3.5.0.
 
-* if you are a developer and your package depends on one of the **easystats**
+* If you are a developer and your package depends on one of the **easystats**
   packages, the oldest version that your package supports corresponds to the 
   oldest version supported by **easystats**. Note that this should be reflected
   in your DESCRIPTION file with `Depends: R (>= x.y.z)`.
