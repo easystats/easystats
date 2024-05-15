@@ -21,7 +21,7 @@ contains 10 packages that are supposed to seamlessly work together. Therefore,
 versions. This is the same as the [version policy of `tidyverse`
 ecosystem](https://www.tidyverse.org/blog/2019/04/r-version-support/).
 
-Supposing R updates keep happening once a year in Spring, this table shows the 
+The [current planned release schedule for large R updates](https://developer.r-project.org/) is once a year in Spring. Accordingly, this table shows the 
 corresponding latest R version and the oldest supported version:
 
 | Year | Latest R version | Oldest supported R version |
