@@ -41,7 +41,7 @@ The implications are simple:
   must update it to use the **easystats** packages. Alternatively, you can
   also download a version of the package that is compatible with your R version
   from the [CRAN archive](https://cran.r-project.org/src/contrib/Archive/) and
-  then install it locally. Finally, the package `remotes` gives a way to install
+  then install it locally. Finally, the package `{remotes}` gives a way to install
   an old version of a package. For instance, 
   `remotes::install_version("insight", version = "0.10.0")` installs a version
   of `insight` that is compatible with R 3.5.0.
