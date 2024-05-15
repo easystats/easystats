@@ -15,7 +15,7 @@ improvements, but also sometimes changes the default value of some parameters
 
 While there is benefit in supporting older R versions, doing so adds 
 maintenance burden, especially in a large ecosystem like **easystats** that
-contains 10 packages that are seamlessly supposed to work together. Therefore,
+contains 10 packages that are supposed to seamlessly work together. Therefore,
 **easystats** is supported (meaning each package is thoroughly tested) on the
 **current R** version, the future one (**R-devel**) and the **previous four**
 versions. This is the same as the [version policy of `tidyverse`
