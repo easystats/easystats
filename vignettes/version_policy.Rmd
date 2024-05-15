@@ -18,8 +18,7 @@ maintenance burden, especially in a large ecosystem like **easystats** that
 contains 10 packages that are supposed to seamlessly work together. Therefore,
 **easystats** is supported (meaning each package is thoroughly tested) on the
 **current R** version, the future one (**R-devel**) and the **previous four**
-versions. This is the same as the [version policy of `tidyverse`
-ecosystem](https://www.tidyverse.org/blog/2019/04/r-version-support/).
+versions.
 
 The [current planned release schedule for large R updates](https://developer.r-project.org/) is once a year in Spring. Accordingly, this table shows the 
 corresponding latest R version and the oldest supported version:
@@ -33,7 +32,9 @@ corresponding latest R version and the oldest supported version:
 | 2027 | 4.7              | 4.3                        |
 | 2028 | 4.8              | 4.4                        |
 
-(Of course, if the R release schedule changes or R releases a "5.0" version, the numbers in the table will change.)
+(Of course, if the R release schedule changes or R releases a "5.0" version, the
+numbers in the table will change.)
+
 ## Implications
 
 The implications are simple:
