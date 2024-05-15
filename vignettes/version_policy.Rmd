@@ -44,7 +44,7 @@ The implications are simple:
   then install it locally. Finally, the package `{remotes}` gives a way to install
   an old version of a package. For instance, 
   `remotes::install_version("insight", version = "0.10.0")` installs a version
-  of `insight` that is compatible with R 3.5.0.
+  of `{insight}` that is compatible with R 3.5.0.
 
 * If you are a developer and your package depends on one of the **easystats**
   packages, the oldest version that your package supports corresponds to the 
