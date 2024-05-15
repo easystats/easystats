@@ -33,6 +33,7 @@ corresponding latest R version and the oldest supported version:
 | 2027 | 4.7              | 4.3                        |
 | 2028 | 4.8              | 4.4                        |
 
+(Of course, if the R release schedule changes or R releases a "5.0" version, the numbers in the table will change.)
 ## Implications
 
 The implications are simple:
