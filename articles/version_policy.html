@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="easystats">
-<title>Coding style conventions • easystats</title>
+<title>R version support • easystats</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -20,7 +20,7 @@
 <link href="../deps/Roboto_Slab-0.4.9/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Coding style conventions">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="R version support">
 <meta property="og:description" content="easystats">
 <meta property="og:image" content="https://easystats.github.io/easystats/reference/figures/card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -83,91 +83,90 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Coding style conventions</h1>
-                        <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/HEAD/vignettes/conventions.Rmd" class="external-link"><code>vignettes/conventions.Rmd</code></a></small>
-      <div class="d-none name"><code>conventions.Rmd</code></div>
+      <img src="../logo.png" class="logo" alt=""><h1>R version support</h1>
+                        <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/HEAD/vignettes/version_policy.Rmd" class="external-link"><code>vignettes/version_policy.Rmd</code></a></small>
+      <div class="d-none name"><code>version_policy.Rmd</code></div>
     </div>
-        <p>Following conventions apply to the easystats-ecosystem, to
-ensure that function and argument names as well as element names for
-return-values follow a consistent pattern across all packages.</p>
-<p><strong>Importing other packages</strong></p>
+        <p>R evolves every year. Each update brings many bug fixes and
+performance improvements, but also sometimes changes the default value
+of some parameters (such as switching from
+<code>stringsAsFactors = TRUE</code> to <code>FALSE</code> in R
+4.0.0).</p>
+<p>While there is benefit in supporting older R versions, doing so adds
+maintenance burden, especially in a large ecosystem like
+<strong>easystats</strong> that contains 10 packages that are supposed
+to seamlessly work together. Therefore, <strong>easystats</strong> is
+supported (meaning each package is thoroughly tested) on the
+<strong>current R</strong> version, the future one
+(<strong>R-devel</strong>) and the <strong>previous four</strong>
+versions.</p>
+<p>The <a href="https://developer.r-project.org/" class="external-link">current planned
+release schedule for large R updates</a> is once a year in Spring.
+Accordingly, this table shows the corresponding latest R version and the
+oldest supported version:</p>
+<table class="table">
+<thead><tr class="header">
+<th>Year</th>
+<th>Latest R version</th>
+<th>Oldest supported R version</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>2023</td>
+<td>4.3</td>
+<td>3.6</td>
+</tr>
+<tr class="even">
+<td>2024</td>
+<td>4.4</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td>2025</td>
+<td>4.5</td>
+<td>4.1</td>
+</tr>
+<tr class="even">
+<td>2026</td>
+<td>4.6</td>
+<td>4.2</td>
+</tr>
+<tr class="odd">
+<td>2027</td>
+<td>4.7</td>
+<td>4.3</td>
+</tr>
+<tr class="even">
+<td>2028</td>
+<td>4.8</td>
+<td>4.4</td>
+</tr>
+</tbody>
+</table>
+<p>(Of course, if the R release schedule changes or R releases a “5.0”
+version, the numbers in the table will change.)</p>
+<div class="section level2">
+<h2 id="implications">Implications<a class="anchor" aria-label="anchor" href="#implications"></a>
+</h2>
+<p>The implications are simple:</p>
 <ul>
-<li><p>No full import, only selective import of functions</p></li>
-<li><p>Use base-R wherever possible (to reduce hard
-dependencies)</p></li>
-<li><p>Make sure R-version requirements are not too strict</p></li>
+<li><p>If you are a user and your R version is below the oldest
+supported one, you must update it to use the <strong>easystats</strong>
+packages. Alternatively, you can also download a version of the package
+that is compatible with your R version from the <a href="https://cran.r-project.org/src/contrib/Archive/" class="external-link">CRAN archive</a>
+and then install it locally. Finally, the package <a href="https://remotes.r-lib.org" class="external-link">remotes</a>
+gives a way to install an old version of a package. For instance,
+<code>remotes::install_version("insight", version = "0.10.0")</code>
+installs a version of <a href="https://easystats.github.io/insight/" class="external-link">insight</a> that is compatible with R
+3.5.0.</p></li>
+<li><p>If you are a developer and your package depends on one of the
+<strong>easystats</strong> packages, the oldest version that your
+package supports corresponds to the oldest version supported by
+<strong>easystats</strong>. Note that this should be reflected in your
+DESCRIPTION file with <code>Depends: R (&gt;= x.y.z)</code>.</p></li>
 </ul>
-<p><strong>Package versioning</strong></p>
-<ul>
-<li>Package versions follow <a href="https://semver.org/" class="external-link">Semantic
-Versioning</a> conventions.</li>
-</ul>
-<p><strong>Helper-functions</strong></p>
-<ul>
-<li>Own re-implementation of helper-functions, if it’s not too much
-effort (e.g. I typically use own functions to check if a string starts /
-ends with a pattern, or if an object (list, data frame) contains an
-element with a given name (like <code><a href="https://rlang.r-lib.org/reference/has_name.html" class="external-link">tibble::has_name()</a></code>), to
-reduce dependencies.</li>
-</ul>
-<p><strong><code>print</code> functions</strong></p>
-<ul>
-<li>
-<code>print</code> methods should invisibly return the original
-(unchanged) input (<a href="https://github.com/easystats/easystats/issues/65" class="external-link">#65</a>).</li>
-</ul>
-<p><strong>Function names</strong></p>
-<ul>
-<li><p>Lower case, underscore separated if more than one verb.</p></li>
-<li><p>Common prefix for functions that focus on specific “tasks” or
-workflows (e.g. <strong>insight</strong>, <code>get_*()</code> to get
-data, <code>find_*()</code> to find information, or
-<strong>performance</strong>, <code>performance_*()</code> to compute
-measures of model quality, <code>check_*()</code> to check model
-assumptions…).</p></li>
-<li><p>Internal functions (that are not exported, like the previously
-mentioned helper-functions) should always start with a <code>.</code>
-(e.g., <code>.do_some_internal_stuff()</code>).</p></li>
-</ul>
-<p><strong>Argument names</strong></p>
-<ul>
-<li>lower case, underscore separated if more than one verb</li>
-</ul>
-<p><strong>Element / Column names</strong> (for returned data
-frames)</p>
-<ol style="list-style-type: decimal">
-<li><p>First letter of the column name is capital, unless (6) applies
-(<em>example:</em> <code>Parameter</code>).</p></li>
-<li><p>First letter of nouns is capital, unless (6) applies
-(<em>example:</em> <code>ROPE_Percentage</code>,
-<code>Prior_Scale</code>).</p></li>
-<li><p>Using underscore rather than camelCase to separate words
-(<em>example:</em> <code>CI_high</code>).</p></li>
-<li><p>Multiple words: common/main part first and
-adjective/specifier/variational part after, unless (8) applies
-(<em>example:</em> <code>Median_standardized</code>,
-<code>ROPE_percentage</code>).</p></li>
-<li><p>Abbreviations: all uppercase (<em>example:</em> <code>ESS</code>,
-<code>MCSE</code>, <code>ROPE</code>).</p></li>
-<li><p>Keep conventions for reserved words (<em>example:</em>
-<code>p</code>, <code>pd</code>, <code>Rhat</code>).</p></li>
-<li><p>Adjectives / verbs: all lower case, unless (1) applies
-(<em>example:</em> <code>high</code> or <code>low</code> in
-<code>CI_high</code> or <code>CI_low</code>).</p></li>
-<li><p>In case of multiple occurrences of column names that indicate the
-same measure or content (like <code>CI_low</code> or <code>SE</code>),
-the common part is appended as suffix to the context specific part
-(<em>example:</em> <code>CI_low</code> and
-<code>Eta2_partial_CI_low</code>, and <strong>not</strong>
-<code>CI_low</code> and <code>CI_low_Eta2_partial</code>).</p></li>
-<li><p>The “squared” term in column names that refers to “common”
-statistics (<code>Eta2</code>, <code>Chi2</code>, <code>Omega2</code>,
-…) should be written as <code>2</code>, not <code>sq</code>,
-<code>squared</code> or <code>pétit-deux</code> (<em>example:</em>
-<code>Chi2</code>, and <strong>not</strong> <code>Chisq</code>,
-<code>Eta2</code>, and <strong>not</strong> <code>Eta_squared</code>).
-This rule does <strong>not</strong> apply to function names.</p></li>
-</ol></main>
+</div>
+  </main>
 </div>
     <footer><div class="pkgdown-footer-left">
   <p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>, <a href="https://www.etiennebacher.com/" class="external-link">Etienne Bacher</a>, <a href="https://remi-theriault.com/" class="external-link">Rémi Thériault</a>.</p>

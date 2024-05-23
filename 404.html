@@ -24,118 +24,72 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@easystats4u">
 <meta name="twitter:site" content="@easystats4u">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
 </head>
 <body>
     <a href="https://easystats.github.io/easystats/#main" class="visually-hidden-focusable">Skip to contents</a>
-    
-
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
-    
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
     <a class="navbar-brand me-2" href="https://easystats.github.io/easystats/index.html">easystats</a>
-
     <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.1.2</small>
-
-    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="https://easystats.github.io/easystats/reference/index.html" aria-label="Reference">
-    <span class="fa fa fa fa-file-code"></span>
-     
-    Reference
-  </a>
+<li class="nav-item"><a class="nav-link" href="https://easystats.github.io/easystats/reference/index.html" aria-label="Reference"><span class="fa fa-file-code"></span> Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Articles"><span class="fa fa-book-reader"></span> Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="https://easystats.github.io/easystats/articles/workflow_performance.html">Analytic workflow: Assessing model fit</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/easystats/articles/citation.html">Citing 'easystats'</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/easystats/articles/conventions.html">Coding style conventions</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/easystats/articles/list_of_functions.html">List of functions</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/easystats/articles/resources.html">Learning resources</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/easystats/articles/version_policy.html">R version support</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="nav-link" href="https://easystats.github.io/easystats/articles/index.html" aria-label="Articles">
-    <span class="fa fa fa fa-book-reader"></span>
-     
-    Articles
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="https://easystats.github.io/easystats/news/index.html" aria-label="News">
-    <span class="fa fa fa fa-newspaper"></span>
-     
-    News
-  </a>
-</li>
+<li class="nav-item"><a class="nav-link" href="https://easystats.github.io/easystats/news/index.html" aria-label="News"><span class="fa fa-newspaper"></span> News</a></li>
       </ul>
 <ul class="navbar-nav">
-<li><form class="form-inline" role="search">
-<input type="search" class="form-control" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
 <li class="nav-item dropdown">
-  <a href="https://easystats.github.io/easystats/#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--easystats" aria-label="easystats">
-    <span class="fab fa fab fa-r-project"></span>
-     
-    easystats
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--easystats">
-    <a class="external-link dropdown-item" href="https://easystats.github.io/bayestestR/">bayestestR</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/correlation/">correlation</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/datawizard/">datawizard</a>
-    <a class="dropdown-item" href="https://easystats.github.io/easystats/">easystats</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/effectsize/">effectsize</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/insight/">insight</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/modelbased/">modelbased</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/performance/">performance</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/parameters/">parameters</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/report/">report</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/see/">see</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-easystats" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="easystats"><span class="fa fab fa-r-project"></span> easystats</button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-easystats">
+<li><a class="external-link dropdown-item" href="https://easystats.github.io/bayestestR/">bayestestR</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/correlation/">correlation</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/datawizard/">datawizard</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/easystats/">easystats</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/effectsize/">effectsize</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/insight/">insight</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/modelbased/">modelbased</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/performance/">performance</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/parameters/">parameters</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/report/">report</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/see/">see</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="external-link nav-link" href="http://twitter.com/easystats4u" aria-label="Twitter">
-    <span class="fa fa-twitter"></span>
-     
-  </a>
-</li>
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/easystats/easystats/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/easystats4u" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/easystats/easystats/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
-
-    
   </div>
 </nav><div class="container template-title-body">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="https://easystats.github.io/easystats/logo.png" class="logo" alt=""><h1>Page not found (404)</h1>
-      
     </div>
-
 Content not found. Please use links in the navbar.
-
   </main>
 </div>
-
-
     <footer><div class="pkgdown-footer-left">
   <p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>, <a href="https://www.etiennebacher.com/" class="external-link">Etienne Bacher</a>, <a href="https://remi-theriault.com/" class="external-link">Rémi Thériault</a>.</p>
 </div>
-
 <div class="pkgdown-footer-right">
   <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.9000.</p>
 </div>
-
     </footer>
 </div>
-
-  
-
-  
-
   </body>
 </html>
