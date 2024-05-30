@@ -30,7 +30,7 @@ test_that("it opens HTML in browser in interactive context", {
   withr::with_tempdir(code = {
     mockery::stub(easystats::model_dashboard, "utils::browseURL", NULL)
 
-    expect_null(model_dashboard(NULL, quiet = TRUE, browse_html = TRUE))
+    expect_silent(model_dashboard(NULL, quiet = TRUE, browse_html = TRUE))
     expect_invisible(model_dashboard(NULL, quiet = TRUE, browse_html = FALSE))
   })
 })
