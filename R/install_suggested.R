@@ -169,7 +169,15 @@ show_reverse_dependencies <- function(package = "easystats") {
   pkg_url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
   html_page <- xml2::read_html(pkg_url)
   elements <- xml2::as_list(html_page)
-  rev_import_field <- elements$html$body$div[[15]][[1]][[3]]
+  rev_import_field <- tryCatch(
+    elements$html$body$div[[15]][[1]][[3]],
+    error = function(e) NULL
+  )
+
+  # in case we have no reverse suggests, return NULL
+  if (is.null(rev_import_field)) {
+    return(NULL)
+  }
 
   pkgs <- lapply(rev_import_field, function(i) {
     if (is.list(i)) {
