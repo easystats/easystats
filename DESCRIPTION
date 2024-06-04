@@ -64,6 +64,7 @@ Imports:
 Suggests:
     DT,
     flexdashboard (>= 0.6.2),
+    httr,
     jsonlite,
     knitr,
     mockery,

@@ -164,9 +164,22 @@ show_reverse_dependencies <- function(package = "easystats") {
 # crawl reverse-dependency fields
 
 .find_reverse_dependencies <- function(package) {
-  insight::check_if_installed("xml2")
+  insight::check_if_installed(c("xml2", "httr"))
 
   pkg_url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
+
+  # check if URL exists
+  result <- tryCatch(
+    {
+      request <- httr::GET(pkg_url)
+      httr::stop_for_status(request)
+    },
+    error = function(e) NULL
+  )
+  if (is.null(result)) {
+    return(NULL)
+  }
+
   html_page <- xml2::read_html(pkg_url)
   elements <- xml2::as_list(html_page)
   rev_import_field <- tryCatch(
