@@ -26,7 +26,7 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
-#' @examplesIf require("xml2", quietly = TRUE)
+#' @examplesIf require("xml2", quietly = TRUE) && require("httr", quietly = TRUE)
 #'
 #' # download all suggested packages
 #' if (FALSE) {

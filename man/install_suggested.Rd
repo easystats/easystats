@@ -39,7 +39,7 @@ to show the current list of suggested packages for each 'easystats'
 package.
 }
 \examples{
-\dontshow{if (require("xml2", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (require("xml2", quietly = TRUE) && require("httr", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # download all suggested packages
 if (FALSE) {
