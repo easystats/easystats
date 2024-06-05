@@ -40,7 +40,7 @@ if (can_evaluate) {
 }
 ```
 
-This vignette shows how to use the [*performance* package](https://easystats.github.io/performance) to check the fit of a model, how to detect misspecification and how to improve your model. The basic workflow of the *performance* package can be summarized as follows:
+This vignette shows how to use the [*performance* package](https://easystats.github.io/performance/) to check the fit of a model, how to detect misspecification and how to improve your model. The basic workflow of the *performance* package can be summarized as follows:
 
 - fit a regression model
 - check the model fit and assess model fit indices
