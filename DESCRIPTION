@@ -62,6 +62,7 @@ Imports:
     tools,
     utils
 Suggests:
+    DHARMa,
     DT,
     flexdashboard (>= 0.6.2),
     glmmTMB,
