@@ -70,6 +70,7 @@ Suggests:
     jsonlite,
     knitr,
     mockery,
+    patchwork,
     rmarkdown,
     testthat (>= 3.2.1),
     withr,
