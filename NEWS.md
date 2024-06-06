@@ -1,3 +1,5 @@
+# easystats 0.7.2.9000
+
 # easystats 0.7.2
 
 * Add a vignette on the R version policy for all packages in the **easystats**

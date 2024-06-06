@@ -5,7 +5,6 @@
 
 [![downloads](https://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/)
-[![status](https://tinyverse.netlify.com/badge/easystats)](https://CRAN.R-project.org/package=easystats)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## What is *easystats*?
@@ -196,7 +195,7 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 21,909,603 | 6,454,097 | 3,850,771 | 2,676,811 | 2,588,318 | 2,554,678 | 2,019,852 | 659,469 | 553,598 | 319,193 | 178,541 | 54,275 |
+| 22,038,346 | 6,488,094 | 3,874,720 | 2,692,236 | 2,603,309 | 2,568,857 | 2,032,140 | 663,962 | 557,540 | 322,221 | 180,196 | 55,071 |
 
 ### Trend
 
