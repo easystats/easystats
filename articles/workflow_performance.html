@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="easystats">
 <title>Analytic workflow: Assessing model fit • easystats</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -20,25 +19,20 @@
 <link href="../deps/Roboto_Slab-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="../deps/MathJax-2.7.5/MathJax.js"></script><script src="../deps/MathJax-2.7.5/TeX-AMS-MML_HTMLorMML.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Analytic workflow: Assessing model fit">
-<meta property="og:description" content="easystats">
-<meta property="og:image" content="https://easystats.github.io/easystats/reference/figures/card.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@easystats4u">
-<meta name="twitter:site" content="@easystats4u">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Analytic workflow: Assessing model fit">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.1.3</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2</small>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html" aria-label="Reference"><span class="fa fa-file-code"></span> Reference</a></li>
-<li class="active nav-item dropdown">
+<li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Articles"><span class="fa fa-book-reader"></span> Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/workflow_performance.html">Analytic workflow: Assessing model fit</a></li>
@@ -91,10 +85,10 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Analytic workflow: Assessing model fit</h1>
-                        <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/HEAD/vignettes/workflow_performance.rmd" class="external-link"><code>vignettes/workflow_performance.rmd</code></a></small>
+                        <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/v0.7.2/vignettes/workflow_performance.rmd" class="external-link"><code>vignettes/workflow_performance.rmd</code></a></small>
       <div class="d-none name"><code>workflow_performance.rmd</code></div>
     </div>
-        <p>This vignette shows how to use the <a href="https://easystats.github.io/performance" class="external-link"><em>performance</em>
+        <p>This vignette shows how to use the <a href="https://easystats.github.io/performance/" class="external-link"><em>performance</em>
 package</a> to check the fit of a model, how to detect misspecification
 and how to improve your model. The basic workflow of the
 <em>performance</em> package can be summarized as follows:</p>
@@ -131,15 +125,39 @@ best fit.</p>
 distribution.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/performance/" class="external-link">performance</a></span><span class="op">)</span></span>
-<span><span class="va">model1</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu">glmmTMB</span><span class="op">(</span></span>
+<span><span class="va">model1</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/glmmTMB/man/glmmTMB.html" class="external-link">glmmTMB</a></span><span class="op">(</span></span>
 <span>  <span class="va">count</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">site</span><span class="op">)</span>,</span>
 <span>  family <span class="op">=</span> <span class="va">poisson</span>,</span>
-<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va">Salamanders</span></span>
+<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>First, let us look at the summary of the model.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/parameters/" class="external-link">parameters</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Fixed Effects</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Log-Mean |   SE |         95% CI |     z |      p</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |    -1.62 | 0.24 | [-2.10, -1.15] | -6.76 | &lt; .001</span></span>
+<span><span class="co">#&gt; mined [no]  |     2.26 | 0.28 | [ 1.72,  2.81] |  8.08 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [PR]    |    -1.39 | 0.22 | [-1.81, -0.96] | -6.44 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [DM]    |     0.23 | 0.13 | [-0.02,  0.48] |  1.79 | 0.074 </span></span>
+<span><span class="co">#&gt; spp [EC-A]  |    -0.77 | 0.17 | [-1.11, -0.43] | -4.50 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [EC-L]  |     0.62 | 0.12 | [ 0.39,  0.86] |  5.21 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [DES-L] |     0.68 | 0.12 | [ 0.45,  0.91] |  5.75 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [DF]    |     0.08 | 0.13 | [-0.18,  0.34] |  0.60 | 0.549 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Random Effects</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter            | Coefficient |       95% CI</span></span>
+<span><span class="co">#&gt; -------------------------------------------------</span></span>
+<span><span class="co">#&gt; SD (Intercept: site) |        0.58 | [0.38, 0.87]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed</span></span>
+<span><span class="co">#&gt;   using a Wald z-distribution approximation.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; The model has a log- or logit-link. Consider using `exponentiate =</span></span>
+<span><span class="co">#&gt;   TRUE` to interpret coefficients as ratios.</span></span></code></pre></div>
 <p>We see a lot of statistically significant estimates here. No matter,
 which <a href="https://easystats.github.io/parameters/reference/p_function.html" class="external-link">philosophy</a>
 you follow in terms of interpreting statistical test results, our
@@ -155,7 +173,9 @@ vignette</a>.</p>
 checks</em>, <em>dispersion and zero-inflation</em> as well as the Q-Q
 plot (<em>uniformity of residuals</em>).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-4-1.png" width="100%" height="100%"></p>
 <p>Note that unlike <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>, which is a base R function to
 create diagnostic plots, <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model()</a></code> relies on
 <em>simulated residuals</em> for the Q-Q plot, which is more accurate
@@ -170,8 +190,21 @@ and/or zero-inflation. We can check for these problems using
 beyond the visual inspection.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        dispersion ratio =    2.324</span></span>
+<span><span class="co">#&gt;   Pearson's Chi-Squared = 1475.875</span></span>
+<span><span class="co">#&gt;                 p-value =  &lt; 0.001</span></span>
+<span><span class="co">#&gt; Overdispersion detected.</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Check for zero-inflation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;    Observed zeros: 387</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 311</span></span>
+<span><span class="co">#&gt;             Ratio: 0.80</span></span>
+<span><span class="co">#&gt; Model is underfitting zeros (probable zero-inflation).</span></span></code></pre></div>
 <p>As we can see, our model seems to suffer both from overdispersion and
 zero-inflation.</p>
 </div>
@@ -180,24 +213,39 @@ zero-inflation.</p>
 </h3>
 <p>We can try to improve the model fit by fitting a model with
 zero-inflation component:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model2</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu">glmmTMB</span><span class="op">(</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model2</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/glmmTMB/man/glmmTMB.html" class="external-link">glmmTMB</a></span><span class="op">(</span></span>
 <span>  <span class="va">count</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">site</span><span class="op">)</span>,</span>
 <span>  ziformula <span class="op">=</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span>,</span>
 <span>  family <span class="op">=</span> <span class="va">poisson</span>,</span>
-<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va">Salamanders</span></span>
+<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-6-1.png" width="100%" height="100%"></p>
 <p>Looking at the above plots, the zero-inflation seems to be addressed
 properly (see especially <em>posterior predictive checks</em> and
 <em>uniformity of residuals</em>, the Q-Q plot). However, the
 overdispersion still could be present. We can check for these problems
 using <code><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion()</a></code> and
 <code><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation()</a></code> again.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  dispersion ratio = 1.679</span></span>
+<span><span class="co">#&gt;           p-value = 0.008</span></span>
+<span><span class="co">#&gt; Overdispersion detected.</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Check for zero-inflation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;    Observed zeros: 387</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 387</span></span>
+<span><span class="co">#&gt;             Ratio: 1.00</span></span>
+<span><span class="co">#&gt; Model seems ok, ratio of observed and predicted zeros is within the</span></span>
+<span><span class="co">#&gt;   tolerance range (p &gt; .999).</span></span></code></pre></div>
 <p>Indeed, the overdispersion is still present.</p>
 </div>
 <div class="section level3">
@@ -205,21 +253,36 @@ using <code><a href="https://easystats.github.io/performance/reference/check_ove
 </h3>
 <p>We can try to address this issue by fitting a negative binomial model
 instead of using a Poisson distribution.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model3</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu">glmmTMB</span><span class="op">(</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model3</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/glmmTMB/man/glmmTMB.html" class="external-link">glmmTMB</a></span><span class="op">(</span></span>
 <span>  <span class="va">count</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">site</span><span class="op">)</span>,</span>
 <span>  ziformula <span class="op">=</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span>,</span>
-<span>  family <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va">nbinom1</span>,</span>
-<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va">Salamanders</span></span>
+<span>  family <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/nbinom2.html" class="external-link">nbinom1</a></span>,</span>
+<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-8-1.png" width="100%" height="100%"></p>
 <p>Now we see that the plot showing <em>misspecified dispersion and
 zero-inflation</em> suggests that the overdispersion is better addressed
 than before. Let us check again:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  dispersion ratio = 1.081</span></span>
+<span><span class="co">#&gt;           p-value =  0.54</span></span>
+<span><span class="co">#&gt; No overdispersion detected.</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Check for zero-inflation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;    Observed zeros: 387</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 389</span></span>
+<span><span class="co">#&gt;             Ratio: 1.00</span></span>
+<span><span class="co">#&gt; Model seems ok, ratio of observed and predicted zeros is within the</span></span>
+<span><span class="co">#&gt;   tolerance range (p &gt; .999).</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="comparing-model-fit-indices">Comparing model fit indices<a class="anchor" aria-label="anchor" href="#comparing-model-fit-indices"></a>
@@ -230,14 +293,23 @@ models. For our purpose, we rely on the Akaike Information Criterion
 Information Criterion (BIC), and the Proper Scoring Rules. We can
 compare the models using <code><a href="https://easystats.github.io/performance/reference/compare_performance.html" class="external-link">compare_performance()</a></code> and
 <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/performance/reference/compare_performance.html" class="external-link">compare_performance</a></span><span class="op">(</span></span>
 <span>  <span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span>,</span>
 <span>  metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AIC"</span>, <span class="st">"AICc"</span>, <span class="st">"BIC"</span>, <span class="st">"SCORE"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">result</span></span>
-<span></span>
+<span><span class="co">#&gt; # Comparison of Model Performance Indices</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Name   |   Model |  AIC (weights) | AICc (weights) |  BIC (weights) | Score_log | Score_spherical</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; model1 | glmmTMB | 1962.8 (&lt;.001) | 1963.1 (&lt;.001) | 2003.0 (&lt;.001) |    -1.457 |           0.032</span></span>
+<span><span class="co">#&gt; model2 | glmmTMB | 1785.5 (&lt;.001) | 1786.5 (&lt;.001) | 1861.4 (&lt;.001) |    -1.328 |           0.032</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | 1653.7 (&gt;.999) | 1654.8 (&gt;.999) | 1734.1 (&gt;.999) |    -1.275 |           0.032</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-10-1.png" width="100%" height="100%"></p>
 <p>The weighted AIC and BIC range from 0 to 1, indicating better model
 fit the closer the value is to 1. The AICc is a corrected version of the
 AIC for small sample sizes. The Proper Scoring Rules range from -Inf to
@@ -255,43 +327,167 @@ best fit using <code><a href="https://easystats.github.io/performance/reference/
 test based on the model family. You can also call the different tests,
 like <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_likelihoodratio()</a></code>, <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_bf()</a></code>,
 <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_wald()</a></code> or <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_vuong()</a></code> directly.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
+<span><span class="co">#&gt; ----------------------------------------------------------</span></span>
+<span><span class="co">#&gt; model1 | glmmTMB |        |  9 |         |        |       </span></span>
+<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000 | 17 |    8.00 | 193.31 | &lt; .001</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
+<span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
 <p>We see, first, that <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance()</a></code> used the Bayes
 factor (based on BIC comparison) to compare the models. And second, that
 both the second and third model seem to be significantly better than the
 first model.</p>
 <p>Now we compare the second against the third model</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_likelihoodratio</a></span><span class="op">(</span><span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
+<span><span class="co">#&gt; ----------------------------------------------------------</span></span>
+<span><span class="co">#&gt; model2 | glmmTMB |        | 17 |         |        |       </span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
+<span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_likelihoodratio</a></span><span class="op">(</span><span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Likelihood-Ratio-Test (LRT) for Model Comparison (ML-estimator)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Name   |   Model | df | df_diff |   Chi2 |      p</span></span>
+<span><span class="co">#&gt; -------------------------------------------------</span></span>
+<span><span class="co">#&gt; model2 | glmmTMB | 17 |         |        |       </span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | 18 |       1 | 133.83 | &lt; .001</span></span></code></pre></div>
 <p>We see that both the Bayes factor and likelihood ratio test suggest
 that the third model is significantly better than the second model.</p>
 <p>What does this mean for our inference?</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Fixed Effects (Count Model)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Log-Mean |   SE |         95% CI |     z |      p</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |    -0.75 | 0.34 | [-1.40, -0.09] | -2.23 | 0.026 </span></span>
+<span><span class="co">#&gt; mined [no]  |     1.56 | 0.33 | [ 0.92,  2.20] |  4.78 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [PR]    |    -1.57 | 0.30 | [-2.16, -0.97] | -5.15 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [DM]    |     0.07 | 0.20 | [-0.32,  0.46] |  0.34 | 0.735 </span></span>
+<span><span class="co">#&gt; spp [EC-A]  |    -0.93 | 0.27 | [-1.45, -0.41] | -3.51 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [EC-L]  |     0.31 | 0.20 | [-0.07,  0.69] |  1.59 | 0.111 </span></span>
+<span><span class="co">#&gt; spp [DES-L] |     0.41 | 0.19 | [ 0.04,  0.79] |  2.19 | 0.028 </span></span>
+<span><span class="co">#&gt; spp [DF]    |    -0.12 | 0.20 | [-0.51,  0.28] | -0.57 | 0.568 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Fixed Effects (Zero-Inflation Component)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Log-Odds |       SE |                 95% CI |         z |      p</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |     2.28 |     1.12 | [      0.08,     4.47] |      2.04 | 0.042 </span></span>
+<span><span class="co">#&gt; mined [no]  |   -21.36 |  4655.41 | [  -9145.81,  9103.08] | -4.59e-03 | 0.996 </span></span>
+<span><span class="co">#&gt; spp [PR]    |   -24.37 | 92198.78 | [ -1.81e+05, 1.81e+05] | -2.64e-04 | &gt; .999</span></span>
+<span><span class="co">#&gt; spp [DM]    |    -3.63 |     2.01 | [     -7.57,     0.31] |     -1.80 | 0.071 </span></span>
+<span><span class="co">#&gt; spp [EC-A]  |    -2.79 |     1.95 | [     -6.61,     1.03] |     -1.43 | 0.152 </span></span>
+<span><span class="co">#&gt; spp [EC-L]  |    -2.84 |     1.41 | [     -5.59,    -0.08] |     -2.02 | 0.044 </span></span>
+<span><span class="co">#&gt; spp [DES-L] |    -3.56 |     1.78 | [     -7.04,    -0.07] |     -2.00 | 0.045 </span></span>
+<span><span class="co">#&gt; spp [DF]    |   -20.55 |  4284.59 | [  -8418.20,  8377.09] | -4.80e-03 | 0.996 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Dispersion</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Coefficient |       95% CI</span></span>
+<span><span class="co">#&gt; ----------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |        2.02 | [1.54, 2.67]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Random Effects Variances</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter            | Coefficient |       95% CI</span></span>
+<span><span class="co">#&gt; -------------------------------------------------</span></span>
+<span><span class="co">#&gt; SD (Intercept: site) |        0.46 | [0.27, 0.76]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed</span></span>
+<span><span class="co">#&gt;   using a Wald z-distribution approximation.</span></span></code></pre></div>
 <p>Obviously, although we might have found the best fitting model,
 coefficients for the <em>zero-inflation</em> component of our model look
 rather spurious. We have <em>very</em> high coefficients here. We still
 might find a better distributional family for our model, and try
 <code>nbinom2</code> now.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model4</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu">glmmTMB</span><span class="op">(</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model4</span> <span class="op">&lt;-</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/glmmTMB/man/glmmTMB.html" class="external-link">glmmTMB</a></span><span class="op">(</span></span>
 <span>  <span class="va">count</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">site</span><span class="op">)</span>,</span>
 <span>  ziformula <span class="op">=</span> <span class="op">~</span> <span class="va">mined</span> <span class="op">+</span> <span class="va">spp</span>,</span>
-<span>  family <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va">nbinom2</span>,</span>
-<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va">Salamanders</span></span>
+<span>  family <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/nbinom2.html" class="external-link">nbinom2</a></span>,</span>
+<span>  data <span class="op">=</span> <span class="fu">glmmTMB</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/glmmTMB/man/Salamanders.html" class="external-link">Salamanders</a></span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
-<span></span>
+<span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-14-1.png" width="100%" height="100%"></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
-<span></span>
+<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  dispersion ratio = 0.958</span></span>
+<span><span class="co">#&gt;           p-value =  0.93</span></span>
+<span><span class="co">#&gt; No overdispersion detected.</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
-<span></span>
+<span><span class="co">#&gt; # Check for zero-inflation</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;    Observed zeros: 387</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 386</span></span>
+<span><span class="co">#&gt;             Ratio: 1.00</span></span>
+<span><span class="co">#&gt; Model seems ok, ratio of observed and predicted zeros is within the</span></span>
+<span><span class="co">#&gt;   tolerance range (p = 0.952).</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_likelihoodratio</a></span><span class="op">(</span><span class="va">model3</span>, <span class="va">model4</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; Some of the nested models seem to be identical and probably only vary in</span></span>
+<span><span class="co">#&gt;   their random effects.</span></span>
+<span><span class="co">#&gt; # Likelihood-Ratio-Test (LRT) for Model Comparison (ML-estimator)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Name   |   Model | df | df_diff |  Chi2 |      p</span></span>
+<span><span class="co">#&gt; ------------------------------------------------</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | 18 |         |       |       </span></span>
+<span><span class="co">#&gt; model4 | glmmTMB | 18 |       0 | 16.64 | &lt; .001</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Fixed Effects (Count Model)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Log-Mean |   SE |        95% CI |     z |      p</span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |    -0.61 | 0.41 | [-1.40, 0.18] | -1.51 | 0.132 </span></span>
+<span><span class="co">#&gt; mined [no]  |     1.43 | 0.37 | [ 0.71, 2.15] |  3.90 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [PR]    |    -0.96 | 0.64 | [-2.23, 0.30] | -1.50 | 0.134 </span></span>
+<span><span class="co">#&gt; spp [DM]    |     0.17 | 0.24 | [-0.29, 0.63] |  0.73 | 0.468 </span></span>
+<span><span class="co">#&gt; spp [EC-A]  |    -0.39 | 0.34 | [-1.06, 0.28] | -1.13 | 0.258 </span></span>
+<span><span class="co">#&gt; spp [EC-L]  |     0.49 | 0.24 | [ 0.02, 0.96] |  2.05 | 0.041 </span></span>
+<span><span class="co">#&gt; spp [DES-L] |     0.59 | 0.23 | [ 0.14, 1.04] |  2.59 | 0.010 </span></span>
+<span><span class="co">#&gt; spp [DF]    |    -0.11 | 0.24 | [-0.59, 0.36] | -0.46 | 0.642 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Fixed Effects (Zero-Inflation Component)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Log-Odds |   SE |         95% CI |     z |      p</span></span>
+<span><span class="co">#&gt; ---------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |     0.91 | 0.63 | [-0.32,  2.14] |  1.45 | 0.147 </span></span>
+<span><span class="co">#&gt; mined [no]  |    -2.56 | 0.60 | [-3.75, -1.38] | -4.24 | &lt; .001</span></span>
+<span><span class="co">#&gt; spp [PR]    |     1.16 | 1.33 | [-1.45,  3.78] |  0.87 | 0.384 </span></span>
+<span><span class="co">#&gt; spp [DM]    |    -0.94 | 0.80 | [-2.51,  0.63] | -1.17 | 0.241 </span></span>
+<span><span class="co">#&gt; spp [EC-A]  |     1.04 | 0.71 | [-0.36,  2.44] |  1.46 | 0.144 </span></span>
+<span><span class="co">#&gt; spp [EC-L]  |    -0.56 | 0.73 | [-1.99,  0.86] | -0.77 | 0.439 </span></span>
+<span><span class="co">#&gt; spp [DES-L] |    -0.89 | 0.75 | [-2.37,  0.58] | -1.19 | 0.236 </span></span>
+<span><span class="co">#&gt; spp [DF]    |    -2.54 | 2.18 | [-6.82,  1.74] | -1.16 | 0.244 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Dispersion</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter   | Coefficient |       95% CI</span></span>
+<span><span class="co">#&gt; ----------------------------------------</span></span>
+<span><span class="co">#&gt; (Intercept) |        1.51 | [0.93, 2.46]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; # Random Effects Variances</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Parameter            | Coefficient |       95% CI</span></span>
+<span><span class="co">#&gt; -------------------------------------------------</span></span>
+<span><span class="co">#&gt; SD (Intercept: site) |        0.38 | [0.17, 0.87]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed</span></span>
+<span><span class="co">#&gt;   using a Wald z-distribution approximation.</span></span></code></pre></div>
 <p>Based on these results, we might even go with
 <code>model4</code>.</p>
 </div>
