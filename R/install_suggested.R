@@ -26,7 +26,7 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
-#' @examplesIf require("xml2", quietly = TRUE)
+#' @examplesIf require("xml2", quietly = TRUE) && require("httr", quietly = TRUE)
 #'
 #' # download all suggested packages
 #' if (FALSE) {
@@ -164,12 +164,33 @@ show_reverse_dependencies <- function(package = "easystats") {
 # crawl reverse-dependency fields
 
 .find_reverse_dependencies <- function(package) {
-  insight::check_if_installed("xml2")
+  insight::check_if_installed(c("xml2", "httr"))
 
   pkg_url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
+
+  # check if URL exists
+  result <- tryCatch(
+    {
+      request <- httr::GET(pkg_url)
+      httr::stop_for_status(request)
+    },
+    error = function(e) NULL
+  )
+  if (is.null(result)) {
+    return(NULL)
+  }
+
   html_page <- xml2::read_html(pkg_url)
   elements <- xml2::as_list(html_page)
-  rev_import_field <- elements$html$body$div[[15]][[1]][[3]]
+  rev_import_field <- tryCatch(
+    elements$html$body$div[[15]][[1]][[3]],
+    error = function(e) NULL
+  )
+
+  # in case we have no reverse suggests, return NULL
+  if (is.null(rev_import_field)) {
+    return(NULL)
+  }
 
   pkgs <- lapply(rev_import_field, function(i) {
     if (is.list(i)) {

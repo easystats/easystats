@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 options(knitr.kable.NA = "")
 options(digits = 2)
 
-pkgs <- c("DHARMa", "glmmTMB", "see", "parameters")
+pkgs <- c("DHARMa", "glmmTMB", "patchwork")
 successfully_loaded <- vapply(pkgs, requireNamespace, FUN.VALUE = logical(1L), quietly = TRUE)
 can_evaluate <- all(successfully_loaded)
 
@@ -40,7 +40,7 @@ if (can_evaluate) {
 }
 ```
 
-This vignette shows how to use the [*performance* package](https://easystats.github.io/performance) to check the fit of a model, how to detect misspecification and how to improve your model. The basic workflow of the *performance* package can be summarized as follows:
+This vignette shows how to use the [*performance* package](https://easystats.github.io/performance/) to check the fit of a model, how to detect misspecification and how to improve your model. The basic workflow of the *performance* package can be summarized as follows:
 
 - fit a regression model
 - check the model fit and assess model fit indices
