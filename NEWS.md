@@ -1,4 +1,4 @@
-# easystats 0.7.2.9000
+# easystats 0.7.2.1
 
 # easystats 0.7.2
 
