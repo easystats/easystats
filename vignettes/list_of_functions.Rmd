@@ -45,7 +45,7 @@ package ecosystem.
 
 all_funs <- NULL
 
-for (package in easystats:::.packages_on_cran()) {
+for (package in easystats::easystats_packages()) {
   fns <<- ls(paste0("package:", package))
   rds_filepath <- file.path(find.package(package), "help", "aliases.rds")
 
