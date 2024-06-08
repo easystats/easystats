@@ -171,5 +171,5 @@ show_reverse_dependencies <- function(package = "easystats") {
   if (is.null(rev_import_field) || is.na(rev_import_field)) {
     return(NULL)
   }
-  as.vector(unname(insight::trim_ws(unlist(strplit(rev_import_field, ",", fixed = TRUE)))))
+  as.vector(unname(insight::trim_ws(unlist(strsplit(rev_import_field, ",", fixed = TRUE)))))
 }
