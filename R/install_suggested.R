@@ -165,7 +165,7 @@ show_reverse_dependencies <- function(package = "easystats") {
 
 # crawl reverse-dependency fields
 
-.find_reverse_imports <- function(package) {
+.find_reverse_imports <- function(cran_packages, package) {
   rev_import_field <- cran_packages[cran_packages$Package == package, "Reverse imports"]
   # in case we have no reverse suggests, return NULL
   if (is.null(rev_import_field) || is.na(rev_import_field)) {
