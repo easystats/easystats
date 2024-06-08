@@ -72,5 +72,5 @@ for (package in easystats::easystats_packages()) {
   all_funs <- c(all_funs, functions)
 }
 
-cat(paste0(c("", sort(all_funs)), collapse = "\n- "))
+cat(paste(c("", sort(all_funs)), collapse = "\n- "))
 ```
