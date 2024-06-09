@@ -329,11 +329,11 @@ like <code><a href="https://easystats.github.io/performance/reference/test_perfo
 <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_wald()</a></code> or <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_vuong()</a></code> directly.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
-<span><span class="co">#&gt; ----------------------------------------------------------</span></span>
-<span><span class="co">#&gt; model1 | glmmTMB |        |  9 |         |        |       </span></span>
-<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000 | 17 |    8.00 | 193.31 | &lt; .001</span></span>
-<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
+<span><span class="co">#&gt; Name   |   Model |     BF</span></span>
+<span><span class="co">#&gt; -------------------------</span></span>
+<span><span class="co">#&gt; model1 | glmmTMB |       </span></span>
+<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000</span></span>
 <span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
 <p>We see, first, that <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance()</a></code> used the Bayes
 factor (based on BIC comparison) to compare the models. And second, that
@@ -342,10 +342,10 @@ first model.</p>
 <p>Now we compare the second against the third model</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
-<span><span class="co">#&gt; ----------------------------------------------------------</span></span>
-<span><span class="co">#&gt; model2 | glmmTMB |        | 17 |         |        |       </span></span>
-<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
+<span><span class="co">#&gt; Name   |   Model |     BF</span></span>
+<span><span class="co">#&gt; -------------------------</span></span>
+<span><span class="co">#&gt; model2 | glmmTMB |       </span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000</span></span>
 <span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
