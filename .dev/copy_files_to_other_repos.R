@@ -9,7 +9,7 @@ home_dir <- here::dr_here()
 common_root <- here::here("Documents", "GitHub")
 
 pkg_with_change <- "datawizard"
-pkg_without_change <- easystats:::.packages_on_cran() %>% setdiff(pkg_with_change)
+pkg_without_change <- easystats::easystats_packages() %>% setdiff(pkg_with_change)
 
 copy_from_folder <- map_chr(pkg_with_change, ~here::here(common_root, .x, ".github", "workflows"))
 copy_to_folders <- map_chr(pkg_without_change, ~here::here(common_root, .x, ".github", "workflows"))

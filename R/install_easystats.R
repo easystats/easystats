@@ -36,7 +36,7 @@ install_latest <- function(source = c("development", "cran"),
                            force = FALSE,
                            verbose = TRUE) {
   source <- match.arg(source, c("development", "cran"))
-  pkg <- .packages_on_cran()
+  pkg <- easystats_packages()
   install_all_packages <- FALSE
 
   if (length(packages) == 1L && packages == "all") {
