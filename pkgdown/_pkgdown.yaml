@@ -32,6 +32,7 @@ articles:
     contents:
       - citation
       - conventions
+      - easystats_packages
       - list_of_functions
       - resources
       - version_policy
