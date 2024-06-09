@@ -78,12 +78,12 @@
 #'
 #' @examples
 #' easystats_packages()
-easystats_packages <- function() {
+easystats_packages <- function() { # nocov start
   c(
     "bayestestR", "correlation", "datawizard", "easystats", "effectsize",
     "insight", "modelbased", "performance", "parameters", "report", "see"
   )
-}
+} # nocov end
 
 .installed_packages <- function() {
   lib.loc <- .libPaths()
