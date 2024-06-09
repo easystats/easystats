@@ -3,12 +3,8 @@
   deps <- tools::package_dependencies(easystats_packages(), pkgs, recursive = FALSE)
   pkg_deps <- unique(sort(unlist(deps)))
 
-  base_pkgs <- c(
-    "base", "compiler", "datasets", "graphics", "grDevices", "grid",
-    "methods", "parallel", "splines", "stats", "stats4", "tools", "tcltk",
-    "utils"
-  )
-  pkg_deps <- setdiff(pkg_deps, base_pkgs)
+  default_pkgs <- rownames(utils::installed.packages(priority = "base"))
+  pkg_deps <- setdiff(pkg_deps, default_pkgs)
 
   cran_version <- lapply(pkgs[pkg_deps, "Version"], package_version)
   local_version <- lapply(pkg_deps, utils::packageVersion)
