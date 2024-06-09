@@ -26,7 +26,7 @@
 #'
 #' Useful only for its side-effect of installing the needed packages.
 #'
-#' @examplesIf require("xml2", quietly = TRUE) && require("httr", quietly = TRUE)
+#' @examples
 #'
 #' # download all suggested packages
 #' if (FALSE) {
@@ -126,17 +126,19 @@ show_reverse_dependencies <- function(package = "easystats") {
 
 #' @keywords internal
 .revdep_pkgs <- function() {
+  cran_packages <- tools::CRAN_package_db()
+
   insight::compact_list(list(
-    insight     = .find_reverse_dependencies("insight"),
-    datawizard  = .find_reverse_dependencies("datawizard"),
-    performance = .find_reverse_dependencies("performance"),
-    parameters  = .find_reverse_dependencies("parameters"),
-    see         = .find_reverse_dependencies("see"),
-    effectsize  = .find_reverse_dependencies("effectsize"),
-    bayestestR  = .find_reverse_dependencies("bayestestR"),
-    correlation = .find_reverse_dependencies("correlation"),
-    report      = .find_reverse_dependencies("report"),
-    modelbased  = .find_reverse_dependencies("modelbased")
+    insight     = .find_reverse_imports(cran_packages, "insight"),
+    datawizard  = .find_reverse_imports(cran_packages, "datawizard"),
+    performance = .find_reverse_imports(cran_packages, "performance"),
+    parameters  = .find_reverse_imports(cran_packages, "parameters"),
+    see         = .find_reverse_imports(cran_packages, "see"),
+    effectsize  = .find_reverse_imports(cran_packages, "effectsize"),
+    bayestestR  = .find_reverse_imports(cran_packages, "bayestestR"),
+    correlation = .find_reverse_imports(cran_packages, "correlation"),
+    report      = .find_reverse_imports(cran_packages, "report"),
+    modelbased  = .find_reverse_imports(cran_packages, "modelbased")
   ))
 }
 
@@ -163,42 +165,11 @@ show_reverse_dependencies <- function(package = "easystats") {
 
 # crawl reverse-dependency fields
 
-.find_reverse_dependencies <- function(package) {
-  insight::check_if_installed(c("xml2", "httr"))
-
-  pkg_url <- paste0("https://cloud.r-project.org/web/packages/", package, "/")
-
-  # check if URL exists
-  result <- tryCatch(
-    {
-      request <- httr::GET(pkg_url)
-      httr::stop_for_status(request)
-    },
-    error = function(e) NULL
-  )
-  if (is.null(result)) {
-    return(NULL)
-  }
-
-  html_page <- xml2::read_html(pkg_url)
-  elements <- xml2::as_list(html_page)
-  rev_import_field <- tryCatch(
-    elements$html$body$div[[15]][[1]][[3]],
-    error = function(e) NULL
-  )
-
+.find_reverse_imports <- function(cran_packages, package) {
+  rev_import_field <- cran_packages[cran_packages$Package == package, "Reverse imports"]
   # in case we have no reverse suggests, return NULL
-  if (is.null(rev_import_field)) {
+  if (is.null(rev_import_field) || is.na(rev_import_field)) {
     return(NULL)
   }
-
-  pkgs <- lapply(rev_import_field, function(i) {
-    if (is.list(i)) {
-      i[[1]]
-    } else {
-      NA
-    }
-  })
-
-  as.vector(unname(stats::na.omit(unlist(pkgs))))
+  as.vector(unname(insight::trim_ws(unlist(strsplit(rev_import_field, ",", fixed = TRUE)))))
 }
