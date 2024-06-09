@@ -28,11 +28,11 @@ your life. And, who knows, you might even end up using them all.
 badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-universe.dev)
 [![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
 
-| Type | Source | Command |
-|----|----|----|
-| Release | CRAN | `install.packages("easystats")` |
+| Type        | Source     | Command                                                                     |
+|-------------|------------|-----------------------------------------------------------------------------|
+| Release     | CRAN       | `install.packages("easystats")`                                             |
 | Development | r-universe | `install.packages("easystats", repos = "https://easystats.r-universe.dev")` |
-| Development | GitHub | `remotes::install_github("easystats/easystats")` |
+| Development | GitHub     | `remotes::install_github("easystats/easystats")`                            |
 
 Finally, as *easystats* sometimes depends on some additional packages
 for specific functions that are not downloaded by default. If you want
@@ -193,9 +193,9 @@ which does have a substantial number of dependencies.
 
 ### Total downloads
 
-| Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
-|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 22,104,821 | 6,506,243 | 3,889,049 | 2,699,543 | 2,610,322 | 2,575,521 | 2,038,157 | 666,163 | 559,404 | 323,694 | 180,968 | 55,757 |
+| Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
+|:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
+| 22,104,821 | 6,506,243 | 3,889,049  | 2,699,543  | 2,610,322   | 2,575,521  | 2,038,157  | 666,163     | 559,404 | 323,694    | 180,968 | 55,757    |
 
 ### Trend
 

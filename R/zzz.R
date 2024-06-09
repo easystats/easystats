@@ -1,6 +1,6 @@
 .onAttach <- function(libname, pkgname) {
   easystats_versions <- .easystats_version()
-  easystats_pkgs <- .packages_on_cran()
+  easystats_pkgs <- easystats_packages()
   needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
 
   if (length(needed) == 0L) {

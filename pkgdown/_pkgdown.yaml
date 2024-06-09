@@ -8,6 +8,7 @@ reference:
   - title: Installation and update
     desc: ~
     contents:
+      - easystats_packages
       - starts_with("install_")
       - ends_with("_update")
 
