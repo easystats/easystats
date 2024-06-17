@@ -6,6 +6,7 @@ tabular summary of indices for the quality of model fit
 collection of models for checking model assumptions
 text report
 model information table
+
 "><meta property="og:description" content="A dashboard containing the following details for the entered regression model:
 tabular summary of parameter estimates
 dot-and-whisker plot for parameter estimates
@@ -13,14 +14,22 @@ tabular summary of indices for the quality of model fit
 collection of models for checking model assumptions
 text report
 model information table
+
 "><meta property="og:image" content="https://easystats.github.io/easystats/reference/figures/card.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@easystats4u"><meta name="twitter:site" content="@easystats4u"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+
+
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.1</small>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.2</small>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html" aria-label="Reference"><span class="fa fa-file-code"></span> Reference</a></li>
 <li class="nav-item dropdown">
@@ -58,6 +67,8 @@ model information table
     <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
   </ul></li>
       </ul></div>
+
+
   </div>
 </nav><div class="container template-reference-topic">
 <div class="row">
@@ -66,6 +77,7 @@ model information table
       <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/main/R/model_dashboard.R" class="external-link"><code>R/model_dashboard.R</code></a></small>
       <div class="d-none name"><code>model_dashboard.Rd</code></div>
     </div>
+
     <div class="ref-description section level2">
     <p>A dashboard containing the following details for the entered regression model:</p><ul><li><p>tabular summary of parameter estimates</p></li>
 <li><p>dot-and-whisker plot for parameter estimates</p></li>
@@ -74,6 +86,7 @@ model information table
 <li><p>text report</p></li>
 <li><p>model information table</p></li>
 </ul></div>
+
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">model_dashboard</span><span class="op">(</span></span>
@@ -88,46 +101,66 @@ model information table
 <span>  browse_html <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
+
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+
+
 <dl><dt id="arg-model">model<a class="anchor" aria-label="anchor" href="#arg-model"></a></dt>
 <dd><p>A regression model object.</p></dd>
+
+
 <dt id="arg-check-model-args">check_model_args<a class="anchor" aria-label="anchor" href="#arg-check-model-args"></a></dt>
 <dd><p>A list of named arguments that are passed down to
 <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">performance::check_model()</a></code>. For further documentation and details
 about the arguments,
 see <a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">this website</a>.
 See also 'Examples'.</p></dd>
+
+
 <dt id="arg-parameters-args">parameters_args<a class="anchor" aria-label="anchor" href="#arg-parameters-args"></a></dt>
 <dd><p>A list of named arguments that are passed down to
 <code><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">parameters::model_parameters()</a></code>. For further documentation and details
 about the arguments,
 see <a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">this website</a>.
 See also 'Examples'.</p></dd>
+
+
 <dt id="arg-performance-args">performance_args<a class="anchor" aria-label="anchor" href="#arg-performance-args"></a></dt>
 <dd><p>A list of named arguments that are passed down to
 <code><a href="https://easystats.github.io/performance/reference/model_performance.html" class="external-link">performance::model_performance()</a></code>. For further documentation and details
 about the arguments,
 see <a href="https://easystats.github.io/performance/reference/model_performance.html" class="external-link">this website</a>.
 See also 'Examples'.</p></dd>
+
+
 <dt id="arg-output-file">output_file<a class="anchor" aria-label="anchor" href="#arg-output-file"></a></dt>
 <dd><p>A string specifying the file name in <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">rmarkdown::render()</a></code>.
 Default is <code>"easydashboard.html"</code>.</p></dd>
+
+
 <dt id="arg-output-dir">output_dir<a class="anchor" aria-label="anchor" href="#arg-output-dir"></a></dt>
 <dd><p>A string specifying the path to the output directory for
 report in <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">rmarkdown::render()</a></code>. Default is to use the working directory.</p></dd>
+
+
 <dt id="arg-rmd-dir">rmd_dir<a class="anchor" aria-label="anchor" href="#arg-rmd-dir"></a></dt>
 <dd><p>A string specifying the path to the directory containing the
 RMarkdown template file. By default, package uses the template shipped with
 the package installation (<code>inst/templates/easydashboard.Rmd</code>).</p></dd>
+
+
 <dt id="arg-quiet">quiet<a class="anchor" aria-label="anchor" href="#arg-quiet"></a></dt>
 <dd><p>An option to suppress printing during rendering from knitr,
 pandoc command line and others. To only suppress printing of the last
 "Output created: " message, you can set <code>rmarkdown.render.message</code> to
 <code>FALSE</code></p></dd>
+
+
 <dt id="arg-browse-html">browse_html<a class="anchor" aria-label="anchor" href="#arg-browse-html"></a></dt>
 <dd><p>A logical deciding if the rendered HTML should be opened
 in the browser. Defaults to <code><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive()</a></code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -135,6 +168,8 @@ in the browser. Defaults to <code><a href="https://rdrr.io/r/base/interactive.ht
     </div>
     <div class="section level2">
     <h2 id="troubleshooting">Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"></a></h2>
+
+
 <p>For models with many observations, or for more complex models in general,
 generating the model assumptions plot might become very slow. One reason
 is that the underlying graphic engine becomes slow for plotting many data
@@ -143,6 +178,7 @@ might help. Furthermore, look at other arguments of <code><a href="https://easys
 which can be set using <code>check_model_args</code>, to increase performance (in
 particular the <code>check</code>-argument can help, to skip some unnecessary checks).</p>
     </div>
+
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive() &amp;&amp; require("xml2", quietly = TRUE) &amp;&amp; require("flexdashboard",      quietly = TRUE)</span></span></span>
@@ -165,12 +201,21 @@ particular the <code>check</code>-argument can help, to skip some unnecessary ch
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
+
+
     <footer><div class="pkgdown-footer-left">
   <p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>, <a href="https://www.etiennebacher.com/" class="external-link">Etienne Bacher</a>, <a href="https://remi-theriault.com/" class="external-link">Rémi Thériault</a>.</p>
 </div>
+
 <div class="pkgdown-footer-right">
   <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.9000.</p>
 </div>
+
     </footer></div>
+
+
+
+
+
   </body></html>
 

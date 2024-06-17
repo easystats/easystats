@@ -23,12 +23,19 @@
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+
+
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.1</small>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.2</small>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html" aria-label="Reference"><span class="fa fa-file-code"></span> Reference</a></li>
@@ -77,18 +84,26 @@
 </li>
       </ul>
 </div>
+
+
   </div>
 </nav><div class="container template-article">
+
 
 
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Analytic workflow: Assessing model fit</h1>
-                        <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/main/vignettes/workflow_performance.rmd" class="external-link"><code>vignettes/workflow_performance.rmd</code></a></small>
+            
+      
+      <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/main/vignettes/workflow_performance.rmd" class="external-link"><code>vignettes/workflow_performance.rmd</code></a></small>
       <div class="d-none name"><code>workflow_performance.rmd</code></div>
     </div>
-        <p>This vignette shows how to use the <a href="https://easystats.github.io/performance/" class="external-link"><em>performance</em>
+
+    
+    
+<p>This vignette shows how to use the <a href="https://easystats.github.io/performance/" class="external-link"><em>performance</em>
 package</a> to check the fit of a model, how to detect misspecification
 and how to improve your model. The basic workflow of the
 <em>performance</em> package can be summarized as follows:</p>
@@ -329,11 +344,11 @@ like <code><a href="https://easystats.github.io/performance/reference/test_perfo
 <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_wald()</a></code> or <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_vuong()</a></code> directly.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Name   |   Model |     BF</span></span>
-<span><span class="co">#&gt; -------------------------</span></span>
-<span><span class="co">#&gt; model1 | glmmTMB |       </span></span>
-<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000</span></span>
-<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000</span></span>
+<span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
+<span><span class="co">#&gt; ----------------------------------------------------------</span></span>
+<span><span class="co">#&gt; model1 | glmmTMB |        |  9 |         |        |       </span></span>
+<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000 | 17 |    8.00 | 193.31 | &lt; .001</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
 <span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
 <p>We see, first, that <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance()</a></code> used the Bayes
 factor (based on BIC comparison) to compare the models. And second, that
@@ -342,10 +357,10 @@ first model.</p>
 <p>Now we compare the second against the third model</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance</a></span><span class="op">(</span><span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Name   |   Model |     BF</span></span>
-<span><span class="co">#&gt; -------------------------</span></span>
-<span><span class="co">#&gt; model2 | glmmTMB |       </span></span>
-<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000</span></span>
+<span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
+<span><span class="co">#&gt; ----------------------------------------------------------</span></span>
+<span><span class="co">#&gt; model2 | glmmTMB |        | 17 |         |        |       </span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
 <span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -510,13 +525,23 @@ process.</p>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
+
+
+
     <footer><div class="pkgdown-footer-left">
   <p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>, <a href="https://www.etiennebacher.com/" class="external-link">Etienne Bacher</a>, <a href="https://remi-theriault.com/" class="external-link">Rémi Thériault</a>.</p>
 </div>
+
 <div class="pkgdown-footer-right">
   <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.9000.</p>
 </div>
+
     </footer>
 </div>
+
+
+
+
+
   </body>
 </html>

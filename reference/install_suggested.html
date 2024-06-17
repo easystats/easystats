@@ -11,12 +11,19 @@ support) and some specific features. These &quot;soft dependencies&quot; can be
 downloaded at once using this function. This will allow you to fully utilize
 all of easystats' functionalities without errors."><meta property="og:image" content="https://easystats.github.io/easystats/reference/figures/card.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@easystats4u"><meta name="twitter:site" content="@easystats4u"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+
+
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.1</small>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.2</small>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html" aria-label="Reference"><span class="fa fa-file-code"></span> Reference</a></li>
 <li class="nav-item dropdown">
@@ -54,6 +61,8 @@ all of easystats' functionalities without errors."><meta property="og:image" con
     <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
   </ul></li>
       </ul></div>
+
+
   </div>
 </nav><div class="container template-reference-topic">
 <div class="row">
@@ -62,6 +71,7 @@ all of easystats' functionalities without errors."><meta property="og:image" con
       <small class="dont-index">Source: <a href="https://github.com/easystats/easystats/blob/main/R/install_suggested.R" class="external-link"><code>R/install_suggested.R</code></a></small>
       <div class="d-none name"><code>install_suggested.Rd</code></div>
     </div>
+
     <div class="ref-description section level2">
     <p>In <code>easystats</code>, we have a 0-dependency policy, which makes our packages
 fairly light and fast to install. However, we rely on many many (many)
@@ -70,6 +80,7 @@ support) and some specific features. These "soft dependencies" can be
 downloaded at once using this function. This will allow you to fully utilize
 all of easystats' functionalities without errors.</p>
     </div>
+
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">install_suggested</span><span class="op">(</span>package <span class="op">=</span> <span class="st">"easystats"</span><span class="op">)</span></span>
@@ -78,13 +89,17 @@ all of easystats' functionalities without errors.</p>
 <span></span>
 <span><span class="fu">show_reverse_dependencies</span><span class="op">(</span>package <span class="op">=</span> <span class="st">"easystats"</span><span class="op">)</span></span></code></pre></div>
     </div>
+
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+
+
 <dl><dt id="arg-package">package<a class="anchor" aria-label="anchor" href="#arg-package"></a></dt>
 <dd><p>If <code>NULL</code> or <code>"easystats"</code> (the default), all suggested
 packages for all 'easystats' packages will be installed. If specific
 packages are specified, only suggested packages for those packages will be
 installed.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -100,6 +115,7 @@ packages a given 'easystats' package might need. For example,
 to show the current list of suggested packages for each 'easystats'
 package.</p>
     </div>
+
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
@@ -113,9 +129,9 @@ package.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">bayestestR</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> bayesMeanScale, brmsmargins, clinicalsignificance, correlation,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   easystats, effectsize, fbst, modelbased, multifear, neatStats,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters, performance, psycho, report, rstanbdp, see, sjPlot, snSMART,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   SSVS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   easystats, effectsize, fbst, modelbased, multifear, multilevelcoda,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   neatStats, parameters, performance, psycho, report, rstanbdp, see,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sjPlot, snSMART, SSVS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">correlation</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">-----------</span></span>
@@ -138,9 +154,10 @@ package.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ale, bayestestR, bsitar, clarify, clinicalsignificance, correlation, cv,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   datawizard, DImodelsVis, easystats, effects, effectsize, ggDoE,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ggeffects, ggstatsplot, insurancerating, lavaanExtra, marginaleffects,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   modelbased, modelsummary, MuMIn, parameters, performance, psycho,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   psycModel, randomizeR, regressinator, report, see, SimplyAgree,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   sjlabelled, sjmisc, sjPlot, sjstats, statsExpressions, tidygam</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   modelbased, modelsummary, multilevelcoda, MuMIn, parameters,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   performance, psycho, psycModel, randomizeR, regressinator, report, see,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats, statsExpressions,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   tidygam</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">modelbased</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
@@ -156,8 +173,8 @@ package.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">performance</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">-----------</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> bruceR, CR2, dotwhisker, easystats, effectsize, ggstatsplot, MLMusingR,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   modelbased, modelsummary, multitool, PLSDAbatch, psycModel, report, see,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   sjPlot, sjstats, statsExpressions, ZLAvian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   modelbased, modelsummary, multitool, piecewiseSEM, PLSDAbatch,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   psycModel, report, see, sjPlot, sjstats, statsExpressions, ZLAvian</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">report</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">------</span></span>
@@ -182,7 +199,7 @@ package.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">-----------</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> BayesFactor, energy, ggplot2, ggraph, gt, Hmisc, knitr, lme4, MASS,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   mbend, polycor, poorman, ppcor, psych, rmarkdown, rmcorr, rstanarm, see,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   testthat, tidygraph, wdm, WRS2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   testthat, tidygraph, wdm, WRS2, openxlsx2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">datawizard</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
@@ -204,22 +221,22 @@ package.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   cgam, clubSandwich, coxme, cplm, crch, curl, datawizard, effectsize,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   emmeans, epiR, estimatr, feisr, fixest, fungible, gam, gamlss,</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   gamlss.data, gamm4, gbm, gee, geepack, geoR, ggeffects, GLMMadaptive,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   glmmTMB, gmnl, grDevices, gt, httr, interp, ivreg, JM, knitr, lavaan,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   lavaSearch2, lfe, lme4, lmerTest, lmtest, logistf, logitr, MASS,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   marginaleffects, Matrix, mclogit, mclust, MCMCglmm, merTools, metaBMA,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   metadat, metafor, metaplus, mgcv, mice, mlogit, mmrm, modelbased,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   multgee, MuMIn, nestedLogit, nlme, nnet, nonnest2, ordinal, panelr,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters, parsnip, pbkrtest, performance, plm, poorman, PROreg, pscl,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   psych, quantreg, Rcpp, rmarkdown, rms, rpart, robustbase, robustlmm,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   rstanarm, rstantools, rstudioapi, sandwich, serp, speedglm, splines,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   statmod, survey, survival, testthat, tinytable, truncreg, tweedie, TMB,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   VGAM, withr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   glmmTMB, gmnl, grDevices, gt, httptest2, httr, httr2, interp, ivreg, JM,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   knitr, lavaan, lavaSearch2, lfe, lme4, lmerTest, lmtest, logistf,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   logitr, marginaleffects, MASS, Matrix, mclogit, mclust, MCMCglmm,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   merTools, metaBMA, metadat, metafor, metaplus, mgcv, mice, mlogit, mmrm,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   modelbased, multgee, MuMIn, nestedLogit, nlme, nnet, nonnest2, ordinal,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   panelr, parameters, parsnip, pbkrtest, performance, plm, poorman,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   PROreg, pscl, psych, quantreg, Rcpp, rmarkdown, rms, robustbase,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   robustlmm, rpart, rstanarm, rstantools, rstudioapi, sandwich, serp,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   speedglm, splines, statmod, survey, survival, testthat, tinytable, TMB,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   truncreg, tweedie, VGAM, withr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">modelbased</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> brms, correlation, emmeans, gamm4, gganimate, ggplot2, glmmTMB, knitr,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   lme4, logspline, marginaleffects, mgcv, patchwork, poorman, report,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   rmarkdown, rstanarm, rtdists, see, testthat</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> brms, coda, correlation, emmeans, gamm4, gganimate, ggplot2, glmmTMB,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   knitr, lme4, logspline, marginaleffects, mgcv, patchwork, poorman,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   report, rmarkdown, rstanarm, rtdists, see, testthat</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">parameters</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
@@ -268,12 +285,21 @@ package.</p>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
+
+
     <footer><div class="pkgdown-footer-left">
   <p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>, <a href="https://www.etiennebacher.com/" class="external-link">Etienne Bacher</a>, <a href="https://remi-theriault.com/" class="external-link">Rémi Thériault</a>.</p>
 </div>
+
 <div class="pkgdown-footer-right">
   <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.9000.</p>
 </div>
+
     </footer></div>
+
+
+
+
+
   </body></html>
 
