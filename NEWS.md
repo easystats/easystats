@@ -1,7 +1,9 @@
-# easystats 0.7.2.1
+# easystats 0.7.3
 
 * New function `easystats_packages()` that produces a character vector with
   the names of all packages in the `easystats` ecosystem (#417).
+
+* Updated `citation()` information.
 
 # easystats 0.7.2
 

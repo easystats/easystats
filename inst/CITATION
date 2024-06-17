@@ -11,13 +11,14 @@ bibentry(
   person("Dominique", "Makowski")
   ),
   journal="CRAN",
+  doi="https://doi.org/10.32614/CRAN.package.easystats",
   year="2022",
   note="R package",
   url="https://easystats.github.io/easystats/",
 
   textVersion =
     paste("Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, Thériault, & Makowski (2022). easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting. CRAN.",
-          "Available from https://easystats.github.io/easystats/"
+          "doi:10.32614/CRAN.package.easystats <https://doi.org/10.32614/CRAN.package.easystats>"
     ),
   mheader = "To cite easystats in publications use:"
 )
