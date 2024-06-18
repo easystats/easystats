@@ -73,7 +73,9 @@ Ben-Shachar, Patil, & Lüdecke, 2020; Lüdecke, Ben-Shachar, Patil, & Makowski,
   Statistical Models. _Journal of Open Source Software_, _6_(60), 3139.
   https://doi.org/10.21105/joss.03139
 
-- Lüdecke, D., Patil, I., Ben-Schachar, M.S., Wiernik, B.M., Waggoner, P., &    Makowski, D. (2021). see: An R Package for Visualizing Statistical Models.    _Journal of Open Source Software_, _6_(64), 3393,
+- Lüdecke, D., Patil, I., Ben-Schachar, M.S., Wiernik, B.M., Waggoner, P., &
+  Makowski, D. (2021). see: An R Package for Visualizing Statistical Models.
+  _Journal of Open Source Software_, _6_(64), 3393,
   https://doi.org/10.21105/joss.03393
 
 <details> <summary>Click here to see the corresponding APA and bibtex

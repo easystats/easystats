@@ -53,8 +53,9 @@ To cite easystats in publications use:
 
   Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, Thériault, & Makowski
   (2022). easystats: Framework for Easy Statistical Modeling,
-  Visualization, and Reporting. CRAN. Available from
-  https://easystats.github.io/easystats/
+  Visualization, and Reporting. CRAN.
+  doi:10.32614/CRAN.package.easystats
+  <https://doi.org/10.32614/CRAN.package.easystats>
 
 A BibTeX entry for LaTeX users is
 
@@ -62,6 +63,7 @@ A BibTeX entry for LaTeX users is
     title = {easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting},
     author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Etienne Bacher and Rémi Thériault and Dominique Makowski},
     journal = {CRAN},
+    doi = {https://doi.org/10.32614/CRAN.package.easystats},
     year = {2022},
     note = {R package},
     url = {https://easystats.github.io/easystats/},
@@ -195,7 +197,7 @@ which does have a substantial number of dependencies.
 
 | Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
 |:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
-| 22,104,821 | 6,506,243 | 3,889,049  | 2,699,543  | 2,610,322   | 2,575,521  | 2,038,157  | 666,163     | 559,404 | 323,694    | 180,968 | 55,757    |
+| 22,254,405 | 6,546,595 | 3,920,590  | 2,714,459  | 2,631,476   | 2,590,117  | 2,050,255  | 670,461     | 562,887 | 328,094    | 182,505 | 56,966    |
 
 ### Trend
 
