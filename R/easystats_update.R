@@ -40,11 +40,15 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     # detach packages before installing
     lapply(behind$package, unloadNamespace)
 
-    utils::install.packages(
-      behind$package,
-      quiet = TRUE,
-      dependencies = FALSE
-    )
+    if (insight::check_if_installed("pak", quietly = TRUE)) {
+      pak::pkg_install(behind$package)
+    } else {
+      utils::install.packages(
+        behind$package,
+        quiet = TRUE,
+        dependencies = FALSE
+      )
+    }
   }
 
   if (which %in% c("all", "deps")) {
@@ -69,11 +73,15 @@ easystats_update <- function(which = c("all", "core", "deps")) {
     # detach packages before installing
     lapply(behind$package, unloadNamespace)
 
-    utils::install.packages(
-      behind$package,
-      quiet = TRUE,
-      dependencies = FALSE
-    )
+    if (insight::check_if_installed("pak", quietly = TRUE)) {
+      pak::pkg_install(behind$package)
+    } else {
+      utils::install.packages(
+        behind$package,
+        quiet = TRUE,
+        dependencies = FALSE
+      )
+    }
   }
 
   invisible()

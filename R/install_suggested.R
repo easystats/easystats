@@ -55,6 +55,8 @@ install_suggested <- function(package = "easystats") {
 
   if (all(installed_packages)) {
     message("All of the suggested packages are already installed :)")
+  } else if (insight::check_if_installed("pak", quietly = TRUE)) {
+    pak::pkg_install(pkg_download[!installed_packages], dependencies = FALSE)
   } else {
     utils::install.packages(pkg_download[!installed_packages])
   }
