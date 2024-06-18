@@ -1,6 +1,6 @@
 pandoc: '3.2'
 pkgdown: 2.0.9.9000
-pkgdown_sha: 819cede3fbbb2410912f4d49365177c9159b809f
+pkgdown_sha: 076d915caef1c47b4a2ba8774625f8ad880ef76a
 articles:
   citation: citation.html
   conventions: conventions.html
@@ -8,7 +8,7 @@ articles:
   resources: resources.html
   version_policy: version_policy.html
   workflow_performance: workflow_performance.html
-last_built: 2024-06-17T10:13Z
+last_built: 2024-06-18T11:19Z
 urls:
   reference: https://easystats.github.io/easystats/reference
   article: https://easystats.github.io/easystats/articles
