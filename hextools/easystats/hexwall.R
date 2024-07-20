@@ -174,7 +174,7 @@ hexwall <- function(path,
       max(sticker_pos$x) + sticker_width,
       max(sticker_pos$y) + sticker_height, "none"
     )
-    reduce2(stickers, sticker_pos %>% split(1:NROW(.)),
+    reduce2(stickers, sticker_pos %>% split(seq_len(NROW(.))),
       ~ image_composite(
         ..1, ..2,
         offset = paste0("+", ..3$x, "+", ..3$y)

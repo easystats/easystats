@@ -47,8 +47,8 @@ funs <- sort(get_functions()$Name)[1:200]
 mat <- effectsize::normalize(adist(funs))
 colnames(mat) <- row.names(mat) <- funs
 
-for (row in 1:nrow(mat)) {
-  for (col in 1:ncol(mat)) {
+for (row in seq_len(nrow(mat))) {
+  for (col in seq_len(ncol(mat))) {
     d <- get_distance(funs[row], funs[col])
     mat[row, col] <- mat[row, col] + d
   }
