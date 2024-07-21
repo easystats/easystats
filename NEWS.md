@@ -5,6 +5,9 @@
 
 * Updated `citation()` information.
 
+* `easystats_update()` and `install_suggested()` now use the _pak_ package, if
+  this is installed.
+
 # easystats 0.7.2
 
 * Add a vignette on the R version policy for all packages in the **easystats**
@@ -24,13 +27,13 @@
 ## Major Changes
 
 - Given their significant contributions throughout the ecosystem, the package
-  gains two new authors: [Etienne Bacher](https://github.com/etiennebacher) 
+  gains two new authors: [Etienne Bacher](https://github.com/etiennebacher)
   and [Rémi Thériault](https://github.com/rempsyc). Welcome on-board!
 
 - This release changes the licensing model of `{easystats}` to an MIT license.
 
 - All component packages have been bumped to their latest versions.
-  
+
 ## Minor Changes
 
 - `model_dashboard()` gains a new argument `browse_html` to control if the
@@ -99,4 +102,3 @@
 
 * The CRAN-check for errors or warnings in `easystats`-packages is no longer
   shown by default on startup. Use `easystats::check_cran_status()` to see them.
-
