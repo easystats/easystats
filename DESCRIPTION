@@ -2,7 +2,7 @@ Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
 Version: 0.7.2.4
-Authors@R: 
+Authors@R:
     c(person(given = "Daniel",
              family = "Lüdecke",
              role = c("aut", "cre"),
@@ -30,18 +30,18 @@ Authors@R:
              comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")),
       person("Etienne", "Bacher", , "etienne.bacher@protonmail.com", role = "aut",
              comment = c(ORCID = "0000-0002-9271-5075")),
-      person(given = "Rémi", 
+      person(given = "Rémi",
              family = "Thériault",
-             role = "aut", 
+             role = "aut",
              email = "remi.theriault@mail.mcgill.ca",
              comment = c(ORCID = "0000-0003-4315-6788", Twitter = "@rempsyc")))
 Maintainer: Daniel Lüdecke <d.luedecke@uke.de>
-Description: A meta-package that installs and loads a set of packages from 
-    'easystats' ecosystem in a single step. This collection of packages provide 
-    a unifying and consistent framework for statistical modeling, visualization, 
-    and reporting. Additionally, it provides articles targeted at instructors for 
-    teaching 'easystats', and a dashboard targeted at new R users for easily 
-    conducting statistical analysis by accessing summary results, model fit indices, 
+Description: A meta-package that installs and loads a set of packages from
+    'easystats' ecosystem in a single step. This collection of packages provide
+    a unifying and consistent framework for statistical modeling, visualization,
+    and reporting. Additionally, it provides articles targeted at instructors for
+    teaching 'easystats', and a dashboard targeted at new R users for easily
+    conducting statistical analysis by accessing summary results, model fit indices,
     and visualizations with minimal programming.
 License: MIT + file LICENSE
 URL: https://easystats.github.io/easystats/
@@ -50,15 +50,15 @@ Depends:
     R (>= 3.6)
 Imports:
     bayestestR (>= 0.13.2),
-    correlation (>= 0.8.5),
-    datawizard (>= 0.12.1),
-    effectsize (>= 0.8.9),
-    insight (>= 0.20.2),
+    correlation (>= 0.8.4),
+    datawizard (>= 0.10.0),
+    effectsize (>= 0.8.8),
+    insight (>= 0.20.1),
     modelbased (>= 0.8.8),
-    parameters (>= 0.22.0),
+    parameters (>= 0.22.1),
     performance (>= 0.12.2),
-    report (>= 0.5.9),
-    see (>= 0.8.5),
+    report (>= 0.5.8),
+    see (>= 0.8.3),
     tools,
     utils
 Suggests:
@@ -76,7 +76,7 @@ Suggests:
     testthat (>= 3.2.1),
     withr,
     xml2
-VignetteBuilder: 
+VignetteBuilder:
     knitr
 Encoding: UTF-8
 Language: en-US
