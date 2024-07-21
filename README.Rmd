@@ -363,17 +363,17 @@ tmp$Package <- relevel(tmp$Package, "bayestestR", names(packages_colours))
 tmp |>
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
-  geom_line(aes(y = count), linewidth = 0.5, alpha = 0.1) +
+  # geom_line(aes(y = count), linewidth = 0.5, alpha = 0.1) +
   geom_line(aes(y = average_count), linewidth = 1, alpha = 0.7) +
   geom_smooth(aes(y = count),
     method = "lm",
     linetype = "dotted",
-    size = 0.75,
+    linewidth = 0.75,
     se = FALSE
   ) +
   see::theme_modern() +
   scale_x_date(
-    date_breaks = "1 month",
+    date_breaks = "4 months",
     labels = scales::date_format("%Y-%m")
   ) +
   scale_colour_manual(values = packages_colours) +
