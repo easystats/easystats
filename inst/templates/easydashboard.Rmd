@@ -1,11 +1,11 @@
 ---
 title: "Regression model summary from `{easystats}`"
-output: 
+output:
   flexdashboard::flex_dashboard:
     theme:
       version: 4
       # bg: "#101010"
-      # fg: "#FDF7F7" 
+      # fg: "#FDF7F7"
       primary: "#0054AD"
       base_font:
         google: Prompt
@@ -55,8 +55,8 @@ if (!is_supported) {
 ```
 
 
-Model fit 
-=====================================  
+Model fit
+=====================================
 
 Column {data-width=700}
 -----------------------------------------------------------------------
@@ -106,7 +106,7 @@ cat(unsupported_message)
 For interpretation of performance metrics, please refer to <a href="https://easystats.github.io/performance/reference/model_performance.html" target="_blank">this documentation</a>.
 
 Parameter estimates
-=====================================  
+=====================================
 
 Column {data-width=550}
 -----------------------------------------------------------------------
@@ -146,7 +146,7 @@ To find out more about table summary options, please refer to <a href="https://e
 
 
 Predicted Values
-=====================================  
+=====================================
 
 Column {data-width=600}
 -----------------------------------------------------------------------
@@ -179,7 +179,7 @@ text_modelbased <- tryCatch(
     lapply(unique(model_terms), function(i) {
       dgrid <- get_datagrid(
         model,
-        at = i,
+        by = i,
         range = "grid",
         preserve_range = FALSE,
         verbose = FALSE,
@@ -241,7 +241,7 @@ cat(unsupported_message)
 
 
 Text reports
-=====================================    
+=====================================
 
 Column {data-width=500}
 -----------------------------------------------------------------------
