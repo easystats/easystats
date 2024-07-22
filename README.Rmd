@@ -4,13 +4,13 @@ output: github_document
 
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
-  dpi = 150,
+  dpi = 300,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
   fig.path = "man/figures/",
-  fig.width = 0.6 * 16.18034,
-  fig.height = 0.6 * 10
+  fig.width = 8,
+  fig.height = 5
 )
 ```
 
@@ -32,7 +32,7 @@ challenge, do check if there is an *easystats* answer for it in other packages.
 You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="433px", fig.align="center"}
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
