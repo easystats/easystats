@@ -10,8 +10,8 @@ knitr::opts_chunk$set(
   message = FALSE,
   out.width = "100%",
   fig.path = "man/figures/",
-  fig.width = 0.7 * 16.18034,
-  fig.height = 0.7 * 10
+  fig.width = 0.4 * 16.18034,
+  fig.height = 0.4 * 10
 )
 ```
 
