@@ -360,11 +360,62 @@ tmp <- lapply(split(data, data$Package), function(x) {
 })
 tmp <- do.call(rbind, tmp)
 tmp$Package <- relevel(tmp$Package, "bayestestR", names(packages_colours))
+
+out <- data_summary(
+  tmp,
+  daily_avg = mean(count, na.rm = TRUE),
+  by = c("year_month", "Package")
+)
+out$date <- out$year_month
+out$date <- gsub("Januar", "01-01", out$date, fixed = TRUE)
+out$date <- gsub("Februar", "02-01", out$date, fixed = TRUE)
+out$date <- gsub("März", "03-01", out$date, fixed = TRUE)
+out$date <- gsub("April", "04-01", out$date, fixed = TRUE)
+out$date <- gsub("Mai", "05-01", out$date, fixed = TRUE)
+out$date <- gsub("Juni", "06-01", out$date, fixed = TRUE)
+out$date <- gsub("Juli", "07-01", out$date, fixed = TRUE)
+out$date <- gsub("August", "08-01", out$date, fixed = TRUE)
+out$date <- gsub("September", "09-01", out$date, fixed = TRUE)
+out$date <- gsub("Oktober", "10-01", out$date, fixed = TRUE)
+out$date <- gsub("November", "11-01", out$date, fixed = TRUE)
+out$date <- gsub("Dezember", "12-01", out$date, fixed = TRUE)
+out$date <- as.Date(out$date)
+
+out |>
+  ggplot(aes(x = date, color = Package)) +
+  geom_hline(yintercept = c(1000, 2000, 3000, 4000, 5000, 6000), color = "#EEEEEE") +
+  geom_line(aes(y = daily_avg), linewidth = 0.9, alpha = 0.6) +
+  geom_smooth(aes(y = daily_avg),
+    method = "lm",
+    linetype = "dotted",
+    linewidth = 0.75,
+    se = FALSE
+  ) +
+  see::theme_modern() +
+  scale_x_date(
+    date_breaks = "4 months",
+    labels = scales::date_format("%Y-%m")
+  ) +
+  scale_colour_manual(values = packages_colours) +
+  xlab("") +
+  ylab("Daily CRAN Downloads\n") +
+  coord_cartesian(ylim = c(0, max(out$daily_avg) + 100), expand = FALSE) +
+  scale_y_sqrt() +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+```{r, fig.align='center', echo=FALSE, eval=FALSE}
+# TIME TREND
+tmp <- lapply(split(data, data$Package), function(x) {
+  x[-nrow(x), ]
+})
+tmp <- do.call(rbind, tmp)
+tmp$Package <- relevel(tmp$Package, "bayestestR", names(packages_colours))
 tmp |>
   ggplot(aes(x = date, color = Package)) +
   geom_hline(yintercept = c(1000, 2000, 3000, 4000), color = "#EEEEEE") +
   # geom_line(aes(y = count), linewidth = 0.5, alpha = 0.1) +
-  geom_line(aes(y = average_count), linewidth = 1, alpha = 0.7) +
+  geom_line(aes(y = average_count), linewidth = 0.9, alpha = 0.6) +
   geom_smooth(aes(y = count),
     method = "lm",
     linetype = "dotted",
@@ -427,7 +478,7 @@ tmp$package2 <- reorder(tmp$package2, tmp$monthly_downloads, max)
 tmp |>
   ggplot(aes(x = package2, y = monthly_downloads, colour = package)) +
   geom_point(size = 3) +
-  geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), size = 1) +
+  geom_linerange(mapping = aes(ymin = 0, ymax = monthly_downloads), linewidth = 1) +
   see::theme_modern() +
   scale_colour_manual(values = packages_colours) +
   theme(axis.text.x = element_text(angle = 90)) +
