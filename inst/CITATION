@@ -11,7 +11,7 @@ bibentry(
   person("Dominique", "Makowski")
   ),
   journal="CRAN",
-  doi="https://doi.org/10.32614/CRAN.package.easystats",
+  doi="10.32614/CRAN.package.easystats",
   year="2022",
   note="R package",
   url="https://easystats.github.io/easystats/",

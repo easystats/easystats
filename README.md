@@ -5,7 +5,6 @@
 
 [![downloads](https://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## What is *easystats*?
 
@@ -28,11 +27,11 @@ your life. And, who knows, you might even end up using them all.
 badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-universe.dev)
 [![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
 
-| Type | Source | Command |
-|----|----|----|
-| Release | CRAN | `install.packages("easystats")` |
+| Type        | Source     | Command                                                                     |
+|-------------|------------|-----------------------------------------------------------------------------|
+| Release     | CRAN       | `install.packages("easystats")`                                             |
 | Development | r-universe | `install.packages("easystats", repos = "https://easystats.r-universe.dev")` |
-| Development | GitHub | `remotes::install_github("easystats/easystats")` |
+| Development | GitHub     | `remotes::install_github("easystats/easystats")`                            |
 
 Finally, as *easystats* sometimes depends on some additional packages
 for specific functions that are not downloaded by default. If you want
@@ -195,9 +194,9 @@ which does have a substantial number of dependencies.
 
 ### Total downloads
 
-| Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
-|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 22,845,393 | 6,691,365 | 4,044,659 | 2,784,699 | 2,707,155 | 2,645,313 | 2,104,245 | 697,581 | 577,052 | 342,657 | 189,801 | 60,866 |
+| Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
+|:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
+| 22,854,679 | 6,693,662 | 4,046,677  | 2,785,758  | 2,708,389   | 2,646,105  | 2,105,088  | 697,969     | 577,345 | 342,849    | 189,930 | 60,907    |
 
 ### Trend
 
