@@ -1,7 +1,5 @@
 # Running tests with options(warn = 2) to fail on test warnings
 on:
-  push:
-    branches: [main, master]
   pull_request:
     branches: [main, master]
 
