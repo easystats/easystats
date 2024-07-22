@@ -7,8 +7,6 @@
 # never used to avoid accidentally restoring a cache containing a suggested
 # dependency.
 on:
-  push:
-    branches: [main, master]
   pull_request:
     branches: [main, master]
 

@@ -7,8 +7,6 @@
 #
 # This workflow helps find such failing examples that need to be modified.
 on:
-  push:
-    branches: [main, master]
   pull_request:
     branches: [main, master]
 
