@@ -18,7 +18,7 @@ challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
 
-<img src="man/figures/logo_wall.png" width="100%" />
+<img src="man/figures/logo_wall.png" width="433px" style="display: block; margin: auto;" />
 
 ## Installation
 

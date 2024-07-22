@@ -4,14 +4,13 @@ output: github_document
 
 ```{r, warning=FALSE, message=FALSE,echo=FALSE}
 knitr::opts_chunk$set(
-  dpi = 150,
+  dpi = 300,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  out.width = "100%",
   fig.path = "man/figures/",
-  fig.width = 0.6 * 16.18034,
-  fig.height = 0.6 * 10
+  fig.width = 8,
+  fig.height = 5
 )
 ```
 
@@ -33,7 +32,7 @@ challenge, do check if there is an *easystats* answer for it in other packages.
 You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all.
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, out.width="433px", fig.align="center"}
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
@@ -155,7 +154,7 @@ following presentations and talks to learn more about this ecosystem:
 *easystats* packages are designed to be lightweight, *i.e.*, they don't have any third-party hard dependencies, other than base-R packages or other *easystats* packages!
 If you develop R packages, this means that you can safely use *easystats* packages as dependencies in your own packages, without the risk of entering the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-```{r depnetwork}
+```{r depnetwork, out.width="100%"}
 library(deepdep)
 
 plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
@@ -353,7 +352,7 @@ knitr::kable(dl_table)
 
 ### Trend
 
-```{r, fig.align='center', echo=FALSE}
+```{r, fig.align='center', echo=FALSE, out.width="100%"}
 # TIME TREND
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
@@ -404,7 +403,7 @@ out |>
   theme(axis.text.x = element_text(angle = 90))
 ```
 
-```{r, fig.align='center', echo=FALSE, eval=FALSE}
+```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
 # TIME TREND
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
@@ -468,7 +467,7 @@ ggplot(
 
 <!-- ### Average monthly downloads -->
 
-```{r, fig.align='center', echo=FALSE, eval=FALSE}
+```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
 average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
 
