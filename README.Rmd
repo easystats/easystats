@@ -178,14 +178,11 @@ library(ggplot2)
 pkgsnms <- easystats::easystats_packages()
 
 # Packages data
-downloads <- lapply(pkgsnms, function(x) {
-  cranlogs::cran_downloads(x, from = "2019-02-26")
-})
+downloads <- lapply(pkgsnms, cranlogs::cran_downloads, from = "2019-02-26")
 downloads_all <- do.call("rbind", downloads)
 
 # Combine all data
-data <- downloads_all |>
-  data_rename("package", "Package")
+data <- data_rename(downloads_all, "package", "Package")
 
 tmp <- lapply(split(data, data$Package), function(x) {
   x$cumulative_count <- cumsum(x$count)
@@ -201,104 +198,21 @@ tmp <- lapply(split(data, data$Package), function(x) {
 
 data <- do.call(rbind, tmp)
 data <- data[order(data$Package, data$date), ]
-
-events <- data.frame()
-color_CRAN <- "#607D8B"
-color_blog <- "#9C27B0"
-
-# Publications
-events <- rbind(
-  events,
-  data.frame(
-    date = as.Date(c(
-      "2019-03-05",
-      "2019-03-29",
-      "2019-04-09",
-      "2019-04-23",
-      "2019-04-24",
-      "2019-05-11",
-      "2019-05-24",
-      "2019-05-29",
-      "2019-06-19",
-      "2019-06-25",
-      "2019-07-01",
-      "2019-08-05",
-      "2019-08-26",
-      "2019-09-26",
-      "2019-11-15",
-      "2020-01-12",
-      "2020-03-16",
-      "2021-06-18"
-    )),
-    event = c(
-      "CRAN - insight (0.1.0)",
-      "CRAN - insight (0.2.0)",
-      "CRAN - bayestestR (0.1.0)",
-      "JOSS - insight (submission)",
-      "CRAN - performance (0.1.0)",
-      "CRAN - insight (0.3.0)",
-      "CRAN - see (0.1.0)",
-      "CRAN - bayestestR (0.2.0)",
-      "CRAN - see (0.2.0)",
-      "JOSS - insight (publication)",
-      "CRAN - insight (0.4.0)",
-      "CRAN - performance (0.3.0)",
-      "CRAN - parameters (0.1.0)",
-      "CRAN - parameters (0.2.0)",
-      "CRAN - effectsize (0.0.1)",
-      "CRAN - modelbased (0.1.0)",
-      "CRAN - correlation (0.1.0)",
-      "CRAN - datawizard (0.1.0)"
-    ),
-    Package = c(
-      "insight",
-      "insight",
-      "bayestestR",
-      "insight",
-      "performance",
-      "insight",
-      "see",
-      "bayestestR",
-      "see",
-      "insight",
-      "insight",
-      "performance",
-      "parameters",
-      "parameters",
-      "effectsize",
-      "modelbased",
-      "correlation",
-      "datawizard"
-    ),
-    color = color_CRAN, stringsAsFactors = FALSE
-  )
-)
-
-# Full join
-data <- data_join(data, events, by = c("date", "Package"))
 data$Package <- reorder(data$Package, data$count, sum, decreasing = TRUE)
-
-tmp <- lapply(split(data, data$event), function(x) {
-  x$event_y <- rep(max(x$average_count), times = nrow(x))
-  x[, c("event", "event_y")]
-})
-tmp <- do.call(rbind, tmp)
-
-events <- data_join(events, tmp, by = "event")
 
 # Set packages colours
 packages_colours <- c(
-  "insight" = unname(see::material_colors("orange")),
-  "datawizard" = unname(see::material_colors("cyan")),
-  "bayestestR" = unname(see::material_colors("pink")),
-  "effectsize" = unname(see::pizza_colors("tomato")),
-  "performance" = unname(see::material_colors("purple")),
-  "parameters" = unname(see::material_colors("red")),
-  "modelbased" = unname(see::material_colors("indigo")),
-  "correlation" = unname(see::material_colors("amber")),
-  "report" = unname(see::material_colors("green")),
-  "see" = unname(see::material_colors("blue")),
-  "easystats" = unname(see::material_colors("brown"))
+  insight = unname(see::material_colors("orange")),
+  datawizard = unname(see::material_colors("cyan")),
+  bayestestR = unname(see::material_colors("pink")),
+  effectsize = unname(see::pizza_colors("tomato")),
+  performance = unname(see::material_colors("purple")),
+  parameters = unname(see::material_colors("red")),
+  modelbased = unname(see::material_colors("indigo")),
+  correlation = unname(see::material_colors("amber")),
+  report = unname(see::material_colors("green")),
+  see = unname(see::material_colors("blue")),
+  easystats = unname(see::material_colors("brown"))
 )
 
 data$download_label <- NA
@@ -353,7 +267,58 @@ knitr::kable(dl_table)
 ### Trend
 
 ```{r, fig.align='center', echo=FALSE, out.width="100%"}
-# TIME TREND
+# TIME TREND - total downloads by month
+tmp <- lapply(split(data, data$Package), function(x) {
+  x[-nrow(x), ]
+})
+tmp <- do.call(rbind, tmp)
+tmp$Package <- relevel(tmp$Package, "bayestestR", names(packages_colours))
+
+out <- data_summary(
+  tmp,
+  monthly_downloads = sum(count, na.rm = TRUE),
+  by = c("year_month", "Package")
+)
+out$date <- out$year_month
+out$date <- gsub("Januar", "01-01", out$date, fixed = TRUE)
+out$date <- gsub("Februar", "02-01", out$date, fixed = TRUE)
+out$date <- gsub("März", "03-01", out$date, fixed = TRUE)
+out$date <- gsub("April", "04-01", out$date, fixed = TRUE)
+out$date <- gsub("Mai", "05-01", out$date, fixed = TRUE)
+out$date <- gsub("Juni", "06-01", out$date, fixed = TRUE)
+out$date <- gsub("Juli", "07-01", out$date, fixed = TRUE)
+out$date <- gsub("August", "08-01", out$date, fixed = TRUE)
+out$date <- gsub("September", "09-01", out$date, fixed = TRUE)
+out$date <- gsub("Oktober", "10-01", out$date, fixed = TRUE)
+out$date <- gsub("November", "11-01", out$date, fixed = TRUE)
+out$date <- gsub("Dezember", "12-01", out$date, fixed = TRUE)
+out$date <- as.Date(out$date)
+
+out |>
+  ggplot(aes(x = date, color = Package)) +
+  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000), color = "#EEEEEE") +
+  geom_line(aes(y = monthly_downloads), linewidth = 0.9, alpha = 0.6) +
+  geom_smooth(aes(y = monthly_downloads),
+    method = "lm",
+    linetype = "dotted",
+    linewidth = 0.75,
+    se = FALSE
+  ) +
+  see::theme_modern() +
+  scale_x_date(
+    date_breaks = "4 months",
+    labels = scales::date_format("%Y-%m")
+  ) +
+  scale_colour_manual(values = packages_colours) +
+  xlab("") +
+  ylab("Monthly CRAN Downloads\n") +
+  coord_cartesian(ylim = c(0, max(out$monthly_downloads) + 1000), expand = FALSE) +
+  scale_y_sqrt() +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
+# TIME TREND - daily average per month
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
 })
@@ -404,7 +369,7 @@ out |>
 ```
 
 ```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
-# TIME TREND
+# TIME TREND - daily counts
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
 })
@@ -436,10 +401,9 @@ tmp |>
 
 ```{r, fig.align='center', echo=FALSE, eval=FALSE}
 ### Cumulative downloads
-
 tmp <- lapply(split(data, list(data$Package, data$year_month)), function(x) {
   x$download_label <- x$cumulative_count[[1]]
-  return(x)
+  x
 })
 data <- do.call(rbind, tmp)
 
@@ -455,7 +419,7 @@ ggplot(
     color = Package
   )
 ) +
-  geom_line(size = 0.75) +
+  geom_line(linewidth = 0.75) +
   # geom_label_repel(show.legend = FALSE) +
   labs(x = "", y = "Cumulative CRAN Downloads", label = NULL) +
   see::theme_modern() +

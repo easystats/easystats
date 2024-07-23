@@ -62,7 +62,7 @@ A BibTeX entry for LaTeX users is
     title = {easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting},
     author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Etienne Bacher and Rémi Thériault and Dominique Makowski},
     journal = {CRAN},
-    doi = {https://doi.org/10.32614/CRAN.package.easystats},
+    doi = {10.32614/CRAN.package.easystats},
     year = {2022},
     note = {R package},
     url = {https://easystats.github.io/easystats/},
@@ -196,7 +196,7 @@ which does have a substantial number of dependencies.
 
 | Total      | insight   | datawizard | parameters | performance | bayestestR | effectsize | correlation | see     | modelbased | report  | easystats |
 |:-----------|:----------|:-----------|:-----------|:------------|:-----------|:-----------|:------------|:--------|:-----------|:--------|:----------|
-| 22,854,679 | 6,693,662 | 4,046,677  | 2,785,758  | 2,708,389   | 2,646,105  | 2,105,088  | 697,969     | 577,345 | 342,849    | 189,930 | 60,907    |
+| 22,865,116 | 6,696,001 | 4,049,281  | 2,787,191  | 2,709,620   | 2,646,921  | 2,105,929  | 698,380     | 577,658 | 343,099    | 190,066 | 60,970    |
 
 ### Trend
 
