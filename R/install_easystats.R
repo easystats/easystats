@@ -69,7 +69,7 @@ install_latest <- function(source = c("development", "cran"),
       easy_pkgs$cran[easy_pkgs$package == i] <- js$Version[1]
     }
     easy_pkgs$behind <- package_version(easy_pkgs$cran) > package_version(easy_pkgs$local)
-    packages <- easy_pkgs$package[packages %in% easy_pkgs$package & easy_pkgs$behind]
+    packages <- easy_pkgs$package[easy_pkgs$behind[stats::na.omit(match(packages, easy_pkgs$package))]]
 
     if (isTRUE(verbose) && !is.null(packages) && length(packages)) {
       colnames(easy_pkgs) <- c("Package", "Latest", "Installed", "behind")
