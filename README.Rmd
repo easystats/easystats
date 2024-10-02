@@ -292,6 +292,14 @@ out$date <- gsub("September", "09-01", out$date, fixed = TRUE)
 out$date <- gsub("Oktober", "10-01", out$date, fixed = TRUE)
 out$date <- gsub("November", "11-01", out$date, fixed = TRUE)
 out$date <- gsub("Dezember", "12-01", out$date, fixed = TRUE)
+
+# sort
+out <- out[order(out$date), ]
+
+# remove last month
+last_month <- out$date[nrow(out)]
+out <- out[out$date != last_month, ]
+
 out$date <- as.Date(out$date)
 
 out |>
