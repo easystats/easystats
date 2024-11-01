@@ -2,15 +2,14 @@
 output: github_document
 ---
 
-```{r, warning=FALSE, message=FALSE,echo=FALSE}
+```{r setup, warning=FALSE, message=FALSE, echo=FALSE}
 knitr::opts_chunk$set(
   dpi = 300,
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
   fig.path = "man/figures/",
-  fig.width = 8,
-  fig.height = 5
+  out.width = "100%"
 )
 ```
 
@@ -32,7 +31,7 @@ challenge, do check if there is an *easystats* answer for it in other packages.
 You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all.
 
-```{r, echo=FALSE, out.width="433px", fig.align="center"}
+```{r README-1, echo=FALSE, fig.align="center"}
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
@@ -40,15 +39,15 @@ knitr::include_graphics("man/figures/logo_wall.png")
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/easystats)](https://cran.r-project.org/package=easystats) [![insight status badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-universe.dev) [![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
 
-Type | Source | Command
----|---|---
-  Release | CRAN | `install.packages("easystats")`
-Development | r-universe | `install.packages("easystats", repos = "https://easystats.r-universe.dev")`
-Development | GitHub | `remotes::install_github("easystats/easystats")`
+| Type        | Source     | Command                                                                     |
+| :---------- | :--------- | :-------------------------------------------------------------------------- |
+| Release     | CRAN       | `install.packages("easystats")`                                             |
+| Development | r-universe | `install.packages("easystats", repos = "https://easystats.r-universe.dev")` |
+| Development | GitHub     | `remotes::install_github("easystats/easystats")`                            |
 
 Finally, as *easystats* sometimes depends on some additional packages for specific functions that are not downloaded by default. If you want to benefit from the **full *easystats* experience** without any hiccups, simply run the following:
 
-```{r, eval=FALSE}
+```{r README-2, eval=FALSE}
 easystats::install_suggested()
 ```
 
@@ -56,7 +55,7 @@ easystats::install_suggested()
 
 To cite the package, run the following command:
 
-```{r, comment=""}
+```{r README-3, comment=""}
 citation("easystats")
 ```
 
@@ -154,7 +153,7 @@ following presentations and talks to learn more about this ecosystem:
 *easystats* packages are designed to be lightweight, *i.e.*, they don't have any third-party hard dependencies, other than base-R packages or other *easystats* packages!
 If you develop R packages, this means that you can safely use *easystats* packages as dependencies in your own packages, without the risk of entering the [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-```{r depnetwork, out.width="100%"}
+```{r depnetwork}
 library(deepdep)
 
 plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
@@ -165,7 +164,7 @@ figures and relies on `{ggplot2}`, which does have a substantial number of depen
 
 ## Usage
 
-```{r, include=TRUE, results="hide", echo=FALSE}
+```{r README-4, include=TRUE, results="hide", echo=FALSE}
 library(zoo)
 library(cranlogs)
 library(see)
@@ -240,7 +239,7 @@ average_monthly_downloads <- do.call(rbind, average_monthly_downloads)
 
 ### Total downloads
 
-```{r, fig.align='center', echo=FALSE}
+```{r README-5, fig.align='center', echo=FALSE}
 # TIME TREND
 dl_table <- data
 
@@ -266,7 +265,7 @@ knitr::kable(dl_table)
 
 ### Trend
 
-```{r, fig.align='center', echo=FALSE, out.width="100%"}
+```{r README-6, fig.align='center', echo=FALSE}
 # TIME TREND - total downloads by month
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
@@ -325,7 +324,7 @@ out |>
   theme(axis.text.x = element_text(angle = 90))
 ```
 
-```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
+```{r README-7, fig.align='center', echo=FALSE, eval=FALSE}
 # TIME TREND - daily average per month
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
@@ -376,7 +375,7 @@ out |>
   theme(axis.text.x = element_text(angle = 90))
 ```
 
-```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
+```{r README-8, fig.align='center', echo=FALSE, eval=FALSE}
 # TIME TREND - daily counts
 tmp <- lapply(split(data, data$Package), function(x) {
   x[-nrow(x), ]
@@ -407,7 +406,7 @@ tmp |>
   theme(axis.text.x = element_text(angle = 90))
 ```
 
-```{r, fig.align='center', echo=FALSE, eval=FALSE}
+```{r README-9, fig.align='center', echo=FALSE, eval=FALSE}
 ### Cumulative downloads
 tmp <- lapply(split(data, list(data$Package, data$year_month)), function(x) {
   x$download_label <- x$cumulative_count[[1]]
@@ -439,7 +438,7 @@ ggplot(
 
 <!-- ### Average monthly downloads -->
 
-```{r, fig.align='center', echo=FALSE, eval=FALSE, out.width="100%"}
+```{r README-10, fig.align='center', echo=FALSE, eval=FALSE}
 average_monthly_downloads$package2 <- factor(average_monthly_downloads$package, levels = rev(sort(average_monthly_downloads$package)))
 plot_range <- unique(sort(c(1000, 2500, 5000, pretty(average_monthly_downloads$monthly_downloads))))
 

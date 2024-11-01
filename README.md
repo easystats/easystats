@@ -18,7 +18,7 @@ challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
 
-<img src="man/figures/logo_wall.png" width="433px" style="display: block; margin: auto;" />
+<img src="man/figures/logo_wall.png" width="100%" style="display: block; margin: auto;" />
 
 ## Installation
 
@@ -28,7 +28,7 @@ badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-u
 [![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
 
 | Type | Source | Command |
-|----|----|----|
+|:---|:---|:---|
 | Release | CRAN | `install.packages("easystats")` |
 | Development | r-universe | `install.packages("easystats", repos = "https://easystats.r-universe.dev")` |
 | Development | GitHub | `remotes::install_github("easystats/easystats")` |
@@ -196,11 +196,11 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 24,076,996 | 7,008,088 | 4,287,422 | 2,927,848 | 2,855,836 | 2,780,112 | 2,212,309 | 748,005 | 612,868 | 371,362 | 204,749 | 68,397 |
+| 24,755,210 | 7,175,111 | 4,413,904 | 3,008,408 | 2,942,279 | 2,862,342 | 2,271,804 | 776,713 | 631,705 | 387,245 | 213,014 | 72,685 |
 
 ### Trend
 
-<img src="man/figures/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/README-6-1.png" width="100%" style="display: block; margin: auto;" />
 
 <!-- ### Average monthly downloads -->
 
