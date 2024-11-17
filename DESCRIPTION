@@ -7,12 +7,12 @@ Authors@R:
              family = "Lüdecke",
              role = c("aut", "cre"),
              email = "d.luedecke@uke.de",
-             comment = c(ORCID = "0000-0002-8895-3206", Twitter = "@strengejacke")),
+             comment = c(ORCID = "0000-0002-8895-3206")),
       person(given = "Dominique",
              family = "Makowski",
              role = "aut",
              email = "dom.makowski@gmail.com",
-             comment = c(ORCID = "0000-0001-5375-9967", Twitter = "@Dom_Makowski")),
+             comment = c(ORCID = "0000-0001-5375-9967")),
       person(given = "Mattan S.",
              family = "Ben-Shachar",
              role = "aut",
@@ -22,19 +22,19 @@ Authors@R:
              family = "Patil",
              role = "aut",
              email = "patilindrajeet.science@gmail.com",
-             comment = c(ORCID = "0000-0003-1995-6531", Twitter = "@patilindrajeets")),
+             comment = c(ORCID = "0000-0003-1995-6531")),
       person(given = "Brenton M.",
              family = "Wiernik",
              role = "aut",
              email = "brenton@wiernik.org",
-             comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")),
+             comment = c(ORCID = "0000-0001-9560-6336")),
       person("Etienne", "Bacher", , "etienne.bacher@protonmail.com", role = "aut",
              comment = c(ORCID = "0000-0002-9271-5075")),
       person(given = "Rémi",
              family = "Thériault",
              role = "aut",
              email = "remi.theriault@mail.mcgill.ca",
-             comment = c(ORCID = "0000-0003-4315-6788", Twitter = "@rempsyc")))
+             comment = c(ORCID = "0000-0003-4315-6788")))
 Maintainer: Daniel Lüdecke <d.luedecke@uke.de>
 Description: A meta-package that installs and loads a set of packages from
     'easystats' ecosystem in a single step. This collection of packages provide

@@ -1,6 +1,5 @@
 AICc
 CMD
-Dom
 Mattan
 Models’
 NOTEs
@@ -13,7 +12,6 @@ Yury
 Zablotski
 al
 bayestestR
-bmwiernik
 camelCase
 datawizard
 dplyr
@@ -33,9 +31,6 @@ modelbased
 modelsummary
 pak
 pandoc
-patilindrajeets
-rempsyc
-strengejacke
 tidyr
 tidyverse
 variational
