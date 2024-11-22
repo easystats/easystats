@@ -106,8 +106,12 @@ dependencies)</p></li>
 </ul>
 <p><strong>Package versioning</strong></p>
 <ul>
-<li>Package versions follow <a href="https://semver.org/" class="external-link">Semantic
-Versioning</a> conventions.</li>
+<li><p>Package versions follow <a href="https://semver.org/" class="external-link">Semantic
+Versioning</a> conventions.</p></li>
+<li><p>If pull requests include user-visible changes, the “developer”
+version number should be increased (e.g. from 0.10.1.5 to 0.10.1.6).
+This ensures that <code><a href="../reference/install_latest.html">easystats::install_latest()</a></code> will download
+the latest verions.</p></li>
 </ul>
 <p><strong>Helper-functions</strong></p>
 <ul>
@@ -138,7 +142,18 @@ mentioned helper-functions) should always start with a <code>.</code>
 </ul>
 <p><strong>Argument names</strong></p>
 <ul>
-<li>lower case, underscore separated if more than one verb</li>
+<li><p>lower case, underscore separated if more than one verb</p></li>
+<li><p>arguments that refer to plot or table aesthetics (like size or
+alpha of geoms) should follow the pattern
+<code>aesthetics_geomtype</code>, e.g. <code>size_point</code>,
+<code>color_line</code> or <code>alpha_rope</code>.</p></li>
+<li><p><em>easystats</em> uses <code>by</code> to indicate grouping, not
+<code>group_by</code> or <code>at</code>.</p></li>
+<li><p>Use <code>select</code> and <code>exclude</code> to select
+columns/variables, and <code>keep</code> or <code>drop</code> to select
+rows/observations.</p></li>
+<li><p>Handling <code>NA</code> values, especially removing missing
+values, is done with <code>remove_na</code>.</p></li>
 </ul>
 <p><strong>Element / Column names</strong> (for returned data
 frames)</p>
@@ -174,6 +189,9 @@ statistics (<code>Eta2</code>, <code>Chi2</code>, <code>Omega2</code>,
 <code>Chi2</code>, and <strong>not</strong> <code>Chisq</code>,
 <code>Eta2</code>, and <strong>not</strong> <code>Eta_squared</code>).
 This rule does <strong>not</strong> apply to function names.</p></li>
+<li><p>Converting between <em>easystats</em> style and <em>broom</em>
+style can be done with
+<code><a href="https://easystats.github.io/insight/reference/standardize_names.html" class="external-link">insight::standardize_names()</a></code>.</p></li>
 </ol></main>
 </div>
 
