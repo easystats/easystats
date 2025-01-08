@@ -41,7 +41,7 @@ consistent pattern across all packages.
 
   - If pull requests include user-visible changes, the "developer" version number
     should be increased (e.g. from 0.10.1.5 to 0.10.1.6). This ensures that
-    `easystats::install_latest()` will download the latest verions.
+    `easystats::install_latest()` will download the latest versions.
 
 **Helper-functions**
 
