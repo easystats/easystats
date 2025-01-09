@@ -5,10 +5,12 @@
 #' versions from CRAN. If the development versions are installed, packages
 #' will be installed from the stable branch (master/main) for each package.
 #'
-#' @param source Character. Either `"development"` or `"cran"`. If `"cran"`,
-#'   packages will be installed from the default CRAN mirror returned by
-#'   `getOption("repos")['CRAN']`. If `"development"` (the default), packages
-#'   are installed from the r-universe repository (<https://easystats.r-universe.dev/>).
+#' @param source Character. Either `"development"`, `"cran"` or `"github"`. If
+#'   `"cran"`, packages will be installed from the default CRAN mirror returned
+#'   by `getOption("repos")['CRAN']`. If `"development"` (the default), packages
+#'   are installed from the r-universe repository
+#'   (<https://easystats.r-universe.dev/>). `"github"` installs the latest
+#'   version from the GitHub-repositories main-branch.
 #' @param packages Character vector, indicating which packages to be installed.
 #'   By default, the option `"all"` will install all **easystats** packages.
 #' @param force Logical, if `FALSE`, only those packages with a newer
@@ -31,11 +33,11 @@
 #' # are up to date or not.
 #' install_latest(force = TRUE)
 #' @export
-install_latest <- function(source = c("development", "cran"),
+install_latest <- function(source = c("development", "cran", "github"),
                            packages = "all",
                            force = FALSE,
                            verbose = TRUE) {
-  source <- match.arg(source, c("development", "cran"))
+  source <- insight::validate_argument(source, c("development", "cran", "github"))
   pkg <- easystats_packages()
   install_all_packages <- FALSE
 
@@ -51,8 +53,11 @@ install_latest <- function(source = c("development", "cran"),
 
   if (source == "development") {
     repos <- "https://easystats.r-universe.dev"
-  } else {
+  } else if (source == "cran") {
     repos <- getOption("repos")["CRAN"]
+  } else if (insight::check_if_installed("pak")) {
+    pak::pkg_install(paste0("easystats/", packages), dependencies = FALSE)
+    return(invisible())
   }
 
   # only install newer versions?
