@@ -35,7 +35,7 @@
 #' # are up to date or not.
 #' install_latest(force = TRUE)
 #' @export
-install_latest <- function(source = c("development", "cran", "github"),
+install_latest <- function(source = "development",
                            packages = "all",
                            force = FALSE,
                            verbose = TRUE) {

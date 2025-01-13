@@ -5,7 +5,7 @@
 \title{Install the easystats suite from R-universe (GitHub) or CRAN}
 \usage{
 install_latest(
-  source = c("development", "cran", "github"),
+  source = "development",
   packages = "all",
   force = FALSE,
   verbose = TRUE
