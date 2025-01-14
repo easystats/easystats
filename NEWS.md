@@ -1,3 +1,7 @@
+# easystats 0.7.4
+
+* Minor changes, fixes to broken URLs.
+
 # easystats 0.7.3
 
 * New function `easystats_packages()` that produces a character vector with
