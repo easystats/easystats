@@ -49,14 +49,14 @@ BugReports: https://github.com/easystats/easystats/issues
 Depends:
     R (>= 3.6)
 Imports:
-    bayestestR (>= 0.14.0),
-    correlation (>= 0.8.5),
-    datawizard (>= 0.12.3),
-    effectsize (>= 0.8.9),
-    insight (>= 0.20.4),
+    bayestestR (>= 0.15.1),
+    correlation (>= 0.8.6),
+    datawizard (>= 1.0.0),
+    effectsize (>= 1.0.0),
+    insight (>= 1.0.1),
     modelbased (>= 0.8.8),
-    parameters (>= 0.22.1),
-    performance (>= 0.12.3),
+    parameters (>= 0.24.1),
+    performance (>= 0.13.0),
     report (>= 0.5.9),
     see (>= 0.8.5),
     tools,
