@@ -177,15 +177,7 @@ include_response <- minfo$is_binomial && minfo$is_logit && is.factor(model_data[
 text_modelbased <- tryCatch(
   {
     lapply(unique(model_terms), function(i) {
-      dgrid <- get_datagrid(
-        model,
-        by = i,
-        range = "grid",
-        preserve_range = FALSE,
-        verbose = FALSE,
-        include_response = include_response
-      )
-      estimate_expectation(model, data = dgrid, verbose = FALSE)
+      estimate_means(model, by = i, verbose = FALSE)
     })
   },
   error = function(e) {
@@ -204,7 +196,7 @@ if (!is.null(text_modelbased)) {
   #   plot(out) + ggplot2::ggtitle("")
   # })
   all_plots <- lapply(text_modelbased, function(i) {
-    out <- visualisation_recipe(i, show_data = "none")
+    out <- visualisation_recipe(i, show_data = FALSE)
     plot(out) + ggplot2::ggtitle("")
   })
 
@@ -226,9 +218,7 @@ Column {data-width=400}
 if (!is.null(text_modelbased)) {
   for (i in text_modelbased) {
     tmp <- print_md(i)
-    tmp <- gsub("Variable predicted", "\nVariable predicted", tmp, fixed = TRUE)
-    tmp <- gsub("Predictors modulated", "\nPredictors modulated", tmp, fixed = TRUE)
-    tmp <- gsub("Predictors controlled", "\nPredictors controlled", tmp, fixed = TRUE)
+    tmp[length(tmp)] <- paste(insight::compact_character(strsplit(tmp[length(tmp)], "\n")[[1]]), collapse = "; ")
     print(tmp)
   }
 }
