@@ -58,7 +58,7 @@ Imports:
     parameters (>= 0.24.1),
     performance (>= 0.13.0),
     report (>= 0.5.9),
-    see (>= 0.8.5),
+    see (>= 0.10.0),
     tools,
     utils
 Suggests:
