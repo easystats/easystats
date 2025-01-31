@@ -18,7 +18,7 @@ challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
 
-<img src="man/figures/logo_wall.png" style="display: block; margin: auto;" />
+<img src="man/figures/logo_wall.png" width="600px" style="display: block; margin: auto;" />
 
 ## Installation
 
@@ -221,7 +221,7 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 26,189,924 | 7,532,576 | 4,683,437 | 3,180,500 | 3,118,196 | 3,027,355 | 2,404,630 | 841,287 | 671,984 | 421,540 | 228,411 | 80,008 |
+| 26,534,592 | 7,615,328 | 4,749,455 | 3,221,140 | 3,161,348 | 3,073,155 | 2,432,643 | 854,105 | 683,154 | 428,433 | 233,242 | 82,589 |
 
 ### Trend
 

@@ -31,7 +31,7 @@ challenge, do check if there is an *easystats* answer for it in other packages.
 You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all.
 
-```{r README-1, echo=FALSE, fig.align="center"}
+```{r README-1, echo=FALSE, fig.align="center", out.width="600px"}
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
@@ -319,7 +319,7 @@ out$date <- as.Date(out$date)
 
 out |>
   ggplot(aes(x = date, color = Package)) +
-  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000), color = "#EEEEEE") +
+  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000, 250000), color = "#EEEEEE") +
   geom_line(aes(y = monthly_downloads), linewidth = 0.9, alpha = 0.6) +
   geom_smooth(aes(y = monthly_downloads),
     method = "lm",
