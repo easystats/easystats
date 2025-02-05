@@ -7,8 +7,9 @@ articles:
   list_of_functions: list_of_functions.html
   resources: resources.html
   version_policy: version_policy.html
+  workflow_easystats: workflow_easystats.html
   workflow_performance: workflow_performance.html
-last_built: 2025-02-05T06:31Z
+last_built: 2025-02-05T09:37Z
 urls:
   reference: https://easystats.github.io/easystats/reference
   article: https://easystats.github.io/easystats/articles
