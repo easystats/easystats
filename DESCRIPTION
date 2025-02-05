@@ -62,6 +62,7 @@ Imports:
     tools,
     utils
 Suggests:
+    collapse,
     DHARMa,
     DT,
     flexdashboard (>= 0.6.2),
