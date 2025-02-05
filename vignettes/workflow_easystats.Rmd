@@ -16,7 +16,7 @@ editor_options:
 library(knitr)
 knitr::opts_chunk$set(
   package.startup.message = FALSE,
-  dpi = 300,
+  dpi = 450,
   fig.width = 7,
   fig.height = 5,
   collapse = TRUE,
@@ -31,7 +31,7 @@ can_evaluate <- all(successfully_loaded)
 
 if (can_evaluate) {
   knitr::opts_chunk$set(eval = TRUE)
-  vapply(pkgs, require, FUN.VALUE = logical(1L), quietly = TRUE, character.only = TRUE)
+  junk <- suppressMessages(suppressPackageStartupMessages(vapply(pkgs, require, FUN.VALUE = logical(1L), quietly = TRUE, character.only = TRUE)))
 } else {
   knitr::opts_chunk$set(eval = FALSE)
 }
@@ -102,7 +102,7 @@ We now see that high `alertness` was most likely for the `coffee` group in the `
 
 We can also visualize these results, using the `plot()` method. In short, this will give us a visual interpretation of the model.
 
-```{r, fig.width = 4, fig.height = 4}
+```{r, fig.width = 5, fig.height = 5, out.width = "80%", out.height = "80%"}
 # plot predicted probabilities
 plot(predictions)
 ```
