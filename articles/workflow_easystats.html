@@ -93,8 +93,6 @@
 
     
     
-<pre><code><span><span class="co">##          DHARMa         ggplot2 marginaleffects        collapse         Formula </span></span>
-<span><span class="co">##            TRUE            TRUE            TRUE            TRUE            TRUE</span></span></code></pre>
 <p>This vignette demonstrates a typical workflow using
 <em>easystats</em> packages, with a logistic regression model as an
 example. We will explore various aspects of the model, such as model
@@ -112,7 +110,7 @@ The <code>coffee_data</code> data set is included in the
 effect of coffee consumption on alertness over time. The outcome
 variable is binary (alertness), and the predictor variables are coffee
 consumption (treatment) and time.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/datawizard/" class="external-link">datawizard</a></span><span class="op">)</span> <span class="co"># for data management, e.g. recodings</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">coffee_data</span>, package <span class="op">=</span> <span class="st">"modelbased"</span><span class="op">)</span></span>
@@ -134,7 +132,7 @@ manages everything related to model coefficients is the
 <code><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters()</a></code> function to extract the coefficients
 from the model. By setting <code>exponentiate = TRUE</code>, we can
 obtain the odds ratios for the coefficients.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/parameters/" class="external-link">parameters</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># coefficients</span></span>
@@ -164,12 +162,12 @@ Inspecting model quality and fit indices is supported by the
 <strong>performance</strong> package. A useful function to do so is
 <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model()</a></code>, which gives a graphical summary of several
 important model checks.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/performance/" class="external-link">performance</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># checking model assunptions</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
-<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-3-1.png" width="2100"></p>
+<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-3-1.png" width="3150"></p>
 <p>The plot looks good - we don’t seem to have concerning issues. If you
 want to learn more about interpreting these plots, <a href="https://easystats.github.io/performance/articles/check_model.html" class="external-link">check
 out this vignette</a>. Read <a href="https://easystats.github.io/easystats/articles/workflow_performance.html">this
@@ -195,7 +193,7 @@ regression models, <em>predicted probabilities</em> are calculated.
 These refer to the adjusted probabilities of the outcome (higher
 alertness) depending on the predictor variables (treatment and
 time).</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/modelbased/" class="external-link">modelbased</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># predicted probabilities</span></span>
@@ -221,10 +219,10 @@ probability of high alertness for the afternoon-coffee group).</p>
 <p>We can also visualize these results, using the <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>
 method. In short, this will give us a visual interpretation of the
 model.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plot predicted probabilities</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">predictions</span><span class="op">)</span></span></code></pre></div>
-<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-5-1.png" width="1200"></p>
+<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-5-1.png" width="80%" height="80%"></p>
 <p>We can also see that the predicted probabilities of alertness are
 higher for participants who consumed coffee compared to those who did
 not, but only in the morning and in the afternoon. Furthermore, we see
@@ -241,7 +239,7 @@ This function needs to know the variables that should be compared, or
 <em>contrasted</em>. In a first step, we want to compare all levels of
 the variables involved in our interaction term (our <em>focal terms</em>
 from above).</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># pairwise comparisons - quite long table</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html" class="external-link">estimate_contrasts</a></span><span class="op">(</span><span class="va">model</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"time"</span>, <span class="st">"treatment"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Marginal Contrasts Analysis</span></span>
@@ -271,7 +269,7 @@ from above).</p>
 <p>In the above output, we see all possible pairwise comparisons of the
 predicted probabilities. The table is quite long, but we can also group
 the comparisons, e.g. by the variable <em>time</em>.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># group comparisons by "time"</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html" class="external-link">estimate_contrasts</a></span><span class="op">(</span><span class="va">model</span>, <span class="st">"treatment"</span>, by <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Marginal Contrasts Analysis</span></span>
