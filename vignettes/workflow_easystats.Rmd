@@ -1,0 +1,129 @@
+---
+title: "Analytic workflow: A complete workflow using easystats"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+tags: [r, programing]
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{Analytic workflow: A complete workflow using easystats}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r set-options, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  dpi = 300,
+  fig.width = 7,
+  fig.height = 5,
+  out.width = "100%",
+  out.height = "100%",
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = TRUE
+)
+options(knitr.kable.NA = "", digits = 2, width = 800, modelbased_join_dots = FALSE)
+pkgs <- c("DHARMa", "ggplot2")
+successfully_loaded <- vapply(pkgs, requireNamespace, FUN.VALUE = logical(1L), quietly = TRUE)
+can_evaluate <- all(successfully_loaded)
+
+if (can_evaluate) {
+  knitr::opts_chunk$set(eval = TRUE)
+  vapply(pkgs, require, FUN.VALUE = logical(1L), quietly = TRUE, character.only = TRUE)
+} else {
+  knitr::opts_chunk$set(eval = FALSE)
+}
+
+```
+
+This vignette demonstrates a typical workflow using *easystats* packages, with a logistic regression model as an example. We will explore various aspects of the model, such as model coefficients, model fit, predictions, and pairwise comparisons. Let's get started!
+
+## Preparing the data and fitting a model
+
+The very first step is usually importing and preparing some data (recoding, re-shaping data and so on - the usual data wrangling tasks), which is easily done using the **datawizard** package. In this example, we use *datawizard* only for some minor recodings. The `coffee_data` data set is included in the *modelbasded* package. The data set contains information on the effect of coffee consumption on alertness over time. The outcome variable is binary (alertness), and the predictor variables are coffee consumption (treatment) and time.
+
+```{r}
+library(datawizard) # for data management, e.g. recodings
+
+data(coffee_data, package = "modelbased")
+
+# dichotomize outcome variable
+coffee_data$alertness <- categorize(coffee_data$alertness, lowest = 0)
+# rename variable
+coffee_data <- data_rename(coffee_data, select = c(treatment = "coffee"))
+
+# model
+model <- glm(alertness ~ treatment * time, data = coffee_data, family = binomial())
+```
+
+## Exploring the model - model coefficients
+
+Let's start by examining the model coefficients. The package that manages everything related to model coefficients is the **parameters** package. We can use the `model_parameters()` function to extract the coefficients from the model. By setting `exponentiate = TRUE`, we can obtain the odds ratios for the coefficients.
+
+```{r}
+library(parameters)
+
+# coefficients
+model_parameters(model, exponentiate = TRUE)
+```
+
+The model coefficients are difficult to interpret directly, in particular sinc we have an interaction effect. Instead, we should use the *modebased* package to calculate adjusted predictions for the model. But before we do that, we want to know more about the model quality.
+
+## Assessing model fit
+
+Now that we have a first impression our model, it is time to ask whether we have a good or bad model fit and check our model assumptions. Inspecting model quality and fit indices is supported by the **performance** package. A useful function to do so is `check_model()`, which gives a graphical summary of several important model checks.
+
+```{r}
+library(performance)
+
+# checking model assunptions
+check_model(model)
+```
+
+The plot looks good - we don't seem to have concerning issues. If you want to learn more about interpreting these plots, [check out this vignette](https://easystats.github.io/performance/articles/check_model.html). Read [this vignette](https://easystats.github.io/easystats/articles/workflow_performance.html) if you want to learn more about how to _improve_ your models.
+
+## Predicted probabilities - understanding the model
+
+As we mentioned above, interpreting model results can be hard, and sometimes even misleading, if you only look at the regression coefficients. Instead, it is useful to estimate model-based means or probabilities for the outcome. Ab absolutely easy way to make interpretation easier is to use the **modelbased** package. You just need to provide your predictors of interest, so called _focal terms_.
+
+Since we are interested in the interaction effect of coffee consumption (treatment) on alertness depending on different times of the day, we simply specify these two variables as _focal terms_ in the `estimate_means()` function. This function calculates predictions on the response scale of the regression model. For logistic regression models, _predicted probabilities_ are calculated. These refer to the adjusted probabilities of the outcome (higher alertness) depending on the predictor variables (treatment and time).
+
+```{r}
+library(modelbased)
+
+# predicted probabilities
+predictions <- estimate_means(model, c("time", "treatment"))
+predictions
+```
+
+We now see that high `alertness` was most likely for the `coffee` group in the `afternoon` time (about 75% probability of high alertness for the afternoon-coffee group).
+
+We can also visualize these results, using the `plot()` method. In short, this will give us a visual interpretation of the model.
+
+```{r}
+# plot predicted probabilities
+plot(predictions)
+```
+
+We can also see that the predicted probabilities of alertness are higher for participants who consumed coffee compared to those who did not, but only in the morning and in the afternoon. Furthermore, we see differences between the _coffee_ and the _control_ group at each time point - but are these differences statistically significant?
+
+## Pairwise comparisons - testing the differences
+
+To check this, we finally use the `estimate_contrasts()` function to perform pairwise comparisons of the predicted probabilities. This function needs to know the variables that should be compared, or _contrasted_. In a first step, we want to compare all levels of the variables involved in our interaction term (our _focal terms_ from above).
+
+```{r}
+# pairwise comparisons - quite long table
+estimate_contrasts(model, c("time", "treatment"))
+```
+
+In the above output, we see all possible pairwise comparisons of the predicted probabilities. The table is quite long, but we can also group the comparisons, e.g. by the variable _time_.
+
+```{r}
+# group comparisons by "time"
+estimate_contrasts(model, "treatment", by = "time")
+```
+
+The output shows that the differences between the _coffee_ and the _control_ group are statistically significant only in the noon time.

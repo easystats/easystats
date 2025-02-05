@@ -26,6 +26,7 @@ articles:
   - title: Analytic workflows of easystats packages
     navbar: ~
     contents:
+      - workflow_easystats
       - workflow_performance
 
   - title: Miscellaneous
