@@ -197,11 +197,6 @@ alertness) depending on the predictor variables (treatment and
 time).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/modelbased/" class="external-link">modelbased</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'modelbased'</span></span>
-<span><span class="co">#&gt; The following object is masked _by_ '.GlobalEnv':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     coffee_data</span></span>
 <span></span>
 <span><span class="co"># predicted probabilities</span></span>
 <span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_means.html" class="external-link">estimate_means</a></span><span class="op">(</span><span class="va">model</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"time"</span>, <span class="st">"treatment"</span><span class="op">)</span><span class="op">)</span></span>
