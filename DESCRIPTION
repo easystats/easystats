@@ -66,6 +66,7 @@ Suggests:
     DHARMa,
     DT,
     flexdashboard (>= 0.6.2),
+    Formula,
     ggplot2,
     glmmTMB,
     httr,
