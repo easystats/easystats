@@ -15,6 +15,7 @@ editor_options:
 ```{r set-options, echo = FALSE, message = FALSE}
 library(knitr)
 knitr::opts_chunk$set(
+  package.startup.message = FALSE,
   dpi = 300,
   fig.width = 7,
   fig.height = 5,
@@ -89,7 +90,7 @@ As we mentioned above, interpreting model results can be hard, and sometimes eve
 
 Since we are interested in the interaction effect of coffee consumption (treatment) on alertness depending on different times of the day, we simply specify these two variables as _focal terms_ in the `estimate_means()` function. This function calculates predictions on the response scale of the regression model. For logistic regression models, _predicted probabilities_ are calculated. These refer to the adjusted probabilities of the outcome (higher alertness) depending on the predictor variables (treatment and time).
 
-```{r}
+```{r, message=FALSE}
 library(modelbased)
 
 # predicted probabilities
