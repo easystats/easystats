@@ -74,7 +74,7 @@ The model coefficients are difficult to interpret directly, in particular sinc w
 
 Now that we have a first impression our model, it is time to ask whether we have a good or bad model fit and check our model assumptions. Inspecting model quality and fit indices is supported by the **performance** package. A useful function to do so is `check_model()`, which gives a graphical summary of several important model checks.
 
-```{r, fig.heigh = 9}
+```{r, fig.height = 9}
 library(performance)
 
 # checking model assunptions
