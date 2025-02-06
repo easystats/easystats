@@ -23,6 +23,11 @@ reference:
       - easystats_zen
 
 articles:
+  - title: Overview of vignettes
+    navbar: ~
+    contents:
+      - overview_of_vignettes
+
   - title: Analytic workflows of easystats packages
     navbar: ~
     contents:
