@@ -5,11 +5,12 @@ articles:
   citation: citation.html
   conventions: conventions.html
   list_of_functions: list_of_functions.html
+  overview_of_vignettes: overview_of_vignettes.html
   resources: resources.html
   version_policy: version_policy.html
   workflow_easystats: workflow_easystats.html
   workflow_performance: workflow_performance.html
-last_built: 2025-02-06T09:48Z
+last_built: 2025-02-06T16:11Z
 urls:
   reference: https://easystats.github.io/easystats/reference
   article: https://easystats.github.io/easystats/articles
