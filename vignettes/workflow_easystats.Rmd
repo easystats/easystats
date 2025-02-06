@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
   message = TRUE
 )
 options(knitr.kable.NA = "", digits = 2, width = 800, modelbased_join_dots = FALSE)
-pkgs <- c("DHARMa", "ggplot2" ,"marginaleffects", "collapse", "Formula")
+pkgs <- c("DHARMa", "ggplot2", "marginaleffects", "collapse", "Formula")
 successfully_loaded <- suppressPackageStartupMessages(vapply(pkgs, requireNamespace, FUN.VALUE = logical(1L), quietly = TRUE))
 can_evaluate <- all(successfully_loaded)
 
@@ -33,14 +33,13 @@ if (can_evaluate) {
 } else {
   knitr::opts_chunk$set(eval = FALSE)
 }
-
 ```
 
 This vignette demonstrates a typical workflow using *easystats* packages, with a logistic regression model as an example. We will explore various aspects of the model, such as model coefficients, model fit, predictions, and pairwise comparisons. Let's get started!
 
 ## Preparing the data and fitting a model
 
-The very first step is usually importing and preparing some data (recoding, re-shaping data and so on - the usual data wrangling tasks), which is easily done using the **datawizard** package. In this example, we use *datawizard* only for some minor recodings. The `coffee_data` data set is included in the *modelbasded* package. The data set contains information on the effect of coffee consumption on alertness over time. The outcome variable is binary (alertness), and the predictor variables are coffee consumption (treatment) and time.
+The very first step is usually importing and preparing some data (recoding, re-shaping data and so on - the usual data wrangling tasks), which is easily done using the **datawizard** package. In this example, we use *datawizard* only for some minor recodings. The `coffee_data` data set is included in the *modelbased* package. The data set contains information on the effect of coffee consumption on alertness over time. The outcome variable is binary (alertness), and the predictor variables are coffee consumption (treatment) and time.
 
 ```{r}
 library(datawizard) # for data management, e.g. recodings
@@ -67,7 +66,7 @@ library(parameters)
 model_parameters(model, exponentiate = TRUE)
 ```
 
-The model coefficients are difficult to interpret directly, in particular sinc we have an interaction effect. Instead, we should use the *modebased* package to calculate adjusted predictions for the model. But before we do that, we want to know more about the model quality.
+The model coefficients are difficult to interpret directly, in particular since we have an interaction effect. Instead, we should use the *modelbased* package to calculate adjusted predictions for the model. But before we do that, we want to know more about the model quality.
 
 ## Assessing model fit
 
