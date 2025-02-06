@@ -12,7 +12,7 @@ authors:
   orcid: 0000-0001-5375-9967
 
 date: "28 October, 2020"
-output: 
+output:
   pdf_document:
     latex_engine: xelatex
 bibliography: paper.bib
@@ -41,8 +41,8 @@ In both theoretical and applied research, it is often of interest to assess the 
 
 **effectsize**'s functionality is in part comparable to packages like **lm.beta** [@behrendt2014lmbeta], **MOTE** [@buchanan2019MOTE], and **MBESS** [@kelley2020MBESS]. Yet, there are some notable differences, e.g.:
 
-- **lm.beta** provides standardized regression coefficients for linear models, based on post-hoc model matrix standardization. However, the functionality is available only for a limited number of models (models inheriting from the `lm` class), whereas **effectsize** provides support for many types of models, including (generalized) linear mixed models, Bayesian models, and more. Additionally, in additional to post-hoc model matrix standardization, **effectsize** offers other methods of standardization (see below).  
-- Both **MOTE** and **MBESS** provide functions for computing effect sizes such as Cohen's *d* and effect sizes for ANOVAs [@cohen1988statistical], and their confidence intervals. However, both require manual input of *F*- or *t*-statistics, *degrees of freedom*, and *sums of squares* for the computation the effect sizes, whereas **effectsize** can automatically extract this information from the provided models, thus allowing for better ease-of-use as well as reducing any potential for error.  
+- **lm.beta** provides standardized regression coefficients for linear models, based on post-hoc model matrix standardization. However, the functionality is available only for a limited number of models (models inheriting from the `lm` class), whereas **effectsize** provides support for many types of models, including (generalized) linear mixed models, Bayesian models, and more. Additionally, in additional to post-hoc model matrix standardization, **effectsize** offers other methods of standardization (see below).
+- Both **MOTE** and **MBESS** provide functions for computing effect sizes such as Cohen's *d* and effect sizes for ANOVAs [@cohen1988statistical], and their confidence intervals. However, both require manual input of *F*- or *t*-statistics, *degrees of freedom*, and *sums of squares* for the computation the effect sizes, whereas **effectsize** can automatically extract this information from the provided models, thus allowing for better ease-of-use as well as reducing any potential for error.
 - Finally, in **base R**, the function `scale()` can be used to standardize vectors, matrices and data frame, which can be used to standardize data prior to model fitting. The coefficients of a linear model fit on such data are in effect standardized regression coefficients. **effectsize** expands an this, allowing for robust standardization (using the median and the MAD, instead of the mean and SD), post-hoc parameter standardization, and more.
 
 # Examples of Features
@@ -85,17 +85,17 @@ cramers_v(M)
 Standardizing parameters (i.e., coefficients) can allow for their comparison within and between models, variables and studies. To this end, two functions are available: `standardize()`, which returns an updated model, re-fit with standardized data, and `standardize_parameters()`, which returns a table of standardized coefficients from a provided model [for a list of supported models, see the *insight* package; @luedecke2019insight].
 
 ``` r
-model <- lm(mpg ~ cyl * am, 
+model <- lm(mpg ~ cyl * am,
             data = mtcars)
 
 standardize(model)
-#> 
+#>
 #> Call:
 #> lm(formula = mpg ~ cyl * am, data = data_std)
-#> 
+#>
 #> Coefficients:
-#> (Intercept)          cyl           am       cyl:am  
-#>     -0.0977      -0.7426       0.1739      -0.1930 
+#> (Intercept)          cyl           am       cyl:am
+#>     -0.0977      -0.7426       0.1739      -0.1930
 
 standardize_parameters(model)
 #> Parameter   | Coefficient (std.) |         95% CI
@@ -104,7 +104,7 @@ standardize_parameters(model)
 #> cyl         |              -0.74 | [-0.95, -0.53]
 #> am          |               0.17 | [-0.04,  0.39]
 #> cyl:am      |              -0.19 | [-0.41,  0.02]
-#> 
+#>
 #> # Standardization method: refit
 ```
 
@@ -121,11 +121,11 @@ standardize_parameters(model, exponentiate = TRUE)
 #> (Intercept) |              0.53 | [0.18,  1.32]
 #> cyl         |              0.05 | [0.00,  0.29]
 #> hp          |              6.70 | [1.32, 61.54]
-#> 
+#>
 #> # Standardization method: refit
 ```
 
-`standardize_parameters()` provides several standardization methods, such as robust standardization, or *pseudo*-standardized coefficients for (generalized) linear mixed models [@hoffman2015longitudinal]. A full review of these methods can be found in the [*Parameter and Model Standardization* vignette](https://easystats.github.io/effectsize/articles/standardize_parameters.html).
+`standardize_parameters()` provides several standardization methods, such as robust standardization, or *pseudo*-standardized coefficients for (generalized) linear mixed models [@hoffman2015longitudinal]. A full review of these methods can be found in the [*Parameter and Model Standardization* vignette](https://easystats.github.io/parameters/articles/standardize_parameters_effsize.html).
 
 ## Effect Sizes for ANOVAs
 
@@ -141,7 +141,7 @@ ChickWeight <- subset(ChickWeight, ave(weight, Chick, FUN = length) == 12)
 ChickWeight$Time <- factor(ChickWeight$Time)
 
 model <- aov(weight ~ Diet * Time + Error(Chick / Time),
-             data = ChickWeight) 
+             data = ChickWeight)
 
 eta_squared(model, partial = TRUE)
 #> Group      | Parameter | Eta2 (partial) |       90% CI
@@ -164,7 +164,7 @@ eta_squared(model, generalized = "Time")
 
 ### From Test Statistics
 
-In many real world applications there are no straightforward ways of obtaining standardized effect sizes. However, it is possible to get approximations of most of the effect size indices (*d*, *r*, $\eta^2_p$...) with the use of test statistics [@friedman1982simplified]. These conversions are based on the idea that test statistics are a function of effect size and sample size (or more often of degrees of freedom). Thus it is possible to reverse-engineer indices of effect size from test statistics (*F*, *t*, $\chi^2$, and *z*). 
+In many real world applications there are no straightforward ways of obtaining standardized effect sizes. However, it is possible to get approximations of most of the effect size indices (*d*, *r*, $\eta^2_p$...) with the use of test statistics [@friedman1982simplified]. These conversions are based on the idea that test statistics are a function of effect size and sample size (or more often of degrees of freedom). Thus it is possible to reverse-engineer indices of effect size from test statistics (*F*, *t*, $\chi^2$, and *z*).
 
 ``` r
 F_to_eta2(f = c(40.72, 33.77),
@@ -188,7 +188,7 @@ t_to_r(t = -5.14, df_error = 22)
 These functions also power the `effectsize()` convenience function for estimating effect sizes from R's `htest`-type objects. For example:
 
 ``` r
-aov1 <- oneway.test(salary ~ n_comps, 
+aov1 <- oneway.test(salary ~ n_comps,
                     data = hardlyworking, var.equal = TRUE)
 effectsize(aov1)
 #> Eta2 |       90% CI
@@ -229,7 +229,7 @@ Finally, **effectsize** provides convenience functions to apply existing or cust
 
 ``` r
 interpret_d(c(0.02, 0.52, 0.86), rules = "cohen1988")
-#> [1] "very small" "medium"     "large"     
+#> [1] "very small" "medium"     "large"
 #> (Rules: cohen1988)
 ```
 

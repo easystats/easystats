@@ -3,7 +3,7 @@
 * Added a new vignette, _A complete workflow using easystats_.
 
 * `install_suggested()` did not install required hard-dependencies for
-  suggested packages. This is fixed now, thankt to @viv-analytics.
+  suggested packages. This is fixed now, thanks to @viv-analytics.
 
 * Minor changes, fixes to broken URLs.
 

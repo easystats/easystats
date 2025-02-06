@@ -1,0 +1,38 @@
+---
+title: "Overview of Vignettes"
+output:
+  rmarkdown::html_vignette:
+vignette: >
+  %\VignetteIndexEntry{Overview of Vignettes}
+  \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>",
+  eval = TRUE
+)
+```
+
+All package vignettes are available at [https://easystats.github.io/easystats/](https://easystats.github.io/easystats/).
+
+## Analytic workflows of easystats packages
+
+* [Analytic workflow: A complete workflow using easystats](https://easystats.github.io/easystats/articles/workflow_easystats.html)
+* [Analytic workflow: Assessing model fit](https://easystats.github.io/easystats/articles/workflow_performance.html)
+
+## Miscellaneous
+
+* [Citing 'easystats'](https://easystats.github.io/easystats/articles/citation.html)
+* [Coding style conventions](https://easystats.github.io/easystats/articles/conventions.html)
+* [List of functions](https://easystats.github.io/easystats/articles/list_of_functions.html)
+* [Learning resources](https://easystats.github.io/easystats/articles/resources.html)
+* [R version support](https://easystats.github.io/easystats/articles/version_policy.html)

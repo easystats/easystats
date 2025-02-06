@@ -21,7 +21,6 @@
 }
 
 
-
 .easystats_version <- function() {
   pkgs <- tryCatch(
     {
