@@ -1,3 +1,7 @@
+# easystats 0.7.5
+
+* New function `easystats_citations()` to report the total number of Google Scholar citations for `easystats` publications.
+
 # easystats 0.7.4
 
 * Added a new vignette, _A complete workflow using easystats_.
