@@ -17,6 +17,11 @@ reference:
     contents:
       - ends_with("_dashboard")
 
+  - title: Citation
+    desc: ~
+    contents:
+      - easystats_citations
+
   - title: Zen
     desc: ~
     contents:
