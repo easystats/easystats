@@ -1,6 +1,6 @@
 ---
 title: "Learning resources"
-output: 
+output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
@@ -38,8 +38,8 @@ But, we are certainly not the only ones talking about them, and below are some o
 - [easystats: Quickly investigate model performance](https://www.youtube.com/watch?v=Bi8sHIo3s1Y)
 
 ### `{report}` package:
-  
-- [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)  
+
+- [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)
 
 
 ## Presentations
@@ -47,3 +47,7 @@ But, we are certainly not the only ones talking about them, and below are some o
 ### `{bayestestR}` package:
 
  - [Evaluating Evidence and Making Decisions using Bayesian Statistics (Mattan S. Ben-Shachar)](https://mattansb.github.io/bayesian-evidence/)
+
+### `{modelbased}` package:
+
+ - [Contrasts and Pairwise Comparisons)](https://github.com/easystats/easystats/blob/main/presentations/modelbased_contrasts/modelbased_contrasts.pdf)
