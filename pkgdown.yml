@@ -10,7 +10,7 @@ articles:
   version_policy: version_policy.html
   workflow_easystats: workflow_easystats.html
   workflow_performance: workflow_performance.html
-last_built: 2025-02-13T07:59Z
+last_built: 2025-02-13T08:05Z
 urls:
   reference: https://easystats.github.io/easystats/reference
   article: https://easystats.github.io/easystats/articles
