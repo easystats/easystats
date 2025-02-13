@@ -50,4 +50,6 @@ But, we are certainly not the only ones talking about them, and below are some o
 
 ### `{modelbased}` package:
 
- - [Contrasts and Pairwise Comparisons)](https://github.com/easystats/easystats/blob/main/presentations/modelbased_contrasts/modelbased_contrasts.pdf)
+ - [Introduction into predictions and the {modelbased} package)](https://github.com/easystats/easystats/blob/main/presentations/modelbased/modelbased_means.pdf)
+
+ - [Contrasts and Pairwise Comparisons)](https://github.com/easystats/easystats/blob/main/presentations/modelbased/modelbased_contrasts.pdf)
