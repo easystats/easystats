@@ -221,7 +221,7 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 26,629,680 | 7,638,142 | 4,767,236 | 3,231,627 | 3,172,865 | 3,086,221 | 2,440,389 | 857,553 | 686,715 | 430,645 | 234,846 | 83,441 |
+| 26,819,625 | 7,686,346 | 4,800,541 | 3,251,836 | 3,195,082 | 3,112,525 | 2,455,564 | 864,315 | 693,068 | 436,756 | 238,089 | 85,503 |
 
 ### Trend
 
