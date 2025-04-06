@@ -1,7 +1,8 @@
 
 # *easystats*: An R Framework for Easy Statistical Modeling, Visualization, and Reporting
 
-[![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION)
+<!-- [![publication](https://img.shields.io/badge/Cite-Unpublished-yellow)](https://github.com/easystats/easystats/blob/master/inst/CITATION) -->
+
 [![downloads](https://cranlogs.r-pkg.org/badges/easystats)](https://cran.r-project.org/package=easystats)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/easystats)](https://cranlogs.r-pkg.org/)
 
@@ -22,9 +23,9 @@ your life. And, who knows, you might even end up using them all.
 ## Installation
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/easystats)](https://cran.r-project.org/package=easystats)
-[![easystats status
+[![insight status
 badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-universe.dev)
-[![codecov](https://codecov.io/gh/easystats/easystats/branch/main/graph/badge.svg)](https://app.codecov.io/gh/easystats/easystats)
+[![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
 
 | Type | Source | Command |
 |:---|:---|:---|
@@ -172,10 +173,6 @@ without caring where they belong.
 
 ## Documentation
 
-[![Documentation](https://img.shields.io/badge/documentation-easystats-orange.svg?colorB=E91E63)](https://easystats.github.io/easystats/)
-[![Blog](https://img.shields.io/badge/blog-easystats-orange.svg?colorB=FF9800)](https://easystats.github.io/blog/posts/)
-[![Features](https://img.shields.io/badge/features-easystats-orange.svg?colorB=2196F3)](https://easystats.github.io/bayestestR/easystats/index.html)
-
 ### Websites
 
 Each `easystats` package has a dedicated website.
@@ -224,7 +221,7 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 27,222,571 | 7,790,114 | 4,876,431 | 3,296,564 | 3,244,369 | 3,162,756 | 2,489,595 | 879,451 | 704,346 | 446,681 | 243,550 | 88,714 |
+| 28,045,106 | 7,989,608 | 5,043,868 | 3,394,228 | 3,343,391 | 3,257,768 | 2,556,659 | 915,724 | 729,217 | 468,742 | 252,454 | 93,447 |
 
 ### Trend
 
