@@ -31,7 +31,7 @@ challenge, do check if there is an *easystats* answer for it in other packages.
 You will slowly uncover how using them together facilitates your life. And, who
 knows, you might even end up using them all.
 
-```{r README-1, echo=FALSE, fig.align="center"}
+```{r README-1, echo=FALSE, fig.align="center", out.width="600px"}
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
@@ -125,6 +125,22 @@ packages, but it is also used in other non-easystats packages, such as
 
 Moreover, the *easystats* packages are very lightweight, with a minimal set of
 dependencies, which again makes it great if you want to rely on them.
+
+
+**What are all the packages for? I'm lost!**
+
+Statistical models are **scary monsters**, and *easystats* is the best solution for expert and amateur stats hunters.
+
+- **insight** contains the arsenal to capture them and dissect them. It is mostly meant to be used by experts who want to create their own tools.
+- **performance** can be used to assess their scariness and value.
+- **effectsize** is great to quantify and interpret their dangerousness (e.g., by how much variance they eat).
+- **parameters** is useful to understand them by measuring their claws and taming them.
+- **modelbased** allows you to unleash their power and use them at your service.
+- **datawizard** contains useful potions and hunter equipment to survive in the stats jungle.
+- **bayestestR** contains specific arrows and traps for a particular species of monsters (the monstrous Bayesians)
+- **see** allows you to see clearer.
+
+However, *easystats* can be used as a whole, by simply loading `library(easystats)` and using the functions from various packages without caring where they belong.
 
 ## Documentation
 
@@ -303,7 +319,7 @@ out$date <- as.Date(out$date)
 
 out |>
   ggplot(aes(x = date, color = Package)) +
-  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000), color = "#EEEEEE") +
+  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000, 250000), color = "#EEEEEE") +
   geom_line(aes(y = monthly_downloads), linewidth = 0.9, alpha = 0.6) +
   geom_smooth(aes(y = monthly_downloads),
     method = "lm",

@@ -1,3 +1,12 @@
+# easystats 0.7.4
+
+* Added a new vignette, _A complete workflow using easystats_.
+
+* `install_suggested()` did not install required hard-dependencies for
+  suggested packages. This is fixed now, thanks to @viv-analytics.
+
+* Minor changes, fixes to broken URLs.
+
 # easystats 0.7.3
 
 * New function `easystats_packages()` that produces a character vector with

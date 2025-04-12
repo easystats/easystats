@@ -23,10 +23,21 @@ reference:
       - easystats_zen
 
 articles:
+  - title: Overview of vignettes
+    navbar: ~
+    contents:
+      - overview_of_vignettes
+
   - title: Analytic workflows of easystats packages
     navbar: ~
     contents:
+      - workflow_easystats
       - workflow_performance
+
+  - title: Introductions into easystats
+    navbar: ~
+    contents:
+      - resources
 
   - title: Miscellaneous
     navbar: ~
@@ -34,5 +45,4 @@ articles:
       - citation
       - conventions
       - list_of_functions
-      - resources
       - version_policy

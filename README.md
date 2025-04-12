@@ -18,7 +18,7 @@ challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
 
-<img src="man/figures/logo_wall.png" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/logo_wall.png" width="600px" style="display: block; margin: auto;" />
 
 ## Installation
 
@@ -146,6 +146,31 @@ Moreover, the *easystats* packages are very lightweight, with a minimal
 set of dependencies, which again makes it great if you want to rely on
 them.
 
+**What are all the packages for? I’m lost!**
+
+Statistical models are **scary monsters**, and *easystats* is the best
+solution for expert and amateur stats hunters.
+
+- **insight** contains the arsenal to capture them and dissect them. It
+  is mostly meant to be used by experts who want to create their own
+  tools.
+- **performance** can be used to assess their scariness and value.
+- **effectsize** is great to quantify and interpret their dangerousness
+  (e.g., by how much variance they eat).
+- **parameters** is useful to understand them by measuring their claws
+  and taming them.
+- **modelbased** allows you to unleash their power and use them at your
+  service.
+- **datawizard** contains useful potions and hunter equipment to survive
+  in the stats jungle.
+- **bayestestR** contains specific arrows and traps for a particular
+  species of monsters (the monstrous Bayesians)
+- **see** allows you to see clearer.
+
+However, *easystats* can be used as a whole, by simply loading
+`library(easystats)` and using the functions from various packages
+without caring where they belong.
+
 ## Documentation
 
 ### Websites
@@ -196,7 +221,7 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 25,121,513 | 7,260,544 | 4,481,391 | 3,052,090 | 2,989,395 | 2,907,643 | 2,304,575 | 794,680 | 642,074 | 397,164 | 217,376 | 74,581 |
+| 28,045,106 | 7,989,608 | 5,043,868 | 3,394,228 | 3,343,391 | 3,257,768 | 2,556,659 | 915,724 | 729,217 | 468,742 | 252,454 | 93,447 |
 
 ### Trend
 

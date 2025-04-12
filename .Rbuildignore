@@ -36,3 +36,8 @@ hextools
 ^CODE_OF_CONDUCT\.md$
 \.code-workspace$
 ^CRAN-SUBMISSION$
+^vignettes/images$
+^vignettes/c.
+^vignettes/l.
+^vignettes/r.
+^vignettes/w.

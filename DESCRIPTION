@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.7.3.3
+Version: 0.7.4.1
 Authors@R:
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -49,26 +49,30 @@ BugReports: https://github.com/easystats/easystats/issues
 Depends:
     R (>= 3.6)
 Imports:
-    bayestestR (>= 0.14.0),
-    correlation (>= 0.8.5),
-    datawizard (>= 0.12.3),
-    effectsize (>= 0.8.9),
-    insight (>= 0.20.4),
-    modelbased (>= 0.8.8),
-    parameters (>= 0.22.1),
-    performance (>= 0.12.3),
-    report (>= 0.5.9),
-    see (>= 0.8.5),
+    bayestestR (>= 0.15.1),
+    correlation (>= 0.8.6),
+    datawizard (>= 1.0.0),
+    effectsize (>= 1.0.0),
+    insight (>= 1.0.1),
+    modelbased (>= 0.9.0),
+    parameters (>= 0.24.1),
+    performance (>= 0.13.0),
+    report (>= 0.6.0),
+    see (>= 0.10.0),
     tools,
     utils
 Suggests:
+    collapse,
     DHARMa,
     DT,
     flexdashboard (>= 0.6.2),
+    Formula,
+    ggplot2,
     glmmTMB,
     httr,
     jsonlite,
     knitr,
+    marginaleffects (>= 0.25.0),
     mockery,
     pak,
     patchwork,
