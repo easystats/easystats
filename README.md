@@ -205,7 +205,7 @@ hell](https://en.wikipedia.org/wiki/Dependency_hell).
 ``` r
 library(deepdep)
 
-plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+plot_dependencies("easystats", depth = 2L, show_stamp = FALSE)
 ```
 
 <img src="man/figures/depnetwork-1.png" width="100%" />
@@ -221,7 +221,7 @@ which does have a substantial number of dependencies.
 
 | Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 28,045,106 | 7,989,608 | 5,043,868 | 3,394,228 | 3,343,391 | 3,257,768 | 2,556,659 | 915,724 | 729,217 | 468,742 | 252,454 | 93,447 |
+| 28,547,694 | 8,108,755 | 5,142,280 | 3,453,443 | 3,407,775 | 3,316,781 | 2,601,287 | 937,170 | 745,233 | 480,413 | 258,170 | 96,387 |
 
 ### Trend
 
