@@ -5,17 +5,21 @@
 \title{Install the easystats suite from R-universe (GitHub) or CRAN}
 \usage{
 install_latest(
-  source = c("development", "cran"),
+  source = "development",
   packages = "all",
   force = FALSE,
   verbose = TRUE
 )
 }
 \arguments{
-\item{source}{Character. Either \code{"development"} or \code{"cran"}. If \code{"cran"},
-packages will be installed from the default CRAN mirror returned by
-\code{getOption("repos")['CRAN']}. If \code{"development"} (the default), packages
-are installed from the r-universe repository (\url{https://easystats.r-universe.dev/}).}
+\item{source}{Character. Either \code{"development"}, \code{"cran"} or \code{"github"}. If
+\code{"cran"}, packages will be installed from the default CRAN mirror returned
+by \code{getOption("repos")['CRAN']}. If \code{"development"} (the default), packages
+are installed from the R-universe repository
+(\url{https://easystats.r-universe.dev/}). \code{"github"} installs the latest
+version from the GitHub-repositories main-branch. However, this option is
+usually not needed, because R-universe provides latest binaries. Use the
+\code{"github"} option only when R-universe servers are unavailable.}
 
 \item{packages}{Character vector, indicating which packages to be installed.
 By default, the option \code{"all"} will install all \strong{easystats} packages.}
