@@ -43,6 +43,7 @@ install_latest <- function(source = "development",
   pkg <- easystats_packages()
   install_all_packages <- FALSE
 
+  # update all packages?
   if (length(packages) == 1L && packages == "all") {
     install_all_packages <- TRUE
   }
@@ -53,13 +54,14 @@ install_latest <- function(source = "development",
     packages <- intersect(packages, pkg)
   }
 
+  # set repository for download, depending on source
   if (source == "development") {
     repos <- "https://easystats.r-universe.dev"
   } else if (source == "cran") {
     repos <- getOption("repos")["CRAN"]
-  } else if (insight::check_if_installed("pak")) {
-    pak::pkg_install(paste0("easystats/", packages), dependencies = FALSE)
-    return(invisible())
+  } else {
+    # for GitHub, we for now just check if pak is installed
+    insight::check_if_installed("pak")
   }
 
   # only install newer versions?
@@ -91,6 +93,12 @@ install_latest <- function(source = "development",
     if (isTRUE(verbose)) {
       insight::print_color("All easystats-packages are up to date!\n", "green")
     }
+    return(invisible())
+  }
+
+  # for pak, we do not install from a repository
+  if (source == "github") {
+    pak::pkg_install(paste0("easystats/", packages), dependencies = FALSE)
     return(invisible())
   }
 
