@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.4.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +99,7 @@ example. We will explore various aspects of the model, such as model
 coefficients, model fit, predictions, and pairwise comparisons. Let’s
 get started!</p>
 <div class="section level2">
-<h2 id="preparing-the-data-and-fitting-a-model">Preparing the data and fitting a model<a class="anchor" aria-label="anchor" href="#preparing-the-data-and-fitting-a-model"></a>
+<h2 id="preparing-the-data">Preparing the data<a class="anchor" aria-label="anchor" href="#preparing-the-data"></a>
 </h2>
 <p>The very first step is usually importing and preparing some data
 (recoding, re-shaping data and so on - the usual data wrangling tasks),
@@ -118,22 +118,83 @@ consumption (treatment) and time.</p>
 <span><span class="co"># dichotomize outcome variable</span></span>
 <span><span class="va">coffee_data</span><span class="op">$</span><span class="va">alertness</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/datawizard/reference/categorize.html" class="external-link">categorize</a></span><span class="op">(</span><span class="va">coffee_data</span><span class="op">$</span><span class="va">alertness</span>, lowest <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
 <span><span class="co"># rename variable</span></span>
-<span><span class="va">coffee_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_rename.html" class="external-link">data_rename</a></span><span class="op">(</span><span class="va">coffee_data</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>treatment <span class="op">=</span> <span class="st">"coffee"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># model</span></span>
-<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">alertness</span> <span class="op">~</span> <span class="va">treatment</span> <span class="op">*</span> <span class="va">time</span>, data <span class="op">=</span> <span class="va">coffee_data</span>, family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html" class="external-link">binomial</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">coffee_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_rename.html" class="external-link">data_rename</a></span><span class="op">(</span><span class="va">coffee_data</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>treatment <span class="op">=</span> <span class="st">"coffee"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="exploring-the-model---model-coefficients">Exploring the model - model coefficients<a class="anchor" aria-label="anchor" href="#exploring-the-model---model-coefficients"></a>
+<h2 id="sample-description">Sample description<a class="anchor" aria-label="anchor" href="#sample-description"></a>
 </h2>
-<p>Let’s start by examining the model coefficients. The package that
-manages everything related to model coefficients is the
-<strong>parameters</strong> package. We can use the
+<p>In a next step, it might make sense to look at the data. E.g., a
+frequency table using <code><a href="https://easystats.github.io/datawizard/reference/data_tabulate.html" class="external-link">data_tabulate()</a></code>, or a description of
+the most important sample characteristics using
+<code><a href="https://easystats.github.io/report/reference/report_sample.html" class="external-link">report_sample()</a></code>. The latter is usually already a table
+shown in publications.</p>
+<p>Functions to create descriptive tables or text reports are located in
+the <strong>datawizard</strong> and <strong>report</strong>
+packages.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/report/" class="external-link">report</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Frequency table</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_tabulate.html" class="external-link">data_tabulate</a></span><span class="op">(</span><span class="va">coffee_data</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"treatment"</span>, <span class="st">"time"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; treatment (treatment) &lt;categorical&gt;</span></span>
+<span><span class="co">#&gt; # total N=120 valid N=120</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Value   |  N | Raw % | Valid % | Cumulative %</span></span>
+<span><span class="co">#&gt; --------+----+-------+---------+-------------</span></span>
+<span><span class="co">#&gt; coffee  | 60 | 50.00 |   50.00 |        50.00</span></span>
+<span><span class="co">#&gt; control | 60 | 50.00 |   50.00 |       100.00</span></span>
+<span><span class="co">#&gt; &lt;NA&gt;    |  0 |  0.00 |    &lt;NA&gt; |         &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; time (time) &lt;categorical&gt;</span></span>
+<span><span class="co">#&gt; # total N=120 valid N=120</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Value     |  N | Raw % | Valid % | Cumulative %</span></span>
+<span><span class="co">#&gt; ----------+----+-------+---------+-------------</span></span>
+<span><span class="co">#&gt; morning   | 40 | 33.33 |   33.33 |        33.33</span></span>
+<span><span class="co">#&gt; noon      | 40 | 33.33 |   33.33 |        66.67</span></span>
+<span><span class="co">#&gt; afternoon | 40 | 33.33 |   33.33 |       100.00</span></span>
+<span><span class="co">#&gt; &lt;NA&gt;      |  0 |  0.00 |    &lt;NA&gt; |         &lt;NA&gt;</span></span>
+<span></span>
+<span><span class="co"># Cross table</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_tabulate.html" class="external-link">data_tabulate</a></span><span class="op">(</span><span class="va">coffee_data</span>, <span class="st">"treatment"</span>, by <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; treatment | morning | noon | afternoon | &lt;NA&gt; | Total</span></span>
+<span><span class="co">#&gt; ----------+---------+------+-----------+------+------</span></span>
+<span><span class="co">#&gt; coffee    |      20 |   20 |        20 |    0 |    60</span></span>
+<span><span class="co">#&gt; control   |      20 |   20 |        20 |    0 |    60</span></span>
+<span><span class="co">#&gt; &lt;NA&gt;      |       0 |    0 |         0 |    0 |     0</span></span>
+<span><span class="co">#&gt; ----------+---------+------+-----------+------+------</span></span>
+<span><span class="co">#&gt; Total     |      40 |   40 |        40 |    0 |   120</span></span>
+<span></span>
+<span><span class="co"># Sample description</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/report/reference/report_sample.html" class="external-link">report_sample</a></span><span class="op">(</span></span>
+<span>  <span class="va">coffee_data</span>,</span>
+<span>  by <span class="op">=</span> <span class="st">"treatment"</span>,</span>
+<span>  select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"alertness"</span>, <span class="st">"time"</span><span class="op">)</span>,</span>
+<span>  ci <span class="op">=</span> <span class="fl">0.95</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; # Descriptive Statistics</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable            |     coffee (n=60) |    control (n=60) |     Total (n=120)</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; Mean alertness (SD) |       0.53 (0.50) |       0.47 (0.50) |       0.50 (0.50)</span></span>
+<span><span class="co">#&gt; time [morning], %   | 33.3 [22.7, 45.9] | 33.3 [22.7, 45.9] | 33.3 [25.5, 42.2]</span></span>
+<span><span class="co">#&gt; time [noon], %      | 33.3 [22.7, 45.9] | 33.3 [22.7, 45.9] | 33.3 [25.5, 42.2]</span></span>
+<span><span class="co">#&gt; time [afternoon], % | 33.3 [22.7, 45.9] | 33.3 [22.7, 45.9] | 33.3 [25.5, 42.2]</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="fitting-and-exploring-the-model---model-coefficients">Fitting and exploring the model - model coefficients<a class="anchor" aria-label="anchor" href="#fitting-and-exploring-the-model---model-coefficients"></a>
+</h2>
+<p>Let’s start by fitting an example model and examining the model
+coefficients. The package that manages everything related to model
+coefficients is the <strong>parameters</strong> package. We can use the
 <code><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters()</a></code> function to extract the coefficients
 from the model. By setting <code>exponentiate = TRUE</code>, we can
 obtain the odds ratios for the coefficients.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/parameters/" class="external-link">parameters</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># model</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">alertness</span> <span class="op">~</span> <span class="va">treatment</span> <span class="op">*</span> <span class="va">time</span>, data <span class="op">=</span> <span class="va">coffee_data</span>, family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html" class="external-link">binomial</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># coefficients</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/parameters/reference/model_parameters.html" class="external-link">model_parameters</a></span><span class="op">(</span><span class="va">model</span>, exponentiate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -162,12 +223,12 @@ Inspecting model quality and fit indices is supported by the
 <strong>performance</strong> package. A useful function to do so is
 <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model()</a></code>, which gives a graphical summary of several
 important model checks.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/performance/" class="external-link">performance</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># checking model assunptions</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
-<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-3-1.png" width="3000"></p>
+<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-4-1.png" width="3000"></p>
 <p>The plot looks good - we don’t seem to have concerning issues. If you
 want to learn more about interpreting these plots, <a href="https://easystats.github.io/performance/articles/check_model.html" class="external-link">check
 out this vignette</a>. Read <a href="https://easystats.github.io/easystats/articles/workflow_performance.html">this
@@ -193,7 +254,7 @@ regression models, <em>predicted probabilities</em> are calculated.
 These refer to the adjusted probabilities of the outcome (higher
 alertness) depending on the predictor variables (treatment and
 time).</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/modelbased/" class="external-link">modelbased</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># predicted probabilities</span></span>
@@ -219,10 +280,10 @@ probability of high alertness for the afternoon-coffee group).</p>
 <p>We can also visualize these results, using the <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>
 method. In short, this will give us a visual interpretation of the
 model.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plot predicted probabilities</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">predictions</span><span class="op">)</span></span></code></pre></div>
-<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-5-1.png" width="80%" height="80%"></p>
+<p><img src="workflow_easystats_files/figure-html/unnamed-chunk-6-1.png" width="80%" height="80%"></p>
 <p>We can also see that the predicted probabilities of alertness are
 higher for participants who consumed coffee compared to those who did
 not, but only in the morning and in the afternoon. Furthermore, we see
@@ -239,7 +300,7 @@ This function needs to know the variables that should be compared, or
 <em>contrasted</em>. In a first step, we want to compare all levels of
 the variables involved in our interaction term (our <em>focal terms</em>
 from above).</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># pairwise comparisons - quite long table</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html" class="external-link">estimate_contrasts</a></span><span class="op">(</span><span class="va">model</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"time"</span>, <span class="st">"treatment"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Marginal Contrasts Analysis</span></span>
@@ -269,7 +330,7 @@ from above).</p>
 <p>In the above output, we see all possible pairwise comparisons of the
 predicted probabilities. The table is quite long, but we can also group
 the comparisons, e.g. by the variable <em>time</em>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># group comparisons by "time"</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html" class="external-link">estimate_contrasts</a></span><span class="op">(</span><span class="va">model</span>, <span class="st">"treatment"</span>, by <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Marginal Contrasts Analysis</span></span>

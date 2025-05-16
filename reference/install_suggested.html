@@ -17,7 +17,7 @@ all of easystats' functionalities without errors."><meta property="og:image" con
 
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.4.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,19 +99,19 @@ installed.</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>To reduce the dependency load, 'easystats' packages by default will not
-download all internally needed packages. It will ask the user to download
+    <p>To reduce the dependency load, 'easystats' packages by default will
+not download all internally needed packages. It will ask the user to download
 them only if they are needed. The current function can help install all
 packages a given 'easystats' package might need. For example,
-<code>install_suggested("see")</code>. <code>show_suggested()</code> is a convenient helper
-to show the current list of suggested packages for each 'easystats'
-package.</p>
+<code>install_suggested("see")</code>. <code>show_suggested()</code> is a convenient helper to show
+the current list of suggested packages for each 'easystats' package.</p>
+<p>If package <code>{pak}</code> is installed, <code><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pak::pkg_install()</a></code> will be used to install
+packages. Else, <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">utils::install.packages()</a></code> is used.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># download all suggested packages</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># download all suggested packages</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu">install_suggested</span><span class="op">(</span><span class="st">"easystats"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
@@ -198,10 +198,10 @@ package.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">datawizard</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bayestestR, boot, brms, curl, data.table, dplyr, effectsize, emmeans,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   gamm4, ggplot2, gt, haven, httr, knitr, lme4, mediation, modelbased,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   parameters, poorman, psych, readxl, readr, rio, rmarkdown, rstanarm,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   see, testthat, tibble, tidyr, withr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bayestestR, boot, BH, brms, curl, data.table, dplyr, effectsize,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   emmeans, gamm4, ggplot2, gt, haven, httr, knitr, lme4, mediation,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   modelbased, parameters, poorman, psych, readxl, readr, rio, rmarkdown,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rstanarm, see, testthat, tibble, tidyr, withr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">effectsize</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">----------</span></span>
