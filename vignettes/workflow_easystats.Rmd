@@ -37,7 +37,7 @@ if (can_evaluate) {
 
 This vignette demonstrates a typical workflow using *easystats* packages, with a logistic regression model as an example. We will explore various aspects of the model, such as model coefficients, model fit, predictions, and pairwise comparisons. Let's get started!
 
-## Preparing the data and fitting a model
+## Preparing the data
 
 The very first step is usually importing and preparing some data (recoding, re-shaping data and so on - the usual data wrangling tasks), which is easily done using the **datawizard** package. In this example, we use *datawizard* only for some minor recodings. The `coffee_data` data set is included in the *modelbased* package. The data set contains information on the effect of coffee consumption on alertness over time. The outcome variable is binary (alertness), and the predictor variables are coffee consumption (treatment) and time.
 
@@ -50,17 +50,41 @@ data(coffee_data, package = "modelbased")
 coffee_data$alertness <- categorize(coffee_data$alertness, lowest = 0)
 # rename variable
 coffee_data <- data_rename(coffee_data, select = c(treatment = "coffee"))
-
-# model
-model <- glm(alertness ~ treatment * time, data = coffee_data, family = binomial())
 ```
 
-## Exploring the model - model coefficients
+## Sample description
 
-Let's start by examining the model coefficients. The package that manages everything related to model coefficients is the **parameters** package. We can use the `model_parameters()` function to extract the coefficients from the model. By setting `exponentiate = TRUE`, we can obtain the odds ratios for the coefficients.
+In a next step, it might make sense to look at the data. E.g., a frequency table using `data_tabulate()`, or a description of the most important sample characteristics using `report_sample()`. The latter is usually already a table shown in publications.
+
+Functions to create descriptive tables or text reports are located in the **datawizard** and **report** packages.
+
+```{r}
+library(report)
+
+# Frequency table
+data_tabulate(coffee_data, c("treatment", "time"))
+
+# Cross table
+data_tabulate(coffee_data, "treatment", by = "time")
+
+# Sample description
+report_sample(
+  coffee_data,
+  by = "treatment",
+  select = c("alertness", "time"),
+  ci = 0.95
+)
+```
+
+## Fitting and exploring the model - model coefficients
+
+Let's start by fitting an example model and examining the model coefficients. The package that manages everything related to model coefficients is the **parameters** package. We can use the `model_parameters()` function to extract the coefficients from the model. By setting `exponentiate = TRUE`, we can obtain the odds ratios for the coefficients.
 
 ```{r}
 library(parameters)
+
+# model
+model <- glm(alertness ~ treatment * time, data = coffee_data, family = binomial())
 
 # coefficients
 model_parameters(model, exponentiate = TRUE)
