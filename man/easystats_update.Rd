@@ -17,6 +17,10 @@ Invisible \code{NULL}.
 \description{
 Update \emph{easystats}-packages and its dependencies from CRAN, if necessary.
 }
+\details{
+If package \code{{pak}} is installed, \code{pak::pkg_install()} will be used
+to install packages. Else, \code{utils::install.packages()} is used.
+}
 \examples{
 \dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # check which local easystats-packages (and their dependencies)

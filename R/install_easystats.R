@@ -5,10 +5,14 @@
 #' versions from CRAN. If the development versions are installed, packages
 #' will be installed from the stable branch (master/main) for each package.
 #'
-#' @param source Character. Either `"development"` or `"cran"`. If `"cran"`,
-#'   packages will be installed from the default CRAN mirror returned by
-#'   `getOption("repos")['CRAN']`. If `"development"` (the default), packages
-#'   are installed from the r-universe repository (<https://easystats.r-universe.dev/>).
+#' @param source Character. Either `"development"`, `"cran"` or `"github"`. If
+#'   `"cran"`, packages will be installed from the default CRAN mirror returned
+#'   by `getOption("repos")['CRAN']`. If `"development"` (the default), packages
+#'   are installed from the R-universe repository
+#'   (<https://easystats.r-universe.dev/>). `"github"` installs the latest
+#'   version from the GitHub-repositories main-branch. However, this option is
+#'   usually not needed, because R-universe provides latest binaries. Use the
+#'   `"github"` option only when R-universe servers are unavailable.
 #' @param packages Character vector, indicating which packages to be installed.
 #'   By default, the option `"all"` will install all **easystats** packages.
 #' @param force Logical, if `FALSE`, only those packages with a newer
@@ -31,14 +35,15 @@
 #' # are up to date or not.
 #' install_latest(force = TRUE)
 #' @export
-install_latest <- function(source = c("development", "cran"),
+install_latest <- function(source = "development",
                            packages = "all",
                            force = FALSE,
                            verbose = TRUE) {
-  source <- match.arg(source, c("development", "cran"))
+  source <- insight::validate_argument(source, c("development", "cran", "github"))
   pkg <- easystats_packages()
   install_all_packages <- FALSE
 
+  # update all packages?
   if (length(packages) == 1L && packages == "all") {
     install_all_packages <- TRUE
   }
@@ -49,10 +54,14 @@ install_latest <- function(source = c("development", "cran"),
     packages <- intersect(packages, pkg)
   }
 
+  # set repository for download, depending on source
   if (source == "development") {
     repos <- "https://easystats.r-universe.dev"
-  } else {
+  } else if (source == "cran") {
     repos <- getOption("repos")["CRAN"]
+  } else {
+    # for GitHub, we for now just check if pak is installed
+    insight::check_if_installed("pak")
   }
 
   # only install newer versions?
@@ -84,6 +93,12 @@ install_latest <- function(source = c("development", "cran"),
     if (isTRUE(verbose)) {
       insight::print_color("All easystats-packages are up to date!\n", "green")
     }
+    return(invisible())
+  }
+
+  # for pak, we do not install from a repository
+  if (source == "github") {
+    pak::pkg_install(file.path("easystats", packages), dependencies = FALSE)
     return(invisible())
   }
 

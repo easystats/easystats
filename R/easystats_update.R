@@ -6,6 +6,9 @@
 #'
 #' @return Invisible `NULL`.
 #'
+#' @details If package `{pak}` is installed, `pak::pkg_install()` will be used
+#' to install packages. Else, `utils::install.packages()` is used.
+#'
 #' @examplesIf FALSE
 #' # check which local easystats-packages (and their dependencies)
 #' # are out of date and install updates from CRAN
