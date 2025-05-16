@@ -39,11 +39,15 @@ articles:
       - workflow_easystats
       - workflow_performance
 
+  - title: Introductions into easystats
+    navbar: ~
+    contents:
+      - resources
+
   - title: Miscellaneous
     navbar: ~
     contents:
       - citation
       - conventions
       - list_of_functions
-      - resources
       - version_policy
