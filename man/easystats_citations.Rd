@@ -15,6 +15,8 @@ for \code{easystats} publications through the \code{scholar} package.
 }
 \examples{
 \dontshow{if (insight::check_if_installed("scholar", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{
 easystats_citations()
+}
 \dontshow{\}) # examplesIf}
 }

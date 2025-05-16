@@ -5,7 +5,9 @@
 #' @return A data frame of 4 columns: title, journal, year, and cites.
 #'
 #' @examplesIf insight::check_if_installed("scholar", quietly = TRUE)
+#' \dontrun{
 #' easystats_citations()
+#' }
 #'
 #' @export
 easystats_citations <- function() {
