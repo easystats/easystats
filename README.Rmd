@@ -172,7 +172,7 @@ If you develop R packages, this means that you can safely use *easystats* packag
 ```{r depnetwork}
 library(deepdep)
 
-plot_dependencies("easystats", depth = 2, show_stamp = FALSE)
+plot_dependencies("easystats", depth = 2L, show_stamp = FALSE)
 ```
 
 As we can see, the only exception is the [`{see}`](https://easystats.github.io/see/) package, which is responsible for plotting and creating
