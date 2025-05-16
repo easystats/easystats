@@ -98,7 +98,7 @@ install_latest <- function(source = "development",
 
   # for pak, we do not install from a repository
   if (source == "github") {
-    pak::pkg_install(paste0("easystats/", packages), dependencies = FALSE)
+    pak::pkg_install(file.path("easystats", packages), dependencies = FALSE)
     return(invisible())
   }
 
