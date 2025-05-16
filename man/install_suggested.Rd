@@ -30,16 +30,17 @@ downloaded at once using this function. This will allow you to fully utilize
 all of easystats' functionalities without errors.
 }
 \details{
-To reduce the dependency load, 'easystats' packages by default will not
-download all internally needed packages. It will ask the user to download
+To reduce the dependency load, 'easystats' packages by default will
+not download all internally needed packages. It will ask the user to download
 them only if they are needed. The current function can help install all
 packages a given 'easystats' package might need. For example,
-\code{install_suggested("see")}. \code{show_suggested()} is a convenient helper
-to show the current list of suggested packages for each 'easystats'
-package.
+\code{install_suggested("see")}. \code{show_suggested()} is a convenient helper to show
+the current list of suggested packages for each 'easystats' package.
+
+If package \code{{pak}} is installed, \code{pak::pkg_install()} will be used to install
+packages. Else, \code{utils::install.packages()} is used.
 }
 \examples{
-
 # download all suggested packages
 if (FALSE) {
   install_suggested("easystats")

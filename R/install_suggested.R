@@ -12,22 +12,19 @@
 #'   packages are specified, only suggested packages for those packages will be
 #'   installed.
 #'
-#' @details
-#'
-#' To reduce the dependency load, 'easystats' packages by default will not
-#' download all internally needed packages. It will ask the user to download
+#' @details To reduce the dependency load, 'easystats' packages by default will
+#' not download all internally needed packages. It will ask the user to download
 #' them only if they are needed. The current function can help install all
 #' packages a given 'easystats' package might need. For example,
-#' `install_suggested("see")`. `show_suggested()` is a convenient helper
-#' to show the current list of suggested packages for each 'easystats'
-#' package.
+#' `install_suggested("see")`. `show_suggested()` is a convenient helper to show
+#' the current list of suggested packages for each 'easystats' package.
 #'
-#' @return
+#' If package `{pak}` is installed, `pak::pkg_install()` will be used to install
+#' packages. Else, `utils::install.packages()` is used.
 #'
-#' Useful only for its side-effect of installing the needed packages.
+#' @return Useful only for its side-effect of installing the needed packages.
 #'
 #' @examples
-#'
 #' # download all suggested packages
 #' if (FALSE) {
 #'   install_suggested("easystats")
