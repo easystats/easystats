@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.4.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.4.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -262,14 +262,14 @@ time).</p>
 <span><span class="va">predictions</span></span>
 <span><span class="co">#&gt; Estimated Marginal Means</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; time      | treatment | Probability |       95% CI</span></span>
-<span><span class="co">#&gt; --------------------------------------------------</span></span>
-<span><span class="co">#&gt; morning   | coffee    |        0.50 | [0.29, 0.71]</span></span>
-<span><span class="co">#&gt; noon      | coffee    |        0.35 | [0.18, 0.57]</span></span>
-<span><span class="co">#&gt; afternoon | coffee    |        0.75 | [0.52, 0.89]</span></span>
-<span><span class="co">#&gt; morning   | control   |        0.25 | [0.11, 0.48]</span></span>
-<span><span class="co">#&gt; noon      | control   |        0.65 | [0.43, 0.82]</span></span>
-<span><span class="co">#&gt; afternoon | control   |        0.50 | [0.29, 0.71]</span></span>
+<span><span class="co">#&gt; time      | treatment | Probability |       95% CI |  df</span></span>
+<span><span class="co">#&gt; --------------------------------------------------------</span></span>
+<span><span class="co">#&gt; morning   | coffee    |        0.50 | [0.29, 0.71] | Inf</span></span>
+<span><span class="co">#&gt; noon      | coffee    |        0.35 | [0.18, 0.57] | Inf</span></span>
+<span><span class="co">#&gt; afternoon | coffee    |        0.75 | [0.52, 0.89] | Inf</span></span>
+<span><span class="co">#&gt; morning   | control   |        0.25 | [0.11, 0.48] | Inf</span></span>
+<span><span class="co">#&gt; noon      | control   |        0.65 | [0.43, 0.82] | Inf</span></span>
+<span><span class="co">#&gt; afternoon | control   |        0.50 | [0.29, 0.71] | Inf</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variable predicted: alertness</span></span>
 <span><span class="co">#&gt; Predictors modulated: time, treatment</span></span>
@@ -305,23 +305,23 @@ from above).</p>
 <span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html" class="external-link">estimate_contrasts</a></span><span class="op">(</span><span class="va">model</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"time"</span>, <span class="st">"treatment"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Marginal Contrasts Analysis</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Level1             | Level2            | Difference |   SE |        95% CI |        z |      p</span></span>
-<span><span class="co">#&gt; ----------------------------------------------------------------------------------------------</span></span>
-<span><span class="co">#&gt; morning, control   | morning, coffee   |      -0.25 | 0.15 | [-0.54, 0.04] |    -1.69 |  0.091</span></span>
-<span><span class="co">#&gt; noon, coffee       | morning, coffee   |      -0.15 | 0.15 | [-0.45, 0.15] |    -0.97 |  0.332</span></span>
-<span><span class="co">#&gt; noon, control      | morning, coffee   |       0.15 | 0.15 | [-0.15, 0.45] |     0.97 |  0.332</span></span>
-<span><span class="co">#&gt; afternoon, coffee  | morning, coffee   |       0.25 | 0.15 | [-0.04, 0.54] |     1.69 |  0.091</span></span>
-<span><span class="co">#&gt; afternoon, control | morning, coffee   |   1.11e-16 | 0.16 | [-0.31, 0.31] | 7.02e-16 | &gt; .999</span></span>
-<span><span class="co">#&gt; noon, coffee       | morning, control  |       0.10 | 0.14 | [-0.18, 0.38] |     0.69 |  0.488</span></span>
-<span><span class="co">#&gt; noon, control      | morning, control  |       0.40 | 0.14 | [ 0.12, 0.68] |     2.78 |  0.005</span></span>
-<span><span class="co">#&gt; afternoon, coffee  | morning, control  |       0.50 | 0.14 | [ 0.23, 0.77] |     3.65 | &lt; .001</span></span>
-<span><span class="co">#&gt; afternoon, control | morning, control  |       0.25 | 0.15 | [-0.04, 0.54] |     1.69 |  0.091</span></span>
-<span><span class="co">#&gt; noon, control      | noon, coffee      |       0.30 | 0.15 | [ 0.00, 0.60] |     1.99 |  0.047</span></span>
-<span><span class="co">#&gt; afternoon, coffee  | noon, coffee      |       0.40 | 0.14 | [ 0.12, 0.68] |     2.78 |  0.005</span></span>
-<span><span class="co">#&gt; afternoon, control | noon, coffee      |       0.15 | 0.15 | [-0.15, 0.45] |     0.97 |  0.332</span></span>
-<span><span class="co">#&gt; afternoon, coffee  | noon, control     |       0.10 | 0.14 | [-0.18, 0.38] |     0.69 |  0.488</span></span>
-<span><span class="co">#&gt; afternoon, control | noon, control     |      -0.15 | 0.15 | [-0.45, 0.15] |    -0.97 |  0.332</span></span>
-<span><span class="co">#&gt; afternoon, control | afternoon, coffee |      -0.25 | 0.15 | [-0.54, 0.04] |    -1.69 |  0.091</span></span>
+<span><span class="co">#&gt; Level1             | Level2            | Difference |   SE |        95% CI |        z |  df |      p</span></span>
+<span><span class="co">#&gt; ----------------------------------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; morning, control   | morning, coffee   |      -0.25 | 0.15 | [-0.54, 0.04] |    -1.69 | Inf |  0.091</span></span>
+<span><span class="co">#&gt; noon, coffee       | morning, coffee   |      -0.15 | 0.15 | [-0.45, 0.15] |    -0.97 | Inf |  0.332</span></span>
+<span><span class="co">#&gt; noon, control      | morning, coffee   |       0.15 | 0.15 | [-0.15, 0.45] |     0.97 | Inf |  0.332</span></span>
+<span><span class="co">#&gt; afternoon, coffee  | morning, coffee   |       0.25 | 0.15 | [-0.04, 0.54] |     1.69 | Inf |  0.091</span></span>
+<span><span class="co">#&gt; afternoon, control | morning, coffee   |   1.11e-16 | 0.16 | [-0.31, 0.31] | 7.02e-16 | Inf | &gt; .999</span></span>
+<span><span class="co">#&gt; noon, coffee       | morning, control  |       0.10 | 0.14 | [-0.18, 0.38] |     0.69 | Inf |  0.488</span></span>
+<span><span class="co">#&gt; noon, control      | morning, control  |       0.40 | 0.14 | [ 0.12, 0.68] |     2.78 | Inf |  0.005</span></span>
+<span><span class="co">#&gt; afternoon, coffee  | morning, control  |       0.50 | 0.14 | [ 0.23, 0.77] |     3.65 | Inf | &lt; .001</span></span>
+<span><span class="co">#&gt; afternoon, control | morning, control  |       0.25 | 0.15 | [-0.04, 0.54] |     1.69 | Inf |  0.091</span></span>
+<span><span class="co">#&gt; noon, control      | noon, coffee      |       0.30 | 0.15 | [ 0.00, 0.60] |     1.99 | Inf |  0.047</span></span>
+<span><span class="co">#&gt; afternoon, coffee  | noon, coffee      |       0.40 | 0.14 | [ 0.12, 0.68] |     2.78 | Inf |  0.005</span></span>
+<span><span class="co">#&gt; afternoon, control | noon, coffee      |       0.15 | 0.15 | [-0.15, 0.45] |     0.97 | Inf |  0.332</span></span>
+<span><span class="co">#&gt; afternoon, coffee  | noon, control     |       0.10 | 0.14 | [-0.18, 0.38] |     0.69 | Inf |  0.488</span></span>
+<span><span class="co">#&gt; afternoon, control | noon, control     |      -0.15 | 0.15 | [-0.45, 0.15] |    -0.97 | Inf |  0.332</span></span>
+<span><span class="co">#&gt; afternoon, control | afternoon, coffee |      -0.25 | 0.15 | [-0.54, 0.04] |    -1.69 | Inf |  0.091</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variable predicted: alertness</span></span>
 <span><span class="co">#&gt; Predictors contrasted: time, treatment</span></span>
@@ -335,11 +335,11 @@ the comparisons, e.g. by the variable <em>time</em>.</p>
 <span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html" class="external-link">estimate_contrasts</a></span><span class="op">(</span><span class="va">model</span>, <span class="st">"treatment"</span>, by <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Marginal Contrasts Analysis</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Level1  | Level2 | time      | Difference |   SE |        95% CI |     z |     p</span></span>
-<span><span class="co">#&gt; --------------------------------------------------------------------------------</span></span>
-<span><span class="co">#&gt; control | coffee | morning   |      -0.25 | 0.15 | [-0.54, 0.04] | -1.69 | 0.091</span></span>
-<span><span class="co">#&gt; control | coffee | noon      |       0.30 | 0.15 | [ 0.00, 0.60] |  1.99 | 0.047</span></span>
-<span><span class="co">#&gt; control | coffee | afternoon |      -0.25 | 0.15 | [-0.54, 0.04] | -1.69 | 0.091</span></span>
+<span><span class="co">#&gt; Level1  | Level2 | time      | Difference |   SE |        95% CI |     z |  df |     p</span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------------------------------</span></span>
+<span><span class="co">#&gt; control | coffee | morning   |      -0.25 | 0.15 | [-0.54, 0.04] | -1.69 | Inf | 0.091</span></span>
+<span><span class="co">#&gt; control | coffee | noon      |       0.30 | 0.15 | [ 0.00, 0.60] |  1.99 | Inf | 0.047</span></span>
+<span><span class="co">#&gt; control | coffee | afternoon |      -0.25 | 0.15 | [-0.54, 0.04] | -1.69 | Inf | 0.091</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Variable predicted: alertness</span></span>
 <span><span class="co">#&gt; Predictors contrasted: treatment</span></span>
@@ -360,7 +360,7 @@ noon time.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer>
