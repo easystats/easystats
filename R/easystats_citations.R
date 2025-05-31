@@ -18,18 +18,36 @@
 #' @export
 easystats_citations <- function(sort_by = "year", length = 30) {
   insight::check_if_installed("scholar")
-  dom <- "bg0BZ-QAAAAJ"
 
-  pubs <- tryCatch(
+  # scholar IDs
+  dom <- "bg0BZ-QAAAAJ"
+  dan <- "wC_6-9MAAAAJ"
+
+  # publications from Dominique
+  pubs_dom <- tryCatch(
     scholar::get_publications(dom),
     error = function(e) {
       insight::format_error("Error fetching Google Scholar data: ", e$message)
     }
   )
 
-  easystats_pub <- pubs[grepl("L\u00fcdecke", pubs$author, fixed = TRUE), ]
-  easystats_pub <- easystats_pub[easystats_pub$pubid != "hFOr9nPyWt4C", ]
+  # clean-up
+  easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), ]
   easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
+
+  # publications from Daniel, to add Phi, Fei, Fo, Fum
+  pubs_dan <- tryCatch(
+    scholar::get_publications(dan),
+    error = function(e) {
+      insight::format_error("Error fetching Google Scholar data: ", e$message)
+    }
+  )
+
+  # clean-up
+  easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), ]
+  easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
+
+  easystats_pub <- rbind(easystats_pub, easystats_pub2)
 
   rownames(easystats_pub) <- NULL
 

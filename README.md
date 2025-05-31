@@ -236,6 +236,7 @@ which does have a substantial number of dependencies.
 | performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 4454 |
 | effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 1665 |
 | bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1384 |
+| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 816 |
 | Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 654 |
 | Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 457 |
 | insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 136 |
@@ -245,8 +246,9 @@ which does have a substantial number of dependencies.
 | The report package for R: ensuring the use of best… | CRAN | 2019 | 47 |
 | datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 37 |
 | Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 31 |
+| Phi, Fei, Fo, Fum: Effect sizes for categorical… | Mathematics | 2023 | 30 |
 | The easystats collection of R packages | GitHub | 2020 | 12 |
-| Total |  |  | 9154 |
+| Total |  |  | 10000 |
 
 ## Contributing
 
