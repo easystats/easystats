@@ -4,14 +4,26 @@
 \alias{easystats_citations}
 \title{Reports citations for easystats publications}
 \usage{
-easystats_citations()
+easystats_citations(sort_by = "year", length = 30)
+}
+\arguments{
+\item{sort_by}{Name of the column that should be used for sorting. Can be
+\code{"title"}, \code{"journal"}, \code{"year"}, or \code{"cites"}. Use \code{NULL} for no sorting and
+to return data as retrieved by Google scholar.}
+
+\item{length}{Numeric, maximum length of the returned string. If not
+\code{NULL}, will shorten the string to a maximum \code{length}, however,
+it will not truncate inside words. I.e. if the string length happens to be
+inside a word, this word is removed from the returned string, so the
+returned string has a \emph{maximum} length of \code{length}, but might be
+shorter.}
 }
 \value{
-A data frame of 4 columns: title, journal, year, and cites.
+A data frame of four columns: title, journal, year, and cites.
 }
 \description{
-This function reports the total number of Google Scholar citations
-for \code{easystats} publications through the \code{scholar} package.
+This function reports the total number of Google Scholar citations for
+\code{easystats} publications through the \code{scholar} package.
 }
 \examples{
 \dontshow{if (insight::check_if_installed("scholar", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
