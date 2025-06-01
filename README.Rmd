@@ -478,6 +478,12 @@ tmp |>
   coord_flip()
 ```
 
+## Citations
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+insight::print_md(easystats::easystats_citations(sort_by = "cites", length = 50))
+```
+
 ## Contributing
 
 We are happy to receive bug reports, suggestions, questions, and (most of all)

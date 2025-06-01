@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.7.4.3
+Version: 0.7.4.4
 Authors@R:
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -54,7 +54,7 @@ Imports:
     datawizard (>= 1.1.0),
     effectsize (>= 1.0.1),
     insight (>= 1.3.0),
-    modelbased (>= 0.11.0),
+    modelbased (>= 0.11.2),
     parameters (>= 0.26.0),
     performance (>= 0.14.0),
     report (>= 0.6.1),
@@ -76,6 +76,7 @@ Suggests:
     mockery,
     pak,
     patchwork,
+    scholar,
     rmarkdown,
     testthat (>= 3.2.1),
     withr,
