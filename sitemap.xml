@@ -19,6 +19,7 @@
 <url><loc>https://easystats.github.io/easystats/index.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/news/index.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/reference/easystats-package.html</loc></url>
+<url><loc>https://easystats.github.io/easystats/reference/easystats_citations.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/reference/easystats_packages.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/reference/easystats_update.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/reference/easystats_zen.html</loc></url>
@@ -26,5 +27,6 @@
 <url><loc>https://easystats.github.io/easystats/reference/install_latest.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/reference/install_suggested.html</loc></url>
 <url><loc>https://easystats.github.io/easystats/reference/model_dashboard.html</loc></url>
+<url><loc>https://easystats.github.io/easystats/reference/reexports.html</loc></url>
 </urlset>
 
