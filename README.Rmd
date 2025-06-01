@@ -480,6 +480,8 @@ tmp |>
 
 ## Citations
 
+Number of Google Scholar citations for `{easystats}` publications.
+
 ```{r warning=FALSE, message=FALSE, echo=FALSE}
 insight::print_md(easystats::easystats_citations(sort_by = "cites", length = 50))
 ```
