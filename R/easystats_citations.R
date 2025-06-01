@@ -32,7 +32,7 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   )
 
   # clean-up
-  easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), ]
+  easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), , drop = FALSE]
   easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
 
   # publications from Daniel, to add Phi, Fei, Fo, Fum
@@ -44,7 +44,7 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   )
 
   # clean-up
-  easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), ]
+  easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), , drop = FALSE]
   easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
 
   easystats_pub <- rbind(easystats_pub, easystats_pub2)
