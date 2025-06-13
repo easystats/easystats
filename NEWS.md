@@ -1,6 +1,11 @@
 # easystats 0.7.5
 
-* New function `easystats_citations()` to report the total number of Google Scholar citations for `easystats` publications.
+* New function `easystats_citations()` to report the total number of Google
+  Scholar citations for `easystats` publications.
+
+* The `source` argument in `install_latest()` gets a `"github"` option, to
+  install the latest version from the GitHub-repositories main-branch. Usually,
+  this is not needed, because r-universe provides latest binaries.
 
 # easystats 0.7.4
 
