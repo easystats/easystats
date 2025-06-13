@@ -18,8 +18,8 @@
 #' easystats_update("core")
 #'
 #' @export
-easystats_update <- function(which = c("all", "core", "deps")) {
-  which <- match.arg(which)
+easystats_update <- function(which = "all") {
+  which <- insight::validate_argument(which, c("all", "core", "deps"))
 
   if (which %in% c("all", "core")) {
     core <- .easystats_version()

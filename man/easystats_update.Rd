@@ -4,7 +4,7 @@
 \alias{easystats_update}
 \title{Update \emph{easystats}-packages and its dependencies from CRAN, if necessary.}
 \usage{
-easystats_update(which = c("all", "core", "deps"))
+easystats_update(which = "all")
 }
 \arguments{
 \item{which}{String, indicates whether easystats-packages (\code{which = "core"}),
