@@ -51,3 +51,5 @@ articles:
       - conventions
       - list_of_functions
       - version_policy
+
+include: [".well-known"]
