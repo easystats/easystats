@@ -333,8 +333,8 @@ like <code><a href="https://easystats.github.io/performance/reference/test_perfo
 <span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
 <span><span class="co">#&gt; ----------------------------------------------------------</span></span>
 <span><span class="co">#&gt; model1 | glmmTMB |        |  9 |         |        |       </span></span>
-<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000 | 17 |    8.00 | 193.31 | &lt; .001</span></span>
-<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
+<span><span class="co">#&gt; model2 | glmmTMB | &gt; 1000 | 17 |       8 | 193.31 | &lt; .001</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |       1 | 133.83 | &lt; .001</span></span>
 <span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span></code></pre></div>
 <p>We see, first, that <code><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_performance()</a></code> used the Bayes
 factor (based on BIC comparison) to compare the models. And second, that
@@ -346,7 +346,7 @@ first model.</p>
 <span><span class="co">#&gt; Name   |   Model |     BF | df | df_diff |   Chi2 |      p</span></span>
 <span><span class="co">#&gt; ----------------------------------------------------------</span></span>
 <span><span class="co">#&gt; model2 | glmmTMB |        | 17 |         |        |       </span></span>
-<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |    1.00 | 133.83 | &lt; .001</span></span>
+<span><span class="co">#&gt; model3 | glmmTMB | &gt; 1000 | 18 |       1 | 133.83 | &lt; .001</span></span>
 <span><span class="co">#&gt; Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_likelihoodratio</a></span><span class="op">(</span><span class="va">model2</span>, <span class="va">model3</span><span class="op">)</span></span>
