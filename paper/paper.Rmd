@@ -83,27 +83,28 @@ knitr::opts_chunk$set(
 
 # Summary
 
-The **easystats** project is a collection of R packages that provides a unified and intuitive framework for statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling (`{datawizard}`), model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models (`{report}`). The **easystats** ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models (`{report}`). The **easystats** ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
 
 # Statement of Need
 
-The R programming language is a powerful and dominant tool for statistical computing in academic research. However, its power is distributed across a vast and fragmented ecosystem of packages. For a researcher to conduct a comprehensive statistical analysis—from fitting a model to checking its assumptions, interpreting its parameters, and visualizing the results—they often need to learn and combine numerous packages, each with its own unique syntax, design principles, and output structures. This fragmentation presents a significant barrier to entry for new users and creates an inefficient and often confusing workflow for even experienced analysts.
+The R programming language is a powerful and dominant tool for statistical computing in academic research. However, its power is distributed across a vast and fragmented ecosystem of packages. For a researcher to conduct a comprehensive statistical analysis—from fitting a model to checking its assumptions, interpreting its parameters, and visualizing the results—they often need to learn and combine numerous packages, each with its own unique syntax, design principles, and output structures. This fragmentation presents a significant barrier to entry for new users and creates an inefficient and often confusing workflow, even for experienced analysts.
 
-The **easystats** ecosystem was developed to address this challenge by providing a unified, consistent, and intuitive framework for data wrangling, data exploration, statistical summaries and modeling, visualization, and reporting in R. Its primary goal is to make a robust and transparent statistical analysis more accessible to a broad range of users, from students to seasoned researchers. **easystats** achieves this through a suite of lightweight, interoperable, and modular packages, each designed to handle a specific stage of the statistical workflow. Because these packages share a consistent syntax and work seamlessly together, they dramatically lower the cognitive load required to conduct such analytical workflows.
+The **easystats** ecosystem addresses this challenge by providing a unified, consistent, and intuitive framework for data wrangling, data exploration, statistical summaries and modeling, visualization, and reporting in R. Its primary goal is to make robust and transparent statistical analysis more accessible to a broad range of users, from students to seasoned researchers. **easystats** achieves this through a suite of lightweight and interoperable packages, each designed to handle a specific stage of the statistical workflow. These packages share a consistent syntax and work seamlessly together, hence dramatically lowering the cognitive load required to conduct such analytical workflows.
 
-While other software toolkits exist, they often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal means are essential tools, but **easystats** serves as a complementary "meta-layer" that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows researchers to focus on their scientific questions rather than on the technical idiosyncrasies of different software implementations.
+Other software toolkits often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal effects and predictions are essential tools, but **easystats** serves as a complementary "meta-layer" that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows researchers to focus on their scientific questions rather than on the technical idiosyncrasies of different software implementations.
 
 Ultimately, **easystats** fills a critical need in the R ecosystem for a user-friendly and cohesive suite of tools dedicated to the statistical modeling pipeline.
 
 # A Harmonized and Integrated Workflow
 
-A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with fitting a model, and then sequentially using different functions to obtain a comprehensive understanding of the model.
+A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step - fitting a model - and then sequentially using different functions to obtain a comprehensive understanding of the model.
 
-It is worth noting that instead of loading each package separately, it is also possible to load all the core **easystats** packages in one go by loading the meta-package `{easystats}`.
 
-Let's demonstrate this with an example, where the user might start by preparing some data and fitting a simple linear model:
+Let's demonstrate this with an example, where the user starts by preparing some data and then fits a simple linear model:
 
 ```{r}
+# we don't load each package individually,
+# but rather the entire ecosystem
 library(easystats)
 data(coffee_data, package = "modelbased")
 
@@ -135,7 +136,7 @@ model_performance(
   metrics = c("AIC", "BIC", "R2", "PCP")
 )
 ```
-
+The results can be visualized using the `{see}` package, for example by plotting the model's predictions computed by `{modelbased}`:
 The results can be visualized using the `{see}` package, for example by plotting the model's predictions with `{modelbased}`:
 
 ```{r}

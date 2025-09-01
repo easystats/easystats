@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.2)  1 SEP 2025 19:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.2)  1 SEP 2025 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -946,7 +946,7 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 366.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 368.
 [1
 
 ]
@@ -978,7 +978,7 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 [3]
-Underfull \hbox (badness 2635) in paragraph at lines 521--525
+Underfull \hbox (badness 2635) in paragraph at lines 523--527
 \TU/lmr/m/n/10 Effects Models Using lme4. \TU/lmr/m/it/10 Journal of Statistical Software\TU/lmr/m/n/10 , \TU/lmr/m/it/10 67\TU/lmr/m/n/10 (1), 1–48.
  []
 
@@ -1016,12 +1016,12 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35023 strings out of 472264
- 723039 string characters out of 5527674
- 1567321 words of memory out of 5000000
- 61038 multiletter control sequences out of 15000+600000
+ 35024 strings out of 472264
+ 723066 string characters out of 5527674
+ 1567368 words of memory out of 5000000
+ 61039 multiletter control sequences out of 15000+600000
  633697 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,12n,87p,694b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,87p,694b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on paper.pdf (5 pages).
