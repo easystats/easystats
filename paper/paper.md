@@ -16,49 +16,79 @@ authors:
   name: Brenton M. Wiernik
   orcid: 0000-0001-9560-6336
 - affiliation: 5
+  name: Etienne Bacher
+  orcid: 0000-0002-9271-5075
+- affiliation: 6
   name: Philip Waggoner
   orcid: 0000-0002-7825-7573
-- affiliation: 6
+- affiliation: 7
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
 affiliations:
 - index: 1
   name:  University Medical Center Hamburg-Eppendorf, Germany
 - index: 2
-  name: Ben-Gurion University of the Negev, Israel
+  name: Independent Researcher, Ramat Gan, Israel
 - index: 3
-  name: Center for Humans and Machines, Max Planck Institute for Human Development, Berlin, Germany
+  name: Carl Zeiss AG, Germany
 - index: 4
-  name: Department of Psychology, University of South Florida, USA
+  name: Independent Researcher, Tampa, FL, USA
 - index: 5
-  name: University of Chicago, USA
+  name: Luxembourg Institute of Socio-Economic Research (LISER), Luxembourg
 - index: 6
+  name: University of Chicago, USA
+- index: 7
   name: Nanyang Technological University, Singapore
-date: "2025-06-16"
+type: article
+date: "2025-09-01"
 bibliography: paper.bib
-output: rticles::joss_article
+# abstract: |
+# Todo
+keywords: |
+  R; easystats
+acknowledgement: |
+  *{easystats}* is part of the collaborative
+  [*easystats*](https://github.com/easystats/easystats) ecosystem
+  [@easystatspackage]. Thus, we thank all
+  [members of easystats](https://github.com/orgs/easystats/people),
+  contributors, and users alike.
+authorcontributions: |
+  D.M. drafted the paper; all authors contributed to both the writing of the
+  paper and the conception of the software.
+funding: |
+  This research received no external funding.
+conflictsofinterest: |
+  The authors declare no conflict of interest.
+output:
+  rticles::joss_article
+journal:
+  pissn: 2475-9066
 csl: apa.csl
-journal: JOSS
-link-citations: yes
 ---
 
 
 
 # Summary
 
-The **easystats** project is a collection of R packages that provides a unified and intuitive framework for statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling (`{datawizard}`), model assessment (`{performance}`), understanding and describing model parameters (`{parameters}`), computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects (`{modelbased}`), and generating publication-ready figures or reports of statistical models (`{see}` and `{report}`). The easystats ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling (`{datawizard}`), model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models (`{report}`). The easystats ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
 
 # Statement of Need
 
-The primary goal of easystats is to make statistical analysis in R more accessible and user-friendly for both novice and experienced users. It addresses the challenge of the often complex and fragmented landscape of statistical tools in R by offering a set of lightweight and interoperable packages. The modular design of easystats allows users to select and use only the packages they need, covering a wide range of common statistical tasks. The easystats packages are designed to be not only easy to use but also to be integrated into other packages, thus fostering a more collaborative and extensible statistical environment in R.
+The R programming language is a powerful and dominant tool for statistical computing in academic research. However, its power is distributed across a vast and fragmented ecosystem of packages. For a researcher to conduct a comprehensive statistical analysis—from fitting a model to checking its assumptions, interpreting its parameters, and visualizing the results—they often need to learn and combine numerous packages, each with its own unique syntax, design principles, and output structures. This fragmentation presents a significant barrier to entry for new users and creates an inefficient and often confusing workflow for even experienced analysts.
+
+The easystats ecosystem was developed to address this challenge by providing a unified, consistent, and intuitive framework for data wrangling, data exploration, statistical summaries and modeling, visualization, and reporting in R. Its primary goal is to make a robust and transparent statistical analysis more accessible to a broad range of users, from students to seasoned researchers. easystats achieves this through a suite of lightweight, interoperable, and modular packages, each designed to handle a specific stage of the statistical workflow. Because these packages share a consistent syntax and work seamlessly together, they dramatically lower the cognitive load required to conduct such analytical workflows.
+
+While other software toolkits exist, they often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal means are essential tools, but easystats serves as a complementary "meta-layer" that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows researchers to focus on their scientific questions rather than on the technical idiosyncrasies of different software implementations.
+
+Ultimately, easystats fills a critical need in the R ecosystem for a user-friendly and cohesive suite of tools dedicated to the statistical modeling pipeline. By simplifying complex tasks and promoting best practices, it empowers researchers to conduct more rigorous, reproducible, and transparent data analysis.
 
 
 # Licensing and Availability
 
-*easystats* is licensed under the GNU General Public License (v3.0), with all source code stored at GitHub (<https://github.com/easystats/easystats>), and with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
+`{easystats}` is licensed under the MIT-License, with all source code stored at GitHub (<https://github.com/easystats/easystats>), and with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
 
 # Acknowledgments
 
-*easystats* is part of the collaborative [*easystats*](https://github.com/easystats/easystats) ecosystem. Thus, we thank the [members of easystats](https://github.com/orgs/easystats/people) as well as the users.
+`{easystats}` is part of the collaborative [*easystats*](https://github.com/easystats/easystats) ecosystem. Thus, we thank the [members of easystats](https://github.com/orgs/easystats/people) as well as the users.
 
 # References
