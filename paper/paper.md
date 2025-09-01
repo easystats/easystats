@@ -19,9 +19,9 @@ authors:
   name: Etienne Bacher
   orcid: 0000-0002-9271-5075
 - affiliation: 6
-  name: Philip Waggoner
-  orcid: 0000-0002-7825-7573
-- affiliation: 7
+  name: Rémi Thériault
+  orcid: 0000-0003-4315-6788
+- affiliation: "7, 8"
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
 affiliations:
@@ -36,9 +36,11 @@ affiliations:
 - index: 5
   name: Luxembourg Institute of Socio-Economic Research (LISER), Luxembourg
 - index: 6
-  name: University of Chicago, USA
+  name: Department of Psychology, New York University, New York, NY, USA
 - index: 7
-  name: Nanyang Technological University, Singapore
+  name: School of Psychology, University of Sussex, Brighton, UK
+- index: 8
+  name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
 date: "2025-09-01"
 bibliography: paper.bib
