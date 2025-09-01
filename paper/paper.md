@@ -176,6 +176,6 @@ This seamless integration between packages allows users to move from model fitti
 
 # Acknowledgments
 
-`{easystats}` is part of the collaborative [*easystats*](https://github.com/easystats/easystats) ecosystem. Thus, we thank the [members of easystats](https://github.com/orgs/easystats/people) as well as the users.
+`{easystats}` is part of the collaborative **easystats** ecosystem [@easystatspackage]. Thus, we thank all [members of easystats](https://github.com/orgs/easystats/people), contributors, and users alike.
 
 # References

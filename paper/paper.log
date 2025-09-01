@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.2)  1 SEP 2025 19:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.2)  1 SEP 2025 19:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -978,7 +978,7 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 [3]
-Underfull \hbox (badness 2635) in paragraph at lines 521--525
+Underfull \hbox (badness 2635) in paragraph at lines 520--524
 \TU/lmr/m/n/10 Effects Models Using lme4. \TU/lmr/m/it/10 Journal of Statistical Software\TU/lmr/m/n/10 , \TU/lmr/m/it/10 67\TU/lmr/m/n/10 (1), 1–48.
  []
 
