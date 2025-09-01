@@ -55,8 +55,8 @@ acknowledgement: |
   [members of easystats](https://github.com/orgs/easystats/people),
   contributors, and users alike.
 authorcontributions: |
-  D.M. drafted the paper; all authors contributed to both the writing of the
-  paper and the conception of the software.
+  D.L. and D.M. drafted the paper; all authors contributed to both the
+  writing of the paper and the conception of the software.
 funding: |
   This research received no external funding.
 conflictsofinterest: |
