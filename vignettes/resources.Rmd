@@ -41,6 +41,11 @@ But, we are certainly not the only ones talking about them, and below are some o
 
 - [Automate Textual Reports of Statistical Models in R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)
 
+## Blog post / websites
+
+### `{modelbased}` package:
+
+- [modelbased for Quick and Beautiful Model Visualization](https://imachordata.com/2025/07/25/modelbased-for-quick-and-beautiful-model-visualization/)
 
 ## Presentations
 
