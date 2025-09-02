@@ -88,7 +88,7 @@ The modularity of the **easystats** packages enables developers to select and us
 
 # A Harmonized and Integrated Workflow
 
-A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step - fitting a model - and then sequentially using different functions to obtain a comprehensive understanding of the model.
+A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model.
 
 Let's demonstrate this with an example, where the user starts by preparing some data and then fits a simple linear model:
 
@@ -154,21 +154,24 @@ plot(predictions) + theme_modern(show.ticks = TRUE) # add nice theme
 Finally, a full report of the analysis can be generated with the `{report}` package:
 
 
+
+
 ``` r
 report(model)
-#> We fitted a logistic model (estimated using ML) to predict alertness with
-#> treatment (formula: alertness ~ treatment). The model's explanatory power is
-#> very weak (Tjur's R2 = 4.44e-03). The model's intercept, corresponding to
-#> treatment = coffee, is at 0.13 (95% CI [-0.37, 0.65], p = 0.606). Within this
-#> model:
+#> We fitted a logistic model (estimated using ML) to predict alertness
+#> with treatment (formula: alertness ~ treatment). The model's
+#> explanatory power is very weak (Tjur's R2 = 4.44e-03). The model's
+#> intercept, corresponding to treatment = coffee, is at 0.13 (95% CI
+#> [-0.37, 0.65], p = 0.606). Within this model:
 #> 
-#>   - The effect of treatment [control] is statistically non-significant and
-#> negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466; Std. beta = -0.27, 95%
-#> CI [-0.99, 0.45])
+#>   - The effect of treatment [control] is statistically non-significant
+#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466; Std.
+#> beta = -0.27, 95% CI [-0.99, 0.45])
 #> 
-#> Standardized parameters were obtained by fitting the model on a standardized
-#> version of the dataset. 95% Confidence Intervals (CIs) and p-values were
-#> computed using a Wald z-distribution approximation.
+#> Standardized parameters were obtained by fitting the model on a
+#> standardized version of the dataset. 95% Confidence Intervals (CIs)
+#> and p-values were computed using a Wald z-distribution
+#> approximation.
 ```
 
 This seamless integration between **easystats** packages allows users to move from model fitting and interpretation to visualization and reporting in a fluid and intuitive way, without having to learn different syntaxes, data structures, or idiosyncratic software design choices.

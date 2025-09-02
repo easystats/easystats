@@ -99,7 +99,7 @@ The modularity of the **easystats** packages enables developers to select and us
 
 # A Harmonized and Integrated Workflow
 
-A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step - fitting a model - and then sequentially using different functions to obtain a comprehensive understanding of the model.
+A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model.
 
 Let's demonstrate this with an example, where the user starts by preparing some data and then fits a simple linear model:
 
@@ -146,6 +146,10 @@ plot(predictions) + theme_modern(show.ticks = TRUE) # add nice theme
 ```
 
 Finally, a full report of the analysis can be generated with the `{report}` package:
+
+```{r, echo = F}
+options(width = 69)
+```
 
 ```{r}
 report(model)
