@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.2)  2 SEP 2025 16:03
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.2)  2 SEP 2025 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -977,8 +977,13 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 [3]
-Underfull \hbox (badness 2635) in paragraph at lines 532--536
-\TU/lmr/m/n/10 Effects Models Using lme4. \TU/lmr/m/it/10 Journal of Statistical Software\TU/lmr/m/n/10 , \TU/lmr/m/it/10 67\TU/lmr/m/n/10 (1), 1–48.
+Underfull \hbox (badness 1383) in paragraph at lines 585--590
+\TU/lmr/m/n/10 B. M. (2023). report: Automated results reporting as a practical tool to
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 585--590
+\TU/lmr/m/n/10 improve reproducibility and methodological best practices adoption. \TU/lmr/m/it/10 CRAN\TU/lmr/m/n/10 .
  []
 
 
@@ -1015,10 +1020,10 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35049 strings out of 470457
- 723097 string characters out of 5489432
- 1591860 words of memory out of 5000000
- 62877 multiletter control sequences out of 15000+600000
+ 35050 strings out of 470457
+ 723119 string characters out of 5489432
+ 1591902 words of memory out of 5000000
+ 62878 multiletter control sequences out of 15000+600000
  633697 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,12n,87p,1194b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
