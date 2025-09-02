@@ -22,6 +22,9 @@ authors:
   name: Rémi Thériault
   orcid: 0000-0003-4315-6788
 - affiliation: "7, 8"
+  name: Philip D. Waggoner
+  orcid: 0000-0002-7825-7573
+- affiliation: "9, 10"
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
 affiliations:
@@ -38,14 +41,18 @@ affiliations:
 - index: 6
   name: Department of Psychology, New York University, New York, NY, USA
 - index: 7
-  name: School of Psychology, University of Sussex, Brighton, UK
+  name: Department of Applied Mathematics and Statistics, Colorado School of Mines, Golden, CO, USA
 - index: 8
+  name: School of Medicine, Stanford University, Stanford, CA, USA
+- index: 9
+  name: School of Psychology, University of Sussex, Brighton, UK
+- index: 10
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
 date: "2025-09-02"
 bibliography: paper.bib
 # abstract: |
-#   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages with inconsistent syntaxes. This presents a significant barrier to conducting a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
+#   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
 keywords: |
   R; easystats
 acknowledgement: |
@@ -67,15 +74,15 @@ csl: apa.csl
 
 # Summary
 
-The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models [`{report}`, @report_remi_2023]. The **easystats** ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis. The ecosystem is built around a philosophy of consistency, user-friendliness, and interoperability between packages, similar to the Tidyverse [@Wickham2019]. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models [`{report}`, @report_remi_2023]. The **easystats** ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
 
 # Statement of Need
 
-The R programming language is a powerful and dominant tool for statistical computing in academic research. However, its power is distributed across a vast and fragmented ecosystem of packages. For a researcher to conduct a comprehensive statistical analysis—from fitting a model to checking its assumptions, interpreting its parameters, and visualizing the results—they often need to learn and combine numerous packages, each with its own unique syntax, design principles, and output structures. This fragmentation presents a significant barrier to entry for new users and creates an inefficient and often confusing workflow, even for experienced analysts.
+R is a powerful language for statistical computing, but its capabilities are scattered across a fragmented ecosystem of packages. Conducting a full analysis consisting of modeling, diagnostics, interpretation, and visualization, often requires juggling multiple tools with different syntax, design principles, outputs, and classes. This creates barriers for newcomers and inefficiencies even for experienced users.
 
-The **easystats** ecosystem addresses this challenge by providing a unified, consistent, and intuitive framework for data wrangling, data exploration, statistical summaries and modeling, visualization, and reporting in R. Its primary goal is to make robust and transparent statistical analysis more accessible to a broad range of users, from students to seasoned researchers. **easystats** achieves this through a suite of lightweight and interoperable packages, each designed to handle a specific stage of the statistical workflow. These packages share a consistent syntax and work seamlessly together, hence dramatically lowering the cognitive load required to conduct such analytical workflows.
+The **easystats** ecosystem addresses this challenge by providing a unified framework for wrangling, exploration, modeling, visualization, and reporting in R. Its lightweight, interoperable packages focus on different stages of the statistical workflow, and share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load.
 
-Other software toolkits often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal effects and predictions are essential tools, but **easystats** serves as a complementary "meta-layer" that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows researchers to focus on their scientific questions rather than on the technical idiosyncrasies of different software implementations. Hence, **easystats** fills a critical need in the R ecosystem for a user-friendly and cohesive suite of tools dedicated to the statistical modeling pipeline.
+Other software toolkits often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal effects and predictions are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
 
 The modularity of the **easystats** packages enables developers to select and use only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, and `{parameters}` is used by 22. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
@@ -132,7 +139,7 @@ model_performance(
 #> 169.8 | 175.4 |     0.004 | 0.502
 ```
 
-The results can be visualized using the `{see}` package, for example by plotting the model's predictions with `{modelbased}`:
+The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}`:
 
 
 ``` r
@@ -164,7 +171,7 @@ report(model)
 #> computed using a Wald z-distribution approximation.
 ```
 
-This seamless integration between packages allows users to move from model fitting to interpretation and reporting in a fluid and intuitive manner, without having to learn different syntaxes or data structures.
+This seamless integration between **easystats** packages allows users to move from model fitting and interpretation to visualization and reporting in a fluid and intuitive way, without having to learn different syntaxes, data structures, or idiosyncratic software design choices.
 
 # Licensing and Availability
 
