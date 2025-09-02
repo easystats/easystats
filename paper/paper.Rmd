@@ -137,7 +137,7 @@ model_performance(
   metrics = c("AIC", "BIC", "R2", "PCP")
 )
 ```
-The results can be visualized using the `{see}` package, for example by plotting the model's predictions computed by `{modelbased}`:
+
 The results can be visualized using the `{see}` package, for example by plotting the model's predictions with `{modelbased}`:
 
 ```{r}
