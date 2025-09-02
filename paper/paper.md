@@ -176,13 +176,18 @@ report(model)
 #> Within this model:
 #> 
 #>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
+#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466; Std.
+#> beta = -0.27, 95% CI [-0.99, 0.45])
 #> 
 #> Standardized parameters were obtained by fitting the model on a
 #> standardized version of the dataset. 95% Confidence Intervals (CIs)
 #> and p-values were computed using a Wald z-distribution
 #> approximation.
 ```
+
+This static paper does not allow us to run an interactive demonstration of the `model_dashboard()` function, but this function automatically generates a dashboard presenting an interactive model summary that harmoniously integrates several of the other **easystats** steps described earlier in a single command.
+
+![dashboard](dashboard.png){width=100%}
 
 This seamless integration between **easystats** packages allows users to move from model fitting and interpretation to visualization and reporting in a fluid and intuitive way, without having to learn different syntaxes, data structures, or idiosyncratic software design choices.
 
