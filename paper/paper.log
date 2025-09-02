@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.5.27)  2 SEP 2025 19:01
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.5.27)  2 SEP 2025 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1209,12 +1209,12 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 384.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 383.
 [1
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 417.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 416.
 
 
 File: C:/Users/there/AppData/Local/R/win-library/4.5/rticles/rmarkdown/template
@@ -1261,18 +1261,6 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 [4]
-Underfull \hbox (badness 1383) in paragraph at lines 628--633
-\TU/lmr/m/n/10 B. M. (2023). report: Automated results reporting as a practical
- tool to
- []
-
-
-Underfull \hbox (badness 1783) in paragraph at lines 628--633
-\TU/lmr/m/n/10 improve reproducibility and methodological best practices adopti
-on. \TU/lmr/m/it/10 CRAN\TU/lmr/m/n/10 .
- []
-
-
 
 File: C:/Users/there/AppData/Local/R/win-library/4.5/rticles/rmarkdown/template
 s/joss/resources/JOSS-logo.png Graphic file (type bmp)
