@@ -140,9 +140,9 @@ model_performance(
 
 The results can be visualized using the `{see}` package, for example by plotting the model's predictions with `{modelbased}`:
 
-```{r fig1, fig.cap = "Estimated marginal means of alertness by treatment group."}
+```{r fig1, fig.cap = "Predicted probability of alertness by treatment group."}
 predictions <- estimate_means(model, "treatment")
-plot(predictions)
+plot(predictions) + theme_modern(show.ticks = TRUE) # add nice theme
 ```
 
 Finally, a full report of the analysis can be generated with the `{report}` package:

@@ -144,11 +144,11 @@ The results can be visualized using the `{see}` package, for example by plotting
 
 ``` r
 predictions <- estimate_means(model, "treatment")
-plot(predictions)
+plot(predictions) + theme_modern(show.ticks = TRUE) # add nice theme
 ```
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{paper_files/figure-latex/fig1-1} \caption{Estimated marginal means of alertness by treatment group.}\label{fig:fig1}
+\includegraphics[width=1\linewidth]{paper_files/figure-latex/fig1-1} \caption{Predicted probability of alertness by treatment group.}\label{fig:fig1}
 \end{figure}
 
 Finally, a full report of the analysis can be generated with the `{report}` package:
