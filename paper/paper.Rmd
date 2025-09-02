@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the easystats"
+title: "easystats: A Unified Framework for Statistical Analysis in R"
 tags:
   - R
 authors:
@@ -45,7 +45,7 @@ type: article
 date: "`r Sys.Date()`"
 bibliography: paper.bib
 # abstract: |
-# Todo
+#   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages with inconsistent syntaxes. This presents a significant barrier to conducting a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
 keywords: |
   R; easystats
 acknowledgement: |
