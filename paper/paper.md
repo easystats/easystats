@@ -147,7 +147,7 @@ model_performance(
 #> 171.8 | 180.2 |      0.006 |      0.005
 ```
 
-The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}`:
+The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}` (Figure 1):
 
 
 ``` r
@@ -185,7 +185,7 @@ report(model)
 #> approximation.
 ```
 
-This static paper does not allow us to run an interactive demonstration of the `model_dashboard()` function, but this function automatically generates a dashboard presenting an interactive model summary that harmoniously integrates several of the other **easystats** steps described earlier in a single command.
+This static paper does not allow us to run an interactive demonstration of the `model_dashboard()` function, but this function automatically generates a dashboard presenting an interactive model summary that harmoniously integrates several of the other **easystats** steps described earlier in a single command (Figure 2).
 
 ![dashboard](dashboard.png){width=100%}
 
