@@ -90,7 +90,7 @@ The modularity of the **easystats** packages enables developers to select and us
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model.
 
-Let's demonstrate this with an example, where the user starts by preparing some data and then fits a simple linear model:
+Let's demonstrate this with an example, where the user starts by preparing some data and then fits a logistic mixed effects model:
 
 
 ``` r
@@ -105,9 +105,9 @@ coffee_data$alertness <- categorize(coffee_data$alertness, lowest = 0)
 # rename variable
 coffee_data <- data_rename(coffee_data, select = c(treatment = "coffee"))
 
-# fit model
-model <- glm(
-  alertness ~ treatment,
+# fit mixed model
+model <- glmmTMB::glmmTMB(
+  alertness ~ treatment + (1 | ID),
   data = coffee_data,
   family = binomial()
 )
@@ -118,10 +118,18 @@ The `model` object can then be passed to functions from different **easystats** 
 
 ``` r
 model_parameters(model)
+#> # Fixed Effects
+#> 
 #> Parameter           | Log-Odds |   SE |        95% CI |     z |     p
 #> ---------------------------------------------------------------------
-#> (Intercept)         |     0.13 | 0.26 | [-0.37, 0.65] |  0.52 | 0.606
+#> (Intercept)         |     0.13 | 0.26 | [-0.37, 0.64] |  0.52 | 0.606
 #> treatment [control] |    -0.27 | 0.37 | [-0.99, 0.45] | -0.73 | 0.466
+#> 
+#> # Random Effects
+#> 
+#> Parameter          | Coefficient |           95% CI
+#> ---------------------------------------------------
+#> SD (Intercept: ID) |        0.05 | [0.00, 9.86e+28]
 ```
 
 Then, the performance of the model can be assessed with the `{performance}` package:
@@ -130,13 +138,13 @@ Then, the performance of the model can be assessed with the `{performance}` pack
 ``` r
 model_performance(
   model,
-  metrics = c("AIC", "BIC", "R2", "PCP")
+  metrics = c("AIC", "BIC", "R2")
 )
 #> # Indices of model performance
 #> 
-#> AIC   |   BIC | Tjur's R2 |   PCP
-#> ---------------------------------
-#> 169.8 | 175.4 |     0.004 | 0.502
+#> AIC   |   BIC | R2 (cond.) | R2 (marg.)
+#> ---------------------------------------
+#> 171.8 | 180.2 |      0.006 |      0.005
 ```
 
 The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}`:
@@ -158,11 +166,14 @@ Finally, a full report of the analysis can be generated with the `{report}` pack
 
 ``` r
 report(model)
-#> We fitted a logistic model (estimated using ML) to predict alertness
-#> with treatment (formula: alertness ~ treatment). The model's
-#> explanatory power is very weak (Tjur's R2 = 4.44e-03). The model's
-#> intercept, corresponding to treatment = coffee, is at 0.13 (95% CI
-#> [-0.37, 0.65], p = 0.606). Within this model:
+#> We fitted a logistic mixed model (estimated using ML and nlminb
+#> optimizer) to predict alertness with treatment (formula: alertness ~
+#> treatment). The model included ID as random effect (formula: ~1 |
+#> ID). The model's total explanatory power is very weak (conditional
+#> R2 = 6.35e-03) and the part related to the fixed effects alone
+#> (marginal R2) is of 5.44e-03. The model's intercept, corresponding
+#> to treatment = coffee, is at 0.13 (95% CI [-0.37, 0.64], p = 0.606).
+#> Within this model:
 #> 
 #>   - The effect of treatment [control] is statistically non-significant
 #> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466; Std.

@@ -101,7 +101,7 @@ The modularity of the **easystats** packages enables developers to select and us
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model.
 
-Let's demonstrate this with an example, where the user starts by preparing some data and then fits a simple linear model:
+Let's demonstrate this with an example, where the user starts by preparing some data and then fits a logistic mixed effects model:
 
 ```{r}
 # we don't load each package individually,
@@ -115,9 +115,9 @@ coffee_data$alertness <- categorize(coffee_data$alertness, lowest = 0)
 # rename variable
 coffee_data <- data_rename(coffee_data, select = c(treatment = "coffee"))
 
-# fit model
-model <- glm(
-  alertness ~ treatment,
+# fit mixed model
+model <- glmmTMB::glmmTMB(
+  alertness ~ treatment + (1 | ID),
   data = coffee_data,
   family = binomial()
 )
@@ -134,7 +134,7 @@ Then, the performance of the model can be assessed with the `{performance}` pack
 ```{r}
 model_performance(
   model,
-  metrics = c("AIC", "BIC", "R2", "PCP")
+  metrics = c("AIC", "BIC", "R2")
 )
 ```
 
