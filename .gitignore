@@ -3,7 +3,6 @@ doc
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
 # Folder config file
 Desktop.ini
 # Recycle Bin used on file shares
@@ -50,3 +49,4 @@ revdep/library.noindex
 revdep/data.sqlite
 /doc/
 /Meta/
+easydashboard.html
