@@ -42,7 +42,7 @@ affiliations:
 - index: 8
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
-date: "2025-09-01"
+date: "2025-09-02"
 bibliography: paper.bib
 # abstract: |
 # Todo
@@ -72,7 +72,7 @@ csl: apa.csl
 
 # Summary
 
-The **easystats** project is a collection of R packages that provides a unified and intuitive framework for statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models (`{report}`). The **easystats** ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis. The ecosystem is built around a "tidyverse-like" philosophy of consistency, user-friendliness, and interoperability between packages. It aims to simplify the process of preparing, conducting, interpreting, and reporting statistical analyses by offering tools for a wide range of common tasks. These tasks include, for instance, data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models [`{report}`, @report_remi_2023]. The **easystats** ecosystem is designed to be accessible to both novice and experienced R users, promoting reproducible research and a more seamless workflow from data exploration to result communication.
 
 # Statement of Need
 
@@ -82,12 +82,13 @@ The **easystats** ecosystem addresses this challenge by providing a unified, con
 
 Other software toolkits often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal effects and predictions are essential tools, but **easystats** serves as a complementary "meta-layer" that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows researchers to focus on their scientific questions rather than on the technical idiosyncrasies of different software implementations.
 
-Ultimately, **easystats** fills a critical need in the R ecosystem for a user-friendly and cohesive suite of tools dedicated to the statistical modeling pipeline.
+Hence, **easystats** fills a critical need in the R ecosystem for a user-friendly and cohesive suite of tools dedicated to the statistical modeling pipeline. The modularity of the **easystats** packages enables developers to select and use only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, and `{parameters}` is used by 22.
+
+In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
 # A Harmonized and Integrated Workflow
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step - fitting a model - and then sequentially using different functions to obtain a comprehensive understanding of the model.
-
 
 Let's demonstrate this with an example, where the user starts by preparing some data and then fits a simple linear model:
 
@@ -137,7 +138,7 @@ model_performance(
 #> ---------------------------------
 #> 169.8 | 175.4 |     0.004 | 0.502
 ```
-The results can be visualized using the `{see}` package, for example by plotting the model's predictions computed by `{modelbased}`:
+
 The results can be visualized using the `{see}` package, for example by plotting the model's predictions with `{modelbased}`:
 
 
@@ -146,8 +147,9 @@ predictions <- estimate_means(model, "treatment")
 plot(predictions)
 ```
 
-
-\includegraphics[width=1\linewidth]{paper_files/figure-latex/unnamed-chunk-5-1} 
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper_files/figure-latex/fig1-1} \caption{Estimated marginal means of alertness by treatment group.}\label{fig:fig1}
+\end{figure}
 
 Finally, a full report of the analysis can be generated with the `{report}` package:
 
@@ -177,6 +179,6 @@ This seamless integration between packages allows users to move from model fitti
 
 # Acknowledgments
 
-`{easystats}` is part of the collaborative **easystats** ecosystem [@easystatspackage]. Thus, we thank all [members of easystats](https://github.com/orgs/easystats/people), contributors, and users alike.
+`{easystats}` is part of the collaborative [**easystats** ecosystem](https://easystats.github.io/easystats/). Thus, we thank all [members of easystats](https://github.com/orgs/easystats/people), contributors, and users alike.
 
 # References
