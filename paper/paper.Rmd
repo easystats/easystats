@@ -157,7 +157,7 @@ report(model)
 
 The `model_dashboard()` function generates an interactive model summary, integrating several **easystats** steps into one command. Since this paper is a static document, we cannot show a live demonstration, but Figure 2 provides a visual example.
 
-![dashboard](dashboard.png){width=100%}
+![Screenshot of the "Model fit" tab from the interactive dashboard](dashboard.png){width=100%}
 
 This seamless integration between **easystats** packages allows users to move from model fitting and interpretation to visualization and reporting in a fluid and intuitive way, without having to learn different syntaxes, data structures, or idiosyncratic software design choices.
 
