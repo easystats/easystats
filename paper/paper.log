@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.2)  3 SEP 2025 13:36
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.3)  3 SEP 2025 14:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,12 +941,12 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 383.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 385.
 [1
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 416.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 418.
 
 
 File: C:/Users/rt3105/AppData/Local/Programs/R/R-4.5.0/library/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
