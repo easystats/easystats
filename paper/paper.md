@@ -176,8 +176,7 @@ report(model)
 #> Within this model:
 #> 
 #>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466; Std.
-#> beta = -0.27, 95% CI [-0.99, 0.45])
+#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
 #> 
 #> Standardized parameters were obtained by fitting the model on a
 #> standardized version of the dataset. 95% Confidence Intervals (CIs)
