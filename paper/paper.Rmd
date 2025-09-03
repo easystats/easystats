@@ -165,7 +165,7 @@ To get the newest features from the rapidly developing **easystats** ecosystem, 
 
 # Licensing and Availability
 
-`{easystats}` is licensed under the MIT-License, with all source code stored at GitHub (<https://github.com/easystats/easystats>), and with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
+The release version of `{easystats}` is available for download from [CRAN](https://doi.org/10.32614/CRAN.package.easystats), whereas development versions are available from the [R-universe](https://easystats.r-universe.dev/easystats) and [GitHub](https://github.com/easystats/easystats/). The package is licensed under the MIT-License, with all source code stored at GitHub (<https://github.com/easystats/easystats>), with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
 
 # Acknowledgments
 
