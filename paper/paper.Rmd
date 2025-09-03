@@ -95,7 +95,7 @@ The **easystats** ecosystem addresses this challenge by providing a unified fram
 
 Other software toolkits often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides a world-class environment for data manipulation and general-purpose plotting but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{marginaleffects}` [@arel-bundock_how_2024] for marginal effects and predictions are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
 
-The modularity of the **easystats** packages enables developers to select and use only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, and `{parameters}` is used by 22. In contrast, the `{easystats}` meta-package [@easystatspackage] provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
+The modularity of the **easystats** packages enables developers to select and use only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, and `{parameters}` is used by 22. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
 # A Harmonized and Integrated Workflow
 
@@ -155,11 +155,13 @@ options(width = 69)
 report(model)
 ```
 
-This static paper does not allow us to run an interactive demonstration of the `model_dashboard()` function, but this function automatically generates a dashboard presenting an interactive model summary that harmoniously integrates several of the other **easystats** steps described earlier in a single command (Figure 2).
+The `model_dashboard()` function generates an interactive model summary, integrating several **easystats** steps into one command. Since this paper is a static document, we cannot show a live demonstration, but Figure 2 provides a visual example.
 
 ![dashboard](dashboard.png){width=100%}
 
 This seamless integration between **easystats** packages allows users to move from model fitting and interpretation to visualization and reporting in a fluid and intuitive way, without having to learn different syntaxes, data structures, or idiosyncratic software design choices.
+
+To get the newest features from the rapidly developing **easystats** ecosystem, users can run `easystats::install_latest()`. It conveniently installs the latest development version of every package in the project.
 
 # Licensing and Availability
 
