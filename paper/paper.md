@@ -33,7 +33,7 @@ affiliations:
 - index: 2
   name: Independent Researcher, Ramat Gan, Israel
 - index: 3
-  name: Carl Zeiss AG, Germany
+  name: Carl Zeiss AG, Munich, Germany
 - index: 4
   name: Independent Researcher, Tampa, FL, USA
 - index: 5
@@ -49,7 +49,7 @@ affiliations:
 - index: 10
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
-date: "2025-09-09"
+date: "2025-09-24"
 bibliography: paper.bib
 # abstract: |
 #   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
@@ -84,18 +84,18 @@ The packages are specialized for different stages of the statistical workflow, s
 
 R is a powerful language for statistical computing, but its capabilities are scattered across a fragmented landscape of packages. Conducting a full analysis consisting of data manipulation, modeling, diagnostics, interpretation, and visualization, often requires juggling multiple tools with different syntax, design principles, outputs, and classes. This creates barriers for newcomers and inefficiencies even for experienced users.
 
-The **easystats** ecosystem addresses this challenge by enabling a seamless workflow from data exploration to result communication, while nudging users toward good, reproducible and transparent statistical practices with sensible defaults and clear documentation. Its packages share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load for novice and experienced R users alike.
+The **easystats** ecosystem addresses this challenge by enabling a seamless workflow from data exploration to result communication, while nudging users toward good, reproducible and transparent statistical practices with sensible defaults and clear documentation. The packages in this ecosystem share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load for novice and experienced R users alike.
 
 The modular and lightweight nature of the **easystats** universe enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021], and `{parameters}` is used by 22. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
-Other software toolkits often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and general-purpose visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
+Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and general-purpose visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
 
 
 # A Harmonized and Integrated Workflow
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model. This can include checking the model's parameters, performance metrics, specific effect sizes [e.g., @ben2023phi], and statistical outliers [@theriault2024check], as well as obtaining publication-ready figures and written summaries of the results.
 
-Let's demonstrate this with an example, where the user starts by preparing some data and then fits a logistic mixed effects model:
+Let's demonstrate this with an example, where the user wants to fit a logistic mixed effects:
 
 
 ``` r
@@ -182,14 +182,6 @@ report(model)
 #> 
 #>   - The effect of treatment [control] is statistically non-significant
 #> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
-#>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
-#>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
-#>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
-#>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
 #> 
 #> Standardized parameters were obtained by fitting the model on a
 #> standardized version of the dataset. 95% Confidence Intervals (CIs)
@@ -197,7 +189,7 @@ report(model)
 #> approximation.
 ```
 
-The `model_dashboard()` function generates an interactive model summary, integrating several **easystats** steps into one command. Since this paper is a static document, we cannot show a live demonstration, but Figure 2 provides a visual example.
+The `model_dashboard()` function generates an interactive model summary, integrating several **easystats** steps into a single command. Since this paper is a static document, Figure 2 provides a static screenshot of the interactive report.
 
 ![Screenshot of the "Model fit" tab from the interactive dashboard](dashboard.png){width=100%}
 
