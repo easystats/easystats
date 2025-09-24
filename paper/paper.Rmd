@@ -33,7 +33,7 @@ affiliations:
 - index: 2
   name: Independent Researcher, Ramat Gan, Israel
 - index: 3
-  name: Carl Zeiss AG, Germany
+  name: Carl Zeiss AG, Munich, Germany
 - index: 4
   name: Independent Researcher, Tampa, FL, USA
 - index: 5
