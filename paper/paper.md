@@ -49,7 +49,7 @@ affiliations:
 - index: 10
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
-date: "2025-09-24"
+date: "2025-09-29"
 bibliography: paper.bib
 # abstract: |
 #   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
@@ -74,8 +74,7 @@ csl: apa.csl
 
 # Summary
 
-The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis, with *accessibility* as its core driving principle.
-In order to fulfil this vision, the packages of the ecosystem implement functionalities designed to be **user-friendly** (e.g., transparent names of functions and arguments, comprehensive documentation, sensible defaults), **consistent** (similar syntax and design principles across packages), and **interoperable** (seamless integration between packages).
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis. They implement functionalities designed to be *user-friendly* (e.g., transparent names of functions and arguments, comprehensive documentation, sensible defaults), *consistent* (similar syntax and design principles across packages), and *interoperable* (seamless integration between packages).
 
 The packages are specialized for different stages of the statistical workflow, such as data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019; @makowski2019indices], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models [`{report}`, @report_remi_2023].
 

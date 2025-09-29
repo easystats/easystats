@@ -85,8 +85,7 @@ knitr::opts_chunk$set(
 
 # Summary
 
-The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis, with *accessibility* as its core driving principle.
-In order to fulfil this vision, the packages of the ecosystem implement functionalities designed to be **user-friendly** (e.g., transparent names of functions and arguments, comprehensive documentation, sensible defaults), **consistent** (similar syntax and design principles across packages), and **interoperable** (seamless integration between packages).
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis. They implement functionalities designed to be *user-friendly* (e.g., transparent names of functions and arguments, comprehensive documentation, sensible defaults), *consistent* (similar syntax and design principles across packages), and *interoperable* (seamless integration between packages).
 
 The packages are specialized for different stages of the statistical workflow, such as data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019; @makowski2019indices], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models [`{report}`, @report_remi_2023].
 
