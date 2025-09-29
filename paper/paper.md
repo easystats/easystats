@@ -85,35 +85,32 @@ R is a powerful language for statistical computing, but its capabilities are sca
 
 The **easystats** ecosystem addresses this challenge by enabling a seamless workflow from data exploration to result communication, while nudging users toward good, reproducible and transparent statistical practices with sensible defaults and clear documentation. The packages in this ecosystem share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load for novice and experienced R users alike.
 
-The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021], and `{parameters}` is used by 22. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
+The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021]. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
-Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and general-purpose visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
+Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
 
 
 # A Harmonized and Integrated Workflow
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model. This can include checking the model's parameters, performance metrics, specific effect sizes [e.g., @ben2023phi], and statistical outliers [@theriault2024check], as well as obtaining publication-ready figures and written summaries of the results.
 
-Let's demonstrate this with an example, where the user wants to fit a logistic mixed effects:
+Let's demonstrate this with an example, where the user wants to fit a mixed effects model:
 
 
 ``` r
 # we don't load each package individually,
 # but rather the entire ecosystem
 library(easystats)
-data(coffee_data, package = "modelbased")
-
-# dichotomize outcome variable
-coffee_data$alertness <- categorize(coffee_data$alertness, lowest = 0)
+data(fish, package = "modelbased")
 
 # rename variable
-coffee_data <- data_rename(coffee_data, select = c(treatment = "coffee"))
+fish <- data_rename(fish, select = c(treat = "camper"))
 
 # fit mixed model
 model <- glmmTMB::glmmTMB(
-  alertness ~ treatment + (1 | ID),
-  data = coffee_data,
-  family = binomial()
+  count ~ treat * persons + (1 | ID),
+  data = fish,
+  family = poisson()
 )
 ```
 
@@ -124,16 +121,18 @@ The `model` object can then be passed to functions from different **easystats** 
 model_parameters(model)
 #> # Fixed Effects
 #> 
-#> Parameter           | Log-Odds |   SE |        95% CI |     z |     p
-#> ---------------------------------------------------------------------
-#> (Intercept)         |     0.13 | 0.26 | [-0.37, 0.64] |  0.52 | 0.606
-#> treatment [control] |    -0.27 | 0.37 | [-0.99, 0.45] | -0.73 | 0.466
+#> Parameter           | Log-Mean |   SE |         95% CI |     z |      p
+#> -----------------------------------------------------------------------
+#> (Intercept)         |    -0.74 | 0.32 | [-1.36, -0.12] | -2.33 | 0.020 
+#> treat [1]           |    -0.83 | 0.29 | [-1.41, -0.25] | -2.81 | 0.005 
+#> persons             |     0.39 | 0.07 | [ 0.24,  0.53] |  5.25 | < .001
+#> treat [1] × persons |     0.60 | 0.09 | [ 0.42,  0.77] |  6.78 | < .001
 #> 
 #> # Random Effects
 #> 
-#> Parameter          | Coefficient |           95% CI
-#> ---------------------------------------------------
-#> SD (Intercept: ID) |        0.05 | [0.00, 9.86e+28]
+#> Parameter          | Coefficient |       95% CI
+#> -----------------------------------------------
+#> SD (Intercept: ID) |        0.42 | [0.20, 0.86]
 ```
 
 Then, the performance of the model can be assessed with the `{performance}` package:
@@ -146,17 +145,19 @@ model_performance(
 )
 #> # Indices of model performance
 #> 
-#> AIC   |   BIC | R2 (cond.) | R2 (marg.)
-#> ---------------------------------------
-#> 171.8 | 180.2 |      0.006 |      0.005
+#> AIC    |    BIC | R2 (cond.) | R2 (marg.)
+#> -----------------------------------------
+#> 2375.5 | 2393.1 |      0.796 |      0.661
 ```
 
 The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}` (Figure 1):
 
 
 ``` r
-predictions <- estimate_means(model, "treatment")
-plot(predictions) + theme_modern(show.ticks = TRUE) # add nice theme
+predictions <- estimate_means(model, c("persons", "treat"))
+plot(predictions) +
+  theme_modern(show.ticks = TRUE) + # add nice theme
+  scale_color_material() # add some nice colors
 ```
 
 \begin{figure}
@@ -170,17 +171,21 @@ Finally, a full report of the analysis can be generated with the `{report}` pack
 
 ``` r
 report(model)
-#> We fitted a logistic mixed model (estimated using ML and nlminb
-#> optimizer) to predict alertness with treatment (formula: alertness ~
-#> treatment). The model included ID as random effect (formula: ~1 |
-#> ID). The model's total explanatory power is very weak (conditional
-#> R2 = 6.35e-03) and the part related to the fixed effects alone
-#> (marginal R2) is of 5.44e-03. The model's intercept, corresponding
-#> to treatment = coffee, is at 0.13 (95% CI [-0.37, 0.64], p = 0.606).
-#> Within this model:
+#> We fitted a poisson mixed model (estimated using ML and nlminb
+#> optimizer) to predict count with treat and persons (formula: count ~
+#> treat * persons). The model included ID as random effect (formula:
+#> ~1 | ID). The model's total explanatory power is substantial
+#> (conditional R2 = 0.80) and the part related to the fixed effects
+#> alone (marginal R2) is of 0.66. The model's intercept, corresponding
+#> to treat = 0 and persons = 0, is at -0.74 (95% CI [-1.36, -0.12], p
+#> = 0.020). Within this model:
 #> 
-#>   - The effect of treatment [control] is statistically non-significant
-#> and negative (beta = -0.27, 95% CI [-0.99, 0.45], p = 0.466)
+#>   - The effect of treat [1] is statistically significant and negative
+#> (beta = -0.83, 95% CI [-1.41, -0.25], p = 0.005)
+#>   - The effect of persons is statistically significant and positive
+#> (beta = 0.39, 95% CI [0.24, 0.53], p < .001)
+#>   - The effect of treat [1] × persons is statistically significant and
+#> positive (beta = 0.60, 95% CI [0.42, 0.77], p < .001)
 #> 
 #> Standardized parameters were obtained by fitting the model on a
 #> standardized version of the dataset. 95% Confidence Intervals (CIs)

@@ -81,6 +81,8 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE
 )
+
+options(modelbased_join_dots = FALSE)
 ```
 
 # Summary
@@ -96,34 +98,31 @@ R is a powerful language for statistical computing, but its capabilities are sca
 
 The **easystats** ecosystem addresses this challenge by enabling a seamless workflow from data exploration to result communication, while nudging users toward good, reproducible and transparent statistical practices with sensible defaults and clear documentation. The packages in this ecosystem share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load for novice and experienced R users alike.
 
-The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021], and `{parameters}` is used by 22. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
+The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021]. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
-Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and general-purpose visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
+Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
 
 
 # A Harmonized and Integrated Workflow
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model. This can include checking the model's parameters, performance metrics, specific effect sizes [e.g., @ben2023phi], and statistical outliers [@theriault2024check], as well as obtaining publication-ready figures and written summaries of the results.
 
-Let's demonstrate this with an example, where the user wants to fit a logistic mixed effects:
+Let's demonstrate this with an example, where the user wants to fit a mixed effects model:
 
 ```{r}
 # we don't load each package individually,
 # but rather the entire ecosystem
 library(easystats)
-data(coffee_data, package = "modelbased")
-
-# dichotomize outcome variable
-coffee_data$alertness <- categorize(coffee_data$alertness, lowest = 0)
+data(fish, package = "modelbased")
 
 # rename variable
-coffee_data <- data_rename(coffee_data, select = c(treatment = "coffee"))
+fish <- data_rename(fish, select = c(treat = "camper"))
 
 # fit mixed model
 model <- glmmTMB::glmmTMB(
-  alertness ~ treatment + (1 | ID),
-  data = coffee_data,
-  family = binomial()
+  count ~ treat * persons + (1 | ID),
+  data = fish,
+  family = poisson()
 )
 ```
 
@@ -145,8 +144,10 @@ model_performance(
 The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}` (Figure 1):
 
 ```{r fig1, fig.cap = "Predicted probability of alertness by treatment group."}
-predictions <- estimate_means(model, "treatment")
-plot(predictions) + theme_modern(show.ticks = TRUE) # add nice theme
+predictions <- estimate_means(model, c("persons", "treat"))
+plot(predictions) +
+  theme_modern(show.ticks = TRUE) + # add nice theme
+  scale_color_material() # add some nice colors
 ```
 
 Finally, a full report of the analysis can be generated with the `{report}` package:

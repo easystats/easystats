@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.2)  29 SEP 2025 08:09
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.2)  29 SEP 2025 08:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -939,12 +939,12 @@ Package fancyhdr Warning: \headheight is too small (62.59596pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.95425pt}.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 378.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 377.
 [1
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 416.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 415.
 
 
 File: C:/Users/DL/AppData/Local/R/win-library/4.5/rticles/rmarkdown/templates/joss/resources/JOSS-logo.png Graphic file (type bmp)
@@ -1020,7 +1020,7 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 Here is how much of TeX's memory you used:
  35034 strings out of 470456
  721067 string characters out of 5488956
- 1589366 words of memory out of 5000000
+ 1589367 words of memory out of 5000000
  62862 multiletter control sequences out of 15000+600000
  633697 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
