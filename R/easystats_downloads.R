@@ -19,8 +19,12 @@
 #' }
 #'
 #' @export
-easystats_downloads <- function(from = "2019-02-26", sort_by = "total", length = 30) {
-  insight::check_if_installed("cranlogs")
+easystats_downloads <- function(
+  from = "2019-02-26",
+  sort_by = "total",
+  length = 30
+) {
+  insight::check_if_installed(c("cranlogs", "gt"))
 
   # Get easystats packages
   pkgs <- easystats_packages()
@@ -30,7 +34,12 @@ easystats_downloads <- function(from = "2019-02-26", sort_by = "total", length =
     tryCatch(
       cranlogs::cran_downloads(packages = pkg, from = from),
       error = function(e) {
-        insight::format_warning(paste0("Could not fetch download data for ", pkg, ": ", e$message))
+        insight::format_warning(paste0(
+          "Could not fetch download data for ",
+          pkg,
+          ": ",
+          e$message
+        ))
         NULL
       }
     )
@@ -69,7 +78,9 @@ easystats_downloads <- function(from = "2019-02-26", sort_by = "total", length =
     }
 
     months_on_cran <- .mondf(tmp$date[1], tmp$date[nrow(tmp)])
-    if (!length(months_on_cran) || months_on_cran < 1) months_on_cran <- 1
+    if (!length(months_on_cran) || months_on_cran < 1) {
+      months_on_cran <- 1
+    }
 
     data.frame(
       package = d$package[1],
@@ -151,8 +162,16 @@ print_md.easystats_downloads <- function(x, ...) {
 display.easystats_downloads <- function(object, format = "markdown", ...) {
   # Format numeric columns with thousand separators
   object_formatted <- object
-  object_formatted$Total <- format(object$Total, big.mark = ",", scientific = FALSE)
-  object_formatted$Monthly <- format(object$Monthly, big.mark = ",", scientific = FALSE)
+  object_formatted$Total <- format(
+    object$Total,
+    big.mark = ",",
+    scientific = FALSE
+  )
+  object_formatted$Monthly <- format(
+    object$Monthly,
+    big.mark = ",",
+    scientific = FALSE
+  )
 
   insight::export_table(object_formatted, format = format, ...)
 }

@@ -31,7 +31,10 @@ test_that("easystats_downloads sorting works", {
 
   # Sort by package name
   result_pkg <- easystats_downloads(from = "2024-01-01", sort_by = "package")
-  expect_true(is.unsorted(result_pkg$Package[1:(nrow(result_pkg) - 1)], na.rm = TRUE))
+  expect_true(is.unsorted(
+    result_pkg$Package[1:(nrow(result_pkg) - 1)],
+    na.rm = TRUE
+  ))
 
   # Sort by total (default)
   result_total <- easystats_downloads(from = "2024-01-01", sort_by = "total")
