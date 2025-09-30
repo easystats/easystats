@@ -26,7 +26,7 @@ This function reports the total number of Google Scholar citations for
 \code{easystats} publications through the \code{scholar} package.
 }
 \examples{
-\dontshow{if (insight::check_if_installed("scholar", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (insight::check_if_installed("scholar", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 \dontrun{
 easystats_citations()
 }

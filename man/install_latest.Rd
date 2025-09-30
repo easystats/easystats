@@ -42,7 +42,7 @@ versions from CRAN. If the development versions are installed, packages
 will be installed from the stable branch (master/main) for each package.
 }
 \examples{
-\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (FALSE) withAutoprint(\{ # examplesIf}
 # install latest development-version of easystats packages from
 # the r-universe repository, but only those packages that have newer
 # versions available
