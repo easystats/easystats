@@ -123,7 +123,7 @@ print.easystats_downloads <- function(x, ...) {
   x_formatted <- x
   x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
   x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
-  
+
   cat(insight::export_table(x_formatted, ...))
 }
 
@@ -133,7 +133,7 @@ print_html.easystats_downloads <- function(x, ...) {
   x_formatted <- x
   x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
   x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
-  
+
   insight::export_table(x_formatted, format = "html", ...)
 }
 
@@ -143,7 +143,7 @@ print_md.easystats_downloads <- function(x, ...) {
   x_formatted <- x
   x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
   x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
-  
+
   insight::export_table(x_formatted, format = "markdown", ...)
 }
 
@@ -153,6 +153,6 @@ display.easystats_downloads <- function(object, format = "markdown", ...) {
   object_formatted <- object
   object_formatted$Total <- format(object$Total, big.mark = ",", scientific = FALSE)
   object_formatted$Monthly <- format(object$Monthly, big.mark = ",", scientific = FALSE)
-  
+
   insight::export_table(object_formatted, format = format, ...)
 }
