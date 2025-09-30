@@ -119,20 +119,40 @@ easystats_downloads <- function(from = "2019-02-26", sort_by = "total", length =
 
 #' @export
 print.easystats_downloads <- function(x, ...) {
-  cat(insight::export_table(x, ...))
+  # Format numeric columns with thousand separators
+  x_formatted <- x
+  x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
+  x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
+  
+  cat(insight::export_table(x_formatted, ...))
 }
 
 #' @export
 print_html.easystats_downloads <- function(x, ...) {
-  insight::export_table(x, format = "html", ...)
+  # Format numeric columns with thousand separators
+  x_formatted <- x
+  x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
+  x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
+  
+  insight::export_table(x_formatted, format = "html", ...)
 }
 
 #' @export
 print_md.easystats_downloads <- function(x, ...) {
-  insight::export_table(x, format = "markdown", ...)
+  # Format numeric columns with thousand separators
+  x_formatted <- x
+  x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
+  x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
+  
+  insight::export_table(x_formatted, format = "markdown", ...)
 }
 
 #' @export
 display.easystats_downloads <- function(object, format = "markdown", ...) {
-  insight::export_table(object, format = format, ...)
+  # Format numeric columns with thousand separators
+  object_formatted <- object
+  object_formatted$Total <- format(object$Total, big.mark = ",", scientific = FALSE)
+  object_formatted$Monthly <- format(object$Monthly, big.mark = ",", scientific = FALSE)
+  
+  insight::export_table(object_formatted, format = format, ...)
 }

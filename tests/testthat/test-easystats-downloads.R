@@ -61,3 +61,19 @@ test_that("easystats_downloads print methods work", {
   expect_no_error(print_html(result))
   expect_no_error(display(result))
 })
+
+test_that("easystats_downloads formats numbers with thousand separators", {
+  skip_if_offline()
+  
+  result <- easystats_downloads(from = "2024-01-01")
+  
+  # Capture printed output
+  output <- capture.output(print(result))
+  output_text <- paste(output, collapse = "\n")
+  
+  # Check that numbers are formatted with commas (for numbers >= 1000)
+  # Only check if we have downloads > 1000
+  if (any(result$Total >= 1000)) {
+    expect_true(grepl(",", output_text))
+  }
+})
