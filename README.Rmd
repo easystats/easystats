@@ -180,6 +180,20 @@ figures and relies on `{ggplot2}`, which does have a substantial number of depen
 
 ## Usage
 
+### Downloads
+
+Download statistics for `{easystats}` packages from CRAN.
+
+```{r easystats_downloads, warning=FALSE, message=FALSE, echo=TRUE, eval=FALSE}
+easystats_downloads()
+```
+
+```{r easystats_downloads_hide, warning=FALSE, message=FALSE, echo=FALSE}
+insight::print_md(easystats::easystats_downloads())
+```
+
+### Download Trends
+
 ```{r README-4, include=TRUE, results="hide", echo=FALSE}
 library(zoo)
 library(cranlogs)
@@ -252,34 +266,6 @@ average_monthly_downloads <- lapply(split(data, data$Package), function(d) {
 })
 average_monthly_downloads <- do.call(rbind, average_monthly_downloads)
 ```
-
-### Total downloads
-
-```{r README-5, fig.align='center', echo=FALSE}
-# TIME TREND
-dl_table <- data
-
-tmp <- lapply(split(dl_table, dl_table$Package), function(x) {
-  x$`Total Downloads` <- max(x$cumulative_count)
-  x[1, c("Package", "Total Downloads")]
-})
-dl_table <- do.call(rbind, tmp)
-dl_table <- dl_table[order(dl_table$`Total Downloads`, decreasing = TRUE), ] |>
-  t() |>
-  as.data.frame()
-
-dl_table <- dl_table[-1, ]
-dl_table[] <- lapply(dl_table, as.numeric)
-dl_table$Total <- rowSums(dl_table[1, ])
-dl_table <- dl_table[, c(12, 1:11)]
-rownames(dl_table) <- NULL
-
-dl_table[] <- lapply(dl_table, format, big.mark = ",")
-
-knitr::kable(dl_table)
-```
-
-### Trend
 
 ```{r README-6, fig.align='center', echo=FALSE}
 # TIME TREND - total downloads by month
@@ -484,14 +470,6 @@ Number of Google Scholar citations for `{easystats}` publications.
 
 ```{r warning=FALSE, message=FALSE, echo=FALSE}
 insight::print_md(easystats::easystats_citations(sort_by = "cites", length = 50))
-```
-
-## Downloads
-
-Download statistics for `{easystats}` packages from CRAN.
-
-```{r warning=FALSE, message=FALSE, echo=FALSE}
-insight::print_md(easystats::easystats_downloads(sort_by = "total"))
 ```
 
 ## Contributing
