@@ -12,18 +12,18 @@ test_that("easystats_downloads returns correct structure", {
   expect_s3_class(result, "data.frame")
 
   # Check column names
-  expect_equal(colnames(result), c("Package", "Total", "Monthly"))
+  expect_identical(colnames(result), c("Package", "Total", "Monthly"))
 
   # Check that we have all packages plus total row
   expect_gte(nrow(result), length(easystats_packages()) + 1)
 
   # Check that last row is Total
-  expect_equal(result$Package[nrow(result)], "Total")
+  expect_identical(result$Package[nrow(result)], "Total")
 
   # Check that Total row sums correctly
   total_row <- result[result$Package == "Total", ]
   package_rows <- result[result$Package != "Total", ]
-  expect_equal(total_row$Total, sum(package_rows$Total))
+  expect_identical(total_row$Total, sum(package_rows$Total))
 })
 
 test_that("easystats_downloads sorting works", {
@@ -61,11 +61,11 @@ test_that("easystats_downloads print methods work", {
 
   # Test markdown print method
   expect_no_error(print_md(result))
-  
+
   # Test HTML print method (requires gt package)
   skip_if_not_installed("gt")
   expect_no_error(print_html(result))
-  
+
   # Test display method
   expect_no_error(display(result))
 })
@@ -82,6 +82,6 @@ test_that("easystats_downloads formats numbers with thousand separators", {
   # Check that numbers are formatted with commas (for numbers >= 1000)
   # Only check if we have downloads > 1000
   if (any(result$Total >= 1000)) {
-    expect_true(grepl(",", output_text))
+    expect_true(grepl(",", output_text, fixed = TRUE))
   }
 })
