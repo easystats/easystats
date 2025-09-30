@@ -27,25 +27,62 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dom <- tryCatch(
     scholar::get_publications(dom),
     error = function(e) {
-      insight::format_error("Error fetching Google Scholar data: ", e$message)
+      insight::format_warning("Could not fetch Google Scholar data: ", e$message)
+      NULL
     }
   )
-
-  # clean-up
-  easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), , drop = FALSE]
-  easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
 
   # publications from Daniel, to add Phi, Fei, Fo, Fum
   pubs_dan <- tryCatch(
     scholar::get_publications(dan),
     error = function(e) {
-      insight::format_error("Error fetching Google Scholar data: ", e$message)
+      insight::format_warning("Could not fetch Google Scholar data: ", e$message)
+      NULL
     }
   )
 
-  # clean-up
-  easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), , drop = FALSE]
-  easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
+  # Handle case where data could not be fetched
+  if (is.null(pubs_dom) && is.null(pubs_dan)) {
+    insight::format_alert("Could not fetch any citation data from Google Scholar. Returning empty result.")
+    out <- data.frame(
+      title = "No data",
+      journal = NA_character_,
+      year = NA,
+      cites = 0,
+      stringsAsFactors = FALSE
+    )
+    colnames(out) <- tools::toTitleCase(colnames(out))
+    class(out) <- c("easystats_cites", "data.frame")
+    return(out)
+  }
+
+  # Process publications from Dominique
+  if (!is.null(pubs_dom)) {
+    easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), , drop = FALSE]
+    easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
+  } else {
+    easystats_pub <- data.frame(
+      title = character(0),
+      journal = character(0),
+      year = numeric(0),
+      cites = numeric(0),
+      stringsAsFactors = FALSE
+    )
+  }
+
+  # Process publications from Daniel
+  if (!is.null(pubs_dan)) {
+    easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), , drop = FALSE]
+    easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
+  } else {
+    easystats_pub2 <- data.frame(
+      title = character(0),
+      journal = character(0),
+      year = numeric(0),
+      cites = numeric(0),
+      stringsAsFactors = FALSE
+    )
+  }
 
   easystats_pub <- rbind(easystats_pub, easystats_pub2)
 
