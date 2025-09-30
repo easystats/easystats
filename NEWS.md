@@ -3,6 +3,9 @@
 * New function `easystats_citations()` to report the total number of Google
   Scholar citations for `easystats` publications.
 
+* New function `easystats_downloads()` to report download statistics for
+  `easystats` packages from CRAN.
+
 * The `source` argument in `install_latest()` gets a `"github"` option, to
   install the latest version from the GitHub-repositories main-branch. Usually,
   this is not needed, because r-universe provides latest binaries.

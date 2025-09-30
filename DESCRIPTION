@@ -63,6 +63,7 @@ Imports:
     utils
 Suggests:
     collapse,
+    cranlogs,
     DHARMa,
     DT,
     flexdashboard (>= 0.6.2),
