@@ -59,9 +59,14 @@ test_that("easystats_downloads print methods work", {
   # Test print method
   expect_output(print(result))
 
-  # Test other print methods exist
+  # Test markdown print method
   expect_no_error(print_md(result))
+  
+  # Test HTML print method (requires gt package)
+  skip_if_not_installed("gt")
   expect_no_error(print_html(result))
+  
+  # Test display method
   expect_no_error(display(result))
 })
 

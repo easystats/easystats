@@ -24,7 +24,7 @@ easystats_downloads <- function(
   sort_by = "total",
   length = 30
 ) {
-  insight::check_if_installed(c("cranlogs", "gt"))
+  insight::check_if_installed("cranlogs")
 
   # Get easystats packages
   pkgs <- easystats_packages()

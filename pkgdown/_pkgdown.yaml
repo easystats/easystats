@@ -22,6 +22,11 @@ reference:
     contents:
       - easystats_citations
 
+  - title: Downloads
+    desc: ~
+    contents:
+      - easystats_downloads
+
   - title: Zen
     desc: ~
     contents:
