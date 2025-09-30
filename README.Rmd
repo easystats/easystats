@@ -486,6 +486,14 @@ Number of Google Scholar citations for `{easystats}` publications.
 insight::print_md(easystats::easystats_citations(sort_by = "cites", length = 50))
 ```
 
+## Downloads
+
+Download statistics for `{easystats}` packages from CRAN.
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+insight::print_md(easystats::easystats_downloads(sort_by = "total"))
+```
+
 ## Contributing
 
 We are happy to receive bug reports, suggestions, questions, and (most of all)
