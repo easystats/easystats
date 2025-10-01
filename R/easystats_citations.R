@@ -27,10 +27,7 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dom <- tryCatch(
     scholar::get_publications(dom),
     error = function(e) {
-      insight::format_warning(
-        "Could not fetch Google Scholar data: ",
-        e$message
-      )
+      message("Could not fetch Google Scholar data: ", e$message)
       NULL
     }
   )
@@ -39,19 +36,14 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dan <- tryCatch(
     scholar::get_publications(dan),
     error = function(e) {
-      insight::format_warning(
-        "Could not fetch Google Scholar data: ",
-        e$message
-      )
+      message("Could not fetch Google Scholar data: ", e$message)
       NULL
     }
   )
 
   # Handle case where data could not be fetched
   if (is.null(pubs_dom) && is.null(pubs_dan)) {
-    insight::format_alert(
-      "Could not fetch any citation data from Google Scholar. Returning empty result."
-    )
+    message("Could not fetch any citation data from Google Scholar. Returning empty result.")
     out <- data.frame(
       title = "No data",
       journal = NA_character_,
