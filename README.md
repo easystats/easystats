@@ -250,6 +250,10 @@ easystats_downloads()
 
 Number of Google Scholar citations for `{easystats}` publications.
 
+``` r
+easystats::easystats_citations(sort_by = "cites")
+```
+
 | Title | Journal | Year | Cites |
 |:---|:---|:---|---:|
 | performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 5224 |

@@ -468,11 +468,12 @@ tmp |>
 
 Number of Google Scholar citations for `{easystats}` publications.
 
-```{r easystats_citations, warning=FALSE, message=FALSE, echo=FALSE}
-cites <- easystats::easystats_citations(sort_by = "cites", length = 50)
-if (!is.null(cites)) {
-  insight::print_md(cites)
-}
+```{r easystats_citations, warning=FALSE, message=FALSE, echo=TRUE, eval=FALSE}
+easystats::easystats_citations(sort_by = "cites")
+```
+
+```{r easystats_citations_hide, warning=FALSE, message=FALSE, echo=FALSE}
+insight::print_md(easystats::easystats_citations(sort_by = "cites", length = 50))
 ```
 
 ## Contributing
