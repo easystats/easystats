@@ -473,7 +473,10 @@ easystats::easystats_citations(sort_by = "cites")
 ```
 
 ```{r easystats_citations_hide, warning=FALSE, message=FALSE, echo=FALSE}
-insight::print_md(easystats::easystats_citations(sort_by = "cites", length = 50))
+cites <- easystats::easystats_citations(sort_by = "cites", length = 50)
+if (!is.null(cites)) {
+  insight::print_md(cites)
+}
 ```
 
 ## Contributing
