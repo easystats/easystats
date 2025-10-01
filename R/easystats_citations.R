@@ -49,14 +49,11 @@ easystats_citations <- function(sort_by = "year", length = 30) {
 
   # Handle case where data could not be fetched
   # Return NULL as soon as at least one source fails
-  if (
-    any(
-      is.null(pubs_dom),
-      is.null(pubs_dan),
-      nrow(pubs_dom) < 1,
-      nrow(pubs_dan) < 1
-    )
-  ) {
+  ok <- function(x, cols = "author") {
+    is.data.frame(x) && nrow(x) > 0 && all(cols %in% names(x))
+  }
+
+  if (!ok(pubs_dom) || !ok(pubs_dan)) {
     insight::format_message(
       "Could not fetch citation data from Google Scholar. Returning NULL."
     )
