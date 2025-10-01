@@ -27,7 +27,10 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dom <- tryCatch(
     scholar::get_publications(dom),
     error = function(e) {
-      message("Could not fetch Google Scholar data: ", e$message)
+      insight::format_message(
+        "Could not fetch Google Scholar data: ",
+        e$message
+      )
       NULL
     }
   )
@@ -36,14 +39,19 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dan <- tryCatch(
     scholar::get_publications(dan),
     error = function(e) {
-      message("Could not fetch Google Scholar data: ", e$message)
+      insight::format_message(
+        "Could not fetch Google Scholar data: ",
+        e$message
+      )
       NULL
     }
   )
 
   # Handle case where data could not be fetched
   if (is.null(pubs_dom) && is.null(pubs_dan)) {
-    message("Could not fetch any citation data from Google Scholar. Returning empty result.")
+    insight::format_message(
+      "Could not fetch any citation data from Google Scholar. Returning empty result."
+    )
     out <- data.frame(
       title = "No data",
       journal = NA_character_,
@@ -68,7 +76,6 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   } else {
     easystats_pub <- pubs_dom[
       grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE),
-      ,
       drop = FALSE
     ]
     easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
@@ -86,7 +93,6 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   } else {
     easystats_pub2 <- pubs_dan[
       startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"),
-      ,
       drop = FALSE
     ]
     easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
