@@ -27,7 +27,10 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dom <- tryCatch(
     scholar::get_publications(dom),
     error = function(e) {
-      insight::format_warning("Could not fetch Google Scholar data: ", e$message)
+      insight::format_warning(
+        "Could not fetch Google Scholar data: ",
+        e$message
+      )
       NULL
     }
   )
@@ -36,14 +39,19 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dan <- tryCatch(
     scholar::get_publications(dan),
     error = function(e) {
-      insight::format_warning("Could not fetch Google Scholar data: ", e$message)
+      insight::format_warning(
+        "Could not fetch Google Scholar data: ",
+        e$message
+      )
       NULL
     }
   )
 
   # Handle case where data could not be fetched
   if (is.null(pubs_dom) && is.null(pubs_dan)) {
-    insight::format_alert("Could not fetch any citation data from Google Scholar. Returning empty result.")
+    insight::format_alert(
+      "Could not fetch any citation data from Google Scholar. Returning empty result."
+    )
     out <- data.frame(
       title = "No data",
       journal = NA_character_,
@@ -57,10 +65,7 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   }
 
   # Process publications from Dominique
-  if (!is.null(pubs_dom)) {
-    easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), , drop = FALSE]
-    easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
-  } else {
+  if (is.null(pubs_dom)) {
     easystats_pub <- data.frame(
       title = character(0),
       journal = character(0),
@@ -68,13 +73,17 @@ easystats_citations <- function(sort_by = "year", length = 30) {
       cites = numeric(0),
       stringsAsFactors = FALSE
     )
+  } else {
+    easystats_pub <- pubs_dom[
+      grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE),
+      ,
+      drop = FALSE
+    ]
+    easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
   }
 
   # Process publications from Daniel
-  if (!is.null(pubs_dan)) {
-    easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), , drop = FALSE]
-    easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
-  } else {
+  if (is.null(pubs_dan)) {
     easystats_pub2 <- data.frame(
       title = character(0),
       journal = character(0),
@@ -82,6 +91,13 @@ easystats_citations <- function(sort_by = "year", length = 30) {
       cites = numeric(0),
       stringsAsFactors = FALSE
     )
+  } else {
+    easystats_pub2 <- pubs_dan[
+      startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"),
+      ,
+      drop = FALSE
+    ]
+    easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
   }
 
   easystats_pub <- rbind(easystats_pub, easystats_pub2)
@@ -102,7 +118,10 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   # shorten long strings
   if (!is.null(length)) {
     easystats_pub$title <- insight::format_string(easystats_pub$title, length)
-    easystats_pub$journal <- insight::format_string(easystats_pub$journal, length)
+    easystats_pub$journal <- insight::format_string(
+      easystats_pub$journal,
+      length
+    )
   }
 
   # create Data, including Total Row
