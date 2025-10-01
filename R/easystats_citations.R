@@ -48,55 +48,29 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   )
 
   # Handle case where data could not be fetched
-  if (is.null(pubs_dom) && is.null(pubs_dan)) {
+  # Return NULL as soon as at least one source fails
+  if (is.null(pubs_dom) || is.null(pubs_dan)) {
     insight::format_message(
-      "Could not fetch any citation data from Google Scholar. Returning empty result."
+      "Could not fetch citation data from Google Scholar. Returning NULL."
     )
-    out <- data.frame(
-      title = "No data",
-      journal = NA_character_,
-      year = NA,
-      cites = 0,
-      stringsAsFactors = FALSE
-    )
-    colnames(out) <- tools::toTitleCase(colnames(out))
-    class(out) <- c("easystats_cites", "data.frame")
-    return(out)
+    return(NULL)
   }
 
   # Process publications from Dominique
-  if (is.null(pubs_dom)) {
-    easystats_pub <- data.frame(
-      title = character(0),
-      journal = character(0),
-      year = numeric(0),
-      cites = numeric(0),
-      stringsAsFactors = FALSE
-    )
-  } else {
-    easystats_pub <- pubs_dom[
-      grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE),
-      drop = FALSE
-    ]
-    easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
-  }
+  easystats_pub <- pubs_dom[
+    grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE),
+    ,
+    drop = FALSE
+  ]
+  easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
 
   # Process publications from Daniel
-  if (is.null(pubs_dan)) {
-    easystats_pub2 <- data.frame(
-      title = character(0),
-      journal = character(0),
-      year = numeric(0),
-      cites = numeric(0),
-      stringsAsFactors = FALSE
-    )
-  } else {
-    easystats_pub2 <- pubs_dan[
-      startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"),
-      drop = FALSE
-    ]
-    easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
-  }
+  easystats_pub2 <- pubs_dan[
+    startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"),
+    ,
+    drop = FALSE
+  ]
+  easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
 
   easystats_pub <- rbind(easystats_pub, easystats_pub2)
 
