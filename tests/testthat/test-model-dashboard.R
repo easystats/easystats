@@ -18,7 +18,12 @@ test_that("it doesn't fail for unsupported models", {
 
   withr::with_tempdir(code = {
     filename <- "myfile.html"
-    model_dashboard(NULL, output_file = filename, quiet = TRUE, browse_html = FALSE)
+    model_dashboard(
+      NULL,
+      output_file = filename,
+      quiet = TRUE,
+      browse_html = FALSE
+    )
     expect_true(file.exists(filename))
   })
 })

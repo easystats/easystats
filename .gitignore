@@ -50,3 +50,6 @@ revdep/library.noindex
 revdep/data.sqlite
 /doc/
 /Meta/
+easydashboard.html
+
+/.quarto/
