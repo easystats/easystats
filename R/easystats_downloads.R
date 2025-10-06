@@ -46,7 +46,7 @@ easystats_downloads <- function(
   })
 
   # Remove NULL entries (failed downloads)
-  downloads_list <- Filter(Negate(is.null), downloads_list)
+  downloads_list <- insight::compact_list(downloads_list)
 
   if (length(downloads_list) == 0) {
     insight::format_error("Could not fetch download data for any packages.")
