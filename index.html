@@ -35,7 +35,7 @@
 
     <a class="navbar-brand me-2" href="index.html">easystats</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -261,55 +261,83 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="section level3">
-<h3 id="total-downloads">Total downloads<a class="anchor" aria-label="anchor" href="#total-downloads"></a>
+<h3 id="downloads">Downloads<a class="anchor" aria-label="anchor" href="#downloads"></a>
 </h3>
+<p>Download statistics for <a href="https://easystats.github.io/easystats/">easystats</a> packages from CRAN.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/easystats_downloads.html">easystats_downloads</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
-<colgroup>
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-</colgroup>
 <thead><tr>
-<th align="left">Total</th>
-<th align="left">insight</th>
-<th align="left">datawizard</th>
-<th align="left">parameters</th>
-<th align="left">performance</th>
-<th align="left">bayestestR</th>
-<th align="left">effectsize</th>
-<th align="left">correlation</th>
-<th align="left">see</th>
-<th align="left">modelbased</th>
-<th align="left">report</th>
-<th align="left">easystats</th>
+<th align="left">Package</th>
+<th align="right">Total</th>
+<th align="left">Monthly</th>
 </tr></thead>
-<tbody><tr>
-<td align="left">31,239,771</td>
-<td align="left">8,764,128</td>
-<td align="left">5,657,990</td>
-<td align="left">3,776,032</td>
-<td align="left">3,757,928</td>
-<td align="left">3,662,497</td>
-<td align="left">2,830,745</td>
-<td align="left">1,036,371</td>
-<td align="left">812,432</td>
-<td align="left">546,945</td>
-<td align="left">283,914</td>
-<td align="left">110,789</td>
-</tr></tbody>
+<tbody>
+<tr>
+<td align="left">insight</td>
+<td align="right">8,990,432</td>
+<td align="left">113,803</td>
+</tr>
+<tr>
+<td align="left">datawizard</td>
+<td align="right">5,829,371</td>
+<td align="left">112,103</td>
+</tr>
+<tr>
+<td align="left">parameters</td>
+<td align="right">3,896,458</td>
+<td align="left">52,655</td>
+</tr>
+<tr>
+<td align="left">performance</td>
+<td align="right">3,886,311</td>
+<td align="left">49,824</td>
+</tr>
+<tr>
+<td align="left">bayestestR</td>
+<td align="right">3,790,701</td>
+<td align="left">48,599</td>
+</tr>
+<tr>
+<td align="left">effectsize</td>
+<td align="right">2,913,287</td>
+<td align="left">41,032</td>
+</tr>
+<tr>
+<td align="left">correlation</td>
+<td align="right">1,079,874</td>
+<td align="left">16,118</td>
+</tr>
+<tr>
+<td align="left">see</td>
+<td align="right">852,593</td>
+<td align="left">11,073</td>
+</tr>
+<tr>
+<td align="left">modelbased</td>
+<td align="right">584,920</td>
+<td align="left">8,477</td>
+</tr>
+<tr>
+<td align="left">report</td>
+<td align="right">302,690</td>
+<td align="left">5,605</td>
+</tr>
+<tr>
+<td align="left">easystats</td>
+<td align="right">124,834</td>
+<td align="left">3,285</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="right">32,251,471</td>
+<td align="left">462,574</td>
+</tr>
+</tbody>
 </table>
 </div>
 <div class="section level3">
-<h3 id="trend">Trend<a class="anchor" aria-label="anchor" href="#trend"></a>
+<h3 id="download-trends">Download Trends<a class="anchor" aria-label="anchor" href="#download-trends"></a>
 </h3>
 <p><img src="reference/figures/README-6-1.png" width="100%" style="display: block; margin: auto;"></p>
 <!-- ### Average monthly downloads -->
@@ -319,6 +347,8 @@
 <h2 id="citations">Citations<a class="anchor" aria-label="anchor" href="#citations"></a>
 </h2>
 <p>Number of Google Scholar citations for <a href="https://easystats.github.io/easystats/">easystats</a> publications.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">easystats</span><span class="fu">::</span><span class="fu"><a href="reference/easystats_citations.html">easystats_citations</a></span><span class="op">(</span>sort_by <span class="op">=</span> <span class="st">"cites"</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="25%">
@@ -337,91 +367,91 @@
 <td align="left">performance: An R package for assessment,…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2021</td>
-<td align="right">5012</td>
+<td align="right">5,254</td>
 </tr>
 <tr>
 <td align="left">effectsize: Estimation of effect size indices and…</td>
 <td align="left">Journal of open source software</td>
 <td align="left">2020</td>
-<td align="right">1838</td>
+<td align="right">1,901</td>
 </tr>
 <tr>
 <td align="left">bayestestR: Describing Effects and their…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2019</td>
-<td align="right">1493</td>
+<td align="right">1,540</td>
 </tr>
 <tr>
 <td align="left">Indices of Effect Existence and Significance in…</td>
 <td align="left">Frontiers in Psychology</td>
 <td align="left">2019</td>
-<td align="right">874</td>
+<td align="right">911</td>
 </tr>
 <tr>
 <td align="left">Methods and algorithms for correlation analysis in…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2020</td>
-<td align="right">713</td>
+<td align="right">756</td>
 </tr>
 <tr>
 <td align="left">Extracting, computing and exploring the parameters…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2020</td>
-<td align="right">481</td>
+<td align="right">506</td>
 </tr>
 <tr>
 <td align="left">insight: A Unified Interface to Access Information…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2019</td>
-<td align="right">137</td>
+<td align="right">139</td>
 </tr>
 <tr>
 <td align="left">see: An R package for visualizing statistical…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2021</td>
-<td align="right">126</td>
+<td align="right">134</td>
 </tr>
 <tr>
 <td align="left">The {easystats} collection of R packages</td>
 <td align="left">GitHub</td>
 <td align="left">2020</td>
-<td align="right">105</td>
+<td align="right">109</td>
 </tr>
 <tr>
 <td align="left">modelbased: An R package to make the most out of…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2025</td>
-<td align="right">95</td>
+<td align="right">103</td>
 </tr>
 <tr>
 <td align="left">datawizard: An R package for easy data preparation…</td>
 <td align="left">Journal of Open Source Software</td>
 <td align="left">2022</td>
-<td align="right">53</td>
+<td align="right">54</td>
 </tr>
 <tr>
 <td align="left">The report package for R: ensuring the use of best…</td>
 <td align="left">CRAN</td>
 <td align="left">2019</td>
-<td align="right">51</td>
+<td align="right">53</td>
 </tr>
 <tr>
 <td align="left">Check your outliers! An introduction to…</td>
 <td align="left">Behavior Research Methods</td>
 <td align="left">2024</td>
-<td align="right">40</td>
+<td align="right">43</td>
 </tr>
 <tr>
 <td align="left">Phi, Fei, Fo, Fum: effect sizes for categorical…</td>
 <td align="left">Mathematics</td>
 <td align="left">2023</td>
-<td align="right">35</td>
+<td align="right">36</td>
 </tr>
 <tr>
 <td align="left">Total</td>
 <td align="left"></td>
 <td align="left"></td>
-<td align="right">11053</td>
+<td align="right">11,539</td>
 </tr>
 </tbody>
 </table>
