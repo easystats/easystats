@@ -124,27 +124,3 @@ easystats_downloads <- function(
 
   out
 }
-
-
-# methods ------------------------------------------------------------------
-
-#' @export
-print.easystats_downloads <- function(x, ...) {
-  cat(insight::export_table(x, big_mark = ",", ...))
-}
-
-#' @export
-print_html.easystats_downloads <- function(x, ...) {
-  insight::export_table(x, big_mark = ",", format = "html", ...)
-}
-
-#' @export
-print_md.easystats_downloads <- function(x, ...) {
-  insight::export_table(x, big_mark = ",", format = "markdown", ...)
-}
-
-#' @export
-display.easystats_downloads <- function(object, format = "markdown", ...) {
-  format <- insight::validate_argument(format, c("markdown", "html", "md", "tt"))
-  insight::export_table(object, big_mark = ",", format = format, ...)
-}
