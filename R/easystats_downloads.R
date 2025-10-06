@@ -130,48 +130,21 @@ easystats_downloads <- function(
 
 #' @export
 print.easystats_downloads <- function(x, ...) {
-  # Format numeric columns with thousand separators
-  x_formatted <- x
-  x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
-  x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
-
-  cat(insight::export_table(x_formatted, ...))
+  cat(insight::export_table(x, big_mark = ",", ...))
 }
 
 #' @export
 print_html.easystats_downloads <- function(x, ...) {
-  # Format numeric columns with thousand separators
-  x_formatted <- x
-  x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
-  x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
-
-  insight::export_table(x_formatted, format = "html", ...)
+  insight::export_table(x, big_mark = ",", format = "html", ...)
 }
 
 #' @export
 print_md.easystats_downloads <- function(x, ...) {
-  # Format numeric columns with thousand separators
-  x_formatted <- x
-  x_formatted$Total <- format(x$Total, big.mark = ",", scientific = FALSE)
-  x_formatted$Monthly <- format(x$Monthly, big.mark = ",", scientific = FALSE)
-
-  insight::export_table(x_formatted, format = "markdown", ...)
+  insight::export_table(x, big_mark = ",", format = "markdown", ...)
 }
 
 #' @export
 display.easystats_downloads <- function(object, format = "markdown", ...) {
-  # Format numeric columns with thousand separators
-  object_formatted <- object
-  object_formatted$Total <- format(
-    object$Total,
-    big.mark = ",",
-    scientific = FALSE
-  )
-  object_formatted$Monthly <- format(
-    object$Monthly,
-    big.mark = ",",
-    scientific = FALSE
-  )
-
-  insight::export_table(object_formatted, format = format, ...)
+  format <- insight::validate_argument(format, c("markdown", "html", "md", "tt"))
+  insight::export_table(object, big_mark = ",", format = format, ...)
 }
