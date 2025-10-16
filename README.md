@@ -227,18 +227,18 @@ easystats_downloads()
 
 | Package     |      Total | Monthly |
 |:------------|-----------:|:--------|
-| insight     |  8,990,432 | 113,803 |
-| datawizard  |  5,829,371 | 112,103 |
-| parameters  |  3,896,458 | 52,655  |
-| performance |  3,886,311 | 49,824  |
-| bayestestR  |  3,790,701 | 48,599  |
-| effectsize  |  2,913,287 | 41,032  |
-| correlation |  1,079,874 | 16,118  |
-| see         |    852,593 | 11,073  |
-| modelbased  |    584,920 | 8,477   |
-| report      |    302,690 | 5,605   |
-| easystats   |    124,834 | 3,285   |
-| Total       | 32,251,471 | 462,574 |
+| insight     |  9,060,161 | 114,686 |
+| datawizard  |  5,888,058 | 113,232 |
+| parameters  |  3,933,155 | 53,151  |
+| performance |  3,932,325 | 50,414  |
+| bayestestR  |  3,831,208 | 49,118  |
+| effectsize  |  2,940,541 | 41,416  |
+| correlation |  1,093,680 | 16,324  |
+| see         |    865,795 | 11,244  |
+| modelbased  |    596,163 | 8,640   |
+| report      |    307,814 | 5,700   |
+| easystats   |    128,336 | 3,377   |
+| Total       | 32,577,236 | 467,302 |
 
 ### Download Trends
 
@@ -256,21 +256,22 @@ easystats::easystats_citations(sort_by = "cites")
 
 | Title | Journal | Year | Cites |
 |:---|:---|:---|---:|
-| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 5,254 |
-| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 1,901 |
-| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1,540 |
-| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 911 |
-| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 756 |
-| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 506 |
+| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 5,310 |
+| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 1,914 |
+| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1,553 |
+| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 915 |
+| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 759 |
+| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 512 |
 | insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 139 |
-| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 134 |
+| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 136 |
 | The {easystats} collection of R packages | GitHub | 2020 | 109 |
-| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 103 |
-| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 54 |
+| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 104 |
+| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 55 |
 | The report package for R: ensuring the use of best… | CRAN | 2019 | 53 |
-| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 43 |
+| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 45 |
 | Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 36 |
-| Total |  |  | 11,539 |
+| Choosing informative priors in Bayesian regression… |  | 2025 | 0 |
+| Total |  |  | 11,640 |
 
 ## Contributing
 
