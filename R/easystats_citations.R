@@ -27,24 +27,53 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   pubs_dom <- tryCatch(
     scholar::get_publications(dom),
     error = function(e) {
-      insight::format_error("Error fetching Google Scholar data: ", e$message)
+      insight::format_message(
+        "Could not fetch Google Scholar data: ",
+        e$message
+      )
+      NULL
     }
   )
-
-  # clean-up
-  easystats_pub <- pubs_dom[grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE), , drop = FALSE]
-  easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
 
   # publications from Daniel, to add Phi, Fei, Fo, Fum
   pubs_dan <- tryCatch(
     scholar::get_publications(dan),
     error = function(e) {
-      insight::format_error("Error fetching Google Scholar data: ", e$message)
+      insight::format_message(
+        "Could not fetch Google Scholar data: ",
+        e$message
+      )
+      NULL
     }
   )
 
-  # clean-up
-  easystats_pub2 <- pubs_dan[startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"), , drop = FALSE]
+  # Handle case where data could not be fetched
+  # Return NULL as soon as at least one source fails
+  ok <- function(x, cols = "author") {
+    is.data.frame(x) && nrow(x) > 0 && all(cols %in% names(x))
+  }
+
+  if (!ok(pubs_dom) || !ok(pubs_dan)) {
+    insight::format_message(
+      "Could not fetch citation data from Google Scholar. Returning NULL."
+    )
+    return(NULL)
+  }
+
+  # Process publications from Dominique
+  easystats_pub <- pubs_dom[
+    grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE),
+    ,
+    drop = FALSE
+  ]
+  easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
+
+  # Process publications from Daniel
+  easystats_pub2 <- pubs_dan[
+    startsWith(pubs_dan$title, "Phi, Fei, Fo, Fum"),
+    ,
+    drop = FALSE
+  ]
   easystats_pub2 <- easystats_pub2[c("title", "journal", "year", "cites")]
 
   easystats_pub <- rbind(easystats_pub, easystats_pub2)
@@ -65,7 +94,10 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   # shorten long strings
   if (!is.null(length)) {
     easystats_pub$title <- insight::format_string(easystats_pub$title, length)
-    easystats_pub$journal <- insight::format_string(easystats_pub$journal, length)
+    easystats_pub$journal <- insight::format_string(
+      easystats_pub$journal,
+      length
+    )
   }
 
   # create Data, including Total Row
@@ -85,43 +117,4 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   class(out) <- c("easystats_cites", "data.frame")
 
   out
-}
-
-# reexports ----------------------------------------------------------------
-
-#' @importFrom insight print_html
-#' @export
-insight::print_html
-
-
-#' @importFrom insight print_md
-#' @export
-insight::print_md
-
-
-#' @importFrom insight display
-#' @export
-insight::display
-
-
-# methods ------------------------------------------------------------------
-
-#' @export
-print.easystats_cites <- function(x, ...) {
-  cat(insight::export_table(x, ...))
-}
-
-#' @export
-print_html.easystats_cites <- function(x, ...) {
-  insight::export_table(x, format = "html", ...)
-}
-
-#' @export
-print_md.easystats_cites <- function(x, ...) {
-  insight::export_table(x, format = "markdown", ...)
-}
-
-#' @export
-display.easystats_cites <- function(object, format = "markdown", ...) {
-  insight::export_table(object, format = format, ...)
 }

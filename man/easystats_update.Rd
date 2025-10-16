@@ -22,7 +22,7 @@ If package \code{{pak}} is installed, \code{pak::pkg_install()} will be used
 to install packages. Else, \code{utils::install.packages()} is used.
 }
 \examples{
-\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (FALSE) withAutoprint(\{ # examplesIf}
 # check which local easystats-packages (and their dependencies)
 # are out of date and install updates from CRAN
 easystats_update()

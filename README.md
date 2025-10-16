@@ -217,13 +217,30 @@ which does have a substantial number of dependencies.
 
 ## Usage
 
-### Total downloads
+### Downloads
 
-| Total | insight | datawizard | parameters | performance | bayestestR | effectsize | correlation | see | modelbased | report | easystats |
-|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| 31,239,771 | 8,764,128 | 5,657,990 | 3,776,032 | 3,757,928 | 3,662,497 | 2,830,745 | 1,036,371 | 812,432 | 546,945 | 283,914 | 110,789 |
+Download statistics for `{easystats}` packages from CRAN.
 
-### Trend
+``` r
+easystats_downloads()
+```
+
+| Package     |      Total | Monthly |
+|:------------|-----------:|:--------|
+| insight     |  9,060,161 | 114,686 |
+| datawizard  |  5,888,058 | 113,232 |
+| parameters  |  3,933,155 | 53,151  |
+| performance |  3,932,325 | 50,414  |
+| bayestestR  |  3,831,208 | 49,118  |
+| effectsize  |  2,940,541 | 41,416  |
+| correlation |  1,093,680 | 16,324  |
+| see         |    865,795 | 11,244  |
+| modelbased  |    596,163 | 8,640   |
+| report      |    307,814 | 5,700   |
+| easystats   |    128,336 | 3,377   |
+| Total       | 32,577,236 | 467,302 |
+
+### Download Trends
 
 <img src="man/figures/README-6-1.png" width="100%" style="display: block; margin: auto;" />
 
@@ -233,23 +250,28 @@ which does have a substantial number of dependencies.
 
 Number of Google Scholar citations for `{easystats}` publications.
 
+``` r
+easystats::easystats_citations(sort_by = "cites")
+```
+
 | Title | Journal | Year | Cites |
 |:---|:---|:---|---:|
-| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 5012 |
-| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 1838 |
-| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1493 |
-| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 874 |
-| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 713 |
-| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 481 |
-| insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 137 |
-| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 126 |
-| The {easystats} collection of R packages | GitHub | 2020 | 105 |
-| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 95 |
-| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 53 |
-| The report package for R: ensuring the use of best… | CRAN | 2019 | 51 |
-| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 40 |
-| Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 35 |
-| Total |  |  | 11053 |
+| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 5,310 |
+| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 1,914 |
+| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1,553 |
+| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 915 |
+| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 759 |
+| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 512 |
+| insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 139 |
+| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 136 |
+| The {easystats} collection of R packages | GitHub | 2020 | 109 |
+| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 104 |
+| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 55 |
+| The report package for R: ensuring the use of best… | CRAN | 2019 | 53 |
+| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 45 |
+| Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 36 |
+| Choosing informative priors in Bayesian regression… |  | 2025 | 0 |
+| Total |  |  | 11,640 |
 
 ## Contributing
 
