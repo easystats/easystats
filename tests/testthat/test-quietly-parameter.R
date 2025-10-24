@@ -21,7 +21,9 @@ test_that("easystats respects quietly = TRUE parameter", {
   # Capture both stdout and stderr messages explicitly
   output <- capture.output(
     library(easystats, quietly = TRUE),
-    type = "message"
+    type = "message",
+    stdout = TRUE, # Capture standard output
+    stderr = TRUE  # Capture standard error
   )
 
   # When quietly = TRUE, output should be empty
