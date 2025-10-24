@@ -1,4 +1,32 @@
 .onAttach <- function(libname, pkgname) {
+  # Issue #459: Check if library() was called with quietly = TRUE
+  # We need to check the call stack to see if quietly=TRUE was passed
+  is_quiet <- FALSE
+  for (i in seq_len(sys.nframe())) {
+    call <- sys.call(i)
+    if (!is.null(call) && length(call) > 0 &&
+      (identical(call[[1]], quote(library)) || identical(call[[1]], quote(require)))) {
+      # Check if 'quietly' argument is TRUE
+      if ("quietly" %in% names(call) && isTRUE(eval(call$quietly, envir = parent.frame(i)))) {
+        is_quiet <- TRUE
+        break
+      }
+    }
+  }
+
+  # If quietly mode, skip all startup messages
+  if (is_quiet) {
+    easystats_pkgs <- easystats_packages()
+    needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
+
+    if (length(needed) > 0L) {
+      suppressPackageStartupMessages(suppressWarnings(
+        lapply(needed, library, character.only = TRUE, warn.conflicts = FALSE, quietly = TRUE)
+      ))
+    }
+    return(invisible())
+  }
+
   easystats_versions <- .easystats_version()
   easystats_pkgs <- easystats_packages()
   needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
