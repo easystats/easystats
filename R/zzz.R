@@ -2,13 +2,13 @@
   # Issue #459: Check if library() was called with quietly = TRUE
   # We need to check the call stack to see if quietly=TRUE was passed
   is_quiet <- FALSE
-  for (i in seq_len(sys.nframe())) {
+  for (i in seq(sys.nframe(), 1, -1)) {
     call <- sys.call(i)
     if (!is.null(call) && length(call) > 0 &&
       (identical(call[[1]], quote(library)) || identical(call[[1]], quote(require)))) {
       # Check if 'quietly' argument is TRUE
       matched_call <- match.call(get(as.character(call[[1]])), call)
-      quietly_val <- if ("quietly" %in% names(matched_call)) matched_call$quietly else FALSE
+      quietly_val <- if ("quietly" %in% names(matched_call)) eval(matched_call$quietly, parent.frame(i)) else FALSE
       if (isTRUE(quietly_val)) {
         is_quiet <- TRUE
         break

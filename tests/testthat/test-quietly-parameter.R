@@ -22,7 +22,6 @@ test_that("easystats respects quietly = TRUE parameter", {
   output <- capture.output(
     library(easystats, quietly = TRUE),
     type = "message",
-   
   )
 
   # When quietly = TRUE, output should be empty
