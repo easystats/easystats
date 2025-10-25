@@ -7,7 +7,9 @@
     if (!is.null(call) && length(call) > 0 &&
       (identical(call[[1]], quote(library)) || identical(call[[1]], quote(require)))) {
       # Check if 'quietly' argument is TRUE
-      if ("quietly" %in% names(call) && isTRUE(eval(call$quietly, envir = parent.frame(i)))) {
+      matched_call <- match.call(get(as.character(call[[1]])), call)
+      quietly_val <- if ("quietly" %in% names(matched_call)) matched_call$quietly else FALSE
+      if (isTRUE(quietly_val)) {
         is_quiet <- TRUE
         break
       }

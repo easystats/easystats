@@ -10,7 +10,7 @@ detach_easystats <- function() {
   for (pkg in pkgs) {
     pkg_name <- paste0("package:", pkg)
     if (pkg_name %in% search()) {
-      try(detach(pkg_name, unload = TRUE, character.only = TRUE), silent = TRUE)
+      try(detach(pkg_name, unload = TRUE), silent = TRUE)
     }
   }
 }
@@ -22,8 +22,7 @@ test_that("easystats respects quietly = TRUE parameter", {
   output <- capture.output(
     library(easystats, quietly = TRUE),
     type = "message",
-    stdout = TRUE, # Capture standard output
-    stderr = TRUE  # Capture standard error
+   
   )
 
   # When quietly = TRUE, output should be empty
