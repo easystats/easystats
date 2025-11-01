@@ -1,3 +1,5 @@
+skip_if_not_installed("callr")
+
 test_that("easystats respects quietly = TRUE", {
   out <- callr::r(function() {
     capture.output(library(easystats, quietly = TRUE), type = "message")

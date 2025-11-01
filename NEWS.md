@@ -1,3 +1,7 @@
+# easystats 0.7.5.x
+
+* library(easystats) now politely respects arguments `quietly = TRUE` and `verbose = FALSE` to hide startup messages.
+
 # easystats 0.7.5
 
 * New function `easystats_citations()` to report the total number of Google
