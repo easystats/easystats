@@ -1,32 +1,33 @@
 .onAttach <- function(libname, pkgname) {
-  # Issue #459: Check if library() was called with quietly = TRUE
-  # We need to check the call stack to see if quietly=TRUE was passed
-  is_quiet <- FALSE
-  for (i in seq(sys.nframe(), 1, -1)) {
-    call <- sys.call(i)
-    if (!is.null(call) && length(call) > 0 &&
-      (identical(call[[1]], quote(library)) || identical(call[[1]], quote(require)))) {
-      # Check if 'quietly' argument is TRUE
-      matched_call <- match.call(get(as.character(call[[1]])), call)
-      quietly_val <- if ("quietly" %in% names(matched_call)) eval(matched_call$quietly, parent.frame(i)) else FALSE
-      if (isTRUE(quietly_val)) {
-        is_quiet <- TRUE
-        break
-      }
-    }
+  # Global kill switches
+  if (
+    isTRUE(getOption("easystats.quiet")) ||
+      identical(Sys.getenv("EASYSTATS_QUIET"), "1")
+  ) {
+    return(invisible())
   }
 
-  # If quietly mode, skip all startup messages
-  if (is_quiet) {
-    easystats_pkgs <- easystats_packages()
-    needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
+  cs <- sys.calls()
+  for (i in seq_along(cs)) {
+    fn <- try(sys.function(i), silent = TRUE)
+    if (
+      is.function(fn) &&
+        (identical(fn, base::library) || identical(fn, base::require))
+    ) {
+      mc <- match.call(fn, cs[[i]])
 
-    if (length(needed) > 0L) {
-      suppressPackageStartupMessages(suppressWarnings(
-        lapply(needed, library, character.only = TRUE, warn.conflicts = FALSE, quietly = TRUE)
-      ))
+      # quietly = TRUE → silence
+      if (!is.null(mc$quietly) && isTRUE(eval(mc$quietly, parent.frame(i)))) {
+        return(invisible())
+      }
+
+      # verbose = FALSE → silence
+      if (!is.null(mc$verbose) && isFALSE(eval(mc$verbose, parent.frame(i)))) {
+        return(invisible())
+      }
+
+      break
     }
-    return(invisible())
   }
 
   easystats_versions <- .easystats_version()
@@ -37,7 +38,12 @@
     return()
   }
 
-  easystats_versions <- easystats_versions[easystats_versions$package %in% needed, ]
+  easystats_versions <- easystats_versions[
+    easystats_versions$package %in% needed,
+  ]
+  # We intentionally attach the easystats packages when the meta-package is attached,
+  # mirroring the tidyverse pattern. This is an explicit UX choice for interactive use.
+  # nolint start: package_hooks_linter
   suppressPackageStartupMessages(suppressWarnings(
     lapply(
       easystats_versions$package,
@@ -46,6 +52,7 @@
       warn.conflicts = FALSE
     )
   ))
+  # nolint end
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]
@@ -62,14 +69,20 @@
   }
 
   final_message <- insight::color_text(
-    paste0("# Attaching packages: easystats ", utils::packageVersion("easystats")),
+    paste0(
+      "# Attaching packages: easystats ",
+      utils::packageVersion("easystats")
+    ),
     "blue"
   )
 
   if (any(needs_update)) {
     final_message <- paste0(final_message, insight::color_text(" (", "blue"))
     final_message <- paste0(final_message, insight::color_text("red", "red"))
-    final_message <- paste0(final_message, insight::color_text(" = needs update)", "blue"))
+    final_message <- paste0(
+      final_message,
+      insight::color_text(" = needs update)", "blue")
+    )
   }
 
   final_message <- paste0(final_message, "\n")
@@ -102,9 +115,15 @@
 
   for (i in seq_len(nrow(easystats_versions))) {
     if (needs_update[i]) {
-      final_message <- paste0(final_message, insight::color_text(symbol_warning, "red"))
+      final_message <- paste0(
+        final_message,
+        insight::color_text(symbol_warning, "red")
+      )
     } else {
-      final_message <- paste0(final_message, insight::color_text(symbol_tick, "green"))
+      final_message <- paste0(
+        final_message,
+        insight::color_text(symbol_tick, "green")
+      )
     }
 
     final_message <- paste0(
