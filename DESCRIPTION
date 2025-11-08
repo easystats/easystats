@@ -62,6 +62,7 @@ Imports:
     tools,
     utils
 Suggests:
+    callr,
     collapse,
     cranlogs,
     DHARMa,
