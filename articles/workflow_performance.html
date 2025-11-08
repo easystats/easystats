@@ -180,7 +180,7 @@ plot (<em>uniformity of residuals</em>).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
-<p><img src="workflow_performance_files/figure-html/unnamed-chunk-4-1.png" width="100%" height="100%"></p>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="100%" height="100%"></p>
 <p>Note that unlike <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>, which is a base R function to
 create diagnostic plots, <code><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model()</a></code> relies on
 <em>simulated residuals</em> for the Q-Q plot, which is more accurate
@@ -226,7 +226,7 @@ zero-inflation component:</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
-<p><img src="workflow_performance_files/figure-html/unnamed-chunk-6-1.png" width="100%" height="100%"></p>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="100%" height="100%"></p>
 <p>Looking at the above plots, the zero-inflation seems to be addressed
 properly (see especially <em>posterior predictive checks</em> and
 <em>uniformity of residuals</em>, the Q-Q plot). However, the
@@ -265,7 +265,7 @@ instead of using a Poisson distribution.</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
-<p><img src="workflow_performance_files/figure-html/unnamed-chunk-8-1.png" width="100%" height="100%"></p>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" width="100%" height="100%"></p>
 <p>Now we see that the plot showing <em>misspecified dispersion and
 zero-inflation</em> suggests that the overdispersion is better addressed
 than before. Let us check again:</p>
@@ -310,7 +310,7 @@ compare the models using <code><a href="https://easystats.github.io/performance/
 <span><span class="co">#&gt; model3 | glmmTMB | 1653.7 (&gt;.999) | 1654.8 (&gt;.999) | 1734.1 (&gt;.999) |    -1.275 |           0.032</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
-<p><img src="workflow_performance_files/figure-html/unnamed-chunk-10-1.png" width="100%" height="100%"></p>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" width="100%" height="100%"></p>
 <p>The weighted AIC and BIC range from 0 to 1, indicating better model
 fit the closer the value is to 1. The AICc is a corrected version of the
 AIC for small sample sizes. The Proper Scoring Rules range from -Inf to
@@ -415,7 +415,7 @@ might find a better distributional family for our model, and try
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html" class="external-link">check_model</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `check_outliers()` does not yet support models of class `glmmTMB`.</span></span></code></pre></div>
-<p><img src="workflow_performance_files/figure-html/unnamed-chunk-14-1.png" width="100%" height="100%"></p>
+<p><img src="workflow_performance_files/figure-html/unnamed-chunk-14-1.png" class="r-plt" width="100%" height="100%"></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
@@ -515,7 +515,7 @@ process.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.9000.</p>
 </div>
 
     </footer>

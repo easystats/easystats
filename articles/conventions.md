@@ -1,0 +1,105 @@
+# Coding style conventions
+
+Following conventions apply to the easystats-ecosystem, to ensure that
+function and argument names as well as element names for return-values
+follow a consistent pattern across all packages.
+
+**Importing other packages**
+
+- No full import, only selective import of functions
+
+- Use base-R wherever possible (to reduce hard dependencies)
+
+- Make sure R-version requirements are not too strict
+
+**Package versioning**
+
+- Package versions follow [Semantic Versioning](https://semver.org/)
+  conventions.
+
+- If pull requests include user-visible changes, the “developer” version
+  number should be increased (e.g. from 0.10.1.5 to 0.10.1.6). This
+  ensures that
+  [`easystats::install_latest()`](https://easystats.github.io/easystats/reference/install_latest.md)
+  will download the latest versions.
+
+**Helper-functions**
+
+- Own re-implementation of helper-functions, if it’s not too much effort
+  (e.g. I typically use own functions to check if a string starts / ends
+  with a pattern, or if an object (list, data frame) contains an element
+  with a given name (like
+  [`tibble::has_name()`](https://rlang.r-lib.org/reference/has_name.html)),
+  to reduce dependencies.
+
+**`print` functions**
+
+- `print` methods should invisibly return the original (unchanged) input
+  ([\#65](https://github.com/easystats/easystats/issues/65)).
+
+**Function names**
+
+- Lower case, underscore separated if more than one verb.
+
+- Common prefix for functions that focus on specific “tasks” or
+  workflows (e.g. **insight**, `get_*()` to get data, `find_*()` to find
+  information, or **performance**, `performance_*()` to compute measures
+  of model quality, `check_*()` to check model assumptions…).
+
+- Internal functions (that are not exported, like the previously
+  mentioned helper-functions) should always start with a `.` (e.g.,
+  `.do_some_internal_stuff()`).
+
+**Argument names**
+
+- lower case, underscore separated if more than one verb
+
+- arguments that refer to plot or table aesthetics (like size or alpha
+  of geoms) should follow the pattern `aesthetics_geomtype`,
+  e.g. `size_point`, `color_line` or `alpha_rope`.
+
+- *easystats* uses `by` to indicate grouping, not `group_by` or `at`.
+
+- Use `select` and `exclude` to select columns/variables, and `keep` or
+  `drop` to select rows/observations.
+
+- Handling `NA` values, especially removing missing values, is done with
+  `remove_na`.
+
+**Element / Column names** (for returned data frames)
+
+1.  First letter of the column name is capital, unless (6) applies
+    (*example:* `Parameter`).
+
+2.  First letter of nouns is capital, unless (6) applies (*example:*
+    `ROPE_Percentage`, `Prior_Scale`).
+
+3.  Using underscore rather than camelCase to separate words (*example:*
+    `CI_high`).
+
+4.  Multiple words: common/main part first and
+    adjective/specifier/variational part after, unless (8) applies
+    (*example:* `Median_standardized`, `ROPE_percentage`).
+
+5.  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`).
+
+6.  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`).
+
+7.  Adjectives / verbs: all lower case, unless (1) applies (*example:*
+    `high` or `low` in `CI_high` or `CI_low`).
+
+8.  In case of multiple occurrences of column names that indicate the
+    same measure or content (like `CI_low` or `SE`), the common part is
+    appended as suffix to the context specific part (*example:* `CI_low`
+    and `Eta2_partial_CI_low`, and **not** `CI_low` and
+    `CI_low_Eta2_partial`).
+
+9.  The “squared” term in column names that refers to “common”
+    statistics (`Eta2`, `Chi2`, `Omega2`, …) should be written as `2`,
+    not `sq`, `squared` or `pétit-deux` (*example:* `Chi2`, and **not**
+    `Chisq`, `Eta2`, and **not** `Eta_squared`). This rule does **not**
+    apply to function names.
+
+10. Converting between *easystats* style and *broom* style can be done
+    with
+    [`insight::standardize_names()`](https://easystats.github.io/insight/reference/standardize_names.html).

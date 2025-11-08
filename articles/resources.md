@@ -1,0 +1,51 @@
+# Learning resources
+
+## Introduction
+
+One of the best resources to learn about functionality afforded by
+`easystats` package is to read the dedicated websites for each package.
+A lot of love and work has gone into writing detailed function
+documentation and vignettes for these websites and we will highly
+recommend you check them out.
+
+But, we are certainly not the only ones talking about them, and below
+are some other resources that might be helpful for you to learn about
+`easystats` packages.
+
+## YouTube videos
+
+### `{performance}` package:
+
+- [Package review (Yury
+  Zablotski)](https://www.youtube.com/watch?v=EPIxQ5i5oxs)
+
+- [easystats: Quickly investigate model
+  performance](https://www.youtube.com/watch?v=Bi8sHIo3s1Y)
+
+### `{report}` package:
+
+- [Automate Textual Reports of Statistical Models in
+  R!](https://www.youtube.com/watch?v=_ypkrGyqyZ4)
+
+## Blog post / websites
+
+### `{modelbased}` package:
+
+- [modelbased for Quick and Beautiful Model
+  Visualization](https://imachordata.com/2025/07/25/modelbased-for-quick-and-beautiful-model-visualization/)
+
+## Presentations
+
+### `{bayestestR}` package:
+
+- [Evaluating Evidence and Making Decisions using Bayesian Statistics
+  (Mattan S.
+  Ben-Shachar)](https://mattansb.github.io/bayesian-evidence/)
+
+### `{modelbased}` package:
+
+- [Introduction into predictions and the {modelbased}
+  package](https://github.com/easystats/easystats/blob/main/presentations/modelbased/modelbased_means.pdf)
+
+- [Contrasts and Pairwise
+  Comparisons](https://github.com/easystats/easystats/blob/main/presentations/modelbased/modelbased_contrasts.pdf)

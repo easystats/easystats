@@ -1,0 +1,155 @@
+# Citing 'easystats'
+
+## Citation
+
+How to reference *easystats*?
+
+1.  **Cite specific packages**
+
+The most parsimonious approach is to cite only the particular package
+that helped you, e.g.,
+
+> “using *bayestestR* (Makowski, Ben-Shachar, & Lüdecke, 2019)”.
+
+2.  **Cite the whole ecosystem** ❤️
+
+Want to credit the whole *easystats* ecosystem of packages?
+
+This can be done with a sentence like the following:
+
+> Data processing was carried out with R (R Core Team, 2019) and the
+> *easystats* ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Lüdecke,
+> Ben-Shachar, Patil, Waggoner, & Makowski, 2021; Makowski, Ben-Shachar,
+> & Lüdecke, 2019; Makowski, Ben-Shachar, Patil, & Lüdecke, 2020;
+> Lüdecke, Ben-Shachar, Patil, & Makowski, 2020; Lüdecke et al., 2021;
+> Ben-Shachar, Lüdecke, & Makowski, 2020)
+
+- Lüdecke, D., Waggoner, P. D., & Makowski, D. (2019). insight: A
+  Unified Interface to Access Information from Model Objects in R.
+  *Journal of Open Source Software*, *4*, 1412.
+  <https://doi.org/10.21105/joss.01412>
+
+- Makowski, D., Ben-Shachar, M.S., & Lüdecke, D. (2019). bayestestR:
+  Describing Effects and their Uncertainty, Existence and Significance
+  within the Bayesian Framework. *Journal of Open Source Software*,
+  *4*(40), 1541. <https://doi.org/10.21105/joss.01541>
+
+- Makowski, D., Ben-Shachar, M.S., Patil, I., & Lüdecke, D. (2019).
+  Methods and Algorithms for Correlation Analysis in R. *Journal of Open
+  Source Software*, *5*(51), 2306. <https://doi.org/10.21105/joss.02306>
+
+- Lüdecke, D., Ben-Shachar, M.S., Patil, I., & Makowski, D. (2020).
+  parameters: Extracting, Computing and Exploring the Parameters of
+  Statistical Models using R. *Journal of Open Source Software*,
+  *5*(53), 2445. <https://doi.org/10.21105/joss.02445>
+
+- Ben-Shachar, M.S., Lüdecke, D., Makowski, D. (2020). effectsize:
+  Estimation of Effect Size Indices and Standardized Parameters.
+  *Journal of Open Source Software*, *5*(56), 2815.
+  <https://doi.org/10.21105/joss.02815>
+
+- Lüdecke, D., Ben-Shachar, M.S., Patil, I., Waggoner, P. D., &
+  Makowski, D. (2021). performance: An R Package for Assessment,
+  Comparison and Testing of Statistical Models. *Journal of Open Source
+  Software*, *6*(60), 3139. <https://doi.org/10.21105/joss.03139>
+
+- Lüdecke, D., Patil, I., Ben-Schachar, M.S., Wiernik, B.M., Waggoner,
+  P., & Makowski, D. (2021). see: An R Package for Visualizing
+  Statistical Models. *Journal of Open Source Software*, *6*(64), 3393,
+  <https://doi.org/10.21105/joss.03393>
+
+Click here to see the corresponding APA and bibtex entries
+
+  
+
+    @article{ludecke2019insight,
+        journal = {Journal of Open Source Software},
+        doi = {10.21105/joss.01412},
+        issn = {2475-9066},
+        number = {38},
+        publisher = {The Open Journal},
+        title = {insight: A Unified Interface to Access Information from Model Objects in R},
+        url = {http://dx.doi.org/10.21105/joss.01412},
+        volume = {4},
+        author = {Lüdecke, Daniel and Waggoner, Philip and Makowski, Dominique},
+        pages = {1412},
+        date = {2019-06-25},
+        year = {2019},
+        month = {6},
+        day = {25}
+    }
+
+
+    @article{makowski2019bayestestr,
+        title = {{bayestestR}: {Describing} {Effects} and their {Uncertainty}, {Existence} and {Significance} within the {Bayesian} {Framework}},
+        volume = {4},
+        issn = {2475-9066},
+        shorttitle = {{bayestestR}},
+        url = {https://joss.theoj.org/papers/10.21105/joss.01541},
+        doi = {10.21105/joss.01541},
+        number = {40},
+        urldate = {2019-08-13},
+        journal = {Journal of Open Source Software},
+        author = {Makowski, Dominique and Ben-Shachar, Mattan S. and Lüdecke, Daniel},
+        month = aug,
+        year = {2019},
+        pages = {1541}
+    }
+
+    @article{makowski2020correlation,
+      doi={10.21105/joss.02306},
+      title={Methods and Algorithms for Correlation Analysis in R},
+      author={Makowski, Dominique and Ben-Shachar, Mattan S. and Patil, Indrajeet and L{\"u}decke, Daniel},
+      journal={Journal of Open Source Software},
+      volume={5},
+      number={51},
+      pages={2306},
+      year={2020}
+    }
+
+    @article{ludecke20202parameters,
+      title = {parameters: Extracting, Computing and Exploring the Parameters of Statistical Models using {R}.},
+      volume = {5},
+      doi = {10.21105/joss.02445},
+      number = {53},
+      journal = {Journal of Open Source Software},
+      author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Dominique Makowski},
+      year = {2020},
+      pages = {2445},
+    }
+
+    @article{benchashar2020effectsize,
+      title = {{e}ffectsize: Estimation of Effect Size Indices and Standardized Parameters},
+      author = {Mattan S. Ben-Shachar and Daniel Lüdecke and Dominique Makowski},
+      year = {2020},
+      journal = {Journal of Open Source Software},
+      volume = {5},
+      number = {56},
+      pages = {2815},
+      publisher = {The Open Journal},
+      doi = {10.21105/joss.02815},
+      url = {https://doi.org/10.21105/joss.02815},
+    }
+
+    @Article{Lüdecke2021performance,
+        title = {{performance}: An {R} Package for Assessment, Comparison and Testing of Statistical Models},
+        author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Philip Waggoner and Dominique Makowski},
+        year = {2021},
+        journal = {Journal of Open Source Software},
+        volume = {6},
+        number = {60},
+        pages = {3139},
+        doi = {10.21105/joss.03139},
+      }
+      
+    @Article{Lüdecke2021see,
+        title = {{see}: An {R} Package for Visualizing Statistical Models},
+        author = {Daniel Lüdecke and Indrajeet Patil and Mattan S. Ben-Shachar and Brenton M. Wiernik and Philip Waggoner and Dominique Makowski},
+        journal = {Journal of Open Source Software},
+        year = {2021},
+        volume = {6},
+        number = {64},
+        pages = {3393},
+        doi = {10.21105/joss.03393},
+      }
+      
