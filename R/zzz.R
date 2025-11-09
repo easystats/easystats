@@ -1,5 +1,5 @@
 .support_unicode <- function() {
-  l10n_info()$`UTF-8` |
+  l10n_info()[["UTF-8"]] |
     isTRUE(.Options$cli.unicode) |
     nzchar(Sys.getenv("RSTUDIO_USER_IDENTITY"))
 }
@@ -104,7 +104,7 @@
   is_utf8_output <- function() {
     opt <- getOption("cli.unicode", NULL)
     if (is.null(opt)) {
-      l10n_info()$`UTF-8` && !is_latex_output()
+      l10n_info()[["UTF-8"]] && !is_latex_output()
     } else {
       isTRUE(opt)
     }
