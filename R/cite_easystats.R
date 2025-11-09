@@ -56,6 +56,8 @@ cite_easystats <- function(
 ) {
   format <- match.arg(format, choices = c("text", "markdown", "biblatex"))
   installed_packages <- utils::installed.packages()[, "Version"]
+
+  # Determine list of packages to cite
   if (length(packages) == 1 && packages == "all") {
     packages <- c(
       "easystats",
@@ -70,13 +72,19 @@ cite_easystats <- function(
       "see",
       "report"
     )
-    packages <- packages[packages %in% names(installed_packages)]
-  } else if (length(packages) == 1 && packages == "easystats") {
-    if (!packages %in% names(installed_packages)) {
-      installed_packages <- c(easystats = "")
+  }
+
+  # Handle missing packages (with special exception for easystats meta-package)
+  missing_packages <- setdiff(packages, names(installed_packages))
+  if (length(missing_packages)) {
+    # Special case: easystats meta-package is always available for citation
+    if ("easystats" %in% missing_packages) {
+      missing_packages <- setdiff(missing_packages, "easystats")
+      if (!"easystats" %in% names(installed_packages)) {
+        installed_packages <- c(installed_packages, easystats = "")
+      }
     }
-  } else {
-    missing_packages <- setdiff(packages, names(installed_packages))
+    # Report and remove other missing packages
     if (length(missing_packages)) {
       message(insight::format_message(
         "Requested package(s) not installed:",
@@ -121,7 +129,7 @@ cite_easystats <- function(
     if (sum(nzchar(letters_makowski_packages)) == 1) {
       letters_makowski_packages <- rep("", length(letters_makowski_packages))
     }
-    easystats <- "_easystats_"
+    easystats <- "easystats"
     cit_packages <- sprintf(
       "(%s)",
       toString(c(
@@ -450,11 +458,13 @@ cite_easystats <- function(
       )
     )
     ref_packages <- split(ref_packages, cumsum(!nzchar(ref_packages)))
+    # Match BibTeX entries where citation key starts with package name
+    # Keys are like "insightArticle", "insightPackage", etc.
     ref_packages_index <- grep(
       paste0(
-        "((article)|(software))\\{((",
-        paste(packages, collapse = ")|("),
-        "))"
+        "@(article|software)\\{(",
+        paste(packages, collapse = "|"),
+        ")(Article|Package)"
       ),
       ref_packages
     )
@@ -542,7 +552,7 @@ print.cite_easystats <- function(x, what = "all", ...) {
     insight::print_colour(
       sprintf(
         "Thanks for crediting us! %s You can cite the easystats ecosystem as follows:",
-        ifelse(.support_unicode, "\U1F600", ":)")
+        ifelse(.support_unicode(), "\U1F600", ":)")
       ),
       "blue"
     )
@@ -558,6 +568,14 @@ print.cite_easystats <- function(x, what = "all", ...) {
   }
   count <- sum(x)
   x[!x] <- ""
+  if (count > 26) {
+    warning(
+      "More than 26 packages require disambiguation letters. ",
+      "Only first 26 will be labeled.",
+      call. = FALSE
+    )
+    count <- 26
+  }
   x[nzchar(x)] <- letters[seq_len(count)]
   x
 }
