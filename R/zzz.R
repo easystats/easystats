@@ -1,4 +1,35 @@
 .onAttach <- function(libname, pkgname) {
+  # Global kill switches
+  if (
+    isTRUE(getOption("easystats.quiet")) ||
+      identical(Sys.getenv("EASYSTATS_QUIET"), "1")
+  ) {
+    return(invisible())
+  }
+
+  cs <- sys.calls()
+  for (i in seq_along(cs)) {
+    fn <- try(sys.function(i), silent = TRUE)
+    if (
+      is.function(fn) &&
+        (identical(fn, base::library) || identical(fn, base::require))
+    ) {
+      mc <- match.call(fn, cs[[i]])
+
+      # quietly = TRUE → silence
+      if (!is.null(mc$quietly) && isTRUE(eval(mc$quietly, parent.frame(i)))) {
+        return(invisible())
+      }
+
+      # verbose = FALSE → silence
+      if (!is.null(mc$verbose) && isFALSE(eval(mc$verbose, parent.frame(i)))) {
+        return(invisible())
+      }
+
+      break
+    }
+  }
+
   easystats_versions <- .easystats_version()
   easystats_pkgs <- easystats_packages()
   needed <- easystats_pkgs[!.is_attached(easystats_pkgs)]
@@ -7,7 +38,12 @@
     return()
   }
 
-  easystats_versions <- easystats_versions[easystats_versions$package %in% needed, ]
+  easystats_versions <- easystats_versions[
+    easystats_versions$package %in% needed,
+  ]
+  # We intentionally attach the easystats packages when the meta-package is attached,
+  # mirroring the tidyverse pattern. This is an explicit UX choice for interactive use.
+  # nolint start: package_hooks_linter
   suppressPackageStartupMessages(suppressWarnings(
     lapply(
       easystats_versions$package,
@@ -16,6 +52,7 @@
       warn.conflicts = FALSE
     )
   ))
+  # nolint end
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]
@@ -32,14 +69,20 @@
   }
 
   final_message <- insight::color_text(
-    paste0("# Attaching packages: easystats ", utils::packageVersion("easystats")),
+    paste0(
+      "# Attaching packages: easystats ",
+      utils::packageVersion("easystats")
+    ),
     "blue"
   )
 
   if (any(needs_update)) {
     final_message <- paste0(final_message, insight::color_text(" (", "blue"))
     final_message <- paste0(final_message, insight::color_text("red", "red"))
-    final_message <- paste0(final_message, insight::color_text(" = needs update)", "blue"))
+    final_message <- paste0(
+      final_message,
+      insight::color_text(" = needs update)", "blue")
+    )
   }
 
   final_message <- paste0(final_message, "\n")
@@ -72,9 +115,15 @@
 
   for (i in seq_len(nrow(easystats_versions))) {
     if (needs_update[i]) {
-      final_message <- paste0(final_message, insight::color_text(symbol_warning, "red"))
+      final_message <- paste0(
+        final_message,
+        insight::color_text(symbol_warning, "red")
+      )
     } else {
-      final_message <- paste0(final_message, insight::color_text(symbol_tick, "green"))
+      final_message <- paste0(
+        final_message,
+        insight::color_text(symbol_tick, "green")
+      )
     }
 
     final_message <- paste0(

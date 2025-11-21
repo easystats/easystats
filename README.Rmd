@@ -304,7 +304,7 @@ out <- out[out$date != last_month, ]
 out$date <- as.Date(out$date)
 
 # for custom breaks
-date_range <- range(out$date)
+date_range <- range(out$date, na.rm = TRUE)
 breaks <- seq(
   from = lubridate::floor_date(date_range[1], "year"),
   to = date_range[2],

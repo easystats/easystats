@@ -1,5 +1,4 @@
 AICc
-Bayesians
 CMD
 Fei
 Fo
@@ -36,8 +35,6 @@ modelbased
 modelsummary
 pak
 pandoc
-recoding
-recodings
 tidyr
 tidyverse
 variational
