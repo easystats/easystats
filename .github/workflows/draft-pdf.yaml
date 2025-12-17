@@ -1,4 +1,6 @@
 # TODO: delete this file once the paper is published
+permissions:
+  contents: read
 on:
   push:
     branches: [main]
