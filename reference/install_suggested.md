@@ -77,9 +77,9 @@ show_reverse_dependencies()
 #> 
 #> effectsize
 #> ----------
-#> apa7, AssumpSure, bruceR, easystats, markeR, multifear, psycho, report,
-#>   see, sjstats, statdecideR, statsExpressions, suRface.analytics, visvow,
-#>   volker
+#> apa7, AssumpSure, bruceR, colleyRstats, easystats, markeR, multifear,
+#>   negligible, psycho, report, see, sjstats, statdecideR, statsExpressions,
+#>   suRface.analytics, visvow, volker
 #> 
 #> insight
 #> -------
@@ -112,11 +112,11 @@ show_reverse_dependencies()
 #> 
 #> report
 #> ------
-#> easystats, SqueakR
+#> colleyRstats, easystats, SqueakR
 #> 
 #> see
 #> ---
-#> AssumpSure, easystats, jsmodule
+#> AssumpSure, colleyRstats, easystats, jsmodule
 #> 
 
 # listing all soft/weak dependencies of easystats packages
@@ -174,11 +174,11 @@ show_suggested()
 #> afex, BH, betareg, boot, bootES, brglm2, brms, coda, collapse,
 #>   correlation, coxme, curl, discovr, easystats, effectsize, emmeans,
 #>   Formula, gamm4, gganimate, ggplot2, glmmTMB, httr2, knitr, lme4,
-#>   lmerTest, logspline, MASS, Matrix, marginaleffects, mice, mgcv, mvtnorm,
-#>   nanoparquet, nnet, ordinal, palmerpenguins, performance, patchwork,
-#>   pbkrtest, poorman, pscl, RcppEigen, Rdatasets, report, rmarkdown,
-#>   rstanarm, rtdists, RWiener, sandwich, see, survival, testthat, tinyplot,
-#>   tinytable, vdiffr, withr
+#>   lmerTest, logspline, MASS, MatchIt, Matrix, marginaleffects, mice, mgcv,
+#>   mvtnorm, nanoparquet, nnet, ordinal, palmerpenguins, performance,
+#>   patchwork, pbkrtest, poorman, pscl, RcppEigen, Rdatasets, report,
+#>   rmarkdown, rstanarm, rtdists, RWiener, sandwich, scales, see, survival,
+#>   testthat, tinyplot, tinytable, vdiffr, withr
 #> 
 #> parameters
 #> ----------
