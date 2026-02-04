@@ -60,7 +60,7 @@ This can be done with a sentence like the following:
 
 Click here to see the corresponding APA and bibtex entries
 
-  
+\
 
     @article{ludecke2019insight,
         journal = {Journal of Open Source Software},

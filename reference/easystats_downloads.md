@@ -42,17 +42,17 @@ monthly downloads.
 easystats_downloads()
 #> Package     |      Total | Monthly
 #> ----------------------------------
-#> insight     |  9,628,617 | 117,422
-#> datawizard  |  6,344,656 | 115,357
-#> performance |  4,269,582 |  52,711
-#> parameters  |  4,217,196 |  54,769
-#> bayestestR  |  4,131,906 |  51,011
-#> effectsize  |  3,139,242 |  42,422
-#> correlation |  1,182,753 |  16,896
-#> see         |    944,152 |  11,802
-#> modelbased  |    671,467 |   9,326
-#> report      |    343,305 |   6,023
-#> easystats   |    146,538 |   3,574
-#> Total       | 35,019,414 | 481,313
+#> insight     |  9,763,926 | 117,638
+#> datawizard  |  6,447,095 | 115,127
+#> performance |  4,349,302 |  53,040
+#> parameters  |  4,279,464 |  54,865
+#> bayestestR  |  4,196,169 |  51,173
+#> effectsize  |  3,182,371 |  42,432
+#> correlation |  1,202,193 |  16,932
+#> see         |    962,016 |  11,877
+#> modelbased  |    687,849 |   9,423
+#> report      |    351,890 |   6,067
+#> easystats   |    151,452 |   3,606
+#> Total       | 35,573,727 | 482,180
 # }
 ```

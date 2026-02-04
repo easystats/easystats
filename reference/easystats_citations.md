@@ -34,24 +34,24 @@ A data frame of four columns: title, journal, year, and cites.
 ``` r
 # \dontrun{
 easystats_citations()
-#> Title                             |                   Journal | Year |  Cites
-#> -----------------------------------------------------------------------------
-#> modelbased: An R package to...    | Journal of Open Source... | 2025 |    116
-#> Choosing informative priors in... |                           | 2025 |      0
-#> Check your outliers! An...        | Behavior Research Methods | 2024 |     55
-#> Phi, Fei, Fo, Fum: effect...      |               Mathematics | 2023 |     43
-#> datawizard: An R package for...   | Journal of Open Source... | 2022 |     57
-#> performance: An R package for...  | Journal of Open Source... | 2021 |  5,903
-#> see: An R package for...          | Journal of Open Source... | 2021 |    148
-#> effectsize: Estimation of...      | Journal of open source... | 2020 |  2,092
-#> Methods and algorithms for...     | Journal of Open Source... | 2020 |    825
-#> Extracting, computing and...      | Journal of Open Source... | 2020 |    553
-#> The {easystats} collection of...  |                    GitHub | 2020 |    123
-#> Effectsize: estimation of...      |                           | 2020 |     52
-#> bayestestR: Describing Effects... | Journal of Open Source... | 2019 |  1,659
-#> Indices of Effect Existence...    |   Frontiers in Psychology | 2019 |    984
-#> insight: A Unified Interface...   | Journal of Open Source... | 2019 |    146
-#> The report package for R:...      |                      CRAN | 2019 |     57
-#> Total                             |                           |      | 12,813
+#> Title                             |                          Journal | Year |  Cites
+#> ------------------------------------------------------------------------------------
+#> modelbased: An R package to...    |        Journal of Open Source... | 2025 |    121
+#> Choosing informative priors in... |                                  | 2025 |      0
+#> Check your outliers! An...        |        Behavior Research Methods | 2024 |     56
+#> Automated Results reporting as... | URL https://easystats. github... | 2023 |     12
+#> Phi, Fei, Fo, Fum: effect...      |                      Mathematics | 2023 |     46
+#> datawizard: An R package for...   |        Journal of Open Source... | 2022 |     58
+#> performance: An R package for...  |        Journal of Open Source... | 2021 |  6,068
+#> see: An R package for...          |        Journal of Open Source... | 2021 |    152
+#> effectsize: Estimation of...      |        Journal of open source... | 2020 |  2,156
+#> Methods and algorithms for...     |        Journal of Open Source... | 2020 |    833
+#> Extracting, computing and...      |        Journal of Open Source... | 2020 |    569
+#> The {easystats} collection of...  |                           GitHub | 2020 |    129
+#> bayestestR: Describing Effects... |        Journal of Open Source... | 2019 |  1,676
+#> Indices of Effect Existence...    |          Frontiers in Psychology | 2019 |  1,004
+#> insight: A Unified Interface...   |        Journal of Open Source... | 2019 |    146
+#> The report package for R:...      |                             CRAN | 2019 |     62
+#> Total                             |                                  |      | 13,088
 # }
 ```

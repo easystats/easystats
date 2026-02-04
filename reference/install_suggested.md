@@ -60,7 +60,7 @@ show_reverse_dependencies()
 #> ----------
 #> BaHZING, bayesMeanScale, brmsmargins, clinicalsignificance, correlation,
 #>   easystats, eDNAjoint, effectsize, fbst, GCEstim, LoTTA, modelbased,
-#>   movedesign, multifear, neatStats, parameters, pcvr, performance, psycho,
+#>   movedesign, multifear, parameters, pcvr, performance, psycho, repmod,
 #>   report, rstanbdp, see, sjPlot, snSMART, SSVS, statsExpressions,
 #>   survregVB
 #> 
@@ -73,13 +73,13 @@ show_reverse_dependencies()
 #> ----------
 #> bayestestR, correlation, easystats, effectsize, ggeffects, ggstatsplot,
 #>   modelbased, parameters, performance, report, see, sjlabelled, sjmisc,
-#>   sjPlot, sjstats, statsExpressions
+#>   sjPlot, sjstats, starling, statsExpressions
 #> 
 #> effectsize
 #> ----------
 #> apa7, AssumpSure, bruceR, colleyRstats, easystats, markeR, multifear,
-#>   negligible, psycho, report, see, sjstats, statdecideR, statsExpressions,
-#>   suRface.analytics, visvow, volker
+#>   negligible, psycho, report, see, sjstats, smsets, statdecideR,
+#>   statsExpressions, suRface.analytics, visvow, volker
 #> 
 #> insight
 #> -------
@@ -164,10 +164,11 @@ show_suggested()
 #>   mice, mlogit, mmrm, modelbased, multgee, MuMIn, mvtnorm, nestedLogit,
 #>   nlme, nnet, nonnest2, ordinal, panelr, parameters, parsnip, pbkrtest,
 #>   performance, phylolm, plm, PROreg, pscl, psych, quantreg, Rcpp,
-#>   RcppEigen, rmarkdown, rms, robustbase, robustlmm, rpart, rstanarm,
-#>   rstantools, rstudioapi, RWiener, sandwich, sdmTMB, sampleSelection,
-#>   serp, speedglm, splines, statmod, survey, survival, svylme, testthat,
-#>   tinytable, TMB, truncreg, tune, tweedie, VGAM, WeightIt, withr
+#>   RcppEigen, recipes, rmarkdown, rms, robustbase, robustlmm, rpart,
+#>   rstanarm, rstantools, rstudioapi, RWiener, sandwich, sdmTMB,
+#>   sampleSelection, serp, speedglm, splines, statmod, survey, survival,
+#>   svylme, testthat, tidymodels, tinytable, TMB, truncreg, tune, tweedie,
+#>   VGAM, WeightIt, withr, workflows
 #> 
 #> modelbased
 #> ----------
