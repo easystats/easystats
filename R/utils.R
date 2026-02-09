@@ -29,6 +29,8 @@
   # save timeout default. for this function, we want to reduce the timeout
   # for bad internet connections, see #466
   user_timeout <- getOption("timeout")
+  # set back timeout on exit
+  on.exit(options(timeout = user_timeout), add = TRUE)
 
   # set timout to a maximum of 10 seconds
   options(timeout = max(10, user_timeout))
@@ -80,9 +82,6 @@
       row.names = NULL
     )
   }
-
-  # set back timeout
-  options(timeout = user_timeout)
 
   out
 }
