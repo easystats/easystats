@@ -21,10 +21,10 @@ authors:
 - affiliation: 6
   name: Rémi Thériault
   orcid: 0000-0003-4315-6788
-- affiliation: "7, 8"
+- affiliation: "7"
   name: Philip D. Waggoner
   orcid: 0000-0002-7825-7573
-- affiliation: "9, 10"
+- affiliation: "8, 9"
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
 affiliations:
@@ -41,12 +41,10 @@ affiliations:
 - index: 6
   name: Department of Psychology, New York University, New York, NY, USA
 - index: 7
-  name: Department of Applied Mathematics and Statistics, Colorado School of Mines, Golden, CO, USA
-- index: 8
   name: School of Medicine, Stanford University, Stanford, CA, USA
-- index: 9
+- index: 8
   name: School of Psychology, University of Sussex, Brighton, UK
-- index: 10
+- index: 9
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
 date: "`r Sys.Date()`"
