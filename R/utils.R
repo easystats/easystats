@@ -1,6 +1,10 @@
 .easystats_deps <- function() {
   pkgs <- utils::available.packages()
-  deps <- tools::package_dependencies(easystats_packages(), pkgs, recursive = FALSE)
+  deps <- tools::package_dependencies(
+    easystats_packages(),
+    pkgs,
+    recursive = FALSE
+  )
   pkg_deps <- unique(sort(unlist(deps)))
 
   default_pkgs <- rownames(utils::installed.packages(priority = "base"))
@@ -22,10 +26,20 @@
 
 
 .easystats_version <- function() {
+  # save timeout default. for this function, we want to reduce the timeout
+  # for bad internet connections, see #466
+  user_timeout <- getOption("timeout")
+
+  # set timout to a maximum of 10 seconds
+  options(timeout = max(10, user_timeout))
+
   pkgs <- tryCatch(
     {
       utils::available.packages(
-        contriburl = utils::contrib.url("https://cloud.r-project.org", type = getOption("pkgType"))
+        contriburl = utils::contrib.url(
+          "https://cloud.r-project.org",
+          type = getOption("pkgType")
+        )
       )
     },
     warning = function(w) {
@@ -66,6 +80,10 @@
       row.names = NULL
     )
   }
+
+  # set back timeout
+  options(timeout = user_timeout)
+
   out
 }
 
@@ -77,10 +95,20 @@
 #'
 #' @examples
 #' easystats_packages()
-easystats_packages <- function() { # nocov start
+easystats_packages <- function() {
+  # nocov start
   c(
-    "bayestestR", "correlation", "datawizard", "easystats", "effectsize",
-    "insight", "modelbased", "performance", "parameters", "report", "see"
+    "bayestestR",
+    "correlation",
+    "datawizard",
+    "easystats",
+    "effectsize",
+    "insight",
+    "modelbased",
+    "performance",
+    "parameters",
+    "report",
+    "see"
   )
 } # nocov end
 
