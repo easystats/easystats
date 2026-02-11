@@ -21,10 +21,10 @@ authors:
 - affiliation: 6
   name: Rémi Thériault
   orcid: 0000-0003-4315-6788
-- affiliation: "7, 8"
+- affiliation: "7"
   name: Philip D. Waggoner
   orcid: 0000-0002-7825-7573
-- affiliation: "9, 10"
+- affiliation: "8, 9"
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
 affiliations:
@@ -41,15 +41,13 @@ affiliations:
 - index: 6
   name: Department of Psychology, New York University, New York, NY, USA
 - index: 7
-  name: Department of Applied Mathematics and Statistics, Colorado School of Mines, Golden, CO, USA
-- index: 8
   name: School of Medicine, Stanford University, Stanford, CA, USA
-- index: 9
+- index: 8
   name: School of Psychology, University of Sussex, Brighton, UK
-- index: 10
+- index: 9
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
-date: "2025-09-29"
+date: "2026-02-11"
 bibliography: paper.bib
 # abstract: |
 #   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
