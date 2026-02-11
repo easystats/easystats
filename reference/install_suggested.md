@@ -164,8 +164,8 @@ show_suggested()
 #>   mice, mlogit, mmrm, modelbased, multgee, MuMIn, mvtnorm, nestedLogit,
 #>   nlme, nnet, nonnest2, ordinal, panelr, parameters, parsnip, pbkrtest,
 #>   performance, phylolm, plm, PROreg, pscl, psych, quantreg, Rcpp,
-#>   RcppEigen, recipes, rmarkdown, rms, robustbase, robustlmm, rpart,
-#>   rstanarm, rstantools, rstudioapi, RWiener, sandwich, sdmTMB,
+#>   RcppEigen, reformulas, recipes, rmarkdown, rms, robustbase, robustlmm,
+#>   rpart, rstanarm, rstantools, rstudioapi, RWiener, sandwich, sdmTMB,
 #>   sampleSelection, serp, speedglm, splines, statmod, survey, survival,
 #>   svylme, testthat, tidymodels, tinytable, TMB, truncreg, tune, tweedie,
 #>   VGAM, WeightIt, withr, workflows

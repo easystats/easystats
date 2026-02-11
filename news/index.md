@@ -4,8 +4,12 @@
 
 CRAN release: 2025-07-11
 
-- library(easystats) now politely respects arguments `quietly = TRUE`
-  and `verbose = FALSE` to hide startup messages.
+- [`library(easystats)`](https://easystats.github.io/easystats/) is now
+  faster for bad internet connections.
+
+- [`library(easystats)`](https://easystats.github.io/easystats/) now
+  politely respects arguments `quietly = TRUE` and `verbose = FALSE` to
+  hide startup messages.
 
 ## easystats 0.7.5
 
