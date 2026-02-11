@@ -1,8 +1,6 @@
 # Changelog
 
-## easystats 0.7.5.x
-
-CRAN release: 2025-07-11
+## easystats 0.7.6
 
 - [`library(easystats)`](https://easystats.github.io/easystats/) is now
   faster for bad internet connections.
