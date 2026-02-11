@@ -33,7 +33,7 @@
   on.exit(options(timeout = user_timeout), add = TRUE)
 
   # set timout to a maximum of 10 seconds
-  options(timeout = max(10, user_timeout))
+  options(timeout = min(10, user_timeout))
 
   pkgs <- tryCatch(
     {
