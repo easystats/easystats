@@ -1,4 +1,4 @@
-# easystats 0.7.5.x
+# easystats 0.7.6
 
 * `library(easystats)` is now faster for bad internet connections.
 
