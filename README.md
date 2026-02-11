@@ -20,6 +20,34 @@ your life. And, who knows, you might even end up using them all.
 
 <img src="man/figures/logo_wall.png" alt="" width="600px" style="display: block; margin: auto;" />
 
+## Statement of Need
+
+R is a powerful language for statistical computing, but its capabilities
+are scattered across a fragmented landscape of packages. Conducting a
+full analysis consisting of data manipulation, modeling, diagnostics,
+interpretation, and visualization, often requires juggling multiple
+tools with different syntax, design principles, outputs, and classes.
+This creates barriers for newcomers and inefficiencies even for
+experienced users.
+
+The **easystats** ecosystem addresses this challenge by enabling a
+seamless workflow from data exploration to result communication, while
+nudging users toward good, reproducible and transparent statistical
+practices with sensible defaults and clear documentation. The packages
+in this ecosystem share consistent syntax and integrate seamlessly,
+making robust analysis more accessible while reducing cognitive load for
+novice and experienced R users alike.
+
+The modular and lightweight nature of the **easystats** ecosystem
+enables developers to use and integrate in other packages only the
+necessary components. For example, `{insight}`, a dependency-free
+package for retrieving model information, is utilized by 45 other CRAN
+packages, such as `{marginaleffects}` and `{gtsummary}`. In contrast,
+the `{easystats}` meta-package provides users with a cohesive
+experience, granting access to the entire ecosystem and its consistent
+design principles without needing to know the specific package of each
+function.
+
 ## Installation
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/easystats)](https://cran.r-project.org/package=easystats)
