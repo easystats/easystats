@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the easystats"
+title: "easystats: A Unified Framework for Statistical Analysis in R"
 tags:
   - R
 authors:
@@ -16,48 +16,195 @@ authors:
   name: Brenton M. Wiernik
   orcid: 0000-0001-9560-6336
 - affiliation: 5
-  name: Philip Waggoner
-  orcid: 0000-0002-7825-7573
+  name: Etienne Bacher
+  orcid: 0000-0002-9271-5075
 - affiliation: 6
+  name: Rémi Thériault
+  orcid: 0000-0003-4315-6788
+- affiliation: "7"
+  name: Philip D. Waggoner
+  orcid: 0000-0002-7825-7573
+- affiliation: "8, 9"
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
 affiliations:
 - index: 1
   name:  University Medical Center Hamburg-Eppendorf, Germany
 - index: 2
-  name: Ben-Gurion University of the Negev, Israel
+  name: Independent Researcher, Ramat Gan, Israel
 - index: 3
-  name: Center for Humans and Machines, Max Planck Institute for Human Development, Berlin, Germany
+  name: Carl Zeiss AG, Munich, Germany
 - index: 4
-  name: Department of Psychology, University of South Florida, USA 
+  name: Independent Researcher, Tampa, FL, USA
 - index: 5
-  name: University of Chicago, USA
+  name: Luxembourg Institute of Socio-Economic Research (LISER), Luxembourg
 - index: 6
-  name: Nanyang Technological University, Singapore
-date: "2021-05-16"
+  name: Department of Psychology, New York University, New York, NY, USA
+- index: 7
+  name: School of Medicine, Stanford University, Stanford, CA, USA
+- index: 8
+  name: School of Psychology, University of Sussex, Brighton, UK
+- index: 9
+  name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
+type: article
+date: "2026-02-11"
 bibliography: paper.bib
-output: rticles::joss_article
+# abstract: |
+#   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
+keywords: |
+  R; easystats
+acknowledgement: |
+  *{easystats}* is part of the collaborative [*easystats*](https://github.com/easystats/easystats) ecosystem. Thus, we thank all [members of easystats](https://github.com/orgs/easystats/people), contributors, and users alike.
+authorcontributions: |
+  D.L. and D.M. drafted the paper; all authors contributed to both the writing of the paper and the conception of the software.
+funding: |
+  This research received no external funding.
+conflictsofinterest: |
+  The authors declare no conflict of interest.
+output:
+  rticles::joss_article
+journal:
+  pissn: 2475-9066
 csl: apa.csl
-journal: JOSS
-link-citations: yes
 ---
 
 
 
 # Summary
 
+The **easystats** project is a collection of R packages that provides a unified and intuitive framework for data wrangling and statistical analysis. They implement functionalities designed to be *user-friendly* (e.g., transparent names of functions and arguments, comprehensive documentation, sensible defaults), *consistent* (similar syntax and design principles across packages), and *interoperable* (seamless integration between packages).
+
+The packages are specialized for different stages of the statistical workflow, such as data wrangling [`{datawizard}`, @patil_datawizard_2022], model assessment [`{performance}`, @Lüdecke2020performance], understanding and describing model parameters [`{parameters}`, @Lüdecke2020parameters], including Bayesian models [`{bayestestR}`, @Makowski2019; @makowski2019indices], computation of effect sizes [`{effectsize}`, @Ben-Shachar2020], calculating and visualizing marginal effects [`{modelbased}`, @Makowski2025modelbased], and generating publication-ready figures [`{see}`, @ludecke_see_2021] or reports of statistical models [`{report}`, @report_remi_2023].
+
 
 # Statement of Need
 
+R is a powerful language for statistical computing, but its capabilities are scattered across a fragmented landscape of packages. Conducting a full analysis consisting of data manipulation, modeling, diagnostics, interpretation, and visualization, often requires juggling multiple tools with different syntax, design principles, outputs, and classes. This creates barriers for newcomers and inefficiencies even for experienced users.
+
+The **easystats** ecosystem addresses this challenge by enabling a seamless workflow from data exploration to result communication, while nudging users toward good, reproducible and transparent statistical practices with sensible defaults and clear documentation. The packages in this ecosystem share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load for novice and experienced R users alike.
+
+The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021]. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
+
+Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
+
+
+# A Harmonized and Integrated Workflow
+
+A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model. This can include checking the model's parameters, performance metrics, specific effect sizes [e.g., @ben2023phi], and statistical outliers [@theriault2024check], as well as obtaining publication-ready figures and written summaries of the results.
+
+Let's demonstrate this with an example, where the user wants to fit a mixed effects model:
+
+
+``` r
+# we don't load each package individually,
+# but rather the entire ecosystem
+library(easystats)
+data(fish, package = "modelbased")
+
+# rename variable
+fish <- data_rename(fish, select = c(treat = "camper"))
+
+# fit mixed model
+model <- glmmTMB::glmmTMB(
+  count ~ treat * persons + (1 | ID),
+  data = fish,
+  family = poisson()
+)
+```
+
+The `model` object can then be passed to functions from different **easystats** packages. For instance, the user can get a summary of the model parameters using the `{parameters}` package:
+
+
+``` r
+model_parameters(model)
+#> # Fixed Effects
+#> 
+#> Parameter           | Log-Mean |   SE |         95% CI |     z |      p
+#> -----------------------------------------------------------------------
+#> (Intercept)         |    -0.74 | 0.32 | [-1.36, -0.12] | -2.33 | 0.020 
+#> treat [1]           |    -0.83 | 0.29 | [-1.41, -0.25] | -2.81 | 0.005 
+#> persons             |     0.39 | 0.07 | [ 0.24,  0.53] |  5.25 | < .001
+#> treat [1] × persons |     0.60 | 0.09 | [ 0.42,  0.77] |  6.78 | < .001
+#> 
+#> # Random Effects
+#> 
+#> Parameter          | Coefficient |       95% CI
+#> -----------------------------------------------
+#> SD (Intercept: ID) |        0.42 | [0.20, 0.86]
+```
+
+Then, the performance of the model can be assessed with the `{performance}` package:
+
+
+``` r
+model_performance(
+  model,
+  metrics = c("AIC", "BIC", "R2")
+)
+#> # Indices of model performance
+#> 
+#> AIC    |    BIC | R2 (cond.) | R2 (marg.)
+#> -----------------------------------------
+#> 2375.5 | 2393.1 |      0.796 |      0.661
+```
+
+The results can be visualized using the `{see}` package by, for example, plotting the model's predictions from `{modelbased}` (Figure 1):
+
+
+``` r
+predictions <- estimate_means(model, c("persons", "treat"))
+plot(predictions) +
+  theme_modern(show.ticks = TRUE) + # add nice theme
+  scale_color_material() # add some nice colors
+```
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{paper_files/figure-latex/fig1-1} \caption{Predicted probability of alertness by treatment group.}\label{fig:fig1}
+\end{figure}
+
+Finally, a full report of the analysis can be generated with the `{report}` package:
+
+
+
+
+``` r
+report(model)
+#> We fitted a poisson mixed model (estimated using ML and nlminb
+#> optimizer) to predict count with treat and persons (formula: count ~
+#> treat * persons). The model included ID as random effect (formula:
+#> ~1 | ID). The model's total explanatory power is substantial
+#> (conditional R2 = 0.80) and the part related to the fixed effects
+#> alone (marginal R2) is of 0.66. The model's intercept, corresponding
+#> to treat = 0 and persons = 0, is at -0.74 (95% CI [-1.36, -0.12], p
+#> = 0.020). Within this model:
+#> 
+#>   - The effect of treat [1] is statistically significant and negative
+#> (beta = -0.83, 95% CI [-1.41, -0.25], p = 0.005)
+#>   - The effect of persons is statistically significant and positive
+#> (beta = 0.39, 95% CI [0.24, 0.53], p < .001)
+#>   - The effect of treat [1] × persons is statistically significant and
+#> positive (beta = 0.60, 95% CI [0.42, 0.77], p < .001)
+#> 
+#> Standardized parameters were obtained by fitting the model on a
+#> standardized version of the dataset. 95% Confidence Intervals (CIs)
+#> and p-values were computed using a Wald z-distribution
+#> approximation.
+```
+
+The `model_dashboard()` function generates an interactive model summary, integrating several **easystats** steps into a single command. Since this paper is a static document, Figure 2 provides a static screenshot of the interactive report.
+
+![Screenshot of the "Model fit" tab from the interactive dashboard](dashboard.png){width=100%}
+
+This seamless integration between **easystats** packages allows users to move from model fitting and interpretation to visualization and reporting in a fluid and intuitive way, without having to learn different syntaxes, data structures, or idiosyncratic software design choices.
+
+To get the newest features from the rapidly developing **easystats** ecosystem, users can run `easystats::install_latest()`. It conveniently installs the latest development version of every package in the project.
 
 # Licensing and Availability
 
-*easystats* is licensed under the GNU General Public License (v3.0), with all source code stored at GitHub (<https://github.com/easystats/easystats>), and with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
+The release version of `{easystats}` is available for download from [CRAN](https://doi.org/10.32614/CRAN.package.easystats), whereas development versions are available from the [R-universe](https://easystats.r-universe.dev/easystats) and [GitHub](https://github.com/easystats/easystats/). The package is licensed under the MIT-License, with all source code stored at GitHub (<https://github.com/easystats/easystats>), with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
 
 # Acknowledgments
 
-*easystats* is part of the collaborative [*easystats*](https://github.com/easystats/easystats) ecosystem. Thus, we thank the [members of easystats](https://github.com/orgs/easystats/people) as well as the users.
+`{easystats}` is part of the collaborative [**easystats** ecosystem](https://easystats.github.io/easystats/). Thus, we thank all [members of easystats](https://github.com/orgs/easystats/people), contributors, and users alike.
 
 # References
-
-
