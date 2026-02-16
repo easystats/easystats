@@ -47,7 +47,7 @@ affiliations:
 - index: 9
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
-date: "2026-02-11"
+date: "2026-02-16"
 bibliography: paper.bib
 # abstract: |
 #   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
@@ -85,10 +85,13 @@ The **easystats** ecosystem addresses this challenge by enabling a seamless work
 
 The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` [@arel-bundock_how_2024] and `{gtsummary}` [@gtsummary2021]. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
 
+
+# State of the field
+
 Other R ecosystems or packages often serve different purposes. The `{tidyverse}` [@Wickham2019], for example, provides foundational framework for data manipulation and visualisation but does not focus on the intricacies of statistical model interpretation and reporting. Specialist packages like `{lme4}` [@bates_fitting_2015] for mixed-effects models or `{brms}` [@burkner2017brms] for Bayesian analysis are essential tools, but **easystats** serves as a complementary meta-layer that provides a single, easy-to-learn interface for interacting with the outputs from these and many other modeling packages. This allows analysts and researchers to focus on scientific questions rather than the technical idiosyncrasies of software implementations. **easystats** meets a critical need when doing statistics in R by delivering a coherent, intuitive suite of tools that span the statistical modeling pipeline.
 
 
-# A Harmonized and Integrated Workflow
+# Software design: A Harmonized and Integrated Workflow
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model. This can include checking the model's parameters, performance metrics, specific effect sizes [e.g., @ben2023phi], and statistical outliers [@theriault2024check], as well as obtaining publication-ready figures and written summaries of the results.
 
@@ -199,9 +202,40 @@ This seamless integration between **easystats** packages allows users to move fr
 
 To get the newest features from the rapidly developing **easystats** ecosystem, users can run `easystats::install_latest()`. It conveniently installs the latest development version of every package in the project.
 
+# Research impact statement
+
+The **easystats** ecosystem has a substantial realized impact across the scientific community, as shown by the high citation counts of its related publications only from the Journal of Open Source Software (Table 1). For example, the `{performance}` and `{bayestestR}` packages alone have over 6,000 and 1,600 citations, respectively (statistic from February 2026). Because a typical analysis leverages multiple **easystats** packages sequentially throughout the statistical workflow, this meta-package paper provides researchers with a single, unified citation to streamline referencing and to avoid the need for excessive citations.
+
+
+``` r
+easystats_citations()
+```
+
+
+Table: Citations of easystats papers published in JOSS
+
+|Title                                                 | Year | Cites|
+|:-----------------------------------------------------|:-----|-----:|
+|modelbased: An R package to make the most out of...   |2,025 |   123|
+|datawizard: An R package for easy data preparation... |2,022 |    60|
+|performance: An R package for assessment,...          |2,021 | 6,057|
+|see: An R package for visualizing statistical...      |2,021 |   155|
+|Methods and algorithms for correlation analysis in... |2,020 |   850|
+|Extracting, computing and exploring the parameters... |2,020 |   580|
+|bayestestR: Describing Effects and their...           |2,019 | 1,673|
+|insight: A Unified Interface to Access Information... |2,019 |   144|
+
+
+
+
 # Licensing and Availability
 
 The release version of `{easystats}` is available for download from [CRAN](https://doi.org/10.32614/CRAN.package.easystats), whereas development versions are available from the [R-universe](https://easystats.r-universe.dev/easystats) and [GitHub](https://github.com/easystats/easystats/). The package is licensed under the MIT-License, with all source code stored at GitHub (<https://github.com/easystats/easystats>), with a corresponding issue tracker for bug reporting and feature enhancements. In the spirit of honest and open science, we encourage requests, tips for fixes, feature updates, as well as general questions and concerns via direct interaction with contributors and developers.
+
+# AI usage disclosure
+
+No generative AI was used in software creation, writing the documentation or the paper.
+
 
 # Acknowledgments
 
