@@ -241,6 +241,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`cohens_w`**](https://easystats.github.io/effectsize/reference/phi.html)
   *(effectsize)*
+- [**`collapse_by_group`**](https://easystats.github.io/modelbased/reference/collapse_by_group.html)
+  *(modelbased)*
 - [**`colnames_to_row`**](https://easystats.github.io/datawizard/reference/colnames.html)
   *(datawizard)*
 - [**`color_if`**](https://easystats.github.io/insight/reference/color_if.html)

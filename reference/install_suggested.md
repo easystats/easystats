@@ -83,8 +83,8 @@ show_reverse_dependencies()
 #> 
 #> insight
 #> -------
-#> aggreCAT, ale, BayesMoFo, bayestestR, bregr, bsitar, candisc, clarify,
-#>   clinicalsignificance, correlation, cv, datawizard, DImodelsVis,
+#> adrftools, aggreCAT, ale, BayesMoFo, bayestestR, bregr, bsitar, candisc,
+#>   clarify, clinicalsignificance, correlation, cv, datawizard, DImodelsVis,
 #>   easystats, EcoMetrics, effects, effectsize, ggDoE, ggeffects,
 #>   ggstatsplot, insurancerating, lavaanExtra, marginaleffects, modelbased,
 #>   modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg, parameters,
