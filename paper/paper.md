@@ -47,7 +47,7 @@ affiliations:
 - index: 9
   name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
-date: "2026-02-16"
+date: "2026-02-20"
 bibliography: paper.bib
 # abstract: |
 #   The R ecosystem for statistical analysis is powerful but fragmented, requiring users to learn and combine numerous packages, often with inconsistent syntaxes. This presents a significant barrier to building a seamless and reproducible analytical workflow. The **easystats** project addresses this challenge by providing a unified and intuitive framework for statistical analysis in R. This ecosystem consists of a suite of interoperable packages, each designed for a specific stage of the statistical workflow. By offering a consistent design and syntax across packages, **easystats** simplifies the process of conducting, interpreting, and reporting statistical analyses. This lowers the cognitive load for users, making robust statistical methods more accessible to both novices and experts.
@@ -204,28 +204,7 @@ To get the newest features from the rapidly developing **easystats** ecosystem, 
 
 # Research impact statement
 
-The **easystats** ecosystem has a substantial realized impact across the scientific community, as shown by the high citation counts of its related publications only from the Journal of Open Source Software (Table 1). For example, the `{performance}` and `{bayestestR}` packages alone have over 6,000 and 1,600 citations, respectively (statistic from February 2026). Because a typical analysis leverages multiple **easystats** packages sequentially throughout the statistical workflow, this meta-package paper provides researchers with a single, unified citation to streamline referencing and to avoid the need for excessive citations.
-
-
-``` r
-easystats_citations()
-```
-
-
-Table: Citations of easystats papers published in JOSS
-
-|Title                                                 | Year | Cites|
-|:-----------------------------------------------------|:-----|-----:|
-|modelbased: An R package to make the most out of...   |2,025 |   123|
-|datawizard: An R package for easy data preparation... |2,022 |    60|
-|performance: An R package for assessment,...          |2,021 | 6,057|
-|see: An R package for visualizing statistical...      |2,021 |   155|
-|Methods and algorithms for correlation analysis in... |2,020 |   850|
-|Extracting, computing and exploring the parameters... |2,020 |   580|
-|bayestestR: Describing Effects and their...           |2,019 | 1,673|
-|insight: A Unified Interface to Access Information... |2,019 |   144|
-
-
+The **easystats** ecosystem has a substantial realized impact across the scientific community, as shown by the high citation counts of its related publications only from the Journal of Open Source Software. For example, the `{performance}` and `{bayestestR}` packages alone have over 6,000 and 1,600 citations, respectively (statistic from February 2026). Because a typical analysis leverages multiple **easystats** packages sequentially throughout the statistical workflow, this meta-package paper provides researchers with a single, unified citation to streamline referencing and to avoid the need for excessive citations.
 
 
 # Licensing and Availability

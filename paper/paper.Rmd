@@ -171,18 +171,7 @@ To get the newest features from the rapidly developing **easystats** ecosystem, 
 
 # Research impact statement
 
-The **easystats** ecosystem has a substantial realized impact across the scientific community, as shown by the high citation counts of its related publications only from the Journal of Open Source Software (Table 1). For example, the `{performance}` and `{bayestestR}` packages alone have over 6,000 and 1,600 citations, respectively (statistic from February 2026). Because a typical analysis leverages multiple **easystats** packages sequentially throughout the statistical workflow, this meta-package paper provides researchers with a single, unified citation to streamline referencing and to avoid the need for excessive citations.
-
-```{r eval=FALSE}
-easystats_citations()
-```
-```{r table1, echo=FALSE}
-out <- easystats_citations(length = 50)
-out |>
-  data_filter(grepl("^Journal of Open Source", Journal)) |>
-  data_select(exclude = "Journal") |>
-  print_md(caption = "Citations of easystats papers published in JOSS")
-```
+The **easystats** ecosystem has a substantial realized impact across the scientific community, as shown by the high citation counts of its related publications only from the Journal of Open Source Software. For example, the `{performance}` and `{bayestestR}` packages alone have over 6,000 and 1,600 citations, respectively (statistic from February 2026). Because a typical analysis leverages multiple **easystats** packages sequentially throughout the statistical workflow, this meta-package paper provides researchers with a single, unified citation to streamline referencing and to avoid the need for excessive citations.
 
 
 # Licensing and Availability
