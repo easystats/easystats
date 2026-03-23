@@ -77,17 +77,16 @@
 "_PACKAGE"
 
 
-# Wrapper interne pour easystats
+# Internal wrapper for easystats
 .correlation <- function(..., ci = 0.95) {
-  # Appel à la fonction originale
+  # Call to the original function
   x <- correlation::correlation(..., ci = ci)
 
-  # Masquer les colonnes CI si ci = FALSE
+  # Hide the CI columns if ci = FALSE
   if (identical(ci, FALSE)) {
     x <- x[, !colnames(x) %in% c("CI", "CI_low", "CI_high"), drop = FALSE]
   }
-  print('hELLO')
-  return(as.data.frame(x))
+  return(x)
 }
 
 
@@ -95,10 +94,10 @@
 # Namespace in Imports field not imported from: PKG
 #   All declared Imports should be used.
 .ignore_unused_imports <- function(ci = 0.95) {
-  # Utilisation des fonctions pour éviter les notes R CMD check
+  # Using functions to avoid R CMD check warnings
   bayestestR::describe_posterior()
 
-  # utilise notre version surchargée qui masque les IC si ci = FALSE
+  # uses our overloaded version, which hides the ICs if ci = FALSE
   .correlation(ci = FALSE)
 
   datawizard::data_tabulate()
