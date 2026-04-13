@@ -19,6 +19,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`arr_to_oddsratio`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
   *(effectsize)*
+- [**`arr_to_probs`**](https://easystats.github.io/effectsize/reference/oddsratio_to_probs.html)
+  *(effectsize)*
 - [**`arr_to_riskratio`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
   *(effectsize)*
 - [**`arr`**](https://easystats.github.io/effectsize/reference/oddsratio.html)
@@ -167,17 +169,17 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(performance)*
 - [**`check_zeroinflation`**](https://easystats.github.io/performance/reference/check_zeroinflation.html)
   *(performance)*
-- [**`chisq_to_cohens_w`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`chisq_to_cohens_w`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
-- [**`chisq_to_cramers_v`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`chisq_to_cramers_v`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
-- [**`chisq_to_fei`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`chisq_to_fei`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
-- [**`chisq_to_pearsons_c`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`chisq_to_pearsons_c`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
-- [**`chisq_to_phi`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`chisq_to_phi`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
-- [**`chisq_to_tschuprows_t`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`chisq_to_tschuprows_t`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
 - [**`ci_betwithin`**](https://easystats.github.io/parameters/reference/p_value_betwithin.html)
   *(parameters)*
@@ -285,30 +287,14 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(bayestestR)*
 - [**`convert_bayesian_as_frequentist`**](https://easystats.github.io/bayestestR/reference/convert_bayesian_as_frequentist.html)
   *(bayestestR)*
-- [**`convert_d_to_oddsratio`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
-- [**`convert_d_to_r`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
 - [**`convert_efa_to_cfa`**](https://easystats.github.io/parameters/reference/convert_efa_to_cfa.html)
   *(parameters)*
 - [**`convert_na_to`**](https://easystats.github.io/datawizard/reference/convert_na_to.html)
   *(datawizard)*
-- [**`convert_odds_to_probs`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
-- [**`convert_oddsratio_to_d`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
-- [**`convert_oddsratio_to_r`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
 - [**`convert_p_to_pd`**](https://easystats.github.io/bayestestR/reference/pd_to_p.html)
   *(bayestestR)*
 - [**`convert_pd_to_p`**](https://easystats.github.io/bayestestR/reference/pd_to_p.html)
   *(bayestestR)*
-- [**`convert_probs_to_odds`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
-- [**`convert_r_to_d`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
-- [**`convert_r_to_oddsratio`**](https://easystats.github.io/effectsize/reference/effectsize_deprecated.html)
-  *(effectsize)*
 - [**`convert_to_na`**](https://easystats.github.io/datawizard/reference/convert_to_na.html)
   *(datawizard)*
 - [**`coord_radar`**](https://easystats.github.io/see/reference/coord_radar.html)
@@ -821,6 +807,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(parameters)*
 - [**`get_sigma`**](https://easystats.github.io/insight/reference/get_sigma.html)
   *(insight)*
+- [**`get_simulated`**](https://easystats.github.io/insight/reference/get_simulated.html)
+  *(insight)*
 - [**`get_statistic`**](https://easystats.github.io/insight/reference/get_statistic.html)
   *(insight)*
 - [**`get_transformation`**](https://easystats.github.io/insight/reference/get_transformation.html)
@@ -1007,6 +995,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`logoddsratio_to_nnt`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
   *(effectsize)*
+- [**`logoddsratio_to_probs`**](https://easystats.github.io/effectsize/reference/oddsratio_to_probs.html)
+  *(effectsize)*
 - [**`logoddsratio_to_r`**](https://easystats.github.io/effectsize/reference/d_to_r.html)
   *(effectsize)*
 - [**`logoddsratio_to_riskratio`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
@@ -1087,6 +1077,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`nnt_to_oddsratio`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
   *(effectsize)*
+- [**`nnt_to_probs`**](https://easystats.github.io/effectsize/reference/oddsratio_to_probs.html)
+  *(effectsize)*
 - [**`nnt_to_riskratio`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
   *(effectsize)*
 - [**`nnt`**](https://easystats.github.io/effectsize/reference/oddsratio.html)
@@ -1106,6 +1098,8 @@ This vignette keeps a detailed catalog of **all** functions in the
 - [**`oddsratio_to_d`**](https://easystats.github.io/effectsize/reference/d_to_r.html)
   *(effectsize)*
 - [**`oddsratio_to_nnt`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
+  *(effectsize)*
+- [**`oddsratio_to_probs`**](https://easystats.github.io/effectsize/reference/oddsratio_to_probs.html)
   *(effectsize)*
 - [**`oddsratio_to_r`**](https://easystats.github.io/effectsize/reference/d_to_r.html)
   *(effectsize)*
@@ -1221,7 +1215,7 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(performance)*
 - [**`performance`**](https://easystats.github.io/performance/reference/model_performance.html)
   *(performance)*
-- [**`phi_to_chisq`**](https://easystats.github.io/effectsize/reference/convert_chisq.html)
+- [**`phi_to_chisq`**](https://easystats.github.io/effectsize/reference/chisq_to_phi.html)
   *(effectsize)*
 - [**`phi`**](https://easystats.github.io/effectsize/reference/phi.html)
   *(effectsize)*
@@ -1440,6 +1434,8 @@ This vignette keeps a detailed catalog of **all** functions in the
 - [**`riskratio_to_nnt`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
   *(effectsize)*
 - [**`riskratio_to_oddsratio`**](https://easystats.github.io/effectsize/reference/oddsratio_to_riskratio.html)
+  *(effectsize)*
+- [**`riskratio_to_probs`**](https://easystats.github.io/effectsize/reference/oddsratio_to_probs.html)
   *(effectsize)*
 - [**`riskratio`**](https://easystats.github.io/effectsize/reference/oddsratio.html)
   *(effectsize)*

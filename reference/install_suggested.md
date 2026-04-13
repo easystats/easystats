@@ -58,7 +58,7 @@ if (FALSE) {
 show_reverse_dependencies()
 #> bayestestR
 #> ----------
-#> BaHZING, bayesMeanScale, brmsmargins, clinicalsignificance, correlation,
+#> bayesMeanScale, brmsmargins, clinicalsignificance, correlation,
 #>   easystats, eDNAjoint, effectsize, fbst, GCEstim, LoTTA, modelbased,
 #>   movedesign, multifear, parameters, pcvr, performance, psycho, repmod,
 #>   report, rstanbdp, see, sjPlot, snSMART, SSVS, statsExpressions,
@@ -86,11 +86,11 @@ show_reverse_dependencies()
 #> adrftools, aggreCAT, ale, BayesMoFo, bayestestR, bregr, bsitar, candisc,
 #>   clarify, clinicalsignificance, correlation, cv, datawizard, DImodelsVis,
 #>   easystats, EcoMetrics, effects, effectsize, ggDoE, ggeffects,
-#>   ggstatsplot, insurancerating, lavaanExtra, marginaleffects, modelbased,
-#>   modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg, parameters,
-#>   performance, pminternal, psycho, randomizeR, regressinator, report, see,
-#>   SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats, statsExpressions,
-#>   tidygam, tinyVAST
+#>   ggstatsplot, insurancerating, kvr2, lavaanExtra, marginaleffects,
+#>   modelbased, modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg,
+#>   parameters, performance, pminternal, psycho, randomizeR, regressinator,
+#>   report, see, SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats,
+#>   statsExpressions, tidygam, tinyVAST
 #> 
 #> modelbased
 #> ----------
@@ -105,10 +105,10 @@ show_reverse_dependencies()
 #> 
 #> performance
 #> -----------
-#> apa7, AssumpSure, CR2, dotwhisker, easystats, effectsize, ggstatsplot,
-#>   MDMA, MLMusingR, modelsummary, multitool, piecewiseSEM, PLSDAbatch,
-#>   pubh, report, SCDA, see, sjPlot, sjstats, statsExpressions,
-#>   steppedwedge, SynergyLMM, ZLAvian
+#> apa7, AssumpSure, beezdemand, CR2, dotwhisker, easystats, ecoXCorr,
+#>   effectsize, ggstatsplot, MDMA, MLMusingR, modelsummary, multitool,
+#>   piecewiseSEM, PLSDAbatch, pubh, report, SCDA, see, sjPlot, sjstats,
+#>   statsExpressions, steppedwedge, SynergyLMM, ZLAvian
 #> 
 #> report
 #> ------
@@ -165,10 +165,10 @@ show_suggested()
 #>   nlme, nnet, nonnest2, ordinal, panelr, parameters, parsnip, pbkrtest,
 #>   performance, phylolm, plm, PROreg, pscl, psych, quantreg, Rcpp,
 #>   RcppEigen, reformulas, recipes, rmarkdown, rms, robustbase, robustlmm,
-#>   rpart, rstanarm, rstantools, rstudioapi, RWiener, sandwich, sdmTMB,
-#>   sampleSelection, serp, speedglm, splines, statmod, survey, survival,
-#>   svylme, testthat, tidymodels, tinytable, TMB, truncreg, tune, tweedie,
-#>   VGAM, WeightIt, withr, workflows
+#>   rpart, rstanarm, rstantools, rstpm2, rstudioapi, RWiener, sandwich,
+#>   sdmTMB, sampleSelection, serp, speedglm, splines, statmod, survey,
+#>   survival, svylme, testthat, tidymodels, tinytable, TMB, truncreg, tune,
+#>   tweedie, VGAM, WeightIt, withr, workflows
 #> 
 #> modelbased
 #> ----------

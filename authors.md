@@ -11,9 +11,8 @@
 - **[Mattan S. Ben-Shachar](https://home.msbstats.info/)**. Author.
   [](https://orcid.org/0000-0002-4287-4801)
 
-- **[Indrajeet
-  Patil](https://sites.google.com/site/indrajeetspatilmorality/)**.
-  Author. [](https://orcid.org/0000-0003-1995-6531)
+- **[Indrajeet Patil](https://www.indrapatil.com/)**. Author.
+  [](https://orcid.org/0000-0003-1995-6531)
 
 - **[Brenton M. Wiernik](https://wiernik.org/)**. Author.
   [](https://orcid.org/0000-0001-9560-6336)
