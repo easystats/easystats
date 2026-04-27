@@ -34,8 +34,8 @@ A data frame of four columns: title, journal, year, and cites.
 ``` r
 # \dontrun{
 easystats_citations()
-#> Warning: Cannot connect to Google Scholar. Is the ID you provided correct?
-#> Warning: Cannot connect to Google Scholar. Is the ID you provided correct?
+#> Warning: Response code 429. Google is rate limiting you for making too many requests too quickly.
+#> Warning: Response code 429. Google is rate limiting you for making too many requests too quickly.
 #> NULL
 # }
 ```
