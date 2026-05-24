@@ -3,49 +3,30 @@ title: "easystats: A Unified Framework for Statistical Analysis in R"
 tags:
   - R
 authors:
-- affiliation: 1
+- affiliation: University Medical Center Hamburg-Eppendorf, Germany
   name: Daniel Lüdecke
   orcid: 0000-0002-8895-3206
-- affiliation: 2
+- affiliation: Independent Researcher, Ramat Gan, Israel
   name: Mattan S. Ben-Shachar
   orcid: 0000-0002-4287-4801
-- affiliation: 3
+- affiliation: Carl Zeiss AG, Munich, Germany
   name: Indrajeet Patil
   orcid: 0000-0003-1995-6531
-- affiliation: 4
+- affiliation: Independent Researcher, Tampa, FL, USA
   name: Brenton M. Wiernik
   orcid: 0000-0001-9560-6336
-- affiliation: 5
+- affiliation: Luxembourg Institute of Socio-Economic Research (LISER), Luxembourg
   name: Etienne Bacher
   orcid: 0000-0002-9271-5075
-- affiliation: 6
+- affiliation: Department of Psychology, New York University, New York, NY, USA
   name: Rémi Thériault
   orcid: 0000-0003-4315-6788
-- affiliation: "7"
+- affiliation: School of Medicine, Stanford University, Stanford, CA, USA
   name: Philip D. Waggoner
   orcid: 0000-0002-7825-7573
-- affiliation: "8, 9"
+- affiliation: School of Psychology, University of Sussex, Brighton, UK
   name: Dominique Makowski
   orcid: 0000-0001-5375-9967
-affiliations:
-- index: 1
-  name:  University Medical Center Hamburg-Eppendorf, Germany
-- index: 2
-  name: Independent Researcher, Ramat Gan, Israel
-- index: 3
-  name: Carl Zeiss AG, Munich, Germany
-- index: 4
-  name: Independent Researcher, Tampa, FL, USA
-- index: 5
-  name: Luxembourg Institute of Socio-Economic Research (LISER), Luxembourg
-- index: 6
-  name: Department of Psychology, New York University, New York, NY, USA
-- index: 7
-  name: School of Medicine, Stanford University, Stanford, CA, USA
-- index: 8
-  name: School of Psychology, University of Sussex, Brighton, UK
-- index: 9
-  name: Sussex Centre for Consciousness Science, University of Sussex, Brighton, UK
 type: article
 date: "`r Sys.Date()`"
 bibliography: paper.bib
@@ -62,9 +43,7 @@ funding: |
 conflictsofinterest: |
   The authors declare no conflict of interest.
 output:
-  rticles::joss_article
-journal:
-  pissn: 2475-9066
+  rticles::arxiv_article
 csl: apa.csl
 ---
 
@@ -108,6 +87,8 @@ Other R ecosystems or packages often serve different purposes. The `{tidyverse}`
 
 A key design principle of the **easystats** ecosystem is the harmonization and integration of different packages into a simple, sequential workflow. The typical workflow for a statistical analysis using `{easystats}` starts with importing data and bringing the data into shape for the next step—fitting a model—and then sequentially using different functions to obtain a comprehensive understanding of the model. This can include checking the model's parameters, performance metrics, specific effect sizes [e.g., @ben2023phi], and statistical outliers [@theriault2024check], as well as obtaining publication-ready figures and written summaries of the results.
 
+\pagebreak
+
 Let's demonstrate this with an example, where the user wants to fit a mixed effects model:
 
 ```{r}
@@ -150,6 +131,8 @@ plot(predictions) +
   theme_modern(show.ticks = TRUE) + # add nice theme
   scale_color_material() # add some nice colors
 ```
+
+\pagebreak
 
 Finally, a full report of the analysis can be generated with the `{report}` package:
 
