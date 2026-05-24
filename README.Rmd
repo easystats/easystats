@@ -105,7 +105,7 @@ cover all aspects of statistical analysis and data visualization.
 **How is *easystats* different from the *tidyverse*?**
 
 You've probably already heard about the
-[**tidyverse**](https://www.tidyverse.org/), another very popular collection of
+[**tidyverse**](https://tidyverse.org/), another very popular collection of
 packages (*ggplot*, *dplyr*, *tidyr*, ...) that also makes using R easier. So,
 should you pick the *tidyverse* or *easystats*? **Pick both!**
 
