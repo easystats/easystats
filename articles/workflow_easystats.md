@@ -113,7 +113,7 @@ model <- glm(alertness ~ treatment * time, data = coffee_data, family = binomial
 model_parameters(model, exponentiate = TRUE)
 #> Parameter                              | Odds Ratio |   SE |        95% CI |         z |      p
 #> -----------------------------------------------------------------------------------------------
-#> (Intercept)                            |       1.00 | 0.45 | [0.41,  2.44] | -1.42e-15 | > .999
+#> (Intercept)                            |       1.00 | 0.45 | [0.41,  2.44] | -1.54e-15 | > .999
 #> treatment [control]                    |       0.33 | 0.23 | [0.08,  1.23] |     -1.61 | 0.108 
 #> time [noon]                            |       0.54 | 0.35 | [0.15,  1.90] |     -0.96 | 0.339 
 #> time [afternoon]                       |       3.00 | 2.05 | [0.81, 12.24] |      1.61 | 0.108 
@@ -235,23 +235,23 @@ above).
 estimate_contrasts(model, c("time", "treatment"))
 #> Marginal Contrasts Analysis
 #> 
-#> Level1             | Level2            | Difference |   SE |        95% CI |     z |      p
-#> -------------------------------------------------------------------------------------------
-#> morning, control   | morning, coffee   |      -0.25 | 0.15 | [-0.54, 0.04] | -1.69 |  0.091
-#> noon, coffee       | morning, coffee   |      -0.15 | 0.15 | [-0.45, 0.15] | -0.97 |  0.332
-#> noon, control      | morning, coffee   |       0.15 | 0.15 | [-0.15, 0.45] |  0.97 |  0.332
-#> afternoon, coffee  | morning, coffee   |       0.25 | 0.15 | [-0.04, 0.54] |  1.69 |  0.091
-#> afternoon, control | morning, coffee   |       0.00 | 0.16 | [-0.31, 0.31] |  0.00 | > .999
-#> noon, coffee       | morning, control  |       0.10 | 0.14 | [-0.18, 0.38] |  0.69 |  0.488
-#> noon, control      | morning, control  |       0.40 | 0.14 | [ 0.12, 0.68] |  2.78 |  0.005
-#> afternoon, coffee  | morning, control  |       0.50 | 0.14 | [ 0.23, 0.77] |  3.65 | < .001
-#> afternoon, control | morning, control  |       0.25 | 0.15 | [-0.04, 0.54] |  1.69 |  0.091
-#> noon, control      | noon, coffee      |       0.30 | 0.15 | [ 0.00, 0.60] |  1.99 |  0.047
-#> afternoon, coffee  | noon, coffee      |       0.40 | 0.14 | [ 0.12, 0.68] |  2.78 |  0.005
-#> afternoon, control | noon, coffee      |       0.15 | 0.15 | [-0.15, 0.45] |  0.97 |  0.332
-#> afternoon, coffee  | noon, control     |       0.10 | 0.14 | [-0.18, 0.38] |  0.69 |  0.488
-#> afternoon, control | noon, control     |      -0.15 | 0.15 | [-0.45, 0.15] | -0.97 |  0.332
-#> afternoon, control | afternoon, coffee |      -0.25 | 0.15 | [-0.54, 0.04] | -1.69 |  0.091
+#> Level1             | Level2            | Difference |   SE |        95% CI |        z |      p
+#> ----------------------------------------------------------------------------------------------
+#> morning, control   | morning, coffee   |      -0.25 | 0.15 | [-0.54, 0.04] |    -1.69 |  0.091
+#> noon, coffee       | morning, coffee   |      -0.15 | 0.15 | [-0.45, 0.15] |    -0.97 |  0.332
+#> noon, control      | morning, coffee   |       0.15 | 0.15 | [-0.15, 0.45] |     0.97 |  0.332
+#> afternoon, coffee  | morning, coffee   |       0.25 | 0.15 | [-0.04, 0.54] |     1.69 |  0.091
+#> afternoon, control | morning, coffee   |   1.11e-16 | 0.16 | [-0.31, 0.31] | 7.02e-16 | > .999
+#> noon, coffee       | morning, control  |       0.10 | 0.14 | [-0.18, 0.38] |     0.69 |  0.488
+#> noon, control      | morning, control  |       0.40 | 0.14 | [ 0.12, 0.68] |     2.78 |  0.005
+#> afternoon, coffee  | morning, control  |       0.50 | 0.14 | [ 0.23, 0.77] |     3.65 | < .001
+#> afternoon, control | morning, control  |       0.25 | 0.15 | [-0.04, 0.54] |     1.69 |  0.091
+#> noon, control      | noon, coffee      |       0.30 | 0.15 | [ 0.00, 0.60] |     1.99 |  0.047
+#> afternoon, coffee  | noon, coffee      |       0.40 | 0.14 | [ 0.12, 0.68] |     2.78 |  0.005
+#> afternoon, control | noon, coffee      |       0.15 | 0.15 | [-0.15, 0.45] |     0.97 |  0.332
+#> afternoon, coffee  | noon, control     |       0.10 | 0.14 | [-0.18, 0.38] |     0.69 |  0.488
+#> afternoon, control | noon, control     |      -0.15 | 0.15 | [-0.45, 0.15] |    -0.97 |  0.332
+#> afternoon, control | afternoon, coffee |      -0.25 | 0.15 | [-0.54, 0.04] |    -1.69 |  0.091
 #> 
 #> Variable predicted: alertness
 #> Predictors contrasted: time, treatment

@@ -140,10 +140,10 @@ analysis and data visualization.
 **How is *easystats* different from the *tidyverse*?**
 
 You’ve probably already heard about the
-[**tidyverse**](https://www.tidyverse.org/), another very popular
-collection of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes
-using R easier. So, should you pick the *tidyverse* or *easystats*?
-**Pick both!**
+[**tidyverse**](https://tidyverse.org/), another very popular collection
+of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes using R
+easier. So, should you pick the *tidyverse* or *easystats*? **Pick
+both!**
 
 Indeed, these two ecosystems have been designed with very different
 goals in mind. The *tidyverse* packages are primarily made to create a
