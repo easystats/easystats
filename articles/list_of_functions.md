@@ -1809,6 +1809,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(insight)*
 - [**`variance_decomposition`**](https://easystats.github.io/performance/reference/icc.html)
   *(performance)*
+- [**`vcovFPC`**](https://easystats.github.io/insight/reference/vcovFPC.html)
+  *(insight)*
 - [**`vd_a`**](https://easystats.github.io/effectsize/reference/p_superiority.html)
   *(effectsize)*
 - [**`visualisation_recipe`**](https://easystats.github.io/correlation/reference/reexports.html)

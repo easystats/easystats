@@ -295,11 +295,11 @@ directly.
 ``` r
 
 test_performance(model1, model2, model3)
-#> Name   |   Model |     BF | df | df_diff |   Chi2 |      p
-#> ----------------------------------------------------------
-#> model1 | glmmTMB |        |  9 |         |        |       
-#> model2 | glmmTMB | > 1000 | 17 |       8 | 193.31 | < .001
-#> model3 | glmmTMB | > 1000 | 18 |       1 | 133.83 | < .001
+#> Name   |   Model |     BF | df | df_diff | Criterion |   Chi2 |      p
+#> ----------------------------------------------------------------------
+#> model1 | glmmTMB |        |  9 |         |   1944.81 |        |       
+#> model2 | glmmTMB | > 1000 | 17 |       8 |   1751.49 | 193.31 | < .001
+#> model3 | glmmTMB | > 1000 | 18 |       1 |   1617.66 | 133.83 | < .001
 #> Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.
 ```
 
@@ -314,19 +314,19 @@ Now we compare the second against the third model
 ``` r
 
 test_performance(model2, model3)
-#> Name   |   Model |     BF | df | df_diff |   Chi2 |      p
-#> ----------------------------------------------------------
-#> model2 | glmmTMB |        | 17 |         |        |       
-#> model3 | glmmTMB | > 1000 | 18 |       1 | 133.83 | < .001
+#> Name   |   Model |     BF | df | df_diff | Criterion |   Chi2 |      p
+#> ----------------------------------------------------------------------
+#> model2 | glmmTMB |        | 17 |         |   1751.49 |        |       
+#> model3 | glmmTMB | > 1000 | 18 |       1 |   1617.66 | 133.83 | < .001
 #> Models were detected as nested (in terms of fixed parameters) and are compared in sequential order.
 
 test_likelihoodratio(model2, model3)
 #> # Likelihood-Ratio-Test (LRT) for Model Comparison (ML-estimator)
 #> 
-#> Name   |   Model | df | df_diff |   Chi2 |      p
-#> -------------------------------------------------
-#> model2 | glmmTMB | 17 |         |        |       
-#> model3 | glmmTMB | 18 |       1 | 133.83 | < .001
+#> Name   |   Model | df | df_diff | Criterion |   Chi2 |      p
+#> -------------------------------------------------------------
+#> model2 | glmmTMB | 17 |         |   1751.49 |        |       
+#> model3 | glmmTMB | 18 |       1 |   1617.66 | 133.83 | < .001
 ```
 
 We see that both the Bayes factor and likelihood ratio test suggest that
@@ -422,10 +422,10 @@ test_likelihoodratio(model3, model4)
 #>   their random effects.
 #> # Likelihood-Ratio-Test (LRT) for Model Comparison (ML-estimator)
 #> 
-#> Name   |   Model | df | df_diff |  Chi2 |      p
-#> ------------------------------------------------
-#> model3 | glmmTMB | 18 |         |       |       
-#> model4 | glmmTMB | 18 |       0 | 16.64 | < .001
+#> Name   |   Model | df | df_diff | Criterion |  Chi2 |      p
+#> ------------------------------------------------------------
+#> model3 | glmmTMB | 18 |         |   1617.66 |       |       
+#> model4 | glmmTMB | 18 |       0 |   1634.30 | 16.64 | < .001
 
 model_parameters(model4)
 #> # Fixed Effects (Count Model)
