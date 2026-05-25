@@ -713,19 +713,27 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(see)*
 - [**`geom_count_borderless`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
+- [**`geom_count_halo`**](https://easystats.github.io/see/reference/geom_point2.html)
+  *(see)*
 - [**`geom_count2`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
 - [**`geom_from_list`**](https://easystats.github.io/see/reference/geom_from_list.html)
   *(see)*
 - [**`geom_jitter_borderless`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
+- [**`geom_jitter_halo`**](https://easystats.github.io/see/reference/geom_point2.html)
+  *(see)*
 - [**`geom_jitter2`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
 - [**`geom_point_borderless`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
+- [**`geom_point_halo`**](https://easystats.github.io/see/reference/geom_point2.html)
+  *(see)*
 - [**`geom_point2`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
 - [**`geom_pointrange_borderless`**](https://easystats.github.io/see/reference/geom_point2.html)
+  *(see)*
+- [**`geom_pointrange_halo`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*
 - [**`geom_pointrange2`**](https://easystats.github.io/see/reference/geom_point2.html)
   *(see)*

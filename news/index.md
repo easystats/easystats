@@ -2,6 +2,8 @@
 
 ## easystats 0.7.6
 
+CRAN release: 2026-05-24
+
 - [`library(easystats)`](https://easystats.github.io/easystats/) is now
   faster for bad internet connections.
 
