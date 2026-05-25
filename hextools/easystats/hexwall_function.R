@@ -1,7 +1,5 @@
 # Dependencies
 library(magick)
-library(purrr)
-
 
 # path:             The path to a folder of hexagon stickers
 # sticker_row_size: The number of stickers in the longest row
@@ -24,54 +22,49 @@ hexwall <- function(
 ) {
   sort_mode <- match.arg(sort_mode)
 
-  # Load stickers
-  stickers <- NULL # Initialize empty vector
+  # Collect sticker paths
+  sticker_paths <- c()
   for (p in path) {
-    # Setup a loop to make it vectorized
     if (tools::file_ext(p) == "") {
-      # Surely a folder name
-      stickers <- c(stickers, file.path(p, list.files(p)))
+      sticker_paths <- c(sticker_paths, file.path(p, list.files(p)))
     } else {
-      # Surely a direct path, add it "as is"
-      stickers <- c(stickers, p)
+      sticker_paths <- c(sticker_paths, p)
     }
   }
 
-  stickers <- stickers %>%
-    map(function(path) {
-      switch(
-        tools::file_ext(path),
-        svg = image_read_svg(path),
-        pdf = image_read_pdf(path),
-        image_read(path)
-      )
-    }) %>%
-    map(image_transparent, "white") %>%
-    map(image_trim) %>%
-    set_names(stickers)
-
-  # Low resolution stickers
-  low_res <- stickers %>%
-    map_lgl(
-      ~ remove_small &&
-        image_info(.x)$width < (sticker_width - 1) / 2 &&
-        image_info(.x)$format != "svg"
+  # Load, and trim stickers
+  stickers <- lapply(sticker_paths, function(p) {
+    img <- switch(
+      tools::file_ext(p),
+      svg = image_read_svg(p),
+      pdf = image_read_pdf(p),
+      image_read(p)
     )
-  which(low_res)
+    image_trim(img)
+  })
+  names(stickers) <- sticker_paths
 
-  stickers <- stickers %>%
-    map(image_scale, sticker_width)
+  # Filter low resolution stickers
+  low_res <- if (remove_small) {
+    sapply(stickers, function(img) {
+      image_info(img)$width < (sticker_width - 1) / 2 &&
+        image_info(img)$format != "svg"
+    })
+  } else {
+    rep(FALSE, length(stickers))
+  }
 
-  # Incorrectly sized stickers
-  bad_size <- stickers %>%
-    map_lgl(
-      ~ remove_size &&
-        with(
-          image_info(.x),
-          height < (median(height) - 2) | height > (median(height) + 2)
-        )
-    )
-  which(bad_size)
+  # Scale stickers to target width
+  stickers <- lapply(stickers, function(img) image_scale(img, sticker_width))
+
+  # Filter incorrectly sized stickers (compare against cross-sticker median)
+  heights <- sapply(stickers, function(img) image_info(img)$height)
+  bad_size <- if (remove_size) {
+    med_h <- median(heights)
+    heights < (med_h - 2) | heights > (med_h + 2)
+  } else {
+    rep(FALSE, length(stickers))
+  }
 
   # Remove bad stickers
   sticker_rm <- low_res | bad_size
@@ -86,47 +79,33 @@ hexwall <- function(
   }
 
   if (is.null(total_stickers)) {
-    if (!is.null(coords)) {
-      total_stickers <- NROW(coords)
-    } else {
-      total_stickers <- length(stickers)
-    }
+    total_stickers <- if (!is.null(coords)) NROW(coords) else length(stickers)
   }
 
-  # Coerce sticker sizes
-  sticker_height <- stickers %>%
-    map(image_info) %>%
-    map_dbl("height") %>%
-    median()
-  stickers <- stickers %>%
-    map(image_resize, paste0(sticker_width, "x", sticker_height, "!"))
+  # Coerce all stickers to identical dimensions
+  sticker_height <- median(sapply(stickers, function(img) {
+    image_info(img)$height
+  }))
+  stickers <- lapply(stickers, function(img) {
+    image_resize(img, paste0(sticker_width, "x", sticker_height, "!"))
+  })
 
-  # Repeat stickers sorted by file name
+  # Repeat/truncate to total_stickers
   stickers <- rep_len(stickers, total_stickers)
 
   if (sort_mode == "random") {
-    # Randomly arrange stickers
-    stickers <- sample(c(
-      stickers,
-      sample(stickers, total_stickers - length(stickers), replace = TRUE)
-    ))
+    stickers <- sample(stickers)
   } else if (sort_mode %in% c("color", "colour")) {
-    # Sort stickers by colour
-    sticker_col <- stickers %>%
-      map(image_resize, "1x1!") %>%
-      map(image_data) %>%
-      map(~ paste0("#", paste0(.[,, 1], collapse = ""))) %>%
-      map(colorspace::hex2RGB) %>%
-      map(as, "HSV") %>%
-      map_dbl(~ .@coords[, 1]) %>%
-      sort(index.return = TRUE) %>%
-      .$ix
-
-    stickers <- stickers[sticker_col]
+    hue <- sapply(stickers, function(img) {
+      px <- image_data(image_resize(img, "1x1!"))
+      col <- paste0("#", paste0(px[,, 1], collapse = ""))
+      as(colorspace::hex2RGB(col), "HSV")@coords[, 1]
+    })
+    stickers <- stickers[order(hue)]
   }
 
   if (is.null(coords)) {
-    # Arrange rows of stickers into images
+    # Compute row lengths for the hex-offset grid
     sticker_col_size <- floor(length(stickers) / (sticker_row_size - 0.5))
     row_lens <- rep(
       c(sticker_row_size, sticker_row_size - 1),
@@ -134,70 +113,101 @@ hexwall <- function(
     )
     row_lens[length(row_lens)] <- row_lens[length(row_lens)] -
       (length(stickers) - sum(row_lens))
-    sticker_rows <- map2(
-      row_lens,
-      cumsum(row_lens),
-      ~ seq(.y - .x + 1, by = 1, length.out = .x)
-    ) %>%
-      map(
-        ~ stickers[.x] %>%
-          invoke(c, .) %>%
-          image_append()
-      )
 
-    # Add stickers to canvas
-    canvas <- image_blank(
-      sticker_row_size * sticker_width,
-      sticker_height + (sticker_col_size - 1) * sticker_height / 1.33526,
-      "white"
+    # Build each row as a single appended image
+    idx <- 0L
+    sticker_rows <- lapply(row_lens, function(n) {
+      row_imgs <- stickers[(idx + 1L):(idx + n)]
+      idx <<- idx + n
+      image_append(Reduce(c, row_imgs))
+    })
+
+    # Position each row on a full-canvas-sized transparent layer, then flatten.
+    # image_extent offset is ignored in some ImageMagick builds, so we use
+    # image_append to manually pad each row to the full canvas size.
+    canvas_w <- sticker_row_size * sticker_width
+    canvas_h <- ceiling(
+      sticker_height + (sticker_col_size - 1) * sticker_height / 1.33526
     )
-    reduce2(
-      sticker_rows,
-      seq_along(sticker_rows),
-      ~ image_composite(
-        ..1,
-        ..2,
-        offset = paste0(
-          "+",
-          ((..3 - 1) %% 2) * sticker_width / 2,
-          "+",
-          round((..3 - 1) * sticker_height / 1.33526)
+
+    place_row <- function(img, x_off, y_off) {
+      h <- image_info(img)$height
+      w <- image_info(img)$width
+      # Left padding
+      if (x_off > 0L) {
+        img <- image_append(c(image_blank(x_off, h, "none"), img))
+      }
+      # Right padding
+      right_w <- canvas_w - x_off - w
+      if (right_w > 0L) {
+        img <- image_append(c(img, image_blank(right_w, h, "none")))
+      }
+      # Top padding
+      if (y_off > 0L) {
+        img <- image_append(
+          c(image_blank(canvas_w, y_off, "none"), img),
+          stack = TRUE
         )
-      ),
-      .init = canvas
-    )
+      }
+      # Bottom padding
+      bottom_h <- canvas_h - y_off - h
+      if (bottom_h > 0L) {
+        img <- image_append(
+          c(img, image_blank(canvas_w, bottom_h, "none")),
+          stack = TRUE
+        )
+      }
+      img
+    }
+
+    positioned <- lapply(seq_along(sticker_rows), function(i) {
+      x_off <- ((i - 1L) %% 2L) * sticker_width / 2
+      y_off <- round((i - 1L) * sticker_height / 1.33526)
+      place_row(sticker_rows[[i]], x_off, y_off)
+    })
+
+    # Set background to transparent so image_flatten uses a transparent canvas,
+    # not the default white one.
+    image_flatten(image_background(
+      Reduce(c, positioned),
+      "none",
+      flatten = FALSE
+    ))
   } else {
     sticker_pos <- coords
     if (scale_coords) {
-      sticker_pos <- sticker_pos %>%
-        as_tibble() %>%
-        mutate_all(function(x) {
-          x <- x - min(x)
-          dx <- diff(sort(abs(x)))
-          x / min(dx[dx != 0])
-        }) %>%
-        mutate(y = y / min(diff(y)[diff(y) != 0])) %>%
-        mutate(
-          x = x * sticker_width / 2,
-          y = abs(y - max(y)) * sticker_height / 1.33526
-        )
+      scale_col <- function(x) {
+        x <- x - min(x)
+        dx <- diff(sort(unique(abs(x))))
+        x / min(dx[dx != 0])
+      }
+      sticker_pos$x <- scale_col(sticker_pos$x) * sticker_width / 2
+      sticker_pos$y <- abs(
+        scale_col(sticker_pos$y) - max(scale_col(sticker_pos$y))
+      ) *
+        sticker_height /
+        1.33526
     }
 
-    # Add stickers to canvas
-    canvas <- image_blank(
-      max(sticker_pos$x) + sticker_width,
-      max(sticker_pos$y) + sticker_height,
-      "none"
-    )
-    reduce2(
-      stickers,
-      sticker_pos %>% split(seq_len(NROW(.))),
-      ~ image_composite(
-        ..1,
-        ..2,
-        offset = paste0("+", ..3$x, "+", ..3$y)
-      ),
-      .init = canvas
-    )
+    canvas_w <- max(sticker_pos$x) + sticker_width
+    canvas_h <- max(sticker_pos$y) + sticker_height
+
+    positioned <- lapply(seq_len(NROW(sticker_pos)), function(i) {
+      image_extent(
+        stickers[[i]],
+        paste0(
+          canvas_w,
+          "x",
+          canvas_h,
+          "+",
+          sticker_pos$x[i],
+          "+",
+          sticker_pos$y[i]
+        ),
+        color = "none"
+      )
+    })
+
+    image_flatten(Reduce(c, positioned))
   }
 }
