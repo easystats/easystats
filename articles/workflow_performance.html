@@ -237,18 +237,18 @@ using <code><a href="https://easystats.github.io/performance/reference/check_ove
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # Overdispersion test</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  dispersion ratio = 1.679</span></span>
-<span><span class="co">#&gt;           p-value = 0.008</span></span>
+<span><span class="co">#&gt;  dispersion ratio =   1.864</span></span>
+<span><span class="co">#&gt;           p-value = &lt; 0.001</span></span>
 <span><span class="co">#&gt; Overdispersion detected.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # Check for zero-inflation</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;    Observed zeros: 387</span></span>
-<span><span class="co">#&gt;   Predicted zeros: 387</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 386</span></span>
 <span><span class="co">#&gt;             Ratio: 1.00</span></span>
 <span><span class="co">#&gt; Model seems ok, ratio of observed and predicted zeros is within the</span></span>
-<span><span class="co">#&gt;   tolerance range (p &gt; .999).</span></span></code></pre></div>
+<span><span class="co">#&gt;   tolerance range (p = 0.984).</span></span></code></pre></div>
 <p>Indeed, the overdispersion is still present.</p>
 </div>
 <div class="section level3">
@@ -273,15 +273,15 @@ than before. Let us check again:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # Overdispersion test</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  dispersion ratio = 1.081</span></span>
-<span><span class="co">#&gt;           p-value =  0.54</span></span>
+<span><span class="co">#&gt;  dispersion ratio = 1.206</span></span>
+<span><span class="co">#&gt;           p-value =  0.19</span></span>
 <span><span class="co">#&gt; No overdispersion detected.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # Check for zero-inflation</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;    Observed zeros: 387</span></span>
-<span><span class="co">#&gt;   Predicted zeros: 389</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 386</span></span>
 <span><span class="co">#&gt;             Ratio: 1.00</span></span>
 <span><span class="co">#&gt; Model seems ok, ratio of observed and predicted zeros is within the</span></span>
 <span><span class="co">#&gt;   tolerance range (p &gt; .999).</span></span></code></pre></div>
@@ -421,18 +421,18 @@ might find a better distributional family for our model, and try
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # Overdispersion test</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  dispersion ratio = 0.958</span></span>
-<span><span class="co">#&gt;           p-value =  0.93</span></span>
+<span><span class="co">#&gt;  dispersion ratio = 1.215</span></span>
+<span><span class="co">#&gt;           p-value =  0.19</span></span>
 <span><span class="co">#&gt; No overdispersion detected.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # Check for zero-inflation</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;    Observed zeros: 387</span></span>
-<span><span class="co">#&gt;   Predicted zeros: 386</span></span>
-<span><span class="co">#&gt;             Ratio: 1.00</span></span>
+<span><span class="co">#&gt;   Predicted zeros: 385</span></span>
+<span><span class="co">#&gt;             Ratio: 0.99</span></span>
 <span><span class="co">#&gt; Model seems ok, ratio of observed and predicted zeros is within the</span></span>
-<span><span class="co">#&gt;   tolerance range (p = 0.952).</span></span>
+<span><span class="co">#&gt;   tolerance range (p = 0.856).</span></span>
 <span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/test_performance.html" class="external-link">test_likelihoodratio</a></span><span class="op">(</span><span class="va">model3</span>, <span class="va">model4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Some of the nested models seem to be identical and probably only vary in</span></span>

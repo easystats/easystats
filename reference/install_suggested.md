@@ -86,11 +86,11 @@ show_reverse_dependencies()
 #> adrftools, aggreCAT, ale, BayesMoFo, bayestestR, bregr, bsitar, candisc,
 #>   clarify, clinicalsignificance, correlation, cv, datawizard, DImodelsVis,
 #>   easystats, EcoMetrics, effects, effectsize, ggDoE, ggeffects,
-#>   ggstatsplot, insurancerating, kvr2, lavaanExtra, marginaleffects,
-#>   mlmodels, modelbased, modelsummary, multiScaleR, MuMIn, mvgam,
-#>   ordbetareg, parameters, performance, pminternal, psycho, randomizeR,
-#>   regressinator, report, see, SimplyAgree, sjlabelled, sjmisc, sjPlot,
-#>   sjstats, statsExpressions, tidygam, tinyVAST
+#>   ggstatsplot, kvr2, lavaanExtra, marginaleffects, modelbased,
+#>   modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg, parameters,
+#>   performance, pminternal, psycho, randomizeR, regressinator, report, see,
+#>   SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats, statsExpressions,
+#>   tidygam, tinyVAST
 #> 
 #> modelbased
 #> ----------
@@ -112,7 +112,7 @@ show_reverse_dependencies()
 #> 
 #> report
 #> ------
-#> colleyRstats, easystats, SqueakR
+#> easystats, SqueakR
 #> 
 #> see
 #> ---
