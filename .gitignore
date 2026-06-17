@@ -52,3 +52,5 @@ revdep/data.sqlite
 easydashboard.html
 README.html
 /.quarto/
+
+**/*.quarto_ipynb
