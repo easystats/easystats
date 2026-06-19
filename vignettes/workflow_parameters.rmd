@@ -1,0 +1,26 @@
+---
+title: "Analystic workflow: Summarizing model results"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+tags: [r, programing]
+vignette: >
+  \usepackage[utf8]{inputenc}
+  %\VignetteIndexEntry{Analystic workflow: Summarizing model results}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+options(knitr.kable.NA = "", digits = 2)
+
+knitr::opts_chunk$set(
+  comment = ">",
+  dpi = 450,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+parameters
