@@ -35,6 +35,15 @@ easystats_citations <- function(sort_by = "year", length = 30) {
     }
   )
 
+  # new hack required: import is no longer detected as valid UTF-8
+  pubs_dom$author <- sub(
+    "\xfc",
+    "ü",
+    pubs_dom$author,
+    fixed = TRUE,
+    useBytes = TRUE
+  )
+
   # publications from Daniel, to add Phi, Fei, Fo, Fum
   pubs_dan <- tryCatch(
     scholar::get_publications(dan),
@@ -62,7 +71,8 @@ easystats_citations <- function(sort_by = "year", length = 30) {
 
   # Process publications from Dominique
   easystats_pub <- pubs_dom[
-    grepl("L\u00fcdecke", pubs_dom$author, fixed = TRUE),
+    grepl("Lüdecke", pubs_dom$author, fixed = TRUE) |
+      startsWith(pubs_dom$title, "Check your outliers"),
     ,
     drop = FALSE
   ]
