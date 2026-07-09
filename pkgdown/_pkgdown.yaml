@@ -32,6 +32,11 @@ reference:
     contents:
       - easystats_zen
 
+  - title: Overview
+    desc: ~
+    contents:
+      - easystats_arguments
+
 articles:
   - title: Overview of vignettes
     navbar: ~
