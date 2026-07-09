@@ -30,6 +30,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Daniel Lüdecke \email{d.luedecke@uke.de} (\href{https://orcid.org/0000-0002-8895-3206}{ORCID})
   \item Dominique Makowski \email{dom.makowski@gmail.com} (\href{https://orcid.org/0000-0001-5375-9967}{ORCID})
   \item Mattan S. Ben-Shachar \email{matanshm@post.bgu.ac.il} (\href{https://orcid.org/0000-0002-4287-4801}{ORCID})
   \item Indrajeet Patil \email{patilindrajeet.science@gmail.com} (\href{https://orcid.org/0000-0003-1995-6531}{ORCID})
