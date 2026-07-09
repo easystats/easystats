@@ -157,6 +157,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(performance)*
 - [**`check_prior`**](https://easystats.github.io/bayestestR/reference/check_prior.html)
   *(bayestestR)*
+- [**`check_priors`**](https://easystats.github.io/performance/reference/check_priors.html)
+  *(performance)*
 - [**`check_residuals`**](https://easystats.github.io/performance/reference/check_residuals.html)
   *(performance)*
 - [**`check_singularity`**](https://easystats.github.io/performance/reference/check_singularity.html)
@@ -523,6 +525,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(parameters)*
 - [**`download_model`**](https://easystats.github.io/insight/reference/download_model.html)
   *(insight)*
+- [**`easystats_arguments`**](https://easystats.github.io/easystats/reference/easystats_arguments.html)
+  *(easystats)*
 - [**`easystats_citations`**](https://easystats.github.io/easystats/reference/easystats_citations.html)
   *(easystats)*
 - [**`easystats_columns`**](https://easystats.github.io/insight/reference/easystats_columns.html)

@@ -129,11 +129,10 @@ These tests can additionally be used beyond the visual inspection.
 ``` r
 
 check_overdispersion(model1)
-#> # Overdispersion test
+#> # Overdispersion test (using simulated residuals)
 #> 
-#>        dispersion ratio =    2.324
-#>   Pearson's Chi-Squared = 1475.875
-#>                 p-value =  < 0.001
+#>  dispersion ratio =   3.040
+#>           p-value = < 0.001
 #> Overdispersion detected.
 
 check_zeroinflation(model1)
@@ -179,7 +178,7 @@ again.
 ``` r
 
 check_overdispersion(model2)
-#> # Overdispersion test
+#> # Overdispersion test (using simulated residuals)
 #> 
 #>  dispersion ratio =   1.864
 #>           p-value = < 0.001
@@ -223,7 +222,7 @@ than before. Let us check again:
 ``` r
 
 check_overdispersion(model3)
-#> # Overdispersion test
+#> # Overdispersion test (using simulated residuals)
 #> 
 #>  dispersion ratio = 1.206
 #>           p-value =  0.19
@@ -402,7 +401,7 @@ check_model(model4)
 
 
 check_overdispersion(model4)
-#> # Overdispersion test
+#> # Overdispersion test (using simulated residuals)
 #> 
 #>  dispersion ratio = 1.215
 #>           p-value =  0.19

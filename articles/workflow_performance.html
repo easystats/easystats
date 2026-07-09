@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">easystats</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -195,11 +195,10 @@ and/or zero-inflation. We can check for these problems using
 beyond the visual inspection.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; # Overdispersion test (using simulated residuals)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;        dispersion ratio =    2.324</span></span>
-<span><span class="co">#&gt;   Pearson's Chi-Squared = 1475.875</span></span>
-<span><span class="co">#&gt;                 p-value =  &lt; 0.001</span></span>
+<span><span class="co">#&gt;  dispersion ratio =   3.040</span></span>
+<span><span class="co">#&gt;           p-value = &lt; 0.001</span></span>
 <span><span class="co">#&gt; Overdispersion detected.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation</a></span><span class="op">(</span><span class="va">model1</span><span class="op">)</span></span>
@@ -235,7 +234,7 @@ using <code><a href="https://easystats.github.io/performance/reference/check_ove
 <code><a href="https://easystats.github.io/performance/reference/check_zeroinflation.html" class="external-link">check_zeroinflation()</a></code> again.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; # Overdispersion test (using simulated residuals)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  dispersion ratio =   1.864</span></span>
 <span><span class="co">#&gt;           p-value = &lt; 0.001</span></span>
@@ -271,7 +270,7 @@ zero-inflation</em> suggests that the overdispersion is better addressed
 than before. Let us check again:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; # Overdispersion test (using simulated residuals)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  dispersion ratio = 1.206</span></span>
 <span><span class="co">#&gt;           p-value =  0.19</span></span>
@@ -419,7 +418,7 @@ might find a better distributional family for our model, and try
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_overdispersion.html" class="external-link">check_overdispersion</a></span><span class="op">(</span><span class="va">model4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # Overdispersion test</span></span>
+<span><span class="co">#&gt; # Overdispersion test (using simulated residuals)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  dispersion ratio = 1.215</span></span>
 <span><span class="co">#&gt;           p-value =  0.19</span></span>
@@ -515,7 +514,7 @@ process.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.9000.</p>
 </div>
 
     </footer>

@@ -40,3 +40,8 @@
 
 - [`easystats_zen()`](https://easystats.github.io/easystats/reference/easystats_zen.md)
   : Welcome to the easyverse
+
+## Overview
+
+- [`easystats_arguments()`](https://easystats.github.io/easystats/reference/easystats_arguments.md)
+  : List all arguments used in easystats packages

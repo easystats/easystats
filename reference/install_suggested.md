@@ -58,11 +58,11 @@ if (FALSE) {
 show_reverse_dependencies()
 #> bayestestR
 #> ----------
-#> bayesMeanScale, brmsmargins, clinicalsignificance, correlation,
-#>   easystats, eDNAjoint, effectsize, fbst, GCEstim, LoTTA, modelbased,
-#>   movedesign, multifear, parameters, pcvr, performance, psycho, repmod,
-#>   report, rstanbdp, see, sjPlot, snSMART, SSVS, statsExpressions,
-#>   survregVB
+#> BayesFBHborrow, bayesMeanScale, brmsmargins, clinicalsignificance,
+#>   correlation, easystats, eDNAjoint, effectsize, fbst, GCEstim, LoTTA,
+#>   modelbased, movedesign, multifear, parameters, pcvr, performance,
+#>   psycho, repmod, report, rstanbdp, see, sjPlot, snSMART, SSVS,
+#>   statsExpressions, survregVB
 #> 
 #> correlation
 #> -----------
@@ -107,8 +107,8 @@ show_reverse_dependencies()
 #> -----------
 #> apa7, AssumpSure, beezdemand, CR2, dotwhisker, easystats, ecoXCorr,
 #>   effectsize, ggstatsplot, MDMA, MLMusingR, modelsummary, multitool,
-#>   piecewiseSEM, PLSDAbatch, pubh, report, SCDA, see, sjPlot, sjstats,
-#>   statsExpressions, steppedwedge, SynergyLMM, ZLAvian
+#>   nhscancerwaits, piecewiseSEM, PLSDAbatch, pubh, report, SCDA, see,
+#>   sjPlot, sjstats, statsExpressions, steppedwedge, SynergyLMM, ZLAvian
 #> 
 #> report
 #> ------
