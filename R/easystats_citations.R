@@ -67,6 +67,7 @@ easystats_citations <- function(sort_by = "year", length = 30) {
     drop = FALSE
   ]
   easystats_pub <- easystats_pub[c("title", "journal", "year", "cites")]
+  easystats_pub <- .fix_wrong_citations(easystats_pub)
 
   # Process publications from Daniel
   easystats_pub2 <- pubs_dan[
@@ -117,4 +118,27 @@ easystats_citations <- function(sort_by = "year", length = 30) {
   class(out) <- c("easystats_cites", "data.frame")
 
   out
+}
+
+
+.fix_wrong_citations <- function(easystats_pub) {
+  # Fix errournes performance entry
+  wrong_performance <- which(
+    easystats_pub$title %in%
+      c(
+        "performance: an R package for assessment, comparison and testing of statistical models. J Open Source Softw 6: 3139",
+        "752 performance: An R package for assessment, comparison and testing of statistical models. 753 J"
+      )
+  )
+  correct_performance <- which(
+    easystats_pub$title ==
+      "performance: An R package for assessment, comparison and testing of statistical models"
+  )
+
+  # sum up citations
+  easystats_pub$cites[correct_performance] <- sum(easystats_pub$cites[
+    c(correct_performance, wrong_performance)
+  ])
+
+  easystats_pub[seq_len(nrow(easystats_pub))[-wrong_performance], ]
 }
