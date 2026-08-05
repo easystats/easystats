@@ -36,6 +36,7 @@ reference:
     desc: ~
     contents:
       - easystats_arguments
+      - easystats_whatsnew
 
 articles:
   - title: Overview of vignettes
