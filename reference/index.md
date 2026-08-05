@@ -45,3 +45,5 @@
 
 - [`easystats_arguments()`](https://easystats.github.io/easystats/reference/easystats_arguments.md)
   : List all arguments used in easystats packages
+- [`easystats_whatsnew()`](https://easystats.github.io/easystats/reference/easystats_whatsnew.md)
+  : List all news from development versions

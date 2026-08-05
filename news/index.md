@@ -11,6 +11,10 @@ CRAN release: 2026-05-24
   politely respects arguments `quietly = TRUE` and `verbose = FALSE` to
   hide startup messages.
 
+- New function
+  [`easystats_whatsnew()`](https://easystats.github.io/easystats/reference/easystats_whatsnew.md)
+  to print news of the the development versions on GitHub.
+
 ## easystats 0.7.5
 
 CRAN release: 2025-07-11

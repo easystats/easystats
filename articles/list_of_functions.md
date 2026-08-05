@@ -537,6 +537,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(easystats)*
 - [**`easystats_update`**](https://easystats.github.io/easystats/reference/easystats_update.html)
   *(easystats)*
+- [**`easystats_whatsnew`**](https://easystats.github.io/easystats/reference/easystats_whatsnew.html)
+  *(easystats)*
 - [**`easystats_zen`**](https://easystats.github.io/easystats/reference/easystats_zen.html)
   *(easystats)*
 - [**`efa_to_cfa`**](https://easystats.github.io/parameters/reference/convert_efa_to_cfa.html)
