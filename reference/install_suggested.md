@@ -59,8 +59,8 @@ show_reverse_dependencies()
 #> bayestestR
 #> ----------
 #> BayesFBHborrow, bayesMeanScale, brmsmargins, clinicalsignificance,
-#>   correlation, easystats, eDNAjoint, effectsize, fbst, GCEstim, LoTTA,
-#>   modelbased, movedesign, multifear, parameters, pcvr, performance,
+#>   correlation, easystats, eDNAjoint, effectsize, fbst, GCEstim, glmbayes,
+#>   LoTTA, modelbased, movedesign, multifear, parameters, pcvr, performance,
 #>   psycho, repmod, report, rstanbdp, see, sjPlot, snSMART, SSVS,
 #>   statsExpressions, survregVB
 #> 
@@ -73,7 +73,7 @@ show_reverse_dependencies()
 #> ----------
 #> bayestestR, correlation, easystats, effectsize, ggeffects, ggstatsplot,
 #>   modelbased, parameters, performance, report, see, sjlabelled, sjmisc,
-#>   sjPlot, sjstats, starling, statsExpressions
+#>   sjPlot, sjstats, statsExpressions
 #> 
 #> effectsize
 #> ----------
@@ -86,7 +86,7 @@ show_reverse_dependencies()
 #> adrftools, aggreCAT, ale, BayesMoFo, bayestestR, bregr, bsitar, candisc,
 #>   clarify, clinicalsignificance, correlation, cv, datawizard, DImodelsVis,
 #>   easystats, EcoMetrics, effects, effectsize, ggDoE, ggeffects,
-#>   ggstatsplot, kvr2, lavaanExtra, marginaleffects, modelbased,
+#>   ggstatsplot, glmbayes, kvr2, lavaanExtra, marginaleffects, modelbased,
 #>   modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg, parameters,
 #>   performance, pminternal, psycho, randomizeR, regressinator, report, see,
 #>   SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats, statsExpressions,

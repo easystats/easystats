@@ -65,10 +65,7 @@ for specific functions that are not downloaded by default. If you want
 to benefit from the **full *easystats* experience** without any hiccups,
 simply run the following:
 
-``` r
-
-easystats::install_suggested()
-```
+`easystats``::`[`install_suggested`](https://easystats.github.io/easystats/reference/install_suggested.md)`(``)`
 
 ## Citation
 
@@ -230,12 +227,7 @@ you can safely use *easystats* packages as dependencies in your own
 packages, without the risk of entering the [dependency
 hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-``` r
-
-library(deepdep)
-
-plot_dependencies("easystats", depth = 2L, show_stamp = FALSE)
-```
+[`library`](https://rdrr.io/r/base/library.html)`(`[`deepdep`](https://dominikrafacz.github.io/deepdep/)`)`` `` ``plot_dependencies``(``"easystats"``, depth ``=`` ``2L``, show_stamp ``=`` ``FALSE``)`
 
 ![](reference/figures/depnetwork-1.png)
 
@@ -252,25 +244,22 @@ number of dependencies.
 Download statistics for
 [easystats](https://easystats.github.io/easystats/) packages from CRAN.
 
-``` r
-
-easystats_downloads()
-```
+[`easystats_downloads`](https://easystats.github.io/easystats/reference/easystats_downloads.md)`(``)`
 
 | Package     | Total      | Monthly |
 |:------------|:-----------|:--------|
-| insight     | 10,677,902 | 122,735 |
-| datawizard  | 7,141,788  | 119,030 |
-| performance | 4,866,306  | 56,585  |
-| parameters  | 4,712,565  | 57,470  |
-| bayestestR  | 4,654,097  | 54,117  |
-| effectsize  | 3,491,678  | 44,198  |
-| correlation | 1,316,058  | 17,547  |
-| see         | 1,066,925  | 12,552  |
-| modelbased  | 785,365    | 10,200  |
-| report      | 399,267    | 6,440   |
-| easystats   | 182,224    | 3,961   |
-| Total       | 39,294,175 | 504,835 |
+| insight     | 10,935,694 | 122,873 |
+| datawizard  | 7,340,273  | 118,392 |
+| performance | 5,024,146  | 57,093  |
+| parameters  | 4,840,603  | 57,626  |
+| bayestestR  | 4,804,231  | 54,594  |
+| effectsize  | 3,592,203  | 44,348  |
+| correlation | 1,352,023  | 17,559  |
+| see         | 1,101,921  | 12,666  |
+| modelbased  | 818,078    | 10,355  |
+| report      | 409,714    | 6,402   |
+| easystats   | 189,045    | 3,938   |
+| Total       | 40,407,931 | 505,846 |
 
 ### Download Trends
 
@@ -281,29 +270,26 @@ easystats_downloads()
 Number of Google Scholar citations for
 [easystats](https://easystats.github.io/easystats/) publications.
 
-``` r
-
-easystats::easystats_citations(sort_by = "cites")
-```
+`easystats``::`[`easystats_citations`](https://easystats.github.io/easystats/reference/easystats_citations.md)`(``sort_by ``=`` ``"cites"``)`
 
 | Title | Journal | Year | Cites |
 |:---|:---|:---|---:|
-| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 7,149 |
-| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 2,503 |
-| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1,870 |
-| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 1,118 |
-| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 940 |
-| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 649 |
-| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 171 |
-| insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 160 |
-| The {easystats} collection of R packages | GitHub | 2020 | 155 |
-| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 144 |
-| The report package for R: ensuring the use of best… | CRAN | 2019 | 74 |
-| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 72 |
-| Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 70 |
-| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 67 |
-| Choosing informative priors in Bayesian regression… |  | 2025 | 0 |
-| Total |  |  | 15,142 |
+| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 7,890 |
+| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 2,658 |
+| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1,947 |
+| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 1,172 |
+| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 951 |
+| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 681 |
+| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 185 |
+| insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 167 |
+| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 164 |
+| The {easystats} collection of R packages | GitHub | 2020 | 164 |
+| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 75 |
+| Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 75 |
+| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 73 |
+| The report package for R: ensuring the use of best… | CRAN | 2019 | 60 |
+| Choosing informative priors in Bayesian regression… | Frontiers in Psychology | 2026 | 1 |
+| Total |  |  | 16,263 |
 
 ## Contributing
 
