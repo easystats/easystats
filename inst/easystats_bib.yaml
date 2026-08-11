@@ -1,0 +1,684 @@
+---
+references:
+- id: bayestestRArticle
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Ben-Shachar
+      given: Mattan
+    - family: Lüdecke
+      given: Daniel
+  citation-key: bayestestRArticle
+  container-title: Journal of Open Source Software
+  container-title-short: JOSS
+  DOI: 10.21105/joss.01541
+  ISSN: 2475-9066
+  issue: '40'
+  issued:
+    - year: 2019
+      month: 8
+      day: 13
+  page: '1541'
+  title: >-
+    <span class="nocase">bayestestR</span>: describing effects and their
+    uncertainty, existence and significance within the Bayesian framework
+  title-short: <span class="nocase">bayestestR</span>
+  type: article-journal
+  URL: https://joss.theoj.org/papers/10.21105/joss.01541
+  volume: '4'
+
+- id: bayestestRPackage
+  abstract: >-
+    Provides utilities to describe posterior distributions and Bayesian models.
+    It includes point-estimates such as Maximum A Posteriori (MAP), measures of
+    dispersion (Highest Density Interval - HDI; Kruschke, 2015
+    <doi:10.1016/C2012-0-00477-2>) and indices used for null-hypothesis testing
+    (such as ROPE percentage, pd and Bayes factors).
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Lüdecke
+      given: Daniel
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Patil
+      given: Indrajeet
+    - family: Wilson
+      given: Michael D.
+    - family: Wiernik
+      given: Brenton M.
+  citation-key: bayestestRPackage
+  genre: R package
+  issued:
+    - year: 2021
+      month: 10
+      day: 30
+  original-date:
+    - year: 2019
+      month: 4
+      day: 8
+  title: >-
+    <span class="nocase">bayestestR</span>: understand and describe Bayesian
+    models and posterior distributions
+  title-short: <span class="nocase">bayestestR</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=bayestestR
+  version: %s
+
+- id: correlationArticle
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Ben-Shachar
+      given: Mattan
+    - family: Patil
+      given: Indrajeet
+    - family: Lüdecke
+      given: Daniel
+  citation-key: correlationArticle
+  container-title: Journal of Open Source Software
+  container-title-short: JOSS
+  DOI: 10.21105/joss.02306
+  ISSN: 2475-9066
+  issue: '51'
+  issued:
+    - year: 2020
+      month: 7
+      day: 16
+  page: '2306'
+  title: Methods and algorithms for correlation analysis in R
+  type: article-journal
+  URL: https://joss.theoj.org/papers/10.21105/joss.02306
+  volume: '5'
+
+- id: correlationPackage
+  abstract: >-
+    Lightweight package for computing different kinds of correlations, such as
+    partial correlations, Bayesian correlations, multilevel correlations,
+    polychoric correlations, biweight correlations, distance correlations and
+    more. Part of the 'easystats' ecosystem.
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Wiernik
+      given: Brenton M.
+    - family: Patil
+      given: Indrajeet
+    - family: Lüdecke
+      given: Daniel
+    - family: Ben-Shachar
+      given: Mattan S.
+  citation-key: correlationPackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 2
+      day: 14
+  original-date:
+    - year: 2020
+      month: 3
+      day: 16
+  title: '<span class="nocase">correlation</span>: methods for correlation analysis'
+  title-short: <span class="nocase">correlation</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=correlation
+  version: %s
+
+- id: datawizardPackage
+  abstract: >-
+    A lightweight package to easily manipulate, clean, transform, and prepare
+    your data for analysis. It also forms the data wrangling backend for the
+    packages in the 'easystats' ecosystem.
+  accessed:
+    - year: 2022
+      month: 3
+      day: 28
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Lüdecke
+      given: Daniel
+    - family: Patil
+      given: Indrajeet
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Wiernik
+      given: Brenton M.
+  citation-key: datawizardPackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 3
+      day: 3
+  original-date:
+    - year: 2021
+      month: 6
+      day: 18
+  title: '<span class="nocase">datawizard</span>: easy data wrangling'
+  title-short: <span class="nocase">datawizard</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=datawizard
+  version: %s
+
+- id: easystatsPackage
+  accessed:
+    - year: 2023
+      month: 2
+      day: 4
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Makowski
+      given: Dominique
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Patil
+      given: Indrajeet
+    - family: Wiernik
+      given: Brenton M.
+    - family: Bacher
+      given: Etienne
+    - family: Thériault
+      given: Rémi
+  citation-key: easystatsPackage
+  genre: R package
+  issued:
+    - year: 2023
+      month: 2
+      day: 4
+  original-date:
+    - year: 2019
+      month: 1
+      day: 28
+  title: >-
+    <span class="nocase">easystats</span>: streamline model interpretation,
+    visualization, and reporting
+  title-short: <span class="nocase">easystats</span>
+  type: software
+  URL: https://easystats.github.io/easystats/
+  version: %s
+
+- id: effectsizeArticle
+  accessed:
+    - year: 2021
+      month: 6
+      day: 30
+  author:
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Lüdecke
+      given: Daniel
+    - family: Makowski
+      given: Dominique
+  citation-key: effectsizeArticle
+  container-title: Journal of Open Source Software
+  container-title-short: JOSS
+  DOI: 10.21105/joss.02815
+  ISSN: 2475-9066
+  issue: '56'
+  issued:
+    - year: 2020
+      month: 12
+      day: 23
+  page: '2815'
+  title: >-
+    <span class="nocase">effectsize</span>: estimation of effect size indices
+    and standardized parameters
+  title-short: <span class="nocase">effectsize</span>
+  type: article-journal
+  URL: https://joss.theoj.org/papers/10.21105/joss.02815
+  volume: '5'
+
+- id: effectsizePackage
+  abstract: >-
+    Provide utilities to work with indices of effect size and standardized
+    parameters for a wide variety of models (see list of supported models using
+    the function 'insight::supported_models()'), allowing computation of and
+    conversion between indices such as Cohen's d, r, odds, etc.
+  accessed:
+    - year: 2022
+      month: 1
+      day: 28
+  author:
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Makowski
+      given: Dominique
+    - family: Lüdecke
+      given: Daniel
+    - family: Patil
+      given: Indrajeet
+    - family: Wiernik
+      given: Brenton M.
+  citation-key: effectsizePackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 1
+      day: 26
+  original-date:
+    - year: 2019
+      month: 11
+      day: 15
+  title: >-
+    <span class="nocase">effectsize</span>: indices of effect size and
+    standardized parameters
+  title-short: <span class="nocase">effectsize</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=effectsize
+  version: %s
+
+- id: insightArticle
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Waggoner
+      given: Philip
+    - family: Makowski
+      given: Dominique
+  citation-key: insightArticle
+  container-title: Journal of Open Source Software
+  container-title-short: JOSS
+  DOI: 10.21105/joss.01412
+  ISSN: 2475-9066
+  issue: '38'
+  issued:
+    - year: 2019
+      month: 6
+      day: 25
+  page: '1412'
+  title: 'insight: a unified interface to access information from model objects in R'
+  title-short: insight
+  type: article-journal
+  URL: http://joss.theoj.org/papers/10.21105/joss.01412
+  volume: '4'
+
+- id: insightPackage
+  abstract: >-
+    A tool to provide an easy, intuitive and consistent access to information
+    contained in various R models, like model formulas, model terms, information
+    about random effects, data that was used to fit the model or data from
+    response variables. 'insight' mainly revolves around two types of functions:
+    Functions that find (the names of) information, starting with 'find_', and
+    functions that get the underlying data, starting with 'get_'. The package
+    has a consistent syntax and works with many different model objects, where
+    otherwise functions to access these information are missing.
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Makowski
+      given: Dominique
+    - family: Patil
+      given: Indrajeet
+    - family: Waggoner
+      given: Philip
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Wiernik
+      given: Brenton M.
+    - family: Arel-Bundock
+      given: Vincent
+  citation-key: insightPackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 2
+      day: 17
+  original-date:
+    - year: 2019
+      month: 3
+      day: 5
+  title: >-
+    <span class="nocase">insight</span>: easy access to model information for
+    various model objects
+  title-short: <span class="nocase">insight</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=insight
+  version: %s
+
+- id: modelbasedPackage
+  abstract: >-
+    Implements a general interface for model-based estimations for a wide
+    variety of models (see support list of insight; Lüdecke, Waggoner & Makowski
+    (2019) <doi:10.21105/joss.01412>), used in the computation of marginal
+    means, contrast analysis and predictions.
+  accessed:
+    - year: 2021
+      month: 7
+      day: 23
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Lüdecke
+      given: Daniel
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Patil
+      given: Indrajeet
+  citation-key: modelbasedPackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 2
+      day: 28
+  original-date:
+    - year: 2020
+      month: 1
+      day: 12
+  title: >-
+    <span class="nocase">modelbased</span>: estimation of model-based
+    predictions, contrasts and means
+  title-short: <span class="nocase">modelbased</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=modelbased
+  version: %s
+
+- id: parametersArticle
+  accessed:
+    - year: 2021
+      month: 6
+      day: 30
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Ben-Shachar
+      given: Mattan
+    - family: Patil
+      given: Indrajeet
+    - family: Makowski
+      given: Dominique
+  citation-key: paramatersArticle
+  container-title: Journal of Open Source Software
+  container-title-short: JOSS
+  DOI: 10.21105/joss.02445
+  ISSN: 2475-9066
+  issue: '53'
+  issued:
+    - year: 2020
+      month: 9
+      day: 9
+  page: '2445'
+  title: >-
+    Extracting, computing and exploring the parameters of statistical models
+    using R
+  type: article-journal
+  URL: https://joss.theoj.org/papers/10.21105/joss.02445
+  volume: '5'
+
+- id: parametersPackage
+  abstract: >-
+    Utilities for processing the parameters of various statistical models.
+    Beyond computing p values, CIs, and other indices for a wide variety of
+    models (see support list of insight; Lüdecke, Waggoner & Makowski (2019)
+    <doi:10.21105/joss.01412>), this package implements features like
+    bootstrapping or simulating of parameters and models, feature reduction
+    (feature extraction and variable selection) as well as functions to describe
+    data and variable characteristics (e.g. skewness, kurtosis, smoothness or
+    distribution).
+  accessed:
+    - year: 2021
+      month: 6
+      day: 30
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Makowski
+      given: Dominique
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Patil
+      given: Indrajeet
+    - family: Højsgaard
+      given: Søren
+    - family: Wiernik
+      given: Brenton M.
+  citation-key: parametersPackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 3
+      day: 10
+  original-date:
+    - year: 2019
+      month: 8
+      day: 26
+  title: '<span class="nocase">parameters</span>: processing of model parameters'
+  title-short: <span class="nocase">parameters</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=parameters
+  version: %s
+
+- id: performanceArticle
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Ben-Shachar
+      given: Mattan
+    - family: Patil
+      given: Indrajeet
+    - family: Waggoner
+      given: Philip
+    - family: Makowski
+      given: Dominique
+  citation-key: performanceArticle
+  container-title: Journal of Open Source Software
+  container-title-short: JOSS
+  DOI: 10.21105/joss.03139
+  ISSN: 2475-9066
+  issue: '60'
+  issued:
+    - year: 2021
+      month: 4
+      day: 21
+  page: '3139'
+  title: >-
+    <span class="nocase">performance</span>: an R package for assessment,
+    comparison and testing of statistical models
+  title-short: <span class="nocase">performance</span>
+  type: article-journal
+  URL: https://joss.theoj.org/papers/10.21105/joss.03139
+  volume: '6'
+
+- id: performancePackage
+  abstract: >-
+    Utilities for computing measures to assess model quality, which are not
+    directly provided by R's 'base' or 'stats' packages. These include e.g.
+    measures like r-squared, intraclass correlation coefficient (Nakagawa,
+    Johnson & Schielzeth (2017) <doi:10.1098/rsif.2017.0213>), root mean squared
+    error or functions to check models for overdispersion, singularity or
+    zero-inflation and more. Functions apply to a large variety of regression
+    models, including generalized linear models, mixed effects models and
+    Bayesian models.
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Makowski
+      given: Dominique
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Patil
+      given: Indrajeet
+    - family: Waggoner
+      given: Philip
+    - family: Wiernik
+      given: Brenton M.
+  citation-key: performancePackage
+  genre: R package
+  issued:
+    - year: 2021
+      month: 10
+      day: 1
+  original-date:
+    - year: 2019
+      month: 4
+      day: 24
+  title: >-
+    <span class="nocase">performance</span>: assessment of regression models
+    performance
+  title-short: ''
+  type: software
+  URL: https://CRAN.R-project.org/package=performance
+  version: %s
+
+- id: reportPackage
+  abstract: >-
+    The aim of the 'report' package is to bridge the gap between R’s output and
+    the formatted results contained in your manuscript. This package converts
+    statistical models and data frames into textual reports suited for
+    publication, ensuring standardization and quality in results reporting.
+  accessed:
+    - year: 2023
+      month: 2
+      day: 4
+  author:
+    - family: Makowski
+      given: Dominique
+    - family: Lüdecke
+      given: Daniel
+    - family: Patil
+      given: Indrajeet
+    - family: Thériault
+      given: Rémi
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Wiernik
+      given: Brenton M.
+  citation-key: reportPackage
+  genre: R package
+  issued:
+    - year: 2023
+      month: 2
+      day: 04
+  original-date:
+    - year: 2021
+      month: 4
+      day: 15
+  title: >-
+    <span class="nocase">report</span>: automated reporting of results and
+    statistical models
+  title-short: <span class="nocase">report</span>
+  type: software
+  URL: https://easystats.github.io/easystats/
+  version: %s
+
+- id: seeArticle
+  abstract: >-
+    The see package is embedded in the easystats ecosystem, a collection of R
+    packages that operate in synergy to provide a consistent and intuitive
+    syntax when working with statistical models in the R programming language (R
+    Core Team, 2021). Most easystats packages return comprehensive numeric summaries
+    of model parameters and performance. The see package complements these numeric
+    summaries with a host of functions and tools to produce a range of
+    publication-ready visualizations for model parameters, predictions, and
+    performance diagnostics. As a core pillar of easystats, the see package helps
+    users to utilize visualization for more informative, communicable, and well-rounded
+    scientific reporting.
+  accessed:
+    - year: 2021
+      month: 8
+      day: 10
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Patil
+      given: Indrajeet
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Wiernik
+      given: Brenton M.
+    - family: Waggoner
+      given: Philip
+    - family: Makowski
+      given: Dominique
+  citation-key: seeArticle
+  container-title: Journal of Open Source Software
+  DOI: 10.21105/joss.03393
+  ISSN: 2475-9066
+  issue: '64'
+  issued:
+    - year: 2021
+      month: 8
+      day: 6
+  language: en
+  page: '3393'
+  title: >-
+    <span class="nocase">see</span>: an R package for visualizing statistical
+    models
+  title-short: <span class="nocase">see</span>
+  type: article-journal
+  URL: https://joss.theoj.org/papers/10.21105/joss.03393
+  volume: '6'
+
+- id: seePackage
+  abstract: >-
+    Provides plotting utilities supporting easystats-packages
+    (<https://github.com/easystats/easystats>) and some extra themes, geoms, and
+    scales for 'ggplot2'. Color scales are based on
+    <https://materialui.co/colors>.
+  accessed:
+    - year: 2022
+      month: 3
+      day: 23
+  author:
+    - family: Lüdecke
+      given: Daniel
+    - family: Makowski
+      given: Dominique
+    - family: Patil
+      given: Indrajeet
+    - family: Ben-Shachar
+      given: Mattan S.
+    - family: Wiernik
+      given: Brenton M.
+    - family: Waggoner
+      given: Philip
+  citation-key: seePackage
+  genre: R package
+  issued:
+    - year: 2022
+      month: 2
+      day: 15
+  original-date:
+    - year: 2019
+      month: 5
+      day: 24
+  title: >-
+    <span class="nocase">see</span>: visualisation toolbox for 'easystats' and
+    extra geoms, themes and color palettes for 'ggplot2'
+  title-short: <span class="nocase">see</span>
+  type: software
+  URL: https://CRAN.R-project.org/package=see
+  version: %s
+...
