@@ -49,3 +49,6 @@ are some other resources that might be helpful for you to learn about
 
 - [Contrasts and Pairwise
   Comparisons](https://github.com/easystats/easystats/blob/main/presentations/modelbased/modelbased_contrasts.pdf)
+
+- [A Post-Estimation Framework with
+  modelbased](https://github.com/easystats/easystats/blob/main/presentations/modelbased/modelbased_post-estimation.pdf)
