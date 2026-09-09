@@ -5,6 +5,9 @@
 * `library(easystats)` now politely respects arguments `quietly = TRUE` and
   `verbose = FALSE` to hide startup messages.
 
+* New function `easystats_whatsnew()` to print news of the the development
+  versions on GitHub.
+
 # easystats 0.7.5
 
 * New function `easystats_citations()` to report the total number of Google
