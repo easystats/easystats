@@ -33,9 +33,12 @@ Lüdecke, Patil, Ben-Shachar, Wiernik, Bacher, Thériault, & Makowski
 Visualization, and Reporting. CRAN. doi:10.32614/CRAN.package.easystats
 \<https://doi.org/10.32614/CRAN.package.easystats\>
 
-@Article{, title = {easystats: Framework for Easy Statistical Modeling,
-Visualization, and Reporting}, author = {Daniel Lüdecke and Mattan S.
-Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Etienne
-Bacher and Rémi Thériault and Dominique Makowski}, journal = {CRAN}, doi
-= {10.32614/CRAN.package.easystats}, year = {2022}, note = {R package},
-url = {https://easystats.github.io/easystats/}, }
+@Article{,\
+  title = {easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting},\
+  author = {Daniel Lüdecke and Mattan S. Ben-Shachar and Indrajeet Patil and Brenton M. Wiernik and Etienne Bacher and Rémi Thériault and Dominique Makowski},\
+  journal = {CRAN},\
+  doi = {10.32614/CRAN.package.easystats},\
+  year = {2022},\
+  note = {R package},\
+  url = {https://easystats.github.io/easystats/},\
+}

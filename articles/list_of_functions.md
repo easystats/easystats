@@ -937,6 +937,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`interpret`**](https://easystats.github.io/effectsize/reference/interpret.html)
   *(effectsize)*
+- [**`interval_odds_ratio`**](https://easystats.github.io/performance/reference/performance_ior.html)
+  *(performance)*
 - [**`is_bayesian_model`**](https://easystats.github.io/insight/reference/is_bayesian_model.html)
   *(insight)*
 - [**`is_converged`**](https://easystats.github.io/insight/reference/is_converged.html)
@@ -1039,6 +1041,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`median_mad`**](https://easystats.github.io/datawizard/reference/mean_sd.html)
   *(datawizard)*
+- [**`median_odds_ratio`**](https://easystats.github.io/performance/reference/performance_mor.html)
+  *(performance)*
 - [**`mediation`**](https://easystats.github.io/bayestestR/reference/mediation.html)
   *(bayestestR)*
 - [**`metro_colors`**](https://easystats.github.io/see/reference/metro_colors.html)
@@ -1209,13 +1213,19 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(performance)*
 - [**`performance_hosmer`**](https://easystats.github.io/performance/reference/performance_hosmer.html)
   *(performance)*
+- [**`performance_ior`**](https://easystats.github.io/performance/reference/performance_ior.html)
+  *(performance)*
 - [**`performance_logloss`**](https://easystats.github.io/performance/reference/performance_logloss.html)
   *(performance)*
 - [**`performance_mae`**](https://easystats.github.io/performance/reference/performance_mae.html)
   *(performance)*
+- [**`performance_mor`**](https://easystats.github.io/performance/reference/performance_mor.html)
+  *(performance)*
 - [**`performance_mse`**](https://easystats.github.io/performance/reference/performance_mse.html)
   *(performance)*
 - [**`performance_pcp`**](https://easystats.github.io/performance/reference/performance_pcp.html)
+  *(performance)*
+- [**`performance_poor`**](https://easystats.github.io/performance/reference/performance_poor.html)
   *(performance)*
 - [**`performance_reliability`**](https://easystats.github.io/performance/reference/performance_reliability.html)
   *(performance)*

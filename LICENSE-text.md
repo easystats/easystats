@@ -1,3 +1,4 @@
 # License
 
-YEAR: 2023 COPYRIGHT HOLDER: easystats team
+YEAR: 2023\
+COPYRIGHT HOLDER: easystats team\

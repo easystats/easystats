@@ -90,7 +90,7 @@ show_reverse_dependencies()
 #>   modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg, parameters,
 #>   performance, pminternal, psycho, randomizeR, regressinator, report, see,
 #>   SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats, statsExpressions,
-#>   tidygam, tinyVAST
+#>   tidygam
 #> 
 #> modelbased
 #> ----------
@@ -106,9 +106,10 @@ show_reverse_dependencies()
 #> performance
 #> -----------
 #> apa7, AssumpSure, beezdemand, CR2, dotwhisker, easystats, ecoXCorr,
-#>   effectsize, ggstatsplot, MDMA, MLMusingR, modelsummary, multitool,
-#>   nhscancerwaits, piecewiseSEM, PLSDAbatch, pubh, report, SCDA, see,
-#>   sjPlot, sjstats, statsExpressions, steppedwedge, SynergyLMM, ZLAvian
+#>   effectsize, ggstatsplot, hellometry, MDMA, MLMusingR, modelsummary,
+#>   multitool, nhscancerwaits, piecewiseSEM, PLSDAbatch, pubh, report, SCDA,
+#>   see, sjPlot, sjstats, statsExpressions, steppedwedge, SynergyLMM,
+#>   ZLAvian
 #> 
 #> report
 #> ------
@@ -177,10 +178,9 @@ show_suggested()
 #>   effectsize, emmeans, Formula, gamm4, gganimate, ggplot2, glmmTMB, httr2,
 #>   knitr, lme4, lmerTest, logspline, MASS, MatchIt, Matrix,
 #>   marginaleffects, mice, mgcv, mvtnorm, nanoparquet, nestedLogit, nnet,
-#>   ordinal, palmerpenguins, performance, patchwork, pbkrtest, poorman,
-#>   pscl, RcppEigen, Rdatasets, report, rmarkdown, rstanarm, rtdists,
-#>   RWiener, sandwich, scales, see, survival, testthat, tinyplot, tinytable,
-#>   vdiffr, withr
+#>   ordinal, performance, patchwork, pbkrtest, poorman, pscl, RcppEigen,
+#>   Rdatasets, report, rmarkdown, rstanarm, rtdists, RWiener, sandwich,
+#>   scales, see, survival, testthat, tinyplot, tinytable, vdiffr, withr
 #> 
 #> parameters
 #> ----------
@@ -199,21 +199,22 @@ show_suggested()
 #>   PCDimension, performance, plm, PMCMRplus, poorman, posterior, PROreg,
 #>   pscl, psych, pvclust, quantreg, randomForest, RcppEigen, rmarkdown, rms,
 #>   rstan, rstanarm, sampleSelection, sandwich, see, serp, sparsepca,
-#>   survey, survival, svylme, testthat, tidyselect, tinytable, TMB,
-#>   truncreg, vdiffr, VGAM, WeightIt, withr, WRS2
+#>   survey, survival, svylme, testthat, tidyselect, tinyplot, tinytable,
+#>   TMB, truncreg, vdiffr, VGAM, WeightIt, withr, WRS2
 #> 
 #> performance
 #> -----------
 #> AER, afex, BayesFactor, bayesplot, betareg, bigutilsr, blavaan, boot,
 #>   brms, car, carData, CompQuadForm, correlation, cplm, curl, dagitty,
-#>   dbscan, DHARMa, discovr, estimatr, fixest, flextable, forecast, ftExtra,
-#>   gamm4, ggdag, glmmTMB, GPArotation, graphics, Hmisc, httr2, ICS,
-#>   ICSOutlier, ISLR, ivreg, lavaan, lme4, lmtest, loo, MASS, Matrix,
-#>   mclogit, mclust, metadat, metafor, mgcv, mlogit, modelbased, multimode,
-#>   nestedLogit, nlme, nnet, nonnest2, ordinal, parallel, parameters,
-#>   patchwork, pscl, psych, psychTools, quantreg, qqplotr, randomForest,
-#>   RcppEigen, reformulas, rempsyc, rmarkdown, rstanarm, rstantools,
-#>   sandwich, see, survey, survival, testthat, tweedie, VGAM, withr
+#>   dbscan, DHARMa, discovr, effectsize, estimatr, fixest, flextable,
+#>   forecast, ftExtra, gamm4, ggdag, glmmTMB, GPArotation, graphics, Hmisc,
+#>   httr2, ICS, ICSOutlier, ISLR, ivreg, lavaan, lme4, lmtest, loo, MASS,
+#>   Matrix, mclogit, mclust, metadat, metafor, mgcv, mlogit, modelbased,
+#>   multimode, nestedLogit, nlme, nnet, nonnest2, ordinal, parallel,
+#>   parameters, patchwork, pscl, psych, psychTools, quantreg, qqplotr,
+#>   randomForest, RcppEigen, reformulas, rempsyc, rmarkdown, rstanarm,
+#>   rstantools, sandwich, see, survey, survival, testthat, tweedie, VGAM,
+#>   withr
 #> 
 #> report
 #> ------

@@ -65,6 +65,7 @@ for specific functions that are not downloaded by default. If you want
 to benefit from the **full *easystats* experience** without any hiccups,
 simply run the following:
 
+\
 `easystats``::`[`install_suggested`](https://easystats.github.io/easystats/reference/install_suggested.md)`(``)`
 
 ## Citation
@@ -227,7 +228,10 @@ you can safely use *easystats* packages as dependencies in your own
 packages, without the risk of entering the [dependency
 hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-[`library`](https://rdrr.io/r/base/library.html)`(`[`deepdep`](https://dominikrafacz.github.io/deepdep/)`)`` `` ``plot_dependencies``(``"easystats"``, depth ``=`` ``2L``, show_stamp ``=`` ``FALSE``)`
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`deepdep`](https://dominikrafacz.github.io/deepdep/)`)`\
+\
+`plot_dependencies``(``"easystats"``, depth ``=`` ``2L``, show_stamp ``=`` ``FALSE``)`
 
 ![](reference/figures/depnetwork-1.png)
 
@@ -244,6 +248,7 @@ number of dependencies.
 Download statistics for
 [easystats](https://easystats.github.io/easystats/) packages from CRAN.
 
+\
 [`easystats_downloads`](https://easystats.github.io/easystats/reference/easystats_downloads.md)`(``)`
 
 | Package     | Total      | Monthly |
@@ -270,7 +275,8 @@ Download statistics for
 Number of Google Scholar citations for
 [easystats](https://easystats.github.io/easystats/) publications.
 
-`easystats``::`[`easystats_citations`](https://easystats.github.io/easystats/reference/easystats_citations.md)`(``sort_by ``=`` ``"cites"``)`
+\
+`easystats``::`[`easystats_citations`](https://easystats.github.io/easystats/reference/easystats_citations.md)`(``sort_by ``=`` ``"cites"``)`
 
 | Title | Journal | Year | Cites |
 |:---|:---|:---|---:|
