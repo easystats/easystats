@@ -124,12 +124,13 @@ show_reverse_dependencies()
 show_suggested()
 #> bayestestR
 #> ----------
-#> BayesFactor, bayesQR, bayesplot, betareg, BH, blavaan, bridgesampling,
-#>   brms, collapse, curl, effectsize, emmeans, gamm4, ggdist, ggplot2,
-#>   glmmTMB, httr2, KernSmooth, knitr, lavaan, lme4, logspline,
-#>   marginaleffects, MASS, mclust, mediation, modelbased, ordbetareg,
-#>   parameters, patchwork, performance, posterior, quadprog, RcppEigen,
-#>   rmarkdown, rstan, rstanarm, see, testthat, tinytable, tweedie, withr
+#> BayesFactor, bayesQR, bayesplot, betareg, BH, blavaan, boot,
+#>   bridgesampling, brms, collapse, curl, effectsize, emmeans, gamm4,
+#>   ggdist, ggplot2, glmmTMB, httr2, KernSmooth, knitr, lavaan, lme4,
+#>   lmerTest, logspline, marginaleffects, MASS, mclust, mediation,
+#>   modelbased, ordbetareg, parameters, patchwork, performance, posterior,
+#>   quadprog, RcppEigen, rmarkdown, rstan, rstanarm, see, testthat,
+#>   tinytable, tweedie, withr
 #> 
 #> correlation
 #> -----------
