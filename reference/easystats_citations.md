@@ -34,6 +34,8 @@ A data frame of four columns: title, journal, year, and cites.
 ``` r
 # \dontrun{
 easystats_citations()
+#> Warning: Cannot connect to Google Scholar. Is the ID you provided correct?
+#> Warning: Cannot connect to Google Scholar. Is the ID you provided correct?
 #> NULL
 # }
 ```
