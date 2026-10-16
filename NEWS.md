@@ -1,3 +1,8 @@
+# easystats (devel)
+
+* New `easystats_arguments()` function, to list all arguments used across
+  *easystats* methods. Can be filtered by argument, method name, or both.
+
 # easystats 0.7.6
 
 * `library(easystats)` is now faster for bad internet connections.

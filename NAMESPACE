@@ -23,6 +23,8 @@ export(print_html)
 export(print_md)
 export(show_reverse_dependencies)
 export(show_suggested)
-importFrom(insight,display)
-importFrom(insight,print_html)
-importFrom(insight,print_md)
+importFrom(insight,
+  display,
+  print_html,
+  print_md
+)

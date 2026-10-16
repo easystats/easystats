@@ -4,11 +4,24 @@
 \alias{easystats_arguments}
 \title{List all arguments used in easystats packages}
 \usage{
-easystats_arguments(packages = "all", flatten = FALSE)
+easystats_arguments(
+  packages = "all",
+  argument = NULL,
+  method = NULL,
+  flatten = FALSE
+)
 }
 \arguments{
 \item{packages}{String, name of the easystats-package, or \code{"all"} to include
 all packages.}
+
+\item{argument}{String, name of an argument to search for. If provided, all
+methods that contain this argument are returned. \code{argument} and \code{method} can
+be combined.}
+
+\item{method}{String, name of a method to search for. If provided, all
+arguments for this method (for all classes that are supported) are returned.
+\code{argument} and \code{method} can be combined.}
 
 \item{flatten}{If \code{TRUE}, returns only one element and each argument only once.}
 }
@@ -18,4 +31,17 @@ A named list with argument names used in the different packages.
 \description{
 This function returns a list with all arguments that are used across all
 easystats packages
+}
+\examples{
+\dontrun{
+easystats_arguments()
+
+easystats_arguments(argument = "dispersion")
+
+easystats_arguments(method = "get_parameters")
+
+out <- easystats_arguments(method = "describe_posterior", argument = "dispersion")
+insight::export_table(out, format = "html")
+}
+
 }
