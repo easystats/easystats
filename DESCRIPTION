@@ -1,7 +1,7 @@
 Type: Package
 Package: easystats
 Title: Framework for Easy Statistical Modeling, Visualization, and Reporting
-Version: 0.7.6.3
+Version: 0.7.6.4
 Authors@R:
     c(person(given = "Daniel",
              family = "Lüdecke",
@@ -90,4 +90,4 @@ Language: en-US
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 Config/Needs/website: easystats/easystatstemplate
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.1
