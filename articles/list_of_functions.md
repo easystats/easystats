@@ -1147,7 +1147,7 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`p_pointnull`**](https://easystats.github.io/bayestestR/reference/p_map.html)
   *(bayestestR)*
-- [**`p_rope`**](https://easystats.github.io/bayestestR/reference/p_rope.html)
+- [**`p_rope`**](https://easystats.github.io/bayestestR/reference/rope.html)
   *(bayestestR)*
 - [**`p_significance`**](https://easystats.github.io/bayestestR/reference/p_significance.html)
   *(bayestestR)*
@@ -1740,6 +1740,8 @@ This vignette keeps a detailed catalog of **all** functions in the
 - [**`standardize`**](https://easystats.github.io/effectsize/reference/reexports.html)
   *(effectsize)*
 - [**`standardize`**](https://easystats.github.io/modelbased/reference/reexports.html)
+  *(modelbased)*
+- [**`stigma`**](https://easystats.github.io/modelbased/reference/stigma.html)
   *(modelbased)*
 - [**`supported_models`**](https://easystats.github.io/insight/reference/is_model_supported.html)
   *(insight)*

@@ -176,9 +176,9 @@ show_suggested()
 #> modelbased
 #> ----------
 #> afex, BH, betareg, boot, bootES, brglm2, brms, broom, car, carData,
-#>   coda, collapse, correlation, coxme, curl, discovr, easystats,
-#>   effectsize, emmeans, Formula, gamm4, gganimate, ggplot2, glmmTMB, httr2,
-#>   knitr, lme4, lmerTest, logspline, MASS, MatchIt, Matrix,
+#>   coda, collapse, correlation, coxme, curl, dagitty, discovr, easystats,
+#>   effectsize, emmeans, Formula, gamm4, gganimate, ggdag, ggplot2, glmmTMB,
+#>   grid, httr2, knitr, lme4, lmerTest, logspline, MASS, MatchIt, Matrix,
 #>   marginaleffects, mice, mgcv, mvtnorm, nanoparquet, nestedLogit, nnet,
 #>   ordinal, performance, patchwork, pbkrtest, poorman, pscl, RcppEigen,
 #>   Rdatasets, report, rmarkdown, rstanarm, rtdists, RWiener, sandwich,
@@ -207,17 +207,17 @@ show_suggested()
 #> 
 #> performance
 #> -----------
-#> AER, afex, BayesFactor, bayesplot, betareg, bigutilsr, blavaan, boot,
-#>   brms, car, carData, CompQuadForm, correlation, cplm, curl, dagitty,
-#>   dbscan, DHARMa, discovr, effectsize, estimatr, fixest, flextable,
-#>   forecast, ftExtra, gamm4, ggdag, glmmTMB, GPArotation, graphics, Hmisc,
-#>   httr2, ICS, ICSOutlier, ISLR, ivreg, lavaan, lme4, lmtest, loo, MASS,
-#>   Matrix, mclogit, mclust, metadat, metafor, mgcv, mlogit, modelbased,
-#>   multimode, nestedLogit, nlme, nnet, nonnest2, ordinal, parallel,
-#>   parameters, patchwork, pscl, psych, psychTools, quantreg, qqplotr,
-#>   randomForest, RcppEigen, reformulas, rempsyc, rmarkdown, rstanarm,
-#>   rstantools, sandwich, see, survey, survival, testthat, tweedie, VGAM,
-#>   withr
+#> AER, afex, BayesFactor, bayesplot, betareg, BH, bigutilsr, blavaan,
+#>   boot, brglm2, brms, car, carData, CompQuadForm, correlation, cplm, curl,
+#>   dagitty, dbscan, DHARMa, discovr, effectsize, estimatr, fixest,
+#>   flextable, forecast, ftExtra, gamm4, ggdag, glmmTMB, glmx, GPArotation,
+#>   graphics, Hmisc, httr2, ICS, ICSOutlier, ISLR, ivreg, lavaan, lavaan.mi,
+#>   lme4, lmtest, loo, MASS, Matrix, mclogit, mclust, metadat, metafor,
+#>   mgcv, mlogit, modelbased, multimode, nestedLogit, nlme, nnet, nonnest2,
+#>   ordinal, parallel, parameters, patchwork, pscl, psych, psychTools,
+#>   quantreg, qqplotr, randomForest, RcppEigen, reformulas, rempsyc,
+#>   rmarkdown, rstanarm, rstantools, sandwich, see, survey, survival,
+#>   testthat, tweedie, VGAM, withr
 #> 
 #> report
 #> ------
