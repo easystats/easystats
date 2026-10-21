@@ -38,7 +38,26 @@ helped you, e.g.,
 
 Want to credit the whole *easystats* ecosystem of packages? 
 
-This can be done with a sentence like the following:
+You can use the convenient `cite_easystats()` function:
+
+```{r eval=FALSE}
+# Cite just the 'easystats' umbrella package:
+easystats::cite_easystats()
+
+# Cite all easystats packages:
+easystats::cite_easystats(packages = "all")
+
+# Cite specific packages:
+easystats::cite_easystats(packages = c("insight", "parameters", "performance"))
+
+# For markdown/RMarkdown documents:
+easystats::cite_easystats(format = "markdown")
+
+# For LaTeX/BibLaTeX:
+easystats::cite_easystats(format = "biblatex")
+```
+
+Alternatively, this can be done with a sentence like the following:
 
 > Data processing was carried out with R (R Core Team, 2019) and the *easystats*
 ecosystem (Lüdecke, Waggoner, & Makowski, 2019; Lüdecke, Ben-Shachar, Patil,
