@@ -21,12 +21,20 @@
       mc <- match.call(fn, cs[[i]])
 
       # quietly = TRUE → silence
-      if (!is.null(mc$quietly) && isTRUE(eval(mc$quietly, sys.frame(i)))) {
+      flag_quietly <- tryCatch(
+        eval(mc$quietly, sys.frame(sys.parents()[i])),
+        error = function(e) FALSE
+      )
+      if (!is.null(mc$quietly) && isTRUE(flag_quietly)) {
         be_quiet <- TRUE
       }
 
       # verbose = FALSE → silence
-      if (!is.null(mc$verbose) && isFALSE(eval(mc$verbose, sys.frame(i)))) {
+      flag_verbose <- tryCatch(
+        eval(mc$verbose, sys.frame(sys.parents()[i])),
+        error = function(e) TRUE
+      )
+      if (!is.null(mc$verbose) && isFALSE(flag_verbose)) {
         be_quiet <- TRUE
       }
 
