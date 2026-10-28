@@ -21,12 +21,12 @@
       mc <- match.call(fn, cs[[i]])
 
       # quietly = TRUE → silence
-      if (!is.null(mc$quietly) && isTRUE(eval(mc$quietly, parent.frame(i)))) {
+      if (!is.null(mc$quietly) && isTRUE(eval(mc$quietly, sys.frame(i)))) {
         be_quiet <- TRUE
       }
 
       # verbose = FALSE → silence
-      if (!is.null(mc$verbose) && isFALSE(eval(mc$verbose, parent.frame(i)))) {
+      if (!is.null(mc$verbose) && isFALSE(eval(mc$verbose, sys.frame(i)))) {
         be_quiet <- TRUE
       }
 
