@@ -311,6 +311,12 @@ out <- out[out$date != last_month, ]
 
 out$date <- as.Date(out$date)
 
+## FIXME: we didn't have these numbers for Aug/Sep 2025 before, must be a bug?
+## For now, we cap this number to 350k
+y_upper_lim <- 350000
+breaks_y <- c(25000, 50000, 100000, 150000, 200000, 250000, 300000)
+# y_upper_lim <- max(out$monthly_downloads) + 1000
+
 # for custom breaks
 date_range <- range(out$date, na.rm = TRUE)
 breaks <- seq(
@@ -321,7 +327,7 @@ breaks <- seq(
 
 out |>
   ggplot(aes(x = date, color = Package)) +
-  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000, 250000), color = "#EEEEEE") +
+  geom_hline(yintercept = breaks_y, color = "#EEEEEE") +
   geom_line(aes(y = monthly_downloads), linewidth = 0.9, alpha = 0.6) +
   geom_smooth(aes(y = monthly_downloads),
     method = "lm",
@@ -338,8 +344,8 @@ out |>
   scale_colour_manual(values = packages_colours) +
   xlab("") +
   ylab("Monthly CRAN Downloads\n") +
-  coord_cartesian(ylim = c(0, max(out$monthly_downloads) + 1000), expand = FALSE) +
-  scale_y_sqrt() +
+  coord_cartesian(ylim = c(0, y_upper_lim), expand = FALSE) +
+  scale_y_sqrt(breaks = breaks_y, labels = scales::label_comma(breaks_y)) +
   theme(axis.text.x = element_text(angle = 90))
 ```
 
