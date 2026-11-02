@@ -34,8 +34,12 @@ A data frame of four columns: title, journal, year, and cites.
 ``` r
 # \dontrun{
 easystats_citations()
-#> Warning: Cannot connect to Google Scholar. Is the ID you provided correct?
-#> Warning: Cannot connect to Google Scholar. Is the ID you provided correct?
+#> Warning: Google Scholar refused the request (HTTP 403).
+#>   This is what happens when requests come from an IP that Google does not
+#>   trust, typically a hosted application or a CI runner, and it is not a
+#>   problem with the ID or the URL. Carry the session of a browser that can
+#>   open the page with set_scholar_cookie(), point the package at a mirror
+#>   with set_scholar_mirror(), or run it from a workstation.
 #> NULL
 # }
 ```
