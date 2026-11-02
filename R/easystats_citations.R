@@ -135,10 +135,21 @@ easystats_citations <- function(sort_by = "year", length = 30) {
       "performance: An R package for assessment, comparison and testing of statistical models"
   )
 
-  # sum up citations
-  easystats_pub$cites[correct_performance] <- sum(easystats_pub$cites[
-    c(correct_performance, wrong_performance)
-  ])
+  if (length(wrong_performance)) {
+    # sum up citations
+    easystats_pub$cites[correct_performance] <- sum(easystats_pub$cites[
+      c(correct_performance, wrong_performance)
+    ])
 
-  easystats_pub[seq_len(nrow(easystats_pub))[-wrong_performance], ]
+    # fixed sequence
+    fixed_rows <- seq_len(nrow(easystats_pub))[-wrong_performance]
+
+    if (length(fixed_rows)) {
+      easystats_pub <- easystats_pub[
+        seq_len(nrow(easystats_pub))[-wrong_performance],
+      ]
+    }
+  }
+
+  easystats_pub
 }
