@@ -35,11 +35,16 @@
 #' # are up to date or not.
 #' install_latest(force = TRUE)
 #' @export
-install_latest <- function(source = "development",
-                           packages = "all",
-                           force = FALSE,
-                           verbose = TRUE) {
-  source <- insight::validate_argument(source, c("development", "cran", "github"))
+install_latest <- function(
+  source = "development",
+  packages = "all",
+  force = FALSE,
+  verbose = TRUE
+) {
+  source <- insight::validate_argument(
+    source,
+    c("development", "cran", "github")
+  )
   pkg <- easystats_packages()
   install_all_packages <- FALSE
 
@@ -66,7 +71,10 @@ install_latest <- function(source = "development",
 
   # only install newer versions?
   if (isFALSE(force) && source == "development") {
-    insight::check_if_installed("jsonlite", reason = "to check for updates among development packages")
+    insight::check_if_installed(
+      "jsonlite",
+      reason = "to check for updates among development packages"
+    )
     if (isTRUE(verbose)) {
       insight::print_color("Looking for newer package versions...\n", "blue")
     }
@@ -74,11 +82,18 @@ install_latest <- function(source = "development",
     easy_pkgs <- .easystats_version()
     # for development versions, overwrite CRAN version with r-universe version
     for (i in packages) {
-      js <- jsonlite::fromJSON(paste0("https://easystats.r-universe.dev/api/packages/", i))
+      js <- jsonlite::fromJSON(paste0(
+        "https://easystats.r-universe.dev/api/packages/",
+        i
+      ))
       easy_pkgs$cran[easy_pkgs$package == i] <- js$Version[1]
     }
-    easy_pkgs$behind <- package_version(easy_pkgs$cran) > package_version(easy_pkgs$local)
-    packages <- easy_pkgs$package[easy_pkgs$behind[stats::na.omit(match(packages, easy_pkgs$package))]]
+    easy_pkgs$behind <- package_version(easy_pkgs$cran) >
+      package_version(easy_pkgs$local)
+    packages <- easy_pkgs$package[easy_pkgs$behind[stats::na.omit(match(
+      packages,
+      easy_pkgs$package
+    ))]]
 
     if (isTRUE(verbose) && !is.null(packages) && length(packages)) {
       colnames(easy_pkgs) <- c("Package", "Latest", "Installed", "behind")
@@ -95,6 +110,24 @@ install_latest <- function(source = "development",
     }
     return(invisible())
   }
+
+  dependency_order <- c(
+    "insight",
+    "datawizard",
+    "bayestestR",
+    "parameters",
+    "performance",
+    "effectsize",
+    "modelbased",
+    "correlation",
+    "report",
+    "see",
+    "easystats"
+  )
+
+  # sort packages regarding their dependency
+  packages <- packages[match(dependency_order, packages)]
+  packages <- packages[!is.na(packages)]
 
   # for pak, we do not install from a repository
   if (source == "github") {

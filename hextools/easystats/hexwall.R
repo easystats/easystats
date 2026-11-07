@@ -2,21 +2,21 @@ source("hexwall_function.R")
 
 path <- c(
   # Top row
-  "https://github.com/easystats/modelbased/raw/master/man/figures/logo.png",
-  "https://github.com/easystats/report/raw/master/man/figures/logo.png",
-  "https://github.com/easystats/see/raw/master/man/figures/logo.png",
-  "https://github.com/easystats/correlation/raw/master/man/figures/logo.png",
+  "https://raw.githubusercontent.com/easystats/modelbased/master/man/figures/logo.png",
+  "https://raw.githubusercontent.com/easystats/report/master/man/figures/logo.png",
+  "https://raw.githubusercontent.com/easystats/see/master/man/figures/logo.png",
+  "https://raw.githubusercontent.com/easystats/correlation/master/man/figures/logo.png",
 
   # Middle row
-  "https://github.com/easystats/effectsize/raw/main/man/figures/logo.png",
-  "https://github.com/easystats/easystats/raw/master/man/figures/easystats/logo.png",
-  "https://github.com/easystats/bayestestR/raw/master/man/figures/logo.png",
+  "https://raw.githubusercontent.com/easystats/easystats/main/hextools/effectsize/logo.png",
+  "https://raw.githubusercontent.com/easystats/easystats/main/man/figures/logo.png",
+  "https://raw.githubusercontent.com/easystats/easystats/main/hextools/bayestestR/logo.png",
 
   # Bottom row
-  "https://github.com/easystats/insight/raw/master/man/figures/logo.png",
-  "https://github.com/easystats/parameters/raw/main/man/figures/logo.png",
-  "https://github.com/easystats/performance/raw/master/man/figures/logo.png",
-  "https://github.com/easystats/easystats/raw/master/man/figures/datawizard/logo.png"
+  "https://raw.githubusercontent.com/easystats/easystats/main/hextools/insight/logo.png",
+  "https://raw.githubusercontent.com/easystats/easystats/main/hextools/parameters/logo.png",
+  "https://raw.githubusercontent.com/easystats/easystats/main/hextools/performance/logo.png",
+  "https://raw.githubusercontent.com/easystats/datawizard/master/man/figures/logo.png"
 )
 
 # Create hexagonal logo wall

@@ -6,6 +6,12 @@ This document outlines the common coding conventions observed in the `easystats`
 
 *   Files are named with `snake_case` and should correspond to the main function they contain (e.g., `check_normality.R`).
 
+## Package versioning
+
+*   Package versions follow Semantic Versioning conventions.
+
+*   If pull requests include user-visible changes, the "developer" version number should be increased (e.g. from 0.10.1.5 to 0.10.1.6). This ensures that `easystats::install_latest()` will download the latest versions.
+
 ## Code Style & Formatting
 
 *   **Assignment:** Use the `<-` operator for assignment, not `=`.
@@ -19,8 +25,39 @@ This document outlines the common coding conventions observed in the `easystats`
 
 ## Function Naming
 
-*   **Public Functions:** Use `snake_case` (e.g., `check_normality()`, `model_performance()`). These functions should be exported.
+*   **Public Functions:** Use lower case, underscore separated if more than one verb, i.e. `snake_case` (e.g., `check_normality()`, `model_performance()`). These functions should be exported.
 *   **Internal Functions:** Prefix with a dot (`.`) and may use `snake_case` or `camelCase` (e.g., `.safe()`, `.get_BIC()`, `.check_normality()`). These functions should not be exported.
+*   **Naming**: Common prefix for functions that focus on specific "tasks" or workflows (e.g. in package "insight", `get_*()` to get data, `find_*()` to find information, or in package "performance", `performance_*()` to compute measures of model quality, `check_*()` to check model assumptions...).
+
+## Argument names
+
+*   Lower case, underscore separated if more than one verb.
+*   Arguments that refer to plot or table aesthetics (like size or alpha of geoms) should follow the pattern `aesthetics_geomtype`, e.g. `size_point`, `color_line` or `alpha_rope`.
+*   "easystats" uses the argument name `by` to indicate grouping, not `group_by` or `at`.
+*   Use `select` and `exclude` to select columns/variables, and `keep` or `drop` to select rows/observations.
+*   Handling NA values, especially removing missing values, is done with `remove_na`.
+
+## Element / Column names (for returned data frames)
+
+*  First letter of the column name is capital, unless (6) applies (*example:* `Parameter`).
+
+*  First letter of nouns is capital, unless (6) applies (*example:* `ROPE_Percentage`, `Prior_Scale`).
+
+*  Using underscore rather than camelCase to separate words (*example:* `CI_high`).
+
+*  Multiple words: common/main part first and adjective/specifier/variational part after, unless (8) applies (*example:* `Median_standardized`, `ROPE_percentage`).
+
+*  Abbreviations: all uppercase (*example:* `ESS`, `MCSE`, `ROPE`).
+
+*  Keep conventions for reserved words (*example:* `p`, `pd`, `Rhat`).
+
+*   Adjectives / verbs: all lower case, unless (1) applies (*example:* `high` or `low` in `CI_high` or `CI_low`).
+
+*   In case of multiple occurrences of column names that indicate the same measure or content (like `CI_low` or `SE`), the common part is appended as suffix to the context specific part (*example:* `CI_low` and `Eta2_partial_CI_low`, and **not** `CI_low` and `CI_low_Eta2_partial`).
+
+*  The "squared" term in column names that refers to "common" statistics (`Eta2`, `Chi2`, `Omega2`, ...) should be written as `2`, not `sq`, `squared` or `pétit-deux` (*example:* `Chi2`, and **not** `Chisq`, `Eta2`, and **not** `Eta_squared`). This rule does **not** apply to function names.
+
+*  Converting between "easystats" style and "broom" style can be done with `insight::standardize_names()`.
 
 ## Documentation (roxygen2)
 
@@ -37,8 +74,10 @@ All exported functions must be documented using `roxygen2`-style comments (`#'`)
 
 ## Dependencies
 
-*   **Package Functions:** Always use the `::` operator to call functions from other packages (e.g., `stats::shapiro.test`, `insight::model_info`). Do not use `library()` or `require()` at the top of a file.
-*   **Conditional Checks:** Use `requireNamespace("pkg_name", quietly = TRUE)` to check if a package is available before using it, especially for optional ("Suggests") dependencies.
+*   Use base-R wherever possible (to reduce hard dependencies)
+*   Make sure R-version requirements are not too strict
+*   **Package Functions:** Always use the `::` operator to call functions from other packages (e.g., `stats::shapiro.test`, `insight::model_info`). Do not use `library()` or `require()` at the top of a file (no full import, only selective import of functions).
+*   **Conditional Checks:** Use `insight::check_if_installed("pkg_name")` to check if a package is available before using it, especially for optional ("Suggests") dependencies.
 
 ## S3 Object System
 

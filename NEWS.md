@@ -1,7 +1,20 @@
-# easystats 0.7.5.x
+# easystats (devel)
 
-* library(easystats) now politely respects arguments `quietly = TRUE` and
+* New `easystats_arguments()` function, to list all arguments used across
+  *easystats* methods. Can be filtered by argument, method name, or both.
+
+* Fixed issue with the `conflicted` package when that library was loaded before
+  easystats was loaded.
+
+# easystats 0.7.6
+
+* `library(easystats)` is now faster for bad internet connections.
+
+* `library(easystats)` now politely respects arguments `quietly = TRUE` and
   `verbose = FALSE` to hide startup messages.
+
+* New function `easystats_whatsnew()` to print news of the the development
+  versions on GitHub.
 
 # easystats 0.7.5
 

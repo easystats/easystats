@@ -35,6 +35,14 @@ knows, you might even end up using them all.
 knitr::include_graphics("man/figures/logo_wall.png")
 ```
 
+## Statement of Need
+
+R is a powerful language for statistical computing, but its capabilities are scattered across a fragmented landscape of packages. Conducting a full analysis consisting of data manipulation, modeling, diagnostics, interpretation, and visualization, often requires juggling multiple tools with different syntax, design principles, outputs, and classes. This creates barriers for newcomers and inefficiencies even for experienced users.
+
+The **easystats** ecosystem addresses this challenge by enabling a seamless workflow from data exploration to result communication, while nudging users toward good, reproducible and transparent statistical practices with sensible defaults and clear documentation. The packages in this ecosystem share consistent syntax and integrate seamlessly, making robust analysis more accessible while reducing cognitive load for novice and experienced R users alike.
+
+The modular and lightweight nature of the **easystats** ecosystem enables developers to use and integrate in other packages only the necessary components. For example, `{insight}`, a dependency-free package for retrieving model information, is utilized by 45 other CRAN packages, such as `{marginaleffects}` and `{gtsummary}`. In contrast, the `{easystats}` meta-package provides users with a cohesive experience, granting access to the entire ecosystem and its consistent design principles without needing to know the specific package of each function.
+
 ## Installation
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/easystats)](https://cran.r-project.org/package=easystats) [![insight status badge](https://easystats.r-universe.dev/badges/easystats)](https://easystats.r-universe.dev) [![R-CMD-check](https://github.com/easystats/easystats/workflows/R-CMD-check/badge.svg?branch=main)](https://github.com/easystats/easystats/actions)
@@ -97,7 +105,7 @@ cover all aspects of statistical analysis and data visualization.
 **How is *easystats* different from the *tidyverse*?**
 
 You've probably already heard about the
-[**tidyverse**](https://www.tidyverse.org/), another very popular collection of
+[**tidyverse**](https://tidyverse.org/), another very popular collection of
 packages (*ggplot*, *dplyr*, *tidyr*, ...) that also makes using R easier. So,
 should you pick the *tidyverse* or *easystats*? **Pick both!**
 
@@ -303,6 +311,12 @@ out <- out[out$date != last_month, ]
 
 out$date <- as.Date(out$date)
 
+## FIXME: we didn't have these numbers for Aug/Sep 2025 before, must be a bug?
+## For now, we cap this number to 350k
+y_upper_lim <- 350000
+breaks_y <- c(25000, 50000, 100000, 150000, 200000, 250000, 300000)
+# y_upper_lim <- max(out$monthly_downloads) + 1000
+
 # for custom breaks
 date_range <- range(out$date, na.rm = TRUE)
 breaks <- seq(
@@ -313,7 +327,7 @@ breaks <- seq(
 
 out |>
   ggplot(aes(x = date, color = Package)) +
-  geom_hline(yintercept = c(25000, 50000, 100000, 150000, 200000, 250000), color = "#EEEEEE") +
+  geom_hline(yintercept = breaks_y, color = "#EEEEEE") +
   geom_line(aes(y = monthly_downloads), linewidth = 0.9, alpha = 0.6) +
   geom_smooth(aes(y = monthly_downloads),
     method = "lm",
@@ -330,8 +344,8 @@ out |>
   scale_colour_manual(values = packages_colours) +
   xlab("") +
   ylab("Monthly CRAN Downloads\n") +
-  coord_cartesian(ylim = c(0, max(out$monthly_downloads) + 1000), expand = FALSE) +
-  scale_y_sqrt() +
+  coord_cartesian(ylim = c(0, y_upper_lim), expand = FALSE) +
+  scale_y_sqrt(breaks = breaks_y, labels = scales::label_comma(breaks_y)) +
   theme(axis.text.x = element_text(angle = 90))
 ```
 

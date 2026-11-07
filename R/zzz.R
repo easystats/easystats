@@ -14,6 +14,10 @@
   }
 
   cs <- sys.calls()
+
+  # flag
+  be_quiet <- FALSE
+
   for (i in seq_along(cs)) {
     fn <- try(sys.function(i), silent = TRUE)
     if (
@@ -23,13 +27,21 @@
       mc <- match.call(fn, cs[[i]])
 
       # quietly = TRUE → silence
-      if (!is.null(mc$quietly) && isTRUE(eval(mc$quietly, parent.frame(i)))) {
-        return(invisible())
+      flag_quietly <- tryCatch(
+        eval(mc$quietly, sys.frame(sys.parents()[i])),
+        error = function(e) FALSE
+      )
+      if (!is.null(mc$quietly) && isTRUE(flag_quietly)) {
+        be_quiet <- TRUE
       }
 
       # verbose = FALSE → silence
-      if (!is.null(mc$verbose) && isFALSE(eval(mc$verbose, parent.frame(i)))) {
-        return(invisible())
+      flag_verbose <- tryCatch(
+        eval(mc$verbose, sys.frame(sys.parents()[i])),
+        error = function(e) TRUE
+      )
+      if (!is.null(mc$verbose) && isFALSE(flag_verbose)) {
+        be_quiet <- TRUE
       }
 
       break
@@ -59,6 +71,10 @@
     )
   ))
   # nolint end
+
+  if (be_quiet) {
+    return(invisible())
+  }
 
   needs_update <- easystats_versions$behind
   easystats_versions <- easystats_versions[, c("package", "local")]

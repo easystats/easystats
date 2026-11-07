@@ -18,7 +18,35 @@ challenge, do check if there is an *easystats* answer for it in other
 packages. You will slowly uncover how using them together facilitates
 your life. And, who knows, you might even end up using them all.
 
-<img src="man/figures/logo_wall.png" width="600px" style="display: block; margin: auto;" />
+<img src="man/figures/logo_wall.png" alt="" width="600px" style="display: block; margin: auto;" />
+
+## Statement of Need
+
+R is a powerful language for statistical computing, but its capabilities
+are scattered across a fragmented landscape of packages. Conducting a
+full analysis consisting of data manipulation, modeling, diagnostics,
+interpretation, and visualization, often requires juggling multiple
+tools with different syntax, design principles, outputs, and classes.
+This creates barriers for newcomers and inefficiencies even for
+experienced users.
+
+The **easystats** ecosystem addresses this challenge by enabling a
+seamless workflow from data exploration to result communication, while
+nudging users toward good, reproducible and transparent statistical
+practices with sensible defaults and clear documentation. The packages
+in this ecosystem share consistent syntax and integrate seamlessly,
+making robust analysis more accessible while reducing cognitive load for
+novice and experienced R users alike.
+
+The modular and lightweight nature of the **easystats** ecosystem
+enables developers to use and integrate in other packages only the
+necessary components. For example, `{insight}`, a dependency-free
+package for retrieving model information, is utilized by 45 other CRAN
+packages, such as `{marginaleffects}` and `{gtsummary}`. In contrast,
+the `{easystats}` meta-package provides users with a cohesive
+experience, granting access to the entire ecosystem and its consistent
+design principles without needing to know the specific package of each
+function.
 
 ## Installation
 
@@ -112,10 +140,10 @@ analysis and data visualization.
 **How is *easystats* different from the *tidyverse*?**
 
 You’ve probably already heard about the
-[**tidyverse**](https://www.tidyverse.org/), another very popular
-collection of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes
-using R easier. So, should you pick the *tidyverse* or *easystats*?
-**Pick both!**
+[**tidyverse**](https://tidyverse.org/), another very popular collection
+of packages (*ggplot*, *dplyr*, *tidyr*, …) that also makes using R
+easier. So, should you pick the *tidyverse* or *easystats*? **Pick
+both!**
 
 Indeed, these two ecosystems have been designed with very different
 goals in mind. The *tidyverse* packages are primarily made to create a
@@ -208,7 +236,7 @@ library(deepdep)
 plot_dependencies("easystats", depth = 2L, show_stamp = FALSE)
 ```
 
-<img src="man/figures/depnetwork-1.png" width="100%" />
+<img src="man/figures/depnetwork-1.png" alt="" width="100%" />
 
 As we can see, the only exception is the
 [`{see}`](https://easystats.github.io/see/) package, which is
@@ -225,24 +253,24 @@ Download statistics for `{easystats}` packages from CRAN.
 easystats_downloads()
 ```
 
-| Package     |      Total | Monthly |
-|:------------|-----------:|:--------|
-| insight     |  9,239,785 | 115,497 |
-| datawizard  |  6,040,373 | 113,969 |
-| performance |  4,040,852 | 51,150  |
-| parameters  |  4,024,547 | 53,661  |
-| bayestestR  |  3,933,341 | 49,789  |
-| effectsize  |  3,006,663 | 41,759  |
-| correlation |  1,125,157 | 16,546  |
-| see         |    894,560 | 11,469  |
-| modelbased  |    620,711 | 8,867   |
-| report      |    319,434 | 5,808   |
-| easystats   |    134,185 | 3,441   |
-| Total       | 33,379,608 | 471,956 |
+| Package     | Total      | Monthly |
+|:------------|:-----------|:--------|
+| insight     | 11,973,058 | 131,572 |
+| datawizard  | 8,026,615  | 125,416 |
+| performance | 5,544,379  | 61,604  |
+| bayestestR  | 5,348,643  | 59,429  |
+| parameters  | 5,290,518  | 61,518  |
+| effectsize  | 3,926,538  | 47,308  |
+| correlation | 1,494,062  | 18,912  |
+| see         | 1,231,629  | 13,839  |
+| modelbased  | 949,879    | 11,727  |
+| report      | 449,360    | 6,808   |
+| easystats   | 216,534    | 4,331   |
+| Total       | 44,451,215 | 542,464 |
 
 ### Download Trends
 
-<img src="man/figures/README-6-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="man/figures/README-6-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 <!-- ### Average monthly downloads -->
 
@@ -256,22 +284,22 @@ easystats::easystats_citations(sort_by = "cites")
 
 | Title | Journal | Year | Cites |
 |:---|:---|:---|---:|
-| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 5,490 |
-| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 1,961 |
-| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 1,578 |
-| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 932 |
-| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 783 |
-| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 532 |
-| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 141 |
-| insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 141 |
-| The {easystats} collection of R packages | GitHub | 2020 | 113 |
-| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 107 |
-| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 57 |
-| The report package for R: ensuring the use of best… | CRAN | 2019 | 55 |
-| Check your outliers! An introduction to… | Behavior Research Methods | 2024 | 47 |
-| Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 36 |
-| Choosing informative priors in Bayesian regression… |  | 2025 | 0 |
-| Total |  |  | 11,973 |
+| performance: An R package for assessment,… | Journal of Open Source Software | 2021 | 8,376 |
+| effectsize: Estimation of effect size indices and… | Journal of open source software | 2020 | 2,939 |
+| bayestestR: Describing Effects and their… | Journal of Open Source Software | 2019 | 2,093 |
+| Indices of Effect Existence and Significance in… | Frontiers in Psychology | 2019 | 1,288 |
+| Methods and algorithms for correlation analysis in… | Journal of Open Source Software | 2020 | 996 |
+| Extracting, computing and exploring the parameters… | Journal of Open Source Software | 2020 | 740 |
+| see: An R package for visualizing statistical… | Journal of Open Source Software | 2021 | 202 |
+| modelbased: An R package to make the most out of… | Journal of Open Source Software | 2025 | 181 |
+| The {easystats} collection of R packages | GitHub | 2020 | 181 |
+| insight: A Unified Interface to Access Information… | Journal of Open Source Software | 2019 | 176 |
+| Phi, Fei, Fo, Fum: effect sizes for categorical… | Mathematics | 2023 | 88 |
+| Check your outliers﻿! An introduction to… | Behavior Research Methods | 2024 | 86 |
+| datawizard: An R package for easy data preparation… | Journal of Open Source Software | 2022 | 83 |
+| The report package for R: ensuring the use of best… | CRAN | 2019 | 64 |
+| Choosing informative priors in Bayesian regression… | Frontiers in Psychology | 2026 | 1 |
+| Total |  |  | 17,494 |
 
 ## Contributing
 
