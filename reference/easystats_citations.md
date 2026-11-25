@@ -34,23 +34,12 @@ A data frame of four columns: title, journal, year, and cites.
 ``` r
 # \dontrun{
 easystats_citations()
-#> Title                             |                   Journal | Year |  Cites
-#> -----------------------------------------------------------------------------
-#> Choosing informative priors in... |   Frontiers in Psychology | 2026 |      3
-#> modelbased: An R package to...    | Journal of Open Source... | 2025 |    184
-#> Check your outliers﻿! An...        | Behavior Research Methods | 2024 |     87
-#> Phi, Fei, Fo, Fum: effect...      |               Mathematics | 2023 |     94
-#> datawizard: An R package for...   | Journal of Open Source... | 2022 |     85
-#> performance: An R package for...  | Journal of Open Source... | 2021 |  8,603
-#> see: An R package for...          | Journal of Open Source... | 2021 |    204
-#> effectsize: Estimation of...      | Journal of open source... | 2020 |  3,015
-#> Methods and algorithms for...     | Journal of Open Source... | 2020 |  1,008
-#> Extracting, computing and...      | Journal of Open Source... | 2020 |    754
-#> The {easystats} collection of...  |                    GitHub | 2020 |    182
-#> bayestestR: Describing Effects... | Journal of Open Source... | 2019 |  2,129
-#> Indices of Effect Existence...    |   Frontiers in Psychology | 2019 |  1,305
-#> insight: A Unified Interface...   | Journal of Open Source... | 2019 |    180
-#> The report package for R:...      |                      CRAN | 2019 |     66
-#> Total                             |                           |      | 17,899
+#> Warning: Google Scholar refused the request (HTTP 403).
+#>   This is what happens when requests come from an IP that Google does not
+#>   trust, typically a hosted application or a CI runner, and it is not a
+#>   problem with the ID or the URL. Carry the session of a browser that can
+#>   open the page with set_scholar_cookie(), point the package at a mirror
+#>   with set_scholar_mirror(), or run it from a workstation.
+#> NULL
 # }
 ```
