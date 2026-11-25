@@ -172,7 +172,7 @@ of the outcome (higher alertness) depending on the predictor variables
 `# predicted probabilities`\
 `predictions`` ``<-`` `[`estimate_means`](https://easystats.github.io/modelbased/reference/estimate_means.html)`(``model``, `[`c`](https://rdrr.io/r/base/c.html)`(``"time"``, ``"treatment"``)``)`\
 `predictions`\
-`#> Estimated Marginal Means`\
+`#> Conditional Predictions`\
 `#> `\
 `#> time      | treatment | Probability |       95% CI`\
 `#> --------------------------------------------------`\
@@ -185,7 +185,7 @@ of the outcome (higher alertness) depending on the predictor variables
 `#> `\
 `#> Variable predicted: alertness`\
 `#> Predictors modulated: time, treatment`\
-`#> Predictions are on the response-scale.`
+`#> Predictions are on the inverse-link-scale.`
 
 We now see that high `alertness` was most likely for the `coffee` group
 in the `afternoon` time (about 75% probability of high alertness for the
@@ -220,7 +220,7 @@ above).
 \
 `# pairwise comparisons - quite long table`\
 [`estimate_contrasts`](https://easystats.github.io/modelbased/reference/estimate_contrasts.html)`(``model``, `[`c`](https://rdrr.io/r/base/c.html)`(``"time"``, ``"treatment"``)``)`\
-`#> Marginal Contrasts Analysis`\
+`#> Conditional Contrasts`\
 `#> `\
 `#> Level1             | Level2            | Difference |   SE |        95% CI |         z |      p`\
 `#> -----------------------------------------------------------------------------------------------`\
@@ -243,7 +243,7 @@ above).
 `#> Variable predicted: alertness`\
 `#> Predictors contrasted: time, treatment`\
 `#> p-values are uncorrected.`\
-`#> Contrasts are on the response-scale.`
+`#> Contrasts are on the inverse-link-scale.`
 
 In the above output, we see all possible pairwise comparisons of the
 predicted probabilities. The table is quite long, but we can also group
@@ -252,7 +252,7 @@ the comparisons, e.g. by the variable *time*.
 \
 `# group comparisons by "time"`\
 [`estimate_contrasts`](https://easystats.github.io/modelbased/reference/estimate_contrasts.html)`(``model``, ``"treatment"``, by ``=`` ``"time"``)`\
-`#> Marginal Contrasts Analysis`\
+`#> Conditional Contrasts`\
 `#> `\
 `#> Level1  | Level2 | time      | Difference |   SE |        95% CI |     z |     p`\
 `#> --------------------------------------------------------------------------------`\
@@ -263,7 +263,7 @@ the comparisons, e.g. by the variable *time*.
 `#> Variable predicted: alertness`\
 `#> Predictors contrasted: treatment`\
 `#> p-values are uncorrected.`\
-`#> Contrasts are on the response-scale.`
+`#> Contrasts are on the inverse-link-scale.`
 
 The output shows that the differences between the *coffee* and the
 *control* group are statistically significant only in the noon time.

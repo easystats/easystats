@@ -247,6 +247,8 @@ This vignette keeps a detailed catalog of **all** functions in the
   *(effectsize)*
 - [**`collapse_by_group`**](https://easystats.github.io/modelbased/reference/collapse_by_group.html)
   *(modelbased)*
+- [**`collapse_levels`**](https://easystats.github.io/datawizard/reference/collapse_levels.html)
+  *(datawizard)*
 - [**`colnames_to_row`**](https://easystats.github.io/datawizard/reference/colnames.html)
   *(datawizard)*
 - [**`color_if`**](https://easystats.github.io/insight/reference/color_if.html)

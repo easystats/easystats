@@ -90,7 +90,7 @@ show_reverse_dependencies()
 #>   modelbased, modelsummary, multiScaleR, MuMIn, mvgam, ordbetareg,
 #>   parameters, performance, pminternal, psycho, randomizeR, regressinator,
 #>   report, see, SimplyAgree, sjlabelled, sjmisc, sjPlot, sjstats,
-#>   statsExpressions, tidygam, tinyVAST
+#>   statsExpressions, tidygam, tinyVAST, tseffects
 #> 
 #> modelbased
 #> ----------
@@ -108,8 +108,8 @@ show_reverse_dependencies()
 #> apa7, AssumpSure, beezdemand, CR2, dotwhisker, easystats, ecoGLMM,
 #>   ecoXCorr, effectsize, ggstatsplot, hellometry, MDMA, MLMusingR,
 #>   modelsummary, multitool, nhscancerwaits, piecewiseSEM, PLSDAbatch, pubh,
-#>   report, SCDA, see, sjPlot, sjstats, statsExpressions, steppedwedge,
-#>   SynergyLMM, ZLAvian
+#>   report, scaledescr, SCDA, see, sjPlot, sjstats, statsExpressions,
+#>   steppedwedge, SynergyLMM, ZLAvian
 #> 
 #> report
 #> ------
@@ -142,7 +142,7 @@ show_suggested()
 #> ----------
 #> bayestestR, boot, BH, brms, curl, data.table, discovr, dplyr,
 #>   effectsize, emmeans, fixest, gamm4, ggplot2, gt, haven, httr, knitr,
-#>   lme4, mediation, modelbased, nanoparquet, openssl, parameters,
+#>   lme4, lmerTest, mediation, modelbased, nanoparquet, openssl, parameters,
 #>   performance, poorman, psych, readxl, readr, rio, rmarkdown, rstanarm,
 #>   see, testthat, tibble, tidyr, tinytable, withr
 #> 
