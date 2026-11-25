@@ -45,54 +45,64 @@ easystats_whatsnew <- function(packages = "all") {
     # strip empty lines
     news_file <- news_file[nzchar(news_file)]
 
-    # merge multiple lines into one
-    for (i in length(news_file):2) {
-      if (startsWith(news_file[i], "  ")) {
-        news_file[i - 1] <- paste(news_file[i - 1], trimws(news_file[i]))
-        news_file[i] <- ""
+    if (length(news_file)) {
+      # merge multiple lines into one
+      for (i in length(news_file):2) {
+        if (startsWith(news_file[i], "  ")) {
+          news_file[i - 1] <- paste(news_file[i - 1], trimws(news_file[i]))
+          news_file[i] <- ""
+        }
       }
-    }
-    # strip empty lines
-    news_file <- news_file[nzchar(news_file)]
+      # strip empty lines
+      news_file <- news_file[nzchar(news_file)]
 
-    # group index
-    groups <- vector("numeric")
-    group_index <- 0
-    removals <- vector("numeric")
+      # group index
+      groups <- vector("numeric")
+      group_index <- 0
+      removals <- vector("numeric")
 
-    # split vector
-    for (i in seq_along(news_file)) {
-      headlines <- vapply(
-        c("changes", "breaking changes", "bug fixes"),
-        function(header) {
-          grepl(header, tolower(news_file[i]), fixed = TRUE)
-        },
-        logical(1)
-      )
-      if (any(headlines)) {
-        group_index <- group_index + 1
-        removals <- c(removals, i)
-      }
-      groups <- c(groups, group_index)
-    }
-
-    # split by changes/bug fixes/...
-    news_file <- split(news_file, groups)
-
-    news_data <- do.call(
-      rbind,
-      lapply(news_file, function(i) {
-        data.frame(
-          Package = pkg,
-          News = trimws(gsub("(^-|^\\*)", "", i[-1])),
-          Section = toupper(trimws(gsub("##", "", i[1], fixed = TRUE)))
+      # split vector
+      for (i in seq_along(news_file)) {
+        headlines <- vapply(
+          c("changes", "breaking changes", "bug fixes"),
+          function(header) {
+            grepl(header, tolower(news_file[i]), fixed = TRUE)
+          },
+          logical(1)
         )
-      })
-    )
+        if (any(headlines)) {
+          group_index <- group_index + 1
+          removals <- c(removals, i)
+        }
+        groups <- c(groups, group_index)
+      }
 
-    row.names(news_data) <- NULL
-    news_data
+      # split by changes/bug fixes/...
+      news_file <- split(news_file, groups)
+
+      news_data <- do.call(
+        rbind,
+        lapply(news_file, function(i) {
+          data.frame(
+            Package = pkg,
+            News = trimws(gsub("(^-|^\\*)", "", i[-1])),
+            Section = toupper(trimws(gsub("##", "", i[1], fixed = TRUE)))
+          )
+        })
+      )
+
+      row.names(news_data) <- NULL
+      news_data
+    } else {
+      NULL
+    }
   })
+
+  # check whether packages were skipped, and if so, remove those
+  # from naming the list
+  pkgs[vapply(out, is.null, logical(1))] <- NA_character_
+  pkgs <- insight::compact_character(pkgs)
+  out <- insight::compact_list(out)
 
   names(out) <- pkgs
 
