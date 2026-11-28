@@ -78,7 +78,7 @@ show_reverse_dependencies()
 #> effectsize
 #> ----------
 #> apa7, AssumpSure, bruceR, colleyRstats, easystats, markeR, modEvA,
-#>   multifear, negligible, psycho, report, see, sjstats, smsets,
+#>   MoPlot, multifear, negligible, psycho, report, see, sjstats, smsets,
 #>   statdecideR, statsExpressions, suRface.analytics, visvow, volker
 #> 
 #> insight
@@ -100,8 +100,8 @@ show_reverse_dependencies()
 #> ----------
 #> apa7, clintools, correlation, cvms, DeltaTools, dotwhisker, easystats,
 #>   effectsize, EMOTIONS, ggstatsplot, MCM, modelbased, modelsummary,
-#>   multitool, peramo, psycho, regport, report, see, sjPlot, sjstats,
-#>   statsExpressions, StroupGLMM
+#>   MoPlot, multitool, peramo, psycho, regport, report, see, sjPlot,
+#>   sjstats, statsExpressions, StroupGLMM
 #> 
 #> performance
 #> -----------
