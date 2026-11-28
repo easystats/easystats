@@ -6,6 +6,10 @@
 * Fixed issue with the `conflicted` package when that library was loaded before
   easystats was loaded.
 
+* Fixed a bug in `install_latest()` where specifying a subset of `packages`
+  caused logical vector recycling, inadvertently updating unrequested packages
+  or skipping outdated ones.
+
 # easystats 0.7.6
 
 * `library(easystats)` is now faster for bad internet connections.
